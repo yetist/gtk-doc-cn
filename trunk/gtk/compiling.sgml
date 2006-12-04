@@ -1,12 +1,12 @@
 <refentry id="gtk-compiling" revision="4 Feb 2001">
 <refmeta>
-<refentrytitle>GTK+编译程序</refentrytitle>
+<refentrytitle>编译GTK+程序</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>GTK库</refmiscinfo>
 </refmeta>
 
 <refnamediv>
-<refname>GTK+编译程序</refname>
+<refname>编译GTK+程序</refname>
 <refpurpose>
 如何编译你的GTK+应用程序
 </refpurpose>
@@ -16,23 +16,7 @@
 <title>UNIX上的编译程序</title>
 
 <para>
-To compile a GTK+ application, you need to tell the compiler where to 
-find the GTK+ header files and libraries. This is done with the
-<literal>pkg-config</literal> utility.
-</para>
-<para>
 编译一个GTK+应用程序，你需要让编译器知道在那里去找头文件和库。这就需要安装<literal>pkg-config</literal>。
-</para>
-<para>
-The following interactive shell session demonstrates how
-<literal>pkg-config</literal> is used (the actual output on 
-your system may be different):
-<programlisting>
-$ pkg-config --cflags gtk+-2.0
- -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pango-1.0 -I/usr/X11R6/include -I/usr/include/freetype2 -I/usr/include/atk-1.0  
-$ pkg-config --libs gtk+-2.0
- -L/usr/lib -L/usr/X11R6/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -lXi -lgdk_pixbuf-2.0 -lm -lpangox -lpangoxft -lXft -lXrender -lXext -lX11 -lfreetype -lpango -latk -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
-</programlisting>
 </para>
 <para>
 下面的交互式shell会话示范了如果使用<literal>pkg-config</literal>（这个和你系统上的输出可能有所不同）：
@@ -44,49 +28,22 @@ $ pkg-config --libs gtk+-2.0
 </programlisting>
 </para>
 <para>
-The simplest way to compile a program is to use the "backticks"
-feature of the shell. If you enclose a command in backticks
-(<emphasis>not single quotes</emphasis>), then its output will be
-substituted into the command line before execution. So to compile 
-a GTK+ Hello, World, you would type the following:
-<programlisting>
-$ cc `pkg-config --cflags --libs gtk+-2.0` hello.c -o hello
-</programlisting>
-</para>
-<para>
 编译一个程序最简单的方法就是利用shell的逆向撇号特性。如果在逆向单撇号里包含一个命令(<emphasis>不是单引号</emphasis>), 执行前命令的输出将取代该命令。所以编译GTK+ Hello World时，你可以像下面这样：
 <programlisting>
 $ cc `pkg-config --cflags --libs gtk+-2.0` hello.c -o hello
 </programlisting>
 </para>
 <para>
-To compile a GTK+ program for the framebuffer, use the
-"gtk+-linux-fb-2.0" package name instead of "gtk+-2.0":
+要编译用于framebuffer的GTK+程序,使用"gtk+-linux-fb-2.0"包名字代替"gtk+-2.0":
 <programlisting>
 $ cc `pkg-config --cflags --libs gtk+-linux-fb-2.0` hello.c -o hello
 </programlisting>
 </para>
 
 <para>
-If you want to make sure that your program doesn't use any deprecated 
-functions, you can define the preprocessor symbol GTK_DISABLE_DEPRECATED
-by using the command line option <literal>-DGTK_DISABLE_DEPRECATED=1</literal>.
-There are similar symbols GDK_DISABLE_DEPRECATED, 
-GDK_PIXBUF_DISABLE_DEPRECATED and G_DISABLE_DEPRECATED for GDK, GdkPixbuf and
-GLib. 
+如果你想使你的程序不使用任何deprecated functions,你可以使用此命令参数<literal>-DGTK_DISABLE_DEPRECATED=1</literal>来定义GTK_DISABLE_DEPRECATED预处理标记。还有类似的标记：GDK中的GDK_DISABLE_DEPRECATED, GdkPixbuf中的GDK_PIXBUF_DISABLE_DEPRECATED和GLib中的G_DISABLE_DEPRECATED。
 </para>
 
-<para>
-如果你想使你的程序不使用任何deprecated functions,你可以使用此命令参数<literal>-DGTK_DISABLE_DEPRECATED=1</literal>来定义GTK_DISABLE_DEPRECATED预处理标记。还有类似的标记：GDK_DISABLE_DEPRECATED, 
-GDK_PIXBUF_DISABLE_DEPRECATED，GKD中的G_DISABLE_DEPRECATED 和 GLib中的GdkPixbuf。
-</para>
-
-<para>
-If you want to make sure that your program doesn't use any functions which 
-may be problematic in a multihead setting, you can define the preprocessor
-symbol GDK_MULTIHEAD_SAFE by using the command line option 
-<literal>-DGTK_MULTIHEAD_SAFE=1</literal>.
-</para>
 <para>
 如果你想保证你的程序不使用在多线程中会引发问题的函数，你可以使用此命令参数<literal>-DGTK_MULTIHEAD_SAFE=1</literal>来定义GDK_MULTIHEAD_SAFE 预处理标记。
 </para>

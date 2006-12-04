@@ -174,7 +174,7 @@ enum        <a href="GtkObject.html#GtkArgFlags">GtkArgFlags</a>;
 <div class="refsect1" lang="en">
 <a name="desc"></a><h2>Description</h2>
 <div class="refsect2" lang="en">
-<a name="id3494920"></a><h3>Description</h3>
+<a name="id3494756"></a><h3>Description</h3>
 <p>
 <a href="GtkObject.html" title="GtkObject"><span class="type">GtkObject</span></a> is the base class for all widgets, and for a few 
 non-widget objects such as <a href="GtkAdjustment.html" title="GtkAdjustment"><span class="type">GtkAdjustment</span></a>. <a href="GtkObject.html" title="GtkObject"><span class="type">GtkObject</span></a> predates 
@@ -260,9 +260,9 @@ explicitly call <GTKDOCLINK HREF="g-object-ref"><code class="function">g_object_
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3495361"></a><h3>
+<a name="id3495197"></a><h3>
 <a name="GtkObject-struct"></a>GtkObject</h3>
-<a class="indexterm" name="id3495373"></a><pre class="programlisting">typedef struct _GtkObject GtkObject;</pre>
+<a class="indexterm" name="id3495208"></a><pre class="programlisting">typedef struct _GtkObject GtkObject;</pre>
 <p>
 The object itself.  You should never use these members directly -
  use the accessing macros instead.
@@ -270,9 +270,9 @@ The object itself.  You should never use these members directly -
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495390"></a><h3>
+<a name="id3495225"></a><h3>
 <a name="GTK-OBJECT-TYPE:CAPS"></a>GTK_OBJECT_TYPE()</h3>
-<a class="indexterm" name="id3495403"></a><pre class="programlisting">#define GTK_OBJECT_TYPE(object)		  (G_TYPE_FROM_INSTANCE (object))
+<a class="indexterm" name="id3495239"></a><pre class="programlisting">#define GTK_OBJECT_TYPE(object)		  (G_TYPE_FROM_INSTANCE (object))
 </pre>
 <p>
 Gets the type of an object.
@@ -291,9 +291,9 @@ Gets the type of an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495446"></a><h3>
+<a name="id3495281"></a><h3>
 <a name="GTK-OBJECT-TYPE-NAME:CAPS"></a>GTK_OBJECT_TYPE_NAME()</h3>
-<a class="indexterm" name="id3495458"></a><pre class="programlisting">#define GTK_OBJECT_TYPE_NAME(object)	  (g_type_name (GTK_OBJECT_TYPE (object)))
+<a class="indexterm" name="id3495294"></a><pre class="programlisting">#define GTK_OBJECT_TYPE_NAME(object)	  (g_type_name (GTK_OBJECT_TYPE (object)))
 </pre>
 <p>
 Gets the name of an objects type.
@@ -312,9 +312,9 @@ Gets the name of an objects type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495501"></a><h3>
+<a name="id3495336"></a><h3>
 <a name="GtkObjectFlags"></a>enum GtkObjectFlags</h3>
-<a class="indexterm" name="id3495514"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id3495349"></a><pre class="programlisting">typedef enum
 {
   GTK_IN_DESTRUCTION	= 1 &lt;&lt; 0, /* Used internally during dispose */
   GTK_FLOATING		= 1 &lt;&lt; 1,
@@ -362,9 +362,9 @@ GTK_CONNECTED: signals are connected to this object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495614"></a><h3>
+<a name="id3495450"></a><h3>
 <a name="GTK-OBJECT-FLAGS:CAPS"></a>GTK_OBJECT_FLAGS()</h3>
-<a class="indexterm" name="id3495627"></a><pre class="programlisting">#define GTK_OBJECT_FLAGS(obj)		  (GTK_OBJECT (obj)-&gt;flags)
+<a class="indexterm" name="id3495463"></a><pre class="programlisting">#define GTK_OBJECT_FLAGS(obj)		  (GTK_OBJECT (obj)-&gt;flags)
 </pre>
 <p>
 Gets the <a href="GtkObject.html#GtkObjectFlags"><span class="type">GtkObjectFlags</span></a> for an object without directly
@@ -384,9 +384,9 @@ accessing its members.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495672"></a><h3>
+<a name="id3495507"></a><h3>
 <a name="GTK-OBJECT-FLOATING:CAPS"></a>GTK_OBJECT_FLOATING()</h3>
-<a class="indexterm" name="id3495684"></a><pre class="programlisting">#define GTK_OBJECT_FLOATING(obj)	  ((GTK_OBJECT_FLAGS (obj) &amp; GTK_FLOATING) != 0)
+<a class="indexterm" name="id3495520"></a><pre class="programlisting">#define GTK_OBJECT_FLOATING(obj)	  ((GTK_OBJECT_FLAGS (obj) &amp; GTK_FLOATING) != 0)
 </pre>
 <p>
 Evaluates to <code class="literal">TRUE</code> if the object still has its floating reference count.
@@ -406,9 +406,9 @@ See the overview documentation for <a href="GtkObject.html" title="GtkObject"><s
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495735"></a><h3>
+<a name="id3495570"></a><h3>
 <a name="GtkArgFlags"></a>enum GtkArgFlags</h3>
-<a class="indexterm" name="id3495750"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id3495585"></a><pre class="programlisting">typedef enum
 {
   GTK_ARG_READABLE	 = G_PARAM_READABLE,
   GTK_ARG_WRITABLE	 = G_PARAM_WRITABLE,
@@ -468,9 +468,9 @@ each child.  Used by <a href="GtkContainer.html" title="GtkContainer"><span clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3495906"></a><h3>
+<a name="id3495741"></a><h3>
 <a name="gtk-object-new"></a>gtk_object_new ()</h3>
-<a class="indexterm" name="id3495921"></a><pre class="programlisting"><a href="GtkObject.html" title="GtkObject">GtkObject</a>*  gtk_object_new                  (<a href="gtk-Types.html#GtkType">GtkType</a> type,
+<a class="indexterm" name="id3495756"></a><pre class="programlisting"><a href="GtkObject.html" title="GtkObject">GtkObject</a>*  gtk_object_new                  (<a href="gtk-Types.html#GtkType">GtkType</a> type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -517,9 +517,9 @@ name/argument-value pairs, terminated with <code class="literal">NULL</code>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496078"></a><h3>
+<a name="id3495913"></a><h3>
 <a name="gtk-object-sink"></a>gtk_object_sink ()</h3>
-<a class="indexterm" name="id3496090"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_sink                 (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
+<a class="indexterm" name="id3495926"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_sink                 (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
 <p>
 Removes the floating reference from a <a href="GtkObject.html" title="GtkObject"><span class="type">GtkObject</span></a>, if it exists; 
 otherwise does nothing. See the <a href="GtkObject.html" title="GtkObject"><span class="type">GtkObject</span></a> overview documentation at 
@@ -539,9 +539,9 @@ the top of the page.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496155"></a><h3>
+<a name="id3495990"></a><h3>
 <a name="gtk-object-ref"></a>gtk_object_ref ()</h3>
-<a class="indexterm" name="id3496170"></a><pre class="programlisting"><a href="GtkObject.html" title="GtkObject">GtkObject</a>*  gtk_object_ref                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
+<a class="indexterm" name="id3496006"></a><pre class="programlisting"><a href="GtkObject.html" title="GtkObject">GtkObject</a>*  gtk_object_ref                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_object_ref</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-object-ref"><code class="function">g_object_ref()</code></GTKDOCLINK> instead.</p>
@@ -570,9 +570,9 @@ Increases the reference count of the object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496255"></a><h3>
+<a name="id3496091"></a><h3>
 <a name="gtk-object-unref"></a>gtk_object_unref ()</h3>
-<a class="indexterm" name="id3496270"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_unref                (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
+<a class="indexterm" name="id3496106"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_unref                (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_object_unref</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-object-unref"><code class="function">g_object_unref()</code></GTKDOCLINK> instead.</p>
@@ -593,9 +593,9 @@ to 0, the object is finalized (i.e. its memory is freed).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496342"></a><h3>
+<a name="id3496178"></a><h3>
 <a name="gtk-object-weakref"></a>gtk_object_weakref ()</h3>
-<a class="indexterm" name="id3496359"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_weakref              (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3496194"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_weakref              (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <a href="gtk-Types.html#GtkDestroyNotify">GtkDestroyNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -634,9 +634,9 @@ a strong reference, that is, forces the object to stay alive).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496509"></a><h3>
+<a name="id3496344"></a><h3>
 <a name="gtk-object-weakunref"></a>gtk_object_weakunref ()</h3>
-<a class="indexterm" name="id3496525"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_weakunref            (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3496361"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_weakunref            (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <a href="gtk-Types.html#GtkDestroyNotify">GtkDestroyNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -672,9 +672,9 @@ Removes a weak reference callback to an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496642"></a><h3>
+<a name="id3496477"></a><h3>
 <a name="gtk-object-destroy"></a>gtk_object_destroy ()</h3>
-<a class="indexterm" name="id3496655"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_destroy              (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
+<a class="indexterm" name="id3496490"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_destroy              (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
 <p>
 Emits the "destroy" signal notifying all reference holders that they should
 release the <a href="GtkObject.html" title="GtkObject"><span class="type">GtkObject</span></a>. See the overview documentation at the top of the 
@@ -699,9 +699,9 @@ reference holders to release their references, it does not free the object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496729"></a><h3>
+<a name="id3496565"></a><h3>
 <a name="gtk-object-get"></a>gtk_object_get ()</h3>
-<a class="indexterm" name="id3496744"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_get                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3496580"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_get                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -738,9 +738,9 @@ Gets properties of an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3496865"></a><h3>
+<a name="id3496701"></a><h3>
 <a name="gtk-object-set"></a>gtk_object_set ()</h3>
-<a class="indexterm" name="id3496880"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3496716"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -789,9 +789,9 @@ by more name/value pairs, followed by <code class="literal">NULL</code>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497016"></a><h3>
+<a name="id3496852"></a><h3>
 <a name="gtk-object-set-data"></a>gtk_object_set_data ()</h3>
-<a class="indexterm" name="id3497032"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3496868"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -832,9 +832,9 @@ the old association will be destroyed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497153"></a><h3>
+<a name="id3496989"></a><h3>
 <a name="gtk-object-set-data-full"></a>gtk_object_set_data_full ()</h3>
-<a class="indexterm" name="id3497170"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_full        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497005"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_full        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <a href="gtk-Types.html#GtkDestroyNotify">GtkDestroyNotify</a> destroy);</pre>
@@ -879,9 +879,9 @@ for when the association is destroyed, either by
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497331"></a><h3>
+<a name="id3497167"></a><h3>
 <a name="gtk-object-remove-data"></a>gtk_object_remove_data ()</h3>
-<a class="indexterm" name="id3497348"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_data          (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497184"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_data          (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -915,9 +915,9 @@ it will be invoked.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497480"></a><h3>
+<a name="id3497316"></a><h3>
 <a name="gtk-object-get-data"></a>gtk_object_get_data ()</h3>
-<a class="indexterm" name="id3497496"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_data             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497332"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_data             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -952,9 +952,9 @@ Get a named field from the object's table of associations (the object_data).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497608"></a><h3>
+<a name="id3497443"></a><h3>
 <a name="gtk-object-remove-no-notify"></a>gtk_object_remove_no_notify ()</h3>
-<a class="indexterm" name="id3497625"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_no_notify     (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497460"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_no_notify     (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -989,9 +989,9 @@ Therefore this only affects data set using <a href="GtkObject.html#gtk-object-se
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497747"></a><h3>
+<a name="id3497582"></a><h3>
 <a name="gtk-object-set-user-data"></a>gtk_object_set_user_data ()</h3>
-<a class="indexterm" name="id3497763"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_user_data        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497599"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_user_data        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1021,9 +1021,9 @@ pointer.  This function sets it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497857"></a><h3>
+<a name="id3497692"></a><h3>
 <a name="gtk-object-get-user-data"></a>gtk_object_get_user_data ()</h3>
-<a class="indexterm" name="id3497873"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_user_data        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
+<a class="indexterm" name="id3497708"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_user_data        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_object_get_user_data</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-object-get-data"><code class="function">g_object_get_data()</code></GTKDOCLINK> instead.</p>
@@ -1055,9 +1055,9 @@ writing applications.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3497959"></a><h3>
+<a name="id3497794"></a><h3>
 <a name="gtk-object-add-arg-type"></a>gtk_object_add_arg_type ()</h3>
-<a class="indexterm" name="id3497974"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_add_arg_type         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *arg_name,
+<a class="indexterm" name="id3497809"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_add_arg_type         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *arg_name,
                                              <a href="gtk-Types.html#GtkType">GtkType</a> arg_type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> arg_flags,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> arg_id);</pre>
@@ -1106,9 +1106,9 @@ settable or gettable, whether it is set when the object is constructed.)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3498128"></a><h3>
+<a name="id3497964"></a><h3>
 <a name="gtk-object-set-data-by-id"></a>gtk_object_set_data_by_id ()</h3>
-<a class="indexterm" name="id3498145"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_by_id       (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3497981"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_by_id       (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> data_id,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -1149,9 +1149,9 @@ to get an id from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3498305"></a><h3>
+<a name="id3498141"></a><h3>
 <a name="gtk-object-set-data-by-id-full"></a>gtk_object_set_data_by_id_full ()</h3>
-<a class="indexterm" name="id3498322"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_by_id_full  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3498158"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_set_data_by_id_full  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> data_id,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <a href="gtk-Types.html#GtkDestroyNotify">GtkDestroyNotify</a> destroy);</pre>
@@ -1199,9 +1199,9 @@ to get an id from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3498507"></a><h3>
+<a name="id3498342"></a><h3>
 <a name="gtk-object-get-data-by-id"></a>gtk_object_get_data_by_id ()</h3>
-<a class="indexterm" name="id3498523"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_data_by_id       (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3498359"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    gtk_object_get_data_by_id       (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> data_id);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1241,9 +1241,9 @@ to get an id from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3498679"></a><h3>
+<a name="id3498514"></a><h3>
 <a name="gtk-object-remove-data-by-id"></a>gtk_object_remove_data_by_id ()</h3>
-<a class="indexterm" name="id3498696"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_data_by_id    (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id3498531"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_data_by_id    (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> data_id);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1281,9 +1281,9 @@ to get an id from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3498862"></a><h3>
+<a name="id3498697"></a><h3>
 <a name="gtk-object-remove-no-notify-by-id"></a>gtk_object_remove_no_notify_by_id ()</h3>
-<a class="indexterm" name="id3498879"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_no_notify_by_id
+<a class="indexterm" name="id3498715"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_object_remove_no_notify_by_id
                                             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> key_id);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -1318,9 +1318,9 @@ to get an id from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3499020"></a><h3>
+<a name="id3498855"></a><h3>
 <a name="gtk-object-data-try-key"></a>gtk_object_data_try_key</h3>
-<a class="indexterm" name="id3499035"></a><pre class="programlisting">#define	gtk_object_data_try_key	    g_quark_try_string
+<a class="indexterm" name="id3498871"></a><pre class="programlisting">#define	gtk_object_data_try_key	    g_quark_try_string
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1332,9 +1332,9 @@ Useless deprecated macro. Ignore it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3499064"></a><h3>
+<a name="id3498900"></a><h3>
 <a name="gtk-object-data-force-id"></a>gtk_object_data_force_id</h3>
-<a class="indexterm" name="id3499080"></a><pre class="programlisting">#define	gtk_object_data_force_id    g_quark_from_string
+<a class="indexterm" name="id3498916"></a><pre class="programlisting">#define	gtk_object_data_force_id    g_quark_from_string
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1348,7 +1348,7 @@ Useless deprecated macro. Ignore it.
 <div class="refsect1" lang="en">
 <a name="property_details"></a><h2>Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3499123"></a><h3>
+<a name="id3498959"></a><h3>
 <a name="GtkObject--user-data"></a>The "<code class="literal">user-data</code>" property</h3>
 <pre class="programlisting">  "user-data"            <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>              : Read / Write</pre>
 <p>Anonymous User Data Pointer.</p>
@@ -1357,7 +1357,7 @@ Useless deprecated macro. Ignore it.
 <div class="refsect1" lang="en">
 <a name="signals"></a><h2>Signal Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3499168"></a><h3>
+<a name="id3499003"></a><h3>
 <a name="GtkObject-destroy"></a>The "destroy" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                             <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>   user_data)      : Cleanup / No recursion / No hooks</pre>
@@ -1386,7 +1386,7 @@ if all references are released.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3499251"></a><h2>See Also</h2>
+<a name="id3499087"></a><h2>See Also</h2>
 <p>
 <GTKDOCLINK HREF="GObject"><span class="type">GObject</span></GTKDOCLINK>
 </p>

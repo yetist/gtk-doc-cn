@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>GTK+&#32534;&#35793;&#31243;&#24207;</title>
+<title>&#32534;&#35793;GTK+&#31243;&#24207;</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
 <link rel="start" href="index.html" title="GTK+&#21442;&#32771;&#25163;&#20876;">
 <link rel="up" href="gtk.html" title="Part&#160;I.&#160;GTK+&#27010;&#36848;">
@@ -62,35 +62,17 @@
 <a name="gtk-compiling"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle">GTK+&#32534;&#35793;&#31243;&#24207;</span></h2>
-<p>GTK+&#32534;&#35793;&#31243;&#24207; &#8212; 
+<h2><span class="refentrytitle">&#32534;&#35793;GTK+&#31243;&#24207;</span></h2>
+<p>&#32534;&#35793;GTK+&#31243;&#24207; &#8212; 
 &#22914;&#20309;&#32534;&#35793;&#20320;&#30340;GTK+&#24212;&#29992;&#31243;&#24207;
 </p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1" lang="en">
-<a name="id2557757"></a><h2>UNIX&#19978;&#30340;&#32534;&#35793;&#31243;&#24207;</h2>
-<p>
-To compile a GTK+ application, you need to tell the compiler where to 
-find the GTK+ header files and libraries. This is done with the
-<code class="literal">pkg-config</code> utility.
-</p>
+<a name="id2557755"></a><h2>UNIX&#19978;&#30340;&#32534;&#35793;&#31243;&#24207;</h2>
 <p>
 &#32534;&#35793;&#19968;&#20010;GTK+&#24212;&#29992;&#31243;&#24207;&#65292;&#20320;&#38656;&#35201;&#35753;&#32534;&#35793;&#22120;&#30693;&#36947;&#22312;&#37027;&#37324;&#21435;&#25214;&#22836;&#25991;&#20214;&#21644;&#24211;&#12290;&#36825;&#23601;&#38656;&#35201;&#23433;&#35013;<code class="literal">pkg-config</code>&#12290;
-</p>
-<p>
-The following interactive shell session demonstrates how
-<code class="literal">pkg-config</code> is used (the actual output on 
-your system may be different):
-</p>
-<pre class="programlisting">
-$ pkg-config --cflags gtk+-2.0
- -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/pango-1.0 -I/usr/X11R6/include -I/usr/include/freetype2 -I/usr/include/atk-1.0  
-$ pkg-config --libs gtk+-2.0
- -L/usr/lib -L/usr/X11R6/lib -lgtk-x11-2.0 -lgdk-x11-2.0 -lXi -lgdk_pixbuf-2.0 -lm -lpangox -lpangoxft -lXft -lXrender -lXext -lX11 -lfreetype -lpango -latk -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
-</pre>
-<p>
 </p>
 <p>
 &#19979;&#38754;&#30340;&#20132;&#20114;&#24335;shell&#20250;&#35805;&#31034;&#33539;&#20102;&#22914;&#26524;&#20351;&#29992;<code class="literal">pkg-config</code>&#65288;&#36825;&#20010;&#21644;&#20320;&#31995;&#32479;&#19978;&#30340;&#36755;&#20986;&#21487;&#33021;&#26377;&#25152;&#19981;&#21516;&#65289;&#65306;
@@ -104,18 +86,6 @@ $ pkg-config --libs gtk+-2.0
 <p>
 </p>
 <p>
-The simplest way to compile a program is to use the "backticks"
-feature of the shell. If you enclose a command in backticks
-(<span class="emphasis"><em>not single quotes</em></span>), then its output will be
-substituted into the command line before execution. So to compile 
-a GTK+ Hello, World, you would type the following:
-</p>
-<pre class="programlisting">
-$ cc `pkg-config --cflags --libs gtk+-2.0` hello.c -o hello
-</pre>
-<p>
-</p>
-<p>
 &#32534;&#35793;&#19968;&#20010;&#31243;&#24207;&#26368;&#31616;&#21333;&#30340;&#26041;&#27861;&#23601;&#26159;&#21033;&#29992;shell&#30340;&#36870;&#21521;&#25735;&#21495;&#29305;&#24615;&#12290;&#22914;&#26524;&#22312;&#36870;&#21521;&#21333;&#25735;&#21495;&#37324;&#21253;&#21547;&#19968;&#20010;&#21629;&#20196;(<span class="emphasis"><em>&#19981;&#26159;&#21333;&#24341;&#21495;</em></span>), &#25191;&#34892;&#21069;&#21629;&#20196;&#30340;&#36755;&#20986;&#23558;&#21462;&#20195;&#35813;&#21629;&#20196;&#12290;&#25152;&#20197;&#32534;&#35793;GTK+ Hello World&#26102;&#65292;&#20320;&#21487;&#20197;&#20687;&#19979;&#38754;&#36825;&#26679;&#65306;
 </p>
 <pre class="programlisting">
@@ -124,8 +94,7 @@ $ cc `pkg-config --cflags --libs gtk+-2.0` hello.c -o hello
 <p>
 </p>
 <p>
-To compile a GTK+ program for the framebuffer, use the
-"gtk+-linux-fb-2.0" package name instead of "gtk+-2.0":
+&#35201;&#32534;&#35793;&#29992;&#20110;framebuffer&#30340;GTK+&#31243;&#24207;,&#20351;&#29992;"gtk+-linux-fb-2.0"&#21253;&#21517;&#23383;&#20195;&#26367;"gtk+-2.0":
 </p>
 <pre class="programlisting">
 $ cc `pkg-config --cflags --libs gtk+-linux-fb-2.0` hello.c -o hello
@@ -133,22 +102,7 @@ $ cc `pkg-config --cflags --libs gtk+-linux-fb-2.0` hello.c -o hello
 <p>
 </p>
 <p>
-If you want to make sure that your program doesn't use any deprecated 
-functions, you can define the preprocessor symbol GTK_DISABLE_DEPRECATED
-by using the command line option <code class="literal">-DGTK_DISABLE_DEPRECATED=1</code>.
-There are similar symbols GDK_DISABLE_DEPRECATED, 
-GDK_PIXBUF_DISABLE_DEPRECATED and G_DISABLE_DEPRECATED for GDK, GdkPixbuf and
-GLib. 
-</p>
-<p>
-&#22914;&#26524;&#20320;&#24819;&#20351;&#20320;&#30340;&#31243;&#24207;&#19981;&#20351;&#29992;&#20219;&#20309;deprecated functions,&#20320;&#21487;&#20197;&#20351;&#29992;&#27492;&#21629;&#20196;&#21442;&#25968;<code class="literal">-DGTK_DISABLE_DEPRECATED=1</code>&#26469;&#23450;&#20041;GTK_DISABLE_DEPRECATED&#39044;&#22788;&#29702;&#26631;&#35760;&#12290;&#36824;&#26377;&#31867;&#20284;&#30340;&#26631;&#35760;&#65306;GDK_DISABLE_DEPRECATED, 
-GDK_PIXBUF_DISABLE_DEPRECATED&#65292;GKD&#20013;&#30340;G_DISABLE_DEPRECATED &#21644; GLib&#20013;&#30340;GdkPixbuf&#12290;
-</p>
-<p>
-If you want to make sure that your program doesn't use any functions which 
-may be problematic in a multihead setting, you can define the preprocessor
-symbol GDK_MULTIHEAD_SAFE by using the command line option 
-<code class="literal">-DGTK_MULTIHEAD_SAFE=1</code>.
+&#22914;&#26524;&#20320;&#24819;&#20351;&#20320;&#30340;&#31243;&#24207;&#19981;&#20351;&#29992;&#20219;&#20309;deprecated functions,&#20320;&#21487;&#20197;&#20351;&#29992;&#27492;&#21629;&#20196;&#21442;&#25968;<code class="literal">-DGTK_DISABLE_DEPRECATED=1</code>&#26469;&#23450;&#20041;GTK_DISABLE_DEPRECATED&#39044;&#22788;&#29702;&#26631;&#35760;&#12290;&#36824;&#26377;&#31867;&#20284;&#30340;&#26631;&#35760;&#65306;GDK&#20013;&#30340;GDK_DISABLE_DEPRECATED, GdkPixbuf&#20013;&#30340;GDK_PIXBUF_DISABLE_DEPRECATED&#21644;GLib&#20013;&#30340;G_DISABLE_DEPRECATED&#12290;
 </p>
 <p>
 &#22914;&#26524;&#20320;&#24819;&#20445;&#35777;&#20320;&#30340;&#31243;&#24207;&#19981;&#20351;&#29992;&#22312;&#22810;&#32447;&#31243;&#20013;&#20250;&#24341;&#21457;&#38382;&#39064;&#30340;&#20989;&#25968;&#65292;&#20320;&#21487;&#20197;&#20351;&#29992;&#27492;&#21629;&#20196;&#21442;&#25968;<code class="literal">-DGTK_MULTIHEAD_SAFE=1</code>&#26469;&#23450;&#20041;GDK_MULTIHEAD_SAFE &#39044;&#22788;&#29702;&#26631;&#35760;&#12290;

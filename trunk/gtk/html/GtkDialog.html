@@ -232,7 +232,7 @@ For the simple dialog in the following example, in reality you'd probably use
 dialog contents manually if you had more than a simple message in the dialog.
 </p>
 <div class="example">
-<a name="id2763449"></a><p class="title"><b>Example&#160;4.&#160;Simple <span class="structname">GtkDialog</span> usage.</b></p>
+<a name="id2763283"></a><p class="title"><b>Example&#160;4.&#160;Simple <span class="structname">GtkDialog</span> usage.</b></p>
 <div class="example-contents"><pre class="programlisting">
 
 /* Function to open a dialog box displaying the message provided. */
@@ -273,9 +273,9 @@ void quick_message (gchar *message) {
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2763495"></a><h3>
+<a name="id2763330"></a><h3>
 <a name="GtkDialog-struct"></a>GtkDialog</h3>
-<a class="indexterm" name="id2763507"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2763341"></a><pre class="programlisting">typedef struct {
   GtkWidget *vbox;
   GtkWidget *action_area;
 } GtkDialog;
@@ -292,9 +292,9 @@ as any other <a href="GtkHButtonBox.html" title="GtkHButtonBox"><span class="typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2763568"></a><h3>
+<a name="id2763402"></a><h3>
 <a name="GtkDialogFlags"></a>enum GtkDialogFlags</h3>
-<a class="indexterm" name="id2763581"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2763415"></a><pre class="programlisting">typedef enum
 {
   GTK_DIALOG_MODAL               = 1 &lt;&lt; 0, /* call gtk_window_set_modal (win, TRUE) */
   GTK_DIALOG_DESTROY_WITH_PARENT = 1 &lt;&lt; 1, /* call gtk_window_set_destroy_with_parent () */
@@ -334,9 +334,9 @@ Flags used to influence dialog construction.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2763680"></a><h3>
+<a name="id2763514"></a><h3>
 <a name="GtkResponseType"></a>enum GtkResponseType</h3>
-<a class="indexterm" name="id2763693"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2763528"></a><pre class="programlisting">typedef enum
 {
   /* GTK returns this if a response widget has no response_id,
    * or if the dialog gets programmatically hidden or destroyed.
@@ -446,9 +446,9 @@ application-defined response ids.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2763907"></a><h3>
+<a name="id2763741"></a><h3>
 <a name="gtk-dialog-new"></a>gtk_dialog_new ()</h3>
-<a class="indexterm" name="id2763920"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_new                  (void);</pre>
+<a class="indexterm" name="id2763754"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_new                  (void);</pre>
 <p>
 Creates a new dialog box. Widgets should not be packed into this <a href="GtkWindow.html" title="GtkWindow"><span class="type">GtkWindow</span></a>
 directly, but into the <em class="parameter"><code>vbox</code></em> and <em class="parameter"><code>action_area</code></em>, as described above. 
@@ -467,9 +467,9 @@ directly, but into the <em class="parameter"><code>vbox</code></em> and <em clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2763985"></a><h3>
+<a name="id2763820"></a><h3>
 <a name="gtk-dialog-new-with-buttons"></a>gtk_dialog_new_with_buttons ()</h3>
-<a class="indexterm" name="id2763999"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_new_with_buttons     (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *title,
+<a class="indexterm" name="id2763834"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_new_with_buttons     (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *title,
                                              <a href="GtkWindow.html" title="GtkWindow">GtkWindow</a> *parent,
                                              <a href="GtkDialog.html#GtkDialogFlags">GtkDialogFlags</a> flags,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_button_text,
@@ -554,9 +554,9 @@ Here's a simple example:
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2764356"></a><h3>
+<a name="id2764190"></a><h3>
 <a name="gtk-dialog-run"></a>gtk_dialog_run ()</h3>
-<a class="indexterm" name="id2764369"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_dialog_run                  (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog);</pre>
+<a class="indexterm" name="id2764203"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_dialog_run                  (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog);</pre>
 <p>
 Blocks in a recursive main loop until the <em class="parameter"><code>dialog</code></em> either emits the
 response signal, or is destroyed. If the dialog is destroyed during the call
@@ -628,9 +628,9 @@ be triggered during a <a href="GtkDialog.html#gtk-dialog-run"><code class="funct
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2764631"></a><h3>
+<a name="id2764465"></a><h3>
 <a name="gtk-dialog-response"></a>gtk_dialog_response ()</h3>
-<a class="indexterm" name="id2764644"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_response             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2764479"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_response             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> response_id);</pre>
 <p>
 Emits the "response" signal with the given response ID. Used to
@@ -660,9 +660,9 @@ typically either you or <a href="GtkDialog.html#gtk-dialog-run"><code class="fun
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2764737"></a><h3>
+<a name="id2764571"></a><h3>
 <a name="gtk-dialog-add-button"></a>gtk_dialog_add_button ()</h3>
-<a class="indexterm" name="id2764750"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_add_button           (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2764585"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_dialog_add_button           (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *button_text,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> response_id);</pre>
 <p>
@@ -706,9 +706,9 @@ you don't need it.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2764879"></a><h3>
+<a name="id2764713"></a><h3>
 <a name="gtk-dialog-add-buttons"></a>gtk_dialog_add_buttons ()</h3>
-<a class="indexterm" name="id2764892"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_add_buttons          (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2764727"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_add_buttons          (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_button_text,
                                              ...);</pre>
 <p>
@@ -745,9 +745,9 @@ text and response ID.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765017"></a><h3>
+<a name="id2764852"></a><h3>
 <a name="gtk-dialog-add-action-widget"></a>gtk_dialog_add_action_widget ()</h3>
-<a class="indexterm" name="id2765031"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_add_action_widget    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2764865"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_add_action_widget    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> response_id);</pre>
 <p>
@@ -786,9 +786,9 @@ non-activatable widget, simply pack it into the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765165"></a><h3>
+<a name="id2764999"></a><h3>
 <a name="gtk-dialog-get-has-separator"></a>gtk_dialog_get_has_separator ()</h3>
-<a class="indexterm" name="id2765178"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_dialog_get_has_separator    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog);</pre>
+<a class="indexterm" name="id2765013"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_dialog_get_has_separator    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog);</pre>
 <p>
 Accessor for whether the dialog has a separator.</p>
 <p>
@@ -814,9 +814,9 @@ Accessor for whether the dialog has a separator.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765253"></a><h3>
+<a name="id2765087"></a><h3>
 <a name="gtk-dialog-set-default-response"></a>gtk_dialog_set_default_response ()</h3>
-<a class="indexterm" name="id2765267"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_default_response (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2765101"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_default_response (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> response_id);</pre>
 <p>
 Sets the last widget in the dialog's action area with the given <em class="parameter"><code>response_id</code></em>
@@ -845,9 +845,9 @@ the default widget.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765354"></a><h3>
+<a name="id2765188"></a><h3>
 <a name="gtk-dialog-set-has-separator"></a>gtk_dialog_set_has_separator ()</h3>
-<a class="indexterm" name="id2765368"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_has_separator    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
+<a class="indexterm" name="id2765202"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_has_separator    (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> setting);</pre>
 <p>
 Sets whether the dialog has a separator above the buttons.
@@ -875,9 +875,9 @@ Sets whether the dialog has a separator above the buttons.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765460"></a><h3>
+<a name="id2765294"></a><h3>
 <a name="gtk-dialog-set-response-sensitive"></a>gtk_dialog_set_response_sensitive ()</h3>
-<a class="indexterm" name="id2765474"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_response_sensitive
+<a class="indexterm" name="id2765308"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_response_sensitive
                                             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> response_id,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> setting);</pre>
@@ -914,9 +914,9 @@ A convenient way to sensitize/desensitize dialog buttons.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765600"></a><h3>
+<a name="id2765435"></a><h3>
 <a name="gtk-dialog-get-response-for-widget"></a>gtk_dialog_get_response_for_widget ()</h3>
-<a class="indexterm" name="id2765617"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_dialog_get_response_for_widget
+<a class="indexterm" name="id2765452"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_dialog_get_response_for_widget
                                             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget);</pre>
 <p>
@@ -955,9 +955,9 @@ of a dialog.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765737"></a><h3>
+<a name="id2765571"></a><h3>
 <a name="gtk-alternative-dialog-button-order"></a>gtk_alternative_dialog_button_order ()</h3>
-<a class="indexterm" name="id2765754"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_alternative_dialog_button_order
+<a class="indexterm" name="id2765588"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_alternative_dialog_button_order
                                             (<GTKDOCLINK HREF="GdkScreen">GdkScreen</GTKDOCLINK> *screen);</pre>
 <p>
 Returns <code class="literal">TRUE</code> if dialogs are expected to use an alternative
@@ -996,9 +996,9 @@ notified if the button order setting changes.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2765879"></a><h3>
+<a name="id2765714"></a><h3>
 <a name="gtk-dialog-set-alternative-button-order"></a>gtk_dialog_set_alternative_button_order ()</h3>
-<a class="indexterm" name="id2765896"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_alternative_button_order
+<a class="indexterm" name="id2765730"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_alternative_button_order
                                             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> first_response_id,
                                              ...);</pre>
@@ -1071,9 +1071,9 @@ gtk_dialog_set_alternative_button_order (GTK_DIALOG (dialog),
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2766066"></a><h3>
+<a name="id2765900"></a><h3>
 <a name="gtk-dialog-set-alternative-button-order-from-array"></a>gtk_dialog_set_alternative_button_order_from_array ()</h3>
-<a class="indexterm" name="id2766083"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_alternative_button_order_from_array
+<a class="indexterm" name="id2765917"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_dialog_set_alternative_button_order_from_array
                                             (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> n_params,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *new_order);</pre>
@@ -1120,7 +1120,7 @@ This function is for use by language bindings.</p>
 <div class="refsect1" lang="en">
 <a name="property_details"></a><h2>Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2766249"></a><h3>
+<a name="id2766083"></a><h3>
 <a name="GtkDialog--has-separator"></a>The "<code class="literal">has-separator</code>" property</h3>
 <pre class="programlisting">  "has-separator"        <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>              : Read / Write</pre>
 <p>The dialog has a separator bar above its buttons.</p>
@@ -1130,7 +1130,7 @@ This function is for use by language bindings.</p>
 <div class="refsect1" lang="en">
 <a name="style_properties_details"></a><h2>Style Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2766302"></a><h3>
+<a name="id2766136"></a><h3>
 <a name="GtkDialog--action-area-border"></a>The "<code class="literal">action-area-border</code>" style property</h3>
 <pre class="programlisting">  "action-area-border"   <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>Width of border around the button area at the bottom of the dialog.</p>
@@ -1139,7 +1139,7 @@ This function is for use by language bindings.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2766344"></a><h3>
+<a name="id2766178"></a><h3>
 <a name="GtkDialog--button-spacing"></a>The "<code class="literal">button-spacing</code>" style property</h3>
 <pre class="programlisting">  "button-spacing"       <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>Spacing between buttons.</p>
@@ -1148,7 +1148,7 @@ This function is for use by language bindings.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2766385"></a><h3>
+<a name="id2766219"></a><h3>
 <a name="GtkDialog--content-area-border"></a>The "<code class="literal">content-area-border</code>" style property</h3>
 <pre class="programlisting">  "content-area-border"  <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>Width of border around the main dialog area.</p>
@@ -1159,7 +1159,7 @@ This function is for use by language bindings.</p>
 <div class="refsect1" lang="en">
 <a name="signals"></a><h2>Signal Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2766440"></a><h3>
+<a name="id2766274"></a><h3>
 <a name="GtkDialog-close"></a>The "close" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                             <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>   user_data)      : Run last / Action</pre>
@@ -1186,7 +1186,7 @@ This function is for use by language bindings.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2766511"></a><h3>
+<a name="id2766345"></a><h3>
 <a name="GtkDialog-response"></a>The "response" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkDialog.html" title="GtkDialog">GtkDialog</a> *dialog,
                                             <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>       arg1,
@@ -1223,7 +1223,7 @@ was clicked.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2766630"></a><h2>See Also</h2>
+<a name="id2766464"></a><h2>See Also</h2>
 <p>
 </p>
 <div class="variablelist"><table border="0">

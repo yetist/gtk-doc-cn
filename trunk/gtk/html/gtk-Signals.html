@@ -154,7 +154,7 @@ usage, direct use of the <GTKDOCLINK HREF="gobject-Signals">GSignal</GTKDOCLINK>
 performance hits where <a href="gtk-Types.html#GtkArg"><span class="type">GtkArg</span></a> structures have to be converted into <GTKDOCLINK HREF="GValue"><span class="type">GValue</span></GTKDOCLINK>s.
 </p>
 <div class="refsect2" lang="en">
-<a name="id2735737"></a><h3>What are signals?</h3>
+<a name="id2735571"></a><h3>What are signals?</h3>
 <p>
 Signals are a way to get notification when something happens
 and to customize object behavior according to the
@@ -189,7 +189,7 @@ methods.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2735817"></a><h3>How are signals used?</h3>
+<a name="id2735651"></a><h3>How are signals used?</h3>
 <p>
 There are two basic actions in the signal handling game.
 If you want notification of an event, you must <span class="emphasis"><em>connect</em></span>
@@ -206,7 +206,7 @@ Functions that want to notify the user of certain actions,
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2735846"></a><h3>Basic Terminology</h3>
+<a name="id2735680"></a><h3>Basic Terminology</h3>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -271,7 +271,7 @@ maps to a unique connection id.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2735966"></a><h3>A brief note on how they work.</h3>
+<a name="id2735800"></a><h3>A brief note on how they work.</h3>
 <p>
 The functions responsible for translating an array of <GTKDOCLINK HREF="GtkArgs"><span class="type">GtkArgs</span></GTKDOCLINK>
 to your C compiler's normal semantics are called Marshallers.
@@ -288,9 +288,9 @@ you might have to write a marshaller.
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2736032"></a><h3>
+<a name="id2735866"></a><h3>
 <a name="GTK-SIGNAL-OFFSET:CAPS"></a>GTK_SIGNAL_OFFSET</h3>
-<a class="indexterm" name="id2736046"></a><pre class="programlisting">#define GTK_SIGNAL_OFFSET	                      GTK_STRUCT_OFFSET
+<a class="indexterm" name="id2735881"></a><pre class="programlisting">#define GTK_SIGNAL_OFFSET	                      GTK_STRUCT_OFFSET
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -302,9 +302,9 @@ Use in place of <code class="function"><GTKDOCLINK HREF="offsetof"><code class="
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2736090"></a><h3>
+<a name="id2735924"></a><h3>
 <a name="GtkSignalRunType"></a>enum GtkSignalRunType</h3>
-<a class="indexterm" name="id2736106"></a><pre class="programlisting">typedef enum			/*&lt; flags &gt;*/
+<a class="indexterm" name="id2735940"></a><pre class="programlisting">typedef enum			/*&lt; flags &gt;*/
 {
   GTK_RUN_FIRST      = G_SIGNAL_RUN_FIRST,
   GTK_RUN_LAST       = G_SIGNAL_RUN_LAST,
@@ -391,9 +391,9 @@ to the signal.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2736248"></a><h3>
+<a name="id2736082"></a><h3>
 <a name="gtk-signal-new"></a>gtk_signal_new ()</h3>
-<a class="indexterm" name="id2736264"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_signal_new                  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
+<a class="indexterm" name="id2736098"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_signal_new                  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Signals.html#GtkSignalRunType">GtkSignalRunType</a> signal_flags,
                                              <a href="gtk-Types.html#GtkType">GtkType</a> object_type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> function_offset,
@@ -482,9 +482,9 @@ without a return value.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2736562"></a><h3>
+<a name="id2736396"></a><h3>
 <a name="gtk-signal-newv"></a>gtk_signal_newv ()</h3>
-<a class="indexterm" name="id2736578"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_signal_newv                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
+<a class="indexterm" name="id2736412"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_signal_newv                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Signals.html#GtkSignalRunType">GtkSignalRunType</a> signal_flags,
                                              <a href="gtk-Types.html#GtkType">GtkType</a> object_type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> function_offset,
@@ -569,9 +569,9 @@ the callbacks.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2736868"></a><h3>
+<a name="id2736702"></a><h3>
 <a name="gtk-signal-lookup"></a>gtk_signal_lookup()</h3>
-<a class="indexterm" name="id2736883"></a><pre class="programlisting">#define     gtk_signal_lookup(name,object_type)</pre>
+<a class="indexterm" name="id2736718"></a><pre class="programlisting">#define     gtk_signal_lookup(name,object_type)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_lookup</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-lookup"><code class="function">g_signal_lookup()</code></GTKDOCLINK> instead.</p>
@@ -610,9 +610,9 @@ It also tries the ancestors of the given type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2736986"></a><h3>
+<a name="id2736820"></a><h3>
 <a name="gtk-signal-name"></a>gtk_signal_name()</h3>
-<a class="indexterm" name="id2737001"></a><pre class="programlisting">#define     gtk_signal_name(signal_id)</pre>
+<a class="indexterm" name="id2736835"></a><pre class="programlisting">#define     gtk_signal_name(signal_id)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_name</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-name"><code class="function">g_signal_name()</code></GTKDOCLINK> instead.</p>
@@ -643,9 +643,9 @@ Two different signals may have the same name, if they have differing types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737082"></a><h3>
+<a name="id2736916"></a><h3>
 <a name="gtk-signal-emit"></a>gtk_signal_emit ()</h3>
-<a class="indexterm" name="id2737098"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit                 (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2736932"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit                 (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              ...);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -694,9 +694,9 @@ by a pointer to the return type, if any.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737249"></a><h3>
+<a name="id2737083"></a><h3>
 <a name="gtk-signal-emit-by-name"></a>gtk_signal_emit_by_name ()</h3>
-<a class="indexterm" name="id2737265"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit_by_name         (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2737099"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit_by_name         (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              ...);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -734,9 +734,9 @@ by a pointer to the return type, if any.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737376"></a><h3>
+<a name="id2737210"></a><h3>
 <a name="gtk-signal-emitv"></a>gtk_signal_emitv ()</h3>
-<a class="indexterm" name="id2737392"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emitv                (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2737226"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emitv                (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <a href="gtk-Types.html#GtkArg">GtkArg</a> *args);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -775,9 +775,9 @@ followed by one which is a pointer to the return type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737522"></a><h3>
+<a name="id2737356"></a><h3>
 <a name="gtk-signal-emitv-by-name"></a>gtk_signal_emitv_by_name ()</h3>
-<a class="indexterm" name="id2737538"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emitv_by_name        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2737372"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emitv_by_name        (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Types.html#GtkArg">GtkArg</a> *args);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -816,9 +816,9 @@ followed by one which is a pointer to the return type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737678"></a><h3>
+<a name="id2737512"></a><h3>
 <a name="gtk-signal-emit-stop"></a>gtk_signal_emit_stop()</h3>
-<a class="indexterm" name="id2737694"></a><pre class="programlisting">#define     gtk_signal_emit_stop(object,signal_id)</pre>
+<a class="indexterm" name="id2737528"></a><pre class="programlisting">#define     gtk_signal_emit_stop(object,signal_id)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_emit_stop</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-stop-emission"><code class="function">g_signal_stop_emission()</code></GTKDOCLINK> instead.</p>
@@ -855,9 +855,9 @@ isn't being emitted.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737798"></a><h3>
+<a name="id2737632"></a><h3>
 <a name="gtk-signal-emit-stop-by-name"></a>gtk_signal_emit_stop_by_name ()</h3>
-<a class="indexterm" name="id2737814"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit_stop_by_name    (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2737648"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_emit_stop_by_name    (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -890,9 +890,9 @@ except it will lookup the signal id for you.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2737926"></a><h3>
+<a name="id2737760"></a><h3>
 <a name="gtk-signal-connect"></a>gtk_signal_connect()</h3>
-<a class="indexterm" name="id2737941"></a><pre class="programlisting">#define     gtk_signal_connect(object,name,func,func_data)</pre>
+<a class="indexterm" name="id2737775"></a><pre class="programlisting">#define     gtk_signal_connect(object,name,func,func_data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_connect</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-connect"><code class="function">g_signal_connect()</code></GTKDOCLINK> instead.</p>
@@ -971,9 +971,9 @@ is getting pressed, this is that button.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2738122"></a><h3>
+<a name="id2737956"></a><h3>
 <a name="gtk-signal-connect-after"></a>gtk_signal_connect_after()</h3>
-<a class="indexterm" name="id2738138"></a><pre class="programlisting">#define     gtk_signal_connect_after(object,name,func,func_data)</pre>
+<a class="indexterm" name="id2737972"></a><pre class="programlisting">#define     gtk_signal_connect_after(object,name,func,func_data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_connect_after</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-connect-after"><code class="function">g_signal_connect_after()</code></GTKDOCLINK> instead.</p>
@@ -1020,9 +1020,9 @@ so that this handler will be called after the other handlers.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2738255"></a><h3>
+<a name="id2738089"></a><h3>
 <a name="gtk-signal-connect-object"></a>gtk_signal_connect_object()</h3>
-<a class="indexterm" name="id2738271"></a><pre class="programlisting">#define     gtk_signal_connect_object(object,name,func,slot_object)</pre>
+<a class="indexterm" name="id2738105"></a><pre class="programlisting">#define     gtk_signal_connect_object(object,name,func,slot_object)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_connect_object</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-connect-swapped"><code class="function">g_signal_connect_swapped()</code></GTKDOCLINK> instead.</p>
@@ -1084,9 +1084,9 @@ really pass any gpointer as the <GTKDOCLINK HREF="slot-object"><span class="type
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2738428"></a><h3>
+<a name="id2738262"></a><h3>
 <a name="gtk-signal-connect-object-after"></a>gtk_signal_connect_object_after()</h3>
-<a class="indexterm" name="id2738444"></a><pre class="programlisting">#define     gtk_signal_connect_object_after(object,name,func,slot_object)</pre>
+<a class="indexterm" name="id2738278"></a><pre class="programlisting">#define     gtk_signal_connect_object_after(object,name,func,slot_object)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_connect_object_after</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-connect-data"><code class="function">g_signal_connect_data()</code></GTKDOCLINK> instead, passing 
@@ -1136,9 +1136,9 @@ handlers are called first.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2738581"></a><h3>
+<a name="id2738415"></a><h3>
 <a name="gtk-signal-connect-full"></a>gtk_signal_connect_full ()</h3>
-<a class="indexterm" name="id2738598"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      gtk_signal_connect_full         (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2738432"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      gtk_signal_connect_full         (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Types.html#GtkSignalFunc">GtkSignalFunc</a> func,
                                              <a href="gtk-Types.html#GtkCallbackMarshal">GtkCallbackMarshal</a> unsupported,
@@ -1223,9 +1223,9 @@ and <GTKDOCLINK HREF="GTK-RUN-LAST:CAPS"><span class="type">GTK_RUN_LAST</span><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2738857"></a><h3>
+<a name="id2738691"></a><h3>
 <a name="gtk-signal-connect-while-alive"></a>gtk_signal_connect_while_alive ()</h3>
-<a class="indexterm" name="id2738874"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_connect_while_alive  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
+<a class="indexterm" name="id2738708"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_connect_while_alive  (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Types.html#GtkSignalFunc">GtkSignalFunc</a> func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> func_data,
@@ -1289,9 +1289,9 @@ to be destroyed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739080"></a><h3>
+<a name="id2738915"></a><h3>
 <a name="gtk-signal-connect-object-while-alive"></a>gtk_signal_connect_object_while_alive ()</h3>
-<a class="indexterm" name="id2739097"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_connect_object_while_alive
+<a class="indexterm" name="id2738931"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_signal_connect_object_while_alive
                                             (<a href="GtkObject.html" title="GtkObject">GtkObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gtk-Types.html#GtkSignalFunc">GtkSignalFunc</a> func,
@@ -1348,9 +1348,9 @@ should signal the removal of this signal.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739284"></a><h3>
+<a name="id2739118"></a><h3>
 <a name="gtk-signal-disconnect"></a>gtk_signal_disconnect()</h3>
-<a class="indexterm" name="id2739300"></a><pre class="programlisting">#define     gtk_signal_disconnect(object,handler_id)</pre>
+<a class="indexterm" name="id2739134"></a><pre class="programlisting">#define     gtk_signal_disconnect(object,handler_id)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_disconnect</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handler-disconnect"><code class="function">g_signal_handler_disconnect()</code></GTKDOCLINK> instead.</p>
@@ -1378,9 +1378,9 @@ Destroys a user-defined handler connection.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739375"></a><h3>
+<a name="id2739209"></a><h3>
 <a name="gtk-signal-disconnect-by-func"></a>gtk_signal_disconnect_by_func()</h3>
-<a class="indexterm" name="id2739392"></a><pre class="programlisting">#define     gtk_signal_disconnect_by_func(object,func,data)</pre>
+<a class="indexterm" name="id2739226"></a><pre class="programlisting">#define     gtk_signal_disconnect_by_func(object,func,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_disconnect_by_func</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-disconnect-by-func"><code class="function">g_signal_handlers_disconnect_by_func()</code></GTKDOCLINK> instead.</p>
@@ -1415,9 +1415,9 @@ the given function-pointer and user-data.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739482"></a><h3>
+<a name="id2739317"></a><h3>
 <a name="gtk-signal-disconnect-by-data"></a>gtk_signal_disconnect_by_data()</h3>
-<a class="indexterm" name="id2739499"></a><pre class="programlisting">#define     gtk_signal_disconnect_by_data(object,data)</pre>
+<a class="indexterm" name="id2739334"></a><pre class="programlisting">#define     gtk_signal_disconnect_by_data(object,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_disconnect_by_data</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-disconnect-matched"><code class="function">g_signal_handlers_disconnect_matched()</code></GTKDOCLINK> instead.</p>
@@ -1446,9 +1446,9 @@ the given user-data.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739576"></a><h3>
+<a name="id2739410"></a><h3>
 <a name="gtk-signal-handler-block"></a>gtk_signal_handler_block()</h3>
-<a class="indexterm" name="id2739592"></a><pre class="programlisting">#define     gtk_signal_handler_block(object,handler_id)</pre>
+<a class="indexterm" name="id2739426"></a><pre class="programlisting">#define     gtk_signal_handler_block(object,handler_id)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_block</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handler-block"><code class="function">g_signal_handler_block()</code></GTKDOCLINK> instead.</p>
@@ -1478,9 +1478,9 @@ handler will ignore it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739668"></a><h3>
+<a name="id2739502"></a><h3>
 <a name="gtk-signal-handler-block-by-func"></a>gtk_signal_handler_block_by_func()</h3>
-<a class="indexterm" name="id2739685"></a><pre class="programlisting">#define     gtk_signal_handler_block_by_func(object,func,data)</pre>
+<a class="indexterm" name="id2739519"></a><pre class="programlisting">#define     gtk_signal_handler_block_by_func(object,func,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_block_by_func</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-block-by-func"><code class="function">g_signal_handlers_block_by_func()</code></GTKDOCLINK> instead.</p>
@@ -1516,9 +1516,9 @@ multiple hooks being blocked, if you've called connect multiple times.)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739778"></a><h3>
+<a name="id2739612"></a><h3>
 <a name="gtk-signal-handler-block-by-data"></a>gtk_signal_handler_block_by_data()</h3>
-<a class="indexterm" name="id2739795"></a><pre class="programlisting">#define     gtk_signal_handler_block_by_data(object,data)</pre>
+<a class="indexterm" name="id2739629"></a><pre class="programlisting">#define     gtk_signal_handler_block_by_data(object,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_block_by_data</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-block-matched"><code class="function">g_signal_handlers_block_matched()</code></GTKDOCLINK> instead.</p>
@@ -1546,9 +1546,9 @@ Prevents all user-defined handlers with a certain user data from being invoked.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739871"></a><h3>
+<a name="id2739706"></a><h3>
 <a name="gtk-signal-handler-unblock"></a>gtk_signal_handler_unblock()</h3>
-<a class="indexterm" name="id2739888"></a><pre class="programlisting">#define     gtk_signal_handler_unblock(object,handler_id)</pre>
+<a class="indexterm" name="id2739722"></a><pre class="programlisting">#define     gtk_signal_handler_unblock(object,handler_id)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_unblock</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handler-unblock"><code class="function">g_signal_handler_unblock()</code></GTKDOCLINK> instead.</p>
@@ -1579,9 +1579,9 @@ hook twice, you must unblock it twice.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2739976"></a><h3>
+<a name="id2739810"></a><h3>
 <a name="gtk-signal-handler-unblock-by-func"></a>gtk_signal_handler_unblock_by_func()</h3>
-<a class="indexterm" name="id2739994"></a><pre class="programlisting">#define     gtk_signal_handler_unblock_by_func(object,func,data)</pre>
+<a class="indexterm" name="id2739828"></a><pre class="programlisting">#define     gtk_signal_handler_unblock_by_func(object,func,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_unblock_by_func</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-unblock-by-func"><code class="function">g_signal_handlers_unblock_by_func()</code></GTKDOCLINK> instead.</p>
@@ -1618,9 +1618,9 @@ hook twice, you must unblock it twice.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2740085"></a><h3>
+<a name="id2739919"></a><h3>
 <a name="gtk-signal-handler-unblock-by-data"></a>gtk_signal_handler_unblock_by_data()</h3>
-<a class="indexterm" name="id2740103"></a><pre class="programlisting">#define     gtk_signal_handler_unblock_by_data(object,data)</pre>
+<a class="indexterm" name="id2739937"></a><pre class="programlisting">#define     gtk_signal_handler_unblock_by_data(object,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_unblock_by_data</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-handlers-unblock-matched"><code class="function">g_signal_handlers_unblock_matched()</code></GTKDOCLINK> instead.</p>
@@ -1649,9 +1649,9 @@ with a particular user-data pointer
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2740179"></a><h3>
+<a name="id2740013"></a><h3>
 <a name="gtk-signal-handler-pending"></a>gtk_signal_handler_pending()</h3>
-<a class="indexterm" name="id2740196"></a><pre class="programlisting">#define     gtk_signal_handler_pending(object,signal_id,may_be_blocked)</pre>
+<a class="indexterm" name="id2740030"></a><pre class="programlisting">#define     gtk_signal_handler_pending(object,signal_id,may_be_blocked)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_pending</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-signal-has-handler-pending"><code class="function">g_signal_has_handler_pending()</code></GTKDOCLINK> instead.</p>
@@ -1698,9 +1698,9 @@ handler.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2740305"></a><h3>
+<a name="id2740139"></a><h3>
 <a name="gtk-signal-handler-pending-by-func"></a>gtk_signal_handler_pending_by_func()</h3>
-<a class="indexterm" name="id2740321"></a><pre class="programlisting">#define     gtk_signal_handler_pending_by_func(object,signal_id,may_be_blocked,func,data)</pre>
+<a class="indexterm" name="id2740156"></a><pre class="programlisting">#define     gtk_signal_handler_pending_by_func(object,signal_id,may_be_blocked,func,data)</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">gtk_signal_handler_pending_by_func</code> is deprecated and should not be used in newly-written code.</p>
@@ -1756,9 +1756,9 @@ handler.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2740439"></a><h3>
+<a name="id2740273"></a><h3>
 <a name="gtk-signal-default-marshaller"></a>gtk_signal_default_marshaller</h3>
-<a class="indexterm" name="id2740455"></a><pre class="programlisting">#define	gtk_signal_default_marshaller	g_cclosure_marshal_VOID__VOID
+<a class="indexterm" name="id2740289"></a><pre class="programlisting">#define	gtk_signal_default_marshaller	g_cclosure_marshal_VOID__VOID
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1770,7 +1770,7 @@ A marshaller that returns void and takes no extra parameters.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2740487"></a><h2>See Also</h2>
+<a name="id2740321"></a><h2>See Also</h2>
 <p>
 </p>
 <div class="variablelist"><table border="0">

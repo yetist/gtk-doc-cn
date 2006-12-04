@@ -298,7 +298,7 @@ Models are accessed on a node/column level of granularity.  One can
 query for the value of a model at a certain node and a certain column
 on that node.  There are two structures used to reference a particular
 node in a model.  They are the <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> and the <a href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>
-<sup>[<a name="id3023059" href="#ftn.id3023059">4</a>]</sup>
+<sup>[<a name="id3022896" href="#ftn.id3022896">4</a>]</sup>
 Most of the interface consists of operations on a <a href="GtkTreeModel.html#GtkTreeIter"><span class="type">GtkTreeIter</span></a>.
 </p>
 <p>
@@ -352,7 +352,7 @@ the second is much more common, as you often get paths from callbacks.
 <p>
 </p>
 <div class="example">
-<a name="id3023229"></a><p class="title"><b>Example&#160;14.&#160;Acquiring a <span class="structname">GtkTreeIter</span></b></p>
+<a name="id3023066"></a><p class="title"><b>Example&#160;14.&#160;Acquiring a <span class="structname">GtkTreeIter</span></b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Three ways of getting the iter pointing to the location
  */
@@ -389,7 +389,7 @@ it is specific to the <a href="GtkListStore.html" title="GtkListStore"><span cla
 such a function, see the <a href="GtkListStore.html" title="GtkListStore"><span class="type">GtkListStore</span></a> documentation.
 </p>
 <div class="example">
-<a name="id3023294"></a><p class="title"><b>Example&#160;15.&#160;Reading data from a <span class="structname">GtkTreeModel</span></b></p>
+<a name="id3023130"></a><p class="title"><b>Example&#160;15.&#160;Reading data from a <span class="structname">GtkTreeModel</span></b></p>
 <div class="example-contents"><pre class="programlisting">
 enum
 {
@@ -443,18 +443,18 @@ enum
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3023353"></a><h3>
+<a name="id3023189"></a><h3>
 <a name="GtkTreeModel-struct"></a>GtkTreeModel</h3>
-<a class="indexterm" name="id3023365"></a><pre class="programlisting">typedef struct _GtkTreeModel GtkTreeModel;</pre>
+<a class="indexterm" name="id3023202"></a><pre class="programlisting">typedef struct _GtkTreeModel GtkTreeModel;</pre>
 <p>
 
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023380"></a><h3>
+<a name="id3023217"></a><h3>
 <a name="GtkTreeIter"></a>GtkTreeIter</h3>
-<a class="indexterm" name="id3023393"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id3023230"></a><pre class="programlisting">typedef struct {
   gint stamp;
   gpointer user_data;
   gpointer user_data2;
@@ -500,27 +500,27 @@ data in the three <em class="structfield"><code>user_data</code></em> members.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023510"></a><h3>
+<a name="id3023347"></a><h3>
 <a name="GtkTreePath"></a>GtkTreePath</h3>
-<a class="indexterm" name="id3023522"></a><pre class="programlisting">typedef struct _GtkTreePath GtkTreePath;</pre>
+<a class="indexterm" name="id3023359"></a><pre class="programlisting">typedef struct _GtkTreePath GtkTreePath;</pre>
 <p>
 
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023537"></a><h3>
+<a name="id3023374"></a><h3>
 <a name="GtkTreeRowReference"></a>GtkTreeRowReference</h3>
-<a class="indexterm" name="id3023550"></a><pre class="programlisting">typedef struct _GtkTreeRowReference GtkTreeRowReference;</pre>
+<a class="indexterm" name="id3023386"></a><pre class="programlisting">typedef struct _GtkTreeRowReference GtkTreeRowReference;</pre>
 <p>
 
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023565"></a><h3>
+<a name="id3023402"></a><h3>
 <a name="GtkTreeModelIface"></a>GtkTreeModelIface</h3>
-<a class="indexterm" name="id3023578"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id3023415"></a><pre class="programlisting">typedef struct {
   GTypeInterface g_iface;
 
   /* Signals */
@@ -583,9 +583,9 @@ data in the three <em class="structfield"><code>user_data</code></em> members.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023664"></a><h3>
+<a name="id3023501"></a><h3>
 <a name="GtkTreeModelForeachFunc"></a>GtkTreeModelForeachFunc ()</h3>
-<a class="indexterm" name="id3023677"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GtkTreeModelForeachFunc)      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
+<a class="indexterm" name="id3023514"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GtkTreeModelForeachFunc)      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
@@ -632,9 +632,9 @@ data in the three <em class="structfield"><code>user_data</code></em> members.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023798"></a><h3>
+<a name="id3023634"></a><h3>
 <a name="GtkTreeModelFlags"></a>enum GtkTreeModelFlags</h3>
-<a class="indexterm" name="id3023810"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id3023647"></a><pre class="programlisting">typedef enum
 {
   GTK_TREE_MODEL_ITERS_PERSIST = 1 &lt;&lt; 0,
   GTK_TREE_MODEL_LIST_ONLY = 1 &lt;&lt; 1
@@ -668,9 +668,9 @@ section.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023896"></a><h3>
+<a name="id3023733"></a><h3>
 <a name="gtk-tree-path-new"></a>gtk_tree_path_new ()</h3>
-<a class="indexterm" name="id3023909"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new              (void);</pre>
+<a class="indexterm" name="id3023746"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new              (void);</pre>
 <p>
 Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>.  This structure refers to a row.</p>
 <p>
@@ -688,9 +688,9 @@ Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTree
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3023965"></a><h3>
+<a name="id3023802"></a><h3>
 <a name="gtk-tree-path-new-from-string"></a>gtk_tree_path_new_from_string ()</h3>
-<a class="indexterm" name="id3023978"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_from_string  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
+<a class="indexterm" name="id3023815"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_from_string  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
 <p>
 Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> initialized to <em class="parameter"><code>path</code></em>.  <em class="parameter"><code>path</code></em> is expected to be a
 colon separated list of numbers.  For example, the string "10:4:0" would
@@ -720,9 +720,9 @@ path string is passed in, <code class="literal">NULL</code> is returned.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024084"></a><h3>
+<a name="id3023921"></a><h3>
 <a name="gtk-tree-path-new-from-indices"></a>gtk_tree_path_new_from_indices ()</h3>
-<a class="indexterm" name="id3024099"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_from_indices (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> first_index,
+<a class="indexterm" name="id3023936"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_from_indices (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> first_index,
                                              ...);</pre>
 <p>
 Creates a new path with <em class="parameter"><code>first_index</code></em> and <em class="parameter"><code>varargs</code></em> as indices.</p>
@@ -758,9 +758,9 @@ Creates a new path with <em class="parameter"><code>first_index</code></em> and 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024192"></a><h3>
+<a name="id3024028"></a><h3>
 <a name="gtk-tree-path-to-string"></a>gtk_tree_path_to_string ()</h3>
-<a class="indexterm" name="id3024205"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_tree_path_to_string         (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024042"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_tree_path_to_string         (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Generates a string representation of the path.  This string is a ':'
 separated list of numbers.  For example, "4:10:0:3" would be an acceptable return value for this string.</p>
@@ -787,9 +787,9 @@ separated list of numbers.  For example, "4:10:0:3" would be an acceptable retur
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024286"></a><h3>
+<a name="id3024123"></a><h3>
 <a name="gtk-tree-path-new-first"></a>gtk_tree_path_new_first ()</h3>
-<a class="indexterm" name="id3024299"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_first        (void);</pre>
+<a class="indexterm" name="id3024136"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_new_first        (void);</pre>
 <p>
 Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a>.  The string representation of this path is "0"</p>
 <p>
@@ -807,9 +807,9 @@ Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTree
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024355"></a><h3>
+<a name="id3024192"></a><h3>
 <a name="gtk-tree-path-new-root"></a>gtk_tree_path_new_root()</h3>
-<a class="indexterm" name="id3024371"></a><pre class="programlisting">#define gtk_tree_path_new_root() gtk_tree_path_new_first()
+<a class="indexterm" name="id3024208"></a><pre class="programlisting">#define gtk_tree_path_new_root() gtk_tree_path_new_first()
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -831,9 +831,9 @@ compatibility reasons.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024445"></a><h3>
+<a name="id3024282"></a><h3>
 <a name="gtk-tree-path-append-index"></a>gtk_tree_path_append_index ()</h3>
-<a class="indexterm" name="id3024459"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_append_index      (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
+<a class="indexterm" name="id3024296"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_append_index      (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> index_);</pre>
 <p>
 Appends a new index to a path.  As a result, the depth of the path is
@@ -861,9 +861,9 @@ increased.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024538"></a><h3>
+<a name="id3024375"></a><h3>
 <a name="gtk-tree-path-prepend-index"></a>gtk_tree_path_prepend_index ()</h3>
-<a class="indexterm" name="id3024552"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_prepend_index     (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
+<a class="indexterm" name="id3024389"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_prepend_index     (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> index_);</pre>
 <p>
 Prepends a new index to a path.  As a result, the depth of the path is
@@ -891,9 +891,9 @@ increased.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024632"></a><h3>
+<a name="id3024469"></a><h3>
 <a name="gtk-tree-path-get-depth"></a>gtk_tree_path_get_depth ()</h3>
-<a class="indexterm" name="id3024644"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_path_get_depth         (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024481"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_path_get_depth         (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Returns the current depth of <em class="parameter"><code>path</code></em>.</p>
 <p>
@@ -919,9 +919,9 @@ Returns the current depth of <em class="parameter"><code>path</code></em>.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024724"></a><h3>
+<a name="id3024561"></a><h3>
 <a name="gtk-tree-path-get-indices"></a>gtk_tree_path_get_indices ()</h3>
-<a class="indexterm" name="id3024738"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>*       gtk_tree_path_get_indices       (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024574"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>*       gtk_tree_path_get_indices       (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Returns the current indices of <em class="parameter"><code>path</code></em>.  This is an array of integers, each
 representing a node in a tree.  This value should not be freed.</p>
@@ -948,9 +948,9 @@ representing a node in a tree.  This value should not be freed.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024819"></a><h3>
+<a name="id3024656"></a><h3>
 <a name="gtk-tree-path-free"></a>gtk_tree_path_free ()</h3>
-<a class="indexterm" name="id3024832"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_free              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024668"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_free              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Frees <em class="parameter"><code>path</code></em>.</p>
 <p>
@@ -968,9 +968,9 @@ Frees <em class="parameter"><code>path</code></em>.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024894"></a><h3>
+<a name="id3024731"></a><h3>
 <a name="gtk-tree-path-copy"></a>gtk_tree_path_copy ()</h3>
-<a class="indexterm" name="id3024907"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_copy             (const <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024744"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_path_copy             (const <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> as a copy of <em class="parameter"><code>path</code></em>.</p>
 <p>
@@ -996,9 +996,9 @@ Creates a new <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTree
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3024996"></a><h3>
+<a name="id3024833"></a><h3>
 <a name="gtk-tree-path-compare"></a>gtk_tree_path_compare ()</h3>
-<a class="indexterm" name="id3025008"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_path_compare           (const <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *a,
+<a class="indexterm" name="id3024845"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_path_compare           (const <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *a,
                                              const <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *b);</pre>
 <p>
 Compares two paths.  If <em class="parameter"><code>a</code></em> appears before <em class="parameter"><code>b</code></em> in a tree, then -1 is returned.
@@ -1033,9 +1033,9 @@ then 0 is returned.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025142"></a><h3>
+<a name="id3024978"></a><h3>
 <a name="gtk-tree-path-next"></a>gtk_tree_path_next ()</h3>
-<a class="indexterm" name="id3025154"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_next              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3024991"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_next              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Moves the <em class="parameter"><code>path</code></em> to point to the next node at the current depth.</p>
 <p>
@@ -1053,9 +1053,9 @@ Moves the <em class="parameter"><code>path</code></em> to point to the next node
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025218"></a><h3>
+<a name="id3025055"></a><h3>
 <a name="gtk-tree-path-prev"></a>gtk_tree_path_prev ()</h3>
-<a class="indexterm" name="id3025231"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_prev              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3025068"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_prev              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Moves the <em class="parameter"><code>path</code></em> to point to the previous node at the current depth, if it exists.</p>
 <p>
@@ -1081,9 +1081,9 @@ Moves the <em class="parameter"><code>path</code></em> to point to the previous 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025317"></a><h3>
+<a name="id3025154"></a><h3>
 <a name="gtk-tree-path-up"></a>gtk_tree_path_up ()</h3>
-<a class="indexterm" name="id3025330"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_up                (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3025167"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_up                (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Moves the <em class="parameter"><code>path</code></em> to point to its parent node, if it has a parent.</p>
 <p>
@@ -1109,9 +1109,9 @@ Moves the <em class="parameter"><code>path</code></em> to point to its parent no
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025416"></a><h3>
+<a name="id3025253"></a><h3>
 <a name="gtk-tree-path-down"></a>gtk_tree_path_down ()</h3>
-<a class="indexterm" name="id3025429"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_down              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
+<a class="indexterm" name="id3025266"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_path_down              (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Moves <em class="parameter"><code>path</code></em> to point to the first child of the current path.</p>
 <p>
@@ -1129,9 +1129,9 @@ Moves <em class="parameter"><code>path</code></em> to point to the first child o
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025493"></a><h3>
+<a name="id3025330"></a><h3>
 <a name="gtk-tree-path-is-ancestor"></a>gtk_tree_path_is_ancestor ()</h3>
-<a class="indexterm" name="id3025507"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_is_ancestor       (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
+<a class="indexterm" name="id3025344"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_is_ancestor       (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *descendant);</pre>
 <p>
 Returns <code class="literal">TRUE</code> if <em class="parameter"><code>descendant</code></em> is a descendant of <em class="parameter"><code>path</code></em>.</p>
@@ -1164,9 +1164,9 @@ Returns <code class="literal">TRUE</code> if <em class="parameter"><code>descend
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025639"></a><h3>
+<a name="id3025476"></a><h3>
 <a name="gtk-tree-path-is-descendant"></a>gtk_tree_path_is_descendant ()</h3>
-<a class="indexterm" name="id3025652"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_is_descendant     (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
+<a class="indexterm" name="id3025489"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_path_is_descendant     (<a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *ancestor);</pre>
 <p>
 Returns <code class="literal">TRUE</code> if <em class="parameter"><code>path</code></em> is a descendant of <em class="parameter"><code>ancestor</code></em>.</p>
@@ -1199,9 +1199,9 @@ Returns <code class="literal">TRUE</code> if <em class="parameter"><code>path</c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025785"></a><h3>
+<a name="id3025622"></a><h3>
 <a name="gtk-tree-row-reference-new"></a>gtk_tree_row_reference_new ()</h3>
-<a class="indexterm" name="id3025799"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_new
+<a class="indexterm" name="id3025636"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_new
                                             (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
@@ -1238,9 +1238,9 @@ isn't a valid path in <em class="parameter"><code>model</code></em>, then <code 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3025951"></a><h3>
+<a name="id3025788"></a><h3>
 <a name="gtk-tree-row-reference-new-proxy"></a>gtk_tree_row_reference_new_proxy ()</h3>
-<a class="indexterm" name="id3025964"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_new_proxy
+<a class="indexterm" name="id3025801"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_new_proxy
                                             (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
                                              <a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
@@ -1302,9 +1302,9 @@ generally needed by most applications.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026224"></a><h3>
+<a name="id3026061"></a><h3>
 <a name="gtk-tree-row-reference-get-model"></a>gtk_tree_row_reference_get_model ()</h3>
-<a class="indexterm" name="id3026239"></a><pre class="programlisting"><a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a>* gtk_tree_row_reference_get_model
+<a class="indexterm" name="id3026076"></a><pre class="programlisting"><a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a>* gtk_tree_row_reference_get_model
                                             (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
 <p>
 Returns the model which <em class="parameter"><code>reference</code></em> is monitoring in order to appropriately
@@ -1335,9 +1335,9 @@ the path.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026326"></a><h3>
+<a name="id3026163"></a><h3>
 <a name="gtk-tree-row-reference-get-path"></a>gtk_tree_row_reference_get_path ()</h3>
-<a class="indexterm" name="id3026339"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_row_reference_get_path
+<a class="indexterm" name="id3026176"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_row_reference_get_path
                                             (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
 <p>
 Returns a path that the row reference currently points to, or <code class="literal">NULL</code> if the
@@ -1365,9 +1365,9 @@ path pointed to is no longer valid.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026422"></a><h3>
+<a name="id3026259"></a><h3>
 <a name="gtk-tree-row-reference-valid"></a>gtk_tree_row_reference_valid ()</h3>
-<a class="indexterm" name="id3026436"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_row_reference_valid    (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
+<a class="indexterm" name="id3026273"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_row_reference_valid    (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
 <p>
 Returns TRUE if the <code class="literal">reference</code> is non-NULL and refers to a current valid
 path.</p>
@@ -1394,9 +1394,9 @@ path.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026518"></a><h3>
+<a name="id3026355"></a><h3>
 <a name="gtk-tree-row-reference-free"></a>gtk_tree_row_reference_free ()</h3>
-<a class="indexterm" name="id3026532"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_free     (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
+<a class="indexterm" name="id3026369"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_free     (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
 <p>
 Free's <code class="literal">reference</code>.  <code class="literal">reference</code> may be NULL.</p>
 <p>
@@ -1414,9 +1414,9 @@ Free's <code class="literal">reference</code>.  <code class="literal">reference<
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026602"></a><h3>
+<a name="id3026439"></a><h3>
 <a name="gtk-tree-row-reference-copy"></a>gtk_tree_row_reference_copy ()</h3>
-<a class="indexterm" name="id3026618"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_copy
+<a class="indexterm" name="id3026455"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a>* gtk_tree_row_reference_copy
                                             (<a href="GtkTreeModel.html#GtkTreeRowReference">GtkTreeRowReference</a> *reference);</pre>
 <p>
 Copies a <a href="GtkTreeModel.html#GtkTreeRowReference"><span class="type">GtkTreeRowReference</span></a>.</p>
@@ -1446,9 +1446,9 @@ Copies a <a href="GtkTreeModel.html#GtkTreeRowReference"><span class="type">GtkT
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026705"></a><h3>
+<a name="id3026542"></a><h3>
 <a name="gtk-tree-row-reference-inserted"></a>gtk_tree_row_reference_inserted ()</h3>
-<a class="indexterm" name="id3026719"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_inserted (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
+<a class="indexterm" name="id3026556"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_inserted (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Lets a set of row reference created by <a href="GtkTreeModel.html#gtk-tree-row-reference-new-proxy"><code class="function">gtk_tree_row_reference_new_proxy()</code></a>
@@ -1476,9 +1476,9 @@ know that the model emitted the "row_inserted" signal.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026811"></a><h3>
+<a name="id3026648"></a><h3>
 <a name="gtk-tree-row-reference-deleted"></a>gtk_tree_row_reference_deleted ()</h3>
-<a class="indexterm" name="id3026824"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_deleted  (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
+<a class="indexterm" name="id3026661"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_deleted  (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Lets a set of row reference created by <a href="GtkTreeModel.html#gtk-tree-row-reference-new-proxy"><code class="function">gtk_tree_row_reference_new_proxy()</code></a>
@@ -1506,9 +1506,9 @@ know that the model emitted the "row_deleted" signal.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3026916"></a><h3>
+<a name="id3026753"></a><h3>
 <a name="gtk-tree-row-reference-reordered"></a>gtk_tree_row_reference_reordered ()</h3>
-<a class="indexterm" name="id3026930"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_reordered
+<a class="indexterm" name="id3026767"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_row_reference_reordered
                                             (<GTKDOCLINK HREF="GObject">GObject</GTKDOCLINK> *proxy,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
@@ -1551,9 +1551,9 @@ know that the model emitted the "rows_reordered" signal.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027067"></a><h3>
+<a name="id3026904"></a><h3>
 <a name="gtk-tree-iter-copy"></a>gtk_tree_iter_copy ()</h3>
-<a class="indexterm" name="id3027081"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a>* gtk_tree_iter_copy             (<a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
+<a class="indexterm" name="id3026918"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a>* gtk_tree_iter_copy             (<a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Creates a dynamically allocated tree iterator as a copy of <em class="parameter"><code>iter</code></em>.  This
 function is not intended for use in applications, because you can just copy
@@ -1582,9 +1582,9 @@ must free this iter with <a href="GtkTreeModel.html#gtk-tree-iter-free"><code cl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027179"></a><h3>
+<a name="id3027016"></a><h3>
 <a name="gtk-tree-iter-free"></a>gtk_tree_iter_free ()</h3>
-<a class="indexterm" name="id3027192"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_iter_free              (<a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
+<a class="indexterm" name="id3027029"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_iter_free              (<a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Frees an iterator that has been allocated on the heap.  This function is
 mainly used for language bindings.</p>
@@ -1603,9 +1603,9 @@ mainly used for language bindings.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027244"></a><h3>
+<a name="id3027081"></a><h3>
 <a name="gtk-tree-model-get-flags"></a>gtk_tree_model_get_flags ()</h3>
-<a class="indexterm" name="id3027257"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeModelFlags">GtkTreeModelFlags</a> gtk_tree_model_get_flags  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model);</pre>
+<a class="indexterm" name="id3027094"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreeModelFlags">GtkTreeModelFlags</a> gtk_tree_model_get_flags  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model);</pre>
 <p>
 Returns a set of flags supported by this interface.  The flags are a bitwise
 combination of <a href="GtkTreeModel.html#GtkTreeModelFlags"><span class="type">GtkTreeModelFlags</span></a>.  The flags supported should not change
@@ -1633,9 +1633,9 @@ during the lifecycle of the tree_model.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027337"></a><h3>
+<a name="id3027174"></a><h3>
 <a name="gtk-tree-model-get-n-columns"></a>gtk_tree_model_get_n_columns ()</h3>
-<a class="indexterm" name="id3027350"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_model_get_n_columns    (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model);</pre>
+<a class="indexterm" name="id3027187"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_model_get_n_columns    (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model);</pre>
 <p>
 Returns the number of columns supported by <em class="parameter"><code>tree_model</code></em>.</p>
 <p>
@@ -1661,9 +1661,9 @@ Returns the number of columns supported by <em class="parameter"><code>tree_mode
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027426"></a><h3>
+<a name="id3027262"></a><h3>
 <a name="gtk-tree-model-get-column-type"></a>gtk_tree_model_get_column_type ()</h3>
-<a class="indexterm" name="id3027439"></a><pre class="programlisting"><GTKDOCLINK HREF="GType">GType</GTKDOCLINK>       gtk_tree_model_get_column_type  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3027276"></a><pre class="programlisting"><GTKDOCLINK HREF="GType">GType</GTKDOCLINK>       gtk_tree_model_get_column_type  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> index_);</pre>
 <p>
 Returns the type of the column.</p>
@@ -1696,9 +1696,9 @@ Returns the type of the column.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027530"></a><h3>
+<a name="id3027367"></a><h3>
 <a name="gtk-tree-model-get-iter"></a>gtk_tree_model_get_iter ()</h3>
-<a class="indexterm" name="id3027543"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter         (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3027380"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter         (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
@@ -1738,9 +1738,9 @@ Sets <em class="parameter"><code>iter</code></em> to a valid iterator pointing t
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027694"></a><h3>
+<a name="id3027531"></a><h3>
 <a name="gtk-tree-model-get-iter-from-string"></a>gtk_tree_model_get_iter_from_string ()</h3>
-<a class="indexterm" name="id3027709"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter_from_string
+<a class="indexterm" name="id3027546"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter_from_string
                                             (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path_string);</pre>
@@ -1782,9 +1782,9 @@ exists. Otherwise, <em class="parameter"><code>iter</code></em> is left invalid 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3027873"></a><h3>
+<a name="id3027710"></a><h3>
 <a name="gtk-tree-model-get-iter-first"></a>gtk_tree_model_get_iter_first ()</h3>
-<a class="indexterm" name="id3027887"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter_first   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3027724"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_get_iter_first   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Initializes <em class="parameter"><code>iter</code></em> with the first iterator in the tree (the one at the path
@@ -1818,9 +1818,9 @@ Initializes <em class="parameter"><code>iter</code></em> with the first iterator
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028016"></a><h3>
+<a name="id3027853"></a><h3>
 <a name="gtk-tree-model-get-iter-root"></a>gtk_tree_model_get_iter_root()</h3>
-<a class="indexterm" name="id3028032"></a><pre class="programlisting">#define gtk_tree_model_get_iter_root(tree_model, iter) gtk_tree_model_get_iter_first(tree_model, iter)
+<a class="indexterm" name="id3027869"></a><pre class="programlisting">#define gtk_tree_model_get_iter_root(tree_model, iter) gtk_tree_model_get_iter_first(tree_model, iter)
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1859,9 +1859,9 @@ versions of GTK+.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028145"></a><h3>
+<a name="id3027982"></a><h3>
 <a name="gtk-tree-model-get-path"></a>gtk_tree_model_get_path ()</h3>
-<a class="indexterm" name="id3028158"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_model_get_path        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3027995"></a><pre class="programlisting"><a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>* gtk_tree_model_get_path        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Returns a newly-created <a href="GtkTreeModel.html#GtkTreePath"><span class="type">GtkTreePath</span></a> referenced by <em class="parameter"><code>iter</code></em>.  This path should
@@ -1895,9 +1895,9 @@ be freed with <a href="GtkTreeModel.html#gtk-tree-path-free"><code class="functi
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028288"></a><h3>
+<a name="id3028125"></a><h3>
 <a name="gtk-tree-model-get-value"></a>gtk_tree_model_get_value ()</h3>
-<a class="indexterm" name="id3028302"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get_value        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028139"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get_value        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> column,
                                              <GTKDOCLINK HREF="GValue">GValue</GTKDOCLINK> *value);</pre>
@@ -1939,9 +1939,9 @@ Sets initializes and sets <em class="parameter"><code>value</code></em> to that 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028471"></a><h3>
+<a name="id3028308"></a><h3>
 <a name="gtk-tree-model-iter-next"></a>gtk_tree_model_iter_next ()</h3>
-<a class="indexterm" name="id3028484"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_next        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028321"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_next        (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Sets <em class="parameter"><code>iter</code></em> to point to the node following it at the current level.  If there
@@ -1975,9 +1975,9 @@ is no next <em class="parameter"><code>iter</code></em>, <code class="literal">F
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028619"></a><h3>
+<a name="id3028456"></a><h3>
 <a name="gtk-tree-model-iter-children"></a>gtk_tree_model_iter_children ()</h3>
-<a class="indexterm" name="id3028633"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_children    (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028470"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_children    (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *parent);</pre>
 <p>
@@ -2023,9 +2023,9 @@ If <em class="parameter"><code>parent</code></em> is <code class="literal">NULL<
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028838"></a><h3>
+<a name="id3028674"></a><h3>
 <a name="gtk-tree-model-iter-has-child"></a>gtk_tree_model_iter_has_child ()</h3>
-<a class="indexterm" name="id3028851"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_has_child   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028688"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_has_child   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Returns <code class="literal">TRUE</code> if <em class="parameter"><code>iter</code></em> has children, <code class="literal">FALSE</code> otherwise.</p>
@@ -2058,9 +2058,9 @@ Returns <code class="literal">TRUE</code> if <em class="parameter"><code>iter</c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3028980"></a><h3>
+<a name="id3028816"></a><h3>
 <a name="gtk-tree-model-iter-n-children"></a>gtk_tree_model_iter_n_children ()</h3>
-<a class="indexterm" name="id3028993"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_model_iter_n_children  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028830"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gtk_tree_model_iter_n_children  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Returns the number of children that <em class="parameter"><code>iter</code></em> has.  As a special case, if <em class="parameter"><code>iter</code></em>
@@ -2094,9 +2094,9 @@ is <code class="literal">NULL</code>, then the number of toplevel nodes is retur
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029122"></a><h3>
+<a name="id3028959"></a><h3>
 <a name="gtk-tree-model-iter-nth-child"></a>gtk_tree_model_iter_nth_child ()</h3>
-<a class="indexterm" name="id3029136"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_nth_child   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3028973"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_nth_child   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *parent,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> n);</pre>
@@ -2147,9 +2147,9 @@ node after this function has been called.  As a special case, if <em class="para
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029374"></a><h3>
+<a name="id3029211"></a><h3>
 <a name="gtk-tree-model-iter-parent"></a>gtk_tree_model_iter_parent ()</h3>
-<a class="indexterm" name="id3029388"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_parent      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3029225"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_tree_model_iter_parent      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *child);</pre>
 <p>
@@ -2192,9 +2192,9 @@ called.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029571"></a><h3>
+<a name="id3029408"></a><h3>
 <a name="gtk-tree-model-get-string-from-iter"></a>gtk_tree_model_get_string_from_iter ()</h3>
-<a class="indexterm" name="id3029588"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_tree_model_get_string_from_iter
+<a class="indexterm" name="id3029424"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_tree_model_get_string_from_iter
                                             (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
@@ -2233,9 +2233,9 @@ acceptable return value for this string.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029703"></a><h3>
+<a name="id3029540"></a><h3>
 <a name="gtk-tree-model-ref-node"></a>gtk_tree_model_ref_node ()</h3>
-<a class="indexterm" name="id3029717"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_ref_node         (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3029554"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_ref_node         (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Lets the tree ref the node.  This is an optional method for models to
@@ -2275,9 +2275,9 @@ reffed state.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029820"></a><h3>
+<a name="id3029657"></a><h3>
 <a name="gtk-tree-model-unref-node"></a>gtk_tree_model_unref_node ()</h3>
-<a class="indexterm" name="id3029834"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_unref_node       (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3029671"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_unref_node       (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
 Lets the tree unref the node.  This is an optional method for models to
@@ -2310,9 +2310,9 @@ Please note that nodes that are deleted are not unreffed.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3029940"></a><h3>
+<a name="id3029777"></a><h3>
 <a name="gtk-tree-model-get"></a>gtk_tree_model_get ()</h3>
-<a class="indexterm" name="id3029953"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get              (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3029790"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get              (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              ...);</pre>
 <p>
@@ -2354,9 +2354,9 @@ If appropriate, the returned values have to be freed or unreferenced.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030088"></a><h3>
+<a name="id3029925"></a><h3>
 <a name="gtk-tree-model-get-valist"></a>gtk_tree_model_get_valist ()</h3>
-<a class="indexterm" name="id3030102"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get_valist       (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3029939"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_get_valist       (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> var_args);</pre>
 <p>
@@ -2391,9 +2391,9 @@ for language bindings to use.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030227"></a><h3>
+<a name="id3030064"></a><h3>
 <a name="gtk-tree-model-foreach"></a>gtk_tree_model_foreach ()</h3>
-<a class="indexterm" name="id3030240"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_foreach          (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
+<a class="indexterm" name="id3030077"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_foreach          (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *model,
                                              <a href="GtkTreeModel.html#GtkTreeModelForeachFunc">GtkTreeModelForeachFunc</a> func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
 <p>
@@ -2428,9 +2428,9 @@ Calls func on each node in model in a depth-first fashion.  If func returns
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030362"></a><h3>
+<a name="id3030198"></a><h3>
 <a name="gtk-tree-model-row-changed"></a>gtk_tree_model_row_changed ()</h3>
-<a class="indexterm" name="id3030376"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_changed      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3030212"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_changed      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
@@ -2464,9 +2464,9 @@ Emits the "row_changed" signal on <em class="parameter"><code>tree_model</code><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030499"></a><h3>
+<a name="id3030336"></a><h3>
 <a name="gtk-tree-model-row-inserted"></a>gtk_tree_model_row_inserted ()</h3>
-<a class="indexterm" name="id3030512"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_inserted     (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3030349"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_inserted     (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
 <p>
@@ -2500,9 +2500,9 @@ Emits the "row_inserted" signal on <em class="parameter"><code>tree_model</code>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030634"></a><h3>
+<a name="id3030471"></a><h3>
 <a name="gtk-tree-model-row-has-child-toggled"></a>gtk_tree_model_row_has_child_toggled ()</h3>
-<a class="indexterm" name="id3030648"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_has_child_toggled
+<a class="indexterm" name="id3030485"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_has_child_toggled
                                             (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter);</pre>
@@ -2538,9 +2538,9 @@ called by models after the child state of a node changes.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030774"></a><h3>
+<a name="id3030611"></a><h3>
 <a name="gtk-tree-model-row-deleted"></a>gtk_tree_model_row_deleted ()</h3>
-<a class="indexterm" name="id3030788"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_deleted      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3030624"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_row_deleted      (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path);</pre>
 <p>
 Emits the "row_deleted" signal on <em class="parameter"><code>tree_model</code></em>.  This should be called by
@@ -2570,9 +2570,9 @@ location anymore.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3030890"></a><h3>
+<a name="id3030727"></a><h3>
 <a name="gtk-tree-model-rows-reordered"></a>gtk_tree_model_rows_reordered ()</h3>
-<a class="indexterm" name="id3030904"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_rows_reordered   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
+<a class="indexterm" name="id3030740"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_tree_model_rows_reordered   (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *tree_model,
                                              <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a> *path,
                                              <a href="GtkTreeModel.html#GtkTreeIter">GtkTreeIter</a> *iter,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *new_order);</pre>
@@ -2618,7 +2618,7 @@ models when their rows have been reordered.</p>
 <div class="refsect1" lang="en">
 <a name="signals"></a><h2>Signal Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3031089"></a><h3>
+<a name="id3030926"></a><h3>
 <a name="GtkTreeModel-row-changed"></a>The "row-changed" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *treemodel,
                                             <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>  *arg1,
@@ -2659,7 +2659,7 @@ models when their rows have been reordered.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3031204"></a><h3>
+<a name="id3031041"></a><h3>
 <a name="GtkTreeModel-row-deleted"></a>The "row-deleted" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *treemodel,
                                             <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>  *arg1,
@@ -2693,7 +2693,7 @@ models when their rows have been reordered.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3031298"></a><h3>
+<a name="id3031135"></a><h3>
 <a name="GtkTreeModel-row-has-child-toggled"></a>The "row-has-child-toggled" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *treemodel,
                                             <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>  *arg1,
@@ -2734,7 +2734,7 @@ models when their rows have been reordered.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3031414"></a><h3>
+<a name="id3031251"></a><h3>
 <a name="GtkTreeModel-row-inserted"></a>The "row-inserted" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *treemodel,
                                             <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>  *arg1,
@@ -2775,7 +2775,7 @@ models when their rows have been reordered.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3031530"></a><h3>
+<a name="id3031367"></a><h3>
 <a name="GtkTreeModel-rows-reordered"></a>The "rows-reordered" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkTreeModel.html" title="GtkTreeModel">GtkTreeModel</a> *treemodel,
                                             <a href="GtkTreeModel.html#GtkTreePath">GtkTreePath</a>  *arg1,
@@ -2823,14 +2823,14 @@ models when their rows have been reordered.</p>
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3031669"></a><h2>See Also</h2>
+<a name="id3031506"></a><h2>See Also</h2>
 <p>
 <a href="GtkTreeView.html" title="GtkTreeView"><span class="type">GtkTreeView</span></a>, <a href="GtkTreeStore.html" title="GtkTreeStore"><span class="type">GtkTreeStore</span></a>, <a href="GtkListStore.html" title="GtkListStore"><span class="type">GtkListStore</span></a>, <a href="gtk-GtkTreeView-drag-and-drop.html" title="GtkTreeView drag-and-drop">GtkTreeDnd</a>, <a href="GtkTreeSortable.html" title="GtkTreeSortable"><span class="type">GtkTreeSortable</span></a>
 </p>
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id3023059" href="#id3023059">4</a>] </sup>
+<div class="footnote"><p><sup>[<a name="ftn.id3022896" href="#id3022896">4</a>] </sup>
 Here, <abbr class="abbrev">iter</abbr> is short for &#8220;<span class="quote">iterator</span>&#8221;
 </p></div>
 </div>

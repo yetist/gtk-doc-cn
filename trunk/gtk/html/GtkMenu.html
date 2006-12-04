@@ -211,7 +211,7 @@ Applications can display a <a href="GtkMenu.html" title="GtkMenu"><span class="t
 can pop up a menu when the 3rd mouse button is pressed.  
 </p>
 <div class="example">
-<a name="id3200619"></a><p class="title"><b>Example&#160;19.&#160;Connecting the popup signal handler.</b></p>
+<a name="id3200455"></a><p class="title"><b>Example&#160;19.&#160;Connecting the popup signal handler.</b></p>
 <div class="example-contents"><pre class="programlisting">
     /* connect our handler which will popup the menu */
     g_signal_connect_swapped (window, "button_press_event",
@@ -219,7 +219,7 @@ can pop up a menu when the 3rd mouse button is pressed.
 </pre></div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3200634"></a><p class="title"><b>Example&#160;20.&#160;Signal handler which displays a popup menu.</b></p>
+<a name="id3200471"></a><p class="title"><b>Example&#160;20.&#160;Signal handler which displays a popup menu.</b></p>
 <div class="example-contents"><pre class="programlisting">
 static gint
 my_popup_handler (GtkWidget *widget, GdkEvent *event)
@@ -256,9 +256,9 @@ my_popup_handler (GtkWidget *widget, GdkEvent *event)
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3200681"></a><h3>
+<a name="id3200518"></a><h3>
 <a name="GtkMenu-struct"></a>GtkMenu</h3>
-<a class="indexterm" name="id3200693"></a><pre class="programlisting">typedef struct _GtkMenu GtkMenu;</pre>
+<a class="indexterm" name="id3200529"></a><pre class="programlisting">typedef struct _GtkMenu GtkMenu;</pre>
 <p>
 The <a href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a> struct contains private data only, and
 should be accessed using the functions below.
@@ -266,9 +266,9 @@ should be accessed using the functions below.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3200717"></a><h3>
+<a name="id3200554"></a><h3>
 <a name="gtk-menu-new"></a>gtk_menu_new ()</h3>
-<a class="indexterm" name="id3200730"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_new                    (void);</pre>
+<a class="indexterm" name="id3200566"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_new                    (void);</pre>
 <p>
 Creates a new <a href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu</span></a>.
 </p>
@@ -286,9 +286,9 @@ Creates a new <a href="GtkMenu.html" title="GtkMenu"><span class="type">GtkMenu<
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3200782"></a><h3>
+<a name="id3200618"></a><h3>
 <a name="gtk-menu-set-screen"></a>gtk_menu_set_screen ()</h3>
-<a class="indexterm" name="id3200798"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_screen             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3200634"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_screen             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <GTKDOCLINK HREF="GdkScreen">GdkScreen</GTKDOCLINK> *screen);</pre>
 <p>
 Sets the <GTKDOCLINK HREF="GdkScreen"><span class="type">GdkScreen</span></GTKDOCLINK> on which the menu will be displayed.</p>
@@ -318,9 +318,9 @@ Sets the <GTKDOCLINK HREF="GdkScreen"><span class="type">GdkScreen</span></GTKDO
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3200904"></a><h3>
+<a name="id3200740"></a><h3>
 <a name="gtk-menu-append"></a>gtk_menu_append()</h3>
-<a class="indexterm" name="id3200918"></a><pre class="programlisting">#define gtk_menu_append(menu,child)	gtk_menu_shell_append  ((GtkMenuShell *)(menu),(child))
+<a class="indexterm" name="id3200755"></a><pre class="programlisting">#define gtk_menu_append(menu,child)	gtk_menu_shell_append  ((GtkMenuShell *)(menu),(child))
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -351,9 +351,9 @@ Adds a new <a href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">Gtk
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201004"></a><h3>
+<a name="id3200840"></a><h3>
 <a name="gtk-menu-prepend"></a>gtk_menu_prepend()</h3>
-<a class="indexterm" name="id3201019"></a><pre class="programlisting">#define gtk_menu_prepend(menu,child)    gtk_menu_shell_prepend ((GtkMenuShell *)(menu),(child))
+<a class="indexterm" name="id3200855"></a><pre class="programlisting">#define gtk_menu_prepend(menu,child)    gtk_menu_shell_prepend ((GtkMenuShell *)(menu),(child))
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -384,9 +384,9 @@ Adds a new <a href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">Gtk
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201104"></a><h3>
+<a name="id3200940"></a><h3>
 <a name="gtk-menu-insert"></a>gtk_menu_insert()</h3>
-<a class="indexterm" name="id3201119"></a><pre class="programlisting">#define gtk_menu_insert(menu,child,pos)	gtk_menu_shell_insert ((GtkMenuShell *)(menu),(child),(pos))
+<a class="indexterm" name="id3200955"></a><pre class="programlisting">#define gtk_menu_insert(menu,child,pos)	gtk_menu_shell_insert ((GtkMenuShell *)(menu),(child),(pos))
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -425,9 +425,9 @@ Positions are numbered from 0 to n-1.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201231"></a><h3>
+<a name="id3201067"></a><h3>
 <a name="gtk-menu-reorder-child"></a>gtk_menu_reorder_child ()</h3>
-<a class="indexterm" name="id3201244"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_reorder_child          (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3201080"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_reorder_child          (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> position);</pre>
 <p>
@@ -462,9 +462,9 @@ Moves a <a href="GtkMenuItem.html" title="GtkMenuItem"><span class="type">GtkMen
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201372"></a><h3>
+<a name="id3201208"></a><h3>
 <a name="gtk-menu-attach"></a>gtk_menu_attach ()</h3>
-<a class="indexterm" name="id3201387"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_attach                 (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3201223"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_attach                 (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *child,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> left_attach,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> right_attach,
@@ -528,9 +528,9 @@ Note that this function is not related to <a href="GtkMenu.html#gtk-menu-detach"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201616"></a><h3>
+<a name="id3201453"></a><h3>
 <a name="gtk-menu-popup"></a>gtk_menu_popup ()</h3>
-<a class="indexterm" name="id3201629"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_popup                  (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3201466"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_popup                  (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *parent_menu_shell,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *parent_menu_item,
                                              <a href="GtkMenu.html#GtkMenuPositionFunc">GtkMenuPositionFunc</a> func,
@@ -604,9 +604,9 @@ initiated the popup. If such an event is not available, use
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3201917"></a><h3>
+<a name="id3201754"></a><h3>
 <a name="gtk-menu-set-accel-group"></a>gtk_menu_set_accel_group ()</h3>
-<a class="indexterm" name="id3201930"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_accel_group        (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3201766"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_accel_group        (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <a href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a> *accel_group);</pre>
 <p>
 Set the <a href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> which holds global accelerators for the menu.
@@ -636,9 +636,9 @@ for those windows to support all the accelerators contained in this group.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202039"></a><h3>
+<a name="id3201875"></a><h3>
 <a name="gtk-menu-get-accel-group"></a>gtk_menu_get_accel_group ()</h3>
-<a class="indexterm" name="id3202051"></a><pre class="programlisting"><a href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>* gtk_menu_get_accel_group     (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3201888"></a><pre class="programlisting"><a href="gtk-Keyboard-Accelerators.html#GtkAccelGroup">GtkAccelGroup</a>* gtk_menu_get_accel_group     (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Gets the <a href="gtk-Keyboard-Accelerators.html#GtkAccelGroup"><span class="type">GtkAccelGroup</span></a> which holds global accelerators for the menu.
 See <a href="GtkMenu.html#gtk-menu-set-accel-group"><code class="function">gtk_menu_set_accel_group()</code></a>.
@@ -665,9 +665,9 @@ See <a href="GtkMenu.html#gtk-menu-set-accel-group"><code class="function">gtk_m
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202145"></a><h3>
+<a name="id3201981"></a><h3>
 <a name="gtk-menu-set-accel-path"></a>gtk_menu_set_accel_path ()</h3>
-<a class="indexterm" name="id3202158"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_accel_path         (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3201994"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_accel_path         (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *accel_path);</pre>
 <p>
 Sets an accelerator path for this menu from which accelerator paths
@@ -708,9 +708,9 @@ and their default setups can be found at <a href="gtk-Accelerator-Maps.html#gtk-
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202304"></a><h3>
+<a name="id3202140"></a><h3>
 <a name="gtk-menu-set-title"></a>gtk_menu_set_title ()</h3>
-<a class="indexterm" name="id3202318"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_title              (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3202154"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_title              (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *title);</pre>
 <p>
 Sets the title string for the menu.  The title is displayed when the menu
@@ -737,9 +737,9 @@ is shown as a tearoff menu.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202398"></a><h3>
+<a name="id3202234"></a><h3>
 <a name="gtk-menu-get-tearoff-state"></a>gtk_menu_get_tearoff_state ()</h3>
-<a class="indexterm" name="id3202412"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_menu_get_tearoff_state      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3202248"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_menu_get_tearoff_state      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Returns whether the menu is torn off. See
 <a href="GtkMenu.html#gtk-menu-set-tearoff-state"><code class="function">gtk_menu_set_tearoff_state()</code></a>.</p>
@@ -766,9 +766,9 @@ Returns whether the menu is torn off. See
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202497"></a><h3>
+<a name="id3202334"></a><h3>
 <a name="gtk-menu-get-title"></a>gtk_menu_get_title ()</h3>
-<a class="indexterm" name="id3202510"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* gtk_menu_get_title             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3202346"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* gtk_menu_get_title             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Returns the title of the menu. See <a href="GtkMenu.html#gtk-menu-set-title"><code class="function">gtk_menu_set_title()</code></a>.</p>
 <p>
@@ -796,9 +796,9 @@ not be modified or freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202598"></a><h3>
+<a name="id3202434"></a><h3>
 <a name="gtk-menu-popdown"></a>gtk_menu_popdown ()</h3>
-<a class="indexterm" name="id3202610"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_popdown                (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3202447"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_popdown                (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Removes the menu from the screen.
 </p>
@@ -816,9 +816,9 @@ Removes the menu from the screen.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202665"></a><h3>
+<a name="id3202501"></a><h3>
 <a name="gtk-menu-reposition"></a>gtk_menu_reposition ()</h3>
-<a class="indexterm" name="id3202678"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_reposition             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3202515"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_reposition             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Repositions the menu according to its position function.
 </p>
@@ -836,9 +836,9 @@ Repositions the menu according to its position function.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202733"></a><h3>
+<a name="id3202569"></a><h3>
 <a name="gtk-menu-get-active"></a>gtk_menu_get_active ()</h3>
-<a class="indexterm" name="id3202746"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_get_active             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3202582"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_get_active             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Returns the selected menu item from the menu.  This is used by the 
 <a href="GtkOptionMenu.html" title="GtkOptionMenu"><span class="type">GtkOptionMenu</span></a>.
@@ -866,9 +866,9 @@ selection has not yet been made, the first menu item is selected.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202829"></a><h3>
+<a name="id3202665"></a><h3>
 <a name="gtk-menu-set-active"></a>gtk_menu_set_active ()</h3>
-<a class="indexterm" name="id3202842"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_active             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3202678"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_active             (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> index_);</pre>
 <p>
 Selects the specified menu item within the menu.  This is used by the
@@ -897,9 +897,9 @@ Selects the specified menu item within the menu.  This is used by the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3202928"></a><h3>
+<a name="id3202764"></a><h3>
 <a name="gtk-menu-set-tearoff-state"></a>gtk_menu_set_tearoff_state ()</h3>
-<a class="indexterm" name="id3202942"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_tearoff_state      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3202778"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_tearoff_state      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> torn_off);</pre>
 <p>
 Changes the tearoff state of the menu.  A menu is normally displayed 
@@ -929,9 +929,9 @@ or reattached.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203027"></a><h3>
+<a name="id3202863"></a><h3>
 <a name="gtk-menu-attach-to-widget"></a>gtk_menu_attach_to_widget ()</h3>
-<a class="indexterm" name="id3203041"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_attach_to_widget       (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3202877"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_attach_to_widget       (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *attach_widget,
                                              <a href="GtkMenu.html#GtkMenuDetachFunc">GtkMenuDetachFunc</a> detacher);</pre>
 <p>
@@ -967,9 +967,9 @@ the menu calls <a href="GtkMenu.html#gtk-menu-detach"><code class="function">gtk
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203177"></a><h3>
+<a name="id3203013"></a><h3>
 <a name="gtk-menu-detach"></a>gtk_menu_detach ()</h3>
-<a class="indexterm" name="id3203189"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_detach                 (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3203026"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_detach                 (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Detaches the menu from the widget to which it had been attached.  
 This function will call the callback function, <em class="parameter"><code>detacher</code></em>, provided
@@ -989,9 +989,9 @@ when the <a href="GtkMenu.html#gtk-menu-attach-to-widget"><code class="function"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203263"></a><h3>
+<a name="id3203099"></a><h3>
 <a name="gtk-menu-get-attach-widget"></a>gtk_menu_get_attach_widget ()</h3>
-<a class="indexterm" name="id3203277"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_get_attach_widget      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
+<a class="indexterm" name="id3203113"></a><pre class="programlisting"><a href="GtkWidget.html" title="GtkWidget">GtkWidget</a>*  gtk_menu_get_attach_widget      (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 Returns the <a href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWidget</span></a> that the menu is attached to.
 </p>
@@ -1017,9 +1017,9 @@ Returns the <a href="GtkWidget.html" title="GtkWidget"><span class="type">GtkWid
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203358"></a><h3>
+<a name="id3203194"></a><h3>
 <a name="gtk-menu-get-for-attach-widget"></a>gtk_menu_get_for_attach_widget ()</h3>
-<a class="indexterm" name="id3203374"></a><pre class="programlisting"><GTKDOCLINK HREF="GList">GList</GTKDOCLINK>*      gtk_menu_get_for_attach_widget  (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget);</pre>
+<a class="indexterm" name="id3203210"></a><pre class="programlisting"><GTKDOCLINK HREF="GList">GList</GTKDOCLINK>*      gtk_menu_get_for_attach_widget  (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget);</pre>
 <p>
 </p>
 <p>
@@ -1050,9 +1050,9 @@ This list is owned by GTK+ and must not be modified.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203448"></a><h3>
+<a name="id3203284"></a><h3>
 <a name="GtkMenuPositionFunc"></a>GtkMenuPositionFunc ()</h3>
-<a class="indexterm" name="id3203461"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GtkMenuPositionFunc)          (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3203297"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GtkMenuPositionFunc)          (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *x,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *y,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> *push_in,
@@ -1106,9 +1106,9 @@ parameter.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203663"></a><h3>
+<a name="id3203499"></a><h3>
 <a name="GtkMenuDetachFunc"></a>GtkMenuDetachFunc ()</h3>
-<a class="indexterm" name="id3203676"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GtkMenuDetachFunc)            (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *attach_widget,
+<a class="indexterm" name="id3203513"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GtkMenuDetachFunc)            (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *attach_widget,
                                              <a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu);</pre>
 <p>
 A user function supplied when calling <a href="GtkMenu.html#gtk-menu-attach-to-widget"><code class="function">gtk_menu_attach_to_widget()</code></a> which 
@@ -1136,9 +1136,9 @@ will be called when the menu is later detached from the widget.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203774"></a><h3>
+<a name="id3203610"></a><h3>
 <a name="gtk-menu-set-monitor"></a>gtk_menu_set_monitor ()</h3>
-<a class="indexterm" name="id3203789"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_monitor            (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
+<a class="indexterm" name="id3203625"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_menu_set_monitor            (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a> *menu,
                                              <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> monitor_num);</pre>
 <p>
 Informs GTK+ on which monitor a menu should be popped up. 
@@ -1178,7 +1178,7 @@ may extend beyond the monitor boundaries or even the screen boundaries.</p>
 <div class="refsect1" lang="en">
 <a name="property_details"></a><h2>Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3203926"></a><h3>
+<a name="id3203762"></a><h3>
 <a name="GtkMenu--tearoff-state"></a>The "<code class="literal">tearoff-state</code>" property</h3>
 <pre class="programlisting">  "tearoff-state"        <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>              : Read / Write</pre>
 <p>
@@ -1192,7 +1192,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3203968"></a><h3>
+<a name="id3203804"></a><h3>
 <a name="GtkMenu--tearoff-title"></a>The "<code class="literal">tearoff-title</code>" property</h3>
 <pre class="programlisting">  "tearoff-title"        <GTKDOCLINK HREF="gchararray">gchararray</GTKDOCLINK>            : Read / Write</pre>
 <p>A title that may be displayed by the window manager when this menu is torn-off.</p>
@@ -1202,7 +1202,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 <div class="refsect1" lang="en">
 <a name="child_property_details"></a><h2>Child Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3204023"></a><h3>
+<a name="id3203859"></a><h3>
 <a name="GtkMenu--bottom-attach"></a>The "<code class="literal">bottom-attach</code>" child property</h3>
 <pre class="programlisting">  "bottom-attach"        <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read / Write</pre>
 <p>The row number to attach the bottom of the child to.</p>
@@ -1211,7 +1211,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3204064"></a><h3>
+<a name="id3203900"></a><h3>
 <a name="GtkMenu--left-attach"></a>The "<code class="literal">left-attach</code>" child property</h3>
 <pre class="programlisting">  "left-attach"          <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read / Write</pre>
 <p>The column number to attach the left side of the child to.</p>
@@ -1220,7 +1220,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3204105"></a><h3>
+<a name="id3203942"></a><h3>
 <a name="GtkMenu--right-attach"></a>The "<code class="literal">right-attach</code>" child property</h3>
 <pre class="programlisting">  "right-attach"         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read / Write</pre>
 <p>The column number to attach the right side of the child to.</p>
@@ -1229,7 +1229,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3204146"></a><h3>
+<a name="id3203983"></a><h3>
 <a name="GtkMenu--top-attach"></a>The "<code class="literal">top-attach</code>" child property</h3>
 <pre class="programlisting">  "top-attach"           <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read / Write</pre>
 <p>The row number to attach the top of the child to.</p>
@@ -1240,7 +1240,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 <div class="refsect1" lang="en">
 <a name="style_properties_details"></a><h2>Style Property Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3204202"></a><h3>
+<a name="id3204038"></a><h3>
 <a name="GtkMenu--horizontal-offset"></a>The "<code class="literal">horizontal-offset</code>" style property</h3>
 <pre class="programlisting">  "horizontal-offset"    <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>When the menu is a submenu, position it this number of pixels offset horizontally.</p>
@@ -1248,7 +1248,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3204238"></a><h3>
+<a name="id3204074"></a><h3>
 <a name="GtkMenu--vertical-offset"></a>The "<code class="literal">vertical-offset</code>" style property</h3>
 <pre class="programlisting">  "vertical-offset"      <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>When the menu is a submenu, position it this number of pixels offset vertically.</p>
@@ -1256,7 +1256,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3204276"></a><h3>
+<a name="id3204113"></a><h3>
 <a name="GtkMenu--vertical-padding"></a>The "<code class="literal">vertical-padding</code>" style property</h3>
 <pre class="programlisting">  "vertical-padding"     <GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                  : Read</pre>
 <p>Extra space at the top and bottom of the menu.</p>
@@ -1267,7 +1267,7 @@ A boolean that indicates whether the menu is torn-off.</p>
 <div class="refsect1" lang="en">
 <a name="signals"></a><h2>Signal Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3204330"></a><h3>
+<a name="id3204167"></a><h3>
 <a name="GtkMenu-move-scroll"></a>The "move-scroll" signal</h3>
 <pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="GtkMenu.html" title="GtkMenu">GtkMenu</a>      *menu,
                                             <a href="gtk-Standard-Enumerations.html#GtkScrollType">GtkScrollType</a> arg1,

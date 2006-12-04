@@ -137,9 +137,9 @@ to manually use a filter on a file with <a href="gtk-gtkfilefilter.html#gtk-file
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3355137"></a><h3>
+<a name="id3354973"></a><h3>
 <a name="GtkFileFilter-struct"></a>GtkFileFilter</h3>
-<a class="indexterm" name="id3355149"></a><pre class="programlisting">typedef struct _GtkFileFilter GtkFileFilter;</pre>
+<a class="indexterm" name="id3354985"></a><pre class="programlisting">typedef struct _GtkFileFilter GtkFileFilter;</pre>
 <p>
 The <span class="structname">GtkFileFilter</span> struct contains
 only private fields and should not be directly accessed.
@@ -147,9 +147,9 @@ only private fields and should not be directly accessed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355170"></a><h3>
+<a name="id3355006"></a><h3>
 <a name="GtkFileFilterInfo"></a>GtkFileFilterInfo</h3>
-<a class="indexterm" name="id3355181"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id3355018"></a><pre class="programlisting">typedef struct {
   GtkFileFilterFlags contains;
   
   const gchar *filename;
@@ -204,9 +204,9 @@ to pass information about the tested file to
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355329"></a><h3>
+<a name="id3355166"></a><h3>
 <a name="GtkFileFilterFlags"></a>enum GtkFileFilterFlags</h3>
-<a class="indexterm" name="id3355343"></a><pre class="programlisting">typedef enum {
+<a class="indexterm" name="id3355179"></a><pre class="programlisting">typedef enum {
   GTK_FILE_FILTER_FILENAME     = 1 &lt;&lt; 0,
   GTK_FILE_FILTER_URI          = 1 &lt;&lt; 1,
   GTK_FILE_FILTER_DISPLAY_NAME = 1 &lt;&lt; 2,
@@ -251,9 +251,9 @@ are filled or need to be filled.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355438"></a><h3>
+<a name="id3355274"></a><h3>
 <a name="GtkFileFilterFunc"></a>GtkFileFilterFunc ()</h3>
-<a class="indexterm" name="id3355451"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GtkFileFilterFunc)            (const <a href="gtk-gtkfilefilter.html#GtkFileFilterInfo">GtkFileFilterInfo</a> *filter_info,
+<a class="indexterm" name="id3355287"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GtkFileFilterFunc)            (const <a href="gtk-gtkfilefilter.html#GtkFileFilterInfo">GtkFileFilterInfo</a> *filter_info,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
 The type of function that is used with custom filters,
@@ -289,9 +289,9 @@ see <a href="gtk-gtkfilefilter.html#gtk-file-filter-add-custom"><code class="fun
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355584"></a><h3>
+<a name="id3355420"></a><h3>
 <a name="gtk-file-filter-new"></a>gtk_file_filter_new ()</h3>
-<a class="indexterm" name="id3355598"></a><pre class="programlisting"><a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a>* gtk_file_filter_new          (void);</pre>
+<a class="indexterm" name="id3355435"></a><pre class="programlisting"><a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a>* gtk_file_filter_new          (void);</pre>
 <p>
 Creates a new <a href="gtk-gtkfilefilter.html#GtkFileFilter"><span class="type">GtkFileFilter</span></a> with no rules added to it.
 Such a filter doesn't accept any files, so is not
@@ -324,9 +324,9 @@ gtk_file_filter_add_pattern (filter, "*");
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355708"></a><h3>
+<a name="id3355545"></a><h3>
 <a name="gtk-file-filter-set-name"></a>gtk_file_filter_set_name ()</h3>
-<a class="indexterm" name="id3355723"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_set_name        (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
+<a class="indexterm" name="id3355559"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_set_name        (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
 <p>
 Sets the human-readable name of the filter; this is the string
@@ -358,9 +358,9 @@ there is a selectable list of filters.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355817"></a><h3>
+<a name="id3355653"></a><h3>
 <a name="gtk-file-filter-get-name"></a>gtk_file_filter_get_name ()</h3>
-<a class="indexterm" name="id3355832"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* gtk_file_filter_get_name       (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter);</pre>
+<a class="indexterm" name="id3355669"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* gtk_file_filter_get_name       (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter);</pre>
 <p>
 Gets the human-readable name for the filter. See <a href="gtk-gtkfilefilter.html#gtk-file-filter-set-name"><code class="function">gtk_file_filter_set_name()</code></a>.</p>
 <p>
@@ -391,9 +391,9 @@ Gets the human-readable name for the filter. See <a href="gtk-gtkfilefilter.html
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3355926"></a><h3>
+<a name="id3355762"></a><h3>
 <a name="gtk-file-filter-add-mime-type"></a>gtk_file_filter_add_mime_type ()</h3>
-<a class="indexterm" name="id3355942"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_mime_type   (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
+<a class="indexterm" name="id3355778"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_mime_type   (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *mime_type);</pre>
 <p>
 Adds a rule allowing a given mime type to <em class="parameter"><code>filter</code></em>.</p>
@@ -422,9 +422,9 @@ Adds a rule allowing a given mime type to <em class="parameter"><code>filter</co
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3356032"></a><h3>
+<a name="id3355869"></a><h3>
 <a name="gtk-file-filter-add-pattern"></a>gtk_file_filter_add_pattern ()</h3>
-<a class="indexterm" name="id3356049"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_pattern     (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
+<a class="indexterm" name="id3355885"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_pattern     (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *pattern);</pre>
 <p>
 Adds a rule allowing a shell style glob to a filter.</p>
@@ -453,9 +453,9 @@ Adds a rule allowing a shell style glob to a filter.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3356133"></a><h3>
+<a name="id3355969"></a><h3>
 <a name="gtk-file-filter-add-pixbuf-formats"></a>gtk_file_filter_add_pixbuf_formats ()</h3>
-<a class="indexterm" name="id3356150"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_pixbuf_formats
+<a class="indexterm" name="id3355986"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_pixbuf_formats
                                             (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter);</pre>
 <p>
 Adds a rule allowing image files in the formats supported
@@ -477,9 +477,9 @@ by GdkPixbuf.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3356214"></a><h3>
+<a name="id3356050"></a><h3>
 <a name="gtk-file-filter-add-custom"></a>gtk_file_filter_add_custom ()</h3>
-<a class="indexterm" name="id3356229"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_custom      (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
+<a class="indexterm" name="id3356066"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_file_filter_add_custom      (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
                                              <a href="gtk-gtkfilefilter.html#GtkFileFilterFlags">GtkFileFilterFlags</a> needed,
                                              <a href="gtk-gtkfilefilter.html#GtkFileFilterFunc">GtkFileFilterFunc</a> func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
@@ -535,9 +535,9 @@ it isn't needed by the filter.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3356410"></a><h3>
+<a name="id3356246"></a><h3>
 <a name="gtk-file-filter-get-needed"></a>gtk_file_filter_get_needed ()</h3>
-<a class="indexterm" name="id3356426"></a><pre class="programlisting"><a href="gtk-gtkfilefilter.html#GtkFileFilterFlags">GtkFileFilterFlags</a> gtk_file_filter_get_needed
+<a class="indexterm" name="id3356263"></a><pre class="programlisting"><a href="gtk-gtkfilefilter.html#GtkFileFilterFlags">GtkFileFilterFlags</a> gtk_file_filter_get_needed
                                             (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter);</pre>
 <p>
 Gets the fields that need to be filled in for the structure
@@ -574,9 +574,9 @@ is intended principally for use in the implementation of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3356536"></a><h3>
+<a name="id3356373"></a><h3>
 <a name="gtk-file-filter-filter"></a>gtk_file_filter_filter ()</h3>
-<a class="indexterm" name="id3356552"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_file_filter_filter          (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
+<a class="indexterm" name="id3356388"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_file_filter_filter          (<a href="gtk-gtkfilefilter.html#GtkFileFilter">GtkFileFilter</a> *filter,
                                              const <a href="gtk-gtkfilefilter.html#GtkFileFilterInfo">GtkFileFilterInfo</a> *filter_info);</pre>
 <p>
 Tests whether a file should be displayed according to <em class="parameter"><code>filter</code></em>.
@@ -620,7 +620,7 @@ is intended principally for use in the implementation of
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3356710"></a><h2>See Also</h2>
+<a name="id3356546"></a><h2>See Also</h2>
 <p>
 <a href="GtkFileChooser.html" title="GtkFileChooser"><span class="type">GtkFileChooser</span></a>
 </p>

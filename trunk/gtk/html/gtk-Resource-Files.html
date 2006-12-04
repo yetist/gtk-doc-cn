@@ -136,7 +136,7 @@ various aspects of the operation of a GTK+ program
 at runtime.
 </p>
 <div class="refsect2" lang="en">
-<a name="id2654693"></a><h3>Default files</h3>
+<a name="id2654527"></a><h3>Default files</h3>
 <p>
 An application can cause GTK+ to parse a specific RC
 file by calling <a href="gtk-Resource-Files.html#gtk-rc-parse"><code class="function">gtk_rc_parse()</code></a>. In addition to this,
@@ -170,7 +170,7 @@ and parses the first of those that exists.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2654859"></a><h3>Pathnames and patterns</h3>
+<a name="id2654693"></a><h3>Pathnames and patterns</h3>
 <p>
 A resource file defines a number of styles and key bindings and
 attaches them to particular widgets. The attachment is done
@@ -251,7 +251,7 @@ that GTK+ creates internally.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2655129"></a><h3>Toplevel declarations</h3>
+<a name="id2654963"></a><h3>Toplevel declarations</h3>
 <p>
 An RC file is a text file which is composed of a sequence
 of declarations. <code class="literal">'#'</code> characters delimit comments and
@@ -350,7 +350,7 @@ The possible toplevel declarations are:
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2655424"></a><h3>Styles</h3>
+<a name="id2655258"></a><h3>Styles</h3>
 <p>
 A RC style is specified by a <code class="literal">style</code> 
 declaration in a RC file, and then bound to widgets
@@ -634,7 +634,7 @@ match the state and size the user requested.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656283"></a><h3>Key bindings</h3>
+<a name="id2656117"></a><h3>Key bindings</h3>
 <p>
 Key bindings allow the user to specify actions to be 
 taken on particular key presses. The form of a binding
@@ -694,9 +694,9 @@ same as for styles.
 <div class="refsect1" lang="en">
 <a name="details"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2656464"></a><h3>
+<a name="id2656298"></a><h3>
 <a name="GtkRcStyle-struct"></a>GtkRcStyle</h3>
-<a class="indexterm" name="id2656476"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2656310"></a><pre class="programlisting">typedef struct {
   gchar *name;
   gchar *bg_pixmap_name[5];
   PangoFontDescription *font_desc;
@@ -720,9 +720,9 @@ This can later be composited together with other
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656521"></a><h3>
+<a name="id2656355"></a><h3>
 <a name="GtkRcFlags"></a>enum GtkRcFlags</h3>
-<a class="indexterm" name="id2656534"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2656368"></a><pre class="programlisting">typedef enum
 {
   GTK_RC_FG		= 1 &lt;&lt; 0,
   GTK_RC_BG		= 1 &lt;&lt; 1,
@@ -768,9 +768,9 @@ set for each state.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656634"></a><h3>
+<a name="id2656468"></a><h3>
 <a name="GtkRcTokenType"></a>enum GtkRcTokenType</h3>
-<a class="indexterm" name="id2656647"></a><pre class="programlisting">typedef enum {
+<a class="indexterm" name="id2656481"></a><pre class="programlisting">typedef enum {
   GTK_RC_TOKEN_INVALID = G_TOKEN_LAST,
   GTK_RC_TOKEN_INCLUDE,
   GTK_RC_TOKEN_NORMAL,
@@ -820,9 +820,9 @@ specific portions of a RC file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656690"></a><h3>
+<a name="id2656524"></a><h3>
 <a name="gtk-rc-scanner-new"></a>gtk_rc_scanner_new ()</h3>
-<a class="indexterm" name="id2656703"></a><pre class="programlisting"><GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK>*   gtk_rc_scanner_new              (void);</pre>
+<a class="indexterm" name="id2656537"></a><pre class="programlisting"><GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK>*   gtk_rc_scanner_new              (void);</pre>
 <p>
 
 </p>
@@ -840,9 +840,9 @@ specific portions of a RC file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656738"></a><h3>
+<a name="id2656572"></a><h3>
 <a name="gtk-rc-get-style"></a>gtk_rc_get_style ()</h3>
-<a class="indexterm" name="id2656751"></a><pre class="programlisting"><a href="GtkStyle.html" title="Styles">GtkStyle</a>*   gtk_rc_get_style                (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget);</pre>
+<a class="indexterm" name="id2656585"></a><pre class="programlisting"><a href="GtkStyle.html" title="Styles">GtkStyle</a>*   gtk_rc_get_style                (<a href="GtkWidget.html" title="GtkWidget">GtkWidget</a> *widget);</pre>
 <p>
 Finds all matching RC styles for a given widget,
 composites them together, and then creates a 
@@ -874,9 +874,9 @@ created.)</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2656833"></a><h3>
+<a name="id2656667"></a><h3>
 <a name="gtk-rc-get-style-by-paths"></a>gtk_rc_get_style_by_paths ()</h3>
-<a class="indexterm" name="id2656847"></a><pre class="programlisting"><a href="GtkStyle.html" title="Styles">GtkStyle</a>*   gtk_rc_get_style_by_paths       (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
+<a class="indexterm" name="id2656681"></a><pre class="programlisting"><a href="GtkStyle.html" title="Styles">GtkStyle</a>*   gtk_rc_get_style_by_paths       (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
                                              const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *widget_path,
                                              const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *class_path,
                                              <GTKDOCLINK HREF="GType">GType</GTKDOCLINK> type);</pre>
@@ -944,9 +944,9 @@ The action of <a href="gtk-Resource-Files.html#gtk-rc-get-style"><code class="fu
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657063"></a><h3>
+<a name="id2656897"></a><h3>
 <a name="gtk-rc-add-widget-name-style"></a>gtk_rc_add_widget_name_style ()</h3>
-<a class="indexterm" name="id2657079"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_widget_name_style    (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
+<a class="indexterm" name="id2656913"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_widget_name_style    (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *pattern);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -982,9 +982,9 @@ statement in a RC file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657190"></a><h3>
+<a name="id2657024"></a><h3>
 <a name="gtk-rc-add-widget-class-style"></a>gtk_rc_add_widget_class_style ()</h3>
-<a class="indexterm" name="id2657206"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_widget_class_style   (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
+<a class="indexterm" name="id2657040"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_widget_class_style   (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *pattern);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1020,9 +1020,9 @@ statement in a RC file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657317"></a><h3>
+<a name="id2657151"></a><h3>
 <a name="gtk-rc-add-class-style"></a>gtk_rc_add_class_style ()</h3>
-<a class="indexterm" name="id2657333"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_class_style          (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
+<a class="indexterm" name="id2657167"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_class_style          (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *pattern);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
@@ -1058,9 +1058,9 @@ statement in a RC file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657444"></a><h3>
+<a name="id2657278"></a><h3>
 <a name="gtk-rc-parse"></a>gtk_rc_parse ()</h3>
-<a class="indexterm" name="id2657457"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_parse                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *filename);</pre>
+<a class="indexterm" name="id2657291"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_parse                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *filename);</pre>
 <p>
 Parses a given resource file.
 </p>
@@ -1079,9 +1079,9 @@ Parses a given resource file.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657512"></a><h3>
+<a name="id2657346"></a><h3>
 <a name="gtk-rc-parse-string"></a>gtk_rc_parse_string ()</h3>
-<a class="indexterm" name="id2657525"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_parse_string             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *rc_string);</pre>
+<a class="indexterm" name="id2657359"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_parse_string             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *rc_string);</pre>
 <p>
 Parses resource information directly from a string.
 </p>
@@ -1099,9 +1099,9 @@ Parses resource information directly from a string.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657572"></a><h3>
+<a name="id2657406"></a><h3>
 <a name="gtk-rc-reparse-all"></a>gtk_rc_reparse_all ()</h3>
-<a class="indexterm" name="id2657586"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_rc_reparse_all              (void);</pre>
+<a class="indexterm" name="id2657420"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_rc_reparse_all              (void);</pre>
 <p>
 If the modification time on any previously read file for the
 default <a href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> has changed, discard all style information
@@ -1120,9 +1120,9 @@ and then reread all previously read RC files.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657642"></a><h3>
+<a name="id2657476"></a><h3>
 <a name="gtk-rc-reparse-all-for-settings"></a>gtk_rc_reparse_all_for_settings ()</h3>
-<a class="indexterm" name="id2657655"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_rc_reparse_all_for_settings (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
+<a class="indexterm" name="id2657489"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gtk_rc_reparse_all_for_settings (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> force_load);</pre>
 <p>
 If the modification time on any previously read file
@@ -1157,9 +1157,9 @@ and then reread all previously read RC files.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657762"></a><h3>
+<a name="id2657596"></a><h3>
 <a name="gtk-rc-reset-styles"></a>gtk_rc_reset_styles ()</h3>
-<a class="indexterm" name="id2657777"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_reset_styles             (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings);</pre>
+<a class="indexterm" name="id2657611"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_reset_styles             (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings);</pre>
 <p>
 This function recomputes the styles for all widgets that use a
 particular <a href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object. (There is one <a href="GtkSettings.html" title="Settings"><span class="type">GtkSettings</span></a> object
@@ -1188,9 +1188,9 @@ with <a href="GtkWidget.html#gtk-widget-set-style"><code class="function">gtk_wi
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657896"></a><h3>
+<a name="id2657730"></a><h3>
 <a name="gtk-rc-add-default-file"></a>gtk_rc_add_default_file ()</h3>
-<a class="indexterm" name="id2657908"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_default_file         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *filename);</pre>
+<a class="indexterm" name="id2657742"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_add_default_file         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *filename);</pre>
 <p>
 Adds a file to the list of files to be parsed at the
 end of <a href="gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
@@ -1209,9 +1209,9 @@ end of <a href="gtk-General.html#gtk-init"><code class="function">gtk_init()</co
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2657977"></a><h3>
+<a name="id2657811"></a><h3>
 <a name="gtk-rc-get-default-files"></a>gtk_rc_get_default_files ()</h3>
-<a class="indexterm" name="id2657990"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>**     gtk_rc_get_default_files        (void);</pre>
+<a class="indexterm" name="id2657824"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>**     gtk_rc_get_default_files        (void);</pre>
 <p>
 Retrieves the current list of RC files that will be parsed
 at the end of <a href="gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
@@ -1231,9 +1231,9 @@ If you want to store this information, you should make a copy.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658049"></a><h3>
+<a name="id2657883"></a><h3>
 <a name="gtk-rc-set-default-files"></a>gtk_rc_set_default_files ()</h3>
-<a class="indexterm" name="id2658062"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_set_default_files        (<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> **filenames);</pre>
+<a class="indexterm" name="id2657896"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_set_default_files        (<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> **filenames);</pre>
 <p>
 Sets the list of files that GTK+ will read at the
 end of <a href="gtk-General.html#gtk-init"><code class="function">gtk_init()</code></a>.</p>
@@ -1251,9 +1251,9 @@ end of <a href="gtk-General.html#gtk-init"><code class="function">gtk_init()</co
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658129"></a><h3>
+<a name="id2657963"></a><h3>
 <a name="gtk-rc-parse-color"></a>gtk_rc_parse_color ()</h3>
-<a class="indexterm" name="id2658143"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_color              (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
+<a class="indexterm" name="id2657977"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_color              (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
                                              <GTKDOCLINK HREF="GdkColor">GdkColor</GTKDOCLINK> *color);</pre>
 <p>
 Parses a color in the <a href="gtk-Resource-Files.html#color-format">format</a> expected in a RC file.
@@ -1288,9 +1288,9 @@ that was expected but not found.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658254"></a><h3>
+<a name="id2658088"></a><h3>
 <a name="gtk-rc-parse-state"></a>gtk_rc_parse_state ()</h3>
-<a class="indexterm" name="id2658267"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_state              (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
+<a class="indexterm" name="id2658101"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_state              (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
                                              <a href="gtk-Standard-Enumerations.html#GtkStateType">GtkStateType</a> *state);</pre>
 <p>
 Parses a <a href="gtk-Standard-Enumerations.html#GtkStateType"><span class="type">GtkStateType</span></a> variable from the format expected
@@ -1327,9 +1327,9 @@ that was expected but not found.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658378"></a><h3>
+<a name="id2658212"></a><h3>
 <a name="gtk-rc-parse-priority"></a>gtk_rc_parse_priority ()</h3>
-<a class="indexterm" name="id2658391"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_priority           (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
+<a class="indexterm" name="id2658225"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       gtk_rc_parse_priority           (<GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
                                              <a href="gtk-Standard-Enumerations.html#GtkPathPriorityType">GtkPathPriorityType</a> *priority);</pre>
 <p>
 Parses a <a href="gtk-Standard-Enumerations.html#GtkPathPriorityType"><span class="type">GtkPathPriorityType</span></a> variable from the format expected
@@ -1366,9 +1366,9 @@ that was expected but not found.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658503"></a><h3>
+<a name="id2658337"></a><h3>
 <a name="gtk-rc-find-module-in-path"></a>gtk_rc_find_module_in_path ()</h3>
-<a class="indexterm" name="id2658517"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_find_module_in_path      (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *module_file);</pre>
+<a class="indexterm" name="id2658351"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_find_module_in_path      (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *module_file);</pre>
 <p>
 Searches for a theme engine in the GTK+ search path. This function
 is not useful for applications and should not be used.</p>
@@ -1395,9 +1395,9 @@ is not useful for applications and should not be used.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658595"></a><h3>
+<a name="id2658429"></a><h3>
 <a name="gtk-rc-find-pixmap-in-path"></a>gtk_rc_find_pixmap_in_path ()</h3>
-<a class="indexterm" name="id2658609"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_find_pixmap_in_path      (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
+<a class="indexterm" name="id2658443"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_find_pixmap_in_path      (<a href="GtkSettings.html" title="Settings">GtkSettings</a> *settings,
                                              <GTKDOCLINK HREF="GScanner">GScanner</GTKDOCLINK> *scanner,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *pixmap_file);</pre>
 <p>
@@ -1439,9 +1439,9 @@ If the file is not found, it outputs a warning message using
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658754"></a><h3>
+<a name="id2658588"></a><h3>
 <a name="gtk-rc-get-module-dir"></a>gtk_rc_get_module_dir ()</h3>
-<a class="indexterm" name="id2658768"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_module_dir           (void);</pre>
+<a class="indexterm" name="id2658602"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_module_dir           (void);</pre>
 <p>
 Returns a directory in which GTK+ looks for theme engines.
 For full information about the search for theme engines,
@@ -1461,9 +1461,9 @@ see the docs for <code class="envar">GTK_PATH</code> in
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658830"></a><h3>
+<a name="id2658664"></a><h3>
 <a name="gtk-rc-get-im-module-path"></a>gtk_rc_get_im_module_path ()</h3>
-<a class="indexterm" name="id2658844"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_im_module_path       (void);</pre>
+<a class="indexterm" name="id2658678"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_im_module_path       (void);</pre>
 <p>
 Obtains the path in which to look for IM modules. See the documentation
 of the <GTKDOCLINK HREF="im-module-path"><code class="envar">GTK_PATH</code></GTKDOCLINK>
@@ -1486,9 +1486,9 @@ not be used by applications under normal circumstances.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658899"></a><h3>
+<a name="id2658733"></a><h3>
 <a name="gtk-rc-get-im-module-file"></a>gtk_rc_get_im_module_file ()</h3>
-<a class="indexterm" name="id2658913"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_im_module_file       (void);</pre>
+<a class="indexterm" name="id2658747"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_im_module_file       (void);</pre>
 <p>
 Obtains the path to the IM modules file. See the documentation
 of the <a href="gtk-running.html#im-module-file"><code class="envar">GTK_IM_MODULE_FILE</code></a>
@@ -1509,9 +1509,9 @@ listing the IM modules available for loading
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2658964"></a><h3>
+<a name="id2658798"></a><h3>
 <a name="gtk-rc-get-theme-dir"></a>gtk_rc_get_theme_dir ()</h3>
-<a class="indexterm" name="id2658977"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_theme_dir            (void);</pre>
+<a class="indexterm" name="id2658811"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gtk_rc_get_theme_dir            (void);</pre>
 <p>
 Returns the standard directory in which themes should
 be installed. (GTK+ does not actually use this directory
@@ -1531,9 +1531,9 @@ itself.)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2659026"></a><h3>
+<a name="id2658860"></a><h3>
 <a name="gtk-rc-style-new"></a>gtk_rc_style_new ()</h3>
-<a class="indexterm" name="id2659039"></a><pre class="programlisting"><a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a>* gtk_rc_style_new                (void);</pre>
+<a class="indexterm" name="id2658873"></a><pre class="programlisting"><a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a>* gtk_rc_style_new                (void);</pre>
 <p>
 Creates a new <a href="gtk-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a> with no fields set and
 a reference count of 1.
@@ -1552,9 +1552,9 @@ a reference count of 1.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2659092"></a><h3>
+<a name="id2658926"></a><h3>
 <a name="gtk-rc-style-copy"></a>gtk_rc_style_copy ()</h3>
-<a class="indexterm" name="id2659106"></a><pre class="programlisting"><a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a>* gtk_rc_style_copy               (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *orig);</pre>
+<a class="indexterm" name="id2658940"></a><pre class="programlisting"><a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a>* gtk_rc_style_copy               (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *orig);</pre>
 <p>
 Makes a copy of the specified <a href="gtk-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>. This function
 will correctly copy an RC style that is a member of a class
@@ -1582,9 +1582,9 @@ derived from <a href="gtk-Resource-Files.html#GtkRcStyle"><span class="type">Gtk
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2659190"></a><h3>
+<a name="id2659024"></a><h3>
 <a name="gtk-rc-style-ref"></a>gtk_rc_style_ref ()</h3>
-<a class="indexterm" name="id2659203"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_style_ref                (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style);</pre>
+<a class="indexterm" name="id2659037"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_style_ref                (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style);</pre>
 <p>
 Increments the reference count of a <a href="gtk-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a>.
 </p>
@@ -1602,9 +1602,9 @@ Increments the reference count of a <a href="gtk-Resource-Files.html#GtkRcStyle"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2659266"></a><h3>
+<a name="id2659100"></a><h3>
 <a name="gtk-rc-style-unref"></a>gtk_rc_style_unref ()</h3>
-<a class="indexterm" name="id2659279"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_style_unref              (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style);</pre>
+<a class="indexterm" name="id2659113"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gtk_rc_style_unref              (<a href="gtk-Resource-Files.html#GtkRcStyle">GtkRcStyle</a> *rc_style);</pre>
 <p>
 Decrements the reference count of a <a href="gtk-Resource-Files.html#GtkRcStyle"><span class="type">GtkRcStyle</span></a> and
 frees if the result is 0.
