@@ -1,0 +1,1071 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>XlibRGB</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
+<link rel="start" href="index.html" title="gdk-pixbuf&#24211;">
+<link rel="up" href="rn01.html" title="API&#21442;&#32771;">
+<link rel="prev" href="gdk-pixbuf-gdk-pixbuf-xlib-from-drawables.html" title="X Drawables to Pixbufs">
+<link rel="next" href="rn02.html" title="&#24037;&#20855;&#21442;&#32771;">
+<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="rn01.html" title="API&#21442;&#32771;">
+<link rel="reference" href="rn02.html" title="&#24037;&#20855;&#21442;&#32771;">
+<link rel="index" href="ix01.html" title="&#32034;&#24341;">
+<link rel="index" href="ix02.html" title="&#19981;&#34987;&#25512;&#33616;&#30340;symbols&#32034;&#24341;">
+<link rel="index" href="ix03.html" title="2.2&#20013;&#30340;&#26032;symbols&#32034;&#24341;">
+<link rel="index" href="ix04.html" title="2.4&#20013;&#30340;&#26032;symbols&#32034;&#24341;">
+<link rel="index" href="ix05.html" title="2.6&#20013;&#30340;&#26032;symbols&#32034;&#24341;">
+<link rel="index" href="ix06.html" title="2.8&#20013;&#30340;&#26032;symbols&#32034;&#24341;">
+<link rel="appendix" href="apa.html" title="Appendix&#160;A.&#160;Porting applications from Imlib to gdk-pixbuf">
+<link rel="appendix" href="license.html" title="Appendix&#160;B.&#160;License">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="gdk-pixbuf-gdk-pixbuf-xlib-from-drawables.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center"><span class="application">gdk-pixbuf</span>&#24211;</th>
+<td><a accesskey="n" href="rn02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gdk-pixbuf-gdk-pixbuf-xlib-rgb"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="top_of_page"></a>XlibRGB</span></h2>
+<p>XlibRGB &#8212; Rendering RGB buffers to X drawables.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
+
+
+            <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a>;
+enum        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a>;
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-init">xlib_rgb_init</a>                   (<GTKDOCLINK HREF="Display">Display</GTKDOCLINK> *display,
+                                             <GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK> *screen);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-init-with-depth">xlib_rgb_init_with_depth</a>        (<GTKDOCLINK HREF="Display">Display</GTKDOCLINK> *display,
+                                             <GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK> *screen,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> prefDepth);
+unsigned <GTKDOCLINK HREF="long">long</GTKDOCLINK> <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-xpixel-from-rgb">xlib_rgb_xpixel_from_rgb</a>      (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-gc-set-foreground">xlib_rgb_gc_set_foreground</a>      (<GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-gc-set-background">xlib_rgb_gc_set_background</a>      (<GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-image">xlib_draw_rgb_image</a>             (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *rgb_buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-image-dithalign">xlib_draw_rgb_image_dithalign</a>   (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *rgb_buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> xdith,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> ydith);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-32-image">xlib_draw_rgb_32_image</a>          (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-gray-image">xlib_draw_gray_image</a>            (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);
+<a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a>* <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-cmap-new">xlib_rgb_cmap_new</a>              (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> *colors,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> n_colors);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-cmap-free">xlib_rgb_cmap_free</a>              (<a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a> *cmap);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-indexed-image">xlib_draw_indexed_image</a>         (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a> *cmap);
+<GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-ditherable">xlib_rgb_ditherable</a>             (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-set-verbose">xlib_rgb_set_verbose</a>            (<GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK> verbose);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-set-install">xlib_rgb_set_install</a>            (<GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK> install);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-set-min-colors">xlib_rgb_set_min_colors</a>         (<GTKDOCLINK HREF="int">int</GTKDOCLINK> min_colors);
+<GTKDOCLINK HREF="Colormap">Colormap</GTKDOCLINK>    <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-cmap">xlib_rgb_get_cmap</a>               (void);
+<GTKDOCLINK HREF="Visual">Visual</GTKDOCLINK>*     <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-visual">xlib_rgb_get_visual</a>             (void);
+<GTKDOCLINK HREF="XVisualInfo">XVisualInfo</GTKDOCLINK>* <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-visual-info">xlib_rgb_get_visual_info</a>       (void);
+<GTKDOCLINK HREF="int">int</GTKDOCLINK>         <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-depth">xlib_rgb_get_depth</a>              (void);
+<GTKDOCLINK HREF="Display">Display</GTKDOCLINK>*    <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-display">xlib_rgb_get_display</a>            (void);
+<GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK>*     <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-screen">xlib_rgb_get_screen</a>             (void);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="desc"></a><h2>Description</h2>
+<p>
+    The XlibRGB set of functions is a port of the <GTKDOCLINK HREF="GdkRGB"><span class="type">GdkRGB</span></GTKDOCLINK> library to
+    use plain Xlib and X drawables.  You can use these functions to
+    render RGB buffers into drawables very quickly with high-quality
+    dithering.
+  </p>
+</div>
+<div class="refsect1" lang="en">
+<a name="details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2607010"></a><h3>
+<a name="XlibRgbCmap"></a>XlibRgbCmap</h3>
+<a class="indexterm" name="id2607022"></a><pre class="programlisting">typedef struct {
+  unsigned int colors[256];
+  unsigned char lut[256]; /* for 8-bit modes */
+} XlibRgbCmap;
+</pre>
+<p>
+    FIXME: Describe this.
+  </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term">unsigned&#160;<GTKDOCLINK HREF="int">int</GTKDOCLINK>&#160;<em class="structfield"><code>colors</code></em>[256];</span></td>
+<td>FIXME.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term">unsigned&#160;<GTKDOCLINK HREF="char">char</GTKDOCLINK>&#160;<em class="structfield"><code>lut</code></em>[256];</span></td>
+<td>FIXME.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607086"></a><h3>
+<a name="XlibRgbDither"></a>enum XlibRgbDither</h3>
+<a class="indexterm" name="id2607098"></a><pre class="programlisting">typedef enum
+{
+  XLIB_RGB_DITHER_NONE,
+  XLIB_RGB_DITHER_NORMAL,
+  XLIB_RGB_DITHER_MAX
+} XlibRgbDither;
+</pre>
+<p>
+    These values are used to specify which dithering method should be
+    used.  <span class="symbol">XLIB_RGB_DITHER_NONE</span> will use no dithering
+    and simply map the colors in an RGB buffer to the closest colors
+    that the display can provide.
+    <span class="symbol">XLIB_RGB_DITHER_NORMAL</span> will provide dithering
+    only on pseudocolor displays.
+    <span class="symbol">XLIB_RGB_DITHER_MAX</span> will provide dithering on
+    pseudocolor and 16-bit truecolor or &#8220;high color&#8221;
+    displays.
+  </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">XLIB_RGB_DITHER_NONE</code></span></td>
+<td>Specifies no dithering.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">XLIB_RGB_DITHER_NORMAL</code></span></td>
+<td>Specifies dithering only on pseudocolor
+displays.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">XLIB_RGB_DITHER_MAX</code></span></td>
+<td>Specifies dithering on high color displays.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607189"></a><h3>
+<a name="xlib-rgb-init"></a>xlib_rgb_init ()</h3>
+<a class="indexterm" name="id2607201"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_init                   (<GTKDOCLINK HREF="Display">Display</GTKDOCLINK> *display,
+                                             <GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK> *screen);</pre>
+<p>
+Initializes the XlibRGB machinery with the default depth.  If you use this
+function XlibRGB will automatically pick the best visual available on your
+display.  This function or <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-init-with-depth"><code class="function">xlib_rgb_init_with_depth()</code></a> must be called before
+using any of the other functions in XlibRGB.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>display</code></em>&#160;:</span></td>
+<td> X Display to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>screen</code></em>&#160;:</span></td>
+<td> Screen to use.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607285"></a><h3>
+<a name="xlib-rgb-init-with-depth"></a>xlib_rgb_init_with_depth ()</h3>
+<a class="indexterm" name="id2607299"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_init_with_depth        (<GTKDOCLINK HREF="Display">Display</GTKDOCLINK> *display,
+                                             <GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK> *screen,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> prefDepth);</pre>
+<p>
+Initializes the XlibRGB machinery with a particular depth you specify,
+instead of automatically picking the best depth in the display.  This
+function or <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-init"><code class="function">xlib_rgb_init()</code></a> must be called before using any of the other
+functions in XlibRGB.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>display</code></em>&#160;:</span></td>
+<td> X display to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>screen</code></em>&#160;:</span></td>
+<td> Screen to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>prefDepth</code></em>&#160;:</span></td>
+<td> Visual depth to use for color substitution tables.  This must
+be one of the supported visual depths in the specified <em class="parameter"><code>display</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607413"></a><h3>
+<a name="xlib-rgb-xpixel-from-rgb"></a>xlib_rgb_xpixel_from_rgb ()</h3>
+<a class="indexterm" name="id2607426"></a><pre class="programlisting">unsigned <GTKDOCLINK HREF="long">long</GTKDOCLINK> xlib_rgb_xpixel_from_rgb      (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);</pre>
+<p>
+Converts an RGB triplet into the closest color that XlibRGB visual can
+handle.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rgb</code></em>&#160;:</span></td>
+<td> 32-bit representation of an RGB value, specified as 0x00RRGGBB.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> X pixel value that corresponds to the closest color in the
+XlibRGB visual and colormap.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607490"></a><h3>
+<a name="xlib-rgb-gc-set-foreground"></a>xlib_rgb_gc_set_foreground ()</h3>
+<a class="indexterm" name="id2607504"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_gc_set_foreground      (<GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);</pre>
+<p>
+This is a convenience function to set the foreground of a GC from an RGB
+triplet.  It calls <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-xpixel-from-rgb"><code class="function">xlib_rgb_xpixel_from_rgb()</code></a> internally and uses the
+returned pixel value to set the GC's foreground.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rgb</code></em>&#160;:</span></td>
+<td> 32-bit representation of an RGB value, specified as 0x00RRGGBB.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607587"></a><h3>
+<a name="xlib-rgb-gc-set-background"></a>xlib_rgb_gc_set_background ()</h3>
+<a class="indexterm" name="id2607601"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_gc_set_background      (<GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> rgb);</pre>
+<p>
+This is a convenience function to set the background of a GC from an RGB
+triplet.  It calls <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-xpixel-from-rgb"><code class="function">xlib_rgb_xpixel_from_rgb()</code></a> internally and uses the
+returned pixel value to set the GC's background.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rgb</code></em>&#160;:</span></td>
+<td> 32-bit representation of an RGB value, specified as 0x00RRGGBB.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607685"></a><h3>
+<a name="xlib-draw-rgb-image"></a>xlib_draw_rgb_image ()</h3>
+<a class="indexterm" name="id2607699"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_draw_rgb_image             (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *rgb_buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);</pre>
+<p>
+Renders an RGB buffer to a drawable.  Pixels are specified as RGB triplets
+with 8 bits per channel.  An image will thus look like an RGBRGBRGBRGB
+sequence of 8-bit values.  This function does not let you specify dither
+offsets; applications that need to render partial regions of a buffer to
+build the final image should use <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-image-dithalign"><code class="function">xlib_draw_rgb_image_dithalign()</code></a> instead.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>drawable</code></em>&#160;:</span></td>
+<td> Destination drawable.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> Leftmost coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> Upper coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> Width of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> Height of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>dith</code></em>&#160;:</span></td>
+<td> Dithering method to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rgb_buf</code></em>&#160;:</span></td>
+<td> Pointer to the pixel in the RGB buffer that corresponds to the
+upper-left corner of the rectangular region to render.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rowstride</code></em>&#160;:</span></td>
+<td> Offset between pixel rows in the RGB buffer, in bytes.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2607939"></a><h3>
+<a name="xlib-draw-rgb-image-dithalign"></a>xlib_draw_rgb_image_dithalign ()</h3>
+<a class="indexterm" name="id2607953"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_draw_rgb_image_dithalign   (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *rgb_buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> xdith,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> ydith);</pre>
+<p>
+Renders an RGB buffer to a drawable.  Pixels are specified as RGB triplets
+with 8 bits per channel.  An image will thus look like an RGBRGBRGBRGB
+sequence of 8-bit values.  This function lets you specify a pair of dither
+offsets.  It should be used when you need to render regions of an RGB buffer
+separately to form the final image; the dither offsets let you align the
+dither mask appropriately.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>drawable</code></em>&#160;:</span></td>
+<td> Destination drawable.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> Leftmost coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> Upper coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> Width of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> Height of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>dith</code></em>&#160;:</span></td>
+<td> Dithering method to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rgb_buf</code></em>&#160;:</span></td>
+<td> Pointer to the pixel in the RGB buffer that corresponds to the
+upper-left corner of the rectangular region to render.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rowstride</code></em>&#160;:</span></td>
+<td> Offset between pixel rows in the RGB buffer, in bytes.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>xdith</code></em>&#160;:</span></td>
+<td> X offset for the dither mask.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>ydith</code></em>&#160;:</span></td>
+<td> Y offset for the dither mask.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608226"></a><h3>
+<a name="xlib-draw-rgb-32-image"></a>xlib_draw_rgb_32_image ()</h3>
+<a class="indexterm" name="id2608239"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_draw_rgb_32_image          (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);</pre>
+<p>
+This function is analogous to <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-image"><code class="function">xlib_draw_rgb_image()</code></a>, but it lets you use
+32-bit RGB buffers with pixels specified as 0xRRGGBB00.  The
+least-significant 8 bits are actually discarded.  This function can lead to
+faster results than <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-draw-rgb-image"><code class="function">xlib_draw_rgb_image()</code></a> since the pixels are aligned on
+32-bit boundaries.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>drawable</code></em>&#160;:</span></td>
+<td> Destination drawable.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> Leftmost coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> Upper coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> Width of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> Height of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>dith</code></em>&#160;:</span></td>
+<td> Dithering method to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></td>
+<td> Pointer to the pixel in the RGB buffer that corresponds to the
+upper-left corner of the rectangular region to render.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rowstride</code></em>&#160;:</span></td>
+<td> Offset between pixel rows in the RGB buffer, in bytes.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608489"></a><h3>
+<a name="xlib-draw-gray-image"></a>xlib_draw_gray_image ()</h3>
+<a class="indexterm" name="id2608502"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_draw_gray_image            (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride);</pre>
+<p>
+Renders a grayscale buffer to a drawable.  Pixels are specified as 8-bit
+intensity values.  An image will thus look as a GGGGGG sequence of 8-bit
+values.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>drawable</code></em>&#160;:</span></td>
+<td> Destination drawable.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> A graphic context.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> Leftmost coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> Upper coordinate of the destination rectangle.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> Width of the destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> Height of thd destination rectangle, in pixels.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>dith</code></em>&#160;:</span></td>
+<td> Dithering method to use.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></td>
+<td> Pointer to the pixel in the grayscale buffer that corresponds to the
+upper-left corner of the rectangular region to render.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rowstride</code></em>&#160;:</span></td>
+<td> Offset between pixel rows in the grayscale buffer, in pixels.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608728"></a><h3>
+<a name="xlib-rgb-cmap-new"></a>xlib_rgb_cmap_new ()</h3>
+<a class="indexterm" name="id2608741"></a><pre class="programlisting"><a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a>* xlib_rgb_cmap_new              (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> *colors,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> n_colors);</pre>
+<p>
+FIXME</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>colors</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>n_colors</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608822"></a><h3>
+<a name="xlib-rgb-cmap-free"></a>xlib_rgb_cmap_free ()</h3>
+<a class="indexterm" name="id2608835"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_cmap_free              (<a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a> *cmap);</pre>
+<p>
+Frees an XlibRGB colormap.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>cmap</code></em>&#160;:</span></td>
+<td> An XlibRGB colormap.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2608885"></a><h3>
+<a name="xlib-draw-indexed-image"></a>xlib_draw_indexed_image ()</h3>
+<a class="indexterm" name="id2608898"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_draw_indexed_image         (<GTKDOCLINK HREF="Drawable">Drawable</GTKDOCLINK> drawable,
+                                             <GTKDOCLINK HREF="GC:CAPS">GC</GTKDOCLINK> gc,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> x,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> y,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> width,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> height,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbDither">XlibRgbDither</a> dith,
+                                             unsigned <GTKDOCLINK HREF="char">char</GTKDOCLINK> *buf,
+                                             <GTKDOCLINK HREF="int">int</GTKDOCLINK> rowstride,
+                                             <a href="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#XlibRgbCmap">XlibRgbCmap</a> *cmap);</pre>
+<p>
+FIXME</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>drawable</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>gc</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>x</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>y</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>width</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>height</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>dith</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>rowstride</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>cmap</code></em>&#160;:</span></td>
+<td> FIXME
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609137"></a><h3>
+<a name="xlib-rgb-ditherable"></a>xlib_rgb_ditherable ()</h3>
+<a class="indexterm" name="id2609150"></a><pre class="programlisting"><GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK>        xlib_rgb_ditherable             (void);</pre>
+<p>
+Queries whether XlibRGB supports dithering for its chosen visual.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> TRUE if dithering can be performed for the visual that XlibRGB
+is using, FALSE otherwise.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609191"></a><h3>
+<a name="xlib-rgb-set-verbose"></a>xlib_rgb_set_verbose ()</h3>
+<a class="indexterm" name="id2609204"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_set_verbose            (<GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK> verbose);</pre>
+<p>
+Enables/disables debug spew.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>verbose</code></em>&#160;:</span></td>
+<td> <code class="literal">True</code> to be verbose
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609260"></a><h3>
+<a name="xlib-rgb-set-install"></a>xlib_rgb_set_install ()</h3>
+<a class="indexterm" name="id2609273"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_set_install            (<GTKDOCLINK HREF="Bool">Bool</GTKDOCLINK> install);</pre>
+<p>
+Sets whether we install an RGB colormap.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>install</code></em>&#160;:</span></td>
+<td> <code class="literal">True</code> to install a colormap
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609329"></a><h3>
+<a name="xlib-rgb-set-min-colors"></a>xlib_rgb_set_min_colors ()</h3>
+<a class="indexterm" name="id2609343"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        xlib_rgb_set_min_colors         (<GTKDOCLINK HREF="int">int</GTKDOCLINK> min_colors);</pre>
+<p>
+Sets the minimum number of colors in the color cube.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>min_colors</code></em>&#160;:</span></td>
+<td> minimum colors to use
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609393"></a><h3>
+<a name="xlib-rgb-get-cmap"></a>xlib_rgb_get_cmap ()</h3>
+<a class="indexterm" name="id2609406"></a><pre class="programlisting"><GTKDOCLINK HREF="Colormap">Colormap</GTKDOCLINK>    xlib_rgb_get_cmap               (void);</pre>
+<p>
+Queries the X colormap that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An X colormap.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609446"></a><h3>
+<a name="xlib-rgb-get-visual"></a>xlib_rgb_get_visual ()</h3>
+<a class="indexterm" name="id2609459"></a><pre class="programlisting"><GTKDOCLINK HREF="Visual">Visual</GTKDOCLINK>*     xlib_rgb_get_visual             (void);</pre>
+<p>
+Queries the visual that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An X visual.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609499"></a><h3>
+<a name="xlib-rgb-get-visual-info"></a>xlib_rgb_get_visual_info ()</h3>
+<a class="indexterm" name="id2609512"></a><pre class="programlisting"><GTKDOCLINK HREF="XVisualInfo">XVisualInfo</GTKDOCLINK>* xlib_rgb_get_visual_info       (void);</pre>
+<p>
+Queries the visual info structure for the visual that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An XVisualInfo structure.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609552"></a><h3>
+<a name="xlib-rgb-get-depth"></a>xlib_rgb_get_depth ()</h3>
+<a class="indexterm" name="id2609566"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         xlib_rgb_get_depth              (void);</pre>
+<p>
+Queries the depth of the visual that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> Bit depth.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609605"></a><h3>
+<a name="xlib-rgb-get-display"></a>xlib_rgb_get_display ()</h3>
+<a class="indexterm" name="id2609618"></a><pre class="programlisting"><GTKDOCLINK HREF="Display">Display</GTKDOCLINK>*    xlib_rgb_get_display            (void);</pre>
+<p>
+Queries the X display that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An X display.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2609659"></a><h3>
+<a name="xlib-rgb-get-screen"></a>xlib_rgb_get_screen ()</h3>
+<a class="indexterm" name="id2609672"></a><pre class="programlisting"><GTKDOCLINK HREF="Screen">Screen</GTKDOCLINK>*     xlib_rgb_get_screen             (void);</pre>
+<p>
+Queries the screen that XlibRGB is using.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> An X screen.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id2609713"></a><h2>See Also</h2>
+<p>
+    GdkRGB
+  </p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>General</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
+<link rel="start" href="index.html" title="GDK&#21442;&#32771;&#25163;&#20876;">
+<link rel="up" href="reference.html" title="API&#21442;&#32771;">
+<link rel="prev" href="reference.html" title="API&#21442;&#32771;">
+<link rel="next" href="multihead.html" title="Multi-head Support Overview">
+<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="reference" href="reference.html" title="API&#21442;&#32771;">
+<link rel="index" href="ix01.html" title="&#32034;&#24341;">
+<link rel="index" href="ix02.html" title="&#19981;&#25512;&#33616;&#30340;&#31526;&#21495;&#32034;&#24341;">
+<link rel="index" href="ix03.html" title="2.2&#20013;&#30340;&#26032;&#31526;&#21495;&#32034;&#24341;">
+<link rel="index" href="ix04.html" title="2.4&#20013;&#30340;&#26032;&#31526;&#21495;&#32034;&#24341;">
+<link rel="index" href="ix05.html" title="2.6&#20013;&#30340;&#26032;&#31526;&#21495;&#32034;&#24341;">
+<link rel="index" href="ix06.html" title="2.8&#20013;&#30340;&#26032;&#31526;&#21495;&#32034;&#24341;">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="reference.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK&#21442;&#32771;&#25163;&#20876;</th>
+<td><a accesskey="n" href="multihead.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry" lang="en">
+<a name="gdk-General"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="top_of_page"></a>General</span></h2>
+<p>General &#8212; Library initialization and miscellaneous functions</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gdk/gdk.h&gt;
+
+
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-init">gdk_init</a>                        (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    <a href="gdk-General.html#gdk-init-check">gdk_init_check</a>                  (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-parse-args">gdk_parse_args</a>                  (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);
+const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* <a href="gdk-General.html#gdk-get-display-arg-name">gdk_get_display_arg_name</a>       (void);
+<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      <a href="gdk-General.html#gdk-set-locale">gdk_set_locale</a>                  (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-set-sm-client-id">gdk_set_sm_client_id</a>            (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *sm_client_id);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-exit">gdk_exit</a>                        (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> error_code);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-notify-startup-complete">gdk_notify_startup_complete</a>     (void);
+
+const <GTKDOCLINK HREF="char">char</GTKDOCLINK>* <a href="gdk-General.html#gdk-get-program-class">gdk_get_program_class</a>           (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-set-program-class">gdk_set_program_class</a>           (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *program_class);
+
+<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      <a href="gdk-General.html#gdk-get-display">gdk_get_display</a>                 (void);
+
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-flush">gdk_flush</a>                       (void);
+
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        <a href="gdk-General.html#gdk-screen-width">gdk_screen_width</a>                (void);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        <a href="gdk-General.html#gdk-screen-height">gdk_screen_height</a>               (void);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        <a href="gdk-General.html#gdk-screen-width-mm">gdk_screen_width_mm</a>             (void);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        <a href="gdk-General.html#gdk-screen-height-mm">gdk_screen_height_mm</a>            (void);
+
+<a href="gdk-General.html#GdkGrabStatus">GdkGrabStatus</a> <a href="gdk-General.html#gdk-pointer-grab">gdk_pointer_grab</a>              (<a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *window,
+                                             <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> owner_events,
+                                             <a href="gdk-Events.html#GdkEventMask">GdkEventMask</a> event_mask,
+                                             <a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *confine_to,
+                                             <a href="gdk-Cursors.html#GdkCursor">GdkCursor</a> *cursor,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);
+enum        <a href="gdk-General.html#GdkGrabStatus">GdkGrabStatus</a>;
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-pointer-ungrab">gdk_pointer_ungrab</a>              (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    <a href="gdk-General.html#gdk-pointer-is-grabbed">gdk_pointer_is_grabbed</a>          (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-set-double-click-time">gdk_set_double_click_time</a>       (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> msec);
+
+<a href="gdk-General.html#GdkGrabStatus">GdkGrabStatus</a> <a href="gdk-General.html#gdk-keyboard-grab">gdk_keyboard_grab</a>             (<a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *window,
+                                             <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> owner_events,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-keyboard-ungrab">gdk_keyboard_ungrab</a>             (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);
+
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-beep">gdk_beep</a>                        (void);
+
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    <a href="gdk-General.html#gdk-get-use-xshm">gdk_get_use_xshm</a>                (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-set-use-xshm">gdk_set_use_xshm</a>                (<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> use_xshm);
+
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>        <a href="gdk-General.html#gdk-error-trap-push">gdk_error_trap_push</a>             (void);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        <a href="gdk-General.html#gdk-error-trap-pop">gdk_error_trap_pop</a>              (void);
+
+#define     <a href="gdk-General.html#GDK-WINDOWING-X11:CAPS">GDK_WINDOWING_X11</a>
+#define     <a href="gdk-General.html#GDK-WINDOWING-WIN32:CAPS">GDK_WINDOWING_WIN32</a>
+#define     <a href="gdk-General.html#GDK-WINDOWING-FB:CAPS">GDK_WINDOWING_FB</a>
+
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="desc"></a><h2>Description</h2>
+<p>
+This section describes the GDK initialization functions and miscellaneous
+utility functions.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id2555079"></a><h3>
+<a name="gdk-init"></a>gdk_init ()</h3>
+<a class="indexterm" name="id2555091"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_init                        (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);</pre>
+<p>
+Initializes the GDK library and connects to the X server.
+If initialization fails, a warning message is output and the application
+terminates with a call to <code class="literal">exit(1)</code>.
+</p>
+<p>
+Any arguments used by GDK are removed from the array and <em class="parameter"><code>argc</code></em> and <em class="parameter"><code>argv</code></em> are
+updated accordingly.
+</p>
+<p>
+GTK+ initializes GDK in <GTKDOCLINK HREF="gtk-init"><code class="function">gtk_init()</code></GTKDOCLINK> and so this function is not usually needed
+by GTK+ applications.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argc</code></em>&#160;:</span></td>
+<td>the number of command line arguments.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argv</code></em>&#160;:</span></td>
+<td>the array of command line arguments.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555200"></a><h3>
+<a name="gdk-init-check"></a>gdk_init_check ()</h3>
+<a class="indexterm" name="id2555211"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gdk_init_check                  (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);</pre>
+<p>
+Initializes the GDK library and connects to the X server, returning <code class="literal">TRUE</code> on
+success.
+</p>
+<p>
+Any arguments used by GDK are removed from the array and <em class="parameter"><code>argc</code></em> and <em class="parameter"><code>argv</code></em> are
+updated accordingly.
+</p>
+<p>
+GTK+ initializes GDK in <GTKDOCLINK HREF="gtk-init"><code class="function">gtk_init()</code></GTKDOCLINK> and so this function is not usually needed
+by GTK+ applications.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argc</code></em>&#160;:</span></td>
+<td>the number of command line arguments.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argv</code></em>&#160;:</span></td>
+<td>the array of command line arguments.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+<code class="literal">TRUE</code> if initialization succeeded.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555336"></a><h3>
+<a name="gdk-parse-args"></a>gdk_parse_args ()</h3>
+<a class="indexterm" name="id2555350"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_parse_args                  (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> *argc,
+                                             <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> ***argv);</pre>
+<p>
+Parse command line arguments, and store for future
+use by calls to <a href="GdkDisplay.html#gdk-display-open"><code class="function">gdk_display_open()</code></a>.
+</p>
+<p>
+Any arguments used by GDK are removed from the array and <em class="parameter"><code>argc</code></em> and <em class="parameter"><code>argv</code></em> are
+updated accordingly.
+</p>
+<p>
+You shouldn't call this function explicitely if you are using
+<GTKDOCLINK HREF="gtk-init"><code class="function">gtk_init()</code></GTKDOCLINK>, <GTKDOCLINK HREF="gtk-init-check"><code class="function">gtk_init_check()</code></GTKDOCLINK>, <a href="gdk-General.html#gdk-init"><code class="function">gdk_init()</code></a>, or <a href="gdk-General.html#gdk-init-check"><code class="function">gdk_init_check()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argc</code></em>&#160;:</span></td>
+<td> the number of command line arguments.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>argv</code></em>&#160;:</span></td>
+<td> the array of command line arguments.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Since  2.2
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555504"></a><h3>
+<a name="gdk-get-display-arg-name"></a>gdk_get_display_arg_name ()</h3>
+<a class="indexterm" name="id2555519"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* gdk_get_display_arg_name       (void);</pre>
+<p>
+Gets the display name specified in the command line arguments passed
+to <a href="gdk-General.html#gdk-init"><code class="function">gdk_init()</code></a> or <a href="gdk-General.html#gdk-parse-args"><code class="function">gdk_parse_args()</code></a>, if any.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the display name, if specified explicitely, otherwise <code class="literal">NULL</code>
+  this string is owned by GTK+ and must not be modified or freed.
+
+</td>
+</tr></tbody>
+</table></div>
+<p>Since  2.2
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555594"></a><h3>
+<a name="gdk-set-locale"></a>gdk_set_locale ()</h3>
+<a class="indexterm" name="id2555606"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gdk_set_locale                  (void);</pre>
+<p>
+Initializes the support for internationalization by calling the <code class="function"><GTKDOCLINK HREF="setlocale"><code class="function">setlocale()</code></GTKDOCLINK></code>
+system call. This function is called by <GTKDOCLINK HREF="gtk-set-locale"><code class="function">gtk_set_locale()</code></GTKDOCLINK> and so GTK+
+applications should use that instead.
+</p>
+<p>
+The locale to use is determined by the <code class="envar">LANG</code> environment variable,
+so to run an application in a certain locale you can do something like this:
+</p>
+<div class="informalexample"><pre class="programlisting">
+  export LANG="fr"
+  ... run application ...
+</pre></div>
+<p>
+</p>
+<p>
+If the locale is not supported by X then it is reset to the standard "C"
+locale.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>the resulting locale.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555694"></a><h3>
+<a name="gdk-set-sm-client-id"></a>gdk_set_sm_client_id ()</h3>
+<a class="indexterm" name="id2555707"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_set_sm_client_id            (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *sm_client_id);</pre>
+<p>
+Sets the <code class="literal">SM_CLIENT_ID</code> property on the application's leader window so that
+the window manager can save the application's state using the X11R6 ICCCM
+session management protocol.
+</p>
+<p>
+See the X Session Management Library documentation for more information on
+session management and the Inter-Client Communication Conventions Manual
+(ICCCM) for information on the <code class="literal">WM_CLIENT_LEADER</code> property. 
+(Both documents are part of the X Window System distribution.)</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>sm_client_id</code></em>&#160;:</span></td>
+<td> the client id assigned by the session manager when the
+   connection was opened, or <code class="literal">NULL</code> to remove the property.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555787"></a><h3>
+<a name="gdk-exit"></a>gdk_exit ()</h3>
+<a class="indexterm" name="id2555802"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_exit                        (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> error_code);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gdk_exit</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Exits the application using the <code class="function"><GTKDOCLINK HREF="exit"><code class="function">exit()</code></GTKDOCLINK></code> system call.
+</p>
+<p>
+This routine is provided mainly for backwards compatibility, since it used to
+perform tasks necessary to exit the application cleanly. Those tasks are now
+performed in a function which is automatically called on exit (via the use
+of <GTKDOCLINK HREF="g-atexit"><code class="function">g_atexit()</code></GTKDOCLINK>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>error_code</code></em>&#160;:</span></td>
+<td>the error code to pass to the <code class="function"><GTKDOCLINK HREF="exit"><code class="function">exit()</code></GTKDOCLINK></code> call.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555909"></a><h3>
+<a name="gdk-notify-startup-complete"></a>gdk_notify_startup_complete ()</h3>
+<a class="indexterm" name="id2555925"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_notify_startup_complete     (void);</pre>
+<p>
+Indicates to the GUI environment that the application has finished
+loading. If the applications opens windows, this function is
+normally called after opening the application's initial set of
+windows.
+</p>
+<p>
+GTK+ will call this function automatically after opening the first
+<GTKDOCLINK HREF="GtkWindow"><span class="type">GtkWindow</span></GTKDOCLINK> unless <GTKDOCLINK HREF="gtk-window-set-auto-startup-notification"><code class="function">gtk_window_set_auto_startup_notification()</code></GTKDOCLINK> is called 
+to disable that feature.</p>
+<p>
+
+</p>
+<p>Since  2.2
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2555982"></a><h3>
+<a name="gdk-get-program-class"></a>gdk_get_program_class ()</h3>
+<a class="indexterm" name="id2555995"></a><pre class="programlisting">const <GTKDOCLINK HREF="char">char</GTKDOCLINK>* gdk_get_program_class           (void);</pre>
+<p>
+Gets the program class. Unless the program class has explicitly
+been set with <a href="gdk-General.html#gdk-set-program-class"><code class="function">gdk_set_program_class()</code></a> or with the <code class="option">--class</code> 
+commandline option, the default value is the program name (determined 
+with <GTKDOCLINK HREF="g-get-prgname"><code class="function">g_get_prgname()</code></GTKDOCLINK>) with the first character converted to uppercase. 
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>the program class.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556062"></a><h3>
+<a name="gdk-set-program-class"></a>gdk_set_program_class ()</h3>
+<a class="indexterm" name="id2556075"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_set_program_class           (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *program_class);</pre>
+<p>
+Sets the program class. The X11 backend uses the program class to set
+the class name part of the <code class="literal">WM_CLASS</code> property on
+toplevel windows; see the ICCCM.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>program_class</code></em>&#160;:</span></td>
+<td>a string.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556130"></a><h3>
+<a name="gdk-get-display"></a>gdk_get_display ()</h3>
+<a class="indexterm" name="id2556143"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      gdk_get_display                 (void);</pre>
+<p>
+Gets the name of the display, which usually comes from the <code class="envar">DISPLAY</code>
+environment variable or the <code class="option">--display</code> command line option.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>the name of the display.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556188"></a><h3>
+<a name="gdk-flush"></a>gdk_flush ()</h3>
+<a class="indexterm" name="id2556200"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_flush                       (void);</pre>
+<p>
+Flushes the X output buffer and waits until all requests have been processed
+by the server. This is rarely needed by applications. It's main use is for
+trapping X errors with <a href="gdk-General.html#gdk-error-trap-push"><code class="function">gdk_error_trap_push()</code></a> and <a href="gdk-General.html#gdk-error-trap-pop"><code class="function">gdk_error_trap_pop()</code></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556246"></a><h3>
+<a name="gdk-screen-width"></a>gdk_screen_width ()</h3>
+<a class="indexterm" name="id2556258"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gdk_screen_width                (void);</pre>
+<p>
+Returns the width of the default screen in pixels.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the width of the default screen in pixels.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556299"></a><h3>
+<a name="gdk-screen-height"></a>gdk_screen_height ()</h3>
+<a class="indexterm" name="id2556312"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gdk_screen_height               (void);</pre>
+<p>
+Returns the height of the default screen in pixels.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the height of the default screen in pixels.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556353"></a><h3>
+<a name="gdk-screen-width-mm"></a>gdk_screen_width_mm ()</h3>
+<a class="indexterm" name="id2556366"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gdk_screen_width_mm             (void);</pre>
+<p>
+Returns the width of the default screen in millimeters.
+Note that on many X servers this value will not be correct.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the width of the default screen in millimeters,
+though it is not always correct.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556408"></a><h3>
+<a name="gdk-screen-height-mm"></a>gdk_screen_height_mm ()</h3>
+<a class="indexterm" name="id2556421"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gdk_screen_height_mm            (void);</pre>
+<p>
+Returns the height of the default screen in millimeters.
+Note that on many X servers this value will not be correct.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> the height of the default screen in millimeters,
+though it is not always correct.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556464"></a><h3>
+<a name="gdk-pointer-grab"></a>gdk_pointer_grab ()</h3>
+<a class="indexterm" name="id2556476"></a><pre class="programlisting"><a href="gdk-General.html#GdkGrabStatus">GdkGrabStatus</a> gdk_pointer_grab              (<a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *window,
+                                             <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> owner_events,
+                                             <a href="gdk-Events.html#GdkEventMask">GdkEventMask</a> event_mask,
+                                             <a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *confine_to,
+                                             <a href="gdk-Cursors.html#GdkCursor">GdkCursor</a> *cursor,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);</pre>
+<p>
+Grabs the pointer (usually a mouse) so that all events are passed to this
+application until the pointer is ungrabbed with <a href="gdk-General.html#gdk-pointer-ungrab"><code class="function">gdk_pointer_ungrab()</code></a>, or
+the grab window becomes unviewable.
+This overrides any previous pointer grab by this client.
+</p>
+<p>
+Pointer grabs are used for operations which need complete control over mouse
+events, even if the mouse leaves the application.
+For example in GTK+ it is used for Drag and Drop, for dragging the handle in
+the <GTKDOCLINK HREF="GtkHPaned"><span class="type">GtkHPaned</span></GTKDOCLINK> and <GTKDOCLINK HREF="GtkVPaned"><span class="type">GtkVPaned</span></GTKDOCLINK> widgets, and for resizing columns in <GTKDOCLINK HREF="GtkCList"><span class="type">GtkCList</span></GTKDOCLINK>
+widgets.
+</p>
+<p>
+Note that if the event mask of an X window has selected both button press and
+button release events, then a button press event will cause an automatic
+pointer grab until the button is released.
+X does this automatically since most applications expect to receive button
+press and release events in pairs.
+It is equivalent to a pointer grab on the window with <em class="parameter"><code>owner_events</code></em> set to
+<code class="literal">TRUE</code>.
+</p>
+<p>
+If you set up anything at the time you take the grab that needs to be cleaned
+up when the grab ends, you should handle the <a href="gdk-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a> events that
+are emitted when the grab ends unvoluntarily.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>window</code></em>&#160;:</span></td>
+<td>the <a href="gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> which will own the grab (the grab window).
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>owner_events</code></em>&#160;:</span></td>
+<td>if <code class="literal">FALSE</code> then all pointer events are reported with respect to
+<em class="parameter"><code>window</code></em> and are only reported if selected by <em class="parameter"><code>event_mask</code></em>. If <code class="literal">TRUE</code> then pointer
+events for this application are reported as normal, but pointer events outside
+this application are reported with respect to <em class="parameter"><code>window</code></em> and only if selected by
+<em class="parameter"><code>event_mask</code></em>. In either mode, unreported events are discarded.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>event_mask</code></em>&#160;:</span></td>
+<td>specifies the event mask, which is used in accordance with
+<em class="parameter"><code>owner_events</code></em>. Note that only pointer events (i.e. button and motion events) 
+    may be selected.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>confine_to</code></em>&#160;:</span></td>
+<td>If non-<code class="literal">NULL</code>, the pointer will be confined to this
+window during the grab. If the pointer is outside <em class="parameter"><code>confine_to</code></em>, it will
+automatically be moved to the closest edge of <em class="parameter"><code>confine_to</code></em> and enter
+and leave events will be generated as necessary.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>cursor</code></em>&#160;:</span></td>
+<td>the cursor to display while the grab is active. If this is <code class="literal">NULL</code> then
+the normal cursors are used for <em class="parameter"><code>window</code></em> and its descendants, and the cursor
+for <em class="parameter"><code>window</code></em> is used for all other windows.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>time_</code></em>&#160;:</span></td>
+<td>the timestamp of the event which led to this pointer grab. This usually
+comes from a <a href="gdk-Event-Structures.html#GdkEventButton"><span class="type">GdkEventButton</span></a> struct, though <code class="literal">GDK_CURRENT_TIME</code> can be used if
+the time isn't known.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+<code class="literal">GDK_GRAB_SUCCESS</code> if the grab was successful.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556846"></a><h3>
+<a name="GdkGrabStatus"></a>enum GdkGrabStatus</h3>
+<a class="indexterm" name="id2556858"></a><pre class="programlisting">typedef enum
+{
+  GDK_GRAB_SUCCESS         = 0,
+  GDK_GRAB_ALREADY_GRABBED = 1,
+  GDK_GRAB_INVALID_TIME    = 2,
+  GDK_GRAB_NOT_VIEWABLE    = 3,
+  GDK_GRAB_FROZEN          = 4
+} GdkGrabStatus;
+</pre>
+<p>
+Returned by <a href="gdk-General.html#gdk-pointer-grab"><code class="function">gdk_pointer_grab()</code></a> and <a href="gdk-General.html#gdk-keyboard-grab"><code class="function">gdk_keyboard_grab()</code></a> to indicate 
+success or the reason for the failure of the grab attempt.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><code class="literal">GDK_GRAB_SUCCESS</code></span></td>
+<td>the resource was successfully grabbed.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GDK_GRAB_ALREADY_GRABBED</code></span></td>
+<td>the resource is actively grabbed by another client.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GDK_GRAB_INVALID_TIME</code></span></td>
+<td>the resource was grabbed more recently than the 
+  specified time.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GDK_GRAB_NOT_VIEWABLE</code></span></td>
+<td>the grab window or the <em class="parameter"><code>confine_to</code></em> window are not
+  viewable.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><code class="literal">GDK_GRAB_FROZEN</code></span></td>
+<td>the resource is frozen by an active grab of another client.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2556987"></a><h3>
+<a name="gdk-pointer-ungrab"></a>gdk_pointer_ungrab ()</h3>
+<a class="indexterm" name="id2557000"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_pointer_ungrab              (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);</pre>
+<p>
+Ungrabs the pointer, if it is grabbed by this application.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>time_</code></em>&#160;:</span></td>
+<td> a timestamp from a <a href="gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>, or <code class="literal">GDK_CURRENT_TIME</code> if no 
+ timestamp is available.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557065"></a><h3>
+<a name="gdk-pointer-is-grabbed"></a>gdk_pointer_is_grabbed ()</h3>
+<a class="indexterm" name="id2557078"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gdk_pointer_is_grabbed          (void);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if the pointer is currently grabbed by this application.
+</p>
+<p>
+Note that this does not take the inmplicit pointer grab on button
+presses into account.</p>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td> <code class="literal">TRUE</code> if the pointer is currently grabbed by this application.* 
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557139"></a><h3>
+<a name="gdk-set-double-click-time"></a>gdk_set_double_click_time ()</h3>
+<a class="indexterm" name="id2557152"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_set_double_click_time       (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> msec);</pre>
+<p>
+Set the double click time for the default display. See
+<a href="GdkDisplay.html#gdk-display-set-double-click-time"><code class="function">gdk_display_set_double_click_time()</code></a>. 
+See also <a href="GdkDisplay.html#gdk-display-set-double-click-distance"><code class="function">gdk_display_set_double_click_distance()</code></a>.
+Applications should <span class="emphasis"><em>not</em></span> set this, it is a 
+global user-configured setting.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>msec</code></em>&#160;:</span></td>
+<td> double click time in milliseconds (thousandths of a second)
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557234"></a><h3>
+<a name="gdk-keyboard-grab"></a>gdk_keyboard_grab ()</h3>
+<a class="indexterm" name="id2557246"></a><pre class="programlisting"><a href="gdk-General.html#GdkGrabStatus">GdkGrabStatus</a> gdk_keyboard_grab             (<a href="gdk-Windows.html#GdkWindow">GdkWindow</a> *window,
+                                             <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> owner_events,
+                                             <GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);</pre>
+<p>
+Grabs the keyboard so that all events are passed to this
+application until the keyboard is ungrabbed with <a href="gdk-General.html#gdk-keyboard-ungrab"><code class="function">gdk_keyboard_ungrab()</code></a>.
+This overrides any previous keyboard grab by this client.
+</p>
+<p>
+If you set up anything at the time you take the grab that needs to be cleaned
+up when the grab ends, you should handle the <a href="gdk-Event-Structures.html#GdkEventGrabBroken"><span class="type">GdkEventGrabBroken</span></a> events that
+are emitted when the grab ends unvoluntarily.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>window</code></em>&#160;:</span></td>
+<td>the <a href="gdk-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> which will own the grab (the grab window).
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>owner_events</code></em>&#160;:</span></td>
+<td>if <code class="literal">FALSE</code> then all keyboard events are reported with respect to
+<em class="parameter"><code>window</code></em>. If <code class="literal">TRUE</code> then keyboard events for this application are reported as
+normal, but keyboard events outside this application are reported with respect
+to <em class="parameter"><code>window</code></em>. Both key press and key release events are always reported,
+independant of the event mask set by the application.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><em class="parameter"><code>time_</code></em>&#160;:</span></td>
+<td>a timestamp from a <a href="gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>, or <code class="literal">GDK_CURRENT_TIME</code> if no timestamp is
+available.
+</td>
+</tr>
+<tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+<code class="literal">GDK_GRAB_SUCCESS</code> if the grab was successful.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557431"></a><h3>
+<a name="gdk-keyboard-ungrab"></a>gdk_keyboard_ungrab ()</h3>
+<a class="indexterm" name="id2557444"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_keyboard_ungrab             (<GTKDOCLINK HREF="guint32">guint32</GTKDOCLINK> time_);</pre>
+<p>
+Ungrabs the keyboard, if it is grabbed by this application.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>time_</code></em>&#160;:</span></td>
+<td> a timestamp from a <a href="gdk-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a>, or <code class="literal">GDK_CURRENT_TIME</code> if no
+       timestamp is available.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557509"></a><h3>
+<a name="gdk-beep"></a>gdk_beep ()</h3>
+<a class="indexterm" name="id2557521"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_beep                        (void);</pre>
+<p>
+Emits a short beep.</p>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557546"></a><h3>
+<a name="gdk-get-use-xshm"></a>gdk_get_use_xshm ()</h3>
+<a class="indexterm" name="id2557561"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gdk_get_use_xshm                (void);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gdk_get_use_xshm</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Returns <code class="literal">TRUE</code> if GDK will attempt to use the MIT-SHM shared memory extension.
+</p>
+<p>
+The shared memory extension is used for <a href="gdk-Images.html#GdkImage"><span class="type">GdkImage</span></a>, and consequently for
+<a href="gdk-GdkRGB.html" title="GdkRGB">GdkRGB</a>.
+It enables much faster drawing by communicating with the X server through
+SYSV shared memory calls. However, it can only be used if the X client and
+server are on the same machine and the server supports it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>
+<code class="literal">TRUE</code> if use of the MIT shared memory extension will be attempted.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557646"></a><h3>
+<a name="gdk-set-use-xshm"></a>gdk_set_use_xshm ()</h3>
+<a class="indexterm" name="id2557661"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_set_use_xshm                (<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> use_xshm);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gdk_set_use_xshm</code> is deprecated and should not be used in newly-written code.</p>
+</div>
+<p>
+Sets whether the use of the MIT shared memory extension should be attempted.
+This function is mainly for internal use. It is only safe for an application
+to set this to <code class="literal">FALSE</code>, since if it is set to <code class="literal">TRUE</code> and the server does not
+support the extension it may cause warning messages to be output.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><em class="parameter"><code>use_xshm</code></em>&#160;:</span></td>
+<td>
+<code class="literal">TRUE</code> if use of the MIT shared memory extension should be attempted.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557742"></a><h3>
+<a name="gdk-error-trap-push"></a>gdk_error_trap_push ()</h3>
+<a class="indexterm" name="id2557755"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        gdk_error_trap_push             (void);</pre>
+<p>
+This function allows X errors to be trapped instead of the normal behavior
+of exiting the application. It should only be used if it is not possible to
+avoid the X error in any other way.
+</p>
+<div class="example">
+<a name="id2557779"></a><p class="title"><b>Example&#160;1.&#160;Trapping an X error</b></p>
+<div class="example-contents"><pre class="programlisting">
+  gdk_error_trap_push ();
+
+  /* ... Call the X function which may cause an error here ... */
+
+  /* Flush the X queue to catch errors now. */
+  gdk_flush ();
+
+  if (gdk_error_trap_pop ())
+    {
+      /* ... Handle the error here ... */
+    }
+</pre></div>
+</div>
+<br class="example-break">
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557804"></a><h3>
+<a name="gdk-error-trap-pop"></a>gdk_error_trap_pop ()</h3>
+<a class="indexterm" name="id2557816"></a><pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>        gdk_error_trap_pop              (void);</pre>
+<p>
+Removes the X error trap installed with <a href="gdk-General.html#gdk-error-trap-push"><code class="function">gdk_error_trap_push()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td>
+<span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></td>
+<td>the X error code, or 0 if no error occurred.
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557864"></a><h3>
+<a name="GDK-WINDOWING-X11:CAPS"></a>GDK_WINDOWING_X11</h3>
+<a class="indexterm" name="id2557877"></a><pre class="programlisting">#define GDK_WINDOWING_X11
+</pre>
+<p>
+This macro is defined if GDK is configured to use the X backend.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557893"></a><h3>
+<a name="GDK-WINDOWING-WIN32:CAPS"></a>GDK_WINDOWING_WIN32</h3>
+<a class="indexterm" name="id2557906"></a><pre class="programlisting">#define GDK_WINDOWING_WIN32
+</pre>
+<p>
+This macro is defined if GDK is configured to use the Win32 backend.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id2557923"></a><h3>
+<a name="GDK-WINDOWING-FB:CAPS"></a>GDK_WINDOWING_FB</h3>
+<a class="indexterm" name="id2557935"></a><pre class="programlisting">#define GDK_WINDOWING_FB
+</pre>
+<p>
+This macro is defined if GDK is configured to use the Linux framebuffer backend.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
