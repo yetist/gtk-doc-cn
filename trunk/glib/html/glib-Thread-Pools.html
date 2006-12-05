@@ -9,7 +9,7 @@
 <link rel="prev" href="glib-Threads.html" title="
 Threads">
 <link rel="next" href="glib-Asynchronous-Queues.html" title="Asynchronous Queues">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -35,16 +35,16 @@ Threads">
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Asynchronous-Queues.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2638682" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2639745" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2639092" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2640155" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Thread-Pools"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2638682"></a><span class="refentrytitle">Thread Pools</span>
+<a name="id2639745"></a><span class="refentrytitle">Thread Pools</span>
 </h2>
 <p>Thread Pools &#8212; pools of threads to execute work concurrently.</p>
 </td>
@@ -91,7 +91,7 @@ Threads">
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2639092"></a><h2>Description</h2>
+<a name="id2640155"></a><h2>Description</h2>
 <p>
 Sometimes you wish to asyncronously fork out the execution of work and
 continue working in your own thread. If that will happen often, the
@@ -130,11 +130,11 @@ can be stopped by calling <a href="glib-Thread-Pools.html#g-thread-pool-stop-unu
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2639264"></a><h2>Details</h2>
+<a name="id2640327"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2639274"></a><h3>
+<a name="id2640338"></a><h3>
 <a name="GThreadPool"></a>GThreadPool</h3>
-<a class="indexterm" name="id2639287"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2640350"></a><pre class="programlisting">typedef struct {
   GFunc func;
   gpointer user_data;
   gboolean exclusive;
@@ -172,9 +172,9 @@ this struct.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2639381"></a><h3>
+<a name="id2640444"></a><h3>
 <a name="g-thread-pool-new"></a>g_thread_pool_new ()</h3>
-<a class="indexterm" name="id2639394"></a><pre class="programlisting"><a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a>* g_thread_pool_new              (<a href="glib-Doubly-Linked-Lists.html#GFunc">GFunc</a> func,
+<a class="indexterm" name="id2640457"></a><pre class="programlisting"><a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a>* g_thread_pool_new              (<a href="glib-Doubly-Linked-Lists.html#GFunc">GFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data,
                                              <a href="glib-Basic-Types.html#gint">gint</a> max_threads,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> exclusive,
@@ -254,9 +254,9 @@ not all <em class="parameter"><code>max_threads</code></em> threads could be cre
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2639735"></a><h3>
+<a name="id2640798"></a><h3>
 <a name="g-thread-pool-push"></a>g_thread_pool_push ()</h3>
-<a class="indexterm" name="id2639749"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_push              (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
+<a class="indexterm" name="id2640812"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_push              (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -301,9 +301,9 @@ to do.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2639932"></a><h3>
+<a name="id2640995"></a><h3>
 <a name="g-thread-pool-set-max-threads"></a>g_thread_pool_set_max_threads ()</h3>
-<a class="indexterm" name="id2639945"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
+<a class="indexterm" name="id2641009"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
                                              <a href="glib-Basic-Types.html#gint">gint</a> max_threads,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -355,9 +355,9 @@ created.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640155"></a><h3>
+<a name="id2641218"></a><h3>
 <a name="g-thread-pool-get-max-threads"></a>g_thread_pool_get_max_threads ()</h3>
-<a class="indexterm" name="id2640168"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_thread_pool_get_max_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
+<a class="indexterm" name="id2641231"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_thread_pool_get_max_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
 <p>
 Returns the maximal number of threads for <em class="parameter"><code>pool</code></em>.</p>
 <p>
@@ -383,9 +383,9 @@ Returns the maximal number of threads for <em class="parameter"><code>pool</code
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640242"></a><h3>
+<a name="id2641306"></a><h3>
 <a name="g-thread-pool-get-num-threads"></a>g_thread_pool_get_num_threads ()</h3>
-<a class="indexterm" name="id2640256"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_num_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
+<a class="indexterm" name="id2641319"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_num_threads   (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
 <p>
 Returns the number of threads currently running in <em class="parameter"><code>pool</code></em>.</p>
 <p>
@@ -411,9 +411,9 @@ Returns the number of threads currently running in <em class="parameter"><code>p
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640330"></a><h3>
+<a name="id2641394"></a><h3>
 <a name="g-thread-pool-unprocessed"></a>g_thread_pool_unprocessed ()</h3>
-<a class="indexterm" name="id2640344"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_unprocessed       (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
+<a class="indexterm" name="id2641407"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_unprocessed       (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool);</pre>
 <p>
 Returns the number of tasks still unprocessed in <em class="parameter"><code>pool</code></em>.</p>
 <p>
@@ -439,9 +439,9 @@ Returns the number of tasks still unprocessed in <em class="parameter"><code>poo
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640418"></a><h3>
+<a name="id2641481"></a><h3>
 <a name="g-thread-pool-free"></a>g_thread_pool_free ()</h3>
-<a class="indexterm" name="id2640431"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_free              (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
+<a class="indexterm" name="id2641494"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_free              (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> immediate,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> wait);</pre>
 <p>
@@ -490,9 +490,9 @@ After calling this function <em class="parameter"><code>pool</code></em> must no
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640624"></a><h3>
+<a name="id2641687"></a><h3>
 <a name="g-thread-pool-set-max-unused-threads"></a>g_thread_pool_set_max_unused_threads ()</h3>
-<a class="indexterm" name="id2640638"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_unused_threads
+<a class="indexterm" name="id2641702"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_unused_threads
                                             (<a href="glib-Basic-Types.html#gint">gint</a> max_threads);</pre>
 <p>
 Sets the maximal number of unused threads to <em class="parameter"><code>max_threads</code></em>. If
@@ -513,9 +513,9 @@ threads.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640703"></a><h3>
+<a name="id2641766"></a><h3>
 <a name="g-thread-pool-get-max-unused-threads"></a>g_thread_pool_get_max_unused_threads ()</h3>
-<a class="indexterm" name="id2640717"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_thread_pool_get_max_unused_threads
+<a class="indexterm" name="id2641781"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_thread_pool_get_max_unused_threads
                                             (void);</pre>
 <p>
 Returns the maximal allowed number of unused threads.</p>
@@ -534,9 +534,9 @@ Returns the maximal allowed number of unused threads.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640759"></a><h3>
+<a name="id2641823"></a><h3>
 <a name="g-thread-pool-get-num-unused-threads"></a>g_thread_pool_get_num_unused_threads ()</h3>
-<a class="indexterm" name="id2640773"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_num_unused_threads
+<a class="indexterm" name="id2641836"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_num_unused_threads
                                             (void);</pre>
 <p>
 Returns the number of currently unused threads.</p>
@@ -555,9 +555,9 @@ Returns the number of currently unused threads.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640815"></a><h3>
+<a name="id2641878"></a><h3>
 <a name="g-thread-pool-stop-unused-threads"></a>g_thread_pool_stop_unused_threads ()</h3>
-<a class="indexterm" name="id2640829"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_stop_unused_threads
+<a class="indexterm" name="id2641893"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_stop_unused_threads
                                             (void);</pre>
 <p>
 Stops all currently unused threads. This does not change the
@@ -569,9 +569,9 @@ regularly stop all unused threads e.g. from <a href="glib-The-Main-Event-Loop.ht
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2640868"></a><h3>
+<a name="id2641931"></a><h3>
 <a name="g-thread-pool-set-sort-function"></a>g_thread_pool_set_sort_function ()</h3>
-<a class="indexterm" name="id2640884"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_sort_function (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
+<a class="indexterm" name="id2641947"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_sort_function (<a href="glib-Thread-Pools.html#GThreadPool">GThreadPool</a> *pool,
                                              <a href="glib-Doubly-Linked-Lists.html#GCompareDataFunc">GCompareDataFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data);</pre>
 <p>
@@ -621,9 +621,9 @@ created.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2641025"></a><h3>
+<a name="id2642088"></a><h3>
 <a name="g-thread-pool-set-max-idle-time"></a>g_thread_pool_set_max_idle_time ()</h3>
-<a class="indexterm" name="id2641041"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_idle_time (<a href="glib-Basic-Types.html#guint">guint</a> interval);</pre>
+<a class="indexterm" name="id2642104"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_thread_pool_set_max_idle_time (<a href="glib-Basic-Types.html#guint">guint</a> interval);</pre>
 <p>
 This function will set the maximum <em class="parameter"><code>interval</code></em> that a thread waiting
 in the pool for new tasks can be idle for before being
@@ -654,9 +654,9 @@ This function makes use of <a href="glib-Asynchronous-Queues.html#g-async-queue-
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2641152"></a><h3>
+<a name="id2642215"></a><h3>
 <a name="g-thread-pool-get-max-idle-time"></a>g_thread_pool_get_max_idle_time ()</h3>
-<a class="indexterm" name="id2641168"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_max_idle_time (void);</pre>
+<a class="indexterm" name="id2642231"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_thread_pool_get_max_idle_time (void);</pre>
 <p>
 This function will return the maximum <em class="parameter"><code>interval</code></em> that a thread will
 wait in the thread pool for new tasks before being stopped.
@@ -683,7 +683,7 @@ new work are not stopped.</p>
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2641234"></a><h2>See Also</h2>
+<a name="id2642297"></a><h2>See Also</h2>
 <p>
 </p>
 <div class="variablelist"><table border="0">

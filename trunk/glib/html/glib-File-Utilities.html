@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Spawning-Processes.html" title="Spawning Processes">
 <link rel="next" href="glib-Shell-related-Utilities.html" title="Shell-related Utilities">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Shell-related-Utilities.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2825301" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2826365" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2510297" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2511655" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-File-Utilities"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2825301"></a><span class="refentrytitle">File Utilities</span>
+<a name="id2826365"></a><span class="refentrytitle">File Utilities</span>
 </h2>
 <p>File Utilities &#8212; various file-related functions.</p>
 </td>
@@ -126,7 +126,7 @@ const <a href="glib-Basic-Types.html#gchar">gchar</a>* <a href="glib-File-Utilit
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2510297"></a><h2>Description</h2>
+<a name="id2511655"></a><h2>Description</h2>
 <p>
 There is a group of functions which wrap the common POSIX functions 
 dealing with filenames (<a href="glib-File-Utilities.html#g-open"><code class="function">g_open()</code></a>, <a href="glib-File-Utilities.html#g-rename"><code class="function">g_rename()</code></a>, <a href="glib-File-Utilities.html#g-mkdir"><code class="function">g_mkdir()</code></a>, <a href="glib-File-Utilities.html#g-stat"><code class="function">g_stat()</code></a>, 
@@ -155,11 +155,11 @@ in the GLib file name encoding. These are <a href="glib-File-Utilities.html#g-di
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2827109"></a><h2>Details</h2>
+<a name="id2828173"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2827120"></a><h3>
+<a name="id2828183"></a><h3>
 <a name="GFileError"></a>enum GFileError</h3>
-<a class="indexterm" name="id2827131"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2828194"></a><pre class="programlisting">typedef enum
 {
   G_FILE_ERROR_EXIST,
   G_FILE_ERROR_ISDIR,
@@ -404,9 +404,9 @@ differences in when a system will report a given error, etc.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2827724"></a><h3>
+<a name="id2828787"></a><h3>
 <a name="G-FILE-ERROR:CAPS"></a>G_FILE_ERROR</h3>
-<a class="indexterm" name="id2827734"></a><pre class="programlisting">#define G_FILE_ERROR g_file_error_quark ()
+<a class="indexterm" name="id2828797"></a><pre class="programlisting">#define G_FILE_ERROR g_file_error_quark ()
 </pre>
 <p>
 Error domain for file operations. Errors in this domain will
@@ -416,9 +416,9 @@ error domains.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2827763"></a><h3>
+<a name="id2828826"></a><h3>
 <a name="GFileTest"></a>enum GFileTest</h3>
-<a class="indexterm" name="id2827773"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2828837"></a><pre class="programlisting">typedef enum
 {
   G_FILE_TEST_IS_REGULAR    = 1 &lt;&lt; 0,
   G_FILE_TEST_IS_SYMLINK    = 1 &lt;&lt; 1,
@@ -474,9 +474,9 @@ A test to perform on a file using <a href="glib-File-Utilities.html#g-file-test"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2827939"></a><h3>
+<a name="id2829002"></a><h3>
 <a name="g-file-error-from-errno"></a>g_file_error_from_errno ()</h3>
-<a class="indexterm" name="id2827949"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GFileError">GFileError</a>  g_file_error_from_errno         (<a href="glib-Basic-Types.html#gint">gint</a> err_no);</pre>
+<a class="indexterm" name="id2829013"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GFileError">GFileError</a>  g_file_error_from_errno         (<a href="glib-Basic-Types.html#gint">gint</a> err_no);</pre>
 <p>
 Gets a <a href="glib-File-Utilities.html#GFileError"><span class="type">GFileError</span></a> constant based on the passed-in <em class="parameter"><code>errno</code></em>.
 For example, if you pass in <GTKDOCLINK HREF="EEXIST:CAPS"><code class="literal">EEXIST</code></GTKDOCLINK> this function returns
@@ -510,9 +510,9 @@ from a function that manipulates files. So you would use
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2828086"></a><h3>
+<a name="id2829149"></a><h3>
 <a name="g-file-get-contents"></a>g_file_get_contents ()</h3>
-<a class="indexterm" name="id2828096"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_get_contents             (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2829159"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_get_contents             (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> **contents,
                                              <a href="glib-Basic-Types.html#gsize">gsize</a> *length,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -569,9 +569,9 @@ codes are those in the <a href="glib-File-Utilities.html#GFileError"><span class
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2828341"></a><h3>
+<a name="id2829404"></a><h3>
 <a name="g-file-set-contents"></a>g_file_set_contents ()</h3>
-<a class="indexterm" name="id2828353"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_set_contents             (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2829417"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_set_contents             (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *contents,
                                              <a href="glib-Basic-Types.html#gssize">gssize</a> length,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -652,9 +652,9 @@ Possible error codes are those in the <a href="glib-File-Utilities.html#GFileErr
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2828624"></a><h3>
+<a name="id2829687"></a><h3>
 <a name="g-file-test"></a>g_file_test ()</h3>
-<a class="indexterm" name="id2828634"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_test                     (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2829698"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_file_test                     (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <a href="glib-File-Utilities.html#GFileTest">GFileTest</a> test);</pre>
 <p>
 Returns <a href="glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if any of the tests in the bitfield <em class="parameter"><code>test</code></em> are
@@ -735,9 +735,9 @@ extensions and those listed in the <GTKDOCLINK HREF="PATHEXT:CAPS"><code class="
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2828988"></a><h3>
+<a name="id2830051"></a><h3>
 <a name="g-mkstemp"></a>g_mkstemp ()</h3>
-<a class="indexterm" name="id2828999"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_mkstemp                       (<a href="glib-Basic-Types.html#gchar">gchar</a> *tmpl);</pre>
+<a class="indexterm" name="id2830063"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_mkstemp                       (<a href="glib-Basic-Types.html#gchar">gchar</a> *tmpl);</pre>
 <p>
 Opens a temporary file. See the <GTKDOCLINK HREF="mkstemp"><code class="function">mkstemp()</code></GTKDOCLINK> documentation
 on most UNIX-like systems. 
@@ -777,9 +777,9 @@ closed with <GTKDOCLINK HREF="close"><code class="function">close()</code></GTKD
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829118"></a><h3>
+<a name="id2830182"></a><h3>
 <a name="g-file-open-tmp"></a>g_file_open_tmp ()</h3>
-<a class="indexterm" name="id2829129"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_file_open_tmp                 (const <a href="glib-Basic-Types.html#gchar">gchar</a> *tmpl,
+<a class="indexterm" name="id2830192"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gint">gint</a>        g_file_open_tmp                 (const <a href="glib-Basic-Types.html#gchar">gchar</a> *tmpl,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> **name_used,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -841,9 +841,9 @@ and <em class="parameter"><code>error</code></em> will be set.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829396"></a><h3>
+<a name="id2830459"></a><h3>
 <a name="g-file-read-link"></a>g_file_read_link ()</h3>
-<a class="indexterm" name="id2829411"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_file_read_link                (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2830474"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_file_read_link                (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
 Reads the contents of the symbolic link <em class="parameter"><code>filename</code></em> like the POSIX
@@ -882,9 +882,9 @@ for filenames. Use <a href="glib-Character-Set-Conversion.html#g-filename-to-utf
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829547"></a><h3>
+<a name="id2830610"></a><h3>
 <a name="g-mkdir-with-parents"></a>g_mkdir_with_parents ()</h3>
-<a class="indexterm" name="id2829562"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_mkdir_with_parents            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *pathname,
+<a class="indexterm" name="id2830626"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_mkdir_with_parents            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *pathname,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
 Create a directory if it doesn't already exist. Create intermediate
@@ -922,18 +922,18 @@ created. Returns -1 if an error occurred, with errno set.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829652"></a><h3>
+<a name="id2830715"></a><h3>
 <a name="GDir"></a>GDir</h3>
-<a class="indexterm" name="id2829664"></a><pre class="programlisting">typedef struct _GDir GDir;</pre>
+<a class="indexterm" name="id2830728"></a><pre class="programlisting">typedef struct _GDir GDir;</pre>
 <p>
 An opaque structure representing an opened directory.
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829681"></a><h3>
+<a name="id2830744"></a><h3>
 <a name="g-dir-open"></a>g_dir_open ()</h3>
-<a class="indexterm" name="id2829693"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GDir">GDir</a>*       g_dir_open                      (const <a href="glib-Basic-Types.html#gchar">gchar</a> *path,
+<a class="indexterm" name="id2830757"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GDir">GDir</a>*       g_dir_open                      (const <a href="glib-Basic-Types.html#gchar">gchar</a> *path,
                                              <a href="glib-Basic-Types.html#guint">guint</a> flags,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -979,9 +979,9 @@ directory can then be retrieved using <a href="glib-File-Utilities.html#g-dir-re
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829891"></a><h3>
+<a name="id2830954"></a><h3>
 <a name="g-dir-read-name"></a>g_dir_read_name ()</h3>
-<a class="indexterm" name="id2829904"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_dir_read_name                (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
+<a class="indexterm" name="id2830967"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_dir_read_name                (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
 <p>
 Retrieves the name of the next entry in the directory.  The '.' and
 '..' entries are omitted. On Windows, the returned name is in
@@ -1011,9 +1011,9 @@ UTF-8. On Unix, it is in the on-disk encoding.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2829998"></a><h3>
+<a name="id2831061"></a><h3>
 <a name="g-dir-rewind"></a>g_dir_rewind ()</h3>
-<a class="indexterm" name="id2830011"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dir_rewind                    (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
+<a class="indexterm" name="id2831074"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dir_rewind                    (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
 <p>
 Resets the given directory. The next call to <a href="glib-File-Utilities.html#g-dir-read-name"><code class="function">g_dir_read_name()</code></a>
 will return the first entry again.</p>
@@ -1032,9 +1032,9 @@ will return the first entry again.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830090"></a><h3>
+<a name="id2831153"></a><h3>
 <a name="g-dir-close"></a>g_dir_close ()</h3>
-<a class="indexterm" name="id2830102"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dir_close                     (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
+<a class="indexterm" name="id2831166"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dir_close                     (<a href="glib-File-Utilities.html#GDir">GDir</a> *dir);</pre>
 <p>
 Closes the directory and deallocates all related resources.</p>
 <p>
@@ -1052,9 +1052,9 @@ Closes the directory and deallocates all related resources.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830171"></a><h3>
+<a name="id2831234"></a><h3>
 <a name="GMappedFile"></a>GMappedFile</h3>
-<a class="indexterm" name="id2830183"></a><pre class="programlisting">typedef struct _GMappedFile GMappedFile;</pre>
+<a class="indexterm" name="id2831246"></a><pre class="programlisting">typedef struct _GMappedFile GMappedFile;</pre>
 <p>
 The <a href="glib-File-Utilities.html#GMappedFile"><span class="type">GMappedFile</span></a> represents a file mapping created with
 <a href="glib-File-Utilities.html#g-mapped-file-new"><code class="function">g_mapped_file_new()</code></a>. It has only private members and should
@@ -1063,9 +1063,9 @@ not be accessed directly.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830219"></a><h3>
+<a name="id2831282"></a><h3>
 <a name="g-mapped-file-new"></a>g_mapped_file_new ()</h3>
-<a class="indexterm" name="id2830235"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a>* g_mapped_file_new              (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2831298"></a><pre class="programlisting"><a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a>* g_mapped_file_new              (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> writable,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -1121,9 +1121,9 @@ atomically (e.g. using <a href="glib-File-Utilities.html#g-file-set-contents"><c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830452"></a><h3>
+<a name="id2831515"></a><h3>
 <a name="g-mapped-file-free"></a>g_mapped_file_free ()</h3>
-<a class="indexterm" name="id2830468"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_mapped_file_free              (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
+<a class="indexterm" name="id2831531"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_mapped_file_free              (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
 <p>
 Unmaps the buffer of <em class="parameter"><code>file</code></em> and frees it.</p>
 <p>
@@ -1143,9 +1143,9 @@ Unmaps the buffer of <em class="parameter"><code>file</code></em> and frees it.<
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830535"></a><h3>
+<a name="id2831598"></a><h3>
 <a name="g-mapped-file-get-length"></a>g_mapped_file_get_length ()</h3>
-<a class="indexterm" name="id2830551"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gsize">gsize</a>       g_mapped_file_get_length        (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
+<a class="indexterm" name="id2831614"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gsize">gsize</a>       g_mapped_file_get_length        (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
 <p>
 Returns the length of the contents of a <a href="glib-File-Utilities.html#GMappedFile"><span class="type">GMappedFile</span></a>.</p>
 <p>
@@ -1174,9 +1174,9 @@ Returns the length of the contents of a <a href="glib-File-Utilities.html#GMappe
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830637"></a><h3>
+<a name="id2831700"></a><h3>
 <a name="g-mapped-file-get-contents"></a>g_mapped_file_get_contents ()</h3>
-<a class="indexterm" name="id2830653"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_mapped_file_get_contents      (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
+<a class="indexterm" name="id2831717"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_mapped_file_get_contents      (<a href="glib-File-Utilities.html#GMappedFile">GMappedFile</a> *file);</pre>
 <p>
 Returns the contents of a <a href="glib-File-Utilities.html#GMappedFile"><span class="type">GMappedFile</span></a>. 
 </p>
@@ -1209,9 +1209,9 @@ even if the <a href="glib-File-Utilities.html#GMappedFile"><span class="type">GM
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830751"></a><h3>
+<a name="id2831815"></a><h3>
 <a name="g-open"></a>g_open ()</h3>
-<a class="indexterm" name="id2830766"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_open                          (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2831830"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_open                          (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> flags,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
@@ -1263,9 +1263,9 @@ return value can be used exactly like the return value from <GTKDOCLINK HREF="op
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2830954"></a><h3>
+<a name="id2832018"></a><h3>
 <a name="g-rename"></a>g_rename ()</h3>
-<a class="indexterm" name="id2830969"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_rename                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *oldfilename,
+<a class="indexterm" name="id2832033"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_rename                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *oldfilename,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *newfilename);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="rename"><code class="function">rename()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="rename"><code class="function">rename()</code></GTKDOCLINK> function 
@@ -1308,9 +1308,9 @@ it is not possible in general on Windows to rename an open file.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831098"></a><h3>
+<a name="id2832162"></a><h3>
 <a name="g-mkdir"></a>g_mkdir ()</h3>
-<a class="indexterm" name="id2831113"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_mkdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2832177"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_mkdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="mkdir"><code class="function">mkdir()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="mkdir"><code class="function">mkdir()</code></GTKDOCLINK> function 
@@ -1351,9 +1351,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="mkdir"><code c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831238"></a><h3>
+<a name="id2832302"></a><h3>
 <a name="g-stat"></a>g_stat ()</h3>
-<a class="indexterm" name="id2831253"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_stat                          (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2832316"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_stat                          (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              struct <GTKDOCLINK HREF="stat">stat</GTKDOCLINK> *buf);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="stat"><code class="function">stat()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="stat"><code class="function">stat()</code></GTKDOCLINK> function 
@@ -1395,9 +1395,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="stat"><code cl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831381"></a><h3>
+<a name="id2832444"></a><h3>
 <a name="g-lstat"></a>g_lstat ()</h3>
-<a class="indexterm" name="id2831395"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_lstat                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2832459"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_lstat                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              struct <GTKDOCLINK HREF="stat">stat</GTKDOCLINK> *buf);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="lstat"><code class="function">lstat()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="lstat"><code class="function">lstat()</code></GTKDOCLINK> function is
@@ -1442,9 +1442,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="lstat"><code c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831557"></a><h3>
+<a name="id2832621"></a><h3>
 <a name="g-unlink"></a>g_unlink ()</h3>
-<a class="indexterm" name="id2831572"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_unlink                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
+<a class="indexterm" name="id2832635"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_unlink                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="unlink"><code class="function">unlink()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="unlink"><code class="function">unlink()</code></GTKDOCLINK> function 
 deletes a name from the filesystem. If this was the last link to the 
@@ -1482,9 +1482,9 @@ are open to some process, or mapped into memory.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831679"></a><h3>
+<a name="id2832742"></a><h3>
 <a name="g-remove"></a>g_remove ()</h3>
-<a class="indexterm" name="id2831694"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_remove                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
+<a class="indexterm" name="id2832757"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_remove                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="remove"><code class="function">remove()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="remove"><code class="function">remove()</code></GTKDOCLINK> function
 deletes a name from the filesystem.
@@ -1531,9 +1531,9 @@ set by <GTKDOCLINK HREF="rmdir"><code class="function">rmdir()</code></GTKDOCLIN
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2831913"></a><h3>
+<a name="id2832976"></a><h3>
 <a name="g-rmdir"></a>g_rmdir ()</h3>
-<a class="indexterm" name="id2831928"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_rmdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
+<a class="indexterm" name="id2832991"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_rmdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="rmdir"><code class="function">rmdir()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="rmdir"><code class="function">rmdir()</code></GTKDOCLINK> function
 deletes a directory from the filesystem.
@@ -1568,9 +1568,9 @@ on your system.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832030"></a><h3>
+<a name="id2833094"></a><h3>
 <a name="g-fopen"></a>g_fopen ()</h3>
-<a class="indexterm" name="id2832045"></a><pre class="programlisting"><GTKDOCLINK HREF="FILE:CAPS">FILE</GTKDOCLINK>*       g_fopen                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2833108"></a><pre class="programlisting"><GTKDOCLINK HREF="FILE:CAPS">FILE</GTKDOCLINK>*       g_fopen                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *mode);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="fopen"><code class="function">fopen()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="fopen"><code class="function">fopen()</code></GTKDOCLINK> function opens
@@ -1612,9 +1612,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="fopen"><code c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832184"></a><h3>
+<a name="id2833247"></a><h3>
 <a name="g-freopen"></a>g_freopen ()</h3>
-<a class="indexterm" name="id2832199"></a><pre class="programlisting"><GTKDOCLINK HREF="FILE:CAPS">FILE</GTKDOCLINK>*       g_freopen                       (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2833262"></a><pre class="programlisting"><GTKDOCLINK HREF="FILE:CAPS">FILE</GTKDOCLINK>*       g_freopen                       (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *mode,
                                              <GTKDOCLINK HREF="FILE:CAPS">FILE</GTKDOCLINK> *stream);</pre>
 <p>
@@ -1663,9 +1663,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="freopen"><code
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832371"></a><h3>
+<a name="id2833434"></a><h3>
 <a name="g-chmod"></a>g_chmod ()</h3>
-<a class="indexterm" name="id2832385"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_chmod                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2833449"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_chmod                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="chmod"><code class="function">chmod()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="chmod"><code class="function">chmod()</code></GTKDOCLINK> function is
@@ -1710,9 +1710,9 @@ See the C library manual for more details about <GTKDOCLINK HREF="chmod"><code c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832534"></a><h3>
+<a name="id2833598"></a><h3>
 <a name="g-access"></a>g_access ()</h3>
-<a class="indexterm" name="id2832549"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_access                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2833612"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_access                        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="access"><code class="function">access()</code></GTKDOCLINK> function. This function is used to
@@ -1758,9 +1758,9 @@ error.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832687"></a><h3>
+<a name="id2833751"></a><h3>
 <a name="g-creat"></a>g_creat ()</h3>
-<a class="indexterm" name="id2832702"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_creat                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
+<a class="indexterm" name="id2833766"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_creat                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *filename,
                                              <GTKDOCLINK HREF="int">int</GTKDOCLINK> mode);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="creat"><code class="function">creat()</code></GTKDOCLINK> function. The <GTKDOCLINK HREF="creat"><code class="function">creat()</code></GTKDOCLINK> function is
@@ -1805,9 +1805,9 @@ return value can be used exactly like the return value from <GTKDOCLINK HREF="cr
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2832860"></a><h3>
+<a name="id2833924"></a><h3>
 <a name="g-chdir"></a>g_chdir ()</h3>
-<a class="indexterm" name="id2515210"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_chdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *path);</pre>
+<a class="indexterm" name="id2510604"></a><pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         g_chdir                         (const <a href="glib-Basic-Types.html#gchar">gchar</a> *path);</pre>
 <p>
 A wrapper for the POSIX <GTKDOCLINK HREF="chdir"><code class="function">chdir()</code></GTKDOCLINK> function. The function changes the
 current directory of the process to <em class="parameter"><code>path</code></em>.

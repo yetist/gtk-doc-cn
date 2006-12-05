@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Relations-and-Tuples.html" title="Relations and Tuples">
 <link rel="next" href="glib-Memory-Allocators.html" title="Memory Allocators">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Memory-Allocators.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id3021107" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id3022180" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id3021422" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id3022495" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Caches"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id3021107"></a><span class="refentrytitle">Caches</span>
+<a name="id3022180"></a><span class="refentrytitle">Caches</span>
 </h2>
 <p>Caches &#8212; caches allow sharing of complex data structures to save resources.</p>
 </td>
@@ -83,7 +83,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3021422"></a><h2>Description</h2>
+<a name="id3022495"></a><h2>Description</h2>
 <p>
 A <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a> allows sharing of complex data structures, in order to save
 system resources.
@@ -101,11 +101,11 @@ A <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a> value i
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3021525"></a><h2>Details</h2>
+<a name="id3022599"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3021536"></a><h3>
+<a name="id3022609"></a><h3>
 <a name="GCache"></a>GCache</h3>
-<a class="indexterm" name="id3021548"></a><pre class="programlisting">typedef struct _GCache GCache;</pre>
+<a class="indexterm" name="id3022621"></a><pre class="programlisting">typedef struct _GCache GCache;</pre>
 <p>
 The <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a> struct is an opaque data structure containing information about
 a <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a>. It should only be accessed via the following functions.
@@ -113,9 +113,9 @@ a <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a>. It sho
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3021581"></a><h3>
+<a name="id3022655"></a><h3>
 <a name="g-cache-new"></a>g_cache_new ()</h3>
-<a class="indexterm" name="id3021593"></a><pre class="programlisting"><a href="glib-Caches.html#GCache">GCache</a>*     g_cache_new                     (<a href="glib-Caches.html#GCacheNewFunc">GCacheNewFunc</a> value_new_func,
+<a class="indexterm" name="id3022667"></a><pre class="programlisting"><a href="glib-Caches.html#GCache">GCache</a>*     g_cache_new                     (<a href="glib-Caches.html#GCacheNewFunc">GCacheNewFunc</a> value_new_func,
                                              <a href="glib-Caches.html#GCacheDestroyFunc">GCacheDestroyFunc</a> value_destroy_func,
                                              <a href="glib-Caches.html#GCacheDupFunc">GCacheDupFunc</a> key_dup_func,
                                              <a href="glib-Caches.html#GCacheDestroyFunc">GCacheDestroyFunc</a> key_destroy_func,
@@ -191,9 +191,9 @@ the two keys are equivalent.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3021868"></a><h3>
+<a name="id3022941"></a><h3>
 <a name="g-cache-insert"></a>g_cache_insert ()</h3>
-<a class="indexterm" name="id3021880"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_cache_insert                  (<a href="glib-Caches.html#GCache">GCache</a> *cache,
+<a class="indexterm" name="id3022954"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_cache_insert                  (<a href="glib-Caches.html#GCache">GCache</a> *cache,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> key);</pre>
 <p>
 Gets the value corresponding to the given key, creating it if necessary.
@@ -234,9 +234,9 @@ into the <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022033"></a><h3>
+<a name="id3023106"></a><h3>
 <a name="g-cache-remove"></a>g_cache_remove ()</h3>
-<a class="indexterm" name="id3022046"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_remove                  (<a href="glib-Caches.html#GCache">GCache</a> *cache,
+<a class="indexterm" name="id3023119"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_remove                  (<a href="glib-Caches.html#GCache">GCache</a> *cache,
                                              <a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> value);</pre>
 <p>
 Decreases the reference count of the given value.
@@ -265,9 +265,9 @@ using the <em class="parameter"><code>value_destroy_func</code></em> and <em cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022146"></a><h3>
+<a name="id3023219"></a><h3>
 <a name="g-cache-destroy"></a>g_cache_destroy ()</h3>
-<a class="indexterm" name="id3022159"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_destroy                 (<a href="glib-Caches.html#GCache">GCache</a> *cache);</pre>
+<a class="indexterm" name="id3023232"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_destroy                 (<a href="glib-Caches.html#GCache">GCache</a> *cache);</pre>
 <p>
 Frees the memory allocated for the <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a>.
 </p>
@@ -289,9 +289,9 @@ Note that it does not destroy the keys and values which were contained in the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022234"></a><h3>
+<a name="id3023307"></a><h3>
 <a name="g-cache-key-foreach"></a>g_cache_key_foreach ()</h3>
-<a class="indexterm" name="id3022247"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_key_foreach             (<a href="glib-Caches.html#GCache">GCache</a> *cache,
+<a class="indexterm" name="id3023321"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_key_foreach             (<a href="glib-Caches.html#GCache">GCache</a> *cache,
                                              <a href="glib-Hash-Tables.html#GHFunc">GHFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data);</pre>
 <p>
@@ -333,9 +333,9 @@ to its callback function !
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022390"></a><h3>
+<a name="id3023464"></a><h3>
 <a name="g-cache-value-foreach"></a>g_cache_value_foreach ()</h3>
-<a class="indexterm" name="id3022405"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_value_foreach           (<a href="glib-Caches.html#GCache">GCache</a> *cache,
+<a class="indexterm" name="id3023479"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cache_value_foreach           (<a href="glib-Caches.html#GCache">GCache</a> *cache,
                                              <a href="glib-Hash-Tables.html#GHFunc">GHFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -372,9 +372,9 @@ Calls the given function for each of the values in the <a href="glib-Caches.html
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022551"></a><h3>
+<a name="id3023624"></a><h3>
 <a name="GCacheDestroyFunc"></a>GCacheDestroyFunc ()</h3>
-<a class="indexterm" name="id3022564"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GCacheDestroyFunc)            (<a href="glib-Basic-Types.html#gpointer">gpointer</a> value);</pre>
+<a class="indexterm" name="id3023637"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GCacheDestroyFunc)            (<a href="glib-Basic-Types.html#gpointer">gpointer</a> value);</pre>
 <p>
 Specifies the type of the <em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em> functions
 passed to <a href="glib-Caches.html#g-cache-new"><code class="function">g_cache_new()</code></a>.
@@ -395,9 +395,9 @@ should free any memory and other resources associated with it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022659"></a><h3>
+<a name="id3023732"></a><h3>
 <a name="GCacheDupFunc"></a>GCacheDupFunc ()</h3>
-<a class="indexterm" name="id3022671"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    (*GCacheDupFunc)                (<a href="glib-Basic-Types.html#gpointer">gpointer</a> value);</pre>
+<a class="indexterm" name="id3023745"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    (*GCacheDupFunc)                (<a href="glib-Basic-Types.html#gpointer">gpointer</a> value);</pre>
 <p>
 Specifies the type of the <em class="parameter"><code>key_dup_func</code></em> function passed to <a href="glib-Caches.html#g-cache-new"><code class="function">g_cache_new()</code></a>.
 The function is passed a key (<span class="emphasis"><em>not</em></span> a value as the prototype implies) and
@@ -425,9 +425,9 @@ should return a duplicate of the key.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3022778"></a><h3>
+<a name="id3023851"></a><h3>
 <a name="GCacheNewFunc"></a>GCacheNewFunc ()</h3>
-<a class="indexterm" name="id3022790"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    (*GCacheNewFunc)                (<a href="glib-Basic-Types.html#gpointer">gpointer</a> key);</pre>
+<a class="indexterm" name="id3023864"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    (*GCacheNewFunc)                (<a href="glib-Basic-Types.html#gpointer">gpointer</a> key);</pre>
 <p>
 Specifies the type of the <em class="parameter"><code>value_new_func</code></em> function passed to <a href="glib-Caches.html#g-cache-new"><code class="function">g_cache_new()</code></a>.
 It is passed a <a href="glib-Caches.html#GCache"><span class="type">GCache</span></a> key and should create the value corresponding to the

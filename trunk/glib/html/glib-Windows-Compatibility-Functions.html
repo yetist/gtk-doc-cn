@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Bookmark-file-parser.html" title="Bookmark file parser">
 <link rel="next" href="glib-data-types.html" title="GLib Data Types">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-data-types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2904119" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2905192" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2904326" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2905399" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Windows-Compatibility-Functions"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2904119"></a><span class="refentrytitle">Windows Compatibility Functions</span>
+<a name="id2905192"></a><span class="refentrytitle">Windows Compatibility Functions</span>
 </h2>
 <p>Windows Compatibility Functions &#8212; UNIX emulation on Windows.</p>
 </td>
@@ -77,7 +77,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2904326"></a><h2>Description</h2>
+<a name="id2905399"></a><h2>Description</h2>
 <p>
 These functions provide some level of UNIX emulation on the Windows platform.
 If your application really needs the POSIX APIs, we suggest you try the Cygwin
@@ -85,11 +85,11 @@ project.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2904343"></a><h2>Details</h2>
+<a name="id2905416"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2904353"></a><h3>
+<a name="id2905426"></a><h3>
 <a name="MAXPATHLEN:CAPS"></a>MAXPATHLEN</h3>
-<a class="indexterm" name="id2904366"></a><pre class="programlisting">#define MAXPATHLEN 1024
+<a class="indexterm" name="id2905439"></a><pre class="programlisting">#define MAXPATHLEN 1024
 </pre>
 <p>
 Provided for UNIX emulation on Windows; equivalent to UNIX 
@@ -99,9 +99,9 @@ macro <a href="glib-Windows-Compatibility-Functions.html#MAXPATHLEN:CAPS"><code 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2904394"></a><h3>
+<a name="id2905467"></a><h3>
 <a name="pipe"></a>pipe()</h3>
-<a class="indexterm" name="id2904406"></a><pre class="programlisting">#define pipe(phandles)	_pipe (phandles, 4096, _O_BINARY)
+<a class="indexterm" name="id2905479"></a><pre class="programlisting">#define pipe(phandles)	_pipe (phandles, 4096, _O_BINARY)
 </pre>
 <p>
 Provided for UNIX emulation on Windows; see documentation for <code class="function"><a href="glib-Windows-Compatibility-Functions.html#pipe"><code class="function">pipe()</code></a></code>
@@ -121,9 +121,9 @@ in any UNIX manual.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2904456"></a><h3>
+<a name="id2905529"></a><h3>
 <a name="g-win32-error-message"></a>g_win32_error_message ()</h3>
-<a class="indexterm" name="id2904469"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_error_message           (<a href="glib-Basic-Types.html#gint">gint</a> error);</pre>
+<a class="indexterm" name="id2905542"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_error_message           (<a href="glib-Basic-Types.html#gint">gint</a> error);</pre>
 <p>
 Translate a Win32 error code (as returned by <GTKDOCLINK HREF="GetLastError"><code class="function">GetLastError()</code></GTKDOCLINK>) into
 the corresponding message. The message is either language neutral,
@@ -154,9 +154,9 @@ returned string is in UTF-8. It should be deallocated with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2904567"></a><h3>
+<a name="id2905640"></a><h3>
 <a name="g-win32-getlocale"></a>g_win32_getlocale ()</h3>
-<a class="indexterm" name="id2904580"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_getlocale               (void);</pre>
+<a class="indexterm" name="id2905653"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_getlocale               (void);</pre>
 <p>
 The <GTKDOCLINK HREF="setlocale"><code class="function">setlocale()</code></GTKDOCLINK> function in the Microsoft C library uses locale
 names of the form "English_United States.1252" etc. We want the
@@ -180,9 +180,9 @@ file names etc. The returned string should be deallocated with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2904647"></a><h3>
+<a name="id2905720"></a><h3>
 <a name="g-win32-get-package-installation-directory"></a>g_win32_get_package_installation_directory ()</h3>
-<a class="indexterm" name="id2904662"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_get_package_installation_directory
+<a class="indexterm" name="id2905735"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_get_package_installation_directory
                                             (<a href="glib-Basic-Types.html#gchar">gchar</a> *package,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> *dll_name);</pre>
 <p>
@@ -245,9 +245,9 @@ needed any longer.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2904097"></a><h3>
+<a name="id2905170"></a><h3>
 <a name="g-win32-get-package-installation-subdirectory"></a>g_win32_get_package_installation_subdirectory ()</h3>
-<a class="indexterm" name="id2905061"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_get_package_installation_subdirectory
+<a class="indexterm" name="id2906134"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_get_package_installation_subdirectory
                                             (<a href="glib-Basic-Types.html#gchar">gchar</a> *package,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> *dll_name,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> *subdir);</pre>
@@ -294,9 +294,9 @@ value should be freed with <a href="glib-Memory-Allocation.html#g-free"><code cl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2905245"></a><h3>
+<a name="id2906318"></a><h3>
 <a name="g-win32-get-windows-version"></a>g_win32_get_windows_version ()</h3>
-<a class="indexterm" name="id2905261"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_win32_get_windows_version     (void);</pre>
+<a class="indexterm" name="id2906334"></a><pre class="programlisting"><a href="glib-Basic-Types.html#guint">guint</a>       g_win32_get_windows_version     (void);</pre>
 <p>
 Returns version information for the Windows operating system the
 code is running on. See MSDN documentation for the <GTKDOCLINK HREF="GetVersion"><code class="function">GetVersion()</code></GTKDOCLINK>
@@ -330,9 +330,9 @@ Windows 9x.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2905357"></a><h3>
+<a name="id2906430"></a><h3>
 <a name="g-win32-locale-filename-from-utf8"></a>g_win32_locale_filename_from_utf8 ()</h3>
-<a class="indexterm" name="id2905373"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_locale_filename_from_utf8
+<a class="indexterm" name="id2906446"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_win32_locale_filename_from_utf8
                                             (const <a href="glib-Basic-Types.html#gchar">gchar</a> *utf8filename);</pre>
 <p>
 Converts a filename from UTF-8 to the system codepage.
@@ -384,9 +384,9 @@ failure and lack of short names.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2905495"></a><h3>
+<a name="id2906568"></a><h3>
 <a name="G-WIN32-DLLMAIN-FOR-DLL-NAME:CAPS"></a>G_WIN32_DLLMAIN_FOR_DLL_NAME()</h3>
-<a class="indexterm" name="id2905509"></a><pre class="programlisting">#define     G_WIN32_DLLMAIN_FOR_DLL_NAME(static, dll_name)</pre>
+<a class="indexterm" name="id2906582"></a><pre class="programlisting">#define     G_WIN32_DLLMAIN_FOR_DLL_NAME(static, dll_name)</pre>
 <p>
 On Windows, this macro defines a <code class="function"><GTKDOCLINK HREF="DllMain"><code class="function">DllMain()</code></GTKDOCLINK></code> function 
 that stores the actual DLL name that the code being compiled will be 
@@ -420,9 +420,9 @@ On non-Windows platforms, expands to nothing.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2905587"></a><h3>
+<a name="id2906660"></a><h3>
 <a name="G-WIN32-HAVE-WIDECHAR-API:CAPS"></a>G_WIN32_HAVE_WIDECHAR_API()</h3>
-<a class="indexterm" name="id2905603"></a><pre class="programlisting">#define G_WIN32_HAVE_WIDECHAR_API() (G_WIN32_IS_NT_BASED ())
+<a class="indexterm" name="id2906676"></a><pre class="programlisting">#define G_WIN32_HAVE_WIDECHAR_API() (G_WIN32_IS_NT_BASED ())
 </pre>
 <p>
 On Windows, this macro defines an expression which evaluates to <a href="glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
@@ -441,9 +441,9 @@ On non-Windows platforms, it is not defined.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2905643"></a><h3>
+<a name="id2906716"></a><h3>
 <a name="G-WIN32-IS-NT-BASED:CAPS"></a>G_WIN32_IS_NT_BASED()</h3>
-<a class="indexterm" name="id2905658"></a><pre class="programlisting">#define G_WIN32_IS_NT_BASED() (g_win32_get_windows_version () &lt; 0x80000000)
+<a class="indexterm" name="id2906731"></a><pre class="programlisting">#define G_WIN32_IS_NT_BASED() (g_win32_get_windows_version () &lt; 0x80000000)
 </pre>
 <p>
 On Windows, this macro defines an expression which evaluates to <a href="glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 

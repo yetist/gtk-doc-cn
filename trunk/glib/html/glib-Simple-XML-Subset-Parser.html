@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">
 <link rel="next" href="glib-Key-value-file-parser.html" title="Key-value file parser">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Key-value-file-parser.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2858421" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2859494" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2858773" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2859846" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Simple-XML-Subset-Parser"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2858421"></a><span class="refentrytitle">Simple XML Subset Parser</span>
+<a name="id2859494"></a><span class="refentrytitle">Simple XML Subset Parser</span>
 </h2>
 <p>Simple XML Subset Parser &#8212; parses a subset of XML.</p>
 </td>
@@ -90,7 +90,7 @@ const <a href="glib-Basic-Types.html#gchar">gchar</a>* <a href="glib-Simple-XML-
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2858773"></a><h2>Description</h2>
+<a name="id2859846"></a><h2>Description</h2>
 <p>
 The "GMarkup" parser is intended to parse a simple markup format
 that's a subset of XML. This is a small, efficient, easy-to-use
@@ -151,11 +151,11 @@ Sections marked as CDATA
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2858904"></a><h2>Details</h2>
+<a name="id2859976"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2858914"></a><h3>
+<a name="id2859987"></a><h3>
 <a name="GMarkupError"></a>enum GMarkupError</h3>
-<a class="indexterm" name="id2858927"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2860000"></a><pre class="programlisting">typedef enum
 {
   G_MARKUP_ERROR_BAD_UTF8,
   G_MARKUP_ERROR_EMPTY,
@@ -216,9 +216,9 @@ Error codes returned by markup parsing.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859120"></a><h3>
+<a name="id2860193"></a><h3>
 <a name="G-MARKUP-ERROR:CAPS"></a>G_MARKUP_ERROR</h3>
-<a class="indexterm" name="id2859132"></a><pre class="programlisting">#define G_MARKUP_ERROR g_markup_error_quark ()
+<a class="indexterm" name="id2860205"></a><pre class="programlisting">#define G_MARKUP_ERROR g_markup_error_quark ()
 </pre>
 <p>
 Error domain for markup parsing. Errors in this domain will
@@ -228,9 +228,9 @@ error domains.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859165"></a><h3>
+<a name="id2860238"></a><h3>
 <a name="GMarkupParseFlags"></a>enum GMarkupParseFlags</h3>
-<a class="indexterm" name="id2859178"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2860251"></a><pre class="programlisting">typedef enum
 {
   G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG = 1 &lt;&lt; 0,
   G_MARKUP_TREAT_CDATA_AS_TEXT              = 1 &lt;&lt; 1  
@@ -264,9 +264,9 @@ Flags that affect the behaviour of the parser.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859277"></a><h3>
+<a name="id2860350"></a><h3>
 <a name="GMarkupParseContext"></a>GMarkupParseContext</h3>
-<a class="indexterm" name="id2859290"></a><pre class="programlisting">typedef struct _GMarkupParseContext GMarkupParseContext;</pre>
+<a class="indexterm" name="id2860363"></a><pre class="programlisting">typedef struct _GMarkupParseContext GMarkupParseContext;</pre>
 <p>
 A parse context is used to parse a stream of bytes that you expect to
 contain marked-up text. See <a href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-new"><code class="function">g_markup_parse_context_new()</code></a>,
@@ -275,9 +275,9 @@ contain marked-up text. See <a href="glib-Simple-XML-Subset-Parser.html#g-markup
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859328"></a><h3>
+<a name="id2860401"></a><h3>
 <a name="GMarkupParser"></a>GMarkupParser</h3>
-<a class="indexterm" name="id2859340"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2860413"></a><pre class="programlisting">typedef struct {
   /* Called for open tags &lt;foo bar="baz"&gt; */
   void (*start_element)  (GMarkupParseContext *context,
                           const gchar         *element_name,
@@ -378,9 +378,9 @@ from these callbacks. If you set an error from a callback,
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859608"></a><h3>
+<a name="id2860681"></a><h3>
 <a name="g-markup-escape-text"></a>g_markup_escape_text ()</h3>
-<a class="indexterm" name="id2859621"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_escape_text            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *text,
+<a class="indexterm" name="id2860694"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_escape_text            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *text,
                                              <a href="glib-Basic-Types.html#gssize">gssize</a> length);</pre>
 <p>
 Escapes text so that the markup parser will parse it verbatim.
@@ -421,9 +421,9 @@ of line endings and attribute values.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859721"></a><h3>
+<a name="id2860794"></a><h3>
 <a name="g-markup-printf-escaped"></a>g_markup_printf_escaped ()</h3>
-<a class="indexterm" name="id2859736"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_printf_escaped         (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *format,
+<a class="indexterm" name="id2860809"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_printf_escaped         (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *format,
                                              ...);</pre>
 <p>
 Formats arguments according to <em class="parameter"><code>format</code></em>, escaping
@@ -479,9 +479,9 @@ output = g_markup_printf_escaped ("&lt;purchase&gt;"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2859874"></a><h3>
+<a name="id2860947"></a><h3>
 <a name="g-markup-vprintf-escaped"></a>g_markup_vprintf_escaped ()</h3>
-<a class="indexterm" name="id2859889"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_vprintf_escaped        (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *format,
+<a class="indexterm" name="id2860962"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_markup_vprintf_escaped        (const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *format,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);</pre>
 <p>
 Formats the data in <em class="parameter"><code>args</code></em> according to <em class="parameter"><code>format</code></em>, escaping
@@ -520,9 +520,9 @@ of <a href="glib-Simple-XML-Subset-Parser.html#g-markup-escape-text"><code class
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860042"></a><h3>
+<a name="id2861115"></a><h3>
 <a name="g-markup-parse-context-end-parse"></a>g_markup_parse_context_end_parse ()</h3>
-<a class="indexterm" name="id2860056"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_markup_parse_context_end_parse
+<a class="indexterm" name="id2861129"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_markup_parse_context_end_parse
                                             (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
 <p>
@@ -559,9 +559,9 @@ for example if elements are still open.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860197"></a><h3>
+<a name="id2861270"></a><h3>
 <a name="g-markup-parse-context-free"></a>g_markup_parse_context_free ()</h3>
-<a class="indexterm" name="id2860211"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_markup_parse_context_free     (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context);</pre>
+<a class="indexterm" name="id2861284"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_markup_parse_context_free     (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context);</pre>
 <p>
 Frees a <a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext"><span class="type">GMarkupParseContext</span></a>. Can't be called from inside
 one of the <a href="glib-Simple-XML-Subset-Parser.html#GMarkupParser"><span class="type">GMarkupParser</span></a> functions.</p>
@@ -580,9 +580,9 @@ one of the <a href="glib-Simple-XML-Subset-Parser.html#GMarkupParser"><span clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860286"></a><h3>
+<a name="id2861359"></a><h3>
 <a name="g-markup-parse-context-get-position"></a>g_markup_parse_context_get_position ()</h3>
-<a class="indexterm" name="id2860301"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_markup_parse_context_get_position
+<a class="indexterm" name="id2861374"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_markup_parse_context_get_position
                                             (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context,
                                              <a href="glib-Basic-Types.html#gint">gint</a> *line_number,
                                              <a href="glib-Basic-Types.html#gint">gint</a> *char_number);</pre>
@@ -620,9 +620,9 @@ semantics for what constitutes the "current" line number other than
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860428"></a><h3>
+<a name="id2861501"></a><h3>
 <a name="g-markup-parse-context-get-element"></a>g_markup_parse_context_get_element ()</h3>
-<a class="indexterm" name="id2860444"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_markup_parse_context_get_element
+<a class="indexterm" name="id2861517"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_markup_parse_context_get_element
                                             (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context);</pre>
 <p>
 Retrieves the name of the currently open element.</p>
@@ -651,9 +651,9 @@ Retrieves the name of the currently open element.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860530"></a><h3>
+<a name="id2861603"></a><h3>
 <a name="g-markup-parse-context-new"></a>g_markup_parse_context_new ()</h3>
-<a class="indexterm" name="id2860544"></a><pre class="programlisting"><a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a>* g_markup_parse_context_new
+<a class="indexterm" name="id2861617"></a><pre class="programlisting"><a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a>* g_markup_parse_context_new
                                             (const <a href="glib-Simple-XML-Subset-Parser.html#GMarkupParser">GMarkupParser</a> *parser,
                                              <a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseFlags">GMarkupParseFlags</a> flags,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data,
@@ -705,9 +705,9 @@ and create a new parse context).</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2860709"></a><h3>
+<a name="id2861782"></a><h3>
 <a name="g-markup-parse-context-parse"></a>g_markup_parse_context_parse ()</h3>
-<a class="indexterm" name="id2860722"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_markup_parse_context_parse    (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context,
+<a class="indexterm" name="id2861795"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_markup_parse_context_parse    (<a href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext">GMarkupParseContext</a> *context,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *text,
                                              <a href="glib-Basic-Types.html#gssize">gssize</a> text_len,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>

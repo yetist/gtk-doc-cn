@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Strings.html" title="Strings">
 <link rel="next" href="glib-Arrays.html" title="Arrays">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Arrays.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2968966" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2970039" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2969133" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2970206" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-String-Chunks"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2968966"></a><span class="refentrytitle">String Chunks</span>
+<a name="id2970039"></a><span class="refentrytitle">String Chunks</span>
 </h2>
 <p>String Chunks &#8212; efficient storage of groups of strings.</p>
 </td>
@@ -69,7 +69,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2969133"></a><h2>Description</h2>
+<a name="id2970206"></a><h2>Description</h2>
 <p>
 String chunks are used to store groups of strings.
 Memory is allocated in blocks, and as strings are added to the <a href="glib-String-Chunks.html#GStringChunk"><span class="type">GStringChunk</span></a>
@@ -101,11 +101,11 @@ It is not possible to free individual strings.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2969307"></a><h2>Details</h2>
+<a name="id2970380"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2969317"></a><h3>
+<a name="id2970390"></a><h3>
 <a name="GStringChunk"></a>GStringChunk</h3>
-<a class="indexterm" name="id2969329"></a><pre class="programlisting">typedef struct _GStringChunk GStringChunk;</pre>
+<a class="indexterm" name="id2970402"></a><pre class="programlisting">typedef struct _GStringChunk GStringChunk;</pre>
 <p>
 An opaque data structure representing String Chunks.
 It should only be accessed by using the following functions.
@@ -113,9 +113,9 @@ It should only be accessed by using the following functions.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2969346"></a><h3>
+<a name="id2970420"></a><h3>
 <a name="g-string-chunk-new"></a>g_string_chunk_new ()</h3>
-<a class="indexterm" name="id2969360"></a><pre class="programlisting"><a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a>* g_string_chunk_new            (<a href="glib-Basic-Types.html#gsize">gsize</a> size);</pre>
+<a class="indexterm" name="id2970433"></a><pre class="programlisting"><a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a>* g_string_chunk_new            (<a href="glib-Basic-Types.html#gsize">gsize</a> size);</pre>
 <p>
 Creates a new <a href="glib-String-Chunks.html#GStringChunk"><span class="type">GStringChunk</span></a>.
 </p>
@@ -143,9 +143,9 @@ block of memory will be allocated for it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2969436"></a><h3>
+<a name="id2970510"></a><h3>
 <a name="g-string-chunk-insert"></a>g_string_chunk_insert ()</h3>
-<a class="indexterm" name="id2969450"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert           (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
+<a class="indexterm" name="id2970523"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert           (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *string);</pre>
 <p>
 Adds a copy of <em class="parameter"><code>string</code></em> to the <a href="glib-String-Chunks.html#GStringChunk"><span class="type">GStringChunk</span></a>.
@@ -186,9 +186,9 @@ searched by <a href="glib-String-Chunks.html#g-string-chunk-insert-const"><code 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2969616"></a><h3>
+<a name="id2970689"></a><h3>
 <a name="g-string-chunk-insert-const"></a>g_string_chunk_insert_const ()</h3>
-<a class="indexterm" name="id2969630"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert_const     (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
+<a class="indexterm" name="id2970703"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert_const     (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *string);</pre>
 <p>
 Adds a copy of <em class="parameter"><code>string</code></em> to the <a href="glib-String-Chunks.html#GStringChunk"><span class="type">GStringChunk</span></a>, unless the same string has
@@ -233,9 +233,9 @@ added with <a href="glib-String-Chunks.html#g-string-chunk-insert"><code class="
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2969801"></a><h3>
+<a name="id2970874"></a><h3>
 <a name="g-string-chunk-insert-len"></a>g_string_chunk_insert_len ()</h3>
-<a class="indexterm" name="id2969816"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert_len       (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
+<a class="indexterm" name="id2970890"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gchar">gchar</a>*      g_string_chunk_insert_len       (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *string,
                                              <a href="glib-Basic-Types.html#gssize">gssize</a> len);</pre>
 <p>
@@ -284,9 +284,9 @@ should not change anything after the end of the string.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2969979"></a><h3>
+<a name="id2971053"></a><h3>
 <a name="g-string-chunk-free"></a>g_string_chunk_free ()</h3>
-<a class="indexterm" name="id2969993"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_string_chunk_free             (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk);</pre>
+<a class="indexterm" name="id2971066"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_string_chunk_free             (<a href="glib-String-Chunks.html#GStringChunk">GStringChunk</a> *chunk);</pre>
 <p>
 Frees all memory allocated by the <a href="glib-String-Chunks.html#GStringChunk"><span class="type">GStringChunk</span></a>.
 After calling <a href="glib-String-Chunks.html#g-string-chunk-free"><code class="function">g_string_chunk_free()</code></a> it is not safe to

@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-data-types.html" title="GLib Data Types">
 <link rel="next" href="glib-Memory-Chunks.html" title="Memory Chunks">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Memory-Chunks.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2907036" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2908109" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2907198" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2908271" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Memory-Slices"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2907036"></a><span class="refentrytitle">Memory Slices</span>
+<a name="id2908109"></a><span class="refentrytitle">Memory Slices</span>
 </h2>
 <p>Memory Slices &#8212; efficient way to allocate groups of equal-sized chunks of memory.</p>
 </td>
@@ -72,7 +72,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2907198"></a><h2>Description</h2>
+<a name="id2908271"></a><h2>Description</h2>
 <p>
 Memory slices provide a space-efficient and multi-processing scalable
 way to allocate equal-sized pieces of memory, just like the original
@@ -82,7 +82,7 @@ memory-waste, scalability and performance problems.
 <p>
 To achieve these goals, the slice allocator uses a sophisticated, 
 layered design that has been inspired by Bonwick's slab allocator
-<sup>[<a name="id2907231" href="#ftn.id2907231">5</a>]</sup>.
+<sup>[<a name="id2908304" href="#ftn.id2908304">5</a>]</sup>.
 It uses <GTKDOCLINK HREF="posix-memalign"><code class="function">posix_memalign()</code></GTKDOCLINK> to optimize allocations of many equally-sized 
 chunks, and has per-thread free lists (the so-called magazine layer) 
 to quickly satisfy allocation requests of already known structure sizes. 
@@ -103,7 +103,7 @@ friends, as long as objects are not resized during their lifetime and the
 object size used at allocation time is still available when freeing.
 </p>
 <div class="example">
-<a name="id2907343"></a><p class="title"><b>Example&#160;17.&#160;Using the slice allocator</b></p>
+<a name="id2908416"></a><p class="title"><b>Example&#160;17.&#160;Using the slice allocator</b></p>
 <div class="example-contents"><pre class="programlisting">
   gchar *mem[10000];
   gint i;
@@ -126,7 +126,7 @@ object size used at allocation time is still available when freeing.
 </pre></div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id2907364"></a><p class="title"><b>Example&#160;18.&#160;Using the slice allocator with data structures</b></p>
+<a name="id2908437"></a><p class="title"><b>Example&#160;18.&#160;Using the slice allocator with data structures</b></p>
 <div class="example-contents"><pre class="programlisting">
   GRealArray *array;
 
@@ -148,11 +148,11 @@ object size used at allocation time is still available when freeing.
 <br class="example-break">
 </div>
 <div class="refsect1" lang="en">
-<a name="id2907388"></a><h2>Details</h2>
+<a name="id2908461"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2907398"></a><h3>
+<a name="id2908471"></a><h3>
 <a name="g-slice-alloc"></a>g_slice_alloc ()</h3>
-<a class="indexterm" name="id2907414"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_slice_alloc                   (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size);</pre>
+<a class="indexterm" name="id2908487"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_slice_alloc                   (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size);</pre>
 <p>
 Allocates a block of memory from the slice allocator.
 The block adress handed out is guaranteed to be aligned
@@ -185,9 +185,9 @@ environment variable.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2907488"></a><h3>
+<a name="id2908561"></a><h3>
 <a name="g-slice-alloc0"></a>g_slice_alloc0 ()</h3>
-<a class="indexterm" name="id2907503"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_slice_alloc0                  (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size);</pre>
+<a class="indexterm" name="id2908576"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_slice_alloc0                  (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size);</pre>
 <p>
 Allocates a block of memory via <a href="glib-Memory-Slices.html#g-slice-alloc"><code class="function">g_slice_alloc()</code></a>
 and initialize the returned memory to 0.
@@ -219,9 +219,9 @@ environment variable.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2907586"></a><h3>
+<a name="id2908659"></a><h3>
 <a name="g-slice-free1"></a>g_slice_free1 ()</h3>
-<a class="indexterm" name="id2907600"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_slice_free1                   (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size,
+<a class="indexterm" name="id2908674"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_slice_free1                   (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> mem_block);</pre>
 <p>
 Frees a block of memory. The memory must have been allocated via
@@ -254,9 +254,9 @@ Note that the exact release behaviour can be changed with the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2907711"></a><h3>
+<a name="id2908784"></a><h3>
 <a name="g-slice-free-chain-with-offset"></a>g_slice_free_chain_with_offset ()</h3>
-<a class="indexterm" name="id2907727"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_slice_free_chain_with_offset  (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size,
+<a class="indexterm" name="id2908800"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_slice_free_chain_with_offset  (<a href="glib-Basic-Types.html#gsize">gsize</a> block_size,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> mem_chain,
                                              <a href="glib-Basic-Types.html#gsize">gsize</a> next_offset);</pre>
 <p>
@@ -298,9 +298,9 @@ Note that the exact release behaviour can be changed with the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2907888"></a><h3>
+<a name="id2908961"></a><h3>
 <a name="g-slice-new"></a>g_slice_new()</h3>
-<a class="indexterm" name="id2907903"></a><pre class="programlisting">#define     g_slice_new(type)</pre>
+<a class="indexterm" name="id2908976"></a><pre class="programlisting">#define     g_slice_new(type)</pre>
 <p>
 A convenience macro to allocate a block of memory from the slice allocator.
 It calls <a href="glib-Memory-Slices.html#g-slice-alloc"><code class="function">g_slice_alloc()</code></a> with sizeof (<em class="parameter"><code>type</code></em>) and casts the returned pointer
@@ -333,9 +333,9 @@ environment variable.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2907988"></a><h3>
+<a name="id2909061"></a><h3>
 <a name="g-slice-new0"></a>g_slice_new0()</h3>
-<a class="indexterm" name="id2908003"></a><pre class="programlisting">#define     g_slice_new0(type)</pre>
+<a class="indexterm" name="id2909076"></a><pre class="programlisting">#define     g_slice_new0(type)</pre>
 <p>
 A convenience macro to allocate a block of memory from the slice allocator
 and set the memory to 0. It calls <a href="glib-Memory-Slices.html#g-slice-alloc0"><code class="function">g_slice_alloc0()</code></a> with sizeof (<em class="parameter"><code>type</code></em>) and
@@ -369,9 +369,9 @@ environment variable.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2908088"></a><h3>
+<a name="id2909161"></a><h3>
 <a name="g-slice-free"></a>g_slice_free()</h3>
-<a class="indexterm" name="id2908103"></a><pre class="programlisting">#define     g_slice_free(type, mem)</pre>
+<a class="indexterm" name="id2909176"></a><pre class="programlisting">#define     g_slice_free(type, mem)</pre>
 <p>
 A convenience macro to free a block of memory that has been allocated
 from the slice allocator. It calls <a href="glib-Memory-Slices.html#g-slice-free1"><code class="function">g_slice_free1()</code></a> using 
@@ -403,9 +403,9 @@ Note that the exact release behaviour can be changed with the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2908183"></a><h3>
+<a name="id2909256"></a><h3>
 <a name="g-slice-free-chain"></a>g_slice_free_chain()</h3>
-<a class="indexterm" name="id2908198"></a><pre class="programlisting">#define     g_slice_free_chain(type, mem_chain, next)</pre>
+<a class="indexterm" name="id2909271"></a><pre class="programlisting">#define     g_slice_free_chain(type, mem_chain, next)</pre>
 <p>
 Frees a linked list of memory blocks of structure type <em class="parameter"><code>type</code></em>.
 The memory blocks must be equal-sized, allocated via
@@ -446,7 +446,7 @@ Note that the exact release behaviour can be changed with the
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2907231" href="#id2907231">5</a>] </sup>
+<div class="footnote"><p><sup>[<a name="ftn.id2908304" href="#id2908304">5</a>] </sup>
 <a href="http://citeseer.ist.psu.edu/bonwick94slab.html" target="_top">[Bonwick94]</a> Jeff Bonwick, The slab allocator: An object-caching kernel
 memory allocator. USENIX 1994, and  
 <a href="http://citeseer.ist.psu.edu/bonwick01magazines.html" target="_top">[Bonwick01]</a> Bonwick and Jonathan Adams, Magazines and vmem: Extending the

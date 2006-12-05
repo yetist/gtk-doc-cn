@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib Data Types">
 <link rel="prev" href="glib-Keyed-Data-Lists.html" title="Keyed Data Lists">
 <link rel="next" href="glib-Relations-and-Tuples.html" title="Relations and Tuples">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,16 +34,16 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Relations-and-Tuples.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id3013379" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id3014452" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id3013685" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id3014758" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Datasets"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id3013379"></a><span class="refentrytitle">Datasets</span>
+<a name="id3014452"></a><span class="refentrytitle">Datasets</span>
 </h2>
 <p>Datasets &#8212; associate groups of data elements with particular memory locations.</p>
 </td>
@@ -84,7 +84,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3013685"></a><h2>Description</h2>
+<a name="id3014758"></a><h2>Description</h2>
 <p>
 Datasets associate groups of data elements with particular memory locations.
 These are useful if you need to associate data with a structure returned
@@ -125,11 +125,11 @@ To destroy a dataset, use <a href="glib-Datasets.html#g-dataset-destroy"><code c
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id3013885"></a><h2>Details</h2>
+<a name="id3014958"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id3013895"></a><h3>
+<a name="id3014968"></a><h3>
 <a name="g-dataset-id-set-data"></a>g_dataset_id_set_data()</h3>
-<a class="indexterm" name="id3013908"></a><pre class="programlisting">#define     g_dataset_id_set_data(l, k, d)</pre>
+<a class="indexterm" name="id3014981"></a><pre class="programlisting">#define     g_dataset_id_set_data(l, k, d)</pre>
 <p>
 Sets the data element associated with the given <a href="glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id.
 Any previous data with the same key is removed, and its destroy function
@@ -163,9 +163,9 @@ is called.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3013988"></a><h3>
+<a name="id3015061"></a><h3>
 <a name="g-dataset-id-set-data-full"></a>g_dataset_id_set_data_full ()</h3>
-<a class="indexterm" name="id3014001"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_id_set_data_full      (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
+<a class="indexterm" name="id3015074"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_id_set_data_full      (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
                                              <a href="glib-Quarks.html#GQuark">GQuark</a> key_id,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Datasets.html#GDestroyNotify">GDestroyNotify</a> destroy_func);</pre>
@@ -211,9 +211,9 @@ memory allocated for it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014135"></a><h3>
+<a name="id3015209"></a><h3>
 <a name="GDestroyNotify"></a>GDestroyNotify ()</h3>
-<a class="indexterm" name="id3014148"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GDestroyNotify)               (<a href="glib-Basic-Types.html#gpointer">gpointer</a> data);</pre>
+<a class="indexterm" name="id3015222"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GDestroyNotify)               (<a href="glib-Basic-Types.html#gpointer">gpointer</a> data);</pre>
 <p>
 Specifies the type of function which is called when a data element is
 destroyed. It is passed the pointer to the data element and should free
@@ -233,9 +233,9 @@ any memory and resources allocated for it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014198"></a><h3>
+<a name="id3015271"></a><h3>
 <a name="g-dataset-id-get-data"></a>g_dataset_id_get_data ()</h3>
-<a class="indexterm" name="id3014211"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_dataset_id_get_data           (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
+<a class="indexterm" name="id3015285"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_dataset_id_get_data           (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
                                              <a href="glib-Quarks.html#GQuark">GQuark</a> key_id);</pre>
 <p>
 Gets the data element corresponding to a <a href="glib-Quarks.html#GQuark"><span class="type">GQuark</span></a>.
@@ -269,9 +269,9 @@ not found.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014327"></a><h3>
+<a name="id3015400"></a><h3>
 <a name="g-dataset-id-remove-data"></a>g_dataset_id_remove_data()</h3>
-<a class="indexterm" name="id3014340"></a><pre class="programlisting">#define     g_dataset_id_remove_data(l, k)</pre>
+<a class="indexterm" name="id3015413"></a><pre class="programlisting">#define     g_dataset_id_remove_data(l, k)</pre>
 <p>
 Removes a data element from a dataset.
 The data element's destroy function is called if it has been set.
@@ -298,9 +298,9 @@ The data element's destroy function is called if it has been set.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014398"></a><h3>
+<a name="id3015471"></a><h3>
 <a name="g-dataset-id-remove-no-notify"></a>g_dataset_id_remove_no_notify ()</h3>
-<a class="indexterm" name="id3014411"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_dataset_id_remove_no_notify   (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
+<a class="indexterm" name="id3015484"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gpointer">gpointer</a>    g_dataset_id_remove_no_notify   (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
                                              <a href="glib-Quarks.html#GQuark">GQuark</a> key_id);</pre>
 <p>
 Removes an element, without calling its destroy notification function.
@@ -333,9 +333,9 @@ Removes an element, without calling its destroy notification function.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014517"></a><h3>
+<a name="id3015590"></a><h3>
 <a name="g-dataset-set-data"></a>g_dataset_set_data()</h3>
-<a class="indexterm" name="id3014530"></a><pre class="programlisting">#define     g_dataset_set_data(l, k, d)</pre>
+<a class="indexterm" name="id3015603"></a><pre class="programlisting">#define     g_dataset_set_data(l, k, d)</pre>
 <p>
 Sets the data corresponding to the given string identifier.
 </p>
@@ -367,9 +367,9 @@ Sets the data corresponding to the given string identifier.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014592"></a><h3>
+<a name="id3015666"></a><h3>
 <a name="g-dataset-set-data-full"></a>g_dataset_set_data_full()</h3>
-<a class="indexterm" name="id3014605"></a><pre class="programlisting">#define     g_dataset_set_data_full(l, k, d, f)</pre>
+<a class="indexterm" name="id3015678"></a><pre class="programlisting">#define     g_dataset_set_data_full(l, k, d, f)</pre>
 <p>
 Sets the data corresponding to the given string identifier, and the function
 to call when the data element is destroyed.
@@ -410,9 +410,9 @@ memory allocated for it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014685"></a><h3>
+<a name="id3015758"></a><h3>
 <a name="g-dataset-get-data"></a>g_dataset_get_data()</h3>
-<a class="indexterm" name="id3014698"></a><pre class="programlisting">#define     g_dataset_get_data(l, k)</pre>
+<a class="indexterm" name="id3015772"></a><pre class="programlisting">#define     g_dataset_get_data(l, k)</pre>
 <p>
 Gets the data element corresponding to a string.
 </p>
@@ -445,9 +445,9 @@ found.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014768"></a><h3>
+<a name="id3015842"></a><h3>
 <a name="g-dataset-remove-data"></a>g_dataset_remove_data()</h3>
-<a class="indexterm" name="id3014782"></a><pre class="programlisting">#define     g_dataset_remove_data(l, k)</pre>
+<a class="indexterm" name="id3015855"></a><pre class="programlisting">#define     g_dataset_remove_data(l, k)</pre>
 <p>
 Removes a data element corresponding to a string.
 Its destroy function is called if it has been set.
@@ -474,9 +474,9 @@ Its destroy function is called if it has been set.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014832"></a><h3>
+<a name="id3015905"></a><h3>
 <a name="g-dataset-remove-no-notify"></a>g_dataset_remove_no_notify()</h3>
-<a class="indexterm" name="id3014846"></a><pre class="programlisting">#define     g_dataset_remove_no_notify(l, k)</pre>
+<a class="indexterm" name="id3015919"></a><pre class="programlisting">#define     g_dataset_remove_no_notify(l, k)</pre>
 <p>
 Removes an element, without calling its destroy notifier.
 </p>
@@ -502,9 +502,9 @@ Removes an element, without calling its destroy notifier.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3014894"></a><h3>
+<a name="id3015968"></a><h3>
 <a name="g-dataset-foreach"></a>g_dataset_foreach ()</h3>
-<a class="indexterm" name="id3014908"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_foreach               (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
+<a class="indexterm" name="id3015981"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_foreach               (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location,
                                              <a href="glib-Datasets.html#GDataForeachFunc">GDataForeachFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data);</pre>
 <p>
@@ -542,9 +542,9 @@ function, it should not be called.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3015010"></a><h3>
+<a name="id3016083"></a><h3>
 <a name="GDataForeachFunc"></a>GDataForeachFunc ()</h3>
-<a class="indexterm" name="id3015022"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GDataForeachFunc)             (<a href="glib-Quarks.html#GQuark">GQuark</a> key_id,
+<a class="indexterm" name="id3016095"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GDataForeachFunc)             (<a href="glib-Quarks.html#GQuark">GQuark</a> key_id,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data);</pre>
 <p>
@@ -580,9 +580,9 @@ together with the <em class="parameter"><code>user_data</code></em> parameter su
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id3015168"></a><h3>
+<a name="id3016241"></a><h3>
 <a name="g-dataset-destroy"></a>g_dataset_destroy ()</h3>
-<a class="indexterm" name="id3015181"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_destroy               (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location);</pre>
+<a class="indexterm" name="id3016254"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_dataset_destroy               (<a href="glib-Basic-Types.html#gconstpointer">gconstpointer</a> dataset_location);</pre>
 <p>
 Destroys the dataset, freeing all memory allocated, and calling any
 destroy functions set for data elements.

@@ -1,18 +1,18 @@
 <refentry id="glib-Commandline-option-parser">
 <refmeta>
-<refentrytitle role="top_of_page">Commandline option parser</refentrytitle>
+<refentrytitle role="top_of_page">命令行选项解析</refentrytitle>
 <manvolnum>3</manvolnum>
-<refmiscinfo>GLIB Library</refmiscinfo>
+<refmiscinfo>GLIB 库</refmiscinfo>
 </refmeta>
 
 <refnamediv>
-<refname>Commandline option parser</refname>
-<refpurpose>parses commandline options</refpurpose>
+<refname>命令行选项解析</refname>
+<refpurpose>解析命令行选项</refpurpose>
 <!--[<xref linkend="desc" endterm="desc.title"/>]-->
 </refnamediv>
 
 <refsynopsisdiv role="synopsis">
-<title role="synopsis.title">Synopsis</title>
+<title role="synopsis.title">概要</title>
 
 <synopsis>
 
@@ -117,11 +117,9 @@ enum        <link linkend="GOptionFlags">GOptionFlags</link>;
 
 
 <refsect1 role="desc">
-<title role="desc.title">Description</title>
+<title role="desc.title">描述</title>
 <para>
-The GOption commandline parser is intended to be a simpler replacement for the
-popt library. It supports short and long commandline options, as shown in the 
-following example:
+    这个命令行解析设计的更简单易用，可以替换popt库。 它支持长选项和短选项，如下所示：
 </para>
 
 <para>
@@ -129,39 +127,34 @@ following example:
 </para>
 
 <para>
-The example demonstrates a number of features of the GOption commandline parser
+    这个例子示范了命令行解析的一些特征：
 <itemizedlist>
 <listitem><para>
-  Options can be single letters, prefixed by a single dash. Multiple
-  short options can be grouped behind a single dash.
+        选项可以是单个字符，并且以"-"开始。多个短选项可以在"-"之后组合在一起。
 </para></listitem>
 <listitem><para>
-  Long options are prefixed by two consecutive dashes.
+        长选项以两个连续的"-"开始。
 </para></listitem>
 <listitem><para>
-  Options can have an extra argument, which can be a number, a string or a filename.
-  For long options, the extra argument can be appended with an equals sign after the
-  option name.
+        选项可以带一个参数，这个参数可以是数字、字符串或文件名。
+        对于长选项，这个参数用"="连接在选项名之后。
 </para></listitem>
 <listitem><para>
-  Non-option arguments are returned to the application as rest arguments.
+        没有选项的参数被当做剩余的参数一起返回给应用程序。
 </para></listitem>
 <listitem><para>
-  An argument consisting solely of two dashes turns off further parsing, any remaining
-  arguments (even those starting with a dash) are returned to the application as rest 
-  arguments.
+        两个单独的"-"组合在一起而成的参数将关闭以后的解析，在此之后的任何参数(包换以"-"开始)
+        将被当做剩余参数返回给程序。
 </para></listitem>
 </itemizedlist>
 </para>
 
 <para>
-Another important feature of GOption is that it can automatically generate nicely
-formatted help output. Unless it is explicitly turned off with 
-<link linkend="g-option-context-set-help-enabled"><function>g_option_context_set_help_enabled()</function></link>, GOption will recognize the 
+    另外一个重要的特征是它可以自动生成一个有效的帮助信息。除非你用<link linkend="g-option-context-set-help-enabled"><function>g_option_context_set_help_enabled()</function></link>关闭了此功能，GOption可以认出
 <option>--help</option>, <option>-?</option>, <option>--help-all</option>
-and <option>--help-</option><replaceable>groupname</replaceable> options 
-(where <replaceable>groupname</replaceable> is the name of a <link linkend="GOptionGroup"><type>GOptionGroup</type></link>) 
-and write a text similar to the one shown in the following example to stdout.
+and <option>--help-</option><replaceable>groupname</replaceable> 选项 
+(这里的 <replaceable>groupname</replaceable> 是 <link linkend="GOptionGroup"><type>GOptionGroup</type></link>的名字) 
+并且能显示类似的帮助信息：
 </para>
 
 <informalexample><screen>

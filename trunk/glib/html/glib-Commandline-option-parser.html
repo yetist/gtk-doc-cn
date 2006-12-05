@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Commandline option parser</title>
+<title>&#21629;&#20196;&#34892;&#36873;&#39033;&#35299;&#26512;</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
 <link rel="start" href="index.html" title="GLib &#21442;&#32771;&#25163;&#20876;">
 <link rel="up" href="glib-utilities.html" title="GLib Utilities">
 <link rel="prev" href="glib-Shell-related-Utilities.html" title="Shell-related Utilities">
 <link rel="next" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="chapter" href="glib.html" title="GLib &#27010;&#36848;">
 <link rel="chapter" href="glib-fundamentals.html" title="GLib Fundamentals">
@@ -34,23 +34,23 @@
 <th width="100%" align="center">GLib &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="glib-Glob-style-pattern-matching.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2841936" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2843000" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2842967" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2844030" class="shortcut">&#25551;&#36848;</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="glib-Commandline-option-parser"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2841936"></a><span class="refentrytitle">Commandline option parser</span>
+<a name="id2843000"></a><span class="refentrytitle">&#21629;&#20196;&#34892;&#36873;&#39033;&#35299;&#26512;</span>
 </h2>
-<p>Commandline option parser &#8212; parses commandline options</p>
+<p>&#21629;&#20196;&#34892;&#36873;&#39033;&#35299;&#26512; &#8212; &#35299;&#26512;&#21629;&#20196;&#34892;&#36873;&#39033;</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsynopsisdiv">
-<h2>Synopsis</h2>
+<h2>&#27010;&#35201;</h2>
 <pre class="synopsis">
 
 #include &lt;glib.h&gt;
@@ -145,50 +145,43 @@ enum        <a href="glib-Commandline-option-parser.html#GOptionFlags">GOptionFl
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2842967"></a><h2>Description</h2>
+<a name="id2844030"></a><h2>&#25551;&#36848;</h2>
 <p>
-The GOption commandline parser is intended to be a simpler replacement for the
-popt library. It supports short and long commandline options, as shown in the 
-following example:
+    &#36825;&#20010;&#21629;&#20196;&#34892;&#35299;&#26512;&#35774;&#35745;&#30340;&#26356;&#31616;&#21333;&#26131;&#29992;&#65292;&#21487;&#20197;&#26367;&#25442;popt&#24211;&#12290; &#23427;&#25903;&#25345;&#38271;&#36873;&#39033;&#21644;&#30701;&#36873;&#39033;&#65292;&#22914;&#19979;&#25152;&#31034;&#65306;
 </p>
 <p>
 <code class="literal">testtreemodel -r 1 --max-size 20 --rand --display=:1.0 -vb -- file1 file2</code>
 </p>
 <p>
-The example demonstrates a number of features of the GOption commandline parser
+    &#36825;&#20010;&#20363;&#23376;&#31034;&#33539;&#20102;&#21629;&#20196;&#34892;&#35299;&#26512;&#30340;&#19968;&#20123;&#29305;&#24449;&#65306;
 </p>
 <div class="itemizedlist"><ul type="disc">
 <li><p>
-  Options can be single letters, prefixed by a single dash. Multiple
-  short options can be grouped behind a single dash.
+        &#36873;&#39033;&#21487;&#20197;&#26159;&#21333;&#20010;&#23383;&#31526;&#65292;&#24182;&#19988;&#20197;"-"&#24320;&#22987;&#12290;&#22810;&#20010;&#30701;&#36873;&#39033;&#21487;&#20197;&#22312;"-"&#20043;&#21518;&#32452;&#21512;&#22312;&#19968;&#36215;&#12290;
 </p></li>
 <li><p>
-  Long options are prefixed by two consecutive dashes.
+        &#38271;&#36873;&#39033;&#20197;&#20004;&#20010;&#36830;&#32493;&#30340;"-"&#24320;&#22987;&#12290;
 </p></li>
 <li><p>
-  Options can have an extra argument, which can be a number, a string or a filename.
-  For long options, the extra argument can be appended with an equals sign after the
-  option name.
+        &#36873;&#39033;&#21487;&#20197;&#24102;&#19968;&#20010;&#21442;&#25968;&#65292;&#36825;&#20010;&#21442;&#25968;&#21487;&#20197;&#26159;&#25968;&#23383;&#12289;&#23383;&#31526;&#20018;&#25110;&#25991;&#20214;&#21517;&#12290;
+        &#23545;&#20110;&#38271;&#36873;&#39033;&#65292;&#36825;&#20010;&#21442;&#25968;&#29992;"="&#36830;&#25509;&#22312;&#36873;&#39033;&#21517;&#20043;&#21518;&#12290;
 </p></li>
 <li><p>
-  Non-option arguments are returned to the application as rest arguments.
+        &#27809;&#26377;&#36873;&#39033;&#30340;&#21442;&#25968;&#34987;&#24403;&#20570;&#21097;&#20313;&#30340;&#21442;&#25968;&#19968;&#36215;&#36820;&#22238;&#32473;&#24212;&#29992;&#31243;&#24207;&#12290;
 </p></li>
 <li><p>
-  An argument consisting solely of two dashes turns off further parsing, any remaining
-  arguments (even those starting with a dash) are returned to the application as rest 
-  arguments.
+        &#20004;&#20010;&#21333;&#29420;&#30340;"-"&#32452;&#21512;&#22312;&#19968;&#36215;&#32780;&#25104;&#30340;&#21442;&#25968;&#23558;&#20851;&#38381;&#20197;&#21518;&#30340;&#35299;&#26512;&#65292;&#22312;&#27492;&#20043;&#21518;&#30340;&#20219;&#20309;&#21442;&#25968;(&#21253;&#25442;&#20197;"-"&#24320;&#22987;)
+        &#23558;&#34987;&#24403;&#20570;&#21097;&#20313;&#21442;&#25968;&#36820;&#22238;&#32473;&#31243;&#24207;&#12290;
 </p></li>
 </ul></div>
 <p>
 </p>
 <p>
-Another important feature of GOption is that it can automatically generate nicely
-formatted help output. Unless it is explicitly turned off with 
-<a href="glib-Commandline-option-parser.html#g-option-context-set-help-enabled"><code class="function">g_option_context_set_help_enabled()</code></a>, GOption will recognize the 
+    &#21478;&#22806;&#19968;&#20010;&#37325;&#35201;&#30340;&#29305;&#24449;&#26159;&#23427;&#21487;&#20197;&#33258;&#21160;&#29983;&#25104;&#19968;&#20010;&#26377;&#25928;&#30340;&#24110;&#21161;&#20449;&#24687;&#12290;&#38500;&#38750;&#20320;&#29992;<a href="glib-Commandline-option-parser.html#g-option-context-set-help-enabled"><code class="function">g_option_context_set_help_enabled()</code></a>&#20851;&#38381;&#20102;&#27492;&#21151;&#33021;&#65292;GOption&#21487;&#20197;&#35748;&#20986;
 <code class="option">--help</code>, <code class="option">-?</code>, <code class="option">--help-all</code>
-and <code class="option">--help-</code><em class="replaceable"><code>groupname</code></em> options 
-(where <em class="replaceable"><code>groupname</code></em> is the name of a <a href="glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a>) 
-and write a text similar to the one shown in the following example to stdout.
+and <code class="option">--help-</code><em class="replaceable"><code>groupname</code></em> &#36873;&#39033; 
+(&#36825;&#37324;&#30340; <em class="replaceable"><code>groupname</code></em> &#26159; <a href="glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a>&#30340;&#21517;&#23383;) 
+&#24182;&#19988;&#33021;&#26174;&#31034;&#31867;&#20284;&#30340;&#24110;&#21161;&#20449;&#24687;&#65306;
 </p>
 <div class="informalexample"><pre class="screen">
 Usage:
@@ -257,11 +250,11 @@ main (int argc, char *argv[])
 </pre></div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2843183"></a><h2>Details</h2>
+<a name="id2844259"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2843193"></a><h3>
+<a name="id2844269"></a><h3>
 <a name="GOptionError"></a>enum GOptionError</h3>
-<a class="indexterm" name="id2843206"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2844282"></a><pre class="programlisting">typedef enum
 {
   G_OPTION_ERROR_UNKNOWN_OPTION,
   G_OPTION_ERROR_BAD_VALUE,
@@ -300,9 +293,9 @@ Error codes returned by option parsing.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843318"></a><h3>
+<a name="id2844394"></a><h3>
 <a name="G-OPTION-ERROR:CAPS"></a>G_OPTION_ERROR</h3>
-<a class="indexterm" name="id2843331"></a><pre class="programlisting">#define G_OPTION_ERROR (g_option_error_quark ())
+<a class="indexterm" name="id2844407"></a><pre class="programlisting">#define G_OPTION_ERROR (g_option_error_quark ())
 </pre>
 <p>
 Error domain for option parsing. Errors in this domain will
@@ -312,9 +305,9 @@ error domains.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843365"></a><h3>
+<a name="id2844440"></a><h3>
 <a name="GOptionArgFunc"></a>GOptionArgFunc ()</h3>
-<a class="indexterm" name="id2843378"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    (*GOptionArgFunc)               (const <a href="glib-Basic-Types.html#gchar">gchar</a> *option_name,
+<a class="indexterm" name="id2844453"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    (*GOptionArgFunc)               (const <a href="glib-Basic-Types.html#gchar">gchar</a> *option_name,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *value,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -368,9 +361,9 @@ options.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843592"></a><h3>
+<a name="id2844668"></a><h3>
 <a name="GOptionContext"></a>GOptionContext</h3>
-<a class="indexterm" name="id2843605"></a><pre class="programlisting">typedef struct _GOptionContext GOptionContext;</pre>
+<a class="indexterm" name="id2844681"></a><pre class="programlisting">typedef struct _GOptionContext GOptionContext;</pre>
 <p>
 A <span class="structname">GOptionContext</span> struct defines which options
 are accepted by the commandline option parser. The struct has only private 
@@ -379,9 +372,9 @@ fields and should not be directly accessed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843627"></a><h3>
+<a name="id2844703"></a><h3>
 <a name="g-option-context-new"></a>g_option_context_new ()</h3>
-<a class="indexterm" name="id2843642"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a>* g_option_context_new        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *parameter_string);</pre>
+<a class="indexterm" name="id2844718"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a>* g_option_context_new        (const <a href="glib-Basic-Types.html#gchar">gchar</a> *parameter_string);</pre>
 <p>
 Creates a new option context. 
 </p>
@@ -434,9 +427,9 @@ Note that the <em class="parameter"><code>parameter_string</code></em> is transl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843828"></a><h3>
+<a name="id2844903"></a><h3>
 <a name="g-option-context-set-summary"></a>g_option_context_set_summary ()</h3>
-<a class="indexterm" name="id2843844"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_summary    (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2844919"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_summary    (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *summary);</pre>
 <p>
 Adds a string to be displayed in <code class="option">--help</code> output
@@ -472,9 +465,9 @@ Note that the summary is translated (see
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2843964"></a><h3>
+<a name="id2845040"></a><h3>
 <a name="g-option-context-get-summary"></a>g_option_context_get_summary ()</h3>
-<a class="indexterm" name="id2843980"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_option_context_get_summary   (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
+<a class="indexterm" name="id2845055"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_option_context_get_summary   (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Returns the summary. See <a href="glib-Commandline-option-parser.html#g-option-context-set-summary"><code class="function">g_option_context_set_summary()</code></a>.</p>
 <p>
@@ -503,9 +496,9 @@ Returns the summary. See <a href="glib-Commandline-option-parser.html#g-option-c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844066"></a><h3>
+<a name="id2845142"></a><h3>
 <a name="g-option-context-set-description"></a>g_option_context_set_description ()</h3>
-<a class="indexterm" name="id2844082"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_description
+<a class="indexterm" name="id2845158"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_description
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *description);</pre>
 <p>
@@ -542,9 +535,9 @@ Note that the summary is translated (see
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844203"></a><h3>
+<a name="id2845279"></a><h3>
 <a name="g-option-context-get-description"></a>g_option_context_get_description ()</h3>
-<a class="indexterm" name="id2844219"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_option_context_get_description
+<a class="indexterm" name="id2845294"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* g_option_context_get_description
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Returns the description. See <a href="glib-Commandline-option-parser.html#g-option-context-set-description"><code class="function">g_option_context_set_description()</code></a>.</p>
@@ -574,9 +567,9 @@ Returns the description. See <a href="glib-Commandline-option-parser.html#g-opti
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844306"></a><h3>
+<a name="id2845381"></a><h3>
 <a name="GTranslateFunc"></a>GTranslateFunc ()</h3>
-<a class="indexterm" name="id2844318"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* (*GTranslateFunc)              (const <a href="glib-Basic-Types.html#gchar">gchar</a> *str,
+<a class="indexterm" name="id2845394"></a><pre class="programlisting">const <a href="glib-Basic-Types.html#gchar">gchar</a>* (*GTranslateFunc)              (const <a href="glib-Basic-Types.html#gchar">gchar</a> *str,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data);</pre>
 <p>
 The type of functions which are used to translate user-visible
@@ -612,9 +605,9 @@ strings, for <code class="option">--help</code> output.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844417"></a><h3>
+<a name="id2845492"></a><h3>
 <a name="g-option-context-set-translate-func"></a>g_option_context_set_translate_func ()</h3>
-<a class="indexterm" name="id2844433"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_translate_func
+<a class="indexterm" name="id2845509"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_translate_func
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Commandline-option-parser.html#GTranslateFunc">GTranslateFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
@@ -670,9 +663,9 @@ domain, see <GTKDOCLINK HREF="g-context-group-set-translation-domain"><code clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844708"></a><h3>
+<a name="id2845784"></a><h3>
 <a name="g-option-context-set-translation-domain"></a>g_option_context_set_translation_domain ()</h3>
-<a class="indexterm" name="id2844724"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_translation_domain
+<a class="indexterm" name="id2845800"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_translation_domain
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *domain);</pre>
 <p>
@@ -703,9 +696,9 @@ user-visible strings.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844821"></a><h3>
+<a name="id2845897"></a><h3>
 <a name="g-option-context-free"></a>g_option_context_free ()</h3>
-<a class="indexterm" name="id2844836"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_free           (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
+<a class="indexterm" name="id2845912"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_free           (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Frees context and all the groups which have been 
 added to it.</p>
@@ -726,9 +719,9 @@ added to it.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2844900"></a><h3>
+<a name="id2845975"></a><h3>
 <a name="g-option-context-parse"></a>g_option_context_parse ()</h3>
-<a class="indexterm" name="id2844915"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_parse          (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2845991"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_parse          (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Basic-Types.html#gint">gint</a> *argc,
                                              <a href="glib-Basic-Types.html#gchar">gchar</a> ***argv,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -797,9 +790,9 @@ call <code class="literal">exit (0)</code>.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2845165"></a><h3>
+<a name="id2846240"></a><h3>
 <a name="g-option-context-set-help-enabled"></a>g_option_context_set_help_enabled ()</h3>
-<a class="indexterm" name="id2845181"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_help_enabled
+<a class="indexterm" name="id2846257"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_help_enabled
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> help_enabled);</pre>
 <p>
@@ -833,9 +826,9 @@ suitable output to stdout.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2845322"></a><h3>
+<a name="id2846398"></a><h3>
 <a name="g-option-context-get-help-enabled"></a>g_option_context_get_help_enabled ()</h3>
-<a class="indexterm" name="id2845339"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_get_help_enabled
+<a class="indexterm" name="id2846415"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_get_help_enabled
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Returns whether automatic <code class="option">--help</code> generation
@@ -866,9 +859,9 @@ is turned on for <em class="parameter"><code>context</code></em>. See <a href="g
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2845444"></a><h3>
+<a name="id2846520"></a><h3>
 <a name="g-option-context-set-ignore-unknown-options"></a>g_option_context_set_ignore_unknown_options ()</h3>
-<a class="indexterm" name="id2845461"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_ignore_unknown_options
+<a class="indexterm" name="id2846537"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_ignore_unknown_options
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Basic-Types.html#gboolean">gboolean</a> ignore_unknown);</pre>
 <p>
@@ -906,9 +899,9 @@ determine whether a non-option belongs to a preceding unknown option.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2845594"></a><h3>
+<a name="id2846669"></a><h3>
 <a name="g-option-context-get-ignore-unknown-options"></a>g_option_context_get_ignore_unknown_options ()</h3>
-<a class="indexterm" name="id2845610"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_get_ignore_unknown_options
+<a class="indexterm" name="id2846686"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    g_option_context_get_ignore_unknown_options
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Returns whether unknown options are ignored or not. See
@@ -939,9 +932,9 @@ Returns whether unknown options are ignored or not. See
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2845707"></a><h3>
+<a name="id2846783"></a><h3>
 <a name="GOptionArg"></a>enum GOptionArg</h3>
-<a class="indexterm" name="id2845719"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2846795"></a><pre class="programlisting">typedef enum
 {
   G_OPTION_ARG_NONE,
   G_OPTION_ARG_STRING,
@@ -1031,9 +1024,9 @@ or combined in a single argument: <code class="option">--name=arg</code>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2846001"></a><h3>
+<a name="id2847077"></a><h3>
 <a name="GOptionFlags"></a>enum GOptionFlags</h3>
-<a class="indexterm" name="id2846013"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2847089"></a><pre class="programlisting">typedef enum
 {
   G_OPTION_FLAG_HIDDEN		= 1 &lt;&lt; 0,
   G_OPTION_FLAG_IN_MAIN		= 1 &lt;&lt; 1,
@@ -1112,9 +1105,9 @@ Flags which modify individual options.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2846292"></a><h3>
+<a name="id2847368"></a><h3>
 <a name="G-OPTION-REMAINING:CAPS"></a>G_OPTION_REMAINING</h3>
-<a class="indexterm" name="id2846308"></a><pre class="programlisting">#define G_OPTION_REMAINING ""
+<a class="indexterm" name="id2847384"></a><pre class="programlisting">#define G_OPTION_REMAINING ""
 </pre>
 <p>
 If a long option in the main group has this name, it is not treated as a 
@@ -1134,9 +1127,9 @@ necessary encoding conversions for strings or filenames.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2846382"></a><h3>
+<a name="id2847458"></a><h3>
 <a name="GOptionEntry"></a>GOptionEntry</h3>
-<a class="indexterm" name="id2846395"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2847470"></a><pre class="programlisting">typedef struct {
   const gchar *long_name;
   gchar        short_name;
   gint         flags;
@@ -1260,9 +1253,9 @@ To have an effect, they must be added to a <a href="glib-Commandline-option-pars
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2846948"></a><h3>
+<a name="id2848024"></a><h3>
 <a name="g-option-context-add-main-entries"></a>g_option_context_add_main_entries ()</h3>
-<a class="indexterm" name="id2846965"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_add_main_entries
+<a class="indexterm" name="id2848041"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_add_main_entries
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              const <a href="glib-Commandline-option-parser.html#GOptionEntry">GOptionEntry</a> *entries,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *translation_domain);</pre>
@@ -1302,9 +1295,9 @@ exist, adds the <em class="parameter"><code>entries</code></em> to it and sets t
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847131"></a><h3>
+<a name="id2848206"></a><h3>
 <a name="GOptionGroup"></a>GOptionGroup</h3>
-<a class="indexterm" name="id2847143"></a><pre class="programlisting">typedef struct _GOptionGroup GOptionGroup;</pre>
+<a class="indexterm" name="id2848219"></a><pre class="programlisting">typedef struct _GOptionGroup GOptionGroup;</pre>
 <p>
 A <span class="structname">GOptionGroup</span> struct defines the options in a single
 group. The struct has only private fields and should not be directly accessed. 
@@ -1318,9 +1311,9 @@ the application can then add to its <a href="glib-Commandline-option-parser.html
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847183"></a><h3>
+<a name="id2848259"></a><h3>
 <a name="g-option-context-add-group"></a>g_option_context_add_group ()</h3>
-<a class="indexterm" name="id2847199"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_add_group      (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2848275"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_add_group      (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group);</pre>
 <p>
 Adds a <a href="glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> to the <em class="parameter"><code>context</code></em>, so that parsing with <em class="parameter"><code>context</code></em>
@@ -1353,9 +1346,9 @@ to a context.</p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847318"></a><h3>
+<a name="id2848394"></a><h3>
 <a name="g-option-context-set-main-group"></a>g_option_context_set_main_group ()</h3>
-<a class="indexterm" name="id2847333"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_main_group (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2848409"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_context_set_main_group (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group);</pre>
 <p>
 Sets a <a href="glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a> as main group of the <em class="parameter"><code>context</code></em>. 
@@ -1387,9 +1380,9 @@ treated differently when generating <code class="option">--help</code> output.</
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847450"></a><h3>
+<a name="id2848526"></a><h3>
 <a name="g-option-context-get-main-group"></a>g_option_context_get_main_group ()</h3>
-<a class="indexterm" name="id2847465"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a>* g_option_context_get_main_group
+<a class="indexterm" name="id2848541"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a>* g_option_context_get_main_group
                                             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context);</pre>
 <p>
 Returns a pointer to the main group of <em class="parameter"><code>context</code></em>.</p>
@@ -1421,9 +1414,9 @@ Returns a pointer to the main group of <em class="parameter"><code>context</code
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847575"></a><h3>
+<a name="id2848651"></a><h3>
 <a name="g-option-group-new"></a>g_option_group_new ()</h3>
-<a class="indexterm" name="id2847591"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a>* g_option_group_new            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *name,
+<a class="indexterm" name="id2848667"></a><pre class="programlisting"><a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a>* g_option_group_new            (const <a href="glib-Basic-Types.html#gchar">gchar</a> *name,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *description,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *help_description,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> user_data,
@@ -1487,9 +1480,9 @@ Creates a new <a href="glib-Commandline-option-parser.html#GOptionGroup"><span c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847836"></a><h3>
+<a name="id2848912"></a><h3>
 <a name="g-option-group-free"></a>g_option_group_free ()</h3>
-<a class="indexterm" name="id2847850"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_free             (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group);</pre>
+<a class="indexterm" name="id2848926"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_free             (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group);</pre>
 <p>
 Frees a <a href="glib-Commandline-option-parser.html#GOptionGroup"><span class="type">GOptionGroup</span></a>. Note that you must <span class="emphasis"><em>not</em></span>
 free groups which have been added to a <a href="glib-Commandline-option-parser.html#GOptionContext"><span class="type">GOptionContext</span></a>.</p>
@@ -1510,9 +1503,9 @@ free groups which have been added to a <a href="glib-Commandline-option-parser.h
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2847933"></a><h3>
+<a name="id2849009"></a><h3>
 <a name="g-option-group-add-entries"></a>g_option_group_add_entries ()</h3>
-<a class="indexterm" name="id2847949"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_add_entries      (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
+<a class="indexterm" name="id2849025"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_add_entries      (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              const <a href="glib-Commandline-option-parser.html#GOptionEntry">GOptionEntry</a> *entries);</pre>
 <p>
 Adds the options specified in <em class="parameter"><code>entries</code></em> to <em class="parameter"><code>group</code></em>.</p>
@@ -1541,9 +1534,9 @@ Adds the options specified in <em class="parameter"><code>entries</code></em> to
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2848065"></a><h3>
+<a name="id2849140"></a><h3>
 <a name="GOptionParseFunc"></a>GOptionParseFunc ()</h3>
-<a class="indexterm" name="id2848077"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    (*GOptionParseFunc)             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2849153"></a><pre class="programlisting"><a href="glib-Basic-Types.html#gboolean">gboolean</a>    (*GOptionParseFunc)             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -1593,9 +1586,9 @@ The type of function that can be called before and after parsing.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2848266"></a><h3>
+<a name="id2849342"></a><h3>
 <a name="g-option-group-set-parse-hooks"></a>g_option_group_set_parse_hooks ()</h3>
-<a class="indexterm" name="id2848282"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_parse_hooks  (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
+<a class="indexterm" name="id2849358"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_parse_hooks  (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              <a href="glib-Commandline-option-parser.html#GOptionParseFunc">GOptionParseFunc</a> pre_parse_func,
                                              <a href="glib-Commandline-option-parser.html#GOptionParseFunc">GOptionParseFunc</a> post_parse_func);</pre>
 <p>
@@ -1638,9 +1631,9 @@ with <a href="glib-Commandline-option-parser.html#g-option-group-new"><code clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2848456"></a><h3>
+<a name="id2849532"></a><h3>
 <a name="GOptionErrorFunc"></a>GOptionErrorFunc ()</h3>
-<a class="indexterm" name="id2848469"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GOptionErrorFunc)             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
+<a class="indexterm" name="id2849545"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GOptionErrorFunc)             (<a href="glib-Commandline-option-parser.html#GOptionContext">GOptionContext</a> *context,
                                              <a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
                                              <a href="glib-Error-Reporting.html#GError">GError</a> **error);</pre>
@@ -1682,9 +1675,9 @@ The type of function to be used as callback when a parse error occurs.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2848619"></a><h3>
+<a name="id2849695"></a><h3>
 <a name="g-option-group-set-error-hook"></a>g_option_group_set_error_hook ()</h3>
-<a class="indexterm" name="id2848634"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_error_hook   (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
+<a class="indexterm" name="id2849710"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_error_hook   (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              <a href="glib-Commandline-option-parser.html#GOptionErrorFunc">GOptionErrorFunc</a> error_func);</pre>
 <p>
 Associates a function with <em class="parameter"><code>group</code></em> which will be called 
@@ -1719,9 +1712,9 @@ with <a href="glib-Commandline-option-parser.html#g-option-group-new"><code clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2848765"></a><h3>
+<a name="id2849841"></a><h3>
 <a name="g-option-group-set-translate-func"></a>g_option_group_set_translate_func ()</h3>
-<a class="indexterm" name="id2848782"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_translate_func
+<a class="indexterm" name="id2849858"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_translate_func
                                             (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              <a href="glib-Commandline-option-parser.html#GTranslateFunc">GTranslateFunc</a> func,
                                              <a href="glib-Basic-Types.html#gpointer">gpointer</a> data,
@@ -1772,9 +1765,9 @@ domain, see <a href="glib-Commandline-option-parser.html#g-option-group-set-tran
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2849019"></a><h3>
+<a name="id2850095"></a><h3>
 <a name="g-option-group-set-translation-domain"></a>g_option_group_set_translation_domain ()</h3>
-<a class="indexterm" name="id2849035"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_translation_domain
+<a class="indexterm" name="id2850111"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_option_group_set_translation_domain
                                             (<a href="glib-Commandline-option-parser.html#GOptionGroup">GOptionGroup</a> *group,
                                              const <a href="glib-Basic-Types.html#gchar">gchar</a> *domain);</pre>
 <p>
