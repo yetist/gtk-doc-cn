@@ -8,7 +8,7 @@
 <link rel="up" href="pt01.html" title="Part&#160;I.&#160;Concepts">
 <link rel="prev" href="gobject-properties.html" title="Object properties">
 <link rel="next" href="signal.html" title="Signals">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -50,8 +50,8 @@
 <div class="toc"><dl>
 <dt><span class="sect1"><a href="chapter-signal.html#closure">Closures</a></span></dt>
 <dd><dl>
-<dt><span class="sect2"><a href="chapter-signal.html#id2563622">C Closures</a></span></dt>
-<dt><span class="sect2"><a href="chapter-signal.html#id2563720">non-C closures (for the fearless).</a></span></dt>
+<dt><span class="sect2"><a href="chapter-signal.html#id2564683">C Closures</a></span></dt>
+<dt><span class="sect2"><a href="chapter-signal.html#id2564780">non-C closures (for the fearless).</a></span></dt>
 </dl></dd>
 <dt><span class="sect1"><a href="signal.html">Signals</a></span></dt>
 <dd><dl>
@@ -95,7 +95,7 @@ return_type function_callback (... , gpointer user_data);
 	The <span class="type"><a href="gobject-Closures.html#GClosure">GClosure</a></span> structure represents the common functionality of all
 	closure implementations: there exists a different Closure implementation for
 	each separate runtime which wants to use the GObject type system.
-	<sup>[<a name="id2563483" href="#ftn.id2563483">7</a>]</sup>
+	<sup>[<a name="id2564544" href="#ftn.id2564544">7</a>]</sup>
 	The GObject library provides a simple <span class="type"><a href="gobject-Closures.html#GCClosure">GCClosure</a></span> type which
 	is a specific implementation of closures to be used with C/C++ callbacks.
       </p>
@@ -119,14 +119,14 @@ return_type function_callback (... , gpointer user_data);
 	      events (<code class="function"><a href="gobject-Closures.html#g-closure-remove-finalize-notifier">g_closure_remove_finalize_notifier</a></code> and
 	      <code class="function"><a href="gobject-Closures.html#g-closure-remove-invalidate-notifier">g_closure_remove_invalidate_notifier</a></code>) but not for the invocation 
 	      process.
-	      <sup>[<a name="id2563612" href="#ftn.id2563612">8</a>]</sup>
+	      <sup>[<a name="id2564672" href="#ftn.id2564672">8</a>]</sup>
 	    </p></li>
 </ul></div>
 <p>
       </p>
 <div class="sect2" lang="en">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id2563622"></a>C Closures</h3></div></div></div>
+<a name="id2564683"></a>C Closures</h3></div></div></div>
 <p>
 	  If you are using C or C++
 	  to connect a callback to a given event, you will either use the simple <span class="type"><a href="gobject-Closures.html#GCClosure">GCClosure</a></span>s
@@ -161,7 +161,7 @@ GClosure* g_signal_type_cclosure_new (GType  itype,
 </div>
 <div class="sect2" lang="en">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id2563720"></a>non-C closures (for the fearless).</h3></div></div></div>
+<a name="id2564780"></a>non-C closures (for the fearless).</h3></div></div></div>
 <p>
 	  As was explained above, Closures hide the details of callback invocation. In C,
 	  callback invocation is just like function invocation: it is a matter of creating
@@ -220,7 +220,7 @@ g_cclosure_marshal_VOID__INT (GClosure     *closure,
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2563483" href="#id2563483">7</a>] </sup>
+<div class="footnote"><p><sup>[<a name="ftn.id2564544" href="#id2564544">7</a>] </sup>
 	    In Practice, Closures sit at the boundary of language runtimes: if you are
 	    writing python code and one of your Python callback receives a signal from
 	    one of GTK+ widgets, the C code in GTK+ needs to execute your Python
@@ -228,7 +228,7 @@ g_cclosure_marshal_VOID__INT (GClosure     *closure,
 	    it behaves as a normal C object for GTK+ and as a normal Python object for
 	    python code.
 	  </p></div>
-<div class="footnote"><p><sup>[<a name="ftn.id2563612" href="#id2563612">8</a>] </sup>
+<div class="footnote"><p><sup>[<a name="ftn.id2564672" href="#id2564672">8</a>] </sup>
 		  Closures are refcounted and notify listeners of their destruction in a two-stage
 		  process: the invalidation notifiers are invoked before the finalization notifiers.
 		</p></div>

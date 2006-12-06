@@ -6,9 +6,9 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
 <link rel="start" href="index.html" title="GObject &#21442;&#32771;&#25163;&#20876;">
 <link rel="up" href="rn01.html" title="API Reference">
-<link rel="prev" href="gobject-Signals.html" title="Signals">
+<link rel="prev" href="gobject-Signals.html" title="&#20449;&#21495;">
 <link rel="next" href="gobject-Value-arrays.html" title="Value arrays">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,16 +45,16 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="gobject-Value-arrays.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2717517" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2718592" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2719626" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2720701" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-Closures"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2717517"></a><span class="refentrytitle">Closures</span>
+<a name="id2718592"></a><span class="refentrytitle">Closures</span>
 </h2>
 <p>Closures &#8212; Functions as first-class objects</p>
 </td>
@@ -266,7 +266,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2719626"></a><h2>Description</h2>
+<a name="id2720701"></a><h2>Description</h2>
 <p>
 A <a href="gobject-Closures.html#GClosure"><span class="type">GClosure</span></a> represents a callback supplied by the programmer. It will generally
 comprise a function of some kind and a marshaller used to call it. It is the 
@@ -319,11 +319,11 @@ automatically removed when the objects they point to go away.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2719805"></a><h2>Details</h2>
+<a name="id2720881"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2719815"></a><h3>
+<a name="id2720891"></a><h3>
 <a name="G-CLOSURE-NEEDS-MARSHAL:CAPS"></a>G_CLOSURE_NEEDS_MARSHAL()</h3>
-<a class="indexterm" name="id2719830"></a><pre class="programlisting">#define	G_CLOSURE_NEEDS_MARSHAL(closure) (((GClosure*) (closure))-&gt;marshal == NULL)
+<a class="indexterm" name="id2720905"></a><pre class="programlisting">#define	G_CLOSURE_NEEDS_MARSHAL(closure) (((GClosure*) (closure))-&gt;marshal == NULL)
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if a <a href="gobject-Closures.html#GClosureMarshal"><span class="type">GClosureMarshal</span></a> marshaller has not yet been set on 
@@ -343,9 +343,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2719909"></a><h3>
+<a name="id2720984"></a><h3>
 <a name="G-CLOSURE-N-NOTIFIERS:CAPS"></a>G_CLOSURE_N_NOTIFIERS()</h3>
-<a class="indexterm" name="id2719922"></a><pre class="programlisting">#define     G_CLOSURE_N_NOTIFIERS(cl)</pre>
+<a class="indexterm" name="id2720998"></a><pre class="programlisting">#define     G_CLOSURE_N_NOTIFIERS(cl)</pre>
 <p>
 Returns the total number of notifiers connected with the closure <em class="parameter"><code>cl</code></em>. 
 The count includes the meta marshaller, the finalize and invalidate notifiers 
@@ -367,9 +367,9 @@ See <a href="gobject-Closures.html#g-closure-set-meta-marshal"><code class="func
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720018"></a><h3>
+<a name="id2721093"></a><h3>
 <a name="G-CCLOSURE-SWAP-DATA:CAPS"></a>G_CCLOSURE_SWAP_DATA()</h3>
-<a class="indexterm" name="id2720030"></a><pre class="programlisting">#define	G_CCLOSURE_SWAP_DATA(cclosure)	 (((GClosure*) (closure))-&gt;derivative_flag)
+<a class="indexterm" name="id2721106"></a><pre class="programlisting">#define	G_CCLOSURE_SWAP_DATA(cclosure)	 (((GClosure*) (closure))-&gt;derivative_flag)
 </pre>
 <p>
 Returns whether the user data of the <a href="gobject-Closures.html#GCClosure"><span class="type">GCClosure</span></a> should be passed as the
@@ -389,9 +389,9 @@ first parameter to the callback. See <a href="gobject-Closures.html#g-cclosure-n
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720093"></a><h3>
+<a name="id2721169"></a><h3>
 <a name="G-CALLBACK:CAPS"></a>G_CALLBACK()</h3>
-<a class="indexterm" name="id2720106"></a><pre class="programlisting">#define	G_CALLBACK(f)			 ((GCallback) (f))
+<a class="indexterm" name="id2721182"></a><pre class="programlisting">#define	G_CALLBACK(f)			 ((GCallback) (f))
 </pre>
 <p>
 Cast a function pointer to a <a href="gobject-Closures.html#GCallback"><span class="type">GCallback</span></a>.
@@ -410,9 +410,9 @@ Cast a function pointer to a <a href="gobject-Closures.html#GCallback"><span cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720149"></a><h3>
+<a name="id2721224"></a><h3>
 <a name="GCallback"></a>GCallback ()</h3>
-<a class="indexterm" name="id2720161"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GCallback)                    (void);</pre>
+<a class="indexterm" name="id2721237"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GCallback)                    (void);</pre>
 <p>
 The type used for callback functions in structure definitions and function 
 signatures. This doesn't mean that all callback functions must take no 
@@ -423,9 +423,9 @@ is connected). Use <a href="gobject-Closures.html#G-CALLBACK:CAPS"><code class="
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720207"></a><h3>
+<a name="id2721282"></a><h3>
 <a name="GClosure"></a>GClosure</h3>
-<a class="indexterm" name="id2720219"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2721295"></a><pre class="programlisting">typedef struct {
   volatile       	guint	 in_marshal : 1;
   volatile       	guint	 is_invalid : 1;
 } GClosure;
@@ -456,9 +456,9 @@ A <a href="gobject-Closures.html#GClosure"><span class="type">GClosure</span></a
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720316"></a><h3>
+<a name="id2721392"></a><h3>
 <a name="G-TYPE-CLOSURE:CAPS"></a>G_TYPE_CLOSURE</h3>
-<a class="indexterm" name="id2720329"></a><pre class="programlisting">#define	G_TYPE_CLOSURE		(g_closure_get_type ())
+<a class="indexterm" name="id2721405"></a><pre class="programlisting">#define	G_TYPE_CLOSURE		(g_closure_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for <a href="gobject-Closures.html#GClosure"><span class="type">GClosure</span></a>.
@@ -466,9 +466,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720361"></a><h3>
+<a name="id2721436"></a><h3>
 <a name="GCClosure"></a>GCClosure</h3>
-<a class="indexterm" name="id2720373"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2721448"></a><pre class="programlisting">typedef struct {
   GClosure	closure;
   gpointer	callback;
 } GCClosure;
@@ -497,9 +497,9 @@ A <a href="gobject-Closures.html#GCClosure"><span class="type">GCClosure</span><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720458"></a><h3>
+<a name="id2721534"></a><h3>
 <a name="GClosureMarshal"></a>GClosureMarshal ()</h3>
-<a class="indexterm" name="id2720471"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClosureMarshal)              (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2721546"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClosureMarshal)              (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -558,9 +558,9 @@ The type used for marshaller functions.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720717"></a><h3>
+<a name="id2721793"></a><h3>
 <a name="GClosureNotify"></a>GClosureNotify ()</h3>
-<a class="indexterm" name="id2720729"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClosureNotify)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
+<a class="indexterm" name="id2721805"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClosureNotify)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 The type used for the various notification callbacks which can be registered
@@ -588,9 +588,9 @@ on closures.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720808"></a><h3>
+<a name="id2721884"></a><h3>
 <a name="g-cclosure-new"></a>g_cclosure_new ()</h3>
-<a class="indexterm" name="id2720821"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new                  (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
+<a class="indexterm" name="id2721896"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new                  (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> destroy_data);</pre>
 <p>
@@ -631,9 +631,9 @@ the last parameter.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2720955"></a><h3>
+<a name="id2722031"></a><h3>
 <a name="g-cclosure-new-swap"></a>g_cclosure_new_swap ()</h3>
-<a class="indexterm" name="id2720969"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_swap             (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
+<a class="indexterm" name="id2722044"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_swap             (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> destroy_data);</pre>
 <p>
@@ -674,9 +674,9 @@ the first parameter.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721102"></a><h3>
+<a name="id2722178"></a><h3>
 <a name="g-cclosure-new-object"></a>g_cclosure_new_object ()</h3>
-<a class="indexterm" name="id2721116"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_object           (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
+<a class="indexterm" name="id2722191"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_object           (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
                                              <a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 A variant of <a href="gobject-Closures.html#g-cclosure-new"><code class="function">g_cclosure_new()</code></a> which uses <em class="parameter"><code>object</code></em> as <em class="parameter"><code>user_data</code></em> and calls 
@@ -712,9 +712,9 @@ and want the callback to no longer run after the object is is freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721267"></a><h3>
+<a name="id2722343"></a><h3>
 <a name="g-cclosure-new-object-swap"></a>g_cclosure_new_object_swap ()</h3>
-<a class="indexterm" name="id2721281"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_object_swap      (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
+<a class="indexterm" name="id2722357"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_cclosure_new_object_swap      (<a href="gobject-Closures.html#GCallback">GCallback</a> callback_func,
                                              <a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 A variant of <a href="gobject-Closures.html#g-cclosure-new-swap"><code class="function">g_cclosure_new_swap()</code></a> which uses <em class="parameter"><code>object</code></em> as <em class="parameter"><code>user_data</code></em> and calls 
@@ -750,9 +750,9 @@ and want the callback to no longer run after the object is is freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721432"></a><h3>
+<a name="id2722508"></a><h3>
 <a name="g-closure-new-object"></a>g_closure_new_object ()</h3>
-<a class="indexterm" name="id2721445"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_new_object            (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> sizeof_closure,
+<a class="indexterm" name="id2722521"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_new_object            (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> sizeof_closure,
                                              <a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 A variant of <a href="gobject-Closures.html#g-closure-new-simple"><code class="function">g_closure_new_simple()</code></a> which stores <em class="parameter"><code>object</code></em> in the <em class="parameter"><code>data</code></em>
@@ -790,9 +790,9 @@ of closures.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721603"></a><h3>
+<a name="id2722679"></a><h3>
 <a name="g-closure-ref"></a>g_closure_ref ()</h3>
-<a class="indexterm" name="id2721616"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_ref                   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
+<a class="indexterm" name="id2722692"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_ref                   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 Increments the reference count on a closure to force it staying
 alive while the caller holds a pointer to it.
@@ -820,9 +820,9 @@ alive while the caller holds a pointer to it.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721688"></a><h3>
+<a name="id2722764"></a><h3>
 <a name="g-closure-sink"></a>g_closure_sink ()</h3>
-<a class="indexterm" name="id2721701"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_sink                  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
+<a class="indexterm" name="id2722777"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_sink                  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 Takes over the initial ownership of a closure.
 Each closure is initially created in a<em class="firstterm">floating</em> state, 
@@ -888,9 +888,9 @@ Because <a href="gobject-Closures.html#g-closure-sink"><code class="function">g_
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721886"></a><h3>
+<a name="id2722962"></a><h3>
 <a name="g-closure-unref"></a>g_closure_unref ()</h3>
-<a class="indexterm" name="id2721899"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_unref                 (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
+<a class="indexterm" name="id2722975"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_unref                 (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 Decrements the reference count of a closure after it was previously 
 incremented by the same caller. If no other callers are using the closure,
@@ -911,9 +911,9 @@ then the closure will be destroyed and freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2721956"></a><h3>
+<a name="id2723031"></a><h3>
 <a name="g-closure-invoke"></a>g_closure_invoke ()</h3>
-<a class="indexterm" name="id2721969"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_invoke                (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2723044"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_invoke                (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -963,9 +963,9 @@ Invokes the closure, i.e. executes the callback represented by the <em class="pa
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722164"></a><h3>
+<a name="id2723240"></a><h3>
 <a name="g-closure-invalidate"></a>g_closure_invalidate ()</h3>
-<a class="indexterm" name="id2722178"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_invalidate            (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
+<a class="indexterm" name="id2723253"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_invalidate            (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 Sets a flag on the closure to indicate that it's calling environment has 
 become invalid, and thus causes any future invocations of <a href="gobject-Closures.html#g-closure-invoke"><code class="function">g_closure_invoke()</code></a> 
@@ -994,9 +994,9 @@ of a closure drops to zero (unless it has already been invalidated before).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722286"></a><h3>
+<a name="id2723362"></a><h3>
 <a name="g-closure-add-finalize-notifier"></a>g_closure_add_finalize_notifier ()</h3>
-<a class="indexterm" name="id2722300"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_finalize_notifier (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2723376"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_finalize_notifier (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> notify_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> notify_func);</pre>
 <p>
@@ -1035,9 +1035,9 @@ notifiers.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722426"></a><h3>
+<a name="id2723502"></a><h3>
 <a name="g-closure-add-invalidate-notifier"></a>g_closure_add_invalidate_notifier ()</h3>
-<a class="indexterm" name="id2722441"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_invalidate_notifier
+<a class="indexterm" name="id2723516"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_invalidate_notifier
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> notify_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> notify_func);</pre>
@@ -1074,9 +1074,9 @@ invoked before finalization notifiers, in an unspecified order.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722565"></a><h3>
+<a name="id2723640"></a><h3>
 <a name="g-closure-remove-finalize-notifier"></a>g_closure_remove_finalize_notifier ()</h3>
-<a class="indexterm" name="id2722579"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_remove_finalize_notifier
+<a class="indexterm" name="id2723655"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_remove_finalize_notifier
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> notify_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> notify_func);</pre>
@@ -1113,9 +1113,9 @@ they are run.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722696"></a><h3>
+<a name="id2723772"></a><h3>
 <a name="g-closure-remove-invalidate-notifier"></a>g_closure_remove_invalidate_notifier ()</h3>
-<a class="indexterm" name="id2722710"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_remove_invalidate_notifier
+<a class="indexterm" name="id2723786"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_remove_invalidate_notifier
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> notify_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> notify_func);</pre>
@@ -1152,9 +1152,9 @@ they are run.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722828"></a><h3>
+<a name="id2723904"></a><h3>
 <a name="g-closure-new-simple"></a>g_closure_new_simple ()</h3>
-<a class="indexterm" name="id2722842"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_new_simple            (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> sizeof_closure,
+<a class="indexterm" name="id2723917"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_closure_new_simple            (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> sizeof_closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
 Allocates a struct of the given size and initializes the initial part
@@ -1223,9 +1223,9 @@ MyClosure *my_closure_new (gpointer data)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2722980"></a><h3>
+<a name="id2724055"></a><h3>
 <a name="g-closure-set-marshal"></a>g_closure_set_marshal ()</h3>
-<a class="indexterm" name="id2722993"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_set_marshal           (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2724068"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_set_marshal           (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Closures.html#GClosureMarshal">GClosureMarshal</a> marshal);</pre>
 <p>
 Sets the marshaller of <em class="parameter"><code>closure</code></em>. The <em class="parameter"><code>marshal_data</code></em> provides a way for a 
@@ -1256,9 +1256,9 @@ function to use instead of <em class="parameter"><code>closure-&gt;callback</cod
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723111"></a><h3>
+<a name="id2724186"></a><h3>
 <a name="g-closure-add-marshal-guards"></a>g_closure_add_marshal_guards ()</h3>
-<a class="indexterm" name="id2723124"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_marshal_guards    (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2724200"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_add_marshal_guards    (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> pre_marshal_data,
                                              <a href="gobject-Closures.html#GClosureNotify">GClosureNotify</a> pre_marshal_notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> post_marshal_data,
@@ -1309,9 +1309,9 @@ example of marshal guards.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723294"></a><h3>
+<a name="id2724369"></a><h3>
 <a name="g-closure-set-meta-marshal"></a>g_closure_set_meta_marshal ()</h3>
-<a class="indexterm" name="id2723308"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_set_meta_marshal      (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2724383"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_closure_set_meta_marshal      (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> marshal_data,
                                              <a href="gobject-Closures.html#GClosureMarshal">GClosureMarshal</a> meta_marshal);</pre>
 <p>
@@ -1358,9 +1358,9 @@ marshaller as the <em class="parameter"><code>marshal_data</code></em> argument.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723476"></a><h3>
+<a name="id2724552"></a><h3>
 <a name="g-source-set-closure"></a>g_source_set_closure ()</h3>
-<a class="indexterm" name="id2723489"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_source_set_closure            (<GTKDOCLINK HREF="GSource">GSource</GTKDOCLINK> *source,
+<a class="indexterm" name="id2724565"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_source_set_closure            (<GTKDOCLINK HREF="GSource">GSource</GTKDOCLINK> *source,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 Set the callback for a source as a <a href="gobject-Closures.html#GClosure"><span class="type">GClosure</span></a>.
@@ -1392,9 +1392,9 @@ filled in with pointers to appropriate functions.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723591"></a><h3>
+<a name="id2724666"></a><h3>
 <a name="G-TYPE-IO-CHANNEL:CAPS"></a>G_TYPE_IO_CHANNEL</h3>
-<a class="indexterm" name="id2723605"></a><pre class="programlisting">#define G_TYPE_IO_CHANNEL (g_io_channel_get_type ())
+<a class="indexterm" name="id2724680"></a><pre class="programlisting">#define G_TYPE_IO_CHANNEL (g_io_channel_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.
@@ -1402,9 +1402,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723637"></a><h3>
+<a name="id2724712"></a><h3>
 <a name="G-TYPE-IO-CONDITION:CAPS"></a>G_TYPE_IO_CONDITION</h3>
-<a class="indexterm" name="id2723651"></a><pre class="programlisting">#define G_TYPE_IO_CONDITION (g_io_condition_get_type ())
+<a class="indexterm" name="id2724726"></a><pre class="programlisting">#define G_TYPE_IO_CONDITION (g_io_condition_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for <GTKDOCLINK HREF="GIOCondition"><span class="type">GIOCondition</span></GTKDOCLINK>.
@@ -1412,9 +1412,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723684"></a><h3>
+<a name="id2724759"></a><h3>
 <a name="g-cclosure-marshal-VOID--VOID"></a>g_cclosure_marshal_VOID__VOID ()</h3>
-<a class="indexterm" name="id2723697"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__VOID   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2724773"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__VOID   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1471,9 +1471,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2723896"></a><h3>
+<a name="id2724972"></a><h3>
 <a name="g-cclosure-marshal-VOID--BOOLEAN"></a>g_cclosure_marshal_VOID__BOOLEAN ()</h3>
-<a class="indexterm" name="id2723910"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__BOOLEAN
+<a class="indexterm" name="id2724986"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__BOOLEAN
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
@@ -1531,9 +1531,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2724118"></a><h3>
+<a name="id2725194"></a><h3>
 <a name="g-cclosure-marshal-VOID--CHAR"></a>g_cclosure_marshal_VOID__CHAR ()</h3>
-<a class="indexterm" name="id2724132"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__CHAR   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2725208"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__CHAR   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1590,9 +1590,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2724339"></a><h3>
+<a name="id2725415"></a><h3>
 <a name="g-cclosure-marshal-VOID--UCHAR"></a>g_cclosure_marshal_VOID__UCHAR ()</h3>
-<a class="indexterm" name="id2724353"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UCHAR  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2725429"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UCHAR  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1649,9 +1649,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2724560"></a><h3>
+<a name="id2725636"></a><h3>
 <a name="g-cclosure-marshal-VOID--INT"></a>g_cclosure_marshal_VOID__INT ()</h3>
-<a class="indexterm" name="id2724574"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__INT    (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2725650"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__INT    (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1708,9 +1708,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2724781"></a><h3>
+<a name="id2725857"></a><h3>
 <a name="g-cclosure-marshal-VOID--UINT"></a>g_cclosure_marshal_VOID__UINT ()</h3>
-<a class="indexterm" name="id2724795"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UINT   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2725871"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UINT   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1767,9 +1767,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2725002"></a><h3>
+<a name="id2726078"></a><h3>
 <a name="g-cclosure-marshal-VOID--LONG"></a>g_cclosure_marshal_VOID__LONG ()</h3>
-<a class="indexterm" name="id2725016"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__LONG   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2726092"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__LONG   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1826,9 +1826,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2725224"></a><h3>
+<a name="id2726299"></a><h3>
 <a name="g-cclosure-marshal-VOID--ULONG"></a>g_cclosure_marshal_VOID__ULONG ()</h3>
-<a class="indexterm" name="id2725237"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__ULONG  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2726313"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__ULONG  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1885,9 +1885,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2725445"></a><h3>
+<a name="id2726520"></a><h3>
 <a name="g-cclosure-marshal-VOID--ENUM"></a>g_cclosure_marshal_VOID__ENUM ()</h3>
-<a class="indexterm" name="id2725458"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__ENUM   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2726534"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__ENUM   (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -1944,9 +1944,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2725667"></a><h3>
+<a name="id2726742"></a><h3>
 <a name="g-cclosure-marshal-VOID--FLAGS"></a>g_cclosure_marshal_VOID__FLAGS ()</h3>
-<a class="indexterm" name="id2725680"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__FLAGS  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2726756"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__FLAGS  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2004,9 +2004,9 @@ denotes a flags type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2725889"></a><h3>
+<a name="id2726964"></a><h3>
 <a name="g-cclosure-marshal-VOID--FLOAT"></a>g_cclosure_marshal_VOID__FLOAT ()</h3>
-<a class="indexterm" name="id2725903"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__FLOAT  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2726978"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__FLOAT  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2063,9 +2063,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2726110"></a><h3>
+<a name="id2727185"></a><h3>
 <a name="g-cclosure-marshal-VOID--DOUBLE"></a>g_cclosure_marshal_VOID__DOUBLE ()</h3>
-<a class="indexterm" name="id2726124"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__DOUBLE (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2727199"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__DOUBLE (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2122,9 +2122,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2726331"></a><h3>
+<a name="id2727406"></a><h3>
 <a name="g-cclosure-marshal-VOID--STRING"></a>g_cclosure_marshal_VOID__STRING ()</h3>
-<a class="indexterm" name="id2726345"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__STRING (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2727420"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__STRING (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2181,9 +2181,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2726552"></a><h3>
+<a name="id2727628"></a><h3>
 <a name="g-cclosure-marshal-VOID--PARAM"></a>g_cclosure_marshal_VOID__PARAM ()</h3>
-<a class="indexterm" name="id2726566"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__PARAM  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2727641"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__PARAM  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2240,9 +2240,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2726773"></a><h3>
+<a name="id2727849"></a><h3>
 <a name="g-cclosure-marshal-VOID--BOXED"></a>g_cclosure_marshal_VOID__BOXED ()</h3>
-<a class="indexterm" name="id2726787"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__BOXED  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2727863"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__BOXED  (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2299,9 +2299,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2726996"></a><h3>
+<a name="id2728071"></a><h3>
 <a name="g-cclosure-marshal-VOID--POINTER"></a>g_cclosure_marshal_VOID__POINTER ()</h3>
-<a class="indexterm" name="id2727009"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__POINTER
+<a class="indexterm" name="id2728085"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__POINTER
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
@@ -2359,9 +2359,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2727218"></a><h3>
+<a name="id2728293"></a><h3>
 <a name="g-cclosure-marshal-VOID--OBJECT"></a>g_cclosure_marshal_VOID__OBJECT ()</h3>
-<a class="indexterm" name="id2727231"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__OBJECT (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
+<a class="indexterm" name="id2728307"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__OBJECT (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
@@ -2418,9 +2418,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2727439"></a><h3>
+<a name="id2728514"></a><h3>
 <a name="g-cclosure-marshal-STRING--OBJECT-POINTER"></a>g_cclosure_marshal_STRING__OBJECT_POINTER ()</h3>
-<a class="indexterm" name="id2727454"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_STRING__OBJECT_POINTER
+<a class="indexterm" name="id2728529"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_STRING__OBJECT_POINTER
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
@@ -2478,9 +2478,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2727654"></a><h3>
+<a name="id2728729"></a><h3>
 <a name="g-cclosure-marshal-VOID--UINT-POINTER"></a>g_cclosure_marshal_VOID__UINT_POINTER ()</h3>
-<a class="indexterm" name="id2727668"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UINT_POINTER
+<a class="indexterm" name="id2728743"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_VOID__UINT_POINTER
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
@@ -2538,9 +2538,9 @@ A marshaller for a <a href="gobject-Closures.html#GCClosure"><span class="type">
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2727868"></a><h3>
+<a name="id2728944"></a><h3>
 <a name="g-cclosure-marshal-BOOLEAN--FLAGS"></a>g_cclosure_marshal_BOOLEAN__FLAGS ()</h3>
-<a class="indexterm" name="id2727883"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_BOOLEAN__FLAGS
+<a class="indexterm" name="id2728958"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_cclosure_marshal_BOOLEAN__FLAGS
                                             (<a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
@@ -2599,9 +2599,9 @@ denotes a flags type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2728107"></a><h3>
+<a name="id2729182"></a><h3>
 <a name="g-cclosure-marshal-BOOL--FLAGS"></a>g_cclosure_marshal_BOOL__FLAGS</h3>
-<a class="indexterm" name="id2728120"></a><pre class="programlisting">#define     g_cclosure_marshal_BOOL__FLAGS</pre>
+<a class="indexterm" name="id2729196"></a><pre class="programlisting">#define     g_cclosure_marshal_BOOL__FLAGS</pre>
 <p>
 Another name for <a href="gobject-Closures.html#g-cclosure-marshal-BOOLEAN--FLAGS"><code class="function">g_cclosure_marshal_BOOLEAN__FLAGS()</code></a>.
 </p>

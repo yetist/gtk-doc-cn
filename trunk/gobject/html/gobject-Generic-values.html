@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Boxed-Types.html" title="GBoxed">
 <link rel="next" href="gobject-Standard-Parameter-and-Value-Types.html" title="Parameters and Values">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,16 +45,16 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="gobject-Standard-Parameter-and-Value-Types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2632112" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2633173" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2632564" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2633625" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-Generic-values"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2632112"></a><span class="refentrytitle">Generic Values</span>
+<a name="id2633173"></a><span class="refentrytitle">Generic Values</span>
 </h2>
 <p>Generic Values &#8212; A polymorphic type that can hold values of any other type</p>
 </td>
@@ -102,7 +102,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2632564"></a><h2>Description</h2>
+<a name="id2633625"></a><h2>Description</h2>
 <p>
 The <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> structure is basically a variable container that consists
 of a type identifier and a specific value of that type.
@@ -118,11 +118,11 @@ provided by this interface.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2632670"></a><h2>Details</h2>
+<a name="id2633731"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2632681"></a><h3>
+<a name="id2633741"></a><h3>
 <a name="G-VALUE-HOLDS:CAPS"></a>G_VALUE_HOLDS()</h3>
-<a class="indexterm" name="id2632694"></a><pre class="programlisting">#define G_VALUE_HOLDS(value,type)	(G_TYPE_CHECK_VALUE_TYPE ((value), (type)))
+<a class="indexterm" name="id2633754"></a><pre class="programlisting">#define G_VALUE_HOLDS(value,type)	(G_TYPE_CHECK_VALUE_TYPE ((value), (type)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>value</code></em> holds (or contains) a value of <em class="parameter"><code>type</code></em>.
@@ -151,9 +151,9 @@ warning if the check fails.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2632797"></a><h3>
+<a name="id2633858"></a><h3>
 <a name="G-VALUE-TYPE:CAPS"></a>G_VALUE_TYPE()</h3>
-<a class="indexterm" name="id2632810"></a><pre class="programlisting">#define	G_VALUE_TYPE(value)		(((GValue*) (value))-&gt;g_type)
+<a class="indexterm" name="id2633871"></a><pre class="programlisting">#define	G_VALUE_TYPE(value)		(((GValue*) (value))-&gt;g_type)
 </pre>
 <p>
 Returns the type identifier of <em class="parameter"><code>value</code></em>.
@@ -172,9 +172,9 @@ Returns the type identifier of <em class="parameter"><code>value</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2632859"></a><h3>
+<a name="id2633920"></a><h3>
 <a name="G-VALUE-TYPE-NAME:CAPS"></a>G_VALUE_TYPE_NAME()</h3>
-<a class="indexterm" name="id2632873"></a><pre class="programlisting">#define	G_VALUE_TYPE_NAME(value)	(g_type_name (G_VALUE_TYPE (value)))
+<a class="indexterm" name="id2633933"></a><pre class="programlisting">#define	G_VALUE_TYPE_NAME(value)	(g_type_name (G_VALUE_TYPE (value)))
 </pre>
 <p>
 Returns the type name of <em class="parameter"><code>value</code></em>.
@@ -193,9 +193,9 @@ Returns the type name of <em class="parameter"><code>value</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2632921"></a><h3>
+<a name="id2633981"></a><h3>
 <a name="G-TYPE-IS-VALUE:CAPS"></a>G_TYPE_IS_VALUE()</h3>
-<a class="indexterm" name="id2632934"></a><pre class="programlisting">#define	G_TYPE_IS_VALUE(type)		(g_type_check_is_value_type (type))
+<a class="indexterm" name="id2633995"></a><pre class="programlisting">#define	G_TYPE_IS_VALUE(type)		(g_type_check_is_value_type (type))
 </pre>
 <p>
 Return whether the passed in type ID can be used for <a href="gobject-Generic-values.html#g-value-init"><code class="function">g_value_init()</code></a>.
@@ -224,9 +224,9 @@ of the <a href="gobject-Type-Information.html#GTypeValueTable"><span class="type
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633031"></a><h3>
+<a name="id2634091"></a><h3>
 <a name="G-TYPE-IS-VALUE-ABSTRACT:CAPS"></a>G_TYPE_IS_VALUE_ABSTRACT()</h3>
-<a class="indexterm" name="id2633044"></a><pre class="programlisting">#define G_TYPE_IS_VALUE_ABSTRACT(type)          (g_type_test_flags ((type), G_TYPE_FLAG_VALUE_ABSTRACT))
+<a class="indexterm" name="id2634104"></a><pre class="programlisting">#define G_TYPE_IS_VALUE_ABSTRACT(type)          (g_type_test_flags ((type), G_TYPE_FLAG_VALUE_ABSTRACT))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is an abstract value type.  An abstract value type 
@@ -247,9 +247,9 @@ used as an abstract base type for derived value types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633116"></a><h3>
+<a name="id2634177"></a><h3>
 <a name="G-IS-VALUE:CAPS"></a>G_IS_VALUE()</h3>
-<a class="indexterm" name="id2633129"></a><pre class="programlisting">#define	G_IS_VALUE(value)		(G_TYPE_CHECK_VALUE (value))
+<a class="indexterm" name="id2634189"></a><pre class="programlisting">#define	G_IS_VALUE(value)		(G_TYPE_CHECK_VALUE (value))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>value</code></em> is a valid and initialized <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> structure.
@@ -268,9 +268,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633195"></a><h3>
+<a name="id2634255"></a><h3>
 <a name="GValue"></a>GValue</h3>
-<a class="indexterm" name="id2633207"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2634268"></a><pre class="programlisting">typedef struct {
 } GValue;
 </pre>
 <p>
@@ -286,9 +286,9 @@ only be accessed through the <a href="gobject-Generic-values.html#G-VALUE-TYPE:C
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633268"></a><h3>
+<a name="id2634329"></a><h3>
 <a name="G-TYPE-VALUE:CAPS"></a>G_TYPE_VALUE</h3>
-<a class="indexterm" name="id2633281"></a><pre class="programlisting">#define	G_TYPE_VALUE		(g_value_get_type ())
+<a class="indexterm" name="id2634341"></a><pre class="programlisting">#define	G_TYPE_VALUE		(g_value_get_type ())
 </pre>
 <p>
 Returns the type ID of the "GValue" type which is a boxed type,
@@ -297,9 +297,9 @@ used to pass around pointers to GValues.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633298"></a><h3>
+<a name="id2634358"></a><h3>
 <a name="G-TYPE-VALUE-ARRAY:CAPS"></a>G_TYPE_VALUE_ARRAY</h3>
-<a class="indexterm" name="id2633312"></a><pre class="programlisting">#define	G_TYPE_VALUE_ARRAY	(g_value_array_get_type ())
+<a class="indexterm" name="id2634372"></a><pre class="programlisting">#define	G_TYPE_VALUE_ARRAY	(g_value_array_get_type ())
 </pre>
 <p>
 Returns the type ID of the "GValueArray" type which is a boxed type,
@@ -308,9 +308,9 @@ used to pass around pointers to GValueArrays.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633330"></a><h3>
+<a name="id2634390"></a><h3>
 <a name="g-value-init"></a>g_value_init ()</h3>
-<a class="indexterm" name="id2633342"></a><pre class="programlisting"><a href="gobject-Generic-values.html#GValue">GValue</a>*     g_value_init                    (<a href="gobject-Generic-values.html#GValue">GValue</a> *value,
+<a class="indexterm" name="id2634402"></a><pre class="programlisting"><a href="gobject-Generic-values.html#GValue">GValue</a>*     g_value_init                    (<a href="gobject-Generic-values.html#GValue">GValue</a> *value,
                                              <a href="gobject-Type-Information.html#GType">GType</a> g_type);</pre>
 <p>
 Initializes <em class="parameter"><code>value</code></em> with the default value of <em class="parameter"><code>type</code></em>.
@@ -343,9 +343,9 @@ Initializes <em class="parameter"><code>value</code></em> with the default value
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633458"></a><h3>
+<a name="id2634518"></a><h3>
 <a name="g-value-copy"></a>g_value_copy ()</h3>
-<a class="indexterm" name="id2633471"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_copy                    (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
+<a class="indexterm" name="id2634531"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_copy                    (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *dest_value);</pre>
 <p>
 Copies the value of <em class="parameter"><code>src_value</code></em> into <em class="parameter"><code>dest_value</code></em>.
@@ -372,9 +372,9 @@ Copies the value of <em class="parameter"><code>src_value</code></em> into <em c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633574"></a><h3>
+<a name="id2634634"></a><h3>
 <a name="g-value-reset"></a>g_value_reset ()</h3>
-<a class="indexterm" name="id2633587"></a><pre class="programlisting"><a href="gobject-Generic-values.html#GValue">GValue</a>*     g_value_reset                   (<a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
+<a class="indexterm" name="id2634647"></a><pre class="programlisting"><a href="gobject-Generic-values.html#GValue">GValue</a>*     g_value_reset                   (<a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
 Clears the current value in <em class="parameter"><code>value</code></em> and resets it to the default value
 (as if the value had just been initialized).
@@ -401,9 +401,9 @@ Clears the current value in <em class="parameter"><code>value</code></em> and re
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633668"></a><h3>
+<a name="id2634728"></a><h3>
 <a name="g-value-unset"></a>g_value_unset ()</h3>
-<a class="indexterm" name="id2633681"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_unset                   (<a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
+<a class="indexterm" name="id2634741"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_unset                   (<a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
 Clears the current value in <em class="parameter"><code>value</code></em> and "unsets" the type,
 this releases all resources associated with this GValue.
@@ -424,9 +424,9 @@ An unset value is the same as an uninitialized (zero-filled)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633752"></a><h3>
+<a name="id2634813"></a><h3>
 <a name="g-value-set-instance"></a>g_value_set_instance ()</h3>
-<a class="indexterm" name="id2633766"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_set_instance            (<a href="gobject-Generic-values.html#GValue">GValue</a> *value,
+<a class="indexterm" name="id2634826"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_set_instance            (<a href="gobject-Generic-values.html#GValue">GValue</a> *value,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance);</pre>
 <p>
 Sets <em class="parameter"><code>value</code></em> from an instantiatable type via the 
@@ -454,9 +454,9 @@ value_table's <GTKDOCLINK HREF="collect-value"><code class="function">collect_va
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633859"></a><h3>
+<a name="id2634920"></a><h3>
 <a name="g-value-fits-pointer"></a>g_value_fits_pointer ()</h3>
-<a class="indexterm" name="id2633872"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_fits_pointer            (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
+<a class="indexterm" name="id2634933"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_fits_pointer            (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
 Determines if <em class="parameter"><code>value</code></em> will fit inside the size of a pointer value.
 This is an internal function introduced mainly for C marshallers.
@@ -484,9 +484,9 @@ This is an internal function introduced mainly for C marshallers.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2633961"></a><h3>
+<a name="id2635021"></a><h3>
 <a name="g-value-peek-pointer"></a>g_value_peek_pointer ()</h3>
-<a class="indexterm" name="id2633974"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_value_peek_pointer            (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
+<a class="indexterm" name="id2635034"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_value_peek_pointer            (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
 Return the value contents as pointer. This function asserts that
 <a href="gobject-Generic-values.html#g-value-fits-pointer"><code class="function">g_value_fits_pointer()</code></a> returned <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> for the passed in value.
@@ -515,9 +515,9 @@ This is an internal function introduced mainly for C marshallers.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634078"></a><h3>
+<a name="id2635139"></a><h3>
 <a name="g-value-type-compatible"></a>g_value_type_compatible ()</h3>
-<a class="indexterm" name="id2634091"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_type_compatible         (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
+<a class="indexterm" name="id2635152"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_type_compatible         (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> dest_type);</pre>
 <p>
 Returns whether a <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> of type <em class="parameter"><code>src_type</code></em> can be copied into
@@ -552,9 +552,9 @@ a <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634230"></a><h3>
+<a name="id2635291"></a><h3>
 <a name="g-value-type-transformable"></a>g_value_type_transformable ()</h3>
-<a class="indexterm" name="id2634244"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_type_transformable      (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
+<a class="indexterm" name="id2635305"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_type_transformable      (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> dest_type);</pre>
 <p>
 Check whether <a href="gobject-Generic-values.html#g-value-transform"><code class="function">g_value_transform()</code></a> is able to transform values
@@ -589,9 +589,9 @@ of type <em class="parameter"><code>src_type</code></em> into values of type <em
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634366"></a><h3>
+<a name="id2635426"></a><h3>
 <a name="g-value-transform"></a>g_value_transform ()</h3>
-<a class="indexterm" name="id2634379"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_transform               (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
+<a class="indexterm" name="id2635440"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_value_transform               (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *dest_value);</pre>
 <p>
 Tries to cast the contents of <em class="parameter"><code>src_value</code></em> into a type appropriate
@@ -631,9 +631,9 @@ as rcfile value or object property serialization).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634504"></a><h3>
+<a name="id2635565"></a><h3>
 <a name="GValueTransform"></a>GValueTransform ()</h3>
-<a class="indexterm" name="id2634517"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GValueTransform)              (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
+<a class="indexterm" name="id2635578"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GValueTransform)              (const <a href="gobject-Generic-values.html#GValue">GValue</a> *src_value,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *dest_value);</pre>
 <p>
 The type of value transformation functions which can be registered with
@@ -661,9 +661,9 @@ The type of value transformation functions which can be registered with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634598"></a><h3>
+<a name="id2635658"></a><h3>
 <a name="g-value-register-transform-func"></a>g_value_register_transform_func ()</h3>
-<a class="indexterm" name="id2634611"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_register_transform_func (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
+<a class="indexterm" name="id2635672"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_value_register_transform_func (<a href="gobject-Type-Information.html#GType">GType</a> src_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> dest_type,
                                              <a href="gobject-Generic-values.html#GValueTransform">GValueTransform</a> transform_func);</pre>
 <p>
@@ -700,9 +700,9 @@ will be replaced.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2634739"></a><h3>
+<a name="id2635799"></a><h3>
 <a name="g-strdup-value-contents"></a>g_strdup_value_contents ()</h3>
-<a class="indexterm" name="id2634752"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      g_strdup_value_contents         (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
+<a class="indexterm" name="id2635812"></a><pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*      g_strdup_value_contents         (const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
 Return a newly allocated string, which describes the contents of a <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.
 The main purpose of this function is to describe <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> contents for 
@@ -731,7 +731,7 @@ between different GLib versions.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2634838"></a><h2>See Also</h2>
+<a name="id2635899"></a><h2>See Also</h2>
 <p>
 The fundamental types which all support <a href="gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> operations and thus
 can be used as a type initializer for <a href="gobject-Generic-values.html#g-value-init"><code class="function">g_value_init()</code></a> are defined by

@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="rn01.html" title="API Reference">
 <link rel="next" href="GTypePlugin.html" title="GTypePlugin">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,16 +45,16 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="GTypePlugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2565462" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2566522" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2567649" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2568710" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-Type-Information"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2565462"></a><span class="refentrytitle">GType</span>
+<a name="id2566522"></a><span class="refentrytitle">GType</span>
 </h2>
 <p>GType &#8212; The GLib Runtime type identification and management system</p>
 </td>
@@ -245,7 +245,7 @@ enum        <a href="gobject-Type-Information.html#GTypeFundamentalFlags">GTypeF
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2567649"></a><h2>Description</h2>
+<a name="id2568710"></a><h2>Description</h2>
 <p>
 The GType API is the foundation of the GObject system.  It provides the
 facilities for registering and managing all fundamental data types,
@@ -282,20 +282,20 @@ any of '-_+'.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2567786"></a><h2>Details</h2>
+<a name="id2568846"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2567796"></a><h3>
+<a name="id2568856"></a><h3>
 <a name="GType"></a>GType</h3>
-<a class="indexterm" name="id2567808"></a><p>
+<a class="indexterm" name="id2568868"></a><p>
 A numerical value which represents the unique identifier of a registered
 type.
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2567818"></a><h3>
+<a name="id2568879"></a><h3>
 <a name="G-TYPE-FUNDAMENTAL:CAPS"></a>G_TYPE_FUNDAMENTAL()</h3>
-<a class="indexterm" name="id2567831"></a><pre class="programlisting">#define G_TYPE_FUNDAMENTAL(type)	(g_type_fundamental (type))
+<a class="indexterm" name="id2568892"></a><pre class="programlisting">#define G_TYPE_FUNDAMENTAL(type)	(g_type_fundamental (type))
 </pre>
 <p>
 Returns the fundamental type which is the ancestor of <em class="parameter"><code>type</code></em>.
@@ -316,9 +316,9 @@ thus they are the roots of distinct inheritance hierarchies.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2567883"></a><h3>
+<a name="id2568943"></a><h3>
 <a name="G-TYPE-FUNDAMENTAL-MAX:CAPS"></a>G_TYPE_FUNDAMENTAL_MAX</h3>
-<a class="indexterm" name="id2567895"></a><pre class="programlisting">#define	G_TYPE_FUNDAMENTAL_MAX		(255 &lt;&lt; G_TYPE_FUNDAMENTAL_SHIFT)
+<a class="indexterm" name="id2568955"></a><pre class="programlisting">#define	G_TYPE_FUNDAMENTAL_MAX		(255 &lt;&lt; G_TYPE_FUNDAMENTAL_SHIFT)
 </pre>
 <p>
 An integer constant that represents the number of identifiers reserved
@@ -327,9 +327,9 @@ for types that are assigned at compile-time.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2567917"></a><h3>
+<a name="id2568978"></a><h3>
 <a name="G-TYPE-MAKE-FUNDAMENTAL:CAPS"></a>G_TYPE_MAKE_FUNDAMENTAL()</h3>
-<a class="indexterm" name="id2567930"></a><pre class="programlisting">#define	G_TYPE_MAKE_FUNDAMENTAL(x)	((GType) ((x) &lt;&lt; G_TYPE_FUNDAMENTAL_SHIFT))
+<a class="indexterm" name="id2568990"></a><pre class="programlisting">#define	G_TYPE_MAKE_FUNDAMENTAL(x)	((GType) ((x) &lt;&lt; G_TYPE_FUNDAMENTAL_SHIFT))
 </pre>
 <p>
 Returns the type ID for the fundamental type number <em class="parameter"><code>x</code></em>.
@@ -350,9 +350,9 @@ types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2567983"></a><h3>
+<a name="id2569043"></a><h3>
 <a name="G-TYPE-IS-ABSTRACT:CAPS"></a>G_TYPE_IS_ABSTRACT()</h3>
-<a class="indexterm" name="id2567996"></a><pre class="programlisting">#define G_TYPE_IS_ABSTRACT(type)                (g_type_test_flags ((type), G_TYPE_FLAG_ABSTRACT))
+<a class="indexterm" name="id2569057"></a><pre class="programlisting">#define G_TYPE_IS_ABSTRACT(type)                (g_type_test_flags ((type), G_TYPE_FLAG_ABSTRACT))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is an abstract type.  An abstract type can not be
@@ -373,9 +373,9 @@ derived classes.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568057"></a><h3>
+<a name="id2569120"></a><h3>
 <a name="G-TYPE-IS-DERIVED:CAPS"></a>G_TYPE_IS_DERIVED()</h3>
-<a class="indexterm" name="id2568070"></a><pre class="programlisting">#define G_TYPE_IS_DERIVED(type)                 ((type) &gt; G_TYPE_FUNDAMENTAL_MAX)
+<a class="indexterm" name="id2569133"></a><pre class="programlisting">#define G_TYPE_IS_DERIVED(type)                 ((type) &gt; G_TYPE_FUNDAMENTAL_MAX)
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is derived (or in object-oriented terminology:
@@ -396,9 +396,9 @@ types).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568131"></a><h3>
+<a name="id2569194"></a><h3>
 <a name="G-TYPE-IS-FUNDAMENTAL:CAPS"></a>G_TYPE_IS_FUNDAMENTAL()</h3>
-<a class="indexterm" name="id2568144"></a><pre class="programlisting">#define G_TYPE_IS_FUNDAMENTAL(type)             ((type) &lt;= G_TYPE_FUNDAMENTAL_MAX)
+<a class="indexterm" name="id2569207"></a><pre class="programlisting">#define G_TYPE_IS_FUNDAMENTAL(type)             ((type) &lt;= G_TYPE_FUNDAMENTAL_MAX)
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is a fundamental type.
@@ -417,9 +417,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568203"></a><h3>
+<a name="id2569266"></a><h3>
 <a name="G-TYPE-IS-VALUE-TYPE:CAPS"></a>G_TYPE_IS_VALUE_TYPE()</h3>
-<a class="indexterm" name="id2568216"></a><pre class="programlisting">#define G_TYPE_IS_VALUE_TYPE(type)              (g_type_check_is_value_type (type))
+<a class="indexterm" name="id2569279"></a><pre class="programlisting">#define G_TYPE_IS_VALUE_TYPE(type)              (g_type_check_is_value_type (type))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is a value type and can be used with
@@ -439,9 +439,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568288"></a><h3>
+<a name="id2569350"></a><h3>
 <a name="G-TYPE-HAS-VALUE-TABLE:CAPS"></a>G_TYPE_HAS_VALUE_TABLE()</h3>
-<a class="indexterm" name="id2568300"></a><pre class="programlisting">#define G_TYPE_HAS_VALUE_TABLE(type)            (g_type_value_table_peek (type) != NULL)
+<a class="indexterm" name="id2569363"></a><pre class="programlisting">#define G_TYPE_HAS_VALUE_TABLE(type)            (g_type_value_table_peek (type) != NULL)
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> has a <a href="gobject-Type-Information.html#GTypeValueTable"><span class="type">GTypeValueTable</span></a>.
@@ -460,9 +460,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568367"></a><h3>
+<a name="id2569428"></a><h3>
 <a name="G-TYPE-IS-CLASSED:CAPS"></a>G_TYPE_IS_CLASSED()</h3>
-<a class="indexterm" name="id2568381"></a><pre class="programlisting">#define G_TYPE_IS_CLASSED(type)                 (g_type_test_flags ((type), G_TYPE_FLAG_CLASSED))
+<a class="indexterm" name="id2569442"></a><pre class="programlisting">#define G_TYPE_IS_CLASSED(type)                 (g_type_test_flags ((type), G_TYPE_FLAG_CLASSED))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is a classed type.
@@ -481,9 +481,9 @@ Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLI
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568440"></a><h3>
+<a name="id2569500"></a><h3>
 <a name="G-TYPE-IS-INSTANTIATABLE:CAPS"></a>G_TYPE_IS_INSTANTIATABLE()</h3>
-<a class="indexterm" name="id2568453"></a><pre class="programlisting">#define G_TYPE_IS_INSTANTIATABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_INSTANTIATABLE))
+<a class="indexterm" name="id2569514"></a><pre class="programlisting">#define G_TYPE_IS_INSTANTIATABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_INSTANTIATABLE))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> can be instantiated.  Instantiation is the
@@ -503,9 +503,9 @@ process of creating an instance (object) of this type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568514"></a><h3>
+<a name="id2569574"></a><h3>
 <a name="G-TYPE-IS-DERIVABLE:CAPS"></a>G_TYPE_IS_DERIVABLE()</h3>
-<a class="indexterm" name="id2568527"></a><pre class="programlisting">#define G_TYPE_IS_DERIVABLE(type)               (g_type_test_flags ((type), G_TYPE_FLAG_DERIVABLE))
+<a class="indexterm" name="id2569588"></a><pre class="programlisting">#define G_TYPE_IS_DERIVABLE(type)               (g_type_test_flags ((type), G_TYPE_FLAG_DERIVABLE))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is a derivable type.  A derivable type can
@@ -525,9 +525,9 @@ be used as the base class of a flat (single-level) class hierarchy.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568588"></a><h3>
+<a name="id2569648"></a><h3>
 <a name="G-TYPE-IS-DEEP-DERIVABLE:CAPS"></a>G_TYPE_IS_DEEP_DERIVABLE()</h3>
-<a class="indexterm" name="id2568601"></a><pre class="programlisting">#define G_TYPE_IS_DEEP_DERIVABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_DEEP_DERIVABLE))
+<a class="indexterm" name="id2569662"></a><pre class="programlisting">#define G_TYPE_IS_DEEP_DERIVABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_DEEP_DERIVABLE))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is a deep derivable type.  A deep derivable type
@@ -547,9 +547,9 @@ can be used as the base class of a deep (multi-level) class hierarchy.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568662"></a><h3>
+<a name="id2569722"></a><h3>
 <a name="G-TYPE-IS-INTERFACE:CAPS"></a>G_TYPE_IS_INTERFACE()</h3>
-<a class="indexterm" name="id2568675"></a><pre class="programlisting">#define G_TYPE_IS_INTERFACE(type)               (G_TYPE_FUNDAMENTAL (type) == G_TYPE_INTERFACE)
+<a class="indexterm" name="id2569735"></a><pre class="programlisting">#define G_TYPE_IS_INTERFACE(type)               (G_TYPE_FUNDAMENTAL (type) == G_TYPE_INTERFACE)
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> is an interface type.
@@ -574,9 +574,9 @@ with the difference that GType interfaces are not derivable (but see
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568750"></a><h3>
+<a name="id2569811"></a><h3>
 <a name="GTypeInterface"></a>GTypeInterface</h3>
-<a class="indexterm" name="id2568763"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2569823"></a><pre class="programlisting">typedef struct {
 } GTypeInterface;
 </pre>
 <p>
@@ -585,9 +585,9 @@ An opaque structure used as the base of all interface types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568779"></a><h3>
+<a name="id2569840"></a><h3>
 <a name="GTypeInstance"></a>GTypeInstance</h3>
-<a class="indexterm" name="id2568792"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2569852"></a><pre class="programlisting">typedef struct {
 } GTypeInstance;
 </pre>
 <p>
@@ -596,9 +596,9 @@ An opaque structure used as the base of all type instances.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568808"></a><h3>
+<a name="id2569869"></a><h3>
 <a name="GTypeClass"></a>GTypeClass</h3>
-<a class="indexterm" name="id2568821"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2569881"></a><pre class="programlisting">typedef struct {
 } GTypeClass;
 </pre>
 <p>
@@ -607,9 +607,9 @@ An opaque structure used as the base of all classes.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2568837"></a><h3>
+<a name="id2569898"></a><h3>
 <a name="GTypeInfo"></a>GTypeInfo</h3>
-<a class="indexterm" name="id2568849"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2569910"></a><pre class="programlisting">typedef struct {
   /* interface types, classed types, instantiated types */
   guint16                class_size;
   
@@ -717,9 +717,9 @@ across invocation of <a href="gobject-Type-Information.html#g-type-register-stat
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2569173"></a><h3>
+<a name="id2570234"></a><h3>
 <a name="GTypeFundamentalInfo"></a>GTypeFundamentalInfo</h3>
-<a class="indexterm" name="id2569186"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2570247"></a><pre class="programlisting">typedef struct {
   GTypeFundamentalFlags  type_flags;
 } GTypeFundamentalInfo;
 </pre>
@@ -741,9 +741,9 @@ used specifically for managing fundamental types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2569238"></a><h3>
+<a name="id2570299"></a><h3>
 <a name="GInterfaceInfo"></a>GInterfaceInfo</h3>
-<a class="indexterm" name="id2569251"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2570311"></a><pre class="programlisting">typedef struct {
   GInterfaceInitFunc     interface_init;
   GInterfaceFinalizeFunc interface_finalize;
   gpointer               interface_data;
@@ -780,9 +780,9 @@ used specifically for managing interface types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2569339"></a><h3>
+<a name="id2570400"></a><h3>
 <a name="GTypeValueTable"></a>GTypeValueTable</h3>
-<a class="indexterm" name="id2569352"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2570412"></a><pre class="programlisting">typedef struct {
   void     (*value_init)         (GValue       *value);
   void     (*value_free)         (GValue       *value);
   void     (*value_copy)         (const GValue *src_value,
@@ -1055,9 +1055,9 @@ to serve as a container for values of a type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570241"></a><h3>
+<a name="id2571301"></a><h3>
 <a name="G-TYPE-FROM-INSTANCE:CAPS"></a>G_TYPE_FROM_INSTANCE()</h3>
-<a class="indexterm" name="id2570254"></a><pre class="programlisting">#define G_TYPE_FROM_INSTANCE(instance)                          (G_TYPE_FROM_CLASS (((GTypeInstance*) (instance))-&gt;g_class))
+<a class="indexterm" name="id2571314"></a><pre class="programlisting">#define G_TYPE_FROM_INSTANCE(instance)                          (G_TYPE_FROM_CLASS (((GTypeInstance*) (instance))-&gt;g_class))
 </pre>
 <p>
 Returns the type identifier from a given <em class="parameter"><code>instance</code></em> structure. 
@@ -1081,9 +1081,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570311"></a><h3>
+<a name="id2571371"></a><h3>
 <a name="G-TYPE-FROM-CLASS:CAPS"></a>G_TYPE_FROM_CLASS()</h3>
-<a class="indexterm" name="id2570324"></a><pre class="programlisting">#define G_TYPE_FROM_CLASS(g_class)                              (((GTypeClass*) (g_class))-&gt;g_type)
+<a class="indexterm" name="id2571385"></a><pre class="programlisting">#define G_TYPE_FROM_CLASS(g_class)                              (((GTypeClass*) (g_class))-&gt;g_type)
 </pre>
 <p>
 Returns the type identifier from a given <em class="parameter"><code>class</code></em> structure.
@@ -1107,9 +1107,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570379"></a><h3>
+<a name="id2571440"></a><h3>
 <a name="G-TYPE-FROM-INTERFACE:CAPS"></a>G_TYPE_FROM_INTERFACE()</h3>
-<a class="indexterm" name="id2570392"></a><pre class="programlisting">#define G_TYPE_FROM_INTERFACE(g_iface)                          (((GTypeInterface*) (g_iface))-&gt;g_type)
+<a class="indexterm" name="id2571453"></a><pre class="programlisting">#define G_TYPE_FROM_INTERFACE(g_iface)                          (((GTypeInterface*) (g_iface))-&gt;g_type)
 </pre>
 <p>
 Returns the type identifier from a given <em class="parameter"><code>interface</code></em> structure.
@@ -1133,9 +1133,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570449"></a><h3>
+<a name="id2571509"></a><h3>
 <a name="G-TYPE-INSTANCE-GET-CLASS:CAPS"></a>G_TYPE_INSTANCE_GET_CLASS()</h3>
-<a class="indexterm" name="id2570462"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_CLASS(instance, g_type, c_type)     (_G_TYPE_IGC ((instance), (g_type), c_type))
+<a class="indexterm" name="id2571523"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_CLASS(instance, g_type, c_type)     (_G_TYPE_IGC ((instance), (g_type), c_type))
 </pre>
 <p>
 Returns the class structure of a given <em class="parameter"><code>instance</code></em>, casted
@@ -1179,9 +1179,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570574"></a><h3>
+<a name="id2571635"></a><h3>
 <a name="G-TYPE-INSTANCE-GET-INTERFACE:CAPS"></a>G_TYPE_INSTANCE_GET_INTERFACE()</h3>
-<a class="indexterm" name="id2570588"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_INTERFACE(instance, g_type, c_type) (_G_TYPE_IGI ((instance), (g_type), c_type))
+<a class="indexterm" name="id2571648"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_INTERFACE(instance, g_type, c_type) (_G_TYPE_IGI ((instance), (g_type), c_type))
 </pre>
 <p>
 Returns the interface structure for interface <em class="parameter"><code>g_type</code></em> of a given <em class="parameter"><code>instance</code></em>.
@@ -1219,9 +1219,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570683"></a><h3>
+<a name="id2571743"></a><h3>
 <a name="G-TYPE-INSTANCE-GET-PRIVATE:CAPS"></a>G_TYPE_INSTANCE_GET_PRIVATE()</h3>
-<a class="indexterm" name="id2570698"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_PRIVATE(instance, g_type, c_type)   ((c_type*) g_type_instance_get_private ((GTypeInstance*) (instance), (g_type)))
+<a class="indexterm" name="id2571759"></a><pre class="programlisting">#define G_TYPE_INSTANCE_GET_PRIVATE(instance, g_type, c_type)   ((c_type*) g_type_instance_get_private ((GTypeInstance*) (instance), (g_type)))
 </pre>
 <p>
 Gets the private structure for a particular type.
@@ -1261,9 +1261,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570791"></a><h3>
+<a name="id2571851"></a><h3>
 <a name="G-TYPE-CHECK-INSTANCE:CAPS"></a>G_TYPE_CHECK_INSTANCE()</h3>
-<a class="indexterm" name="id2570804"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE(instance)				(_G_TYPE_CHI ((GTypeInstance*) (instance)))
+<a class="indexterm" name="id2571864"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE(instance)				(_G_TYPE_CHI ((GTypeInstance*) (instance)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>instance</code></em> is a valid <a href="gobject-Type-Information.html#GTypeInstance"><span class="type">GTypeInstance</span></a> structure,
@@ -1288,9 +1288,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2570888"></a><h3>
+<a name="id2571948"></a><h3>
 <a name="G-TYPE-CHECK-INSTANCE-CAST:CAPS"></a>G_TYPE_CHECK_INSTANCE_CAST()</h3>
-<a class="indexterm" name="id2570901"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE_CAST(instance, g_type, c_type)    (_G_TYPE_CIC ((instance), (g_type), c_type))
+<a class="indexterm" name="id2571962"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE_CAST(instance, g_type, c_type)    (_G_TYPE_CIC ((instance), (g_type), c_type))
 </pre>
 <p>
 Checks that <em class="parameter"><code>instance</code></em> is an instance of the type identified by <em class="parameter"><code>g_type</code></em>
@@ -1328,9 +1328,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571009"></a><h3>
+<a name="id2572069"></a><h3>
 <a name="G-TYPE-CHECK-INSTANCE-TYPE:CAPS"></a>G_TYPE_CHECK_INSTANCE_TYPE()</h3>
-<a class="indexterm" name="id2571022"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+<a class="indexterm" name="id2572082"></a><pre class="programlisting">#define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>instance</code></em> is an instance of the type identified by <em class="parameter"><code>g_type</code></em>.
@@ -1361,9 +1361,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571117"></a><h3>
+<a name="id2572178"></a><h3>
 <a name="G-TYPE-CHECK-CLASS-CAST:CAPS"></a>G_TYPE_CHECK_CLASS_CAST()</h3>
-<a class="indexterm" name="id2571131"></a><pre class="programlisting">#define G_TYPE_CHECK_CLASS_CAST(g_class, g_type, c_type)        (_G_TYPE_CCC ((g_class), (g_type), c_type))
+<a class="indexterm" name="id2572192"></a><pre class="programlisting">#define G_TYPE_CHECK_CLASS_CAST(g_class, g_type, c_type)        (_G_TYPE_CCC ((g_class), (g_type), c_type))
 </pre>
 <p>
 Checks that <em class="parameter"><code>g_class</code></em> is a class structure of the type identified by <em class="parameter"><code>g_type</code></em>
@@ -1401,9 +1401,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571239"></a><h3>
+<a name="id2572299"></a><h3>
 <a name="G-TYPE-CHECK-CLASS-TYPE:CAPS"></a>G_TYPE_CHECK_CLASS_TYPE()</h3>
-<a class="indexterm" name="id2571252"></a><pre class="programlisting">#define G_TYPE_CHECK_CLASS_TYPE(g_class, g_type)                (_G_TYPE_CCT ((g_class), (g_type)))
+<a class="indexterm" name="id2572313"></a><pre class="programlisting">#define G_TYPE_CHECK_CLASS_TYPE(g_class, g_type)                (_G_TYPE_CCT ((g_class), (g_type)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>g_class</code></em> is a class structure of the type identified by 
@@ -1434,9 +1434,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571347"></a><h3>
+<a name="id2572408"></a><h3>
 <a name="G-TYPE-CHECK-VALUE:CAPS"></a>G_TYPE_CHECK_VALUE()</h3>
-<a class="indexterm" name="id2571360"></a><pre class="programlisting">#define G_TYPE_CHECK_VALUE(value)				(_G_TYPE_CHV ((value)))
+<a class="indexterm" name="id2572421"></a><pre class="programlisting">#define G_TYPE_CHECK_VALUE(value)				(_G_TYPE_CHV ((value)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>value</code></em> has been initialized to hold values
@@ -1459,9 +1459,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571423"></a><h3>
+<a name="id2572484"></a><h3>
 <a name="G-TYPE-CHECK-VALUE-TYPE:CAPS"></a>G_TYPE_CHECK_VALUE_TYPE()</h3>
-<a class="indexterm" name="id2571436"></a><pre class="programlisting">#define G_TYPE_CHECK_VALUE_TYPE(value, g_type)			(_G_TYPE_CVH ((value), (g_type)))
+<a class="indexterm" name="id2572497"></a><pre class="programlisting">#define G_TYPE_CHECK_VALUE_TYPE(value, g_type)			(_G_TYPE_CVH ((value), (g_type)))
 </pre>
 <p>
 Returns <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> if <em class="parameter"><code>value</code></em> has been initialized to hold values
@@ -1492,9 +1492,9 @@ This macro should only be used in type implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571519"></a><h3>
+<a name="id2572580"></a><h3>
 <a name="G-TYPE-FLAG-RESERVED-ID-BIT:CAPS"></a>G_TYPE_FLAG_RESERVED_ID_BIT</h3>
-<a class="indexterm" name="id2571532"></a><pre class="programlisting">#define	G_TYPE_FLAG_RESERVED_ID_BIT	((GType) (1 &lt;&lt; 0))
+<a class="indexterm" name="id2572593"></a><pre class="programlisting">#define	G_TYPE_FLAG_RESERVED_ID_BIT	((GType) (1 &lt;&lt; 0))
 </pre>
 <p>
 A bit in the type number that's supposed to be left untouched.
@@ -1502,9 +1502,9 @@ A bit in the type number that's supposed to be left untouched.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571550"></a><h3>
+<a name="id2572611"></a><h3>
 <a name="g-type-init"></a>g_type_init ()</h3>
-<a class="indexterm" name="id2571562"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_init                     (void);</pre>
+<a class="indexterm" name="id2572623"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_init                     (void);</pre>
 <p>
 Prior to any use of the type system, <a href="gobject-Type-Information.html#g-type-init"><code class="function">g_type_init()</code></a> has to be called to initialize
 the type system and assorted other code portions (such as the various fundamental
@@ -1513,9 +1513,9 @@ type implementations or the signal system).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571597"></a><h3>
+<a name="id2572658"></a><h3>
 <a name="GTypeDebugFlags"></a>enum GTypeDebugFlags</h3>
-<a class="indexterm" name="id2571611"></a><pre class="programlisting">typedef enum	/*&lt; skip &gt;*/
+<a class="indexterm" name="id2572671"></a><pre class="programlisting">typedef enum	/*&lt; skip &gt;*/
 {
   G_TYPE_DEBUG_NONE	= 0,
   G_TYPE_DEBUG_OBJECTS	= 1 &lt;&lt; 0,
@@ -1564,9 +1564,9 @@ Note that the messages can also be triggered by setting the
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571745"></a><h3>
+<a name="id2572806"></a><h3>
 <a name="g-type-init-with-debug-flags"></a>g_type_init_with_debug_flags ()</h3>
-<a class="indexterm" name="id2571758"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_init_with_debug_flags    (<a href="gobject-Type-Information.html#GTypeDebugFlags">GTypeDebugFlags</a> debug_flags);</pre>
+<a class="indexterm" name="id2572818"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_init_with_debug_flags    (<a href="gobject-Type-Information.html#GTypeDebugFlags">GTypeDebugFlags</a> debug_flags);</pre>
 <p>
 Similar to <a href="gobject-Type-Information.html#g-type-init"><code class="function">g_type_init()</code></a>, but additionally sets debug flags.
 </p>
@@ -1584,9 +1584,9 @@ Similar to <a href="gobject-Type-Information.html#g-type-init"><code class="func
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571825"></a><h3>
+<a name="id2572886"></a><h3>
 <a name="g-type-name"></a>g_type_name ()</h3>
-<a class="indexterm" name="id2571837"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* g_type_name                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2572898"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* g_type_name                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Returns the unique name that is assigned to a type ID (this is the preferred method
 to find out whether a specific type has been registered for the passed in ID yet).
@@ -1613,9 +1613,9 @@ to find out whether a specific type has been registered for the passed in ID yet
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571909"></a><h3>
+<a name="id2572969"></a><h3>
 <a name="g-type-qname"></a>g_type_qname ()</h3>
-<a class="indexterm" name="id2571922"></a><pre class="programlisting"><GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK>      g_type_qname                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2572982"></a><pre class="programlisting"><GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK>      g_type_qname                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Return the corresponding quark of the type IDs name.
 </p>
@@ -1641,9 +1641,9 @@ Return the corresponding quark of the type IDs name.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2571980"></a><h3>
+<a name="id2573041"></a><h3>
 <a name="g-type-from-name"></a>g_type_from_name ()</h3>
-<a class="indexterm" name="id2571992"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_from_name                (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
+<a class="indexterm" name="id2573053"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_from_name                (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
 <p>
 Lookup the type ID from a given type name, returning 0 if no type has been registered under this name
 (this is the preferred method to find out by name whether a specific type has been registered yet).
@@ -1670,9 +1670,9 @@ Lookup the type ID from a given type name, returning 0 if no type has been regis
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572053"></a><h3>
+<a name="id2573114"></a><h3>
 <a name="g-type-parent"></a>g_type_parent ()</h3>
-<a class="indexterm" name="id2572066"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_parent                   (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2573126"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_parent                   (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Return the direct parent type of the passed in type.
 If the passed in type has no parent, i.e. is a fundamental type, 0 is returned.
@@ -1699,9 +1699,9 @@ If the passed in type has no parent, i.e. is a fundamental type, 0 is returned.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572125"></a><h3>
+<a name="id2573186"></a><h3>
 <a name="g-type-depth"></a>g_type_depth ()</h3>
-<a class="indexterm" name="id2572138"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_type_depth                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2573198"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_type_depth                    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Returns the length of the ancestry of the passed in type. This includes the
 type itself, so that e.g. a fundamental type has depth 1.
@@ -1728,9 +1728,9 @@ type itself, so that e.g. a fundamental type has depth 1.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572211"></a><h3>
+<a name="id2573272"></a><h3>
 <a name="g-type-next-base"></a>g_type_next_base ()</h3>
-<a class="indexterm" name="id2572223"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_next_base                (<a href="gobject-Type-Information.html#GType">GType</a> leaf_type,
+<a class="indexterm" name="id2573284"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_next_base                (<a href="gobject-Type-Information.html#GType">GType</a> leaf_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> root_type);</pre>
 <p>
 Given a <em class="parameter"><code>leaf_type</code></em> and a <em class="parameter"><code>root_type</code></em> which is contained in its anchestry, return
@@ -1768,9 +1768,9 @@ the leaf type is descended from the root type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572357"></a><h3>
+<a name="id2573417"></a><h3>
 <a name="g-type-is-a"></a>g_type_is_a ()</h3>
-<a class="indexterm" name="id2572369"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_type_is_a                     (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2573429"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_type_is_a                     (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> is_a_type);</pre>
 <p>
 If <em class="parameter"><code>is_a_type</code></em> is a derivable type, check whether <em class="parameter"><code>type</code></em> is a descendant of <em class="parameter"><code>is_a_type</code></em>.
@@ -1804,9 +1804,9 @@ If <em class="parameter"><code>is_a_type</code></em> is an interface, check whet
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572514"></a><h3>
+<a name="id2573574"></a><h3>
 <a name="g-type-class-ref"></a>g_type_class_ref ()</h3>
-<a class="indexterm" name="id2572526"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_ref                (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2573587"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_ref                (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Increments the reference count of the class structure belonging to
 <em class="parameter"><code>type</code></em>. This function will demand-create the class if it doesn't
@@ -1834,9 +1834,9 @@ exist already.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572600"></a><h3>
+<a name="id2573661"></a><h3>
 <a name="g-type-class-peek"></a>g_type_class_peek ()</h3>
-<a class="indexterm" name="id2572614"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek               (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2573674"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek               (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 This function is essentially the same as <a href="gobject-Type-Information.html#g-type-class-ref"><code class="function">g_type_class_ref()</code></a>, except that
 the classes reference count isn't incremented. As a consequence, this function
@@ -1866,9 +1866,9 @@ exist (hasn't been referenced before).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572714"></a><h3>
+<a name="id2573775"></a><h3>
 <a name="g-type-class-peek-static"></a>g_type_class_peek_static ()</h3>
-<a class="indexterm" name="id2572729"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek_static        (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2573790"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek_static        (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 A more efficient version of <a href="gobject-Type-Information.html#g-type-class-peek"><code class="function">g_type_class_peek()</code></a> which works only for
 static types.
@@ -1898,9 +1898,9 @@ static types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572823"></a><h3>
+<a name="id2573883"></a><h3>
 <a name="g-type-class-unref"></a>g_type_class_unref ()</h3>
-<a class="indexterm" name="id2572836"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_unref              (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
+<a class="indexterm" name="id2573896"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_unref              (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 Decrements the reference count of the class structure being passed in.
 Once the last reference count of a class has been released, classes
@@ -1921,9 +1921,9 @@ class pointer after <a href="gobject-Type-Information.html#g-type-class-unref"><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2572904"></a><h3>
+<a name="id2573965"></a><h3>
 <a name="g-type-class-peek-parent"></a>g_type_class_peek_parent ()</h3>
-<a class="indexterm" name="id2572917"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek_parent        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
+<a class="indexterm" name="id2573978"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_class_peek_parent        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 This is a convenience function often needed in class initializers.
 It returns the class structure of the immediate parent type of the class passed in.
@@ -1961,9 +1961,9 @@ g_type_class_peek (g_type_parent (G_TYPE_FROM_CLASS (g_class)));
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573001"></a><h3>
+<a name="id2574062"></a><h3>
 <a name="g-type-class-add-private"></a>g_type_class_add_private ()</h3>
-<a class="indexterm" name="id2573016"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_add_private        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
+<a class="indexterm" name="id2574077"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_add_private        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
                                              <GTKDOCLINK HREF="gsize">gsize</GTKDOCLINK> private_size);</pre>
 <p>
 Registers a private structure for a instantiatable type;
@@ -2026,9 +2026,9 @@ my_object_get_some_field (MyObject *my_object)
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573141"></a><h3>
+<a name="id2574202"></a><h3>
 <a name="g-type-interface-peek"></a>g_type_interface_peek ()</h3>
-<a class="indexterm" name="id2573158"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_interface_peek           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance_class,
+<a class="indexterm" name="id2574218"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_interface_peek           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance_class,
                                              <a href="gobject-Type-Information.html#GType">GType</a> iface_type);</pre>
 <p>
 Returns the <a href="gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> structure of an interface to which the passed in 
@@ -2063,9 +2063,9 @@ class conforms.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573271"></a><h3>
+<a name="id2574332"></a><h3>
 <a name="g-type-interface-peek-parent"></a>g_type_interface_peek_parent ()</h3>
-<a class="indexterm" name="id2573283"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_interface_peek_parent    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface);</pre>
+<a class="indexterm" name="id2574344"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_interface_peek_parent    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface);</pre>
 <p>
 Returns the corresponding <a href="gobject-Type-Information.html#GTypeInterface"><span class="type">GTypeInterface</span></a> structure of the parent type
 of the instance type to which <em class="parameter"><code>g_iface</code></em> belongs. This is useful when 
@@ -2096,9 +2096,9 @@ then possibly overriding some methods.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573393"></a><h3>
+<a name="id2574453"></a><h3>
 <a name="g-type-default-interface-ref"></a>g_type_default_interface_ref ()</h3>
-<a class="indexterm" name="id2573408"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_default_interface_ref    (<a href="gobject-Type-Information.html#GType">GType</a> g_type);</pre>
+<a class="indexterm" name="id2574469"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_default_interface_ref    (<a href="gobject-Type-Information.html#GType">GType</a> g_type);</pre>
 <p>
 Increments the reference count for the interface type <em class="parameter"><code>g_type</code></em>,
 and returns the default interface vtable for the type.
@@ -2139,9 +2139,9 @@ have been installed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573526"></a><h3>
+<a name="id2574586"></a><h3>
 <a name="g-type-default-interface-peek"></a>g_type_default_interface_peek ()</h3>
-<a class="indexterm" name="id2573541"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_default_interface_peek   (<a href="gobject-Type-Information.html#GType">GType</a> g_type);</pre>
+<a class="indexterm" name="id2574602"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_default_interface_peek   (<a href="gobject-Type-Information.html#GType">GType</a> g_type);</pre>
 <p>
 If the interface type <em class="parameter"><code>g_type</code></em> is currently in use, returns
 its default interface vtable.    
@@ -2171,9 +2171,9 @@ its default interface vtable.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573621"></a><h3>
+<a name="id2574682"></a><h3>
 <a name="g-type-default-interface-unref"></a>g_type_default_interface_unref ()</h3>
-<a class="indexterm" name="id2573637"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_default_interface_unref  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface);</pre>
+<a class="indexterm" name="id2574697"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_default_interface_unref  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface);</pre>
 <p>
 Decrements the reference count for the type corresponding to the
 interface default vtable <em class="parameter"><code>g_iface</code></em>. If the type is dynamic, then
@@ -2199,9 +2199,9 @@ vtable (the <em class="structfield"><code>class_finalize</code></em> member of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573722"></a><h3>
+<a name="id2574783"></a><h3>
 <a name="g-type-children"></a>g_type_children ()</h3>
-<a class="indexterm" name="id2573735"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_children                 (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2574796"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_children                 (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_children);</pre>
 <p>
 Return a newly allocated and 0-terminated array of type IDs, listing the
@@ -2235,9 +2235,9 @@ child types of <em class="parameter"><code>type</code></em>. The return value ha
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573842"></a><h3>
+<a name="id2574903"></a><h3>
 <a name="g-type-interfaces"></a>g_type_interfaces ()</h3>
-<a class="indexterm" name="id2573855"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_interfaces               (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2574916"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_interfaces               (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_interfaces);</pre>
 <p>
 Return a newly allocated and 0-terminated array of type IDs, listing the
@@ -2272,9 +2272,9 @@ interface types that <em class="parameter"><code>type</code></em> conforms to. T
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2573962"></a><h3>
+<a name="id2575023"></a><h3>
 <a name="g-type-interface-prerequisites"></a>g_type_interface_prerequisites ()</h3>
-<a class="indexterm" name="id2573978"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_interface_prerequisites  (<a href="gobject-Type-Information.html#GType">GType</a> interface_type,
+<a class="indexterm" name="id2575039"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>*      g_type_interface_prerequisites  (<a href="gobject-Type-Information.html#GType">GType</a> interface_type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_prerequisites);</pre>
 <p>
 Returns the prerequisites of an interfaces type.
@@ -2310,9 +2310,9 @@ Returns the prerequisites of an interfaces type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2574088"></a><h3>
+<a name="id2575149"></a><h3>
 <a name="g-type-set-qdata"></a>g_type_set_qdata ()</h3>
-<a class="indexterm" name="id2574101"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_set_qdata                (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2575162"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_set_qdata                (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -2346,9 +2346,9 @@ Attaches arbitrary data to a type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2574206"></a><h3>
+<a name="id2575267"></a><h3>
 <a name="g-type-get-qdata"></a>g_type_get_qdata ()</h3>
-<a class="indexterm" name="id2574219"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_get_qdata                (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2575280"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_type_get_qdata                (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark);</pre>
 <p>
 Obtains data which has previously been attached to <em class="parameter"><code>type</code></em>
@@ -2382,9 +2382,9 @@ with <a href="gobject-Type-Information.html#g-type-set-qdata"><code class="funct
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2574341"></a><h3>
+<a name="id2575401"></a><h3>
 <a name="g-type-query"></a>g_type_query ()</h3>
-<a class="indexterm" name="id2574354"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_query                    (<a href="gobject-Type-Information.html#GType">GType</a> type,
+<a class="indexterm" name="id2575414"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_query                    (<a href="gobject-Type-Information.html#GType">GType</a> type,
                                              <a href="gobject-Type-Information.html#GTypeQuery">GTypeQuery</a> *query);</pre>
 <p>
 Queries the type system for information about a specific type. 
@@ -2416,9 +2416,9 @@ be considered constant and have to be left untouched.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2574466"></a><h3>
+<a name="id2575526"></a><h3>
 <a name="GTypeQuery"></a>GTypeQuery</h3>
-<a class="indexterm" name="id2574478"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2575538"></a><pre class="programlisting">typedef struct {
   GType		type;
   const gchar  *type_name;
   guint		class_size;
@@ -2462,9 +2462,9 @@ filled in by the <a href="gobject-Type-Information.html#g-type-query"><code clas
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2574603"></a><h3>
+<a name="id2575664"></a><h3>
 <a name="GBaseInitFunc"></a>GBaseInitFunc ()</h3>
-<a class="indexterm" name="id2574615"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBaseInitFunc)                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
+<a class="indexterm" name="id2575676"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBaseInitFunc)                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 A callback function used by the type system to do base initialization
 of the class structures of derived types. It is called as part of the
@@ -2489,9 +2489,9 @@ intialization process.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2565349"></a><h3>
+<a name="id2566409"></a><h3>
 <a name="GBaseFinalizeFunc"></a>GBaseFinalizeFunc ()</h3>
-<a class="indexterm" name="id2565362"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBaseFinalizeFunc)            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
+<a class="indexterm" name="id2566422"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBaseFinalizeFunc)            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 A callback function used by the type system to finalize those portions
 of a derived types class structure that were setup from the corresponding
@@ -2513,9 +2513,9 @@ See <a href="gobject-Type-Information.html#GClassInitFunc"><code class="function
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2565442"></a><h3>
+<a name="id2566503"></a><h3>
 <a name="GClassInitFunc"></a>GClassInitFunc ()</h3>
-<a class="indexterm" name="id2574931"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClassInitFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
+<a class="indexterm" name="id2575992"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClassInitFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> class_data);</pre>
 <p>
 A callback function used by the type system to initialize the class
@@ -2662,9 +2662,9 @@ time.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575314"></a><h3>
+<a name="id2576375"></a><h3>
 <a name="GClassFinalizeFunc"></a>GClassFinalizeFunc ()</h3>
-<a class="indexterm" name="id2575327"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClassFinalizeFunc)           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
+<a class="indexterm" name="id2576388"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GClassFinalizeFunc)           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> class_data);</pre>
 <p>
 A callback function used by the type system to finalize a class.
@@ -2697,9 +2697,9 @@ reference count drops to zero).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575463"></a><h3>
+<a name="id2576524"></a><h3>
 <a name="GInstanceInitFunc"></a>GInstanceInitFunc ()</h3>
-<a class="indexterm" name="id2575476"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInstanceInitFunc)            (<a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a> *instance,
+<a class="indexterm" name="id2576536"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInstanceInitFunc)            (<a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a> *instance,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 A callback function used by the type system to initialize a new
@@ -2732,9 +2732,9 @@ belongs to the type the current initializer was introduced for.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575552"></a><h3>
+<a name="id2576613"></a><h3>
 <a name="GInterfaceInitFunc"></a>GInterfaceInitFunc ()</h3>
-<a class="indexterm" name="id2575565"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInterfaceInitFunc)           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
+<a class="indexterm" name="id2576626"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInterfaceInitFunc)           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> iface_data);</pre>
 <p>
 A callback function used by the type system to initialize a new
@@ -2763,9 +2763,9 @@ allocate any resources required by the interface.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575651"></a><h3>
+<a name="id2576711"></a><h3>
 <a name="GInterfaceFinalizeFunc"></a>GInterfaceFinalizeFunc ()</h3>
-<a class="indexterm" name="id2575663"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInterfaceFinalizeFunc)       (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
+<a class="indexterm" name="id2576724"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GInterfaceFinalizeFunc)       (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> iface_data);</pre>
 <p>
 A callback function used by the type system to finalize an interface.
@@ -2794,9 +2794,9 @@ allocated by the corresponding <a href="gobject-Type-Information.html#GInterface
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575760"></a><h3>
+<a name="id2576820"></a><h3>
 <a name="GTypeClassCacheFunc"></a>GTypeClassCacheFunc ()</h3>
-<a class="indexterm" name="id2575773"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GTypeClassCacheFunc)          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
+<a class="indexterm" name="id2576833"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GTypeClassCacheFunc)          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
                                              <a href="gobject-Type-Information.html#GTypeClass">GTypeClass</a> *g_class);</pre>
 <p>
 A callback function which is called when the reference count of a class 
@@ -2840,9 +2840,9 @@ called, <GTKDOCLINK HREF="FALSE:CAPS"><code class="literal">FALSE</code></GTKDOC
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2575959"></a><h3>
+<a name="id2577019"></a><h3>
 <a name="GTypeFlags"></a>enum GTypeFlags</h3>
-<a class="indexterm" name="id2575971"></a><pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
+<a class="indexterm" name="id2577032"></a><pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
 {
   G_TYPE_FLAG_ABSTRACT		= (1 &lt;&lt; 4),
   G_TYPE_FLAG_VALUE_ABSTRACT	= (1 &lt;&lt; 5)
@@ -2875,9 +2875,9 @@ Bit masks used to check or determine characteristics of a type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2576054"></a><h3>
+<a name="id2577114"></a><h3>
 <a name="GTypeFundamentalFlags"></a>enum GTypeFundamentalFlags</h3>
-<a class="indexterm" name="id2576067"></a><pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
+<a class="indexterm" name="id2577127"></a><pre class="programlisting">typedef enum    /*&lt; skip &gt;*/
 {
   G_TYPE_FLAG_CLASSED           = (1 &lt;&lt; 0),
   G_TYPE_FLAG_INSTANTIATABLE    = (1 &lt;&lt; 1),
@@ -2922,9 +2922,9 @@ fundamental type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2576186"></a><h3>
+<a name="id2577246"></a><h3>
 <a name="g-type-register-static"></a>g_type_register_static ()</h3>
-<a class="indexterm" name="id2576199"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_static          (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
+<a class="indexterm" name="id2577259"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_static          (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *type_name,
                                              const <a href="gobject-Type-Information.html#GTypeInfo">GTypeInfo</a> *info,
                                              <a href="gobject-Type-Information.html#GTypeFlags">GTypeFlags</a> flags);</pre>
@@ -2975,9 +2975,9 @@ instances (if not abstract).  The value of <em class="parameter"><code>flags</co
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2576374"></a><h3>
+<a name="id2577434"></a><h3>
 <a name="g-type-register-static-simple"></a>g_type_register_static_simple ()</h3>
-<a class="indexterm" name="id2576389"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_static_simple   (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
+<a class="indexterm" name="id2577450"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_static_simple   (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *type_name,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> class_size,
                                              <a href="gobject-Type-Information.html#GClassInitFunc">GClassInitFunc</a> class_init,
@@ -3050,9 +3050,9 @@ struct and calling <GTKDOCLINK HREF="g-type-info-register-static"><code class="f
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2576666"></a><h3>
+<a name="id2577726"></a><h3>
 <a name="g-type-register-dynamic"></a>g_type_register_dynamic ()</h3>
-<a class="indexterm" name="id2576679"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_dynamic         (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
+<a class="indexterm" name="id2577740"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_dynamic         (<a href="gobject-Type-Information.html#GType">GType</a> parent_type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *type_name,
                                              <a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
                                              <a href="gobject-Type-Information.html#GTypeFlags">GTypeFlags</a> flags);</pre>
@@ -3103,9 +3103,9 @@ instances (if not abstract).  The value of <em class="parameter"><code>flags</co
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2576871"></a><h3>
+<a name="id2577932"></a><h3>
 <a name="g-type-register-fundamental"></a>g_type_register_fundamental ()</h3>
-<a class="indexterm" name="id2576885"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_fundamental     (<a href="gobject-Type-Information.html#GType">GType</a> type_id,
+<a class="indexterm" name="id2577945"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_register_fundamental     (<a href="gobject-Type-Information.html#GType">GType</a> type_id,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *type_name,
                                              const <a href="gobject-Type-Information.html#GTypeInfo">GTypeInfo</a> *info,
                                              const <a href="gobject-Type-Information.html#GTypeFundamentalInfo">GTypeFundamentalInfo</a> *finfo,
@@ -3164,9 +3164,9 @@ characteristics of the fundamental type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577115"></a><h3>
+<a name="id2578176"></a><h3>
 <a name="g-type-add-interface-static"></a>g_type_add_interface_static ()</h3>
-<a class="indexterm" name="id2577129"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_static     (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
+<a class="indexterm" name="id2578189"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_static     (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> interface_type,
                                              const <a href="gobject-Type-Information.html#GInterfaceInfo">GInterfaceInfo</a> *info);</pre>
 <p>
@@ -3204,9 +3204,9 @@ is used to manage the relationship.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577284"></a><h3>
+<a name="id2578344"></a><h3>
 <a name="g-type-add-interface-dynamic"></a>g_type_add_interface_dynamic ()</h3>
-<a class="indexterm" name="id2577297"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_dynamic    (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
+<a class="indexterm" name="id2578358"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_dynamic    (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> interface_type,
                                              <a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
 <p>
@@ -3242,9 +3242,9 @@ is used to manage the relationship.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577449"></a><h3>
+<a name="id2578509"></a><h3>
 <a name="g-type-interface-add-prerequisite"></a>g_type_interface_add_prerequisite ()</h3>
-<a class="indexterm" name="id2577463"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_interface_add_prerequisite
+<a class="indexterm" name="id2578523"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_interface_add_prerequisite
                                             (<a href="gobject-Type-Information.html#GType">GType</a> interface_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> prerequisite_type);</pre>
 <p>
@@ -3278,9 +3278,9 @@ at most one instantiatable prerequisite type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577574"></a><h3>
+<a name="id2578635"></a><h3>
 <a name="g-type-get-plugin"></a>g_type_get_plugin ()</h3>
-<a class="indexterm" name="id2577588"></a><pre class="programlisting"><a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a>* g_type_get_plugin              (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2578648"></a><pre class="programlisting"><a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a>* g_type_get_plugin              (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Returns the <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure for <em class="parameter"><code>type</code></em> or
 <GTKDOCLINK HREF="NULL:CAPS"><code class="literal">NULL</code></GTKDOCLINK> if <em class="parameter"><code>type</code></em> does not have a <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure.
@@ -3308,9 +3308,9 @@ Returns the <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GT
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577708"></a><h3>
+<a name="id2578769"></a><h3>
 <a name="g-type-interface-get-plugin"></a>g_type_interface_get_plugin ()</h3>
-<a class="indexterm" name="id2577722"></a><pre class="programlisting"><a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a>* g_type_interface_get_plugin    (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
+<a class="indexterm" name="id2578782"></a><pre class="programlisting"><a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a>* g_type_interface_get_plugin    (<a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> interface_type);</pre>
 <p>
 Returns the <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> structure for the dynamic interface 
@@ -3347,9 +3347,9 @@ not have a <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTy
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577901"></a><h3>
+<a name="id2578962"></a><h3>
 <a name="g-type-fundamental-next"></a>g_type_fundamental_next ()</h3>
-<a class="indexterm" name="id2577914"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_fundamental_next         (void);</pre>
+<a class="indexterm" name="id2578975"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_fundamental_next         (void);</pre>
 <p>
 Returns the next free fundamental type id which can be used to
 register a new fundamental type with <a href="gobject-Type-Information.html#g-type-register-fundamental"><code class="function">g_type_register_fundamental()</code></a>.
@@ -3372,9 +3372,9 @@ fundamental type identifier.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2577968"></a><h3>
+<a name="id2579028"></a><h3>
 <a name="g-type-fundamental"></a>g_type_fundamental ()</h3>
-<a class="indexterm" name="id2577980"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_fundamental              (<a href="gobject-Type-Information.html#GType">GType</a> type_id);</pre>
+<a class="indexterm" name="id2579041"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_type_fundamental              (<a href="gobject-Type-Information.html#GType">GType</a> type_id);</pre>
 <p>
 Internal function, used to extract the fundamental type ID portion.
 use <a href="gobject-Type-Information.html#G-TYPE-FUNDAMENTAL:CAPS"><code class="function">G_TYPE_FUNDAMENTAL()</code></a> instead.
@@ -3401,9 +3401,9 @@ use <a href="gobject-Type-Information.html#G-TYPE-FUNDAMENTAL:CAPS"><code class=
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578049"></a><h3>
+<a name="id2579110"></a><h3>
 <a name="g-type-create-instance"></a>g_type_create_instance ()</h3>
-<a class="indexterm" name="id2578062"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a>* g_type_create_instance       (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2579123"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a>* g_type_create_instance       (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Creates and initializes an instance of <em class="parameter"><code>type</code></em> if <em class="parameter"><code>type</code></em> is valid and can
 be instantiated. The type system only performs basic allocation and
@@ -3441,9 +3441,9 @@ use this function but <a href="gobject-The-Base-Object-Type.html#g-object-new"><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578205"></a><h3>
+<a name="id2579266"></a><h3>
 <a name="g-type-free-instance"></a>g_type_free_instance ()</h3>
-<a class="indexterm" name="id2578218"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_free_instance            (<a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a> *instance);</pre>
+<a class="indexterm" name="id2579279"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_free_instance            (<a href="gobject-Type-Information.html#GTypeInstance">GTypeInstance</a> *instance);</pre>
 <p>
 Frees an instance of a type, returning it to the instance pool for the type,
 if there is one.
@@ -3466,9 +3466,9 @@ fundamental types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578282"></a><h3>
+<a name="id2579343"></a><h3>
 <a name="g-type-add-class-cache-func"></a>g_type_add_class_cache_func ()</h3>
-<a class="indexterm" name="id2578296"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_class_cache_func     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
+<a class="indexterm" name="id2579356"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_class_cache_func     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
                                              <a href="gobject-Type-Information.html#GTypeClassCacheFunc">GTypeClassCacheFunc</a> cache_func);</pre>
 <p>
 Adds a <a href="gobject-Type-Information.html#GTypeClassCacheFunc"><span class="type">GTypeClassCacheFunc</span></a> to be called before the reference count of a class 
@@ -3500,9 +3500,9 @@ are routed through the same <a href="gobject-Type-Information.html#GTypeClassCac
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578419"></a><h3>
+<a name="id2579480"></a><h3>
 <a name="g-type-remove-class-cache-func"></a>g_type_remove_class_cache_func ()</h3>
-<a class="indexterm" name="id2578433"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_remove_class_cache_func  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
+<a class="indexterm" name="id2579493"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_remove_class_cache_func  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> cache_data,
                                              <a href="gobject-Type-Information.html#GTypeClassCacheFunc">GTypeClassCacheFunc</a> cache_func);</pre>
 <p>
 Removes a previously installed <a href="gobject-Type-Information.html#GTypeClassCacheFunc"><span class="type">GTypeClassCacheFunc</span></a>. The cache maintained 
@@ -3531,9 +3531,9 @@ to avoid leaks.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578542"></a><h3>
+<a name="id2579603"></a><h3>
 <a name="g-type-class-unref-uncached"></a>g_type_class_unref_uncached ()</h3>
-<a class="indexterm" name="id2578556"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_unref_uncached     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
+<a class="indexterm" name="id2579616"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_class_unref_uncached     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_class);</pre>
 <p>
 A variant of <a href="gobject-Type-Information.html#g-type-class-unref"><code class="function">g_type_class_unref()</code></a> for use in <a href="gobject-Type-Information.html#GTypeClassCacheFunc"><span class="type">GTypeClassCacheFunc</span></a>
 implementations. It unreferences a class without consulting the chain
@@ -3554,9 +3554,9 @@ otherwise.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578641"></a><h3>
+<a name="id2579702"></a><h3>
 <a name="g-type-add-interface-check"></a>g_type_add_interface_check ()</h3>
-<a class="indexterm" name="id2578657"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_check      (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
+<a class="indexterm" name="id2579718"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_add_interface_check      (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
                                              <a href="gobject-Type-Information.html#GTypeInterfaceCheckFunc">GTypeInterfaceCheckFunc</a> check_func);</pre>
 <p>
 Adds a function to be called after an interface vtable is
@@ -3595,9 +3595,9 @@ defined on its interfaces.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578769"></a><h3>
+<a name="id2579829"></a><h3>
 <a name="g-type-remove-interface-check"></a>g_type_remove_interface_check ()</h3>
-<a class="indexterm" name="id2578784"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_remove_interface_check   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
+<a class="indexterm" name="id2579845"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_remove_interface_check   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
                                              <a href="gobject-Type-Information.html#GTypeInterfaceCheckFunc">GTypeInterfaceCheckFunc</a> check_func);</pre>
 <p>
 Removes an interface check function added with
@@ -3627,9 +3627,9 @@ Removes an interface check function added with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2578892"></a><h3>
+<a name="id2579953"></a><h3>
 <a name="GTypeInterfaceCheckFunc"></a>GTypeInterfaceCheckFunc ()</h3>
-<a class="indexterm" name="id2578908"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypeInterfaceCheckFunc)      (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
+<a class="indexterm" name="id2579968"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypeInterfaceCheckFunc)      (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> check_data,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface);</pre>
 <p>
 A callback called after an interface vtable is initialized.
@@ -3659,9 +3659,9 @@ See <a href="gobject-Type-Information.html#g-type-add-interface-check"><code cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579004"></a><h3>
+<a name="id2580065"></a><h3>
 <a name="g-type-value-table-peek"></a>g_type_value_table_peek ()</h3>
-<a class="indexterm" name="id2579016"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GTypeValueTable">GTypeValueTable</a>* g_type_value_table_peek    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
+<a class="indexterm" name="id2580077"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GTypeValueTable">GTypeValueTable</a>* g_type_value_table_peek    (<a href="gobject-Type-Information.html#GType">GType</a> type);</pre>
 <p>
 Returns the location of the <a href="gobject-Type-Information.html#GTypeValueTable"><span class="type">GTypeValueTable</span></a> associated with <em class="parameter"><code>type</code></em>.
 <span class="emphasis"><em>Note that this function should only be used from source code
@@ -3691,9 +3691,9 @@ that implements or has internal knowledge of the implementation of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579147"></a><h3>
+<a name="id2580208"></a><h3>
 <a name="G-DEFINE-TYPE:CAPS"></a>G_DEFINE_TYPE()</h3>
-<a class="indexterm" name="id2579162"></a><pre class="programlisting">#define G_DEFINE_TYPE(TN, t_n, T_P)			    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+<a class="indexterm" name="id2580222"></a><pre class="programlisting">#define G_DEFINE_TYPE(TN, t_n, T_P)			    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
 </pre>
 <p>
 A convenience macro for type implementations, which declares a 
@@ -3732,9 +3732,9 @@ a *<GTKDOCLINK HREF="get-type"><code class="function">_get_type()</code></GTKDOC
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579280"></a><h3>
+<a name="id2580340"></a><h3>
 <a name="G-DEFINE-TYPE-WITH-CODE:CAPS"></a>G_DEFINE_TYPE_WITH_CODE()</h3>
-<a class="indexterm" name="id2579296"></a><pre class="programlisting">#define G_DEFINE_TYPE_WITH_CODE(TN, t_n, T_P, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, 0) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+<a class="indexterm" name="id2580356"></a><pre class="programlisting">#define G_DEFINE_TYPE_WITH_CODE(TN, t_n, T_P, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, 0) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
 </pre>
 <p>
 A convenience macro for type implementations.  
@@ -3778,9 +3778,9 @@ See <a href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS"><code cl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579442"></a><h3>
+<a name="id2580503"></a><h3>
 <a name="G-DEFINE-ABSTRACT-TYPE:CAPS"></a>G_DEFINE_ABSTRACT_TYPE()</h3>
-<a class="indexterm" name="id2579457"></a><pre class="programlisting">#define G_DEFINE_ABSTRACT_TYPE(TN, t_n, T_P)		    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT, {})
+<a class="indexterm" name="id2580518"></a><pre class="programlisting">#define G_DEFINE_ABSTRACT_TYPE(TN, t_n, T_P)		    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT, {})
 </pre>
 <p>
 A convenience macro for type implementations. 
@@ -3818,9 +3818,9 @@ See <a href="gobject-Type-Information.html#G-DEFINE-TYPE-EXTENDED:CAPS"><code cl
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579557"></a><h3>
+<a name="id2580618"></a><h3>
 <a name="G-DEFINE-ABSTRACT-TYPE-WITH-CODE:CAPS"></a>G_DEFINE_ABSTRACT_TYPE_WITH_CODE()</h3>
-<a class="indexterm" name="id2579573"></a><pre class="programlisting">#define G_DEFINE_ABSTRACT_TYPE_WITH_CODE(TN, t_n, T_P, _C_) _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+<a class="indexterm" name="id2580634"></a><pre class="programlisting">#define G_DEFINE_ABSTRACT_TYPE_WITH_CODE(TN, t_n, T_P, _C_) _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
 </pre>
 <p>
 A convenience macro for type implementations.
@@ -3865,9 +3865,9 @@ via <a href="gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS"><code cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579723"></a><h3>
+<a name="id2580782"></a><h3>
 <a name="G-IMPLEMENT-INTERFACE:CAPS"></a>G_IMPLEMENT_INTERFACE()</h3>
-<a class="indexterm" name="id2579738"></a><pre class="programlisting">#define     G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init)</pre>
+<a class="indexterm" name="id2580798"></a><pre class="programlisting">#define     G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init)</pre>
 <p>
 A convenience macro to ease interface addition in the <em class="parameter"><code>_C_</code></em> section
 of <a href="gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS"><code class="function">G_DEFINE_TYPE_WITH_CODE()</code></a> or <a href="gobject-Type-Information.html#G-DEFINE-ABSTRACT-TYPE-WITH-CODE:CAPS"><code class="function">G_DEFINE_ABSTRACT_TYPE_WITH_CODE()</code></a>. 
@@ -3901,9 +3901,9 @@ macros, since it depends on variable names from those macros.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2579846"></a><h3>
+<a name="id2580907"></a><h3>
 <a name="G-DEFINE-TYPE-EXTENDED:CAPS"></a>G_DEFINE_TYPE_EXTENDED()</h3>
-<a class="indexterm" name="id2579862"></a><pre class="programlisting">#define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+<a class="indexterm" name="id2580922"></a><pre class="programlisting">#define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
 </pre>
 <p>
 The most general convenience macro for type implementations, on which 
@@ -4001,9 +4001,9 @@ init functions.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580015"></a><h3>
+<a name="id2581076"></a><h3>
 <a name="G-TYPE-INVALID:CAPS"></a>G_TYPE_INVALID</h3>
-<a class="indexterm" name="id2580028"></a><pre class="programlisting">#define G_TYPE_INVALID			G_TYPE_MAKE_FUNDAMENTAL (0)
+<a class="indexterm" name="id2581088"></a><pre class="programlisting">#define G_TYPE_INVALID			G_TYPE_MAKE_FUNDAMENTAL (0)
 </pre>
 <p>
 An invalid <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> used as error return value in some functions which return
@@ -4012,9 +4012,9 @@ a <a href="gobject-Type-Information.html#GType"><span class="type">GType</span><
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580060"></a><h3>
+<a name="id2581121"></a><h3>
 <a name="G-TYPE-NONE:CAPS"></a>G_TYPE_NONE</h3>
-<a class="indexterm" name="id2580073"></a><pre class="programlisting">#define G_TYPE_NONE			G_TYPE_MAKE_FUNDAMENTAL (1)
+<a class="indexterm" name="id2581134"></a><pre class="programlisting">#define G_TYPE_NONE			G_TYPE_MAKE_FUNDAMENTAL (1)
 </pre>
 <p>
 A fundamental type which is used as a replacement for the C
@@ -4023,9 +4023,9 @@ A fundamental type which is used as a replacement for the C
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580096"></a><h3>
+<a name="id2581156"></a><h3>
 <a name="G-TYPE-INTERFACE:CAPS"></a>G_TYPE_INTERFACE</h3>
-<a class="indexterm" name="id2580109"></a><pre class="programlisting">#define G_TYPE_INTERFACE		G_TYPE_MAKE_FUNDAMENTAL (2)
+<a class="indexterm" name="id2581169"></a><pre class="programlisting">#define G_TYPE_INTERFACE		G_TYPE_MAKE_FUNDAMENTAL (2)
 </pre>
 <p>
 The fundamental type from which all interfaces are derived.
@@ -4033,9 +4033,9 @@ The fundamental type from which all interfaces are derived.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580126"></a><h3>
+<a name="id2581186"></a><h3>
 <a name="G-TYPE-CHAR:CAPS"></a>G_TYPE_CHAR</h3>
-<a class="indexterm" name="id2580138"></a><pre class="programlisting">#define G_TYPE_CHAR			G_TYPE_MAKE_FUNDAMENTAL (3)
+<a class="indexterm" name="id2581198"></a><pre class="programlisting">#define G_TYPE_CHAR			G_TYPE_MAKE_FUNDAMENTAL (3)
 </pre>
 <p>
     The fundamental type corresponding to <GTKDOCLINK HREF="gchar"><span class="type">gchar</span></GTKDOCLINK>.
@@ -4045,9 +4045,9 @@ The fundamental type from which all interfaces are derived.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580164"></a><h3>
+<a name="id2581225"></a><h3>
 <a name="G-TYPE-UCHAR:CAPS"></a>G_TYPE_UCHAR</h3>
-<a class="indexterm" name="id2580177"></a><pre class="programlisting">#define G_TYPE_UCHAR			G_TYPE_MAKE_FUNDAMENTAL (4)
+<a class="indexterm" name="id2581238"></a><pre class="programlisting">#define G_TYPE_UCHAR			G_TYPE_MAKE_FUNDAMENTAL (4)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="guchar"><span class="type">guchar</span></GTKDOCLINK>.
@@ -4055,9 +4055,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="guchar"><span class="typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580203"></a><h3>
+<a name="id2581263"></a><h3>
 <a name="G-TYPE-BOOLEAN:CAPS"></a>G_TYPE_BOOLEAN</h3>
-<a class="indexterm" name="id2580216"></a><pre class="programlisting">#define G_TYPE_BOOLEAN			G_TYPE_MAKE_FUNDAMENTAL (5)
+<a class="indexterm" name="id2581276"></a><pre class="programlisting">#define G_TYPE_BOOLEAN			G_TYPE_MAKE_FUNDAMENTAL (5)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gboolean"><span class="type">gboolean</span></GTKDOCLINK>.
@@ -4065,9 +4065,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gboolean"><span class="t
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580240"></a><h3>
+<a name="id2581300"></a><h3>
 <a name="G-TYPE-INT:CAPS"></a>G_TYPE_INT</h3>
-<a class="indexterm" name="id2580253"></a><pre class="programlisting">#define G_TYPE_INT			G_TYPE_MAKE_FUNDAMENTAL (6)
+<a class="indexterm" name="id2581314"></a><pre class="programlisting">#define G_TYPE_INT			G_TYPE_MAKE_FUNDAMENTAL (6)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gint"><span class="type">gint</span></GTKDOCLINK>.
@@ -4075,9 +4075,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gint"><span class="type"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580277"></a><h3>
+<a name="id2581338"></a><h3>
 <a name="G-TYPE-UINT:CAPS"></a>G_TYPE_UINT</h3>
-<a class="indexterm" name="id2580290"></a><pre class="programlisting">#define G_TYPE_UINT			G_TYPE_MAKE_FUNDAMENTAL (7)
+<a class="indexterm" name="id2581351"></a><pre class="programlisting">#define G_TYPE_UINT			G_TYPE_MAKE_FUNDAMENTAL (7)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="guint"><span class="type">guint</span></GTKDOCLINK>.
@@ -4085,9 +4085,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="guint"><span class="type
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580314"></a><h3>
+<a name="id2581374"></a><h3>
 <a name="G-TYPE-LONG:CAPS"></a>G_TYPE_LONG</h3>
-<a class="indexterm" name="id2580327"></a><pre class="programlisting">#define G_TYPE_LONG			G_TYPE_MAKE_FUNDAMENTAL (8)
+<a class="indexterm" name="id2581387"></a><pre class="programlisting">#define G_TYPE_LONG			G_TYPE_MAKE_FUNDAMENTAL (8)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="glong"><span class="type">glong</span></GTKDOCLINK>.
@@ -4095,9 +4095,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="glong"><span class="type
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580351"></a><h3>
+<a name="id2581411"></a><h3>
 <a name="G-TYPE-ULONG:CAPS"></a>G_TYPE_ULONG</h3>
-<a class="indexterm" name="id2580364"></a><pre class="programlisting">#define G_TYPE_ULONG			G_TYPE_MAKE_FUNDAMENTAL (9)
+<a class="indexterm" name="id2581424"></a><pre class="programlisting">#define G_TYPE_ULONG			G_TYPE_MAKE_FUNDAMENTAL (9)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gulong"><span class="type">gulong</span></GTKDOCLINK>.
@@ -4105,9 +4105,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gulong"><span class="typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580389"></a><h3>
+<a name="id2581449"></a><h3>
 <a name="G-TYPE-INT64:CAPS"></a>G_TYPE_INT64</h3>
-<a class="indexterm" name="id2580402"></a><pre class="programlisting">#define G_TYPE_INT64			G_TYPE_MAKE_FUNDAMENTAL (10)
+<a class="indexterm" name="id2581462"></a><pre class="programlisting">#define G_TYPE_INT64			G_TYPE_MAKE_FUNDAMENTAL (10)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gint64"><span class="type">gint64</span></GTKDOCLINK>.
@@ -4115,9 +4115,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gint64"><span class="typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580427"></a><h3>
+<a name="id2581487"></a><h3>
 <a name="G-TYPE-UINT64:CAPS"></a>G_TYPE_UINT64</h3>
-<a class="indexterm" name="id2580440"></a><pre class="programlisting">#define G_TYPE_UINT64			G_TYPE_MAKE_FUNDAMENTAL (11)
+<a class="indexterm" name="id2581500"></a><pre class="programlisting">#define G_TYPE_UINT64			G_TYPE_MAKE_FUNDAMENTAL (11)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="guint64"><span class="type">guint64</span></GTKDOCLINK>.
@@ -4125,9 +4125,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="guint64"><span class="ty
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580466"></a><h3>
+<a name="id2581526"></a><h3>
 <a name="G-TYPE-ENUM:CAPS"></a>G_TYPE_ENUM</h3>
-<a class="indexterm" name="id2580479"></a><pre class="programlisting">#define G_TYPE_ENUM			G_TYPE_MAKE_FUNDAMENTAL (12)
+<a class="indexterm" name="id2581539"></a><pre class="programlisting">#define G_TYPE_ENUM			G_TYPE_MAKE_FUNDAMENTAL (12)
 </pre>
 <p>
 The fundamental type from which all enumeration types are derived.
@@ -4135,9 +4135,9 @@ The fundamental type from which all enumeration types are derived.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580495"></a><h3>
+<a name="id2581556"></a><h3>
 <a name="G-TYPE-FLAGS:CAPS"></a>G_TYPE_FLAGS</h3>
-<a class="indexterm" name="id2580508"></a><pre class="programlisting">#define G_TYPE_FLAGS			G_TYPE_MAKE_FUNDAMENTAL (13)
+<a class="indexterm" name="id2581569"></a><pre class="programlisting">#define G_TYPE_FLAGS			G_TYPE_MAKE_FUNDAMENTAL (13)
 </pre>
 <p>
 The fundamental type from which all flags types are derived.
@@ -4145,9 +4145,9 @@ The fundamental type from which all flags types are derived.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580525"></a><h3>
+<a name="id2581586"></a><h3>
 <a name="G-TYPE-FLOAT:CAPS"></a>G_TYPE_FLOAT</h3>
-<a class="indexterm" name="id2580537"></a><pre class="programlisting">#define G_TYPE_FLOAT			G_TYPE_MAKE_FUNDAMENTAL (14)
+<a class="indexterm" name="id2581598"></a><pre class="programlisting">#define G_TYPE_FLOAT			G_TYPE_MAKE_FUNDAMENTAL (14)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gfloat"><span class="type">gfloat</span></GTKDOCLINK>.
@@ -4155,9 +4155,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gfloat"><span class="typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580562"></a><h3>
+<a name="id2581623"></a><h3>
 <a name="G-TYPE-DOUBLE:CAPS"></a>G_TYPE_DOUBLE</h3>
-<a class="indexterm" name="id2580575"></a><pre class="programlisting">#define G_TYPE_DOUBLE			G_TYPE_MAKE_FUNDAMENTAL (15)
+<a class="indexterm" name="id2581635"></a><pre class="programlisting">#define G_TYPE_DOUBLE			G_TYPE_MAKE_FUNDAMENTAL (15)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gdouble"><span class="type">gdouble</span></GTKDOCLINK>.
@@ -4165,9 +4165,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gdouble"><span class="ty
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580600"></a><h3>
+<a name="id2581660"></a><h3>
 <a name="G-TYPE-STRING:CAPS"></a>G_TYPE_STRING</h3>
-<a class="indexterm" name="id2580612"></a><pre class="programlisting">#define G_TYPE_STRING			G_TYPE_MAKE_FUNDAMENTAL (16)
+<a class="indexterm" name="id2581673"></a><pre class="programlisting">#define G_TYPE_STRING			G_TYPE_MAKE_FUNDAMENTAL (16)
 </pre>
 <p>
 The fundamental type corresponding to nul-terminated C strings.
@@ -4175,9 +4175,9 @@ The fundamental type corresponding to nul-terminated C strings.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580629"></a><h3>
+<a name="id2581690"></a><h3>
 <a name="G-TYPE-POINTER:CAPS"></a>G_TYPE_POINTER</h3>
-<a class="indexterm" name="id2580642"></a><pre class="programlisting">#define G_TYPE_POINTER			G_TYPE_MAKE_FUNDAMENTAL (17)
+<a class="indexterm" name="id2581702"></a><pre class="programlisting">#define G_TYPE_POINTER			G_TYPE_MAKE_FUNDAMENTAL (17)
 </pre>
 <p>
 The fundamental type corresponding to <GTKDOCLINK HREF="gpointer"><span class="type">gpointer</span></GTKDOCLINK>.
@@ -4185,9 +4185,9 @@ The fundamental type corresponding to <GTKDOCLINK HREF="gpointer"><span class="t
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580666"></a><h3>
+<a name="id2581726"></a><h3>
 <a name="G-TYPE-BOXED:CAPS"></a>G_TYPE_BOXED</h3>
-<a class="indexterm" name="id2580678"></a><pre class="programlisting">#define G_TYPE_BOXED			G_TYPE_MAKE_FUNDAMENTAL (18)
+<a class="indexterm" name="id2581739"></a><pre class="programlisting">#define G_TYPE_BOXED			G_TYPE_MAKE_FUNDAMENTAL (18)
 </pre>
 <p>
 The fundamental type from which all boxed types are derived.
@@ -4195,9 +4195,9 @@ The fundamental type from which all boxed types are derived.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580695"></a><h3>
+<a name="id2581756"></a><h3>
 <a name="G-TYPE-PARAM:CAPS"></a>G_TYPE_PARAM</h3>
-<a class="indexterm" name="id2580708"></a><pre class="programlisting">#define G_TYPE_PARAM			G_TYPE_MAKE_FUNDAMENTAL (19)
+<a class="indexterm" name="id2581768"></a><pre class="programlisting">#define G_TYPE_PARAM			G_TYPE_MAKE_FUNDAMENTAL (19)
 </pre>
 <p>
 The fundamental type from which all <a href="gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> types are derived.
@@ -4205,9 +4205,9 @@ The fundamental type from which all <a href="gobject-GParamSpec.html#GParamSpec"
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580732"></a><h3>
+<a name="id2581793"></a><h3>
 <a name="G-TYPE-OBJECT:CAPS"></a>G_TYPE_OBJECT</h3>
-<a class="indexterm" name="id2580745"></a><pre class="programlisting">#define G_TYPE_OBJECT			G_TYPE_MAKE_FUNDAMENTAL (20)
+<a class="indexterm" name="id2581805"></a><pre class="programlisting">#define G_TYPE_OBJECT			G_TYPE_MAKE_FUNDAMENTAL (20)
 </pre>
 <p>
 The fundamental type for <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>.
@@ -4215,9 +4215,9 @@ The fundamental type for <a href="gobject-The-Base-Object-Type.html#GObject"><sp
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580769"></a><h3>
+<a name="id2581829"></a><h3>
 <a name="G-TYPE-GTYPE:CAPS"></a>G_TYPE_GTYPE</h3>
-<a class="indexterm" name="id2580781"></a><pre class="programlisting">#define	G_TYPE_GTYPE			 (g_gtype_get_type())
+<a class="indexterm" name="id2581842"></a><pre class="programlisting">#define	G_TYPE_GTYPE			 (g_gtype_get_type())
 </pre>
 <p>
 The type for <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a>.
@@ -4225,9 +4225,9 @@ The type for <a href="gobject-Type-Information.html#GType"><span class="type">GT
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580805"></a><h3>
+<a name="id2581865"></a><h3>
 <a name="G-TYPE-RESERVED-GLIB-FIRST:CAPS"></a>G_TYPE_RESERVED_GLIB_FIRST</h3>
-<a class="indexterm" name="id2580819"></a><pre class="programlisting">#define G_TYPE_RESERVED_GLIB_FIRST	(21)
+<a class="indexterm" name="id2581880"></a><pre class="programlisting">#define G_TYPE_RESERVED_GLIB_FIRST	(21)
 </pre>
 <p>
 First fundamental type number to create a new fundamental type id with
@@ -4236,9 +4236,9 @@ First fundamental type number to create a new fundamental type id with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580848"></a><h3>
+<a name="id2581908"></a><h3>
 <a name="G-TYPE-RESERVED-GLIB-LAST:CAPS"></a>G_TYPE_RESERVED_GLIB_LAST</h3>
-<a class="indexterm" name="id2580861"></a><pre class="programlisting">#define G_TYPE_RESERVED_GLIB_LAST	(31)
+<a class="indexterm" name="id2581921"></a><pre class="programlisting">#define G_TYPE_RESERVED_GLIB_LAST	(31)
 </pre>
 <p>
 Last fundamental type number reserved for GLib.
@@ -4246,9 +4246,9 @@ Last fundamental type number reserved for GLib.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580877"></a><h3>
+<a name="id2581938"></a><h3>
 <a name="G-TYPE-RESERVED-BSE-FIRST:CAPS"></a>G_TYPE_RESERVED_BSE_FIRST</h3>
-<a class="indexterm" name="id2580891"></a><pre class="programlisting">#define G_TYPE_RESERVED_BSE_FIRST	(32)
+<a class="indexterm" name="id2581951"></a><pre class="programlisting">#define G_TYPE_RESERVED_BSE_FIRST	(32)
 </pre>
 <p>
 First fundamental type number to create a new fundamental type id with
@@ -4257,9 +4257,9 @@ First fundamental type number to create a new fundamental type id with
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580919"></a><h3>
+<a name="id2581980"></a><h3>
 <a name="G-TYPE-RESERVED-BSE-LAST:CAPS"></a>G_TYPE_RESERVED_BSE_LAST</h3>
-<a class="indexterm" name="id2580933"></a><pre class="programlisting">#define G_TYPE_RESERVED_BSE_LAST	(48)
+<a class="indexterm" name="id2581993"></a><pre class="programlisting">#define G_TYPE_RESERVED_BSE_LAST	(48)
 </pre>
 <p>
 Last fundamental type number reserved for BSE.
@@ -4267,9 +4267,9 @@ Last fundamental type number reserved for BSE.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2580949"></a><h3>
+<a name="id2582010"></a><h3>
 <a name="G-TYPE-RESERVED-USER-FIRST:CAPS"></a>G_TYPE_RESERVED_USER_FIRST</h3>
-<a class="indexterm" name="id2580962"></a><pre class="programlisting">#define G_TYPE_RESERVED_USER_FIRST	(49)
+<a class="indexterm" name="id2582023"></a><pre class="programlisting">#define G_TYPE_RESERVED_USER_FIRST	(49)
 </pre>
 <p>
 First available fundamental type number to create new fundamental 

@@ -8,7 +8,7 @@
 <link rel="up" href="chapter-gobject.html" title="The GObject base class">
 <link rel="prev" href="gobject-memory.html" title="Object memory management">
 <link rel="next" href="chapter-signal.html" title="The GObject messaging system">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -187,7 +187,7 @@ g_object_set_property (G_OBJECT (bar), "papa-number", &amp;val);
       <code class="function"><a href="gobject-Generic-values.html#g-value-transform">g_value_transform</a></code> will try to transform the input signed char into
       an unsigned int. Of course, the success of the transformation depends on the availability
       of the required transform function. In practice, there will almost always be a transformation
-        <sup>[<a name="id2561248" href="#ftn.id2561248">5</a>]</sup>
+        <sup>[<a name="id2562309" href="#ftn.id2562309">5</a>]</sup>
       which matches and conversion will be caried out if needed.
     </p>
 <p>
@@ -207,7 +207,7 @@ g_object_set_property (G_OBJECT (bar), "papa-number", &amp;val);
       implementation of Foo did override this method, the code path would jump to
       <code class="function">foo_set_property</code> after having retrieved from the 
       <span class="type"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a></span> the <span class="emphasis"><em>param_id</em></span>
-      <sup>[<a name="id2561370" href="#ftn.id2561370">6</a>]</sup>
+      <sup>[<a name="id2562431" href="#ftn.id2562431">6</a>]</sup>
       which had been stored by
       <code class="function"><a href="gobject-The-Base-Object-Type.html#g-object-class-install-property">g_object_class_install_property</a></code>.
     </p>
@@ -260,10 +260,10 @@ g_object_set (G_OBJECT (foo),
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2561248" href="#id2561248">5</a>] </sup>Its behaviour might not be what you expect but it is up to you to actually avoid
+<div class="footnote"><p><sup>[<a name="ftn.id2562309" href="#id2562309">5</a>] </sup>Its behaviour might not be what you expect but it is up to you to actually avoid
       relying on these transformations.
 	  </p></div>
-<div class="footnote"><p><sup>[<a name="ftn.id2561370" href="#id2561370">6</a>] </sup>
+<div class="footnote"><p><sup>[<a name="ftn.id2562431" href="#id2562431">6</a>] </sup>
 	  It should be noted that the param_id used here need only to uniquely identify each 
 	  <span class="type"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a></span> within the <span class="type"><GTKDOCLINK HREF="FooClass">FooClass</GTKDOCLINK></span> such that the switch
 	  used in the set and get methods actually works. Of course, this locally-unique 

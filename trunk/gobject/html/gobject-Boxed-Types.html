@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Enumeration-and-Flag-Types.html" title="Enums and Flags">
 <link rel="next" href="gobject-Generic-values.html" title="Generic Values">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,16 +45,16 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="gobject-Generic-values.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2629701" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2630762" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2629926" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2630987" class="shortcut">Description</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-Boxed-Types"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2629701"></a><span class="refentrytitle">GBoxed</span>
+<a name="id2630762"></a><span class="refentrytitle">GBoxed</span>
 </h2>
 <p>GBoxed &#8212; A mechanism to wrap opaque C structures registered by the type system</p>
 </td>
@@ -88,7 +88,7 @@ typedef     <a href="gobject-Boxed-Types.html#GStrv">GStrv</a>;
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2629926"></a><h2>Description</h2>
+<a name="id2630987"></a><h2>Description</h2>
 <p>
 GBoxed is a generic wrapper mechanism for arbitrary C structures. The only
 thing the type system needs to know about the structures is how to copy and
@@ -101,11 +101,11 @@ based libraries.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2629951"></a><h2>Details</h2>
+<a name="id2631011"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2629961"></a><h3>
+<a name="id2631022"></a><h3>
 <a name="GBoxedCopyFunc"></a>GBoxedCopyFunc ()</h3>
-<a class="indexterm" name="id2629974"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    (*GBoxedCopyFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> boxed);</pre>
+<a class="indexterm" name="id2631034"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    (*GBoxedCopyFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> boxed);</pre>
 <p>
 This function is provided by the user and should produce a copy of the passed
 in boxed structure.
@@ -132,9 +132,9 @@ in boxed structure.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630033"></a><h3>
+<a name="id2631094"></a><h3>
 <a name="GBoxedFreeFunc"></a>GBoxedFreeFunc ()</h3>
-<a class="indexterm" name="id2630046"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBoxedFreeFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> boxed);</pre>
+<a class="indexterm" name="id2631107"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GBoxedFreeFunc)               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> boxed);</pre>
 <p>
 This function is provided by the user and should free the boxed
 structure passed.
@@ -153,9 +153,9 @@ structure passed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630094"></a><h3>
+<a name="id2631155"></a><h3>
 <a name="g-boxed-copy"></a>g_boxed_copy ()</h3>
-<a class="indexterm" name="id2630107"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_boxed_copy                    (<a href="gobject-Type-Information.html#GType">GType</a> boxed_type,
+<a class="indexterm" name="id2631168"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_boxed_copy                    (<a href="gobject-Type-Information.html#GType">GType</a> boxed_type,
                                              <GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> src_boxed);</pre>
 <p>
 Provide a copy of a boxed structure <em class="parameter"><code>src_boxed</code></em> which is of type <em class="parameter"><code>boxed_type</code></em>.
@@ -188,9 +188,9 @@ Provide a copy of a boxed structure <em class="parameter"><code>src_boxed</code>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630206"></a><h3>
+<a name="id2631266"></a><h3>
 <a name="g-boxed-free"></a>g_boxed_free ()</h3>
-<a class="indexterm" name="id2630218"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_boxed_free                    (<a href="gobject-Type-Information.html#GType">GType</a> boxed_type,
+<a class="indexterm" name="id2631278"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_boxed_free                    (<a href="gobject-Type-Information.html#GType">GType</a> boxed_type,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> boxed);</pre>
 <p>
 Free the boxed structure <em class="parameter"><code>boxed</code></em> which is of type <em class="parameter"><code>boxed_type</code></em>.
@@ -217,9 +217,9 @@ Free the boxed structure <em class="parameter"><code>boxed</code></em> which is 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630304"></a><h3>
+<a name="id2631365"></a><h3>
 <a name="g-boxed-type-register-static"></a>g_boxed_type_register_static ()</h3>
-<a class="indexterm" name="id2630318"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_boxed_type_register_static    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
+<a class="indexterm" name="id2631379"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_boxed_type_register_static    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gobject-Boxed-Types.html#GBoxedCopyFunc">GBoxedCopyFunc</a> boxed_copy,
                                              <a href="gobject-Boxed-Types.html#GBoxedFreeFunc">GBoxedFreeFunc</a> boxed_free);</pre>
 <p>
@@ -261,9 +261,9 @@ provided to copy and free opaque boxed structures of this type.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630457"></a><h3>
+<a name="id2631517"></a><h3>
 <a name="g-pointer-type-register-static"></a>g_pointer_type_register_static ()</h3>
-<a class="indexterm" name="id2630470"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_pointer_type_register_static  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
+<a class="indexterm" name="id2631531"></a><pre class="programlisting"><a href="gobject-Type-Information.html#GType">GType</a>       g_pointer_type_register_static  (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
 <p>
 Creates a new <a href="gobject-Type-Information.html#G-TYPE-POINTER:CAPS"><code class="literal">G_TYPE_POINTER</code></a> derived type id for a new
 pointer type with name <em class="parameter"><code>name</code></em>. 
@@ -290,9 +290,9 @@ pointer type with name <em class="parameter"><code>name</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630562"></a><h3>
+<a name="id2631623"></a><h3>
 <a name="G-TYPE-HASH-TABLE:CAPS"></a>G_TYPE_HASH_TABLE</h3>
-<a class="indexterm" name="id2630578"></a><pre class="programlisting">#define	G_TYPE_HASH_TABLE	(g_hash_table_get_type ())
+<a class="indexterm" name="id2631639"></a><pre class="programlisting">#define	G_TYPE_HASH_TABLE	(g_hash_table_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a boxed type holding a <GTKDOCLINK HREF="GHashTable"><span class="type">GHashTable</span></GTKDOCLINK> reference.
@@ -304,9 +304,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630616"></a><h3>
+<a name="id2631676"></a><h3>
 <a name="G-TYPE-DATE:CAPS"></a>G_TYPE_DATE</h3>
-<a class="indexterm" name="id2630629"></a><pre class="programlisting">#define	G_TYPE_DATE	        (g_date_get_type ())
+<a class="indexterm" name="id2631690"></a><pre class="programlisting">#define	G_TYPE_DATE	        (g_date_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for <GTKDOCLINK HREF="GDate"><span class="type">GDate</span></GTKDOCLINK>.
@@ -314,9 +314,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630661"></a><h3>
+<a name="id2631722"></a><h3>
 <a name="G-TYPE-GSTRING:CAPS"></a>G_TYPE_GSTRING</h3>
-<a class="indexterm" name="id2630674"></a><pre class="programlisting">#define	G_TYPE_GSTRING		(g_gstring_get_type ())
+<a class="indexterm" name="id2631735"></a><pre class="programlisting">#define	G_TYPE_GSTRING		(g_gstring_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for <GTKDOCLINK HREF="GString"><span class="type">GString</span></GTKDOCLINK>.
@@ -324,9 +324,9 @@ The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630707"></a><h3>
+<a name="id2631767"></a><h3>
 <a name="G-TYPE-STRV:CAPS"></a>G_TYPE_STRV</h3>
-<a class="indexterm" name="id2630722"></a><pre class="programlisting">#define	G_TYPE_STRV	        (g_strv_get_type ())
+<a class="indexterm" name="id2631783"></a><pre class="programlisting">#define	G_TYPE_STRV	        (g_strv_get_type ())
 </pre>
 <p>
 The <a href="gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a boxed type holding a <GTKDOCLINK HREF="NULL:CAPS"><code class="literal">NULL</code></GTKDOCLINK>-terminated array of strings.
@@ -362,9 +362,9 @@ g_strfreev (writers);
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2630833"></a><h3>
+<a name="id2631893"></a><h3>
 <a name="GStrv"></a>GStrv</h3>
-<a class="indexterm" name="id2630845"></a><pre class="programlisting">typedef gchar** GStrv;
+<a class="indexterm" name="id2631906"></a><pre class="programlisting">typedef gchar** GStrv;
 </pre>
 <p>
 A C representable type name for <a href="gobject-Boxed-Types.html#G-TYPE-STRV:CAPS"><span class="type">G_TYPE_STRV</span></a>.
@@ -372,7 +372,7 @@ A C representable type name for <a href="gobject-Boxed-Types.html#G-TYPE-STRV:CA
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2630870"></a><h2>See Also</h2>
+<a name="id2631931"></a><h2>See Also</h2>
 <p>
 <a href="gobject-Standard-Parameter-and-Value-Types.html#GParamSpecBoxed"><span class="type">GParamSpecBoxed</span></a>, <a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-boxed"><code class="function">g_param_spec_boxed()</code></a>
 </p>

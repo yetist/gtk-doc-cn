@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="GTypeModule.html" title="GTypeModule">
 <link rel="next" href="gobject-Enumeration-and-Flag-Types.html" title="Enums and Flags">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,20 +45,20 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="gobject-Enumeration-and-Flag-Types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2602907" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2603967" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2604699" class="shortcut">Description</a>
+                  <a href="#id2605760" class="shortcut">Description</a>
                   &#160;|&#160;
-                  <a href="#id2604618" class="shortcut">Object Hierarchy</a>
+                  <a href="#id2605678" class="shortcut">Object Hierarchy</a>
                   &#160;|&#160;
-                  <a href="#id2604642" class="shortcut">Signals</a></nobr></td></tr>
+                  <a href="#id2605703" class="shortcut">Signals</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-The-Base-Object-Type"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2602907"></a><span class="refentrytitle">GObject</span>
+<a name="id2603967"></a><span class="refentrytitle">GObject</span>
 </h2>
 <p>GObject &#8212; The base object type</p>
 </td>
@@ -211,7 +211,7 @@ typedef     <a href="gobject-The-Base-Object-Type.html#GInitiallyUnownedClass">G
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2604618"></a><h2>Object Hierarchy</h2>
+<a name="id2605678"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
 
   GObject
@@ -219,7 +219,7 @@ typedef     <a href="gobject-The-Base-Object-Type.html#GInitiallyUnownedClass">G
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2604642"></a><h2>Signals</h2>
+<a name="id2605703"></a><h2>Signals</h2>
 <pre class="synopsis">
 
 "<a href="gobject-The-Base-Object-Type.html#GObject-notify">notify</a>"    <GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function      (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a>    *gobject,
@@ -228,13 +228,13 @@ typedef     <a href="gobject-The-Base-Object-Type.html#GInitiallyUnownedClass">G
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2604699"></a><h2>Description</h2>
+<a name="id2605760"></a><h2>Description</h2>
 <p>
 GObject is the fundamental type providing the common attributes and methods 
 for all object types in GTK+, Pango and other libraries based on GObject. 
 The GObject class provides methods for object construction and destruction, 
 property access methods, and signal support. 
-Signals are described in detail in <a href="gobject-Signals.html" title="Signals"><a name="id2697270"></a><span class="refentrytitle">Signals</span>(3)</a>.
+Signals are described in detail in <a href="gobject-Signals.html" title="&#20449;&#21495;"><a name="id2698330"></a><span class="refentrytitle">&#20449;&#21495;</span>(3)</a>.
 </p>
 <p><a name="floating-ref"></a>
 <a href="gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> is derived from <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a>. The only difference between
@@ -245,7 +245,7 @@ any code portion. The main motivation for providing floating references is
 C convenience. In particular, it allows code to be written as:
 </p>
 <div class="example">
-<a name="id2604763"></a><p class="title"><b>Example&#160;1.&#160;</b></p>
+<a name="id2605824"></a><p class="title"><b>Example&#160;1.&#160;</b></p>
 <div class="example-contents"><pre class="programlisting">
   container = <GTKDOCLINK HREF="create-container"><code class="function">create_container()</code></GTKDOCLINK>;
   container_add_child (container, <GTKDOCLINK HREF="create-child"><code class="function">create_child()</code></GTKDOCLINK>);
@@ -259,7 +259,7 @@ can only <a href="gobject-The-Base-Object-Type.html#g-object-ref"><code class="f
 reference leaks, it would have to be written as:
 </p>
 <div class="example">
-<a name="id2604847"></a><p class="title"><b>Example&#160;2.&#160;</b></p>
+<a name="id2605908"></a><p class="title"><b>Example&#160;2.&#160;</b></p>
 <div class="example-contents"><pre class="programlisting">
   Child *child;
   container = <GTKDOCLINK HREF="create-container"><code class="function">create_container()</code></GTKDOCLINK>;
@@ -285,7 +285,7 @@ across certain code portions (an example is <GTKDOCLINK HREF="GtkMenu"><span cla
 following sequence can be used:
 </p>
 <div class="example">
-<a name="id2604933"></a><p class="title"><b>Example&#160;3.&#160;</b></p>
+<a name="id2605994"></a><p class="title"><b>Example&#160;3.&#160;</b></p>
 <div class="example-contents"><pre class="programlisting">
   /* save floating state */
   gboolean was_floating = g_object_is_floating (object);
@@ -301,11 +301,11 @@ following sequence can be used:
 <br class="example-break">
 </div>
 <div class="refsect1" lang="en">
-<a name="id2604946"></a><h2>Details</h2>
+<a name="id2606007"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2604957"></a><h3>
+<a name="id2606017"></a><h3>
 <a name="GObject-struct"></a>GObject</h3>
-<a class="indexterm" name="id2604969"></a><pre class="programlisting">typedef struct _GObject GObject;</pre>
+<a class="indexterm" name="id2606030"></a><pre class="programlisting">typedef struct _GObject GObject;</pre>
 <p>
 All the fields in the <span class="structname">GObject</span> structure are private 
 to the <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> implementation and should never be accessed directly.
@@ -313,9 +313,9 @@ to the <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GO
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2604998"></a><h3>
+<a name="id2606058"></a><h3>
 <a name="GObjectClass"></a>GObjectClass</h3>
-<a class="indexterm" name="id2605011"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2606071"></a><pre class="programlisting">typedef struct {
   GTypeClass   g_type_class;
 
   /* overridable methods */
@@ -347,7 +347,7 @@ to the <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GO
 The class structure for the <span class="structname">GObject</span> type.
 </p>
 <div class="example">
-<a name="id2605049"></a><p class="title"><b>Example&#160;4.&#160;Implementing singletons using a constructor</b></p>
+<a name="id2606110"></a><p class="title"><b>Example&#160;4.&#160;Implementing singletons using a constructor</b></p>
 <div class="example-contents"><pre class="programlisting">
 static MySingleton *the_singleton = NULL;
 
@@ -445,9 +445,9 @@ my_singleton_constructor (GType                  type,
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605288"></a><h3>
+<a name="id2606348"></a><h3>
 <a name="GObjectConstructParam"></a>GObjectConstructParam</h3>
-<a class="indexterm" name="id2605301"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2606361"></a><pre class="programlisting">typedef struct {
   GParamSpec *pspec;
   GValue     *value;
 } GObjectConstructParam;
@@ -478,9 +478,9 @@ a <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GO
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605406"></a><h3>
+<a name="id2606466"></a><h3>
 <a name="GObjectGetPropertyFunc"></a>GObjectGetPropertyFunc ()</h3>
-<a class="indexterm" name="id2605419"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectGetPropertyFunc)       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2606479"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectGetPropertyFunc)       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> property_id,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *value,
                                              <a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a> *pspec);</pre>
@@ -522,9 +522,9 @@ The type of the <em class="parameter"><code>get_property</code></em> function of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605580"></a><h3>
+<a name="id2606641"></a><h3>
 <a name="GObjectSetPropertyFunc"></a>GObjectSetPropertyFunc ()</h3>
-<a class="indexterm" name="id2605593"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectSetPropertyFunc)       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2606654"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectSetPropertyFunc)       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> property_id,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *value,
                                              <a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a> *pspec);</pre>
@@ -566,9 +566,9 @@ The type of the <em class="parameter"><code>set_property</code></em> function of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605747"></a><h3>
+<a name="id2606808"></a><h3>
 <a name="GObjectFinalizeFunc"></a>GObjectFinalizeFunc ()</h3>
-<a class="indexterm" name="id2605761"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectFinalizeFunc)          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
+<a class="indexterm" name="id2606821"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GObjectFinalizeFunc)          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 The type of the <em class="parameter"><code>finalize</code></em> function of <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a>.
 </p>
@@ -586,9 +586,9 @@ The type of the <em class="parameter"><code>finalize</code></em> function of <a 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605829"></a><h3>
+<a name="id2606890"></a><h3>
 <a name="G-TYPE-IS-OBJECT:CAPS"></a>G_TYPE_IS_OBJECT()</h3>
-<a class="indexterm" name="id2605842"></a><pre class="programlisting">#define G_TYPE_IS_OBJECT(type)      (G_TYPE_FUNDAMENTAL (type) == G_TYPE_OBJECT)
+<a class="indexterm" name="id2606903"></a><pre class="programlisting">#define G_TYPE_IS_OBJECT(type)      (G_TYPE_FUNDAMENTAL (type) == G_TYPE_OBJECT)
 </pre>
 <p>
 Returns a boolean value of <GTKDOCLINK HREF="FALSE:CAPS"><code class="literal">FALSE</code></GTKDOCLINK> or <GTKDOCLINK HREF="TRUE:CAPS"><code class="literal">TRUE</code></GTKDOCLINK> indicating whether
@@ -617,9 +617,9 @@ the passed in type id is a <a href="gobject-Type-Information.html#G-TYPE-OBJECT:
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2605967"></a><h3>
+<a name="id2607027"></a><h3>
 <a name="G-OBJECT:CAPS"></a>G_OBJECT()</h3>
-<a class="indexterm" name="id2605979"></a><pre class="programlisting">#define G_OBJECT(object)            (G_TYPE_CHECK_INSTANCE_CAST ((object), G_TYPE_OBJECT, GObject))
+<a class="indexterm" name="id2607040"></a><pre class="programlisting">#define G_OBJECT(object)            (G_TYPE_CHECK_INSTANCE_CAST ((object), G_TYPE_OBJECT, GObject))
 </pre>
 <p>
 Casts a <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> or derived pointer into a (GObject*) pointer.
@@ -640,9 +640,9 @@ certain runtime checks to identify invalid casts.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606025"></a><h3>
+<a name="id2607085"></a><h3>
 <a name="G-IS-OBJECT:CAPS"></a>G_IS_OBJECT()</h3>
-<a class="indexterm" name="id2606037"></a><pre class="programlisting">#define G_IS_OBJECT(object)         (G_TYPE_CHECK_INSTANCE_TYPE ((object), G_TYPE_OBJECT))
+<a class="indexterm" name="id2607098"></a><pre class="programlisting">#define G_IS_OBJECT(object)         (G_TYPE_CHECK_INSTANCE_TYPE ((object), G_TYPE_OBJECT))
 </pre>
 <p>
 Checks whether a valid <a href="gobject-Type-Information.html#GTypeInstance"><span class="type">GTypeInstance</span></a> pointer is of type <a href="gobject-Type-Information.html#G-TYPE-OBJECT:CAPS"><code class="literal">G_TYPE_OBJECT</code></a>.
@@ -661,9 +661,9 @@ Checks whether a valid <a href="gobject-Type-Information.html#GTypeInstance"><sp
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606102"></a><h3>
+<a name="id2607163"></a><h3>
 <a name="G-OBJECT-CLASS:CAPS"></a>G_OBJECT_CLASS()</h3>
-<a class="indexterm" name="id2606115"></a><pre class="programlisting">#define G_OBJECT_CLASS(class)       (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_OBJECT, GObjectClass))
+<a class="indexterm" name="id2607175"></a><pre class="programlisting">#define G_OBJECT_CLASS(class)       (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_OBJECT, GObjectClass))
 </pre>
 <p>
 Casts a derived <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> structure into a <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> structure.
@@ -682,9 +682,9 @@ Casts a derived <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606175"></a><h3>
+<a name="id2607235"></a><h3>
 <a name="G-IS-OBJECT-CLASS:CAPS"></a>G_IS_OBJECT_CLASS()</h3>
-<a class="indexterm" name="id2606189"></a><pre class="programlisting">#define G_IS_OBJECT_CLASS(class)    (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_OBJECT))
+<a class="indexterm" name="id2607249"></a><pre class="programlisting">#define G_IS_OBJECT_CLASS(class)    (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_OBJECT))
 </pre>
 <p>
 Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a href="gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> structure of type
@@ -704,9 +704,9 @@ Checks whether <em class="parameter"><code>class</code></em> "is a" valid <a hre
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606257"></a><h3>
+<a name="id2607317"></a><h3>
 <a name="G-OBJECT-GET-CLASS:CAPS"></a>G_OBJECT_GET_CLASS()</h3>
-<a class="indexterm" name="id2606270"></a><pre class="programlisting">#define G_OBJECT_GET_CLASS(object)  (G_TYPE_INSTANCE_GET_CLASS ((object), G_TYPE_OBJECT, GObjectClass))
+<a class="indexterm" name="id2607330"></a><pre class="programlisting">#define G_OBJECT_GET_CLASS(object)  (G_TYPE_INSTANCE_GET_CLASS ((object), G_TYPE_OBJECT, GObjectClass))
 </pre>
 <p>
 Returns the class structure associated to a <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> instance.
@@ -725,9 +725,9 @@ Returns the class structure associated to a <a href="gobject-The-Base-Object-Typ
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606321"></a><h3>
+<a name="id2607382"></a><h3>
 <a name="G-OBJECT-TYPE:CAPS"></a>G_OBJECT_TYPE()</h3>
-<a class="indexterm" name="id2606333"></a><pre class="programlisting">#define G_OBJECT_TYPE(object)       (G_TYPE_FROM_INSTANCE (object))
+<a class="indexterm" name="id2607394"></a><pre class="programlisting">#define G_OBJECT_TYPE(object)       (G_TYPE_FROM_INSTANCE (object))
 </pre>
 <p>
 Return the type id of an object.
@@ -754,9 +754,9 @@ Return the type id of an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606385"></a><h3>
+<a name="id2607446"></a><h3>
 <a name="G-OBJECT-TYPE-NAME:CAPS"></a>G_OBJECT_TYPE_NAME()</h3>
-<a class="indexterm" name="id2606398"></a><pre class="programlisting">#define G_OBJECT_TYPE_NAME(object)  (g_type_name (G_OBJECT_TYPE (object)))
+<a class="indexterm" name="id2607458"></a><pre class="programlisting">#define G_OBJECT_TYPE_NAME(object)  (g_type_name (G_OBJECT_TYPE (object)))
 </pre>
 <p>
 Returns the name of an object's type.
@@ -784,9 +784,9 @@ should not be freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606451"></a><h3>
+<a name="id2607511"></a><h3>
 <a name="G-OBJECT-CLASS-TYPE:CAPS"></a>G_OBJECT_CLASS_TYPE()</h3>
-<a class="indexterm" name="id2606464"></a><pre class="programlisting">#define G_OBJECT_CLASS_TYPE(class)  (G_TYPE_FROM_CLASS (class))
+<a class="indexterm" name="id2607525"></a><pre class="programlisting">#define G_OBJECT_CLASS_TYPE(class)  (G_TYPE_FROM_CLASS (class))
 </pre>
 <p>
 Return the type id of a class structure.
@@ -813,9 +813,9 @@ Return the type id of a class structure.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606524"></a><h3>
+<a name="id2607584"></a><h3>
 <a name="G-OBJECT-CLASS-NAME:CAPS"></a>G_OBJECT_CLASS_NAME()</h3>
-<a class="indexterm" name="id2606537"></a><pre class="programlisting">#define G_OBJECT_CLASS_NAME(class)  (g_type_name (G_OBJECT_CLASS_TYPE (class)))
+<a class="indexterm" name="id2607597"></a><pre class="programlisting">#define G_OBJECT_CLASS_NAME(class)  (g_type_name (G_OBJECT_CLASS_TYPE (class)))
 </pre>
 <p>
 Return the name of a class structure's type.
@@ -843,9 +843,9 @@ should not be freed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606598"></a><h3>
+<a name="id2607658"></a><h3>
 <a name="g-object-class-install-property"></a>g_object_class_install_property ()</h3>
-<a class="indexterm" name="id2606611"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_class_install_property (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
+<a class="indexterm" name="id2607672"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_class_install_property (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> property_id,
                                              <a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a> *pspec);</pre>
 <p>
@@ -879,9 +879,9 @@ Installs a new property. This is usually done in the class initializer.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606719"></a><h3>
+<a name="id2607779"></a><h3>
 <a name="g-object-class-find-property"></a>g_object_class_find_property ()</h3>
-<a class="indexterm" name="id2606732"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>* g_object_class_find_property    (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
+<a class="indexterm" name="id2607792"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>* g_object_class_find_property    (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *property_name);</pre>
 <p>
 Looks up the <a href="gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> for a property of a class.
@@ -915,9 +915,9 @@ a property of that name
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606847"></a><h3>
+<a name="id2607908"></a><h3>
 <a name="g-object-class-list-properties"></a>g_object_class_list_properties ()</h3>
-<a class="indexterm" name="id2606861"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>** g_object_class_list_properties (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
+<a class="indexterm" name="id2607922"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>** g_object_class_list_properties (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_properties);</pre>
 <p>
 Returns an array of <a href="gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>* for all properties of a class.
@@ -950,9 +950,9 @@ Returns an array of <a href="gobject-GParamSpec.html#GParamSpec"><span class="ty
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2606966"></a><h3>
+<a name="id2608027"></a><h3>
 <a name="g-object-class-override-property"></a>g_object_class_override_property ()</h3>
-<a class="indexterm" name="id2606979"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_class_override_property
+<a class="indexterm" name="id2608040"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_class_override_property
                                             (<a href="gobject-The-Base-Object-Type.html#GObjectClass">GObjectClass</a> *oclass,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> property_id,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name);</pre>
@@ -1007,9 +1007,9 @@ need to get the overridden property, you can call
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2607198"></a><h3>
+<a name="id2608258"></a><h3>
 <a name="g-object-interface-install-property"></a>g_object_interface_install_property ()</h3>
-<a class="indexterm" name="id2607215"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_interface_install_property
+<a class="indexterm" name="id2608275"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_interface_install_property
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
                                              <a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a> *pspec);</pre>
 <p>
@@ -1054,9 +1054,9 @@ been called for any object types implementing this interface.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2607350"></a><h3>
+<a name="id2608411"></a><h3>
 <a name="g-object-interface-find-property"></a>g_object_interface_find_property ()</h3>
-<a class="indexterm" name="id2607366"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>* g_object_interface_find_property
+<a class="indexterm" name="id2608427"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>* g_object_interface_find_property
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *property_name);</pre>
 <p>
@@ -1099,9 +1099,9 @@ if you know the interface has already been loaded,
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2607517"></a><h3>
+<a name="id2608577"></a><h3>
 <a name="g-object-interface-list-properties"></a>g_object_interface_list_properties ()</h3>
-<a class="indexterm" name="id2607534"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>** g_object_interface_list_properties
+<a class="indexterm" name="id2608594"></a><pre class="programlisting"><a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a>** g_object_interface_list_properties
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> g_iface,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_properties_p);</pre>
 <p>
@@ -1143,9 +1143,9 @@ already been loaded, <a href="gobject-Type-Information.html#g-type-default-inter
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2607670"></a><h3>
+<a name="id2608731"></a><h3>
 <a name="g-object-new"></a>g_object_new ()</h3>
-<a class="indexterm" name="id2607683"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_new                    (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
+<a class="indexterm" name="id2608744"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_new                    (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <p>
@@ -1190,9 +1190,9 @@ which are not explicitly specified are set to their default values.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2607836"></a><h3>
+<a name="id2608897"></a><h3>
 <a name="g-object-newv"></a>g_object_newv ()</h3>
-<a class="indexterm" name="id2607849"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_newv                   (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
+<a class="indexterm" name="id2608910"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_newv                   (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_parameters,
                                              <a href="gobject-The-Base-Object-Type.html#GParameter">GParameter</a> *parameters);</pre>
 <p>
@@ -1236,9 +1236,9 @@ which are not explicitly specified are set to their default values.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608008"></a><h3>
+<a name="id2609069"></a><h3>
 <a name="GParameter"></a>GParameter</h3>
-<a class="indexterm" name="id2608021"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2609081"></a><pre class="programlisting">typedef struct {
   const gchar *name;
   GValue       value;
 } GParameter;
@@ -1268,9 +1268,9 @@ to hand parameter name/value pairs to <a href="gobject-The-Base-Object-Type.html
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608099"></a><h3>
+<a name="id2609160"></a><h3>
 <a name="g-object-ref"></a>g_object_ref ()</h3>
-<a class="indexterm" name="id2608112"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_ref                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
+<a class="indexterm" name="id2609172"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_ref                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
 <p>
 Increases the reference count of <em class="parameter"><code>object</code></em>.
 </p>
@@ -1296,9 +1296,9 @@ Increases the reference count of <em class="parameter"><code>object</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608188"></a><h3>
+<a name="id2609249"></a><h3>
 <a name="g-object-unref"></a>g_object_unref ()</h3>
-<a class="indexterm" name="id2608201"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_unref                  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
+<a class="indexterm" name="id2609262"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_unref                  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
 <p>
 Decreases the reference count of <em class="parameter"><code>object</code></em>.
 When its reference count drops to 0, the object is finalized 
@@ -1318,9 +1318,9 @@ When its reference count drops to 0, the object is finalized
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608263"></a><h3>
+<a name="id2609323"></a><h3>
 <a name="g-object-ref-sink"></a>g_object_ref_sink ()</h3>
-<a class="indexterm" name="id2608278"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_ref_sink               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
+<a class="indexterm" name="id2609338"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_ref_sink               (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
 <p>
 Increase the reference count of <em class="parameter"><code>object</code></em>, and possibly remove the 
 <a href="gobject-The-Base-Object-Type.html#floating-ref">floating</a> reference, if <em class="parameter"><code>object</code></em>
@@ -1358,9 +1358,9 @@ increasing the reference count by one.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608381"></a><h3>
+<a name="id2609441"></a><h3>
 <a name="GInitiallyUnowned"></a>GInitiallyUnowned</h3>
-<a class="indexterm" name="id2608394"></a><pre class="programlisting">typedef struct _GObject                  GInitiallyUnowned;
+<a class="indexterm" name="id2609454"></a><pre class="programlisting">typedef struct _GObject                  GInitiallyUnowned;
 </pre>
 <p>
 All the fields in the <span class="structname">GInitiallyUnowned</span> structure 
@@ -1370,9 +1370,9 @@ accessed directly.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608424"></a><h3>
+<a name="id2609484"></a><h3>
 <a name="GInitiallyUnownedClass"></a>GInitiallyUnownedClass</h3>
-<a class="indexterm" name="id2608436"></a><pre class="programlisting">typedef struct _GObjectClass             GInitiallyUnownedClass;
+<a class="indexterm" name="id2609497"></a><pre class="programlisting">typedef struct _GObjectClass             GInitiallyUnownedClass;
 </pre>
 <p>
 The class structure for the <span class="structname">GInitiallyUnowned</span> type.
@@ -1380,9 +1380,9 @@ The class structure for the <span class="structname">GInitiallyUnowned</span> ty
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608457"></a><h3>
+<a name="id2609517"></a><h3>
 <a name="G-TYPE-INITIALLY-UNOWNED:CAPS"></a>G_TYPE_INITIALLY_UNOWNED</h3>
-<a class="indexterm" name="id2608471"></a><pre class="programlisting">#define G_TYPE_INITIALLY_UNOWNED	      (g_initially_unowned_get_type())
+<a class="indexterm" name="id2609532"></a><pre class="programlisting">#define G_TYPE_INITIALLY_UNOWNED	      (g_initially_unowned_get_type())
 </pre>
 <p>
 The type for <a href="gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a>.
@@ -1390,9 +1390,9 @@ The type for <a href="gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608496"></a><h3>
+<a name="id2609556"></a><h3>
 <a name="g-object-is-floating"></a>g_object_is_floating ()</h3>
-<a class="indexterm" name="id2608511"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_object_is_floating            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
+<a class="indexterm" name="id2609572"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_object_is_floating            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object);</pre>
 <p>
 Checks wether <em class="parameter"><code>object</code></em> has a <a href="gobject-The-Base-Object-Type.html#floating-ref">floating</a>
 reference.
@@ -1422,9 +1422,9 @@ reference.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608609"></a><h3>
+<a name="id2609670"></a><h3>
 <a name="g-object-force-floating"></a>g_object_force_floating ()</h3>
-<a class="indexterm" name="id2608625"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_force_floating         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
+<a class="indexterm" name="id2609685"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_force_floating         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 This function is intended for <a href="gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> implementations to re-enforce a
 <a href="gobject-The-Base-Object-Type.html#floating-ref">floating</a> object reference.
@@ -1448,9 +1448,9 @@ usually just needs to be sunken by calling <a href="gobject-The-Base-Object-Type
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608721"></a><h3>
+<a name="id2609782"></a><h3>
 <a name="GWeakNotify"></a>GWeakNotify ()</h3>
-<a class="indexterm" name="id2608734"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GWeakNotify)                  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
+<a class="indexterm" name="id2609794"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GWeakNotify)                  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *where_the_object_was);</pre>
 <p>
 A <a href="gobject-The-Base-Object-Type.html#GWeakNotify"><span class="type">GWeakNotify</span></a> function can be added to an object as a callback that gets
@@ -1480,9 +1480,9 @@ with the object, apart from e.g. using its adress as hash-index or the like.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608824"></a><h3>
+<a name="id2609884"></a><h3>
 <a name="g-object-weak-ref"></a>g_object_weak_ref ()</h3>
-<a class="indexterm" name="id2608837"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_weak_ref               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2609898"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_weak_ref               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <a href="gobject-The-Base-Object-Type.html#GWeakNotify">GWeakNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -1521,9 +1521,9 @@ object to stay alive).
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2608960"></a><h3>
+<a name="id2610020"></a><h3>
 <a name="g-object-weak-unref"></a>g_object_weak_unref ()</h3>
-<a class="indexterm" name="id2608973"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_weak_unref             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2610033"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_weak_unref             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <a href="gobject-The-Base-Object-Type.html#GWeakNotify">GWeakNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -1558,9 +1558,9 @@ Removes a weak reference callback to an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609070"></a><h3>
+<a name="id2610130"></a><h3>
 <a name="g-object-add-weak-pointer"></a>g_object_add_weak_pointer ()</h3>
-<a class="indexterm" name="id2609083"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_add_weak_pointer       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2610144"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_add_weak_pointer       (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> *weak_pointer_location);</pre>
 <p>
 Adds a weak reference from weak_pointer to <em class="parameter"><code>object</code></em> to indicate that
@@ -1590,9 +1590,9 @@ be set to <GTKDOCLINK HREF="NULL:CAPS"><code class="literal">NULL</code></GTKDOC
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609195"></a><h3>
+<a name="id2610255"></a><h3>
 <a name="g-object-remove-weak-pointer"></a>g_object_remove_weak_pointer ()</h3>
-<a class="indexterm" name="id2609208"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_remove_weak_pointer    (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2610268"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_remove_weak_pointer    (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> *weak_pointer_location);</pre>
 <p>
 Removes a weak reference from <em class="parameter"><code>object</code></em> that was previously added
@@ -1621,9 +1621,9 @@ to match the one used with <a href="gobject-The-Base-Object-Type.html#g-object-a
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609313"></a><h3>
+<a name="id2610373"></a><h3>
 <a name="GToggleNotify"></a>GToggleNotify ()</h3>
-<a class="indexterm" name="id2609325"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GToggleNotify)                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
+<a class="indexterm" name="id2610386"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GToggleNotify)                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> is_last_ref);</pre>
 <p>
@@ -1662,9 +1662,9 @@ of a toggle reference changes. See <a href="gobject-The-Base-Object-Type.html#g-
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609471"></a><h3>
+<a name="id2610532"></a><h3>
 <a name="g-object-add-toggle-ref"></a>g_object_add_toggle_ref ()</h3>
-<a class="indexterm" name="id2609487"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_add_toggle_ref         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2610547"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_add_toggle_ref         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <a href="gobject-The-Base-Object-Type.html#GToggleNotify">GToggleNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -1733,9 +1733,9 @@ is important state in the proxy object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609705"></a><h3>
+<a name="id2610765"></a><h3>
 <a name="g-object-remove-toggle-ref"></a>g_object_remove_toggle_ref ()</h3>
-<a class="indexterm" name="id2609720"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_remove_toggle_ref      (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2610781"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_remove_toggle_ref      (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <a href="gobject-The-Base-Object-Type.html#GToggleNotify">GToggleNotify</a> notify,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -1774,9 +1774,9 @@ reference count of the object is decreased by one.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2609842"></a><h3>
+<a name="id2610902"></a><h3>
 <a name="g-object-connect"></a>g_object_connect ()</h3>
-<a class="indexterm" name="id2609854"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_connect                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
+<a class="indexterm" name="id2610915"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_connect                (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_spec,
                                              ...);</pre>
 <p>
@@ -1897,9 +1897,9 @@ equivalent to <code class="literal">g_signal_connect_object (..., G_CONNECT_SWAP
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610177"></a><h3>
+<a name="id2611238"></a><h3>
 <a name="g-object-disconnect"></a>g_object_disconnect ()</h3>
-<a class="indexterm" name="id2610191"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_disconnect             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
+<a class="indexterm" name="id2611251"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_disconnect             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_spec,
                                              ...);</pre>
 <p>
@@ -1941,9 +1941,9 @@ means to disconnect any signal with matching callback and data, or
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610308"></a><h3>
+<a name="id2611368"></a><h3>
 <a name="g-object-set"></a>g_object_set ()</h3>
-<a class="indexterm" name="id2610320"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
+<a class="indexterm" name="id2611381"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <p>
@@ -1978,9 +1978,9 @@ Sets properties on an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610423"></a><h3>
+<a name="id2611483"></a><h3>
 <a name="g-object-get"></a>g_object_get ()</h3>
-<a class="indexterm" name="id2610435"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
+<a class="indexterm" name="id2611496"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get                    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              ...);</pre>
 <p>
@@ -1992,7 +1992,7 @@ responsible for freeing the memory in the appropriate manner for the type,
 for instance by calling <GTKDOCLINK HREF="g-free"><code class="function">g_free()</code></GTKDOCLINK> or <a href="gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
 </p>
 <div class="example">
-<a name="id2610500"></a><p class="title"><b>Example&#160;5.&#160;Using g_object_get()</b></p>
+<a name="id2611560"></a><p class="title"><b>Example&#160;5.&#160;Using g_object_get()</b></p>
 <div class="example-contents">
 <p>
 An example of using <a href="gobject-The-Base-Object-Type.html#g-object-get"><code class="function">g_object_get()</code></a> to get the contents
@@ -2046,9 +2046,9 @@ one of type <a href="gobject-Type-Information.html#G-TYPE-STRING:CAPS"><span cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610634"></a><h3>
+<a name="id2611694"></a><h3>
 <a name="g-object-notify"></a>g_object_notify ()</h3>
-<a class="indexterm" name="id2610646"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_notify                 (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2611706"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_notify                 (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *property_name);</pre>
 <p>
 Emits a "notify" signal for the property <em class="parameter"><code>property_name</code></em> on <em class="parameter"><code>object</code></em>. 
@@ -2075,9 +2075,9 @@ Emits a "notify" signal for the property <em class="parameter"><code>property_na
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610740"></a><h3>
+<a name="id2611801"></a><h3>
 <a name="g-object-freeze-notify"></a>g_object_freeze_notify ()</h3>
-<a class="indexterm" name="id2610754"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_freeze_notify          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
+<a class="indexterm" name="id2611814"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_freeze_notify          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 Stops emission of "notify" signals on <em class="parameter"><code>object</code></em>. The signals are
 queued until <a href="gobject-The-Base-Object-Type.html#g-object-thaw-notify"><code class="function">g_object_thaw_notify()</code></a> is called on <em class="parameter"><code>object</code></em>. 
@@ -2100,9 +2100,9 @@ premature notification while the object is still being modified.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610837"></a><h3>
+<a name="id2611898"></a><h3>
 <a name="g-object-thaw-notify"></a>g_object_thaw_notify ()</h3>
-<a class="indexterm" name="id2610850"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_thaw_notify            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
+<a class="indexterm" name="id2611911"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_thaw_notify            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 Reverts the effect of a previous call to <a href="gobject-The-Base-Object-Type.html#g-object-freeze-notify"><code class="function">g_object_freeze_notify()</code></a>.
 This causes all queued "notify" signals on <em class="parameter"><code>object</code></em> to be emitted.
@@ -2121,9 +2121,9 @@ This causes all queued "notify" signals on <em class="parameter"><code>object</c
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2610922"></a><h3>
+<a name="id2611983"></a><h3>
 <a name="g-object-get-data"></a>g_object_get_data ()</h3>
-<a class="indexterm" name="id2610936"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_get_data               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2611996"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_get_data               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key);</pre>
 <p>
 Gets a named field from the objects table of associations (see <a href="gobject-The-Base-Object-Type.html#g-object-set-data"><code class="function">g_object_set_data()</code></a>).
@@ -2157,9 +2157,9 @@ Gets a named field from the objects table of associations (see <a href="gobject-
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611043"></a><h3>
+<a name="id2612104"></a><h3>
 <a name="g-object-set-data"></a>g_object_set_data ()</h3>
-<a class="indexterm" name="id2611057"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_data               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612117"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_data               (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -2199,9 +2199,9 @@ the old association will be destroyed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611160"></a><h3>
+<a name="id2612221"></a><h3>
 <a name="g-object-set-data-full"></a>g_object_set_data_full ()</h3>
-<a class="indexterm" name="id2611173"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_data_full          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612233"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_data_full          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <GTKDOCLINK HREF="GDestroyNotify">GDestroyNotify</GTKDOCLINK> destroy);</pre>
@@ -2245,9 +2245,9 @@ to a different value or when the object is destroyed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611305"></a><h3>
+<a name="id2612366"></a><h3>
 <a name="g-object-steal-data"></a>g_object_steal_data ()</h3>
-<a class="indexterm" name="id2611319"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_steal_data             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612379"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_steal_data             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *key);</pre>
 <p>
 Remove a specified datum from the object's data associations,
@@ -2282,9 +2282,9 @@ without invoking the association's destroy handler.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611416"></a><h3>
+<a name="id2612477"></a><h3>
 <a name="g-object-get-qdata"></a>g_object_get_qdata ()</h3>
-<a class="indexterm" name="id2611430"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_get_qdata              (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612490"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_get_qdata              (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark);</pre>
 <p>
 This function gets back user data pointers stored via
@@ -2318,9 +2318,9 @@ This function gets back user data pointers stored via
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611539"></a><h3>
+<a name="id2612599"></a><h3>
 <a name="g-object-set-qdata"></a>g_object_set_qdata ()</h3>
-<a class="indexterm" name="id2611552"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_qdata              (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612613"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_qdata              (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
 <p>
@@ -2361,9 +2361,9 @@ removes the data stored.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611706"></a><h3>
+<a name="id2612767"></a><h3>
 <a name="g-object-set-qdata-full"></a>g_object_set_qdata_full ()</h3>
-<a class="indexterm" name="id2611719"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_qdata_full         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612780"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_qdata_full         (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
                                              <GTKDOCLINK HREF="GDestroyNotify">GDestroyNotify</GTKDOCLINK> destroy);</pre>
@@ -2408,9 +2408,9 @@ with the same <em class="parameter"><code>quark</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2611895"></a><h3>
+<a name="id2612956"></a><h3>
 <a name="g-object-steal-qdata"></a>g_object_steal_qdata ()</h3>
-<a class="indexterm" name="id2611909"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_steal_qdata            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2612969"></a><pre class="programlisting"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    g_object_steal_qdata            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> quark);</pre>
 <p>
 This function gets back user data pointers stored via
@@ -2478,9 +2478,9 @@ have been freed upon <a href="gobject-The-Base-Object-Type.html#g-object-set-qda
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612091"></a><h3>
+<a name="id2613152"></a><h3>
 <a name="g-object-set-property"></a>g_object_set_property ()</h3>
-<a class="indexterm" name="id2612104"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_property           (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2613165"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_property           (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *property_name,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
@@ -2514,9 +2514,9 @@ Sets a property on an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612203"></a><h3>
+<a name="id2613263"></a><h3>
 <a name="g-object-get-property"></a>g_object_get_property ()</h3>
-<a class="indexterm" name="id2612216"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get_property           (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2613276"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get_property           (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *property_name,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *value);</pre>
 <p>
@@ -2558,9 +2558,9 @@ bindings, <a href="gobject-The-Base-Object-Type.html#g-object-get"><code class="
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612358"></a><h3>
+<a name="id2613418"></a><h3>
 <a name="g-object-new-valist"></a>g_object_new_valist ()</h3>
-<a class="indexterm" name="id2612371"></a><pre class="programlisting"><a href="gobject-The-Base-Object-Type.html#GObject">GObject</a>*    g_object_new_valist             (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
+<a class="indexterm" name="id2613431"></a><pre class="programlisting"><a href="gobject-The-Base-Object-Type.html#GObject">GObject</a>*    g_object_new_valist             (<a href="gobject-Type-Information.html#GType">GType</a> object_type,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> var_args);</pre>
 <p>
@@ -2605,9 +2605,9 @@ which are not explicitly specified are set to their default values.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612528"></a><h3>
+<a name="id2613588"></a><h3>
 <a name="g-object-set-valist"></a>g_object_set_valist ()</h3>
-<a class="indexterm" name="id2612541"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_valist             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2613602"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_set_valist             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> var_args);</pre>
 <p>
@@ -2642,9 +2642,9 @@ Sets properties on an object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612650"></a><h3>
+<a name="id2613711"></a><h3>
 <a name="g-object-get-valist"></a>g_object_get_valist ()</h3>
-<a class="indexterm" name="id2612663"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get_valist             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2613724"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_get_valist             (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *first_property_name,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> var_args);</pre>
 <p>
@@ -2687,9 +2687,9 @@ See <a href="gobject-The-Base-Object-Type.html#g-object-get"><code class="functi
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612813"></a><h3>
+<a name="id2613874"></a><h3>
 <a name="g-object-watch-closure"></a>g_object_watch_closure ()</h3>
-<a class="indexterm" name="id2612827"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_watch_closure          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
+<a class="indexterm" name="id2613887"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_watch_closure          (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *closure);</pre>
 <p>
 This function essentially limits the life time of the <em class="parameter"><code>closure</code></em>
@@ -2724,9 +2724,9 @@ as closure data.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2612977"></a><h3>
+<a name="id2614038"></a><h3>
 <a name="g-object-run-dispose"></a>g_object_run_dispose ()</h3>
-<a class="indexterm" name="id2612990"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_run_dispose            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
+<a class="indexterm" name="id2614051"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_object_run_dispose            (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a> *object);</pre>
 <p>
 Releases all references to other objects. This can be used to break 
 reference cycles.
@@ -2751,9 +2751,9 @@ This functions should only be called from object system implementations.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2613051"></a><h3>
+<a name="id2614112"></a><h3>
 <a name="G-OBJECT-WARN-INVALID-PROPERTY-ID:CAPS"></a>G_OBJECT_WARN_INVALID_PROPERTY_ID()</h3>
-<a class="indexterm" name="id2613066"></a><pre class="programlisting">#define     G_OBJECT_WARN_INVALID_PROPERTY_ID(object, property_id, pspec)</pre>
+<a class="indexterm" name="id2614126"></a><pre class="programlisting">#define     G_OBJECT_WARN_INVALID_PROPERTY_ID(object, property_id, pspec)</pre>
 <p>
 This macros should be used to emit a standard warning about unexpected 
 properties in <GTKDOCLINK HREF="set-property"><code class="function">set_property()</code></GTKDOCLINK> and <GTKDOCLINK HREF="get-property"><code class="function">get_property()</code></GTKDOCLINK> implementations.
@@ -2786,11 +2786,11 @@ properties in <GTKDOCLINK HREF="set-property"><code class="function">set_propert
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2613192"></a><h2>Signal Details</h2>
+<a name="id2614252"></a><h2>Signal Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2613202"></a><h3>
+<a name="id2614263"></a><h3>
 <a name="GObject-notify"></a>The "notify" signal</h3>
-<a class="indexterm" name="id2613212"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a>    *gobject,
+<a class="indexterm" name="id2614273"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        user_function                  (<a href="gobject-The-Base-Object-Type.html#GObject">GObject</a>    *gobject,
                                             <a href="gobject-GParamSpec.html#GParamSpec">GParamSpec</a> *arg1,
                                             <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK>    user_data)      : Run first / No recursion / Has details / Action / No hooks</pre>
 <p>
@@ -2825,7 +2825,7 @@ the setter for the property is called to reinstate the previous value.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2613317"></a><h2>See Also</h2>
+<a name="id2614378"></a><h2>See Also</h2>
 <p>
 <a href="gobject-Standard-Parameter-and-Value-Types.html#GParamSpecObject"><span class="type">GParamSpecObject</span></a>, <a href="gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-object"><code class="function">g_param_spec_object()</code></a>
 </p>

@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Signals</title>
+<title>&#20449;&#21495;</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.70.1">
 <link rel="start" href="index.html" title="GObject &#21442;&#32771;&#25163;&#20876;">
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-GParamSpec.html" title="GParamSpec">
 <link rel="next" href="gobject-Closures.html" title="Closures">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,18 +45,18 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="gobject-Closures.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2697270" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2698330" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2699107" class="shortcut">Description</a></nobr></td></tr>
+                  <a href="#id2700167" class="shortcut">&#25551;&#36848;</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="gobject-Signals"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2697270"></a><span class="refentrytitle">Signals</span>
+<a name="id2698330"></a><span class="refentrytitle">&#20449;&#21495;</span>
 </h2>
-<p>Signals &#8212; A means for customization of object behaviour and a general purpose notification mechanism</p>
+<p>&#20449;&#21495; &#8212; A means for customization of object behaviour and a general purpose notification mechanism</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -239,7 +239,7 @@ enum        <a href="gobject-Signals.html#GConnectFlags">GConnectFlags</a>;
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2699107"></a><h2>Description</h2>
+<a name="id2700167"></a><h2>&#25551;&#36848;</h2>
 <p>
 The basic concept of the signal system is that of the <span class="emphasis"><em>emission</em></span>
 of a signal.
@@ -249,7 +249,7 @@ so basically they are a per-type facility that is inherited.
 A signal emission mainly involves invocation of a certain set of callbacks in
 precisely defined manner. There are two main categories of such callbacks,
 per-object
-	<sup>[<a name="id2699130" href="#ftn.id2699130">11</a>]</sup>
+	<sup>[<a name="id2700191" href="#ftn.id2700191">11</a>]</sup>
 ones and user provided ones.
 The per-object callbacks are most often referred to as "object method
 handler" or "default (signal) handler", while user provided callbacks are
@@ -323,11 +323,11 @@ wildcard and matches any detail argument passed in to emission.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2699300"></a><h2>Details</h2>
+<a name="id2700361"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2699311"></a><h3>
+<a name="id2700371"></a><h3>
 <a name="GSignalInvocationHint"></a>GSignalInvocationHint</h3>
-<a class="indexterm" name="id2699324"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2700384"></a><pre class="programlisting">typedef struct {
   guint		signal_id;
   GQuark	detail;
   GSignalFlags	run_type;
@@ -366,9 +366,9 @@ to callbacks during a signal emission.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2699451"></a><h3>
+<a name="id2700512"></a><h3>
 <a name="GSignalAccumulator"></a>GSignalAccumulator ()</h3>
-<a class="indexterm" name="id2699465"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GSignalAccumulator)           (<a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a> *ihint,
+<a class="indexterm" name="id2700525"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GSignalAccumulator)           (<a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a> *ihint,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_accu,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *handler_return,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
@@ -423,9 +423,9 @@ value returned by the last callback.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2699646"></a><h3>
+<a name="id2700707"></a><h3>
 <a name="GSignalCMarshaller"></a>GSignalCMarshaller</h3>
-<a class="indexterm" name="id2699659"></a><pre class="programlisting">typedef GClosureMarshal			 GSignalCMarshaller;
+<a class="indexterm" name="id2700720"></a><pre class="programlisting">typedef GClosureMarshal			 GSignalCMarshaller;
 </pre>
 <p>
 This is the signature of marshaller functions, required to marshall
@@ -437,9 +437,9 @@ signal system.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2699697"></a><h3>
+<a name="id2700757"></a><h3>
 <a name="GSignalEmissionHook"></a>GSignalEmissionHook ()</h3>
-<a class="indexterm" name="id2699710"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GSignalEmissionHook)          (<a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a> *ihint,
+<a class="indexterm" name="id2700771"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    (*GSignalEmissionHook)          (<a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a> *ihint,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> n_param_values,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *param_values,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data);</pre>
@@ -494,9 +494,9 @@ You may not attach these to signals created with the <a href="gobject-Signals.ht
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2699875"></a><h3>
+<a name="id2700935"></a><h3>
 <a name="GSignalFlags"></a>enum GSignalFlags</h3>
-<a class="indexterm" name="id2699888"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2700948"></a><pre class="programlisting">typedef enum
 {
   G_SIGNAL_RUN_FIRST	= 1 &lt;&lt; 0,
   G_SIGNAL_RUN_LAST	= 1 &lt;&lt; 1,
@@ -571,9 +571,9 @@ stages of a signal emission.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700101"></a><h3>
+<a name="id2701161"></a><h3>
 <a name="GSignalMatchType"></a>enum GSignalMatchType</h3>
-<a class="indexterm" name="id2700114"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2701174"></a><pre class="programlisting">typedef enum
 {
   G_SIGNAL_MATCH_ID	   = 1 &lt;&lt; 0,
   G_SIGNAL_MATCH_DETAIL	   = 1 &lt;&lt; 1,
@@ -633,9 +633,9 @@ match signals by.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700316"></a><h3>
+<a name="id2701376"></a><h3>
 <a name="GSignalQuery"></a>GSignalQuery</h3>
-<a class="indexterm" name="id2700328"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2701389"></a><pre class="programlisting">typedef struct {
   guint		signal_id;
   const gchar  *signal_name;
   GType		itype;
@@ -707,9 +707,9 @@ filled in by the <a href="gobject-Signals.html#g-signal-query"><code class="func
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700566"></a><h3>
+<a name="id2701626"></a><h3>
 <a name="G-SIGNAL-TYPE-STATIC-SCOPE:CAPS"></a>G_SIGNAL_TYPE_STATIC_SCOPE</h3>
-<a class="indexterm" name="id2700580"></a><pre class="programlisting">#define	G_SIGNAL_TYPE_STATIC_SCOPE (G_TYPE_FLAG_RESERVED_ID_BIT)
+<a class="indexterm" name="id2701640"></a><pre class="programlisting">#define	G_SIGNAL_TYPE_STATIC_SCOPE (G_TYPE_FLAG_RESERVED_ID_BIT)
 </pre>
 <p>
 This macro flags signal argument types for which the signal system may 
@@ -734,19 +734,20 @@ of <a href="gobject-Signals.html#g-signal-new"><code class="function">g_signal_n
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700634"></a><h3>
+<a name="id2701694"></a><h3>
 <a name="G-SIGNAL-MATCH-MASK:CAPS"></a>G_SIGNAL_MATCH_MASK</h3>
-<a class="indexterm" name="id2700647"></a><pre class="programlisting">#define G_SIGNAL_MATCH_MASK  0x3f
+<a class="indexterm" name="id2701708"></a><pre class="programlisting">#define G_SIGNAL_MATCH_MASK  0x3f
 </pre>
 <p>
 A mask for all <a href="gobject-Signals.html#GSignalMatchType"><span class="type">GSignalMatchType</span></a> bits.
+&#23631;&#34109;&#25152;&#26377;<a href="gobject-Signals.html#GSignalMatchType"><span class="type">GSignalMatchType</span></a>&#20301;&#12290;
 </p>
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700671"></a><h3>
+<a name="id2701741"></a><h3>
 <a name="G-SIGNAL-FLAGS-MASK:CAPS"></a>G_SIGNAL_FLAGS_MASK</h3>
-<a class="indexterm" name="id2700684"></a><pre class="programlisting">#define G_SIGNAL_FLAGS_MASK  0x7f
+<a class="indexterm" name="id2701754"></a><pre class="programlisting">#define G_SIGNAL_FLAGS_MASK  0x7f
 </pre>
 <p>
 A mask for all <a href="gobject-Signals.html#GSignalFlags"><span class="type">GSignalFlags</span></a> bits.
@@ -754,9 +755,9 @@ A mask for all <a href="gobject-Signals.html#GSignalFlags"><span class="type">GS
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2700709"></a><h3>
+<a name="id2701778"></a><h3>
 <a name="g-signal-new"></a>g_signal_new ()</h3>
-<a class="indexterm" name="id2700721"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_new                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
+<a class="indexterm" name="id2701790"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_new                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
                                              <a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <a href="gobject-Signals.html#GSignalFlags">GSignalFlags</a> signal_flags,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> class_offset,
@@ -768,16 +769,13 @@ A mask for all <a href="gobject-Signals.html#GSignalFlags"><span class="type">GS
                                              ...);</pre>
 <p>
 Creates a new signal. (This is usually done in the class initializer.)
+    &#21019;&#24314;&#19968;&#20010;&#26032;&#20449;&#21495;&#12290;(&#24120;&#22312;&#31867;&#21021;&#22987;&#21270;&#20989;&#25968;&#20013;&#23436;&#25104;&#65289;
 </p>
 <p>
-A signal name consists of segments consisting of ASCII letters and
-digits, separated by either the '-' or '_' character. The first
-character of a signal name must be a letter. Names which violate these
-rules lead to undefined behaviour of the GSignal system. 
+    &#20449;&#21495;&#21517;&#30001;ASCII&#23383;&#27597;&#21644;&#25968;&#23383;&#32452;&#25104;&#30340;&#27573;&#36890;&#36807;"-"&#25110;"_"&#20998;&#38548;&#31526;&#36830;&#25509;&#32780;&#25104;&#65292;&#20449;&#21495;&#21517;&#30340;&#31532;&#19968;&#20010;&#23383;&#31526;&#24517;&#39035;&#26159;&#23383;&#27597;&#12290;&#22914;&#26524;&#36829;&#21453;&#36825;&#26465;&#35268;&#21017;&#65292;&#37027;&#20040;&#20449;&#21495;&#31995;&#32479;&#30340;&#34892;&#20026;&#23558;&#26159;&#26410;&#23450;&#20041;&#30340;&#12290;
 </p>
 <p>
-When registering a signal and looking up a signal, either separator can
-be used, but they cannot be mixed. 
+    &#24403;&#27880;&#20876;&#25110;&#26597;&#25214;&#19968;&#20010;&#20449;&#21495;&#26102;&#65292;&#21487;&#20197;&#20351;&#29992;&#20219;&#20309;&#19968;&#20010;&#20998;&#38548;&#31526;&#65292;&#20294;&#23427;&#20204;&#21364;&#19981;&#33021;&#28151;&#21512;&#20351;&#29992;&#12290;
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -785,7 +783,7 @@ be used, but they cannot be mixed.
 <tr>
 <td>
 <span class="term"><em class="parameter"><code>signal_name</code></em>&#160;:</span></td>
-<td>the name for the signal
+<td>&#20449;&#21495;&#21517;&#31216;
 </td>
 </tr>
 <tr>
@@ -862,9 +860,9 @@ be used, but they cannot be mixed.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2701045"></a><h3>
+<a name="id2702122"></a><h3>
 <a name="g-signal-newv"></a>g_signal_newv ()</h3>
-<a class="indexterm" name="id2701057"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_newv                   (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
+<a class="indexterm" name="id2702135"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_newv                   (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
                                              <a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <a href="gobject-Signals.html#GSignalFlags">GSignalFlags</a> signal_flags,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *class_closure,
@@ -961,9 +959,9 @@ See <a href="gobject-Signals.html#g-signal-new"><code class="function">g_signal_
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2701404"></a><h3>
+<a name="id2702482"></a><h3>
 <a name="g-signal-new-valist"></a>g_signal_new_valist ()</h3>
-<a class="indexterm" name="id2701417"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_new_valist             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
+<a class="indexterm" name="id2702494"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_new_valist             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *signal_name,
                                              <a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <a href="gobject-Signals.html#GSignalFlags">GSignalFlags</a> signal_flags,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *class_closure,
@@ -1060,9 +1058,9 @@ See <a href="gobject-Signals.html#g-signal-new"><code class="function">g_signal_
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2701771"></a><h3>
+<a name="id2702848"></a><h3>
 <a name="g-signal-query"></a>g_signal_query ()</h3>
-<a class="indexterm" name="id2701784"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_query                  (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
+<a class="indexterm" name="id2702861"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_query                  (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <a href="gobject-Signals.html#GSignalQuery">GSignalQuery</a> *query);</pre>
 <p>
 Queries the signal system for in-depth information about a
@@ -1095,9 +1093,9 @@ be considered constant and have to be left untouched.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2701882"></a><h3>
+<a name="id2702959"></a><h3>
 <a name="g-signal-lookup"></a>g_signal_lookup ()</h3>
-<a class="indexterm" name="id2701895"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_lookup                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
+<a class="indexterm" name="id2702972"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_lookup                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *name,
                                              <a href="gobject-Type-Information.html#GType">GType</a> itype);</pre>
 <p>
 Given the name of the signal and the type of object it connects to, gets 
@@ -1138,9 +1136,9 @@ See <a href="gobject-Signals.html#g-signal-new"><code class="function">g_signal_
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2701997"></a><h3>
+<a name="id2703074"></a><h3>
 <a name="g-signal-name"></a>g_signal_name ()</h3>
-<a class="indexterm" name="id2702010"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* g_signal_name                  (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id);</pre>
+<a class="indexterm" name="id2703087"></a><pre class="programlisting">const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>* g_signal_name                  (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id);</pre>
 <p>
 Given the signal's identifier, finds its name.
 </p>
@@ -1169,9 +1167,9 @@ Two different signals may have the same name, if they have differing types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702085"></a><h3>
+<a name="id2703162"></a><h3>
 <a name="g-signal-list-ids"></a>g_signal_list_ids ()</h3>
-<a class="indexterm" name="id2702098"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>*      g_signal_list_ids               (<a href="gobject-Type-Information.html#GType">GType</a> itype,
+<a class="indexterm" name="id2703175"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>*      g_signal_list_ids               (<a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *n_ids);</pre>
 <p>
 Lists the signals by id that a certain instance or interface type
@@ -1206,9 +1204,9 @@ created. Further information about the signals can be acquired through
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702196"></a><h3>
+<a name="id2703273"></a><h3>
 <a name="g-signal-emit"></a>g_signal_emit ()</h3>
-<a class="indexterm" name="id2702209"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit                   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2703286"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit                   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              ...);</pre>
@@ -1255,9 +1253,9 @@ if no handlers are connected, in contrast to <a href="gobject-Signals.html#g-sig
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702351"></a><h3>
+<a name="id2703428"></a><h3>
 <a name="g-signal-emit-by-name"></a>g_signal_emit_by_name ()</h3>
-<a class="indexterm" name="id2702364"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit_by_name           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2703441"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit_by_name           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
                                              ...);</pre>
 <p>
@@ -1297,9 +1295,9 @@ if no handlers are connected, in contrast to <a href="gobject-Signals.html#g-sig
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702486"></a><h3>
+<a name="id2703563"></a><h3>
 <a name="g-signal-emitv"></a>g_signal_emitv ()</h3>
-<a class="indexterm" name="id2702498"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emitv                  (const <a href="gobject-Generic-values.html#GValue">GValue</a> *instance_and_params,
+<a class="indexterm" name="id2703576"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emitv                  (const <a href="gobject-Generic-values.html#GValue">GValue</a> *instance_and_params,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value);</pre>
@@ -1347,9 +1345,9 @@ connected, in contrast to <a href="gobject-Signals.html#g-signal-emit"><code cla
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702665"></a><h3>
+<a name="id2703742"></a><h3>
 <a name="g-signal-emit-valist"></a>g_signal_emit_valist ()</h3>
-<a class="indexterm" name="id2702678"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit_valist            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2703755"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_emit_valist            (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> var_args);</pre>
@@ -1396,9 +1394,9 @@ if no handlers are connected, in contrast to <a href="gobject-Signals.html#g-sig
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702828"></a><h3>
+<a name="id2703905"></a><h3>
 <a name="g-signal-connect"></a>g_signal_connect()</h3>
-<a class="indexterm" name="id2702841"></a><pre class="programlisting">#define     g_signal_connect(instance, detailed_signal, c_handler, data)</pre>
+<a class="indexterm" name="id2703918"></a><pre class="programlisting">#define     g_signal_connect(instance, detailed_signal, c_handler, data)</pre>
 <p>
 Connects a <a href="gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> function to a signal for a particular object.
 </p>
@@ -1445,9 +1443,9 @@ The handler will be called before the default handler of the signal.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2702956"></a><h3>
+<a name="id2704033"></a><h3>
 <a name="g-signal-connect-after"></a>g_signal_connect_after()</h3>
-<a class="indexterm" name="id2702969"></a><pre class="programlisting">#define     g_signal_connect_after(instance, detailed_signal, c_handler, data)</pre>
+<a class="indexterm" name="id2704046"></a><pre class="programlisting">#define     g_signal_connect_after(instance, detailed_signal, c_handler, data)</pre>
 <p>
 Connects a <a href="gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> function to a signal for a particular object.
 </p>
@@ -1494,9 +1492,9 @@ The handler will be called after the default handler of the signal.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703084"></a><h3>
+<a name="id2704161"></a><h3>
 <a name="g-signal-connect-swapped"></a>g_signal_connect_swapped()</h3>
-<a class="indexterm" name="id2703097"></a><pre class="programlisting">#define     g_signal_connect_swapped(instance, detailed_signal, c_handler, data)</pre>
+<a class="indexterm" name="id2704175"></a><pre class="programlisting">#define     g_signal_connect_swapped(instance, detailed_signal, c_handler, data)</pre>
 <p>
 Connects a <a href="gobject-Closures.html#GCallback"><span class="type">GCallback</span></a> function to a signal for a particular object.
 </p>
@@ -1544,9 +1542,9 @@ calling the handler.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703219"></a><h3>
+<a name="id2704296"></a><h3>
 <a name="g-signal-connect-object"></a>g_signal_connect_object ()</h3>
-<a class="indexterm" name="id2703232"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_object         (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2704309"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_object         (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
                                              <a href="gobject-Closures.html#GCallback">GCallback</a> c_handler,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> gobject,
@@ -1625,9 +1623,9 @@ calling the handler.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703483"></a><h3>
+<a name="id2704560"></a><h3>
 <a name="GConnectFlags"></a>enum GConnectFlags</h3>
-<a class="indexterm" name="id2703496"></a><pre class="programlisting">typedef enum
+<a class="indexterm" name="id2704573"></a><pre class="programlisting">typedef enum
 {
   G_CONNECT_AFTER	= 1 &lt;&lt; 0,
   G_CONNECT_SWAPPED	= 1 &lt;&lt; 1
@@ -1660,9 +1658,9 @@ connection.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703568"></a><h3>
+<a name="id2704646"></a><h3>
 <a name="g-signal-connect-data"></a>g_signal_connect_data ()</h3>
-<a class="indexterm" name="id2703581"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_data           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2704658"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_data           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
                                              <a href="gobject-Closures.html#GCallback">GCallback</a> c_handler,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> data,
@@ -1727,9 +1725,9 @@ used. Specify <em class="parameter"><code>connect_flags</code></em> if you need 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703854"></a><h3>
+<a name="id2704931"></a><h3>
 <a name="g-signal-connect-closure"></a>g_signal_connect_closure ()</h3>
-<a class="indexterm" name="id2703867"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_closure        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2704944"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_closure        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> after);</pre>
@@ -1777,9 +1775,9 @@ Connects a closure to a signal for a particular object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2703992"></a><h3>
+<a name="id2705070"></a><h3>
 <a name="g-signal-connect-closure-by-id"></a>g_signal_connect_closure_by_id ()</h3>
-<a class="indexterm" name="id2704006"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_closure_by_id  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705083"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_connect_closure_by_id  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *closure,
@@ -1834,9 +1832,9 @@ Connects a closure to a signal for a particular object.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2704152"></a><h3>
+<a name="id2705230"></a><h3>
 <a name="g-signal-handler-block"></a>g_signal_handler_block ()</h3>
-<a class="indexterm" name="id2704166"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_block          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705243"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_block          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK> handler_id);</pre>
 <p>
 Blocks a handler of an instance so it will not be called during 
@@ -1871,9 +1869,9 @@ signal of <em class="parameter"><code>instance</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2704256"></a><h3>
+<a name="id2705334"></a><h3>
 <a name="g-signal-handler-unblock"></a>g_signal_handler_unblock ()</h3>
-<a class="indexterm" name="id2704270"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_unblock        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705347"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_unblock        (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK> handler_id);</pre>
 <p>
 Undoes the effect of a previous <a href="gobject-Signals.html#g-signal-handler-block"><code class="function">g_signal_handler_block()</code></a> call. 
@@ -1913,9 +1911,9 @@ connected to a signal of <em class="parameter"><code>instance</code></em> and is
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2704386"></a><h3>
+<a name="id2705454"></a><h3>
 <a name="g-signal-handler-disconnect"></a>g_signal_handler_disconnect ()</h3>
-<a class="indexterm" name="id2704400"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_disconnect     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705468"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_handler_disconnect     (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK> handler_id);</pre>
 <p>
 Disconnects a handler from an instance so it will not be called during 
@@ -1948,9 +1946,9 @@ signal of <em class="parameter"><code>instance</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2704494"></a><h3>
+<a name="id2705562"></a><h3>
 <a name="g-signal-handler-find"></a>g_signal_handler_find ()</h3>
-<a class="indexterm" name="id2704507"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_handler_find           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705575"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_handler_find           (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <a href="gobject-Signals.html#GSignalMatchType">GSignalMatchType</a> mask,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
@@ -2023,9 +2021,9 @@ If no handler was found, 0 is returned.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2704746"></a><h3>
+<a name="id2705815"></a><h3>
 <a name="g-signal-handlers-block-matched"></a>g_signal_handlers_block_matched ()</h3>
-<a class="indexterm" name="id2704760"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_block_matched (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2705828"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_block_matched (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <a href="gobject-Signals.html#GSignalMatchType">GSignalMatchType</a> mask,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
@@ -2100,9 +2098,9 @@ otherwise.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705031"></a><h3>
+<a name="id2706099"></a><h3>
 <a name="g-signal-handlers-unblock-matched"></a>g_signal_handlers_unblock_matched ()</h3>
-<a class="indexterm" name="id2705045"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_unblock_matched
+<a class="indexterm" name="id2706113"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_unblock_matched
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <a href="gobject-Signals.html#GSignalMatchType">GSignalMatchType</a> mask,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
@@ -2179,9 +2177,9 @@ not currently blocked.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705314"></a><h3>
+<a name="id2706383"></a><h3>
 <a name="g-signal-handlers-disconnect-matched"></a>g_signal_handlers_disconnect_matched ()</h3>
-<a class="indexterm" name="id2705329"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_disconnect_matched
+<a class="indexterm" name="id2706397"></a><pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>       g_signal_handlers_disconnect_matched
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <a href="gobject-Signals.html#GSignalMatchType">GSignalMatchType</a> mask,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
@@ -2257,9 +2255,9 @@ handlers otherwise.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705597"></a><h3>
+<a name="id2706666"></a><h3>
 <a name="g-signal-handler-is-connected"></a>g_signal_handler_is_connected ()</h3>
-<a class="indexterm" name="id2705611"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_handler_is_connected   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2706679"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_handler_is_connected   (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK> handler_id);</pre>
 <p>
 Returns whether <em class="parameter"><code>handler_id</code></em> is the id of a handler connected to <em class="parameter"><code>instance</code></em>.
@@ -2292,9 +2290,9 @@ Returns whether <em class="parameter"><code>handler_id</code></em> is the id of 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705715"></a><h3>
+<a name="id2706784"></a><h3>
 <a name="g-signal-handlers-block-by-func"></a>g_signal_handlers_block_by_func()</h3>
-<a class="indexterm" name="id2705729"></a><pre class="programlisting">#define     g_signal_handlers_block_by_func(instance, func, data)</pre>
+<a class="indexterm" name="id2706797"></a><pre class="programlisting">#define     g_signal_handlers_block_by_func(instance, func, data)</pre>
 <p>
 Blocks all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
@@ -2332,9 +2330,9 @@ Blocks all handlers on an instance that match <em class="parameter"><code>func</
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705817"></a><h3>
+<a name="id2706885"></a><h3>
 <a name="g-signal-handlers-unblock-by-func"></a>g_signal_handlers_unblock_by_func()</h3>
-<a class="indexterm" name="id2705830"></a><pre class="programlisting">#define     g_signal_handlers_unblock_by_func(instance, func, data)</pre>
+<a class="indexterm" name="id2706899"></a><pre class="programlisting">#define     g_signal_handlers_unblock_by_func(instance, func, data)</pre>
 <p>
 Unblocks all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
@@ -2372,9 +2370,9 @@ Unblocks all handlers on an instance that match <em class="parameter"><code>func
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2705918"></a><h3>
+<a name="id2706986"></a><h3>
 <a name="g-signal-handlers-disconnect-by-func"></a>g_signal_handlers_disconnect_by_func()</h3>
-<a class="indexterm" name="id2705932"></a><pre class="programlisting">#define     g_signal_handlers_disconnect_by_func(instance, func, data)</pre>
+<a class="indexterm" name="id2707000"></a><pre class="programlisting">#define     g_signal_handlers_disconnect_by_func(instance, func, data)</pre>
 <p>
 Disconnects all handlers on an instance that match <em class="parameter"><code>func</code></em> and <em class="parameter"><code>data</code></em>.
 </p>
@@ -2412,9 +2410,9 @@ Disconnects all handlers on an instance that match <em class="parameter"><code>f
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706020"></a><h3>
+<a name="id2707089"></a><h3>
 <a name="g-signal-has-handler-pending"></a>g_signal_has_handler_pending ()</h3>
-<a class="indexterm" name="id2706034"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_has_handler_pending    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2707102"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_has_handler_pending    (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> may_be_blocked);</pre>
@@ -2470,9 +2468,9 @@ the arguments.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706192"></a><h3>
+<a name="id2707260"></a><h3>
 <a name="g-signal-stop-emission"></a>g_signal_stop_emission ()</h3>
-<a class="indexterm" name="id2706206"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_stop_emission          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2707274"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_stop_emission          (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail);</pre>
 <p>
@@ -2514,9 +2512,9 @@ Prints a warning if used on a signal which isn't being emitted.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706329"></a><h3>
+<a name="id2707397"></a><h3>
 <a name="g-signal-stop-emission-by-name"></a>g_signal_stop_emission_by_name ()</h3>
-<a class="indexterm" name="id2706342"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_stop_emission_by_name  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
+<a class="indexterm" name="id2707410"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_stop_emission_by_name  (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance,
                                              const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal);</pre>
 <p>
 Stops a signal's current emission.
@@ -2547,9 +2545,9 @@ signal id for you.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706428"></a><h3>
+<a name="id2707496"></a><h3>
 <a name="g-signal-override-class-closure"></a>g_signal_override_class_closure ()</h3>
-<a class="indexterm" name="id2706441"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_override_class_closure (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
+<a class="indexterm" name="id2707509"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_override_class_closure (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Closures.html#GClosure">GClosure</a> *class_closure);</pre>
 <p>
@@ -2586,9 +2584,9 @@ from the type to which the signal belongs.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706548"></a><h3>
+<a name="id2707616"></a><h3>
 <a name="g-signal-chain-from-overridden"></a>g_signal_chain_from_overridden ()</h3>
-<a class="indexterm" name="id2706561"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_chain_from_overridden  (const <a href="gobject-Generic-values.html#GValue">GValue</a> *instance_and_params,
+<a class="indexterm" name="id2707629"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_chain_from_overridden  (const <a href="gobject-Generic-values.html#GValue">GValue</a> *instance_and_params,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_value);</pre>
 <p>
 Calls the original class closure of a signal. This function should only
@@ -2619,9 +2617,9 @@ be called from an overridden class closure; see
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706654"></a><h3>
+<a name="id2707723"></a><h3>
 <a name="g-signal-add-emission-hook"></a>g_signal_add_emission_hook ()</h3>
-<a class="indexterm" name="id2706668"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_add_emission_hook      (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
+<a class="indexterm" name="id2707737"></a><pre class="programlisting"><GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK>      g_signal_add_emission_hook      (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> detail,
                                              <a href="gobject-Signals.html#GSignalEmissionHook">GSignalEmissionHook</a> hook_func,
                                              <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> hook_data,
@@ -2677,9 +2675,9 @@ for signals which don't have <a href="gobject-Signals.html#G-SIGNAL-NO-HOOKS:CAP
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706875"></a><h3>
+<a name="id2707943"></a><h3>
 <a name="g-signal-remove-emission-hook"></a>g_signal_remove_emission_hook ()</h3>
-<a class="indexterm" name="id2706888"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_remove_emission_hook   (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
+<a class="indexterm" name="id2707956"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_signal_remove_emission_hook   (<GTKDOCLINK HREF="guint">guint</GTKDOCLINK> signal_id,
                                              <GTKDOCLINK HREF="gulong">gulong</GTKDOCLINK> hook_id);</pre>
 <p>
 Deletes an emission hook.
@@ -2707,9 +2705,9 @@ Deletes an emission hook.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2706969"></a><h3>
+<a name="id2708037"></a><h3>
 <a name="g-signal-parse-name"></a>g_signal_parse_name ()</h3>
-<a class="indexterm" name="id2706982"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_parse_name             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
+<a class="indexterm" name="id2708050"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_parse_name             (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *detailed_signal,
                                              <a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> *signal_id_p,
                                              <GTKDOCLINK HREF="GQuark">GQuark</GTKDOCLINK> *detail_p,
@@ -2765,9 +2763,9 @@ and <em class="parameter"><code>detail</code></em> quark.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2707171"></a><h3>
+<a name="id2708239"></a><h3>
 <a name="g-signal-get-invocation-hint"></a>g_signal_get_invocation_hint ()</h3>
-<a class="indexterm" name="id2707184"></a><pre class="programlisting"><a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a>* g_signal_get_invocation_hint
+<a class="indexterm" name="id2708252"></a><pre class="programlisting"><a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a>* g_signal_get_invocation_hint
                                             (<GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> instance);</pre>
 <p>
 Returns the invocation hint of the innermost signal emission of instance. 
@@ -2794,9 +2792,9 @@ Returns the invocation hint of the innermost signal emission of instance.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2707245"></a><h3>
+<a name="id2708313"></a><h3>
 <a name="g-signal-type-cclosure-new"></a>g_signal_type_cclosure_new ()</h3>
-<a class="indexterm" name="id2707259"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_signal_type_cclosure_new      (<a href="gobject-Type-Information.html#GType">GType</a> itype,
+<a class="indexterm" name="id2708327"></a><pre class="programlisting"><a href="gobject-Closures.html#GClosure">GClosure</a>*   g_signal_type_cclosure_new      (<a href="gobject-Type-Information.html#GType">GType</a> itype,
                                              <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> struct_offset);</pre>
 <p>
 Creates a new closure which invokes the function found at the offset
@@ -2832,9 +2830,9 @@ identified by <em class="parameter"><code>itype</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2707375"></a><h3>
+<a name="id2708443"></a><h3>
 <a name="g-signal-accumulator-true-handled"></a>g_signal_accumulator_true_handled ()</h3>
-<a class="indexterm" name="id2707391"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_accumulator_true_handled
+<a class="indexterm" name="id2708460"></a><pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    g_signal_accumulator_true_handled
                                             (<a href="gobject-Signals.html#GSignalInvocationHint">GSignalInvocationHint</a> *ihint,
                                              <a href="gobject-Generic-values.html#GValue">GValue</a> *return_accu,
                                              const <a href="gobject-Generic-values.html#GValue">GValue</a> *handler_return,
@@ -2891,7 +2889,7 @@ and no further handling is needed.
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2699130" href="#id2699130">11</a>] </sup>Although signals can deal with any kind of instantiatable type,
+<div class="footnote"><p><sup>[<a name="ftn.id2700191" href="#id2700191">11</a>] </sup>Although signals can deal with any kind of instantiatable type,
 	i'm referring to those types as "object types" in the following, simply
 	because that is the context most users will encounter signals in.
 	</p></div>

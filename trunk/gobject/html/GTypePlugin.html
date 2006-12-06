@@ -8,7 +8,7 @@
 <link rel="up" href="rn01.html" title="API Reference">
 <link rel="prev" href="gobject-Type-Information.html" title="GType">
 <link rel="next" href="GTypeModule.html" title="GTypeModule">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -45,20 +45,20 @@
 <th width="100%" align="center">GObject &#21442;&#32771;&#25163;&#20876;</th>
 <td><a accesskey="n" href="GTypeModule.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
-<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2595552" class="shortcut">Top</a>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id2596612" class="shortcut">Top</a>
                   &#160;|&#160;
-                  <a href="#id2595904" class="shortcut">Description</a>
+                  <a href="#id2596965" class="shortcut">Description</a>
                   &#160;|&#160;
-                  <a href="#id2595855" class="shortcut">Object Hierarchy</a>
+                  <a href="#id2596916" class="shortcut">Object Hierarchy</a>
                   &#160;|&#160;
-                  <a href="#id2595880" class="shortcut">Known Implementations</a></nobr></td></tr>
+                  <a href="#id2596941" class="shortcut">Known Implementations</a></nobr></td></tr>
 </table>
 <div class="refentry" lang="en">
 <a name="GTypePlugin"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>
-<a name="id2595552"></a><span class="refentrytitle">GTypePlugin</span>
+<a name="id2596612"></a><span class="refentrytitle">GTypePlugin</span>
 </h2>
 <p>GTypePlugin &#8212; An interface for dynamically loadable types</p>
 </td>
@@ -100,7 +100,7 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2595855"></a><h2>Object Hierarchy</h2>
+<a name="id2596916"></a><h2>Object Hierarchy</h2>
 <pre class="synopsis">
 
   <GTKDOCLINK HREF="GInterface">GInterface</GTKDOCLINK>
@@ -108,13 +108,13 @@
 </pre>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2595880"></a><h2>Known Implementations</h2>
+<a name="id2596941"></a><h2>Known Implementations</h2>
 <p>
 GTypePlugin is implemented by
  <a href="GTypeModule.html" title="GTypeModule">GTypeModule</a>.</p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2595904"></a><h2>Description</h2>
+<a name="id2596965"></a><h2>Description</h2>
 <p>
 The GObject type system supports dynamic loading of types. The <a href="GTypePlugin.html" title="GTypePlugin"><span class="type">GTypePlugin</span></a> 
 interface is used to handle the lifecycle of dynamically loaded types. 
@@ -178,11 +178,11 @@ handles multiple registered types per module.
 </p>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2596192"></a><h2>Details</h2>
+<a name="id2597252"></a><h2>Details</h2>
 <div class="refsect2" lang="en">
-<a name="id2596202"></a><h3>
+<a name="id2597262"></a><h3>
 <a name="GTypePlugin-struct"></a>GTypePlugin</h3>
-<a class="indexterm" name="id2596215"></a><pre class="programlisting">typedef struct _GTypePlugin GTypePlugin;</pre>
+<a class="indexterm" name="id2597276"></a><pre class="programlisting">typedef struct _GTypePlugin GTypePlugin;</pre>
 <p>
 The <span class="structname">GTypePlugin</span> typedef is used as a placeholder 
 for objects that implement the <span class="structname">GTypePlugin</span> 
@@ -191,9 +191,9 @@ interface.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596239"></a><h3>
+<a name="id2597299"></a><h3>
 <a name="GTypePluginClass"></a>GTypePluginClass</h3>
-<a class="indexterm" name="id2596251"></a><pre class="programlisting">typedef struct {
+<a class="indexterm" name="id2597312"></a><pre class="programlisting">typedef struct {
   GTypePluginUse		   use_plugin;
   GTypePluginUnuse		   unuse_plugin;
   GTypePluginCompleteTypeInfo	   complete_type_info;
@@ -243,9 +243,9 @@ the lifecycle of dynamically loaded types.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596410"></a><h3>
+<a name="id2597470"></a><h3>
 <a name="GTypePluginUse"></a>GTypePluginUse ()</h3>
-<a class="indexterm" name="id2596423"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginUse)               (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
+<a class="indexterm" name="id2597483"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginUse)               (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
 <p>
 The type of the <em class="parameter"><code>use_plugin</code></em> function of <a href="GTypePlugin.html#GTypePluginClass"><span class="type">GTypePluginClass</span></a>, which gets called
 to increase the use count of <em class="parameter"><code>plugin</code></em>.
@@ -264,9 +264,9 @@ to increase the use count of <em class="parameter"><code>plugin</code></em>.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596499"></a><h3>
+<a name="id2597559"></a><h3>
 <a name="GTypePluginUnuse"></a>GTypePluginUnuse ()</h3>
-<a class="indexterm" name="id2596511"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginUnuse)             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
+<a class="indexterm" name="id2597572"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginUnuse)             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
 <p>
 The type of the <em class="parameter"><code>unuse_plugin</code></em> function of <a href="GTypePlugin.html#GTypePluginClass"><span class="type">GTypePluginClass</span></a>.
 </p>
@@ -284,9 +284,9 @@ The type of the <em class="parameter"><code>unuse_plugin</code></em> function of
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596581"></a><h3>
+<a name="id2597641"></a><h3>
 <a name="GTypePluginCompleteTypeInfo"></a>GTypePluginCompleteTypeInfo ()</h3>
-<a class="indexterm" name="id2596594"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginCompleteTypeInfo)  (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
+<a class="indexterm" name="id2597655"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginCompleteTypeInfo)  (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
                                              <a href="gobject-Type-Information.html#GType">GType</a> g_type,
                                              <a href="gobject-Type-Information.html#GTypeInfo">GTypeInfo</a> *info,
                                              <a href="gobject-Type-Information.html#GTypeValueTable">GTypeValueTable</a> *value_table);</pre>
@@ -327,9 +327,9 @@ The type of the <em class="parameter"><code>complete_type_info</code></em> funct
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596752"></a><h3>
+<a name="id2597813"></a><h3>
 <a name="GTypePluginCompleteInterfaceInfo"></a>GTypePluginCompleteInterfaceInfo ()</h3>
-<a class="indexterm" name="id2596765"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginCompleteInterfaceInfo)
+<a class="indexterm" name="id2597826"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        (*GTypePluginCompleteInterfaceInfo)
                                             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
                                              <a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> interface_type,
@@ -372,9 +372,9 @@ The type of the <em class="parameter"><code>complete_interface_info</code></em> 
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2596926"></a><h3>
+<a name="id2597987"></a><h3>
 <a name="g-type-plugin-use"></a>g_type_plugin_use ()</h3>
-<a class="indexterm" name="id2596939"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_use               (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
+<a class="indexterm" name="id2598000"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_use               (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
 <p>
 Calls the <em class="parameter"><code>use_plugin</code></em> function from the <a href="GTypePlugin.html#GTypePluginClass"><span class="type">GTypePluginClass</span></a> of <em class="parameter"><code>plugin</code></em>.
 There should be no need to use this function outside of the GObject 
@@ -394,9 +394,9 @@ type system itself.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2597015"></a><h3>
+<a name="id2598075"></a><h3>
 <a name="g-type-plugin-unuse"></a>g_type_plugin_unuse ()</h3>
-<a class="indexterm" name="id2597028"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_unuse             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
+<a class="indexterm" name="id2598089"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_unuse             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin);</pre>
 <p>
 Calls the <em class="parameter"><code>unuse_plugin</code></em> function from the <a href="GTypePlugin.html#GTypePluginClass"><span class="type">GTypePluginClass</span></a> of <em class="parameter"><code>plugin</code></em>.
 There should be no need to use this function outside of the GObject 
@@ -416,9 +416,9 @@ type system itself.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2597104"></a><h3>
+<a name="id2598164"></a><h3>
 <a name="g-type-plugin-complete-type-info"></a>g_type_plugin_complete_type_info ()</h3>
-<a class="indexterm" name="id2597117"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_complete_type_info
+<a class="indexterm" name="id2598177"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_complete_type_info
                                             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
                                              <a href="gobject-Type-Information.html#GType">GType</a> g_type,
                                              <a href="gobject-Type-Information.html#GTypeInfo">GTypeInfo</a> *info,
@@ -462,9 +462,9 @@ type system itself.
 </div>
 <hr>
 <div class="refsect2" lang="en">
-<a name="id2597284"></a><h3>
+<a name="id2598344"></a><h3>
 <a name="g-type-plugin-complete-interface-info"></a>g_type_plugin_complete_interface_info ()</h3>
-<a class="indexterm" name="id2597298"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_complete_interface_info
+<a class="indexterm" name="id2598358"></a><pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>        g_type_plugin_complete_interface_info
                                             (<a href="GTypePlugin.html" title="GTypePlugin">GTypePlugin</a> *plugin,
                                              <a href="gobject-Type-Information.html#GType">GType</a> instance_type,
                                              <a href="gobject-Type-Information.html#GType">GType</a> interface_type,
@@ -509,7 +509,7 @@ GObject type system itself.
 </div>
 </div>
 <div class="refsect1" lang="en">
-<a name="id2597468"></a><h2>See Also</h2>
+<a name="id2598528"></a><h2>See Also</h2>
 <p>
 <a href="GTypeModule.html" title="GTypeModule"><span class="type">GTypeModule</span></a> and <a href="gobject-Type-Information.html#g-type-register-dynamic"><code class="function">g_type_register_dynamic()</code></a>.
 </p>

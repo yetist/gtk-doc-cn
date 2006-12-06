@@ -8,7 +8,7 @@
 <link rel="up" href="howto-gobject.html" title="How To define and implement a new GObject?">
 <link rel="prev" href="howto-gobject-methods.html" title="Object methods">
 <link rel="next" href="howto-interface.html" title="How To define and implement Interfaces?">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -77,7 +77,7 @@
 <p>To explicitely chain up to the implementation of the virtual method in the parent class, 
        you first need a handle to the original parent class structure. This pointer can then be used to 
        access the original class function pointer and invoke it directly.
-        <sup>[<a name="id2746220" href="#ftn.id2746220">12</a>]</sup>
+        <sup>[<a name="id2747296" href="#ftn.id2747296">12</a>]</sup>
      </p>
 <p>The function <code class="function"><a href="gobject-Type-Information.html#g-type-class-peek-parent">g_type_class_peek_parent</a></code> is used to access the original parent 
       class structure. Its input is a pointer to the class of the derived object and it returns a pointer
@@ -105,7 +105,7 @@ b_method_to_call (B *obj, int a)
     </p>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2746220" href="#id2746220">12</a>] </sup>The <span class="emphasis"><em>original</em></span> adjective used in this sentence is not innocuous. To fully 
+<div class="footnote"><p><sup>[<a name="ftn.id2747296" href="#id2747296">12</a>] </sup>The <span class="emphasis"><em>original</em></span> adjective used in this sentence is not innocuous. To fully 
            understand its meaning, you need to recall how class structures are initialized: for each object type,
            the class structure associated to this object is created by first copying the class structure of its 
            parent type (a simple <code class="function">memcpy</code>) and then by invoking the class_init callback on 

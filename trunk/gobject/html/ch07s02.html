@@ -8,7 +8,7 @@
 <link rel="up" href="howto-signals.html" title="Howto create and use signals">
 <link rel="prev" href="howto-signals.html" title="Howto create and use signals">
 <link rel="next" href="ch07s03.html" title="How users can abuse signals (and why some think it is good)">
-<meta name="generator" content="GTK-Doc V1.6 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.7 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 <link rel="preface" href="pr01.html" title="&#20171;&#32461;">
 <link rel="part" href="pt01.html" title="Part&#160;I.&#160;Concepts">
@@ -46,7 +46,7 @@
 </tr></table>
 <div class="sect1" lang="en">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id2747304"></a>How to provide more flexibility to users?</h2></div></div></div>
+<a name="id2748380"></a>How to provide more flexibility to users?</h2></div></div></div>
 <p>The previous implementation does the job but the signal facility of GObject can be used to provide
 even more flexibility to this file change notification mechanism. One of the key ideas is to make the process
 of writing data to the file part of the signal emission process to allow users to be notified either
@@ -186,10 +186,10 @@ Complex Write event after: 0xbfffe280, 50
 </p>
 <div class="sect2" lang="en">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id2747531"></a>How most people do the same thing with less code</h3></div></div></div>
+<a name="id2748607"></a>How most people do the same thing with less code</h3></div></div></div>
 <p>For many historic reasons related to how the ancestor of GObject used to work in GTK+ 1.x versions,
          there is a much <span class="emphasis"><em>simpler</em></span> 
-         <sup>[<a name="id2747546" href="#ftn.id2747546">16</a>]</sup>
+         <sup>[<a name="id2748621" href="#ftn.id2748621">16</a>]</sup>
          way to create a signal with a default handler than to create 
          a closure by hand and to use the <code class="function"><a href="gobject-Signals.html#g-signal-newv">g_signal_newv</a></code>.
        </p>
@@ -198,7 +198,7 @@ Complex Write event after: 0xbfffe280, 50
          contains a function pointer which is accessed during signal emission to invoke the default handler and
          the user is expected to provide to <code class="function"><a href="gobject-Signals.html#g-signal-new">g_signal_new</a></code> the offset from the start of the
          class structure to the function pointer.
-           <sup>[<a name="id2747612" href="#ftn.id2747612">17</a>]</sup>
+           <sup>[<a name="id2748688" href="#ftn.id2748688">17</a>]</sup>
        </p>
 <p>The following code shows the declaration of the <span class="type">MamanFileSimple</span> class structure which contains
          the <code class="function">write</code> function pointer.
@@ -248,7 +248,7 @@ klass-&gt;write_signal_id =
         Of note, here, is the 4th argument to the function: it is an integer calculated by the <code class="function"><GTKDOCLINK HREF="G-STRUCT-OFFSET">G_STRUCT_OFFSET</GTKDOCLINK></code>
         macro which indicates the offset of the member <span class="emphasis"><em>write</em></span> from the start of the 
         <span class="type">MamanFileSimpleClass</span> class structure.
-          <sup>[<a name="id2747721" href="#ftn.id2747721">18</a>]</sup>
+          <sup>[<a name="id2748796" href="#ftn.id2748796">18</a>]</sup>
        </p>
 <p>
          While the complete code for this type of default handler looks less clutered as shown in 
@@ -267,7 +267,7 @@ klass-&gt;write_signal_id =
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a name="ftn.id2747546" href="#id2747546">16</a>] </sup>I personally think that this method is horribly mind-twisting: it adds a new indirection
+<div class="footnote"><p><sup>[<a name="ftn.id2748621" href="#id2748621">16</a>] </sup>I personally think that this method is horribly mind-twisting: it adds a new indirection
            which unecessarily complicates the overall code path. However, because this method is widely used
            by all of GTK+ and GObject code, readers need to understand it. The reason why this is done that way
            in most of GTK+ is related to the fact that the ancestor of GObject did not provide any other way to
@@ -277,11 +277,11 @@ klass-&gt;write_signal_id =
            because they copy/pasted code from code which did the same. It is probably better to leave this 
            specific trivia to hacker legends domain...
            </p></div>
-<div class="footnote"><p><sup>[<a name="ftn.id2747612" href="#id2747612">17</a>] </sup>I would like to point out here that the reason why the default handler of a signal is named everywhere
+<div class="footnote"><p><sup>[<a name="ftn.id2748688" href="#id2748688">17</a>] </sup>I would like to point out here that the reason why the default handler of a signal is named everywhere
               a class_closure is probably related to the fact that it used to be really a function pointer stored in
               the class structure.
              </p></div>
-<div class="footnote"><p><sup>[<a name="ftn.id2747721" href="#id2747721">18</a>] </sup>GSignal uses this offset to create a special wrapper closure 
+<div class="footnote"><p><sup>[<a name="ftn.id2748796" href="#id2748796">18</a>] </sup>GSignal uses this offset to create a special wrapper closure 
              which first retrieves the target function pointer before calling it.
             </p></div>
 </div>

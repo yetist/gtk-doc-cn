@@ -1,12 +1,12 @@
 <refentry id="gobject-Signals">
 <refmeta>
-<refentrytitle role="top_of_page">Signals</refentrytitle>
+<refentrytitle role="top_of_page">信号</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>GOBJECT Library</refmiscinfo>
 </refmeta>
 
 <refnamediv>
-<refname>Signals</refname>
+<refname>信号</refname>
 <refpurpose>A means for customization of object behaviour and a general purpose notification mechanism</refpurpose>
 <!--[<xref linkend="desc" endterm="desc.title"/>]-->
 </refnamediv>
@@ -200,7 +200,7 @@ enum        <link linkend="GConnectFlags">GConnectFlags</link>;
 
 
 <refsect1 role="desc">
-<title role="desc.title">Description</title>
+<title role="desc.title">描述</title>
 <para>
 The basic concept of the signal system is that of the <emphasis>emission</emphasis>
 of a signal.
@@ -578,6 +578,7 @@ of <link linkend="g-signal-new"><function>g_signal_new()</function></link>.
 </programlisting>
 <para>
 A mask for all <link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> bits.
+屏蔽所有<link linkend="GSignalMatchType"><type>GSignalMatchType</type></link>位。
 </para></refsect2>
 <refsect2>
 <title><anchor id="G-SIGNAL-FLAGS-MASK:CAPS" role="macro"/>G_SIGNAL_FLAGS_MASK</title>
@@ -600,19 +601,16 @@ A mask for all <link linkend="GSignalFlags"><type>GSignalFlags</type></link> bit
                                              ...);</programlisting>
 <para>
 Creates a new signal. (This is usually done in the class initializer.)
+    创建一个新信号。(常在类初始化函数中完成）
 </para>
 <para>
-A signal name consists of segments consisting of ASCII letters and
-digits, separated by either the '-' or '_' character. The first
-character of a signal name must be a letter. Names which violate these
-rules lead to undefined behaviour of the GSignal system. 
+    信号名由ASCII字母和数字组成的段通过"-"或"_"分隔符连接而成，信号名的第一个字符必须是字母。如果违反这条规则，那么信号系统的行为将是未定义的。
 </para>
 <para>
-When registering a signal and looking up a signal, either separator can
-be used, but they cannot be mixed. 
+    当注册或查找一个信号时，可以使用任何一个分隔符，但它们却不能混合使用。
 </para><variablelist role="params">
 <varlistentry><term><parameter>signal_name</parameter>&nbsp;:</term>
-<listitem><simpara>the name for the signal
+<listitem><simpara>信号名称
 </simpara></listitem></varlistentry>
 <varlistentry><term><parameter>itype</parameter>&nbsp;:</term>
 <listitem><simpara>the type this signal pertains to. It will also pertain to 
