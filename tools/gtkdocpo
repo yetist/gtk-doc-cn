@@ -1,0 +1,347 @@
+#! /usr/bin/env python
+#-*- encoding:utf-8 -*-
+#文件名:gtkdocpo
+"""Test code
+
+Description:________
+"""
+__version__  = "0.1"
+__date__     = "2007年03月03日 星期六 20时25分37秒"
+__author__   = "yetist <yetist@gmail.com> "
+__license__  = "Licensed under the GPL v2, see the file LICENSE in this tarball."
+__copyright__= "Copyright (C) 2006 by yetist <yetist@gmail.com>."
+#=================================================================================#
+import os, sys
+import re
+import time
+from optparse import OptionParser, OptionGroup, HelpFormatter
+
+Replace_table={
+        '\"':"|$_1_$|",       #replace '"' with |$_1_$| in msgid
+        '\\':"|$_2_$|"        #replace '\' with |$_2_$| in msgid
+        }
+Replace_table_sort=['\"', '\\']
+
+
+opts = {
+    "command":0,
+    "multi_files":True,
+    "pkg_name":"PACKAGE",
+    "include_code":False,
+    "po_file_dir":os.getcwd()+'/gtkdocpo',
+    "look":True,
+    "pkg_ver":"VERSION"
+    }
+
+
+class Merge:
+    def start (self, options, directory):
+        self.opts = options
+        self.src_dir = directory
+        self.merge_data = {}
+
+        if os.path.isdir (self.opts.po_file_dir):
+            for item in os.listdir(self.opts.po_file_dir):
+                if len(item) >3 and item.endswith(".po"):
+                    file = os.path.join(self.opts.po_file_dir, item)
+                    self._do_po_file(file)
+
+        #self.show_merge()
+        self.do_merge()
+
+    def _do_po_file (self, file_name):
+        print ">>>", file_name
+        data = open (file_name).readlines()
+        first_msgstr = True
+        for i in range(5, len(data)):
+            #如果有翻译的条目
+            msgstr=""
+            if data[i].find("msgstr") >=0 and len(data[i].split('"')) > 2:
+                #跳过第一个msgstr, 这是说明部分
+                if first_msgstr:
+                    first_msgstr = False
+                    continue
+
+                if data[i].split('"')[1] != '':
+                    msgstr += data[i].split('"')[1]+"\n"
+                else:
+                    n = i
+                    #如果下一行不是空行，并且
+                    while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
+                        msgstr += data[n+1].split('"')[1]+"\n"
+                        n = n+1
+                #如果这一项有翻译，那么去分析源文件名及行号等信息
+                if len(msgstr) > 0:
+                    for rep in Replace_table_sort:
+                        if msgstr.find(Replace_table[rep]) >= 0:
+                            msgstr = msgstr.replace(Replace_table[rep], rep)+"\n"
+
+                    n = i
+                    while n-1 > 0 and  len(data[n-1].strip()) > 0:
+                        if data[n-1].startswith("#:"):
+                            for item in data[n-1].split()[1:]:
+                                src_file, start_line, count_line = item.split(":")
+                                if not self.merge_data.has_key(src_file):
+                                    self.merge_data[src_file]={}
+                                self.merge_data[src_file][start_line]=(count_line, msgstr)
+                        n = n -1
+
+    def show_merge (self):
+        for k in self.merge_data.keys():
+            for sk in self.merge_data[k].keys():
+                print "[", k,sk, self.merge_data[k][sk][0], "]", self.merge_data[k][sk][1]
+
+    def do_merge (self):
+        for f in self.merge_data.keys():
+            src_file = os.path.join(self.src_dir, f)
+            if not os.path.isfile(src_file):
+                continue
+            data = open(src_file).readlines()
+            for l in self.merge_data[f].keys():
+                print "%s\t%s@%s --> %s" % (f, l, self.merge_data[f][l][0], self.merge_data[f][l][1])
+                for i in range(int(self.merge_data[f][l][0])):
+                    if i == 0:
+                        line = data[int(l)-1+i]
+                        data[int(l)-1+i] = line[:line.find("*")+1]+" "+ self.merge_data[f][l][1]
+                    else:
+                        data[int(l)-1+i] = None
+            src_fd = open(src_file, "w")
+            for i in data:
+                if i:
+                    src_fd.writelines(i)
+            src_fd.close()
+
+class Create:
+    def write_header(self, fd):
+        header="""# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: %s %s\\n"
+"Report-Msgid-Bugs-To: \\n"
+"POT-Creation-Date: %s\\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n"
+"Language-Team: LANGUAGE <LL@li.org>\\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\\n"
+
+""" % (self.opts.pkg_name, self.opts.pkg_ver, time.strftime("%Y-%m-%d %H:%M")+"%+2.4d" % (time.timezone/36))
+        fd.write(header)
+    def start (self, options, directory):
+        self.opts = options
+        if os.path.isfile(directory) and directory.endswith(".c"):
+            self._do_file(directory)
+        elif os.path.isdir(directory):
+            for item in os.listdir(directory):
+                if len(item) >2 and item.endswith(".c"):
+                    file = os.path.join(directory, item)
+                    self._do_file(file)
+
+    def _do_file (self, file_name):
+        if not os.path.isdir(self.opts.po_file_dir):
+            os.mkdir(self.opts.po_file_dir)
+
+        has_gtkdoc = False
+        base_name = os.path.splitext(os.path.basename(file_name))[0]
+
+        pot_file = os.path.join (self.opts.po_file_dir, base_name + ".pot~")
+        pot_fd = open(pot_file, "w")
+
+        data=open(file_name).readlines()
+        for i in range(len(data)):
+            cont=[]
+            content=[]
+            if data[i].strip() == "/**":
+                if not has_gtkdoc:
+                    has_gtkdoc = True
+                    self.write_header(pot_fd)
+                start_line = i
+                while data[i+1].find("*/") < 0:
+                    cont.append(data[i+1])
+                    i = i+1
+                end_line = i+2
+
+                function=data[start_line+1][data[start_line+1].find("*")+1:].strip()
+                for line in cont:
+                    for i in Replace_table_sort:
+                        if line.find(i) >= 0:
+                            line = line.replace(i, Replace_table[i])
+                    content.append(line)
+                last_n=0
+                for n in range(1, len(content)):
+                    if n < last_n:
+                        continue
+                    #如果这行是一个参数列表的开始
+                    if re.search("^\*\ ?@\D+:",content[n].strip()):
+                        begin=start_line+2+n
+                        args=content[n][content[n].find("*")+1:].strip()
+                        #如果下一行不是一个参数的开始，并且不是一个空行，那么就是这个参数的续行,连在一起
+                        while n+1< len(content) and (not re.search("^\*\ ?@\D+:",content[n+1].strip())) and (not len(content[n+1].strip()) < 2): 
+                            args = args + " " + content[n+1][content[n+1].find("*")+1:].strip()
+                            n=n+1
+                        last_n = n+1
+                        end = start_line+2+n
+
+                        pot_fd.writelines ("# used by: %s\n" % function)
+                        pot_fd.writelines ("#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
+                        pot_fd.writelines ("msgid \"%s\"\n" % args)
+                        pot_fd.writelines ("msgstr \"\"\n")
+                        pot_fd.writelines ("\n")
+                        continue
+
+                    #如果这行是一个空行，继续
+                    elif len(content[n].strip()) < 2:
+                        continue
+                    else:
+                        #如果这一行是代码开始
+                        if content[n].find("<programlisting>")>=0:
+                            begin=start_line+2+n
+                            while n+1 < len(content) and content[n+1].find("</programlisting>")<0:
+                                if self.opts.include_code:
+                                    pot_fd.writelines ( "##[It's code, but some need to translate]:used by: %s\n" % function)
+                                    pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, 1))
+                                    pot_fd.writelines ( "msgid \"%s\"\n" % content[n+1][content[n+1].find("*")+1:].rstrip())
+                                    pot_fd.writelines ( "msgstr \"\"\n")
+                                    pot_fd.writelines ( "\n")
+                                n = n+1
+                            last_n = n+1
+                            continue
+
+                        #如果这一行是说明，并且下一行不是空行，而是续行
+                        if content[n].find("</programlisting>")>=0:
+                            continue
+                        begin=start_line+2+n
+
+                        description = content[n][content[n].find("*")+1:].strip()
+                        while n+1 < len(content) and (not len(content[n+1].strip()) < 2) and content[n+1].find("<programlisting>")<0: 
+                            description = description + " " + content[n+1][content[n+1].find("*")+1:].strip()
+                            n=n+1
+                        last_n = n+1
+                        end = start_line+2+n
+                        pot_fd.writelines ( "##used by: %s\n" % function)
+                        pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
+                        pot_fd.writelines ( "msgid \"%s\"\n" % description)
+                        pot_fd.writelines ( "msgstr \"\"\n")
+                        pot_fd.writelines ( "\n")
+        pot_fd.close()
+        if not has_gtkdoc:
+            os.remove(pot_file)
+        else:
+            newpot_file = os.path.join (self.opts.po_file_dir, base_name + ".pot")
+            ret = os.system("msguniq -E %s -o %s" % (pot_file, newpot_file))
+            if ret == 0:
+                os.remove(pot_file)
+
+def get_opts():
+    MSG_USAGE = "%prog [OPTIONS] COMMAND SOURCE_DIR"
+    parser = OptionParser(MSG_USAGE)
+    parser.description="Create pot file from C source files that used gtkdoc, and merge po file to C source files."
+    parser.defaults=opts
+
+    parser.version="\n".join(["%prog " + __version__, __author__, __license__, __copyright__])
+    parser.add_option("-v", "--version",
+            dest = "version", action = "store_true",
+            help="show version info and exit")
+    parser.add_option("-e", "--example",
+            dest = "example", action = "store_true",
+            help="show example and exit")
+
+    group = OptionGroup(parser, "COMMANDS")
+    group.add_option("-c", "--create",
+            dest = "command", action = "store_const", const = 0,
+            help="Create pot file from C source file")
+    group.add_option("-m", "--merge", 
+            dest = "command", action = "store_const", const = 1,
+            help = "Merge po file to C source file")
+    parser.add_option_group(group)
+
+    group = OptionGroup(parser, "Command Options")
+    group.add_option("-1", "--single-file",
+            dest = "multi_files", action = "store_false",
+            help = "create a single pot file")
+    group.add_option("-2", "--multi-files",
+            dest = "multi_files", action = "store_true",
+            help = "create multi pot files.")
+    group.add_option("-n", "--package-name",
+            dest = "pkg_name", action = "store", type = "string",
+            help = "the package name used for pot file. default:PACKAGE.")
+    group.add_option("-V", "--package-version",
+            dest = "pkg_ver", action = "store", type = "string",
+            help = "the package version used for pot file. default:VERSION")
+    group.add_option("-i", "--include-code",
+            dest = "include_code", action = "store_true",
+            help = "if set, some code will show in msgid of pot file according gtkdoc format.")
+    group.add_option("-p", "--po-file-dir",
+            dest = "po_file_dir", action = "store", type="string",
+            help = "directory that placed the po(t) file(s). default is \"gtkdocpo\" in current directory.")
+    group.add_option("-l", "--look",
+            dest = "look", action = "store_true",
+            help = "if set, you can look that msgid and msgstr befort merge.")
+    parser.add_option_group(group)
+
+    return parser
+
+Commands=[Create(), Merge()]
+
+def main():
+    parser = get_opts()
+    opts, args = parser.parse_args()
+    
+    if opts.version:
+        parser.print_version()
+        sys.exit(0)
+
+    if opts.example:
+        parser.print_usage()
+        print ("Example:\n")
+        print ("1) create pot file(s) from \"/tmp/gtk+-2.10.6/gtk\", you can use:\n")
+        print ("\t%s /tmp/gtk+-2.10.6/gtk\n"
+                "\t\t-c is default command\n" % parser.get_prog_name())
+        print ("\t%s -c /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tdefault pot dir is: ./gtkdocpo\n" % parser.get_prog_name())
+        print ("\t%s -c -p pot /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tset pot dir\n" % parser.get_prog_name())
+        print ("\t%s -c -n gtk+-2.10.6 /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tset PACKAGE in pot file\n" % parser.get_prog_name())
+        print ("\t%s -c -1 /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tif create only one pot file, use -1\n" % parser.get_prog_name())
+
+        print ("2) merge po file(s) to source file(s) in \"/tmp/gtk+-2.10.6/gtk\", you should use:\n")
+        print ("\t%s -m /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tuse default pot dir: ./gtkdocpo\n" % parser.get_prog_name())
+        print ("\t%s -m -p pot_dir /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tset pot dir\n" % parser.get_prog_name())
+        sys.exit(0)
+
+    if len(args) < 1:
+        parser.print_help()
+        sys.exit(1)
+    elif len(args) == 1:
+        argv = os.path.abspath(args[0])
+        if (not os.path.isdir(argv)) and (not argv.endswith(".c")):
+            parser.print_help()
+            sys.exit(1)
+
+    for i in args:
+        args = os.path.abspath(i)
+        Commands[opts.command].start(opts, args)
+
+    #最后检查是不是制作单一pot文件
+    if (opts.command == 0 ) and ( not opts.multi_files ):
+        os.system("msgcat %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
+        for i in os.listdir(opts.po_file_dir):
+            if i == opts.pkg_name+"-"+opts.pkg_ver+".pot":
+                continue
+            else:
+                os.system("rm %s/%s" % (opts.po_file_dir, i))
+
+if __name__=="__main__":
+    main()
+
