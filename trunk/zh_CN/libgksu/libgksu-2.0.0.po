@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: libgksu 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-07 15:34-0800\n"
-"PO-Revision-Date: 2007-03-07 23:31+0800\n"
-"Last-Translator: lerosua <lerosua@gmail.com>\n"
+"PO-Revision-Date: 2007-03-09 17:35+0800\n"
+"Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: inlsd Team <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -213,12 +213,12 @@ msgstr "Returns: 如果shell成为登录的shell则返回TRUE,否则返回FALSE"
 # #used by: gksu_context_set_keep_env:
 #: libgksu.c:1403:3
 msgid "Should the environment be kept as it is? Defaults to TRUE. Notice that setting this to FALSE may cause the X authorization stuff to fail."
-msgstr ""
+msgstr "环境变量继续保持吗？默认为TRUE。 注意如果设置为FALSE那么X认证可能会失败。"
 
 # #used by: gksu_context_get_keep_env:
 #: libgksu.c:1417:2
 msgid "Finds out if the environment in which the program will be run will be reset."
-msgstr ""
+msgstr "确认是否将要运行的程序会重设环境."
 
 # #used by: gksu_context_get_keep_env:
 #: libgksu.c:1420:2
@@ -233,7 +233,7 @@ msgstr "@description: 包含描述信息的字符串"
 # #used by: gksu_context_set_description:
 #: libgksu.c:1434:3
 msgid "Set the nice name for the action that is being run that the window that asks for the password will have.  This is only meant to be used if the default window is used, of course."
-msgstr ""
+msgstr "给将要输入密码的窗口设置一个好点的名字。"
 
 # used by: gksu_context_get_description:
 #: libgksu.c:1448:1
@@ -243,7 +243,7 @@ msgstr "@context: 你想要获取的描述信息来自#GksuContext"
 # #used by: gksu_context_get_description:
 #: libgksu.c:1450:3
 msgid "Get the description that the window will have when the default function for requesting the password is called."
-msgstr ""
+msgstr "如果要求输入密码的默认函数被调用，那么得到这个窗口的描述。"
 
 # #used by: gksu_context_get_description:
 #: libgksu.c:1454:1
@@ -268,7 +268,7 @@ msgstr "@context: 你想从获取的消息来自 #GksuContext"
 # #used by: gksu_context_get_message:
 #: libgksu.c:1482:3
 msgid "Get the message that the window will have when the default function for requesting the password is called."
-msgstr ""
+msgstr "如果默认的请求密码的函数被调用，得到这个窗口的消息。"
 
 # #used by: gksu_context_get_message:
 #: libgksu.c:1486:1
@@ -283,7 +283,7 @@ msgstr "@alert: 为警告所设置的字符串"
 # #used by: gksu_context_set_alert:
 #: libgksu.c:1499:4
 msgid "Set the alert that the window that asks for the password will have. This is only meant to be used if the default window is used, of course. This alert should be used to display messages such as 'incorrect password', for instance."
-msgstr ""
+msgstr "设置输入密码窗口的警告信息. 如果默认窗口被使用。这个警告信息将被用来显示如\"无效的密码\"之类。"
 
 # used by: gksu_context_get_alert:
 #: libgksu.c:1514:1
@@ -324,7 +324,7 @@ msgstr "Returns: 如果是则返回TRUE,否则返回FALSE"
 # used by: gksu_context_set_launcher_context:
 #: libgksu.c:1558:1
 msgid "@context: the #GksuContext you want to set the sn context in"
-msgstr ""
+msgstr "@context: 你要设置的sn上下文 #GksuContext"
 
 # used by: gksu_context_set_launcher_context:
 #: libgksu.c:1559:1
@@ -343,22 +343,22 @@ msgstr ""
 #: libgksu.c:1568:1
 #: libgksu.c:1585:1
 msgid "Returns: the #SnLauncherContext which is set, or NULL if none was set"
-msgstr ""
+msgstr "Returns: 如果被设置，就返回 #SnLauncherContext, 否则，返回 NULL"
 
 # used by: gksu_context_get_launcher_context:
 #: libgksu.c:1581:1
 msgid "@context: the #GksuContext you want to get the sn context from"
-msgstr ""
+msgstr "@context: 你想得到的sn上下文 #GksuContext"
 
 # #used by: gksu_context_get_launcher_context:
 #: libgksu.c:1583:1
 msgid "Gets the current startup notification launcher context"
-msgstr ""
+msgstr "得到当前通知区域的上下文"
 
 # used by: gksu_context_launch_initiate:
 #: libgksu.c:1595:1
 msgid "@context: the #GksuContext you want to initiate the launch for"
-msgstr ""
+msgstr "@context: 你将要初始化的 #GksuContext"
 
 # #used by: gksu_context_launch_initiate:
 #: libgksu.c:1597:2
@@ -456,7 +456,7 @@ msgstr ""
 #: libgksu.c:2629:1
 #: libgksu.c:2699:1
 msgid "@error: a #GError object to be filled with the error code or NULL"
-msgstr ""
+msgstr "@error: 用错误码填充的#GError对象或者NULL"
 
 # #-#-#-#-#  libgksu.pot~ (libgksu 2.0.0)  #-#-#-#-#
 # #used by: gksu_su_full:
@@ -514,7 +514,7 @@ msgstr "@error: 如果有错误发生，#GError将根据错误条件而被设置
 # #used by: gksu_su
 #: libgksu.c:2122:4
 msgid "This function is a wrapper for gksu_su_run_full. It will call it without giving the callback functions, which leads to the standard ones being called. A simple #GksuContext is created to hold the user name and the command."
-msgstr ""
+msgstr " gksu_su_run_full的封装函数。它将不还参数调用回调函数，"
 
 # #-#-#-#-#  libgksu.pot~ (libgksu 2.0.0)  #-#-#-#-#
 # #used by: gksu_su
@@ -543,7 +543,7 @@ msgstr ""
 # #used by: gksu_run
 #: libgksu.c:2670:4
 msgid "This function is a wrapper for gksu_sudo/gksu_su. It will call one of them, depending on the GConf key that defines whether the default behavior for gksu is su or sudo mode. This is the recommended way of using the library functionality."
-msgstr ""
+msgstr "这是对gksu_sudo或者gksu_su的包装函数。 它会根据GConf键中设置的默认行为来调用其中之一。 如果使用本库，推荐使用这个函数。"
 
 # #used by: gksu_run
 #: libgksu.c:2675:1
@@ -558,7 +558,7 @@ msgstr "@prompt: 一个不同于密码的提示:"
 # #used by: gksu_ask_password_full:
 #: libgksu.c:2701:3
 msgid "This function uses the gksu infra-structure to request for a password, but instead of passing it to su or sudo to run a command it simply returns the password."
-msgstr ""
+msgstr "这个函数使用下面的结构来请求得到一个密码， 但是不同于调用su或者使用sudo运行命令，它只会返回密码。"
 
 # #-#-#-#-#  libgksu.pot~ (libgksu 2.0.0)  #-#-#-#-#
 # #used by: gksu_ask_password_full:
@@ -572,5 +572,5 @@ msgstr "Returns: 分配一个用来保存密码的字符串。"
 # #used by: gksu_ask_password
 #: libgksu.c:2722:4
 msgid "This function uses the gksu infra-structure to request for a password, but instead of passing it to su or sudo to run a command it simply returns the password. This is just a convenience wrapper for gksu_ask_password_full."
-msgstr ""
+msgstr "这个函数使用下面的结构来请求得到一个密码， 但是不同于调用su或者使用sudo运行命令，它只会返回密码。这个函数是对gksu_ask_password_full的包装。"
 
