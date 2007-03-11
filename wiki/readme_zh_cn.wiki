@@ -12,11 +12,11 @@
 
   做为一个示例，我们翻译了libgksu的文档(翻译质量不一定高)，你可以通过以下地址查看这些文件：
 
-pot文件：http://gtk-doc-cn.googlecode.com/svn/trunk/pot/libgksu-2.0.0.pot
+pot文件：http://gtk-doc-cn.googlecode.com/svn/trunk/projects/libgksu/libgksu-2.0.0.pot
 
 简体中文po文件:http://gtk-doc-cn.googlecode.com/svn/trunk/zh_CN/libgksu/libgksu-2.0.0.po
 
-简体中文libgksu API文档：http://gtk-doc-cn.googlecode.com/svn/trunk/zh_CN/libgksu/html/
+简体中文libgksu API文档：http://gtk-doc-cn.googlecode.com/svn/trunk/zh_CN/libgksu/html-2.0.0
 
 作为对比，你可以在这里看到英文文档：http://people.debian.org/~kov/gksu/reference/
 
@@ -31,58 +31,71 @@ http://groups.google.com/group/gtk-doc-cn
 请申请加入此邮件列表，我们的管理员会将你加入项目组中，这样你就可以使用svn来下载/提交po文件。
 
 = svn目录结构 =
+
 在使用svn之前， 请先了解一下我们项目的目录结构。
-我们主要的工作目前在trunk分支进行(其它分支以后也许会用到):
+我们主要的工作目前在trunk分支进行(其它分支以后也许会用到)：
 http://gtk-doc-cn.googlecode.com/svn/trunk
-这里有以下固定目录：
-
-pot： 主要存放待翻译的pot文件（从源代码提取转换而来），文件名含版本号
-
-tmpl: 子目录中存放相关项目的文档模块，如libgksu-2.0.0目录中放的是libgksu 2.0.0 的模板文件
-
-tools: 本项目所使用的工具程序，目前只有一个gtkdocpo
-
-其它目录是不同语言的本地化目录，目前只有一个zh_CN, 如果有台湾的朋友参与进来，那么就会建立zh_TW目录。
-
-以zh_CN为例， 说一下语言目录的结构：
 
 {{{
-zh_CN/
+tools/              (工具目录)
+  |--credits.xml    (发布文档时本项目加入的版权信息)
+  |--gtkdocpo       (制作pot及合成到源码的主要工具)
+
+projects/           (项目文档目录,包含不同项目的文档模板及pot文件)
+  |--glib/
+  |    |--glib-VERSION.pot      (某版本的pot文件)
+  |    |--docs-VERSION/         (某版本的模板文件)
+  |--gtk+/  
+  |    |--gtk-VERSION.pot
+  |    |--gdk-VERSION.pot  
+  |    |--gdk-pixbuf-VERSION.pot  
+  |    |--docs-VERSION/  
+  |        |--gtk/
+  |        |--gdk/  
+  |        |--gdk-pixbuf/  
   |--libgksu/
-  |    |-- html/
-  |    |--tmpl/
-  |    |--libgksu-VERSION1.po
-  |    |--libgksu-VERSION2.po
+  |    |--libgksu-VERSION.pot
+  |    |--docs-VERSION.pot
+  |......           (以后将陆续加入其它项目)
+
+zh_CN/              (简体中文语言目录，包含不同项目的待翻译文件,翻译者只需取出本目录下的内容)
+  |--message.mo     (已翻译的文档词条总汇，用于poedit中生成词库，以便使用自动翻译功能)
+  |--libgksu/
+  |    |--html-VERSION/         (某版本的简体中文用户文档, 最终发布形式)
+  |    |--docs-VERSION/         (某版本的文档模板,需要翻译)
+  |    |--libgksu-VERSION.po    (某版本的libgksu的po文件，需要翻译)
   |    |-- ......
-  |    |--libgksu-VERSIONn.po
   |--gtk/
-  |    |-- html/
-  |    |--tmpl/
+  |    |--html-VERSION/
+  |    |--tmpl-VERSION/
   |    |--gtk-VERSION.po
-  |    |--gtk-....po
+  |    |--....
   |......
+......  (以后可能加入其它语言，如zh_TW等)
 }}}        
 
-在语言目录下，是不同的项目子目录,子目录下分别是：
+= 怎样开始翻译 =
 
-html目录：放置翻译好的当前版本的本地文档
+(在翻译之前请先确认你已为本项目组成员, 否则你无法提交)
 
-tmpl目录：当前版本的模板文件，需要翻译。
+如上所示目录结构，如果你只是翻译，那么你可以取出要翻译的全部简体中文内容：
 
-NAME-VERSION.po文件：不同版本的po文件，需要翻译。
+svn checkout https://gtk-doc-cn.googlecode.com/svn/trunk/zh_CN gtk-doc-cn --username
 
-= 怎样翻译 =
+或者你只想翻译其中的某份文档（如libgksu）,那么你也可以只取出gtk+的内容：
+
+svn checkout https://gtk-doc-cn.googlecode.com/svn/trunk/zh_CN/libgksu --username
+
 
 = 如何翻译 =
-
-= svn目录结构 =
-
-= 如何参与 =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
+
+
+
 
 
 
