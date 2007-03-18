@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: glib 2.12.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-07 14:56-0800\n"
-"PO-Revision-Date: 2007-03-17 15:51+0700\n"
-"Last-Translator: yetist <yetist@gmail.com>\n"
+"PO-Revision-Date: 2007-03-18 19:47+0800\n"
+"Last-Translator: liuruile <liuruile@gmail.com>\n"
 "Language-Team: inlsd <liuruile@163.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,7 +278,7 @@ msgstr "将异步队列的引用数减1 . 如果队列的引用数减小到0 , �
 # #used by: g_async_queue_lock:
 #: gasyncqueue.c:159:3
 msgid "Acquires the @queue's lock. After that you can only call the <function>g_async_queue_*_unlocked()</function> function variants on that @queue. Otherwise it will deadlock."
-msgstr ""
+msgstr "获取 @queue的锁 .  在此之后只能通过调用不同的<function>g_async_queue_*_unlocked()</function>函数来给@queue 队列解锁 . 否则会引起死锁 ."
 
 # #used by: g_async_queue_unlock:
 #: gasyncqueue.c:176:1
@@ -341,7 +341,7 @@ msgstr "@data: 需要放入队列中的数据"
 #: gasyncqueue.c:553:6
 #: gasyncqueue.c:596:6
 msgid "@func: the #GCompareDataFunc is used to sort @queue. This function is passed two elements of the @queue. The function should return 0 if they are equal, a negative value if the first element should be higher in the @queue or a positive value if the first element should be lower in the @queue than the second element."
-msgstr ""
+msgstr "@func: #GCompareDataFunc 是用来对@queue 队列进行排序的函数 . 将队列中的两个元素传递给该函数 . 队列中两个元素相等的时候该函数返回0 , 第一个元素大于第二个元素的时候返回一个负数 , 第一个元素小于第二个元素的时候返回一个正数 . "
 
 # #-#-#-#-#  gasyncqueue.pot (glib 2.12.7)  #-#-#-#-#
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
@@ -357,7 +357,7 @@ msgstr ""
 #: gqueue.c:946:1
 #: gthreadpool.c:843:1
 msgid "@user_data: user data passed to @func."
-msgstr ""
+msgstr "@user_data: 需要传递给 @func 函数的用户数据 . "
 
 # #-#-#-#-#  gasyncqueue.pot (glib 2.12.7)  #-#-#-#-#
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
@@ -370,7 +370,7 @@ msgstr ""
 #: gasyncqueue.c:282:2
 #: gqueue.c:948:1
 msgid "Inserts @data into @queue using @func to determine the new position."
-msgstr ""
+msgstr "将数据 @data 按照 @func 函数确定的位置插入到 @queue 队列中去 . "
 
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
 # #used by: g_async_queue_push_sorted:
@@ -379,7 +379,7 @@ msgstr ""
 #: gasyncqueue.c:240:2
 #: gasyncqueue.c:285:2
 msgid "This function requires that the @queue is sorted before pushing on new elements."
-msgstr ""
+msgstr "该函数要求队列 @queue在插入数据前必须是有序的 . "
 
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
 # #used by: g_async_queue_push_sorted:
@@ -388,7 +388,7 @@ msgstr ""
 #: gasyncqueue.c:243:2
 #: gasyncqueue.c:563:2
 msgid "This function will lock @queue before it sorts the queue and unlock it when it is finished."
-msgstr ""
+msgstr "该函数会在排序前将队列 @queue 锁定 ,  并在排序完成后将队列解锁 . "
 
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
 # #used by: g_async_queue_push_sorted:
@@ -397,7 +397,7 @@ msgstr ""
 #: gasyncqueue.c:246:1
 #: gasyncqueue.c:290:1
 msgid "For an example of @func see g_async_queue_sort()."
-msgstr ""
+msgstr "排序函数 @func的列子请参考g_async_queue_sort()的实现 . "
 
 # #-#-#-#-#  gasyncqueue.pot (glib 2.12.7)  #-#-#-#-#
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
@@ -450,7 +450,7 @@ msgstr ""
 #: gthreadpool.c:936:1
 #: gthread.c:861:1
 msgid "Since: 2.10"
-msgstr ""
+msgstr "自版本2.10以后"
 
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
 # #used by: g_async_queue_push_sorted_unlocked:
@@ -459,12 +459,12 @@ msgstr ""
 #: gasyncqueue.c:288:1
 #: gasyncqueue.c:606:1
 msgid "This function is called while holding the @queue's lock."
-msgstr ""
+msgstr "该函数在持有队列 @queue 的锁的时候被调用 . "
 
 # #used by: g_async_queue_pop:
 #: gasyncqueue.c:360:2
 msgid "Pops data from the @queue. This function blocks until data become available."
-msgstr ""
+msgstr "从 @queue 中弹出一个数据 . 在队列中的数据可用之前该函数会被阻塞 . "
 
 # #-#-#-#-#  gasyncqueue.pot~ (glib 2.12.7)  #-#-#-#-#
 # #used by: g_async_queue_pop:
@@ -473,7 +473,7 @@ msgstr ""
 #: gasyncqueue.c:363:1
 #: gasyncqueue.c:388:1
 msgid "Return value: data from the queue."
-msgstr ""
+msgstr "返回值 : 队列中的元素"
 
 # #used by: g_async_queue_pop_unlocked:
 #: gasyncqueue.c:384:3
