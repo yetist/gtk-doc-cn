@@ -1,0 +1,223 @@
+<!-- ##### SECTION Title ##### -->
+缩放 (Scaling)
+
+<!-- ##### SECTION Short_Description ##### -->
+缩放pixbuf和缩放并合并pixbuf。
+
+<!-- ##### SECTION Long_Description ##### -->
+  <para>
+    &gdk-pixbuf; 包含一些缩放pixbuf的函数，这些函数可以用来缩放pixbuf
+    并与已有的图像合并，还可以缩放pixbuf并与实体颜色(solid color)或
+    颜色棋盘(checkerboard)。与颜色棋盘(checkerboard)合并是图像查看和编辑
+    软件显示带alpha通道的图像的常用方法。
+  </para>
+
+  <para>
+    因为完全特性(full-featured)函数(gdk_pixbuf_scale(),
+    gdk_pixbuf_composite(), and gdk_pixbuf_composite_color())使用起来非常
+    复杂而且有很多参数，所以提供了两个简单便捷的函数，gdk_pixbuf_scale_simple() 
+    和 gdk_pixbuf_composite_color_simple()，这两个函数按给定的大小创建
+    一个新的pixbuf并将缩放原始图像来适应它，然后返回这个新的pixbuf。
+  </para>
+
+  <para>
+    下面的例子演示了通过将源图像(已经缩放到适合构件的尺寸)的一个适当
+    的区域渲染到构件的窗体上来处理一个expose事件。这个源图像与一个棋
+    盘(checkerboard)合成，如果源图像有alpha通道那么这个棋盘将提供一个
+    alpha通道的视觉表现。如果源图像没有alpha通道，调用
+    gdk_pixbuf_composite_color() 和 调用 gdk_pixbuf_scale() 的效果是
+    完全一样的。
+  </para>
+
+  <example>
+  <title>处理一个expose事件。</title>
+  <programlisting>
+gboolean
+expose_cb (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+{
+  GdkPixbuf *dest;
+
+  dest = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, event->area.width, event->area.height);
+
+  gdk_pixbuf_composite_color (pixbuf, dest,
+                              0, 0, event->area.width, event->area.height,
+                              -event->area.x, -event->area.y,
+                              (double) widget->allocation.width / gdk_pixbuf_get_width (pixbuf),
+                              (double) widget->allocation.height / gdk_pixbuf_get_height (pixbuf),
+                              GDK_INTERP_BILINEAR, 255,
+                              event->area.x, event->area.y, 16, 0xaaaaaa, 0x555555);
+
+  gdk_pixbuf_render_to_drawable (dest, widget->window, widget->style->fg_gc[GTK_STATE_NORMAL],
+                                 0, 0, event->area.x, event->area.y,
+                                 event->area.width, event->area.height,
+                                 GDK_RGB_DITHER_NORMAL, event->area.x, event->area.y);
+  
+  gdk_pixbuf_unref (dest);
+  
+  return TRUE;
+}
+  </programlisting>
+  </example>
+
+<!-- ##### SECTION See_Also ##### -->
+  <para>
+    <link linkend="gdk-GdkRGB">GdkRGB</link>.
+  </para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### ENUM GdkInterpType ##### -->
+  <para>
+    这个枚举类型描述了可以用于缩放函数的不同的插值(interpolation)模式。
+    @GDK_INTERP_NEAREST 是最快的插补方法，但缩小的时候的效果非常差。
+    @GDK_INTERP_BILINEAR 是在不知道怎么选的时候的最佳选择，该模式有
+    很好的速度/质量平衡。
+    <note>
+      <para>
+	Cubic filtering is missing from the list; hyperbolic
+	interpolation is just as fast and results in higher quality.
+      </para>
+    </note>
+  </para>
+
+@GDK_INTERP_NEAREST: 最近相邻取样；这个最快且质量最低的模式。一般在缩
+小时质量无法接受，但放大的时候还可以。
+@GDK_INTERP_TILES: 该模式是对不开任何插补的PostScript操作图像的精确
+模仿。每一个像素都被作为一个小的平行四边形进行渲染，平行四边形的边缘
+已被抗锯齿处理。放大的时候与最近相邻取样类似，缩小的时候与双线性类似。
+@GDK_INTERP_BILINEAR: 最好的质量/速度平衡；默认为这种模式,双线性插值。
+放大时，等同于点取样理想的双线性插值图像。For reduction, it is 
+equivalent to laying down small tiles and integrating over the coverage 
+area.
+@GDK_INTERP_HYPER: 这是最慢也是重建质量最高的一种函数。这种算法取自
+Wolberg的"Digital Image Warping"里的双曲线滤镜(hyperbolic filters)，
+并被正式定义为双曲线滤镜取样理想双曲线滤镜插值图像(is formally 
+defined as the hyperbolic-filter sampling the ideal hyperbolic-filter 
+interpolated image)(该滤镜被设计为1:1像素映射的幂等元(idempotent))。
+
+<!-- ##### FUNCTION gdk_pixbuf_scale_simple ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest_width: 
+@dest_height: 
+@interp_type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_scale ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest: 
+@dest_x: 
+@dest_y: 
+@dest_width: 
+@dest_height: 
+@offset_x: 
+@offset_y: 
+@scale_x: 
+@scale_y: 
+@interp_type: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_composite_color_simple ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest_width: 
+@dest_height: 
+@interp_type: 
+@overall_alpha: 
+@check_size: 
+@color1: 
+@color2: 
+@Returns: <!--
+Local variables:
+mode: sgml
+sgml-parent-document: ("../gdk-pixbuf.sgml" "book" "refsect2" "")
+End:
+-->
+
+
+<!-- ##### FUNCTION gdk_pixbuf_composite ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest: 
+@dest_x: 
+@dest_y: 
+@dest_width: 
+@dest_height: 
+@offset_x: 
+@offset_y: 
+@scale_x: 
+@scale_y: 
+@interp_type: 
+@overall_alpha: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_composite_color ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest: 
+@dest_x: 
+@dest_y: 
+@dest_width: 
+@dest_height: 
+@offset_x: 
+@offset_y: 
+@scale_x: 
+@scale_y: 
+@interp_type: 
+@overall_alpha: 
+@check_x: 
+@check_y: 
+@check_size: 
+@color1: 
+@color2: 
+
+
+<!-- ##### ENUM GdkPixbufRotation ##### -->
+<para>
+可以传递给 gdk_pixbuf_rotate_simple() 的可能的旋转值。为了使其使用方便，
+他们的数值值就是度数。
+</para>
+
+@GDK_PIXBUF_ROTATE_NONE: 不旋转。
+@GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE: 旋转90度。
+@GDK_PIXBUF_ROTATE_UPSIDEDOWN: 旋转180度。
+@GDK_PIXBUF_ROTATE_CLOCKWISE: 旋转720度。
+
+<!-- ##### FUNCTION gdk_pixbuf_rotate_simple ##### -->
+<para>
+
+</para>
+
+@src: 
+@angle: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_flip ##### -->
+<para>
+
+</para>
+
+@src: 
+@horizontal: 
+@Returns: 
+
+
