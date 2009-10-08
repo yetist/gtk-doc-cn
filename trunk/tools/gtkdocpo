@@ -1,12 +1,11 @@
 #! /usr/bin/env python
 #-*- encoding:utf-8 -*-
 #文件名:gtkdocpo
-"""Test code
-
-Description:________
+"""
+gtkdocpo is a tool to create a pot file from C source files that used gtkdoc to generate API documents, and to merge the l10n po file to the C source files.
 """
 __version__  = "0.1"
-__date__     = "2007年03月03日 星期六 20时25分37秒"
+__date__     = "2007-03-03 20:25:37"
 __author__   = "yetist <yetist@gmail.com> "
 __license__  = "Licensed under the GPL v2, see the file LICENSE in this tarball."
 __copyright__= "Copyright (C) 2006 by yetist <yetist@gmail.com>."
@@ -41,10 +40,14 @@ class Merge:
         self.merge_data = {}
 
         if os.path.isdir (self.opts.po_file_dir):
-            for item in os.listdir(self.opts.po_file_dir):
-                if len(item) >3 and item.endswith(".po"):
-                    file = os.path.join(self.opts.po_file_dir, item)
+            file = os.path.join(self.opts.po_file_dir, self.opts.pkg_name + "-" + self.opts.pkg_ver + ".po")
+            if os.path.exists(file):
                     self._do_po_file(file)
+#            else:
+#                for item in os.listdir(self.opts.po_file_dir):
+#                    if len(item) >3 and item.endswith(".po"):
+#                        file = os.path.join(self.opts.po_file_dir, item)
+#                        self._do_po_file(file)
 
         #self.show_merge()
         self.do_merge()
@@ -54,10 +57,10 @@ class Merge:
         data = open (file_name).readlines()
         first_msgstr = True
         for i in range(5, len(data)):
-            #如果有翻译的条目
+            # if not translate
             msgstr=""
             if data[i].find("msgstr") >=0 and len(data[i].split('"')) > 2:
-                #跳过第一个msgstr, 这是说明部分
+                # skip the first msgstr, it is the header
                 if first_msgstr:
                     first_msgstr = False
                     continue
@@ -66,11 +69,11 @@ class Merge:
                     msgstr += data[i].split('"')[1]+"\n"
                 else:
                     n = i
-                    #如果下一行不是空行，并且
+                    # if the next line is not empty, and
                     while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
                         msgstr += data[n+1].split('"')[1]+"\n"
                         n = n+1
-                #如果这一项有翻译，那么去分析源文件名及行号等信息
+                # if the msgstr has translated, then parser the source filename and line number.
                 if len(msgstr) > 0:
                     for rep in Replace_table_sort:
                         if msgstr.find(Replace_table[rep]) >= 0:
@@ -178,11 +181,11 @@ msgstr ""
                 for n in range(1, len(content)):
                     if n < last_n:
                         continue
-                    #如果这行是一个参数列表的开始
+                    # if this line is begin of @args
                     if re.search("^\*\ ?@\D+:",content[n].strip()):
                         begin=start_line+2+n
                         args=content[n][content[n].find("*")+1:].strip()
-                        #如果下一行不是一个参数的开始，并且不是一个空行，那么就是这个参数的续行,连在一起
+                        # if the next line is not begin of @args, and is not empty line, will append the next line to this line.(it is continued).
                         while n+1< len(content) and (not re.search("^\*\ ?@\D+:",content[n+1].strip())) and (not len(content[n+1].strip()) < 2): 
                             args = args + " " + content[n+1][content[n+1].find("*")+1:].strip()
                             n=n+1
@@ -196,11 +199,11 @@ msgstr ""
                         pot_fd.writelines ("\n")
                         continue
 
-                    #如果这行是一个空行，继续
+                    # if this line is empty, go on.
                     elif len(content[n].strip()) < 2:
                         continue
                     else:
-                        #如果这一行是代码开始
+                        # if this line is begin of the code.
                         if content[n].find("<programlisting>")>=0:
                             begin=start_line+2+n
                             while n+1 < len(content) and content[n+1].find("</programlisting>")<0:
@@ -214,7 +217,7 @@ msgstr ""
                             last_n = n+1
                             continue
 
-                        #如果这一行是说明，并且下一行不是空行，而是续行
+                        # if this line is description, and the next line is not empty, so the next line is continued.
                         if content[n].find("</programlisting>")>=0:
                             continue
                         begin=start_line+2+n
@@ -333,7 +336,7 @@ def main():
         args = os.path.abspath(i)
         Commands[opts.command].start(opts, args)
 
-    #最后检查是不是制作单一pot文件
+    # at last, check if make the single pot file.
     if (opts.command == 0 ) and ( not opts.multi_files ):
         os.system("msgcat %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
         for i in os.listdir(opts.po_file_dir):
