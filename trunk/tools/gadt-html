@@ -1,0 +1,54 @@
+#!/bin/sh
+# File: build.sh
+# Summary: This is a ...
+# Author: yetist <yetist@gmail.com>
+# Version: 2009-10-07 18:48:25
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+source ./build.rc
+startdir=`pwd`
+pkgfile=`basename $source`
+tmpdir=$startdir/tmp
+[ -d $tmpdir ] || mkdir $tmpdir
+srcdir=$tmpdir/$pkgname-$pkgver
+source ./build.rc
+
+echo "正在下载源文件..."
+$(
+cd $tmpdir;
+[ -f $pkgfile ] || wget $source;
+file $pkgfile |grep bzip && tar -jxf $pkgfile
+file $pkgfile |grep gzip && tar -zxf $pkgfile
+)
+
+gtkdocpo -n $modname -V $pkgver -m -p . $moddir
+
+echo "正在编译生成新文档..."
+$(
+cd $srcdir
+./configure $configure
+if [ -d $startdir/docs-$pkgver ];then
+	cp -r $startdir/docs-$pkgver/* $docdir
+fi
+cp $startdir/credits.xml $docdir
+now=`date +%Y年%m月%d日`
+sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
+make
+)
+
+echo "新文档位于 $htmldir "
+cp -r $htmldir .
+firefox html/index.html
+rm -rf $tmpdir
