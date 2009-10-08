@@ -50,5 +50,9 @@ make
 
 echo "新文档位于 $htmldir "
 cp -r $htmldir .
+cp -r html book
+mv book/$modname.devhelp book.devhelp
+tar -zcf $modname-$pkgver.tgz book book.devhelp
+rm -rf book book.devhelp
 firefox html/index.html
 rm -rf $tmpdir
