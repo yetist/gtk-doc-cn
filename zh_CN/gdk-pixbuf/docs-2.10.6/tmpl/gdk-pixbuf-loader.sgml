@@ -1,0 +1,195 @@
+<!-- ##### SECTION Title ##### -->
+GdkPixbuf加载器(GdkPixbufLoader)
+
+<!-- ##### SECTION Short_Description ##### -->
+应用驱动先进图像加载。
+
+<!-- ##### SECTION Long_Description ##### -->
+  <para>
+    #GdkPixbufLoader 提供了一种应用程序驱动加载图像过程的方法，该方法是通过
+    由应用程序直接向加载器发送图像数据来取代使加载器从文件读取数据的方式实现的。
+    应用程序可以使用这个功能来替代 gdk_pixbuf_new_from_file() 或
+    gdk_pixbuf_animation_new_from_file() 来解析分成小块的数据。例如，它
+    可以被用来读取通过(可能)很慢的网络连接传递的图像数据，或者加载一个非常大的
+    文件。
+  </para>
+
+  <para>
+    使用 #GdkPixbufLoader 来加载图像，只需要创建一个新的实例，然后调用
+     call gdk_pixbuf_loader_write() 来将数据发送给它。当发送完了，调用
+     gdk_pixbuf_loader_close() 来结束数据流并完成所有的事。在整个过程中
+    加载器将发出三个重要的信号。第一个，"<link
+    linkend="GdkPixbufLoader-size-prepared">size_prepared</link>"，
+    将在图像收到足够的信息来确定其大小的发出。如果需要在加载的时候缩放图像，
+    可以调用 gdk_pixbuf_loader_set_size() 来响应这个信号。
+    </para>
+
+    <para>
+    第二个，"<link
+    linkend="GdkPixbufLoader-area-prepared">area_prepared</link>"，
+    将在期望的 pixbuf 被分配完内存的时候发送。可以通过调用
+    gdk_pixbuf_loader_get_pixbuf()来取得该 pixbuf。简单的引用(ref)它便可以
+    使用。另外，现在还没有实际的数据传进来，所以如果需要，这个 pixbuf 可以被安全
+    的使用任何临时图像(或者一种初始颜色)进行填充。也可以在之后调用
+    gdk_pixbuf_loader_get_pixbuf() ，将得到同一个 pixbuf。
+  </para>
+
+  <para>
+    最后一个，"<link
+    linkend="GdkPixbufLoader-area-updated">area_updated</link>"，每当
+    有一个区域被更新时就发送一次。这样可以更新部分完成的图像。注意，你不能从
+    更新的区域得出这个完整图像的任何信息。例如，在一个交错的图像中，就需要在
+    图像完全加载之前进行多次传递。
+  </para>
+
+  <refsect2>
+    <title>加载一个动画 (Loading an animation)</title>
+
+    <para>
+      加载一个动画几乎和加载一个图像一样简单。当第一个 "<link
+      linkend="GdkPixbufLoader-area-prepared">area_prepared</link>" 信号
+      被发送后，可以调用 gdk_pixbuf_loader_get_animation() 来得到这个
+       #GdkPixbufAnimation 结构，并调用 gdk_pixbuf_animation_get_iter() 
+      来得到一个用来显示它的 #GdkPixbufAnimationIter。
+    </para>
+  </refsect2>
+
+<!-- ##### SECTION See_Also ##### -->
+  <para>
+    gdk_pixbuf_new_from_file(), gdk_pixbuf_animation_new_from_file()
+  </para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT GdkPixbufLoader ##### -->
+<para>
+The <structname>GdkPixbufLoader</structname> struct contains only private
+fields. 
+</para>
+
+
+<!-- ##### SIGNAL GdkPixbufLoader::area-prepared ##### -->
+  <para>
+  </para>
+
+@gdkpixbufloader: 
+
+<!-- ##### SIGNAL GdkPixbufLoader::area-updated ##### -->
+  <para>
+  </para>
+
+@gdkpixbufloader: 
+@arg1: 
+@arg2: 
+@arg3: 
+@arg4: 
+
+<!-- ##### SIGNAL GdkPixbufLoader::closed ##### -->
+  <para>
+  </para>
+
+@gdkpixbufloader: 
+
+<!-- ##### SIGNAL GdkPixbufLoader::size-prepared ##### -->
+  <para>
+  </para>
+
+@gdkpixbufloader: 
+@arg1: 
+@arg2: 
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_new_with_type ##### -->
+<para>
+
+</para>
+
+@image_type: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_new_with_mime_type ##### -->
+<para>
+
+</para>
+
+@mime_type: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_get_format ##### -->
+<para>
+
+</para>
+
+@loader: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_write ##### -->
+<para>
+
+</para>
+
+@loader: 
+@buf: 
+@count: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_set_size ##### -->
+<para>
+
+</para>
+
+@loader: 
+@width: 
+@height: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_get_pixbuf ##### -->
+<para>
+
+</para>
+
+@loader: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_get_animation ##### -->
+<para>
+
+</para>
+
+@loader: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_loader_close ##### -->
+<para>
+
+</para>
+
+@loader: 
+@error: 
+@Returns: 
+
+<!--
+Local variables:
+mode: sgml
+sgml-parent-document: ("../gdk-pixbuf.sgml" "book" "refsect2" "")
+End:
+-->
+
+

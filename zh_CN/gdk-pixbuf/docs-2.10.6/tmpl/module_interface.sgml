@@ -1,0 +1,338 @@
+<!-- ##### SECTION Title ##### -->
+模块接口 (Module Interface)
+
+<!-- ##### SECTION Short_Description ##### -->
+&gdk-pixbuf; 的扩展。
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+如果 &gdk-pixbuf; 被编译为支持 GModule，它就能通过可以加载（和解析、保存）新的图像和动画
+格式的模块来进行扩展。每个可加载的模块都必须有一个名叫<function>fill_info</function>
+的 #GdkPixbufModuleFillInfoFunc 的出口函数和一个名叫 <function>fill_vtable</function>
+的 #GdkPixbufModuleFillVtableFunc 出口函数。
+</para>
+
+<para>
+为了在实际加载模块前进行格式检查(format-checking)工作，模块用过 <function>fill_info</function>
+输出他们的特性（和其他信息）。<command>gdk-pixbuf-query-loaders</command> 是一个外部
+工具，它可以用来创建一个包含所有可用的加载器(loader)列表和他们的特性的文本文件。这个文件当
+&gdk-pixbuf; 在运行时读取来收集可用的加载器的列表和他们的特性。
+</para>
+
+<para>
+模块可能只实现 #GdkPixbufModule 功能的一个子集。如果一个特定的功能没有实现，
+<function>fill_vtable</function> 函数将不会设置 #GdkPixbufModule 结构的相应函数指针。
+如果一个模块支持渐进加载(例如:提供 #begin_load, #stop_load 和 #load_increment)，将
+需要再实现 #load，因为 &gdk-pixbuf; 可以提供一个通用加载的实现来包装这个渐进加载。
+</para>
+
+<para>
+安装一个模块需要两步。
+<itemizedlist>
+<listitem><para>将模块的文件拷贝到加载器(loader)目录(一般为：
+<filename><replaceable>libdir</replaceable>/gtk-2.0/<replaceable>version</replaceable>/loaders</filename>，
+除非被环境变量 <envar>GDK_PIXBUF_MODULEDIR</envar> 重写(override)了。)
+</para></listitem>
+<listitem><para>调用 <command>gdk-pixbuf-query-loaders</command> 来更新模块文件 (一般为：
+<filename><replaceable>sysconfdir</replaceable>/gtk-2.0/gdk-pixbuf.loaders</filename>，
+除非被环境变量 <envar>GDK_PIXBUF_MODULE_FILE</envar> 重写了。)
+</para></listitem>
+</itemizedlist>
+</para>
+
+<para>
+&gdk-pixbuf; 借口需要实现的模块包含在 <filename>gdk-pixbuf-io.h</filename> (
+如果这个模块支持动画，还包含在 <filename>gdk-pixbuf-animation.h</filename> 中)中。
+&gdk-pixbuf; 正常API的稳定性保证并不包含它们。为了强调这个事实，它们被 
+<literal>#ifdef GDK_PIXBUF_ENABLE_BACKEND</literal> 所保护。
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION gdk_pixbuf_set_option ##### -->
+<para>
+
+</para>
+
+@pixbuf: 
+@key: 
+@value: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_get_formats ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_get_name ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_get_description ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_get_mime_types ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_get_extensions ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_is_writable ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_is_scalable ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_is_disabled ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_set_disabled ##### -->
+<para>
+
+</para>
+
+@format: 
+@disabled: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_format_get_license ##### -->
+<para>
+
+</para>
+
+@format: 
+@Returns: 
+
+
+<!-- ##### STRUCT GdkPixbufFormat ##### -->
+<para>
+#GdkPixbufFormat 结构包含模块接受的图像格式的信息。只有模块可以直接访问这些字段，应用
+程序应该使用 <function>gdk_pixbuf_format_*</function> 函数。
+</para>
+
+@name: 图像格式的名称。
+@signature: 模块的签名.
+@domain: the message domain for the @description.
+@description: 图像格式的描述。
+@mime_types: 一个以 %NULL结束(%NULL-terminated)的图像格式数组。
+@extensions: 一个以 %NULL结束(%NULL-terminated)的象征性扩展名数组。
+@flags: #GdkPixbufFormatFlags 的组合。
+@disabled: 是否禁用该加载器(loader)的布尔值。
+@license: 一个包含许可证信息的字符串，一般都是想 "GPL", "LGPL" 之类的简写。
+@Since: 2.2
+
+<!-- ##### ENUM GdkPixbufFormatFlags ##### -->
+<para>
+允许模块指定关于所支持的操作的更多细节的标志。
+</para>
+
+@GDK_PIXBUF_FORMAT_WRITABLE: 模块可以以这个格式写图像文件。
+@GDK_PIXBUF_FORMAT_SCALABLE: 该图像格式可缩放。
+@GDK_PIXBUF_FORMAT_THREADSAFE: 这个模块是线程安全(threadsafe)的。如果没有设置
+这个标志位，&gdk-pixbuf; 将使用一个锁来防止多线程同时访问这个模块。(Since 2.6)
+@Since: 2.2
+
+<!-- ##### STRUCT GdkPixbufModulePattern ##### -->
+<para>
+模块的签名(signature)是一个前缀集(a set of prefixes)。前缀被编码成原始字符串对
+(pairs of ordinary strings)。如果第二个字符串(叫做掩码 mask)非空 (not %NULL )，
+则必须与第一个字符串(前缀)一样长，而且可以包含' '(空格), '!', 'x', 'z', 和 'n'
+分别表示该字节 必须匹配，不匹配， 不关心("don't-care"-bytes)， 零 和 非零。
+每个前缀都有一个相关的正数用来描述与前缀的相关性(relevance)，0表示错配(mismatch)
+，100表示完全匹配(perfect match)。
+</para>
+<para>
+从 &gdk-pixbuf; 2.8开始，掩码的第一个字节可以是 '*'，表示不只从开头开始
+匹配，也可以从中间开始，叫做unanchored pattern。2.8以前的版本会认为 '*' 是一个
+'x'。 
+</para>
+<para>
+模块的签名被储存为一个 #GdkPixbufModulePattern 的数组。该数组以一个 @prefix 为
+%NULL 的模式结尾。
+</para>
+
+<informalexample><programlisting>
+GdkPixbufModulePattern *signature[] = {
+  { "abcdx", " !x z", 100 },
+  { "bla", NULL,  90 },
+  { NULL, NULL, 0 }
+};
+</programlisting>
+在这个例子中，比如 "auud\0" 匹配的相关性为(relevance)100，而 "blau" 匹配的
+相关性为90。</informalexample>
+
+@prefix: 模式的前缀。
+@mask: 包含前缀与测试数据如何匹配的字节的掩码。
+@relevance: 这个模式的相关性。
+@Since: 2.2
+
+<!-- ##### USER_FUNCTION GdkPixbufModuleFillVtableFunc ##### -->
+<para>
+定义当 #GdkPixbufModule 被加载时用来设置其 vtable 的函数的类型。
+</para>
+
+@module: 一个 #GdkPixbufModule.
+@Since: 2.2
+
+
+<!-- ##### USER_FUNCTION GdkPixbufModuleFillInfoFunc ##### -->
+<para>
+定义一个函数类型， 这个函数使用模块的信息来填充 #GdkPixbufFormat 结构。
+</para>
+
+@info: 一个 #GdkPixbufFormat.
+@Since: 2.2
+
+
+<!-- ##### USER_FUNCTION GdkPixbufModuleSizeFunc ##### -->
+<para>
+定义一个函数类型，这个函数将在所加载的图像的大小被确定的时候被调用。
+</para>
+<para>
+这个函数将用来设置 @width 和 @height 到图像期望被缩放的大小。如果一个模块没有
+一个高效的方法在图像加载过程中实现预期的缩放，将要么忽略这个(设置)大小的请求，要么
+只是估算它 -- &gdk-pixbuf; 将在图像完全加载之后再进行预期的缩放。 
+</para>
+<para>
+如果这个函数将 @width 或 @height 设置成 0，这个模块将其理解成它将很快被关闭而且不需要
+分配更多的资源。这个约定用来更高效的实现 gdk_pixbuf_get_file_info()。
+</para>
+
+@width: 指向当前图像宽度的指针。
+@height: 指向当先图像高度的指正。
+@user_data: 加载器(the loader)。
+@Since: 2.2
+
+
+<!-- ##### USER_FUNCTION GdkPixbufModulePreparedFunc ##### -->
+<para>
+定义一个函数类型，这个函数在 @pixbuf 初始化设置完毕后被调用。
+</para>
+<para>
+#GdkPixbufLoader 使用这个类型的函数来发出
+"<link linkend="GdkPixbufLoader-area-prepared">area_prepared</link>"
+信号。
+</para>
+
+@pixbuf: 当前被加载的 #GdkPixbuf。
+@anim: 如果正在加载的是动画，为 #GdkPixbufAnimation， 否则为 %NULL 。
+@user_data: 加载器(the loader)。
+@Since: 2.2
+
+
+<!-- ##### USER_FUNCTION GdkPixbufModuleUpdatedFunc ##### -->
+<para>
+定义一个函数类型，这个函数在每当 @pixbuf 的某个区域被更新后就调用。
+</para>
+<para>
+#GdkPixbufLoader 使用这个类型的函数来发出
+"<link linkend="GdkPixbufLoader-area-updated">area_updated</link>"
+信号。
+</para>
+
+@pixbuf: 当前被加载的 #GdkPixbuf。
+@x: 被更新区域的 X 坐标。
+@y: 被更新区域的 Y 坐标。
+@width: 被更新区域的宽度。
+@height: 被更新区域的高度。
+@user_data: 加载器(the loader)。
+@Since: 2.2
+
+
+<!-- ##### STRUCT GdkPixbufModule ##### -->
+<para>
+#GdkPixbufModule 包含了以特定的格式加载和保存图像所需要的函数。
+</para>
+<para>
+#GdkPixbufModule 可以被 #GModule 动态加载。每个可加载的模块必须包含一个名为
+ <function>fill_vtable</function> 的 #GdkPixbufModuleFillVtableFunc 函数，
+这个函数将在这个模块被加载时调用而且必须设置 #GdkPixbufModule 的函数指针。
+</para>
+
+@module_name: 该模块的名称，通常与该类型图像文件常用的扩展名相同，比如 "xpm", "jpeg" or "png"。
+@module_path: 模块被加载的路径。
+@module: 被加载的 #GModule。
+@info: #GdkPixbufFormat 持有的关于该模块的信息。
+@load: 从一个文件加载图像。
+@load_xpm_data: 从内存中的数据加载图像。
+@begin_load: 开始一个渐进式(incremental)的加载。
+@stop_load: 结束一个渐进式(incremental)的加载。
+@load_increment: 继续一个渐进式(incremental)的加载。
+@load_animation: 从一个文件加载动画。
+@save: 将 #GdkPixbuf 保存到一个文件。
+@save_to_callback: 通过调用给定的  #GdkPixbufSaveFunc 函数保存 #GdkPixbuf。
+
+<!-- ##### STRUCT GdkPixbufAnimationClass ##### -->
+<para>
+模块支持的动画必须继承于 #GdkPixbufAnimation，并为这个虚函数提供适当的实现(implementation)。
+</para>
+
+@parent_class: 父类。
+@is_static_image: 返回给定的动画是否只是一个静态图像。
+@get_static_image: 返回一个表示这个给定的动画的一个静态图像。
+@get_size: 使用该动画的帧的大小来填充 @width 和 @height。
+@get_iter: 返回这个给定的动画的一个迭代子(iterator)。
+
+<!-- ##### STRUCT GdkPixbufAnimationIterClass ##### -->
+<para>
+模块支持的动画(译注:该处是否应该为动画的迭代子？)必须继承于 #GdkPixbufAnimationIter，并
+为这个虚函数提供适当的实现(implementation)。
+</para>
+
+@parent_class: 父类。
+@get_delay_time: 返回当前帧应该被显示的毫秒数。
+@get_pixbuf: 返回当前帧。
+@on_currently_loading_frame: 返回 @iter 所指的当前帧是否正被加载。
+@advance: 将迭代子增加到 @current_time，有可能会改变当前帧。
+

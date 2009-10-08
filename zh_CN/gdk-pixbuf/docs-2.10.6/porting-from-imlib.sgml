@@ -1,0 +1,298 @@
+  <appendix>
+    <title>将 &Imlib; 程序移植到 &gdk-pixbuf;</title>
+
+    <para>
+      该附录包含了将一个使用 &Imlib; 库的应用程序移植到 &gdk-pixbuf; 
+      所需要的基本步骤。
+    </para>
+
+    <note>
+      <para>
+        这个附件所涉及的 &Imlib; 为版本 1；该附录的讨论与 Imlib 2 无关。
+	而且，我们只 gdk_imlib API，而不是 Xlib-based API。
+      </para>
+    </note>
+
+    <!-- Introduction -->
+
+    <sect1>
+      <title>介绍</title>
+
+      <para>
+        在 GNOME 1.2 平台以前， &Imlib; 库是个很受欢迎的方法在 GNOME 程序中加
+	载和渲染图像。不幸的是，由于 &Imlib; 库的一些重要的设计的局限性，使得很
+	难写出高效且高度模块化的应用程序。
+      </para>
+
+      <para>
+        &gdk-pixbuf; 库是为弥补 &Imlib; 库的短处而设计开发的。它提供了一个简单的，
+	直接的 API 和方便的函数来进行最常用的操作。另外，它支持图像的全透明信息，或
+	者 alpha 通道。更重要的，它通过使用引用数提供了一组良好定义的语义
+	(well-defined semantics)来进行内存管理；&Imlib 难以驾驭的复杂的内
+	存管理机制和缓存常常令人头痛。
+      </para>
+    </sect1>
+
+    <!-- Differences between Imlib and gdk-pixbuf -->
+
+    <sect1>
+      <title>&Imlib; 和 &gdk-pixbuf; 之间的区别</title>
+
+      <para>
+        总体来说，使用 &Imlib; 的应用程序不必进行大量的改动就能使用
+	&gdk-pixbuf;；&gdk-pixbuf 的简单且柔性的 API 使事情变得很
+	容易。这个章节描述了 &Imlib; 和 &gdk-pixbuf; 之间的不同之处。
+	当你正转换你的程序到 &gdk-pixbuf; 时，不妨考虑读读这个章节。
+      </para>
+
+      <!-- Initialization -->
+
+      <sect2>
+	<title>初始化</title>
+
+	<para>
+	  &gdk-pixbuf; 库不需要初始化。
+	</para>
+
+	<note>
+	  <para>
+	    在 GNOME 应用程序中，正常情况下都不需要初始化 &Imlib;，
+	    <function>gnome_init()</function> 会自动调用 
+	    <function>gdk_imlib_init()</function>。
+	  </para>
+	</note>
+      </sect2>
+
+      <!-- Memory management -->
+
+      <sect2>
+	<title>内存管理</title>
+
+	<para>
+	  &gdk-pixbuf; 库为图像处理提供了一个简单的，良好设计的内存管理机
+	  制，该机制采用引用计数(reference counting)的方式。这将非常方便
+	  的应用于需要在程序不同的部分共享图像的大型应用程序。作为一个鲜明的
+	  对比，&Imlib; 使用一种十分复杂图像和像素映射缓存(pixmap cache)
+	  的机制，这使得程序的不同部分之间共享图像结构变得非常困难。不幸的
+	  是，这种机制非常容易造成内存泄漏和难以捕捉的BUG。
+	</para>
+
+	<para>
+	  &gdk-pixbuf; 中的基本原理是 当你得到一个新的 
+	  <link linkend="GdkPixbuf">GdkPixbuf</link> 结构时，它在被创建
+	  时就初始化为引用计数为 1。当程序的另一个部分想保持对该 pixbuf 的一
+	  个引用时，应该调用 <function>g_object_ref()</function> -- 这
+	  将使引用计数增加 1。当程序的某个部分不需要再保持该 pixbuf 的引用并
+	  想将其释放时，应该调用 <function>g_object_unref()</function> -
+	  - 这将使其引用计数减小 1。当其引用计数降到 0 的时候，这个 pixbuf 
+	  被销毁或 <emphasis>finalized</emphasis>，其内存被释放。
+	</para>
+
+	<para>
+	  有些程序需要缓存一个已经加载的图像，&gdk-pixbuf; 提供了一中在对
+	  pixbuf 的最后一次释放引用(unreference)操作设置一个钩子的方法来取
+	  代析构(finalizing)这个 pixbuf，用户安装的钩子函数可以决定将该图像
+	  缓存。
+	</para>
+
+	<para>
+	  最后，&gdk-pixbuf; 不提供对于渲染过的 pixmap 的缓存。多数的程
+	  序中都没有这个需要，因为缩放和渲染的函数都非常快，而且程序在每次调用
+	  这些函数时可能需要参数值，例如，抖动和缩放的偏移值。
+	</para>
+
+	<para>
+	  在大多数程序中，当需要持有对一个 pixbuf 的一个额外的引用时，只需要简单
+	  的调用 <function>g_object_ref()</function>，当不再需要时调用 
+	  <function>g_object_unref()</function> 。
+	</para>
+      </sect2>
+
+      <!-- The Rendering Process -->
+
+      <sect2>
+	<title>渲染过程</title>
+
+	<para>
+	  &gdk-pixbuf 库的策略是始终对你提供的 GDK drawable 进行渲染，它不会为你
+	  创建。一般来说这个比 &Imlib; 的始终创建一个 pixmap 并强制你使用的
+	  策略更灵活。
+	</para>
+
+	<para>
+	  始终创建 pixmap 的缺点是当想将这个渲染的数据拷贝到另外一个 drawable
+	  时，会浪费 X 服务器的内存，例如，最终的目标窗口或者一个临时绘制的 
+	  pixmap。这是很常见的情况，不幸的是， &Imlib; 策略引入了多余的复制。
+	</para>
+
+	<para>
+	  另外，&Imlib; 只能渲染整个原始图像大小的 pixmap，不能对这个图像的
+	  一个子区域进行渲染。这给一次只需要渲染一小部分的程序带来了不便，
+	  例如进行滚动的程序。因为一次就需要渲染整个图像，这将导致性能和内存
+	  使用的问题。
+	</para>
+
+	<para>
+	  &gdk-pixbuf; 库允许渲染从一个图像的任何的矩形区域到你提供的任何
+	  drawable。这使的程序具有很好的对图像渲染方式的控制。
+	</para>
+      </sect2>
+    </sect1>
+
+    <!-- Converting Applications to gdk-pixbuf -->
+
+    <sect1>
+      <title>将程序转换到 &gdk-pixbuf;</title>
+
+      <para>
+	该章节描述了将使用 &Imlib; 的程序转换到使用 &gdk-pixbuf; 所需要进行的
+	实际改变。
+      </para>
+
+      <!-- Image loading and creation -->
+
+      <sect2>
+	<title>加载和创建图像</title>
+
+	<para>
+	  &gdk-pixbuf; 库可以同步的加载图像文件(例如使用一个单独的函数调用)，
+	  从内存中的 RGB 数据创建一个图像，作为一个便捷途径，还可以从内嵌的
+	   XPM 数据创建图像。
+	</para>
+
+	<para>
+	  使用一个单独的函数调用来加载一个图像文件，可以简单的使用
+	   <function>gdk_pixbuf_new_from_file()</function>。注意，这将
+	  导致程序在整个文件加载完成前被阻塞。这个函数有效的取代了
+	   <function>gdk_imlib_load_image()</function>。
+	</para>
+
+	<para>
+	  如果内存中有 RGB 数据，可以使用
+	  <function>gdk_pixbuf_new_from_data()</function> 来用这些数据
+	  创建一个 pixbuf，这个函数可以代替
+	  <function>gdk_imlib_create_image_from_data()</function> 。
+	  &gdk-pixbuf; 并不复制图像数据；需要你定义一个使用将在图像数据被释
+	  放时调用的销毁通知函数(destroy notification function)的策略。你
+	  提供的这个函数可以释放这些数据或者做其他的合适的事情。
+	</para>
+
+	<para>
+	  作为一个便捷途径，你可以使用
+	  <function>gdk_pixbuf_new_from_xpm_data()</function> 函数使用
+	  内嵌的已经编译到你的 C 程序的 XPM 数据来创建一个 pixbuf。该函数可以
+	  作为 <function>gdk_imlib_create_image_from_xpm_data()</function>
+	  的一个替代。
+	</para>
+
+	<para>
+	  当你创建了一个 pixbuf 后，可以使用任何喜欢的方法来对其进行操作，当
+	  一切完成后最终调用 <function>g_object_unref()</function>。这个函数
+	  可以被看作 <function>gdk_imlib_destroy_image()</function> 的替代
+	  函数，但其具有更多的清除语义(cleaner semantics)。
+	</para>
+      </sect2>
+
+      <!-- Rendering Images -->
+
+      <sect2>
+	<title>渲染图像</title>
+
+	<para>
+	  使用 &Imlib; 的程序必须先调用 <function>gdk_imlib_render()</function> 
+	  来将整个的图像数据渲染到其创建的 pixmap 上。让后必须拷贝这个 pixmap 的
+	  数据到图像的最终目的地。
+	</para>
+
+	<para>
+	  相比之下，&gdk-pixbuf; 提供了一些可以方便的将一个图像的任意一个矩形
+	  区域渲染到一个程序提供的 drawable 上。可以使用
+	  <function>gdk_pixbuf_render_to_drawable()</function> 或者
+	  <function>gdk_pixbuf_render_to_drawable_alpha()</function>
+	  来完成这些。让你的程序提供 drawable 和指定任意区域意味着你的程序可以
+	  完全控制图像的渲染方式。
+	</para>
+
+	<para>
+	  为了方便起见， &gdk-pixbuf; 也提供了
+	  <function>gdk_pixbuf_render_pixmap_and_mask()</function>
+	  函数 -- 这将为整个 pixbuf 创建新的 pixmap 和 mask drawable
+	  并为其渲染图像数据。只有一些琐碎的小程序会使用这个函数，因为通常
+	  都想很好的控制怎样去进行渲染。
+	</para>
+      </sect2>
+
+      <!-- Scaling Images -->
+
+      <sect2>
+	<title>图像的缩放</title>
+
+	<para>
+	  &Imlib; 可以使你在调用 <function>gdk_imlib_render()</function>
+	  的同时渲染缩放图像。同样，这个也是缩放和渲染整个的图像到一个新的
+	  pixmap。
+	</para>
+
+	<para>
+	  &gdk-pixbuf; 提供了很多可以缩放源 pixbuf 的任何区域并渲染到目标
+	  pixbuf 的函数。这些函数还可以处理合成操作，与目标 pixbuf 合成、
+	  与单一颜色(solid color)合成或者与颜色棋盘合成。
+	  <footnote>
+	    <para>
+	      当你想为这个图像有部分不透明区域提供一个可见的指示时，你可以使用
+	      一个色彩棋盘作为一个背景进行合成。这在图像编辑和查看程序中很常用。
+	    </para>
+
+	    <para>
+	      将图像与单一颜色(solid color)合成实际上是一种特殊情况的棋盘 -- 
+	      该棋盘使用相同颜色的格子。
+	    </para>
+	  </footnote>
+	</para>
+
+	<para>
+	  非常简单的程序使用
+	  <function>gdk_pixbuf_scale_simple()</function> or
+	  <function>gdk_pixbuf_composite_color_simple()</function>
+	  可能就足够了。这些函数缩放整个的源图像并使用的结果创建一个新的
+	  pixbuf。
+	</para>
+
+	<para>
+	  更复杂的程序将需要使用
+	  <function>gdk_pixbuf_scale()</function>,
+	  <function>gdk_pixbuf_composite()</function>, 或者
+	  <function>gdk_pixbuf_composite_color()</function>
+	  函数来替代。这些函数允许你缩放和合成源 pixbuf 的任何一个区域
+	  到你提供的目标 pixbuf。
+	</para>
+      </sect2>
+
+      <!-- Getting Image Data from a Drawable -->
+
+      <sect2>
+	<title>从 Drawable 获取图像数据</title>
+
+	<para>
+	  &Imlib; 允许你通过从 X 服务器获取一个 drawable 的内容并将其转
+	  换成 RGB 数据来创建一个图像。这使用
+	  <function>gdk_imlib_create_image_from_drawable()</function>
+	  来完成。
+	</para>
+
+	<para>
+	  &gdk-pixbuf; 提供了
+	  <function>gdk_pixbuf_get_from_drawable()</function> 函数来
+	  代替。这需要你指定一个目标 pixbuf，而不是总为你创建一个新的。
+	</para>
+      </sect2>
+    </sect1>
+  </appendix>
+
+<!--
+Local variables:
+mode: sgml
+sgml-parent-document: ("gdk-pixbuf.sgml" "book" "book" "")
+End:
+-->
+
