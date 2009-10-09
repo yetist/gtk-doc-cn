@@ -12,7 +12,7 @@ colormap images to a #GdkDrawable. It does this as efficiently as
 possible, handling issues such as colormaps, visuals, dithering,
 temporary buffers, and so on. Most code should use the higher-level
 #GdkPixbuf features in place of this module; for example,
-gdk_pixbuf_render_to_drawable() uses GdkRGB in its implementation.
+gdk_draw_pixbuf() uses GdkRGB in its implementation.
 </para>
 
 <para>
@@ -32,6 +32,13 @@ of GdkRGB. Note, however, that setting it to 0 doesn't let you get
 away with ignoring the colormap and visual - a colormap is always
 created in grayscale and direct color modes, and the visual is changed
 in cases where a "better" visual than the default is available.
+</para>
+
+<para>
+If GDK is built with the Sun mediaLib library, the GdkRGB functions are
+accelerated using mediaLib, which provides hardware acceleration on Intel,
+AMD, and Sparc chipsets.  If desired, mediaLib support can be turned off
+by setting the GDK_DISABLE_MEDIALIB environment variable.
 </para>
 
 <example>
@@ -107,7 +114,7 @@ colors.</para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term>#GdkPixbuf and gdk_pixbuf_render_to_drawable()</term>
+<term>#GdkPixbuf and gdk_draw_pixbuf()</term>
 <listitem><para>Higher-level image handling.</para></listitem>
 </varlistentry>
 
@@ -318,8 +325,8 @@ A private data structure which maps color indices to actual RGB
 colors. This is used only for gdk_draw_indexed_image().
 </para>
 
-@colors: 
-@n_colors: 
+@colors: The colors, represented as 0xRRGGBB integer values.
+@n_colors: The number of colors in the cmap.
 
 <!-- ##### FUNCTION gdk_rgb_gc_set_foreground ##### -->
 <para>

@@ -31,12 +31,14 @@ You must call g_thread_init() and gdk_threads_init() before executing
 any other GTK+ or GDK functions in a threaded GTK+ program.
 </para>
 <para>
-Idles, timeouts, and input functions are executed outside
-of the main GTK+ lock. So, if you need to call GTK+
-inside of such a callback, you must surround the callback
-with a gdk_threads_enter()/gdk_threads_leave() pair.
-(However, signals are still executed within the main
-GTK+ lock.)
+Idles, timeouts, and input functions from GLib, such as g_idle_add(), are
+executed outside of the main GTK+ lock.
+So, if you need to call GTK+ inside of such a callback, you must surround
+the callback with a gdk_threads_enter()/gdk_threads_leave() pair or use
+gdk_threads_add_idle_full() which does this for you.
+However, event dispatching from the mainloop is still executed within
+the main GTK+ lock, so callback functions connected to event signals
+like GtkWidget::button-press-event, do not need thread protection.
 </para>
 <para>
 In particular, this means, if you are writing widgets that might 
@@ -210,8 +212,7 @@ int main (int argc, char *argv[])
   /* create a window */
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
-  gtk_signal_connect (GTK_OBJECT (window), "destroy",
-		      GTK_SIGNAL_FUNC (destroy), NULL);
+  g_signal_connect (window, "destroy", G_CALLBACK (destroy), NULL);
 
   gtk_container_set_border_width (GTK_CONTAINER (window), 10);
 
@@ -251,11 +252,12 @@ int main (int argc, char *argv[])
 
 <!-- ##### MACRO GDK_THREADS_ENTER ##### -->
 <para>
-This macro marks the beginning of a critical section in which GDK and GTK+
-functions can be called.  Only one thread at a time can be in such a
-critial section. The macro expands to a no-op if #G_THREADS_ENABLED
-has not been defined. Typically gdk_threads_enter() should be used 
-instead of this macro.
+This macro marks the beginning of a critical section in which GDK and
+GTK+ functions can be called safely and without causing race
+conditions.  Only one thread at a time can be in such a critial
+section. The macro expands to a no-op if #G_THREADS_ENABLED has not
+been defined. Typically gdk_threads_enter() should be used instead of
+this macro.
 </para>
 
 
@@ -277,9 +279,9 @@ begun with #GDK_THREADS_ENTER.
 
 <!-- ##### FUNCTION gdk_threads_enter ##### -->
 <para>
-This macro marks the beginning of a critical section
-in which GDK and GTK+ functions can be called.
-Only one thread at a time can be in such a critial 
+This macro marks the beginning of a critical section in which GDK and
+GTK+ functions can be called safely and without causing race
+conditions.  Only one thread at a time can be in such a critial
 section.
 </para>
 
@@ -306,5 +308,75 @@ gdk_threads_enter()/gdk_threads_leave().
 
 @enter_fn: 
 @leave_fn: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_idle ##### -->
+<para>
+
+</para>
+
+@function: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_idle_full ##### -->
+<para>
+
+</para>
+
+@priority: 
+@function: 
+@data: 
+@notify: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_timeout ##### -->
+<para>
+
+</para>
+
+@interval: 
+@function: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_timeout_full ##### -->
+<para>
+
+</para>
+
+@priority: 
+@interval: 
+@function: 
+@data: 
+@notify: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_timeout_seconds ##### -->
+<para>
+
+</para>
+
+@interval: 
+@function: 
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_threads_add_timeout_seconds_full ##### -->
+<para>
+
+</para>
+
+@priority: 
+@interval: 
+@function: 
+@data: 
+@notify: 
+@Returns: 
 
 
