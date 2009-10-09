@@ -320,6 +320,16 @@ update_sgml()
 	cp $startdir/credits.xml $docdir
 	local now=`date +%Y年%m月%d日`
 	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
+	if [ -f $startdir/AUTHORS ]; then
+		cat $startdir/AUTHORS|sort|while read line;
+		do 
+			author=`echo $line|awk '{print $1}'`
+			mail=`echo $line|awk '{print $2}'`
+			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
+			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/credits.xml
+			
+		done
+	fi
 }
 
 ##
