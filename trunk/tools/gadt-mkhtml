@@ -305,7 +305,9 @@ compile_source()
 	if [ "$NOCONFIGURE" -eq 0 ]; then
 		./configure $configure || return 1
 	fi
+	pushd $docdir
 	make || return 1
+	popd
 	popd
 	cp -r $htmldir .
 	msg "新文档位于 $startdir/html"
