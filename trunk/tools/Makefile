@@ -12,7 +12,7 @@ allclean:
 
 check: 
 	@(if which gadt-mkhtml >/dev/null 2>&1; then \
-		touch .check.stamp;	\
+		;	\
 	else	\
 		echo "please run init.sh in the topdir please"; \
 	fi)
