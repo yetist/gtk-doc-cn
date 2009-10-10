@@ -357,7 +357,7 @@ make_htmlhelp()
 {
 	msg "htmlhelp文档为 $modname-$pkgver.tgz"
 	cp -r html book
-	mv book/$modname.devhelp book.devhelp
+	mv book/*.devhelp book.devhelp
 	tar -zcf $modname-$pkgver.tgz book book.devhelp
 	rm -rf book book.devhelp
 }
