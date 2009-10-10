@@ -18,6 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 NOBUILD=0
+INSTALL=0
 NOSGML=0
 LOGGING=0
 NOCONFIGURE=0
@@ -98,6 +99,7 @@ usage() {
 	echo "  -C, --cleancache Clean up source files from the cache"
 	echo "  -e, --noextract  Do not extract source files (use existing src/ dir)"
 	echo "  -h, --help       This help"
+	echo "  -i, --install    Install the html document to the system, so devhelp can show it"
 	echo "  -L, --log        Log package build process"
 	echo "  -o, --nobuild    Download and extract files only"
 	echo "  -s, --nosgml     Do not update the sgml files"
@@ -198,8 +200,8 @@ parse_options() {
 ARGLIST=$@
 
 # Parse Command Line Options.
-OPT_SHORT="cCehHLnop:st"
-OPT_LONG="clean,cleancache,editsgml,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
+OPT_SHORT="cCehHiLnop:st"
+OPT_LONG="clean,cleancache,editsgml,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
 # Pacman Options
 OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
 if echo "$OPT_TEMP" | grep -q 'PARSE_OPTIONS FAILED'; then
@@ -220,6 +222,7 @@ while true; do
 		-n|--noconfigure)      NOCONFIGURE=1 ;;
 		-o|--nobuild)     NOBUILD=1 ;;
 		-s|--nosgml)      NOSGML=1 ;;
+		-i|--install)      INSTALL=1 ;;
 		-H|--nohtmlhelp)      NOHTMLHELP=1 ;;
 		-t|--editsgml)      EDITSGML=1 ;;
 		-p)               shift; BUILDFILE=$1 ;;
@@ -366,6 +369,19 @@ make_htmlhelp()
 	rm -rf book book.devhelp
 }
 
+make_install()
+{
+	msg "正在将文档安装到用户目录, 将调用devhelp来显示..."
+	if [ ! -d ~/.local/share/devhelp/books ];
+	then
+		mkdir -p ~/.local/share/devhelp/books;
+	fi
+
+	cp -r html ~/.local/share/devhelp/books/$modname
+	devhelp -s "$modname 参考手册" &
+}
+
+
 translate_sgml()
 {
 	local olddocs=$startdir/docs-$pkgver
@@ -443,6 +459,13 @@ if [ "$CLEANCACHE" -eq 1 ]; then
 	fi
 fi
 
+if [ "$INSTALL" -eq 1 ]; then
+	if [ -d html ]; then
+		run_function make_install
+		exit 0
+	fi
+fi
+
 if [ "$NOEXTRACT" -eq 1 ]; then
 	warning "Skipping source retrieval        -- using existing $srcdir tree"
 
@@ -470,4 +493,8 @@ fi
 
 if [ "$NOHTMLHELP" -eq 0 ]; then
 	run_function make_htmlhelp
+fi
+
+if [ "$INSTALL" -eq 1 ]; then
+	run_function make_install
 fi

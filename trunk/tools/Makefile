@@ -20,4 +20,7 @@ check:
 release:
 	@(scp *.tgz dev.osprg.org:public_html/docs)
 
-.PHONY: check all allclean clean sgml
+install:
+	gadt-mkhtml -i
+
+.PHONY: check all allclean clean sgml release install
