@@ -308,11 +308,11 @@ compile_source()
 	if [ "$NOCONFIGURE" -eq 0 ]; then
 		./configure $configure || return 1
 	fi
-	if [ -d $moddir ]; then
+	if [ -d $moddir/.libs ]; then
 		pushd $docdir
 	fi
 	make || return 1
-	if [ -d $moddir ]; then
+	if [ -d $moddir/.libs ]; then
 		popd
 	fi
 	popd
