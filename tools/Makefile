@@ -17,4 +17,7 @@ check:
 		echo "please run init.sh in the topdir please"; \
 	fi)
 
+release:
+	@(scp *.tgz dev.osprg.org:public_html/docs)
+
 .PHONY: check all allclean clean sgml
