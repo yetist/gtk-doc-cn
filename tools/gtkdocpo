@@ -52,29 +52,36 @@ class Merge:
         #self.show_merge()
         self.do_merge()
 
+    def get_message(self, data, line, atype="msgstr"):
+            # if not translate
+            if atype=="msgid":
+                break_str="msgstr"
+            else:
+                break_str="\"Project-Id-Version:"
+            message=""
+            n = line
+            if data[line].find(atype) >=0 and len(data[line].split('"')) > 2:
+                if data[line].split('"')[1] != '':
+                    message += data[line].split('"')[1]+"\n"
+                else:
+                    # if the next line is not empty, and
+                    while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
+                        message += data[n+1].split('"')[1]+"\n"
+                        n = n+1
+            return (message, line, n-line)
+
     def _do_po_file (self, file_name):
         print ">>>", file_name
         data = open (file_name).readlines()
         first_msgstr = True
         for i in range(5, len(data)):
             # if not translate
-            msgstr=""
-            if data[i].find("msgstr") >=0 and len(data[i].split('"')) > 2:
-                # skip the first msgstr, it is the header
-                if first_msgstr:
-                    first_msgstr = False
-                    continue
-
-                if data[i].split('"')[1] != '':
-                    msgstr += data[i].split('"')[1]+"\n"
-                else:
-                    n = i
-                    # if the next line is not empty, and
-                    while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
-                        msgstr += data[n+1].split('"')[1]+"\n"
-                        n = n+1
+            if data[i].startswith("msgid"):
+                (msgid, n1, cnt1) = self.get_message(data, i, "msgid")
+                (msgstr, n2, cnt2) = self.get_message(data, n1+cnt1+1, "msgstr")
+                #如果已经翻译则继续
                 # if the msgstr has translated, then parser the source filename and line number.
-                if len(msgstr) > 0:
+                if len(msgstr) > 0 and data[i-1].split()[2] != "fuzzy":
                     for rep in Replace_table_sort:
                         if msgstr.find(Replace_table[rep]) >= 0:
                             msgstr = msgstr.replace(Replace_table[rep], rep)+"\n"
