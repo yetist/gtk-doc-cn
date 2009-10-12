@@ -20,6 +20,7 @@
 NOBUILD=0
 INSTALL=0
 NOSGML=0
+FUZZY=0
 LOGGING=0
 NOCONFIGURE=0
 CLEANUP=0
@@ -98,6 +99,7 @@ usage() {
 	echo "  -c, --clean      Clean up work files after build"
 	echo "  -C, --cleancache Clean up source files from the cache"
 	echo "  -e, --noextract  Do not extract source files (use existing src/ dir)"
+	echo "  -f, --fuzzy      Use fuzzy item in po file (Unsafe)"
 	echo "  -h, --help       This help"
 	echo "  -i, --install    Install the html document to the system, so devhelp can show it"
 	echo "  -L, --log        Log package build process"
@@ -200,8 +202,8 @@ parse_options() {
 ARGLIST=$@
 
 # Parse Command Line Options.
-OPT_SHORT="cCehHiLnop:st"
-OPT_LONG="clean,cleancache,editsgml,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
+OPT_SHORT="cCefhHiLnop:st"
+OPT_LONG="clean,cleancache,fuzzy,editsgml,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
 # Pacman Options
 OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
 if echo "$OPT_TEMP" | grep -q 'PARSE_OPTIONS FAILED'; then
@@ -217,6 +219,7 @@ while true; do
 		-c|--clean)       CLEANUP=1 ;;
 		-C|--cleancache)  CLEANCACHE=1 ;;
 		-e|--noextract)   NOEXTRACT=1 ;;
+		-f|--fuzzy)       FUZZY=1 ;;
 		-L|--log)         LOGGING=1 ;;
 		-m|--nocolor)     USE_COLOR='n' ;;
 		-n|--noconfigure)      NOCONFIGURE=1 ;;
@@ -298,7 +301,12 @@ download_source()
 		exit 1
 	fi
 	popd >/dev/null
+if [ "$FUZZY" -eq 1 ]; then
+	warning "Use fuzzy item -- Unsafe"
+	gtkdocpo -f -n $modname -V $pkgver -m -p . $moddir || return 1
+else
 	gtkdocpo -n $modname -V $pkgver -m -p . $moddir || return 1
+fi
 }
 
 compile_source()
