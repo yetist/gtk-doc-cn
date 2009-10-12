@@ -14,7 +14,7 @@ check:
 	@(if which gadt-mkhtml >/dev/null 2>&1; then \
 		echo "";\
 	else	\
-		echo "please run init.sh in the topdir please"; \
+		printf "\033[1;31m==> "ERROR:"\033[1;0m\033[1;1m  Please run init.sh in the topdir first!!!\033[1;0m\n" >&2; \
 	fi)
 
 release:
