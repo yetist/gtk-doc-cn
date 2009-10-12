@@ -102,11 +102,11 @@ def _do_po_file (file_name):
                     newdata[baseline+n2:baseline+n2+1] = ["msgstr \"\"\n", '"'+translate(msgid).encode("utf-8")+'"', "\n"]
                     baseline = baseline+2
 
-            pot_fd = open(file_name, "w")
-            for i in newdata:
-                if i:
-                    pot_fd.writelines (i)
-            pot_fd.close()
+    pot_fd = open(file_name, "w")
+    for i in newdata:
+        if i:
+            pot_fd.writelines (i)
+    pot_fd.close()
  
 def test(filename):
     _do_po_file(filename)
