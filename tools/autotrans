@@ -86,7 +86,10 @@ def _do_po_file (file_name):
     for i in range(5, len(data)):
         if data[i].startswith("msgid"):
             (msgid, n1, cnt1) = get_message(data, i, "msgid")
-            (msgstr, n2, cnt2) = get_message(data, n1+cnt1+1, "msgstr")
+            if data[n1+cnt1].find("msgstr") >=0:
+                (msgstr, n2, cnt2) = get_message(data, n1+cnt1, "msgstr")
+            else:
+                (msgstr, n2, cnt2) = get_message(data, n1+cnt1+1, "msgstr")
             if len(msgstr) > 0: #如果已经翻译则继续
                 continue
             if len(msgid) > 0:
