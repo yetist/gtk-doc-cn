@@ -29,6 +29,7 @@ opts = {
     "include_code":False,
     "po_file_dir":os.getcwd()+'/gtkdocpo',
     "look":True,
+    "fuzzy":False,
     "pkg_ver":"VERSION"
     }
 
@@ -74,6 +75,7 @@ class Merge:
         print ">>>", file_name
         data = open (file_name).readlines()
         first_msgstr = True
+        fuzzy_flag=False
         for i in range(5, len(data)):
             # if not translate
             if data[i].startswith("msgid"):
@@ -81,7 +83,12 @@ class Merge:
                 (msgstr, n2, cnt2) = self.get_message(data, n1+cnt1+1, "msgstr")
                 #如果已经翻译则继续
                 # if the msgstr has translated, then parser the source filename and line number.
-                if len(msgstr) > 0 and data[i-1].split()[2] != "fuzzy":
+                if self.opts.fuzzy is True:
+                    fuzzy_flag=True
+                else:
+                    if len(data[i-1].split())> 2 and data[i-1].split()[2] == "fuzzy":
+                        fuzzy_flag=False
+                if len(msgstr) > 0 and fuzzy_flag:
                     for rep in Replace_table_sort:
                         if msgstr.find(Replace_table[rep]) >= 0:
                             msgstr = msgstr.replace(Replace_table[rep], rep)+"\n"
@@ -285,6 +292,9 @@ def get_opts():
     group.add_option("-V", "--package-version",
             dest = "pkg_ver", action = "store", type = "string",
             help = "the package version used for pot file. default:VERSION")
+    group.add_option("-f", "--fuzzy",
+            dest = "fuzzy", action = "store_true",
+            help = "if set, will use the fuzzy item in po file.")
     group.add_option("-i", "--include-code",
             dest = "include_code", action = "store_true",
             help = "if set, some code will show in msgid of pot file according gtkdoc format.")
@@ -328,6 +338,8 @@ def main():
                 "\t\tuse default pot dir: ./gtkdocpo\n" % parser.get_prog_name())
         print ("\t%s -m -p pot_dir /tmp/gtk+-2.10.6/gtk\n"
                 "\t\tset pot dir\n" % parser.get_prog_name())
+        print ("\t%s -m -f -p pot_dir /tmp/gtk+-2.10.6/gtk\n"
+                "\t\tset pot dir, and use fuzzy item.\n" % parser.get_prog_name())
         sys.exit(0)
 
     if len(args) < 1:
