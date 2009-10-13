@@ -31,7 +31,7 @@ clean:
 	gadt-mkhtml --clean
 
 allclean:
-	rm -rf tmp *~ html *.tgz
+	rm -rf tmp *~ po
 
 help:
 	@(echo "帮助：")	

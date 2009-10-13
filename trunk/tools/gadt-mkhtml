@@ -400,7 +400,7 @@ download_source()
 compile_source()
 {
 	msg "正在编译生成新文档..."
-	pushd $srcdir
+	cd $srcdir
 	if [ "$NOCONFIGURE" -eq 0 ]; then
 		./configure $configure || return 1
 	fi
@@ -411,7 +411,7 @@ compile_source()
 	if [ -d $moddir/.libs ]; then
 		popd
 	fi
-	popd
+	cd $startdir
 	cp -r $htmldir $tmpdir
 	msg "新文档位于 $tmpdir/html"
 }
