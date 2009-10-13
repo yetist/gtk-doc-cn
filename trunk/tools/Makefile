@@ -1,6 +1,6 @@
 init:
 	@(echo "正在初始化, 请稍候...")
-	@(cd ../../; ./init.sh)
+	@(cd ../../tools; ./gadt-init)
 	@(cd ../..; svn update)
 	@(gadt-mkhtml --nobuild --nosgml --nohtmlhelp)
 	@(echo -e "初始化成功, 要查看帮助请运行\nmake help\n")
