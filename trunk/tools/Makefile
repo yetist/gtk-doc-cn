@@ -47,10 +47,11 @@ help:
 	@(echo -e "\tmake allclean      清除所有不需要的文件(请小心使用)")
 
 release:
-	@(source ./build.rc; if [ -f $modname-$pkgver.tgz ]; then \
-		scp $modname-$pkgver.tgz dev.osprg.org:public_html/docs; \
-		else \
+	@(source ./build.rc; \
+	if [ -f tmp/$$modname-$$pkgver.tgz ]; then \
+		scp tmp/$$modname-$$pkgver.tgz dev.osprg.org:public_html/docs; \
+	else \
 		printf "\033[1;1m htmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
-		fi)
+	fi)
 
 .PHONY: sgml docs merge commit devhelp reviewsgml clean allclean release
