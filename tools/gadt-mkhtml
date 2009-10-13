@@ -17,17 +17,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-NOBUILD=0
-INSTALL=0
-NOSGML=0
-FUZZY=0
-LOGGING=0
-NOCONFIGURE=0
+CLEANCACHE=0
 CLEANUP=0
 EDITSGML=0
+FUZZY=0
+INSTALL=0
+LIST=0
+LOGGING=0
+MERGEPO=0
+NOBUILD=0
+NOCONFIGURE=0
 NOEXTRACT=0
 NOHTMLHELP=0
-CLEANCACHE=0
+NOSGML=0
+NOBROWSER=1
+REVIEWALLSGML=0
 BUILDSCRIPT="build.rc"
 COLORMSG=0
 
@@ -97,16 +101,20 @@ usage() {
 	echo
 	echo "Options:"
 	echo "  -c, --clean      Clean up work files after build"
+	echo "  -b, --browser    Call browser to view the html file when exit"
 	echo "  -C, --cleancache Clean up source files from the cache"
 	echo "  -e, --noextract  Do not extract source files (use existing src/ dir)"
 	echo "  -f, --fuzzy      Use fuzzy item in po file (Unsafe)"
 	echo "  -h, --help       This help"
 	echo "  -i, --install    Install the html document to the system, so devhelp can show it"
 	echo "  -L, --log        Log package build process"
+	echo "  -l, --list       List all files"
 	echo "  -o, --nobuild    Download and extract files only"
 	echo "  -s, --nosgml     Do not update the sgml files"
-	echo "  -H, --nohtmlhelp     Do not create htmlhelp file"
-	echo "  -t, --editsgml   Edit the sgml files"
+	echo "  -H, --nohtmlhelp Do not create htmlhelp file"
+	echo "  -r, --reviewsgml Review all sgml files"
+	echo "  -t, --editsgml   Edit your sgml file"
+	echo "  -m, --mergepo    Merge youre po to master po file"
 	echo "  -n, --noconfigure     Do not configure the source"
 	printf "  -p <buildscript> Use an alternate build script (instead of '%s')\n" "$BUILDSCRIPT"
 	echo
@@ -202,8 +210,8 @@ parse_options() {
 ARGLIST=$@
 
 # Parse Command Line Options.
-OPT_SHORT="cCefhHiLnop:st"
-OPT_LONG="clean,cleancache,fuzzy,editsgml,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
+OPT_SHORT="bcCefhHilLmnop:rst"
+OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
 # Pacman Options
 OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
 if echo "$OPT_TEMP" | grep -q 'PARSE_OPTIONS FAILED'; then
@@ -216,21 +224,25 @@ unset OPT_SHORT OPT_LONG OPT_TEMP
 while true; do
 	case "$1" in
 		# Makepkg Options
-		-c|--clean)       CLEANUP=1 ;;
+		-b|--browser)       NOBROWSER=0;;
 		-C|--cleancache)  CLEANCACHE=1 ;;
+		-H|--nohtmlhelp)      NOHTMLHELP=1 ;;
+		-L|--log)         LOGGING=1 ;;
+		-V|--version)     version; exit 0 ;; # E_OK
+		-c|--clean)       CLEANUP=1 ;;
 		-e|--noextract)   NOEXTRACT=1 ;;
 		-f|--fuzzy)       FUZZY=1 ;;
-		-L|--log)         LOGGING=1 ;;
-		-m|--nocolor)     USE_COLOR='n' ;;
+		-h|--help)        usage; exit 0 ;; # E_OK
+		-i|--install)      INSTALL=1 ;;
+		-l|--list)        LIST=1 ;;
+		--nocolor)     USE_COLOR='n' ;;
+		-m|--mergepo)     MERGEPO=1 ;;
 		-n|--noconfigure)      NOCONFIGURE=1 ;;
 		-o|--nobuild)     NOBUILD=1 ;;
-		-s|--nosgml)      NOSGML=1 ;;
-		-i|--install)      INSTALL=1 ;;
-		-H|--nohtmlhelp)      NOHTMLHELP=1 ;;
-		-t|--editsgml)      EDITSGML=1 ;;
 		-p)               shift; BUILDFILE=$1 ;;
-		-h|--help)        usage; exit 0 ;; # E_OK
-		-V|--version)     version; exit 0 ;; # E_OK
+		-r|--reviewsgml)      REVIEWALLSGML=1 ;;
+		-s|--nosgml)      NOSGML=1 ;;
+		-t|--editsgml)      EDITSGML=1 ;;
 
 		--)               OPT_IND=0; shift; break;;
 		*)                usage; exit 1 ;; # E_INVALID_OPTION
@@ -256,6 +268,78 @@ SRCDEST=${_SRCDEST:-$SRCDEST}
 SRCDEST=${SRCDEST:-$tmpdir} #default to $startdir if undefined
 
 ################## init ###########################
+
+init_pot()
+{
+	if [ -d $startdir/po ];
+	then
+		return
+	else
+		msg "正在初始化您的po文件..."
+		mkdir $startdir/po
+		gtkdocpo -c -p $startdir/pot $moddir
+		if [ -f ~/.gtkdocpo ];then
+			username=$(source ~/.gtkdocpo; echo $username)
+		else
+			username=unknown
+		fi
+
+		if [ -f $startdir/AUTHORS ]; then
+			local pos=`cat $startdir/AUTHORS|grep $username |awk '{print $4}'`
+			eval $pos #这将会产生po_files变量
+			var=`echo $po_files |sed 's/,/ /g'`
+			for i in $var;
+			do 
+				mname=${i%.po}
+				msgmerge "$modname-$pkgver.po" $startdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
+				msg2 "正在调用google为您生成模糊翻译内容..."
+				gadt-autotrans $startdir/po/$mname.po
+				text=`msgfmt --statistics $startdir/po/$mname.po -o /dev/null 2>&1`
+				msg2 "文件:$mname.po ($text)"
+			done
+		fi
+	fi
+}
+
+merge_pot()
+{
+	if [ ! -d $startdir/po ];
+	then
+		return
+	else
+		msg "正在合并您的po文件..."
+		if [ -f ~/.gtkdocpo ];then
+			username=$(source ~/.gtkdocpo; echo $username)
+		else
+			username=unknown
+		fi
+
+		if [ -f $startdir/AUTHORS ]; then
+			local pos=`cat $startdir/AUTHORS|grep $username |awk '{print $4}'`
+			eval $pos #这将会产生po_files变量
+			var=`echo $po_files |sed 's/,/ /g'`
+			for i in $var;
+			do 
+				mname=${i%.po}
+				msgmerge $startdir/po/$mname.po "$modname-$pkgver.po" -o "$modname-$pkgver.po.new"
+				vim -d "$modname-$pkgver.po" "$modname-$pkgver.po.new"
+				msg2 "$mname.po [确认合并吗(Yes/No)？]"
+				echo -n "请输入Yes或No:"
+				read answer
+				case "$answer" in
+					y*|Y*) 
+					cp "$modname-$pkgver.po.new" "$modname-$pkgver.po"
+					rm -f "$modname-$pkgver.po.new"
+					msg2 "$mname.po 成功合并"
+					;;
+					*)
+					error "合并失败"
+					;;
+				esac
+			done
+		fi
+	fi
+}
 
 download_source()
 {
@@ -301,12 +385,16 @@ download_source()
 		exit 1
 	fi
 	popd >/dev/null
-if [ "$FUZZY" -eq 1 ]; then
-	warning "Use fuzzy item -- Unsafe"
-	gtkdocpo -f -n $modname -V $pkgver -m -p . $moddir || return 1
-else
-	gtkdocpo -n $modname -V $pkgver -m -p . $moddir || return 1
-fi
+
+	init_pot
+
+	# 合并已翻译po文件内容到源文件
+	if [ "$FUZZY" -eq 1 ]; then
+		warning "Use fuzzy item -- Unsafe"
+		gtkdocpo -f -n $modname -V $pkgver -m -p . $moddir || return 1
+	else
+		gtkdocpo -n $modname -V $pkgver -m -p . $moddir || return 1
+	fi
 }
 
 compile_source()
@@ -341,10 +429,12 @@ update_sgml()
 		cat $startdir/AUTHORS|sort|while read line;
 		do 
 			author=`echo $line|awk '{print $1}'`
+			if [ "x$author" == "xunknown" -o "x$author" == "finished" ];then
+				continue
+			fi
 			mail=`echo $line|awk '{print $2}'`
 			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
 			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/credits.xml
-			
 		done
 	fi
 }
@@ -360,7 +450,9 @@ clean_up() {
 		msg "Cleaning up..."
 		rm -rf "$srcdir"
 	fi
-	gnome-open file://$startdir/html/index.html
+	if [ $NOBROWSER -eq 0 ];then
+		gnome-open file://$startdir/html/index.html
+	fi
 }
 
 ##
@@ -389,21 +481,42 @@ make_install()
 	devhelp -s "$modname 参考手册" &
 }
 
+edit_sgml()
+{
+	if [ -f ~/.gtkdocpo ];then
+		username=$(source ~/.gtkdocpo; echo $username)
+	else
+		username=unknown
+	fi
 
-translate_sgml()
+	if [ -f $startdir/AUTHORS -a -d $startdir/docs-$pkgver ]; then
+		local sgmls=`cat $startdir/AUTHORS|grep $username |awk '{print $3}'`
+		local olddocs=$startdir/docs-$pkgver
+		eval $sgmls #这将会产生sgml_files变量
+		var=`echo $sgml_files |sed 's/,/ /g'`
+		echo $var
+		for filename in $var;
+		do 
+			vim -d ${olddocs}/$filename $docdir/$filename 
+		done
+	else
+		warning "Lost the AUTHORS file or docs-$pkgver directory"
+	fi
+}
+
+review_all_sgml()
 {
 	local olddocs=$startdir/docs-$pkgver
 	if [ -d $olddocs ];then
 		for f in `find $olddocs -name "*.sgml"`;
 		do
 			local filename=${f#$olddocs\/}
-			vim -d $docdir/$filename ${olddocs}/$filename
+			vim -d ${olddocs}/$filename $docdir/$filename 
 		done
 	else
 		warning "You have not the docs-$pkgver"
 	fi
 }
-
 
 run_function()
 {
@@ -411,7 +524,7 @@ run_function()
 	local func=$1
 	#eval `$func 2>&1 | tee "$BUILDLOG"; ret=${PIPESTATUS[0]}`
 	if [ "$LOGGING" -eq 1 -a "x$func" = "xcompile_source" ]; then
-		BUILDLOG="${startdir}/${pkgname}-${pkgver}-build.log"
+		BUILDLOG="${tmpdir}/${pkgname}-${pkgver}-build.log"
 		if [ -f "$BUILDLOG" ]; then
 			local i=1
 			while true; do
@@ -440,10 +553,6 @@ run_function()
 		exit 2 # $E_BUILD_FAILED
 	fi
 }
-
-#run_function download_source
-#run_function update_sgml
-#run_function compile_source
 
 if [ "$CLEANCACHE" -eq 1 ]; then
 	msg "Cleaning up ALL files from %s." "$SRCDEST"
@@ -486,8 +595,18 @@ else
 	run_function download_source
 fi
 
+if [ "$MERGEPO" -eq 1 ]; then
+	run_function merge_pot
+	exit 0;
+fi
+
 if [ "$EDITSGML" -eq 1 ]; then
-	run_function translate_sgml
+	run_function edit_sgml
+	exit 0;
+fi
+
+if [ "$REVIEWALLSGML" -eq 1 ]; then
+	run_function review_all_sgml
 	exit 0;
 fi
 
