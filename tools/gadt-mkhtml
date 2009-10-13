@@ -277,7 +277,7 @@ init_pot()
 	else
 		msg "正在初始化您的po文件..."
 		mkdir $startdir/po
-		gtkdocpo -c -p $startdir/pot $moddir
+		gtkdocpo -c -p $tmpdir/pot $moddir
 		if [ -f ~/.gtkdocpo ];then
 			username=$(source ~/.gtkdocpo; echo $username)
 		else
@@ -285,13 +285,13 @@ init_pot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local pos=`cat $startdir/AUTHORS|grep $username |awk '{print $4}'`
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $4}'`
 			eval $pos #这将会产生po_files变量
 			var=`echo $po_files |sed 's/,/ /g'`
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge "$modname-$pkgver.po" $startdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
+				msgmerge "$modname-$pkgver.po" $tmpdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
 				msg2 "正在调用google为您生成模糊翻译内容..."
 				gadt-autotrans $startdir/po/$mname.po
 				text=`msgfmt --statistics $startdir/po/$mname.po -o /dev/null 2>&1`
@@ -315,7 +315,7 @@ merge_pot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local pos=`cat $startdir/AUTHORS|grep $username |awk '{print $4}'`
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $4}'`
 			eval $pos #这将会产生po_files变量
 			var=`echo $po_files |sed 's/,/ /g'`
 			for i in $var;
@@ -426,7 +426,7 @@ update_sgml()
 	local now=`date +%Y年%m月%d日`
 	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
 	if [ -f $startdir/AUTHORS ]; then
-		cat $startdir/AUTHORS|sort|while read line;
+		cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
 		do 
 			author=`echo $line|awk '{print $1}'`
 			if [ "x$author" == "xunknown" -o "x$author" == "finished" ];then
@@ -490,14 +490,14 @@ edit_sgml()
 	fi
 
 	if [ -f $startdir/AUTHORS -a -d $startdir/docs-$pkgver ]; then
-		local sgmls=`cat $startdir/AUTHORS|grep $username |awk '{print $3}'`
+		local sgmls=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
 		local olddocs=$startdir/docs-$pkgver
 		eval $sgmls #这将会产生sgml_files变量
 		var=`echo $sgml_files |sed 's/,/ /g'`
 		echo $var
 		for filename in $var;
 		do 
-			vim -d ${olddocs}/$filename $docdir/$filename 
+			vim -d $docdir/$filename ${olddocs}/$filename 
 		done
 	else
 		warning "Lost the AUTHORS file or docs-$pkgver directory"
@@ -511,7 +511,7 @@ review_all_sgml()
 		for f in `find $olddocs -name "*.sgml"`;
 		do
 			local filename=${f#$olddocs\/}
-			vim -d ${olddocs}/$filename $docdir/$filename 
+			vim -d $docdir/$filename ${olddocs}/$filename 
 		done
 	else
 		warning "You have not the docs-$pkgver"
