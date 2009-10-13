@@ -321,15 +321,15 @@ merge_pot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge $startdir/po/$mname.po "$modname-$pkgver.po" -o "$modname-$pkgver.po.new"
-				vim -d "$modname-$pkgver.po" "$modname-$pkgver.po.new"
+				msgmerge $startdir/po/$mname.po "$modname-$pkgver.po" -o "$tmpdir/$modname-$pkgver.po.new"
+				vim -d "$modname-$pkgver.po" "$tmpdir/$modname-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
 				read answer
 				case "$answer" in
 					y*|Y*) 
-					cp "$modname-$pkgver.po.new" "$modname-$pkgver.po"
-					rm -f "$modname-$pkgver.po.new"
+					cp "$tmpdir/$modname-$pkgver.po.new" "$modname-$pkgver.po"
+					rm -f "$tmpdir/$modname-$pkgver.po.new"
 					msg2 "$mname.po 成功合并"
 					;;
 					*)
