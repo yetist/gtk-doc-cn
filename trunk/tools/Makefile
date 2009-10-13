@@ -31,6 +31,7 @@ allclean:
 
 help:
 	@(echo "帮助：")	
+	@(echo -e "\tmake init          同make,本地初始化(无副作用，可经常运行)")
 	@(echo -e "\tmake sgml          翻译sgml/xml文档")
 	@(echo -e "\tmake docs          生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)")
 	@(echo -e "\tmake merge         将自己翻译的po文件与主版本合并")
