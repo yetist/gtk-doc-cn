@@ -36,7 +36,7 @@ help:
 	@(echo -e "\tmake docs          生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)")
 	@(echo -e "\tmake merge         将自己翻译的po文件与主版本合并")
 	@(echo -e "\tmake commit        提交自己的翻译工作到服务器")
-	@(echo -e "\tmake devhelp       将手册安装到用户目录，并调用devhelp来浏览")
+	@(echo -e "\tmake devhelp       将手册安装到用户目录，并调用devhelp来浏览(要检查自己的翻译，请先运行make merge)")
 	@(echo -e "\tmake reviewsgml    检查所有的sgml/xml翻译情况(不推荐使用)")
 	@(echo -e "\tmake clean         清除临时文件")
 	@(echo -e "\tmake allclean      清除所有不需要的文件(请小心使用)")

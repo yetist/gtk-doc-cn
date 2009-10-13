@@ -478,7 +478,11 @@ make_install()
 	fi
 
 	cp -r html ~/.local/share/devhelp/books/$modname
-	devhelp -s "$modname 参考手册" &
+	PID=$(pidof -o %PPID /usr/bin/devhelp)
+	if [ ! -z "$PID" ]; then
+		kill $PID
+	fi
+	devhelp -s "$modname参考手册" &
 }
 
 edit_sgml()
