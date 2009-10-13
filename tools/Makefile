@@ -1,9 +1,9 @@
 init:
-	@(echo "正在初始化, 请稍候...")
+	@(printf "\033[1;1m  正在初始化, 请稍候... \033[1;0m\n" >&2)
 	@(cd ../../tools; ./gadt-init)
 	@(cd ../..; svn update)
 	@(gadt-mkhtml --nobuild --nosgml --nohtmlhelp)
-	@(echo -e "初始化成功, 要查看帮助请运行\nmake help\n")
+	@(printf "\033[1;1m 初始化成功, 要查看帮助请运行make help \033[1;0m\n" >&2 )
 
 sgml:
 	gadt-mkhtml --editsgml
@@ -15,7 +15,11 @@ merge:
 	gadt-mkhtml --mergepo
 
 commit:
-	@(svn commit)
+	@(if svn status |grep "^M";then \
+		svn commit --editor-cmd=vim; \
+	else \
+		printf "\033[1;1m 目前没有可提交的内容，请尝试先运行make merge命令。\033[1;0m\n" >&2 ; \
+	fi)
 
 devhelp:
 	gadt-mkhtml --install
@@ -31,6 +35,7 @@ allclean:
 
 help:
 	@(echo "帮助：")	
+	@(echo -e "\tmake               本地初始化(无副作用，可经常运行)")
 	@(echo -e "\tmake init          同make,本地初始化(无副作用，可经常运行)")
 	@(echo -e "\tmake sgml          翻译sgml/xml文档")
 	@(echo -e "\tmake docs          生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)")
@@ -42,6 +47,10 @@ help:
 	@(echo -e "\tmake allclean      清除所有不需要的文件(请小心使用)")
 
 release:
-	@(scp *.tgz dev.osprg.org:public_html/docs)
+	@(source ./build.rc; if [ -f $modname-$pkgver.tgz ]; then \
+		scp $modname-$pkgver.tgz dev.osprg.org:public_html/docs; \
+		else \
+		printf "\033[1;1m htmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
+		fi)
 
 .PHONY: sgml docs merge commit devhelp reviewsgml clean allclean release

@@ -412,8 +412,8 @@ compile_source()
 		popd
 	fi
 	popd
-	cp -r $htmldir .
-	msg "新文档位于 $startdir/html"
+	cp -r $htmldir $tmpdir
+	msg "新文档位于 $tmpdir/html"
 }
 
 update_sgml()
@@ -451,7 +451,7 @@ clean_up() {
 		rm -rf "$srcdir"
 	fi
 	if [ $NOBROWSER -eq 0 ];then
-		gnome-open file://$startdir/html/index.html
+		gnome-open file://$tmpdir/html/index.html
 	fi
 }
 
@@ -463,10 +463,12 @@ trap 'clean_up' 0
 make_htmlhelp()
 {
 	msg "htmlhelp文档为 $modname-$pkgver.tgz"
-	cp -r html book
-	mv book/*.devhelp book.devhelp
+	cp -r $tmpdir/html $tmpdir/book
+	mv $tmpdir/book/*.devhelp $tmpdir/book.devhelp
+	pushd $tmpdir
 	tar -zcf $modname-$pkgver.tgz book book.devhelp
 	rm -rf book book.devhelp
+	popd
 }
 
 make_install()
@@ -481,7 +483,7 @@ make_install()
 	then
 		rm -rf ~/.local/share/devhelp/books/$modname
 	fi
-	cp -r html ~/.local/share/devhelp/books/$modname
+	cp -r $tmpdir/html ~/.local/share/devhelp/books/$modname
 	PID=$(pidof -o %PPID /usr/bin/devhelp)
 	if [ ! -z "$PID" ]; then
 		kill $PID
@@ -585,7 +587,7 @@ if [ "$CLEANCACHE" -eq 1 ]; then
 fi
 
 if [ "$INSTALL" -eq 1 ]; then
-	if [ -d html ]; then
+	if [ -d $tmpdir/html ]; then
 		run_function make_install
 		exit 0
 	fi
