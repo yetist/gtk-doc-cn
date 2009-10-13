@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-08 20:18-0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2009-10-13 11:53+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,19 +20,20 @@ msgstr ""
 # used by: gdk_add_option_entries_libgtk_only:
 #: gdk.c:175:1
 msgid "@group: An option group."
-msgstr ""
+msgstr "@group: 一个选项组。"
 
 # #used by: gdk_add_option_entries_libgtk_only:
 #: gdk.c:177:2
+#, fuzzy
 msgid ""
 "Appends gdk option entries to the passed in option group. This is not public "
 "API and must not be used by applications."
-msgstr ""
+msgstr "追加的gdk选择项，以传入的选项组。这不是公开的API，不能由应用程序使用。"
 
 # used by: gdk_parse_args:
 #: gdk.c:219:1
 msgid "@argc: the number of command line arguments."
-msgstr ""
+msgstr "@argc: 在命令行参数的个数。"
 
 # used by: gdk_parse_args:
 #: gdk.c:220:1
@@ -44,14 +45,14 @@ msgstr "@argv: 命令行参数数组。"
 msgid ""
 "Parse command line arguments, and store for future use by calls to "
 "gdk_display_open()."
-msgstr ""
+msgstr "解析命令行参数并存储, 以供将来调用gdk_display_open()时使用。"
 
 # #used by: gdk_parse_args:
 #: gdk.c:225:2
 msgid ""
 "Any arguments used by GDK are removed from the array and @argc and @argv are "
 "updated accordingly."
-msgstr ""
+msgstr "由GDK使用的任何参数将被从数组中删除, 并且@argc和@argv已被更新。"
 
 # #used by: gdk_parse_args:
 #: gdk.c:228:2
@@ -59,6 +60,8 @@ msgid ""
 "You shouldn't call this function explicitely if you are using gtk_init(), "
 "gtk_init_check(), gdk_init(), or gdk_init_check()."
 msgstr ""
+"如果您使用了gtk_init()、gtk_init_check()、gdk_init()或gdk_init_check()，你不"
+"应该显式地调用这个函数。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -144,7 +147,7 @@ msgstr ""
 #: gdkkeys.c:74:1 gdkpango.c:1474:1 gdkrgb.c:3701:1 gdkrgb.c:3732:1
 #: gdkscreen.c:98:1 gdkscreen.c:264:1 gdkscreen.c:304:1 gdkwindow.c:922:1
 msgid "Since: 2.2"
-msgstr ""
+msgstr "Since: 2.2"
 
 # #used by: gdk_get_display_arg_name:
 #: gdk.c:271:2
@@ -152,6 +155,8 @@ msgid ""
 "Gets the display name specified in the command line arguments passed to "
 "gdk_init() or gdk_parse_args(), if any."
 msgstr ""
+"获取从命令行传递给gdk_init()或gdk_parse_args()的显示(display)名称参数（如果有"
+"的话）。"
 
 # #used by: gdk_get_display_arg_name:
 #: gdk.c:274:2
@@ -159,6 +164,8 @@ msgid ""
 "Returns: the display name, if specified explicitely, otherwise %NULL this "
 "string is owned by GTK+ and must not be modified or freed."
 msgstr ""
+"Returns: 如果显式地指定的话，返回显示(display)名称，否则返回%NULL。这个字符串"
+"将被GTK+拥有, 不得修改或释放。"
 
 # #used by: gdk_display_open_default_libgtk_only:
 #: gdk.c:296:5
@@ -169,40 +176,51 @@ msgid ""
 "simply returns that. An internal function that should not be used by "
 "applications."
 msgstr ""
+"打开从命令行参数或环境变量中指定的默认显示(display)，将它设置为默认显示"
+"(display)，并返回。gdk_parse_args()必须在此之前被调用。如果默认显示(display)"
+"先前已设置，就简单地返回此前的设置。这是一个内部函数，不应该由应用程序使用。"
 
 # #used by: gdk_display_open_default_libgtk_only:
 #: gdk.c:302:2
 msgid ""
 "Return value: the default display, if it could be opened, otherwise %NULL."
-msgstr ""
+msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NULL。"
 
 # #used by: gdk_threads_init:
 #: gdk.c:429:3
+#, fuzzy
 msgid ""
 "Initializes GDK so that it can be used from multiple threads in conjunction "
 "with gdk_threads_enter() and gdk_threads_leave(). g_thread_init() must be "
 "called previous to this function."
 msgstr ""
+"初始化的GDK，以便它可以用来与gdk_threads_enter结合（）和gdk_threads_leave从多"
+"个线程（）。 g_thread_init（）前必须调用这个函数。"
 
 # #used by: gdk_threads_init:
 #: gdk.c:433:2
+#, fuzzy
 msgid ""
 "This call must be made before any use of the main loop from GTK+; to be "
 "safe, call it before gtk_init()."
 msgstr ""
+"这一呼吁必须对之前中，GTK +主循环利用，是安全的，它之前调用gtk_init（）。"
 
 # used by: gdk_threads_set_lock_functions:
 #: gdk.c:451:1
+#, fuzzy
 msgid "@enter_fn:   function called to guard GDK"
-msgstr ""
+msgstr "@enter_fn:   函数调用看守的GDK"
 
 # used by: gdk_threads_set_lock_functions:
 #: gdk.c:452:1
+#, fuzzy
 msgid "@leave_fn: function called to release the guard"
-msgstr ""
+msgstr "@ leave_fn：函数调用释放守卫"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:454:7
+#, fuzzy
 msgid ""
 "Allows the application to replace the standard method that GDK uses to "
 "protect its data structures. Normally, GDK creates a single #GMutex that is "
@@ -211,35 +229,47 @@ msgid ""
 "called by gdk_threads_enter() and a function @leave_fn that is called by "
 "gdk_threads_leave()."
 msgstr ""
+"允许应用程序取代标准方法的GDK来保护它的数据结构。通常情况下，创建一个单一的"
+"GDK＃GMutex是由gdk_threads_enter锁定（），并发布gdk_threads_leave（）;此功能"
+"的应用程序提供，而不是一个@ enter_fn是由gdk_threads_enter称为（）和@ leave_fn"
+"函数，函数呼吁gdk_threads_leave（）。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:462:3
+#, fuzzy
 msgid ""
 "The functions must provide at least same locking functionality as the "
 "default implementation, but can also do extra application specific "
 "processing."
 msgstr ""
+"职能必须提供至少相同的锁定为默认的执行功能，但也可以做额外的应用程序特定的处"
+"理。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:466:4
+#, fuzzy
 msgid ""
 "As an example, consider an application that has its own recursive lock that "
 "when held, holds the GTK+ lock as well. When GTK+ unlocks the GTK+ lock when "
 "entering a recursive main loop, the application must temporarily release its "
 "lock as well."
 msgstr ""
+"作为一个例子，考虑一个应用程序，有自己的递归锁时举行，举行的GTK +锁定以及。当"
+"GTK +的解锁GTK +的锁，当进入一个递归主循环，应用程序必须暂时释放其锁定以及。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:471:1
+#, fuzzy
 msgid "Most threaded GTK+ apps won't need to use this method."
-msgstr ""
+msgstr "大多数线程GTK +的应用程序不需要使用此方法。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:473:2
+#, fuzzy
 msgid ""
 "This method must be called before gdk_threads_init(), and cannot be called "
 "multiple times."
-msgstr ""
+msgstr "此方法之前必须调用gdk_threads_init（），并不能称为多次。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_set_lock_functions:
@@ -252,14 +282,17 @@ msgstr ""
 # #used by: gdk_display_set_double_click_distance:
 #: gdk.c:476:1 gdkdraw.c:1032:1 gdkdraw.c:1729:1 gdkevents.c:1265:1
 msgid "Since: 2.4"
-msgstr ""
+msgstr "Since: 2.4"
 
 # used by: gdk_threads_add_idle_full:
 #: gdk.c:519:2
+#, fuzzy
 msgid ""
 "@priority: the priority of the idle source. Typically this will be in the "
 "range btweeen #G_PRIORITY_DEFAULT_IDLE and #G_PRIORITY_HIGH_IDLE"
 msgstr ""
+"@优先：对闲置源的优先事项。这通常会在范围btweeen＃G_PRIORITY_DEFAULT_IDLE和＃"
+"G_PRIORITY_HIGH_IDLE"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -275,7 +308,7 @@ msgstr ""
 # used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:521:1 gdk.c:594:1 gdk.c:621:1 gdk.c:700:1 gdk.c:727:1 gdk.c:765:1
 msgid "@function: function to call"
-msgstr ""
+msgstr "@function: 函数调用"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -291,29 +324,37 @@ msgstr ""
 # used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:522:1 gdk.c:595:1 gdk.c:622:1 gdk.c:701:1 gdk.c:728:1 gdk.c:766:1
 msgid "@data:     data to pass to @function"
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # used by: gdk_threads_add_idle_full:
 #: gdk.c:523:1
+#, fuzzy
 msgid "@notify:   function to call when the idle is removed, or %NULL"
-msgstr ""
+msgstr "@通知：函数来调用空闲时被删除，或％空"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:525:3
+#, fuzzy
 msgid ""
 "Adds a function to be called whenever there are no higher priority events "
 "pending.  If the function returns %FALSE it is automatically removed from "
 "the list of event sources and will not be called again."
 msgstr ""
+"增加了一个被称为每当有没有更高级别的赛事待功能。如果该函数返回％假它会自动删"
+"除从事件源列表，不会再次调用。"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:529:5
+#, fuzzy
 msgid ""
 "This variant of g_idle_add_full() calls @function with the GDK lock held. It "
 "can be thought of a MT-safe version for GTK+ widgets for the following use "
 "case, where you have to worry about idle_callback() running in thread A and "
 "accessing @self after it has been finalized in thread B:"
 msgstr ""
+"这种变异g_idle_add_full（）@函数调用与GDK的锁举行。它可以被认为是一吨，安全版"
+"本的GTK +以下的用例，在这里您不必担心idle_callback部件（）的线程A和@自我运行"
+"后，访问已在线程完成乙："
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:535:5
@@ -369,7 +410,7 @@ msgstr ""
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:567:1 gdk.c:602:1 gdk.c:669:1 gdk.c:708:1 gdk.c:735:1 gdk.c:773:1
 msgid "Return value: the ID (greater than 0) of the event source."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -391,39 +432,47 @@ msgstr ""
 #: gdk.c:569:1 gdk.c:604:1 gdk.c:671:1 gdk.c:710:1 gdkcolor.c:363:1
 #: gdkevents.c:882:1 gdkpango.c:1228:1 gdkwindow.c:4163:1
 msgid "Since: 2.12"
-msgstr ""
+msgstr "Since: 2.12"
 
 # #used by: gdk_threads_add_idle:
 #: gdk.c:597:2
+#, fuzzy
 msgid ""
 "A wrapper for the common usage of gdk_threads_add_idle_full() assigning the "
 "default priority, #G_PRIORITY_DEFAULT_IDLE."
 msgstr ""
+"汇gdk_threads_add_idle_full（）指定默认的优先级，＃G_PRIORITY_DEFAULT_IDLE普"
+"遍使用的包装。"
 
 # #used by: gdk_threads_add_idle:
 #: gdk.c:600:1
+#, fuzzy
 msgid "See gdk_threads_add_idle_full()."
-msgstr ""
+msgstr "见gdk_threads_add_idle_full（）。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds_full:
 #: gdk.c:617:2 gdk.c:724:2
+#, fuzzy
 msgid ""
 "@priority: the priority of the timeout source. Typically this will be in the "
 "range between #G_PRIORITY_DEFAULT_IDLE and #G_PRIORITY_HIGH_IDLE."
 msgstr ""
+"@优先：即优先超时来源。这通常会在G_PRIORITY_DEFAULT_IDLE之间＃和＃"
+"G_PRIORITY_HIGH_IDLE范围。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout:
 #: gdk.c:619:2 gdk.c:698:2
+#, fuzzy
 msgid ""
 "@interval: the time between calls to the function, in milliseconds "
 "(1/1000ths of a second)"
-msgstr ""
+msgstr "@间隔：之间的函数调用的时间，以毫秒为单位（1/1000ths第二条）"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
@@ -431,10 +480,11 @@ msgstr ""
 # used by: gdk_threads_add_timeout_seconds_full:
 #: gdk.c:623:1 gdk.c:729:1
 msgid "@notify:   function to call when the timeout is removed, or %NULL"
-msgstr ""
+msgstr "@notify:  超时被删除时调用的函数，或%NULL。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:625:6
+#, fuzzy
 msgid ""
 "Sets a function to be called at regular intervals holding the GDK lock, with "
 "the given priority.  The function is called repeatedly until it returns %"
@@ -443,9 +493,13 @@ msgid ""
 "timeout is destroyed.  The first call to the function will be at the end of "
 "the first @interval."
 msgstr ""
+"设置给定的优先级将在举行GDK的锁定期调用的函数。该函数被调用多次，直到它返回％"
+"假，此时，超时自动摧毁，功能不会被再次调用。 @通知该函数被调用时，超时被破"
+"坏。在第一次调用该函数将在第一时间间隔@结束。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:632:5
+#, fuzzy
 msgid ""
 "Note that timeout functions may be delayed, due to the processing of other "
 "event sources. Thus they should not be relied on for precise timing. After "
@@ -453,35 +507,43 @@ msgid ""
 "recalculated based on the current time and the given interval (it does not "
 "try to 'catch up' time lost in delays)."
 msgstr ""
+"请注意，超时功能可能会延迟，由于其他事件源处理。因此，他们不应该依靠精确的时"
+"间。在每次的超时函数调用，在下次重新计算超时时间是基于当前的时间和给定的时间"
+"间隔（不尝试&#39;追赶&#39;的时间延误，丢失）。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:638:2
+#, fuzzy
 msgid ""
 "This variant of g_timeout_add_full() can be thought of a MT-safe version for "
 "GTK+ widgets for the following use case:"
 msgstr ""
+"这g_timeout_add_full（）可以被认为是一吨，安全版本的GTK +以下用例部件变种："
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:641:4
+#, fuzzy
 msgid ""
 "|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
 "data;"
 msgstr ""
+"|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
+"data;"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:646:1
 msgid "/&ast; do stuff with self &ast;/"
-msgstr ""
+msgstr "/&ast; 在这里做点啥事吧 &ast;/"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:648:1
 msgid "self->timeout_id = 0;"
-msgstr ""
+msgstr "self->timeout_id = 0;"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:650:2
 msgid "return FALSE; }"
-msgstr ""
+msgstr "return FALSE; }"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:653:4
@@ -489,6 +551,8 @@ msgid ""
 "static void some_widget_do_stuff_later (SomeWidget *self) { self->timeout_id "
 "= g_timeout_add (timeout_callback, self) }"
 msgstr ""
+"static void some_widget_do_stuff_later (SomeWidget *self) { self->timeout_id "
+"= g_timeout_add (timeout_callback, self) }"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:658:3
@@ -496,28 +560,33 @@ msgid ""
 "static void some_widget_finalize (GObject *object) { SomeWidget *self = "
 "SOME_WIDGET (object);"
 msgstr ""
+"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
+"SOME_WIDGET (object);"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:662:2
 msgid "if (self->timeout_id) g_source_remove (self->timeout_id);"
-msgstr ""
+msgstr "if (self->timeout_id) g_source_remove (self->timeout_id);"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:665:3
 msgid "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
-msgstr ""
+msgstr "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
 
 # #used by: gdk_threads_add_timeout:
 #: gdk.c:703:2
+#, fuzzy
 msgid ""
 "A wrapper for the common usage of gdk_threads_add_timeout_full() assigning "
 "the default priority, #G_PRIORITY_DEFAULT."
 msgstr ""
+"汇gdk_threads_add_timeout_full（）指定默认的优先级，＃G_PRIORITY_DEFAULT普遍"
+"使用的包装。"
 
 # #used by: gdk_threads_add_timeout:
 #: gdk.c:706:1
 msgid "See gdk_threads_add_timeout_full()."
-msgstr ""
+msgstr "见gdk_threads_add_timeout_full()。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds_full:
@@ -525,15 +594,19 @@ msgstr ""
 # used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:726:1 gdk.c:764:1
 msgid "@interval: the time between calls to the function, in seconds"
-msgstr ""
+msgstr "@interval: 两次函数调用之间的间隔时间，以秒为单位"
 
 # #used by: gdk_threads_add_timeout_seconds_full:
 #: gdk.c:731:3
+#, fuzzy
 msgid ""
 "A variant of gdk_threads_add_timout_full() with second-granularity. See "
 "g_timeout_add_seconds_full() for a discussion of why it is a good idea to "
 "use this function if you don't need finer granularity."
 msgstr ""
+"一个gdk_threads_add_timout_full（）的第二粒度变体。见"
+"g_timeout_add_seconds_full（）为讨论为什么它是一个好主意，使用此功能，如果你"
+"并不需要更细的粒度。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -568,7 +641,7 @@ msgstr ""
 #: gdkapplaunchcontext.c:264:1 gdkapplaunchcontext.c:283:1 gdkscreen.c:139:1
 #: gdkwindow.c:4221:1 gdkwindow.c:4284:1
 msgid "Since: 2.14"
-msgstr ""
+msgstr "Since: 2.14"
 
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:768:2
@@ -576,11 +649,13 @@ msgid ""
 "A wrapper for the common usage of gdk_threads_add_timeout_seconds_full() "
 "assigning the default priority, #G_PRIORITY_DEFAULT."
 msgstr ""
+"对gdk_threads_add_timeout_seconds_full()函数常见用法的封装，指定默认的优先级"
+"为#G_PRIORITY_DEFAULT。"
 
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:771:1
 msgid "For details, see gdk_threads_add_timeout_full()."
-msgstr ""
+msgstr "有关详细信息，请参见gdk_threads_add_timeout_full()。"
 
 # #-#-#-#-#  gdkapplaunchcontext.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_app_launch_context_set_display:
@@ -866,23 +941,84 @@ msgid ""
 "you are done drawing."
 msgstr ""
 
-# #-#-#-#-#  gdkcairo.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_create:
-# #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_set_source_color:
-# #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_rectangle:
-# #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_region:
-# #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_set_source_pixbuf:
+# #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_parse_args:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_get_display_arg_name:
+# #-#-#-#-#  gdkdisplay.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplay::closed:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_close:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_peek_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_put_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_core_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_window_at_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_pointer_hooks:
+# #-#-#-#-#  gdkdisplaymanager.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplayManager::display-opened:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_set_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_list_displays:
+# #-#-#-#-#  gdkdraw.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_drawable_get_screen:
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_drawable_get_display:
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_draw_pixbuf:
+# #-#-#-#-#  gdkevents.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_new:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_set_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_get_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_double_click_time:
+# #-#-#-#-#  gdkkeys.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkKeymap::keys-changed:
+# #-#-#-#-#  gdkpango.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_pango_context_get_for_screen:
+# #-#-#-#-#  gdkrgb.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_colormap:
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_visual:
+# #-#-#-#-#  gdkscreen.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkScreen::size-changed:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_point:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_window:
 # #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_window_move_region:
+# #used by: gdk_screen_get_toplevel_windows:
 #: gdkcairo.c:41:1 gdkcairo.c:65:1 gdkcairo.c:87:1 gdkcairo.c:108:1
 #: gdkcairo.c:142:1 gdkwindow.c:3781:1
+#, fuzzy
 msgid "Since: 2.8"
-msgstr ""
+msgstr "Since: 2.2"
 
 # #-#-#-#-#  gdkcairo.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -1025,23 +1161,28 @@ msgid ""
 "origin of @pixmap is @pixmap_x, @pixmap_y"
 msgstr ""
 
-# #-#-#-#-#  gdkcairo.pot (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_cairo_set_source_pixmap:
-# #-#-#-#-#  gdkscreen.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: GdkScreen::composited-changed:
-# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_screen_set_font_options:
-# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_screen_get_font_options:
-# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_screen_set_resolution:
-# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_screen_get_resolution:
+# #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdkcolor.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_color_to_string:
+# #-#-#-#-#  gdkevents.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_request_motions:
+# #-#-#-#-#  gdkpango.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_pango_attr_emboss_color_new:
+# #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_window_set_composited:
 #: gdkcairo.c:247:1 gdkscreen.c:117:1 gdkscreen.c:409:1 gdkscreen.c:440:1
 #: gdkscreen.c:461:1 gdkscreen.c:490:1
+#, fuzzy
 msgid "Since: 2.10"
-msgstr ""
+msgstr "Since: 2.12"
 
 # #-#-#-#-#  gdkcolor.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_colormap_ref:
@@ -1091,20 +1232,33 @@ msgstr ""
 msgid "Returns the visual for which a given colormap was created."
 msgstr ""
 
-# #used by: gdk_colormap_get_visual:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkcolor.c:68:1
+#, fuzzy
 msgid "Return value: the visual of the colormap."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # used by: gdk_colors_store:
 #: gdkcolor.c:81:1
 msgid "@colors: the new color values."
 msgstr ""
 
-# used by: gdk_colors_store:
+# used by: gdk_parse_args:
 #: gdkcolor.c:82:1
+#, fuzzy
 msgid "@ncolors: the number of colors to change."
-msgstr ""
+msgstr "@argc: 在命令行参数的个数。"
 
 # #used by: gdk_colors_store:
 #: gdkcolor.c:84:3
@@ -1966,10 +2120,11 @@ msgid ""
 "Gets the colormap for @drawable, if one is set; returns %NULL otherwise."
 msgstr ""
 
-# #used by: gdk_drawable_get_colormap:
+# #used by: gdk_display_open_default_libgtk_only:
 #: gdkdraw.c:258:1
+#, fuzzy
 msgid "Return value: the colormap, or %NULL"
-msgstr ""
+msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NULL。"
 
 # #used by: gdk_drawable_ref:
 #: gdkdraw.c:272:2
@@ -2202,10 +2357,11 @@ msgid ""
 "the polygon."
 msgstr ""
 
-# used by: gdk_draw_polygon:
+# used by: gdk_parse_args:
 #: gdkdraw.c:468:1
+#, fuzzy
 msgid "@n_points: the number of points."
-msgstr ""
+msgstr "@argc: 在命令行参数的个数。"
 
 # #used by: gdk_draw_polygon:
 #: gdkdraw.c:470:1
@@ -2579,10 +2735,11 @@ msgid ""
 "array."
 msgstr ""
 
-# #used by: gdk_draw_segments:
+# used by: gdk_parse_args:
 #: gdkdraw.c:811:1
+#, fuzzy
 msgid "Draws a number of unconnected lines."
-msgstr ""
+msgstr "@argc: 在命令行参数的个数。"
 
 # used by: gdk_draw_lines:
 #: gdkdraw.c:836:1
@@ -2733,28 +2890,84 @@ msgstr ""
 msgid "See also gdk_draw_glyphs(), gdk_draw_layout()."
 msgstr ""
 
+# #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_parse_args:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_get_display_arg_name:
+# #-#-#-#-#  gdkdisplay.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplay::closed:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_close:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_peek_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_put_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_core_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_window_at_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_pointer_hooks:
+# #-#-#-#-#  gdkdisplaymanager.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplayManager::display-opened:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_set_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_list_displays:
 # #-#-#-#-#  gdkdraw.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_draw_glyphs_transformed:
+# #used by: gdk_drawable_get_screen:
 # #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_draw_trapezoids:
+# #used by: gdk_drawable_get_display:
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_draw_pixbuf:
+# #-#-#-#-#  gdkevents.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_new:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_set_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_get_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_double_click_time:
+# #-#-#-#-#  gdkkeys.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkKeymap::keys-changed:
 # #-#-#-#-#  gdkpango.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_new:
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_get_default:
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_set_drawable:
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_set_gc:
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_set_stipple:
-# #-#-#-#-#  gdkpango.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_pango_renderer_set_override_color:
+# #used by: gdk_pango_context_get_for_screen:
+# #-#-#-#-#  gdkrgb.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_colormap:
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_visual:
+# #-#-#-#-#  gdkscreen.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkScreen::size-changed:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_point:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_window:
+# #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_toplevel_windows:
 #: gdkdraw.c:951:1 gdkdraw.c:982:1 gdkpango.c:557:1 gdkpango.c:598:1
 #: gdkpango.c:629:1 gdkpango.c:663:1 gdkpango.c:702:1 gdkpango.c:739:1
+#, fuzzy
 msgid "Since: 2.6"
-msgstr ""
+msgstr "Since: 2.2"
 
 # used by: gdk_draw_trapezoids:
 #: gdkdraw.c:973:1
@@ -2973,10 +3186,22 @@ msgstr ""
 msgid "Find the first event on the queue that is not still being filled in."
 msgstr ""
 
-# #used by: _gdk_event_queue_find_first:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:62:1
+#, fuzzy
 msgid "Return value: Pointer to the list node for that event, or NULL."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # used by: _gdk_event_queue_prepend:
 #: gdkevents.c:84:1
@@ -3031,15 +3256,28 @@ msgid ""
 "Return value: the event, or %NULL. Ownership is transferred to the caller."
 msgstr ""
 
-# used by: gdk_event_handler_set:
+# used by: gdk_threads_set_lock_functions:
 #: gdkevents.c:175:1
+#, fuzzy
 msgid "@func: the function to call to handle events from GDK."
-msgstr ""
+msgstr "@enter_fn:   函数调用看守的GDK"
 
-# used by: gdk_event_handler_set:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:176:1
+#, fuzzy
 msgid "@data: user data to pass to the function."
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # used by: gdk_event_handler_set:
 #: gdkevents.c:177:2
@@ -3248,10 +3486,11 @@ msgid ""
 "Extract the axis value for a particular axis use from an event structure."
 msgstr ""
 
-# #used by: gdk_event_get_axis:
+# #used by: gdk_display_open_default_libgtk_only:
 #: gdkevents.c:796:1
+#, fuzzy
 msgid "Return value: %TRUE if the specified axis was found, otherwise %FALSE"
-msgstr ""
+msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NULL。"
 
 # used by: gdk_event_request_motions:
 #: gdkevents.c:863:1
@@ -3294,10 +3533,22 @@ msgid ""
 "literal> and <literal>event->motion.y_root</literal> are relative."
 msgstr ""
 
-# #used by: gdk_event_get_screen:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:928:1
+#, fuzzy
 msgid "Return value: the screen for the event"
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # used by: gdk_set_show_events:
 #: gdkevents.c:951:1
@@ -3338,28 +3589,47 @@ msgstr ""
 msgid "@condition: the condition."
 msgstr ""
 
-# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_input_add_full:
-# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_input_add:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:1022:1 gdkevents.c:1072:1
+#, fuzzy
 msgid "@function: the callback function."
-msgstr ""
+msgstr "@function: 函数调用"
 
-# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_input_add_full:
-# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_input_add:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:1023:1 gdkevents.c:1073:1
+#, fuzzy
 msgid "@data: callback data passed to @function."
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
-# used by: gdk_input_add_full:
+# used by: gdk_threads_add_idle_full:
 #: gdkevents.c:1024:2
+#, fuzzy
 msgid ""
 "@destroy: callback function to call with @data when the input handler is "
 "removed."
-msgstr ""
+msgstr "@通知：函数来调用空闲时被删除，或％空"
 
 # #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_input_add_full:
@@ -3513,10 +3783,22 @@ msgid ""
 "strings should be drawn)"
 msgstr ""
 
-# #used by: gdk_string_width:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:98:1
+#, fuzzy
 msgid "Return value: the width of the string in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_char_width:
@@ -3535,13 +3817,22 @@ msgstr ""
 msgid "Determines the width of a given character."
 msgstr ""
 
-# #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_char_width:
-# #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_char_width_wc:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:117:1 gdkfont.c:138:1
+#, fuzzy
 msgid "Return value: the width of the character in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_char_width:
@@ -3577,13 +3868,22 @@ msgid ""
 "gdk_string_width()."
 msgstr ""
 
-# #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_string_measure:
-# #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #used by: gdk_text_measure:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:160:1 gdkfont.c:213:1
+#, fuzzy
 msgid "Return value: the right bearing of the string in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # used by: gdk_string_extents:
 #: gdkfont.c:176:1
@@ -3647,10 +3947,22 @@ msgid ""
 "origin of the next portion when drawing text in multiple pieces."
 msgstr ""
 
-# #used by: gdk_char_measure:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:239:1
+#, fuzzy
 msgid "Return value: the right bearing of the character in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #used by: gdk_string_height:
 #: gdkfont.c:255:4
@@ -3684,10 +3996,22 @@ msgid ""
 "drawn in relation to the baseline. See gdk_text_extents()."
 msgstr ""
 
-# #used by: gdk_char_height:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:309:1
+#, fuzzy
 msgid "Return value: the height of the character in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # used by: gdk_font_from_description:
 #: gdkfont.c:324:1
@@ -3888,10 +4212,22 @@ msgid ""
 "is %NULL.)"
 msgstr ""
 
-# used by: gdk_gc_set_function:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkgc.c:392:1
+#, fuzzy
 msgid "@function: the #GdkFunction to use"
-msgstr ""
+msgstr "@function: 函数调用"
 
 # #used by: gdk_gc_set_function:
 #: gdkgc.c:394:3
@@ -4036,24 +4372,30 @@ msgstr ""
 msgid "Gets the tile pixmap for @gc, if any"
 msgstr ""
 
-# #used by: _gdk_gc_get_tile:
+# #used by: gdk_get_display_arg_name:
 #: gdkgc.c:649:2
+#, fuzzy
 msgid ""
 "Return value: the tile set on the GC, or %NULL. The value is owned by the GC "
 "and must not be freed."
 msgstr ""
+"Returns: 如果显式地指定的话，返回显示(display)名称，否则返回%NULL。这个字符串"
+"将被GTK+拥有, 不得修改或释放。"
 
 # #used by: _gdk_gc_get_stipple:
 #: gdkgc.c:664:1
 msgid "Gets the stipple pixmap for @gc, if any"
 msgstr ""
 
-# #used by: _gdk_gc_get_stipple:
+# #used by: gdk_get_display_arg_name:
 #: gdkgc.c:666:2
+#, fuzzy
 msgid ""
 "Return value: the stipple set on the GC, or %NULL. The value is owned by the "
 "GC and must not be freed."
 msgstr ""
+"Returns: 如果显式地指定的话，返回显示(display)名称，否则返回%NULL。这个字符串"
+"将被GTK+拥有, 不得修改或释放。"
 
 # #used by: _gdk_gc_get_fg_pixel:
 #: gdkgc.c:681:3
@@ -4139,10 +4481,11 @@ msgstr ""
 msgid "@dash_list: an array of dash lengths."
 msgstr ""
 
-# used by: gdk_gc_set_dashes:
+# used by: gdk_parse_args:
 #: gdkgc.c:793:1
+#, fuzzy
 msgid "@n: the number of elements in @dash_list."
-msgstr ""
+msgstr "@argc: 在命令行参数的个数。"
 
 # #used by: gdk_gc_set_dashes:
 #: gdkgc.c:795:6
@@ -4416,10 +4759,83 @@ msgid ""
 "changes."
 msgstr ""
 
-# #used by: GdkKeymap::direction-changed:
+# #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_parse_args:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_get_display_arg_name:
+# #-#-#-#-#  gdkdisplay.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplay::closed:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_close:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_peek_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_put_event:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_core_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_window_at_pointer:
+# #-#-#-#-#  gdkdisplay.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_pointer_hooks:
+# #-#-#-#-#  gdkdisplaymanager.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkDisplayManager::display-opened:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_get_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_default:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_set_default_display:
+# #-#-#-#-#  gdkdisplaymanager.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_manager_list_displays:
+# #-#-#-#-#  gdkdraw.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_drawable_get_screen:
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_drawable_get_display:
+# #-#-#-#-#  gdkdraw.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_draw_pixbuf:
+# #-#-#-#-#  gdkevents.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_new:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_set_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_get_screen:
+# #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_display_set_double_click_time:
+# #-#-#-#-#  gdkkeys.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkKeymap::keys-changed:
+# #-#-#-#-#  gdkpango.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_pango_context_get_for_screen:
+# #-#-#-#-#  gdkrgb.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_colormap:
+# #-#-#-#-#  gdkrgb.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_rgb_visual:
+# #-#-#-#-#  gdkscreen.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: GdkScreen::size-changed:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_point:
+# #-#-#-#-#  gdkscreen.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_monitor_at_window:
+# #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_screen_get_toplevel_windows:
 #: gdkkeys.c:56:1
+#, fuzzy
 msgid "Since: 2.0"
-msgstr ""
+msgstr "Since: 2.2"
 
 # #used by: GdkKeymap::keys-changed:
 #: gdkkeys.c:71:2
@@ -4436,10 +4852,27 @@ msgid ""
 "gdk_keymap_get_caps_lock_state()."
 msgstr ""
 
-# #used by: GdkKeymap::state-changed:
+# #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdkcolor.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_color_to_string:
+# #-#-#-#-#  gdkevents.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_event_request_motions:
+# #-#-#-#-#  gdkpango.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_pango_attr_emboss_color_new:
+# #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_window_set_composited:
 #: gdkkeys.c:94:1
+#, fuzzy
 msgid "Since: 2.16"
-msgstr ""
+msgstr "Since: 2.12"
 
 # used by: gdk_keyval_convert_case:
 #: gdkkeys.c:123:1
@@ -5716,15 +6149,39 @@ msgstr ""
 msgid "@sorted: %TRUE if @spans is sorted wrt. the y coordinate"
 msgstr ""
 
-# used by: gdk_region_spans_intersect_foreach:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkregion-generic.c:1751:1
+#, fuzzy
 msgid "@function: function to call on each span in the intersection"
-msgstr ""
+msgstr "@function: 函数调用"
 
-# used by: gdk_region_spans_intersect_foreach:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkregion-generic.c:1752:1
+#, fuzzy
 msgid "@data: data to pass to @function"
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # #used by: gdk_region_spans_intersect_foreach:
 #: gdkregion-generic.c:1754:1
@@ -6094,20 +6551,44 @@ msgstr ""
 msgid "Returns the width of the default screen in pixels."
 msgstr ""
 
-# #used by: gdk_screen_width:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkscreen.c:346:1
+#, fuzzy
 msgid "Return value: the width of the default screen in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #used by: gdk_screen_height:
 #: gdkscreen.c:357:1
 msgid "Returns the height of the default screen in pixels."
 msgstr ""
 
-# #used by: gdk_screen_height:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #used by: gdk_threads_add_timeout_seconds:
 #: gdkscreen.c:359:1
+#, fuzzy
 msgid "Return value: the height of the default screen in pixels."
-msgstr ""
+msgstr "Return value: 事件源的ID（大于0）。"
 
 # #used by: gdk_screen_width_mm:
 #: gdkscreen.c:370:2
@@ -6517,15 +6998,39 @@ msgstr ""
 msgid "Return value: a reference to the list of child windows in @window"
 msgstr ""
 
-# used by: gdk_window_add_filter:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:812:1
+#, fuzzy
 msgid "@function: filter callback"
-msgstr ""
+msgstr "@function: 函数调用"
 
-# used by: gdk_window_add_filter:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:813:1
+#, fuzzy
 msgid "@data: data to pass to filter callback"
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # #used by: gdk_window_add_filter:
 #: gdkwindow.c:815:5
@@ -6548,10 +7053,22 @@ msgstr ""
 msgid "@function: previously-added filter function"
 msgstr ""
 
-# used by: gdk_window_remove_filter:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:866:1
+#, fuzzy
 msgid "@data: user data for previously-added filter function"
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # #used by: gdk_window_remove_filter:
 #: gdkwindow.c:868:1
@@ -6863,10 +7380,22 @@ msgid ""
 "never recurse."
 msgstr ""
 
-# used by: gdk_window_invalidate_maybe_recurse:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_idle:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds_full:
+# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:2814:1
+#, fuzzy
 msgid "@user_data: data passed to @child_func"
-msgstr ""
+msgstr "@data: 传递给@function的数据"
 
 # #-#-#-#-#  gdkwindow.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_window_invalidate_maybe_recurse:
