@@ -75,20 +75,22 @@ class Merge:
         print ">>>", file_name
         data = open (file_name).readlines()
         first_msgstr = True
-        fuzzy_flag=False
         for i in range(5, len(data)):
             # if not translate
             if data[i].startswith("msgid"):
                 (msgid, n1, cnt1) = self.get_message(data, i, "msgid")
-                (msgstr, n2, cnt2) = self.get_message(data, n1+cnt1+1, "msgstr")
+                if data[n1+cnt1].startswith("msgstr"):
+                    (msgstr, n2, cnt2) = self.get_message(data, n1+cnt1, "msgstr")
+                else:
+                    (msgstr, n2, cnt2) = self.get_message(data, n1+cnt1+1, "msgstr")
                 #如果已经翻译则继续
                 # if the msgstr has translated, then parser the source filename and line number.
-                if self.opts.fuzzy is True:
-                    fuzzy_flag=True
-                else:
-                    if len(data[i-1].split())> 2 and data[i-1].split()[2] == "fuzzy":
-                        fuzzy_flag=False
-                if len(msgstr) > 0 and fuzzy_flag:
+                fuzzy_flag = False
+                if len(data[i-1].split()) == 2 and data[i-1].split()[1] == "fuzzy":
+                    fuzzy_flag = True
+                    if self.opts.fuzzy:
+                        fuzzy_flag = False
+                if len(msgstr) > 0 and (not fuzzy_flag):
                     for rep in Replace_table_sort:
                         if msgstr.find(Replace_table[rep]) >= 0:
                             msgstr = msgstr.replace(Replace_table[rep], rep)+"\n"
