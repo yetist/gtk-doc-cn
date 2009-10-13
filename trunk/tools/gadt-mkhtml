@@ -409,7 +409,7 @@ compile_source()
 	fi
 	make || return 1
 	if [ -d $moddir/.libs ]; then
-		popd
+		popd > /dev/null
 	fi
 	cd $startdir
 	cp -r $htmldir $tmpdir
@@ -468,7 +468,7 @@ make_htmlhelp()
 	pushd $tmpdir
 	tar -zcf $modname-$pkgver.tgz book book.devhelp
 	rm -rf book book.devhelp
-	popd
+	popd >/dev/null
 }
 
 make_install()
