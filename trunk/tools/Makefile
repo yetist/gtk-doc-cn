@@ -9,7 +9,7 @@ sgml:
 	gadt-mkhtml --editsgml
 
 docs:
-	gadt-mkhtml --log
+	gadt-mkhtml --log --browser
 
 merge:
 	gadt-mkhtml --mergepo

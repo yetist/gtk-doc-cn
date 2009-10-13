@@ -477,6 +477,10 @@ make_install()
 		mkdir -p ~/.local/share/devhelp/books;
 	fi
 
+	if [ -d ~/.local/share/devhelp/books/$modname ];
+	then
+		rm -rf ~/.local/share/devhelp/books/$modname
+	fi
 	cp -r html ~/.local/share/devhelp/books/$modname
 	PID=$(pidof -o %PPID /usr/bin/devhelp)
 	if [ ! -z "$PID" ]; then
