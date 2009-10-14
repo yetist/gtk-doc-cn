@@ -24,7 +24,7 @@ import os
 import re
 import sys
 import urllib
-import simplejson
+import json
  
 baseUrl = "http://ajax.googleapis.com/ajax/services/language/translate"
 
@@ -48,7 +48,7 @@ def translate(text,src='en', to='zh'):
     retText=''
     for text in getSplits(text):
             params['q'] = text
-            resp = simplejson.load(urllib.urlopen('%s' % (baseUrl), data = urllib.urlencode(params)))
+            resp = json.load(urllib.urlopen('%s' % (baseUrl), data = urllib.urlencode(params)))
             try:
                     retText += resp['responseData']['translatedText']
             except:
