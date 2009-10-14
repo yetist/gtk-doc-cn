@@ -1,7 +1,271 @@
 #!/bin/sh
+######################################################################
+#I.   [目录]
+#1.     gtk-docs.sgml
+#II.  [GTK+ Overview]
+#1.     building.sgml
+#2.     compiling.sgml
+#3.     running.sgml
+#4.     x11.sgml
+#5.     windows.sgml
+#6.     osx.sgml
+#7.     directfb.sgml
+#8.     resources.sgml
+#9.     tmpl/question_index.sgml
+#10.    drawing-model.xml
+#III. [GTK+ Core Reference]
+#1.     tmpl/gtkmain.sgml
+#2.     tmpl/gtkaccelgroup.sgml     gtkaccelgroup.po
+#3.     tmpl/gtkaccelmap.sgml       gtkaccelmap.po
+#4.     tmpl/gtkclipboard.sgml      gtkclipboard.po
+#5.     tmpl/gtkdnd.sgml            gtkdnd.po
+#6.     tmpl/gtkicontheme.sgml      gtkicontheme.po
+#7.     tmpl/gtkstock.sgml          gtkstock.po
+#8.     tmpl/gtkiconfactory.sgml    gtkiconfactory.po
+#9.     tmpl/gtkrc.sgml             gtkrc.po
+#10.    tmpl/gtksettings.sgml       gtksettings.po
+#11.    tmpl/gtkbindings.sgml       gtkbindings.po
+#12.    tmpl/gtkenums.sgml
+#13.    tmpl/gtkgc.sgml
+#14.    tmpl/gtkstyle.sgml          gtkstyle.po
+#15.    tmpl/gtkselection.sgml      gtkselection.po
+#16.    tmpl/gtkfeatures.sgml
+#17.    tmpl/gtksignal.sgml
+#18.    tmpl/gtktypeutils.sgml
+#19.    tmpl/gtktesting.sgml
+#20.    tmpl/filesystem.sgml
+#IV.  [GTK+ Widgets and Objects]
+#1.     [Object Hierarchy]
+#1.1      tmpl/tree_index.sgml
+#2.     [Widget Gallery]
+#2.1      visual_index.sgml
+#3.     [Windows]
+#3.1      tmpl/gtkdialog.sgml               gtkdialog.po
+#3.2      tmpl/gtkinvisible.sgml
+#3.3      tmpl/gtkmessagedialog.sgml        gtkmessagedialog.po
+#3.4      tmpl/gtkwindow.sgml               gtkwindow.po
+#3.5      tmpl/gtkwindowgroup.sgml
+#3.6      tmpl/gtkaboutdialog.sgml          gtkaboutdialog.po
+#3.7      tmpl/gtkassistant.sgml            gtkassistant.po
+#4.     [Display Widgets]
+#4.1      tmpl/gtkaccellabel.sgml           gtkaccellabel.po
+#4.2      tmpl/gtkimage.sgml                gtkimage.po
+#4.3      tmpl/gtklabel.sgml                gtklabel.po
+#4.4      tmpl/gtkprogressbar.sgml          gtkprogressbar.po
+#4.5      tmpl/gtkstatusbar.sgml            gtkstatusbar.po
+#4.6      tmpl/gtkstatusicon.sgml           gtkstatusicon.po
+#5.     [Buttons and Toggles]
+#5.1      tmpl/gtkbutton.sgml               gtkbutton.po
+#5.2      tmpl/gtkcheckbutton.sgml          gtkcheckbutton.po
+#5.3      tmpl/gtkradiobutton.sgml          gtkradiobutton.po
+#5.4      tmpl/gtktogglebutton.sgml         gtktogglebutton.po
+#5.5      tmpl/gtklinkbutton.sgml           gtklinkbutton.po
+#5.6      tmpl/gtkscalebutton.sgml          gtkscalebutton.po
+#5.7      tmpl/gtkvolumebutton.sgml         gtkvolumebutton.po
+#6.     [Numeric/Text Data Entry]
+#6.1      (unknown)tmpl/gtkentry.sgml       gtkentry.po
+#6.2      tmpl/gtkentrycompletion.sgml      gtkentrycompletion.po
+#6.3      tmpl/gtkhscale.sgml               gtkhscale.po
+#6.4      tmpl/gtkvscale.sgml               gtkvscale.po
+#6.5      tmpl/gtkspinbutton.sgml           gtkspinbutton.po
+#6.6      tmpl/gtkeditable.sgml             gtkeditable.po
+#7.     [Multiline Text Editor]
+#7.1      tmpl/text_widget.sgml
+#7.2      tmpl/gtktextiter.sgml             gtktextiter.po
+#7.3      tmpl/gtktextmark.sgml             gtktextmark.po
+#7.4      tmpl/gtktextbuffer.sgml           gtktextbuffer.po
+#7.5      tmpl/gtktexttag.sgml              gtktexttag.po
+#7.6      tmpl/gtktexttagtable.sgml         gtktexttagtable.po
+#7.7      tmpl/gtktextview.sgml             gtktextview.po
+#8.     [Tree, List and Icon Grid Widgets]
+#8.1      tmpl/tree_widget.sgml
+#8.2      tmpl/gtktreemodel.sgml            gtktreemodel.po
+#8.3      tmpl/gtktreeselection.sgml        gtktreeselection.po
+#8.4      tmpl/gtktreeviewcolumn.sgml       gtktreeviewcolumn.po
+#8.5      tmpl/gtktreeview.sgml             gtktreeview.po
+#8.6      tmpl/gtktreednd.sgml              gtktreednd.po
+#8.7      tmpl/gtkcellview.sgml             gtkcellview.po
+#8.8      tmpl/gtkiconview.sgml             gtkiconview.po
+#8.9      tmpl/gtktreesortable.sgml         gtktreesortable.po
+#8.10     tmpl/gtktreemodelsort.sgml        gtktreemodelsort.po
+#8.11     tmpl/gtktreemodelfilter.sgml      gtktreemodelfilter.po
+#8.12     tmpl/gtkcelllayout.sgml           gtkcelllayout.po
+#8.13     tmpl/gtkcellrenderer.sgml         gtkcellrenderer.po
+#8.14     tmpl/gtkcelleditable.sgml         gtkcelleditable.po
+#8.15     tmpl/gtkcellrendereraccel.sgml    gtkcellrendereraccel.po
+#8.16     tmpl/gtkcellrenderercombo.sgml    gtkcellrenderercombo.po
+#8.17     tmpl/gtkcellrendererpixbuf.sgml   gtkcellrendererpixbuf.po
+#8.18     tmpl/gtkcellrendererprogress.sgml gtkcellrendererprogress.po
+#8.19     tmpl/gtkcellrendererspin.sgml     gtkcellrendererspin.po
+#8.20     tmpl/gtkcellrenderertext.sgml     gtkcellrenderertext.po
+#8.21     tmpl/gtkcellrenderertoggle.sgml   gtkcellrenderertoggle.po
+#8.22     tmpl/gtkliststore.sgml            gtkliststore.po
+#8.23     tmpl/gtktreestore.sgml            gtktreestore.po
+#9.     [Menus, Combo Box, Toolbar]
+#9.1      tmpl/gtkcombobox.sgml             gtkcombobox.po
+#9.2      tmpl/gtkcomboboxentry.sgml        gtkcomboboxentry.po
+#9.3      tmpl/gtkmenu.sgml                 gtkmenu.po
+#9.4      tmpl/gtkmenubar.sgml              gtkmenubar.po
+#9.5      tmpl/gtkmenuitem.sgml             gtkmenuitem.po
+#9.6      tmpl/gtkimagemenuitem.sgml        gtkimagemenuitem.po
+#9.7      tmpl/gtkradiomenuitem.sgml        gtkradiomenuitem.po
+#9.8      tmpl/gtkcheckmenuitem.sgml        gtkcheckmenuitem.po
+#9.9      tmpl/gtkseparatormenuitem.sgml
+#9.10     tmpl/gtktearoffmenuitem.sgml
+#9.11     tmpl/gtktoolshell.sgml
+#9.12     tmpl/gtktoolbar.sgml              gtktoolbar.po
+#9.13     tmpl/gtktoolitem.sgml             gtktoolitem.po
+#9.14     tmpl/gtkseparatortoolitem.sgml    gtkseparatortoolitem.po
+#9.15     tmpl/gtktoolbutton.sgml           gtktoolbutton.po
+#9.16     tmpl/gtkmenutoolbutton.sgml       gtkmenutoolbutton.po
+#9.17     tmpl/gtktoggletoolbutton.sgml     gtktoggletoolbutton.po
+#9.18     tmpl/gtkradiotoolbutton.sgml      gtkradiotoolbutton.po
+#10.    [Action-based menus and toolbars]
+#10.1     tmpl/gtkuimanager.sgml            gtkuimanager.po
+#10.2     tmpl/gtkactiongroup.sgml          gtkactiongroup.po
+#10.3     tmpl/gtkaction.sgml               gtkaction.po
+#10.4     tmpl/gtktoggleaction.sgml         gtktoggleaction.po
+#10.5     tmpl/gtkradioaction.sgml          gtkradioaction.po
+#10.6     tmpl/gtkrecentaction.sgml         gtkrecentaction.po
+#10.7     tmpl/gtkactivatable.sgml
+#11.    [Selectors (File/Font/Color/Input Devices)]
+#11.1     tmpl/gtkcolorbutton.sgml          gtkcolorbutton.po
+#11.2     tmpl/gtkcolorseldlg.sgml          gtkcolorseldialog.po
+#11.3     tmpl/gtkcolorsel.sgml             gtkcolorsel.po
+#11.4     tmpl/gtkhsv.sgml                  gtkhsv.po
+#11.5     tmpl/gtkfilechooser.sgml          gtkfilechooser.po
+#11.6     tmpl/gtkfilechooserbutton.sgml    gtkfilechooserbutton.po
+#11.7     tmpl/gtkfilechooserdialog.sgml    gtkfilechooserdialog.po
+#11.8     tmpl/gtkfilechooserwidget.sgml    gtkfilechooserwidget.po
+#11.9     tmpl/gtkfilefilter.sgml           gtkfilefilter.po
+#11.10    tmpl/gtkfontbutton.sgml           gtkfontbutton.po
+#11.11    tmpl/gtkfontsel.sgml              gtkfontsel.po
+#11.12    tmpl/gtkfontseldlg.sgml
+#11.13    tmpl/gtkinputdialog.sgml
+#12.    [Layout Containers]
+#12.1     tmpl/gtkalignment.sgml            gtkalignment.po
+#12.2     tmpl/gtkaspectframe.sgml
+#12.3     tmpl/gtkhbox.sgml
+#12.4     tmpl/gtkvbox.sgml
+#12.5     tmpl/gtkhbbox.sgml
+#12.6     tmpl/gtkvbbox.sgml
+#12.7     tmpl/gtkfixed.sgml                gtkfixed.po
+#12.8     tmpl/gtkhpaned.sgml               gtkpaned.po
+#12.9     tmpl/gtkvpaned.sgml
+#12.10    tmpl/gtklayout.sgml               gtklayout.po
+#12.11    tmpl/gtknotebook.sgml             gtknotebook.po
+#12.12    tmpl/gtktable.sgml                gtktable.po
+#12.13    tmpl/gtkexpander.sgml             gtkexpander.po
+#12.14    tmpl/gtkorientable.sgml           gtkorientable.po
+#13.    [Ornaments]
+#13.1     tmpl/gtkframe.sgml                gtkframe.po
+#13.2     tmpl/gtkhseparator.sgml
+#13.3     tmpl/gtkvseparator.sgml
+#14.    [Scrolling]
+#14.1     tmpl/gtkhscrollbar.sgml
+#14.2     tmpl/gtkvscrollbar.sgml
+#14.3     tmpl/gtkscrolledwindow.sgml
+#15.    [Printing]
+#15.1     tmpl/gtkprintoperation.sgml
+#15.2     tmpl/gtkprintcontext.sgml
+#15.3     tmpl/gtkprintsettings.sgml
+#15.4     tmpl/gtkpagesetup.sgml
+#15.5     tmpl/gtkpapersize.sgml
+#15.6     tmpl/gtkprinter.sgml
+#15.7     tmpl/gtkprintjob.sgml
+#15.8     tmpl/gtkprintunixdialog.sgml
+#15.9     tmpl/gtkpagesetupunixdialog.sgml
+#16.    [Miscellaneous]
+#16.1     tmpl/gtkadjustment.sgml
+#16.2     tmpl/gtkarrow.sgml
+#16.3     tmpl/gtkcalendar.sgml
+#16.4     tmpl/gtkdrawingarea.sgml
+#16.5     tmpl/gtkeventbox.sgml
+#16.6     tmpl/gtkhandlebox.sgml
+#16.7     tmpl/gtkimcontextsimple.sgml
+#16.8     tmpl/gtkimmulticontext.sgml
+#16.9     tmpl/gtksizegroup.sgml
+#16.10    tmpl/gtktooltip.sgml
+#16.11    tmpl/gtkviewport.sgml
+#16.12    tmpl/gtkaccessible.sgml
+#17.    [Abstract Base Classes]
+#17.1     tmpl/gtkbin.sgml
+#17.2     tmpl/gtkbox.sgml
+#17.3     tmpl/gtkbbox.sgml
+#17.4     tmpl/gtkcontainer.sgml
+#17.5     tmpl/gtkitem.sgml
+#17.6     tmpl/gtkmenushell.sgml
+#17.7     tmpl/gtkmisc.sgml
+#17.8     tmpl/gtkobject.sgml
+#17.9     tmpl/gtkpaned.sgml
+#17.10    tmpl/gtkrange.sgml
+#17.11    tmpl/gtkscale.sgml
+#17.12    tmpl/gtkscrollbar.sgml
+#17.13    tmpl/gtkseparator.sgml
+#17.14    tmpl/gtkwidget.sgml
+#17.15    tmpl/gtkimcontext.sgml
+#18.    [Cross-process Embedding]
+#18.1     tmpl/gtkplug.sgml
+#18.2     tmpl/gtksocket.sgml
+#19.    [Special-purpose features]
+#19.1     tmpl/gtkcurve.sgml
+#19.2     tmpl/gtkgamma.sgml
+#19.3     tmpl/gtkruler.sgml
+#19.4     tmpl/gtkhruler.sgml
+#19.5     tmpl/gtkvruler.sgml
+#20.    [Recently Used Documents]
+#20.1     tmpl/gtkrecentmanager.sgml
+#20.2     tmpl/gtkrecentchooser.sgml
+#20.3     tmpl/gtkrecentchooserdialog.sgml
+#20.4     tmpl/gtkrecentchoosermenu.sgml
+#20.5     tmpl/gtkrecentchooserwidget.sgml
+#20.6     tmpl/gtkrecentfilter.sgml
+#21.    [Interface builder]
+#21.1     tmpl/gtkbuildable.sgml
+#21.2     tmpl/gtkbuilder.sgml
+#22.    [Deprecated]
+#22.1     tmpl/gtkclist.sgml
+#22.2     tmpl/gtkctree.sgml
+#22.3     tmpl/gtkcombo.sgml
+#22.4     tmpl/gtkfilesel.sgml
+#22.5     tmpl/gtkitemfactory.sgml
+#22.6     tmpl/gtklist.sgml
+#22.7     tmpl/gtklistitem.sgml
+#22.8     tmpl/gtkoldeditable.sgml
+#22.9     tmpl/gtkoptionmenu.sgml
+#22.10    tmpl/gtkpixmap.sgml
+#22.11    tmpl/gtkpreview.sgml
+#22.12    tmpl/gtkprogress.sgml
+#22.13    tmpl/gtktext.sgml
+#22.14    tmpl/gtktooltips.sgml
+#22.15    tmpl/gtktipsquery.sgml
+#22.16    tmpl/gtktree.sgml
+#22.17    tmpl/gtktreeitem.sgml
+#23.    [Migrating from Previous Versions of GTK+]
+#23.1     tmpl/migrating-checklist.sgml
+#23.2     changes-1.2.sgml
+#23.3     changes-2.0.sgml
+#23.4     tmpl/migrating-GtkFileChooser.sgml
+#23.5     tmpl/migrating-GtkAction.sgml
+#23.6     tmpl/migrating-GtkComboBox.sgml
+#23.7     tmpl/migrating-GtkIconView.sgml
+#23.8     tmpl/migrating-GtkAboutDialog.sgml
+#23.9     tmpl/migrating-GtkColorButton.sgml
+#23.10    tmpl/migrating-GtkAssistant.sgml
+#23.11    tmpl/migrating-GtkRecentChooser.sgml
+#23.12    tmpl/migrating-GtkLinkButton.sgml
+#23.13    tmpl/migrating-GtkBuilder.sgml
+#23.15    tmpl/migrating-GtkTooltip.sgml
+#23.15    tmpl/migrating-GtkEntry-icons.sgml
+#24.    [GTK+ Tools]
+#24.1     gtk-query-immodules-2.0.xml
+#24.2     gtk-update-icon-cache.xml
+#24.3     gtk-builder-convert.xml
+#25.      glossary.xml
+######################################################################
 #此文件的格式如下
 #作者 邮箱 sgml文件数组 po文件数组
 #sgml_files和po_files数组内容以","分隔，中间不要使用空格，否则项目脚本将出错。
 #作者名为unknown表示无人认领，未开始翻译
 #作者名为finished表示已内容已经翻译完成。
-unknown unknown@nomail.com sgml_files=(building.sgml,changes-1.2.sgml,changes-2.0.sgml,compiling.sgml,directfb.sgml,drawing-model.xml,glossary.xml,gtk-builder-convert.xml,gtk-docs.sgml,gtk-query-immodules-2.0.xml,gtk-update-icon-cache.xml,migrating-GtkAboutDialog.sgml,migrating-GtkAction.sgml,migrating-GtkAssistant.sgml,migrating-GtkBuilder.sgml,migrating-GtkColorButton.sgml,migrating-GtkComboBox.sgml,migrating-GtkEntry-icons.sgml,migrating-GtkFileChooser.sgml,migrating-GtkIconView.sgml,migrating-GtkLinkButton.sgml,migrating-GtkRecentChooser.sgml,migrating-GtkTooltip.sgml,migrating-checklist.sgml,objects_grouped.sgml,osx.sgml,question_index.sgml,resources.sgml,running.sgml,text_widget.sgml,tree_widget.sgml,windows.sgml,x11.sgml,tmpl/filesystem.sgml,tmpl/gtkaboutdialog.sgml,tmpl/gtkaccelgroup.sgml,tmpl/gtkaccellabel.sgml,tmpl/gtkaccelmap.sgml,tmpl/gtkaccessible.sgml,tmpl/gtkaction.sgml,tmpl/gtkactiongroup.sgml,tmpl/gtkactivatable.sgml,tmpl/gtkadjustment.sgml,tmpl/gtkalignment.sgml,tmpl/gtkarrow.sgml,tmpl/gtkaspectframe.sgml,tmpl/gtkassistant.sgml,tmpl/gtkbbox.sgml,tmpl/gtkbin.sgml,tmpl/gtkbindings.sgml,tmpl/gtkbox.sgml,tmpl/gtkbuildable.sgml,tmpl/gtkbuilder.sgml,tmpl/gtkbutton.sgml,tmpl/gtkcalendar.sgml,tmpl/gtkcelleditable.sgml,tmpl/gtkcelllayout.sgml,tmpl/gtkcellrenderer.sgml,tmpl/gtkcellrendereraccel.sgml,tmpl/gtkcellrenderercombo.sgml,tmpl/gtkcellrendererpixbuf.sgml,tmpl/gtkcellrendererprogress.sgml,tmpl/gtkcellrendererspin.sgml,tmpl/gtkcellrenderertext.sgml,tmpl/gtkcellrenderertoggle.sgml,tmpl/gtkcellview.sgml,tmpl/gtkcheckbutton.sgml,tmpl/gtkcheckmenuitem.sgml,tmpl/gtkclipboard.sgml,tmpl/gtkclist.sgml,tmpl/gtkcolorbutton.sgml,tmpl/gtkcolorsel.sgml,tmpl/gtkcolorseldlg.sgml,tmpl/gtkcombo.sgml,tmpl/gtkcombobox.sgml,tmpl/gtkcomboboxentry.sgml,tmpl/gtkcontainer.sgml,tmpl/gtkctree.sgml,tmpl/gtkcurve.sgml,tmpl/gtkdialog.sgml,tmpl/gtkdnd.sgml,tmpl/gtkdrawingarea.sgml,tmpl/gtkeditable.sgml,tmpl/gtkentry.sgml,tmpl/gtkentrycompletion.sgml,tmpl/gtkenums.sgml,tmpl/gtkeventbox.sgml,tmpl/gtkexpander.sgml,tmpl/gtkfeatures.sgml,tmpl/gtkfilechooser.sgml,tmpl/gtkfilechooserbutton.sgml,tmpl/gtkfilechooserdialog.sgml,tmpl/gtkfilechooserwidget.sgml,tmpl/gtkfilefilter.sgml,tmpl/gtkfilesel.sgml,tmpl/gtkfixed.sgml,tmpl/gtkfontbutton.sgml,tmpl/gtkfontsel.sgml,tmpl/gtkfontseldlg.sgml,tmpl/gtkframe.sgml,tmpl/gtkgamma.sgml,tmpl/gtkgc.sgml,tmpl/gtkhandlebox.sgml,tmpl/gtkhbbox.sgml,tmpl/gtkhbox.sgml,tmpl/gtkhpaned.sgml,tmpl/gtkhruler.sgml,tmpl/gtkhscale.sgml,tmpl/gtkhscrollbar.sgml,tmpl/gtkhseparator.sgml,tmpl/gtkhsv.sgml,tmpl/gtkiconfactory.sgml,tmpl/gtkicontheme.sgml,tmpl/gtkiconview.sgml,tmpl/gtkimage.sgml,tmpl/gtkimagemenuitem.sgml,tmpl/gtkimcontext.sgml,tmpl/gtkimcontextsimple.sgml,tmpl/gtkimmulticontext.sgml,tmpl/gtkinputdialog.sgml,tmpl/gtkinvisible.sgml,tmpl/gtkitem.sgml,tmpl/gtkitemfactory.sgml,tmpl/gtklabel.sgml,tmpl/gtklayout.sgml,tmpl/gtklinkbutton.sgml,tmpl/gtklist.sgml,tmpl/gtklistitem.sgml,tmpl/gtkliststore.sgml,tmpl/gtkmain.sgml,tmpl/gtkmenu.sgml,tmpl/gtkmenubar.sgml,tmpl/gtkmenuitem.sgml,tmpl/gtkmenushell.sgml,tmpl/gtkmenutoolbutton.sgml,tmpl/gtkmessagedialog.sgml,tmpl/gtkmisc.sgml,tmpl/gtknotebook.sgml,tmpl/gtkobject.sgml,tmpl/gtkoldeditable.sgml,tmpl/gtkoptionmenu.sgml,tmpl/gtkorientable.sgml,tmpl/gtkpagesetup.sgml,tmpl/gtkpagesetupunixdialog.sgml,tmpl/gtkpaned.sgml,tmpl/gtkpapersize.sgml,tmpl/gtkpixmap.sgml,tmpl/gtkplug.sgml,tmpl/gtkpreview.sgml,tmpl/gtkprintcontext.sgml,tmpl/gtkprinter.sgml,tmpl/gtkprintjob.sgml,tmpl/gtkprintoperation.sgml,tmpl/gtkprintsettings.sgml,tmpl/gtkprintunixdialog.sgml,tmpl/gtkprogress.sgml,tmpl/gtkprogressbar.sgml,tmpl/gtkradioaction.sgml,tmpl/gtkradiobutton.sgml,tmpl/gtkradiomenuitem.sgml,tmpl/gtkradiotoolbutton.sgml,tmpl/gtkrange.sgml,tmpl/gtkrc.sgml,tmpl/gtkrecentaction.sgml,tmpl/gtkrecentchooser.sgml,tmpl/gtkrecentchooserdialog.sgml,tmpl/gtkrecentchoosermenu.sgml,tmpl/gtkrecentchooserwidget.sgml,tmpl/gtkrecentfilter.sgml,tmpl/gtkrecentmanager.sgml,tmpl/gtkruler.sgml,tmpl/gtkscale.sgml,tmpl/gtkscalebutton.sgml,tmpl/gtkscrollbar.sgml,tmpl/gtkscrolledwindow.sgml,tmpl/gtkselection.sgml,tmpl/gtkseparator.sgml,tmpl/gtkseparatormenuitem.sgml,tmpl/gtkseparatortoolitem.sgml,tmpl/gtksettings.sgml,tmpl/gtksignal.sgml,tmpl/gtksizegroup.sgml,tmpl/gtksocket.sgml,tmpl/gtkspinbutton.sgml,tmpl/gtkstatusbar.sgml,tmpl/gtkstatusicon.sgml,tmpl/gtkstock.sgml,tmpl/gtkstyle.sgml,tmpl/gtktable.sgml,tmpl/gtktearoffmenuitem.sgml,tmpl/gtktesting.sgml,tmpl/gtktext.sgml,tmpl/gtktextbuffer.sgml,tmpl/gtktextiter.sgml,tmpl/gtktextmark.sgml,tmpl/gtktexttag.sgml,tmpl/gtktexttagtable.sgml,tmpl/gtktextview.sgml,tmpl/gtkthemes.sgml,tmpl/gtktipsquery.sgml,tmpl/gtktoggleaction.sgml,tmpl/gtktogglebutton.sgml,tmpl/gtktoggletoolbutton.sgml,tmpl/gtktoolbar.sgml,tmpl/gtktoolbutton.sgml,tmpl/gtktoolitem.sgml,tmpl/gtktoolshell.sgml,tmpl/gtktooltip.sgml,tmpl/gtktooltips.sgml,tmpl/gtktree.sgml,tmpl/gtktreednd.sgml,tmpl/gtktreeitem.sgml,tmpl/gtktreemodel.sgml,tmpl/gtktreemodelfilter.sgml,tmpl/gtktreemodelsort.sgml,tmpl/gtktreeselection.sgml,tmpl/gtktreesortable.sgml,tmpl/gtktreestore.sgml,tmpl/gtktreeview.sgml,tmpl/gtktreeviewcolumn.sgml,tmpl/gtktypeutils.sgml,tmpl/gtkuimanager.sgml,tmpl/gtkvbbox.sgml,tmpl/gtkvbox.sgml,tmpl/gtkviewport.sgml,tmpl/gtkvolumebutton.sgml,tmpl/gtkvpaned.sgml,tmpl/gtkvruler.sgml,tmpl/gtkvscale.sgml,tmpl/gtkvscrollbar.sgml,tmpl/gtkvseparator.sgml,tmpl/gtkwidget.sgml,tmpl/gtkwindow.sgml,tmpl/gtkwindowgroup.sgml) po_files=(gtkaboutdialog.po,gtkaccelgroup.po,gtkaccellabel.po,gtkaccelmap.po,gtkaccessible.po,gtkaction.po,gtkactiongroup.po,gtkactivatable.po,gtkadjustment.po,gtkalignment.po,gtkassistant.po,gtkbbox.po,gtkbin.po,gtkbindings.po,gtkbox.po,gtkbuildable.po,gtkbuilder.po,gtkbutton.po,gtkcalendar.po,gtkcelleditable.po,gtkcelllayout.po,gtkcellrenderer.po,gtkcellrendereraccel.po,gtkcellrenderercombo.po,gtkcellrendererpixbuf.po,gtkcellrendererprogress.po,gtkcellrendererspin.po,gtkcellrenderertext.po,gtkcellrenderertoggle.po,gtkcellview.po,gtkcheckbutton.po,gtkcheckmenuitem.po,gtkclipboard-quartz.po,gtkclipboard.po,gtkcolorbutton.po,gtkcolorsel.po,gtkcolorseldialog.po,gtkcombobox.po,gtkcomboboxentry.po,gtkcontainer.po,gtkdialog.po,gtkdnd-quartz.po,gtkdnd.po,gtkeditable.po,gtkentry.po,gtkentrycompletion.po,gtkeventbox.po,gtkexpander.po,gtkfilechooser.po,gtkfilechooserbutton.po,gtkfilechooserdialog.po,gtkfilechooserembed.po,gtkfilechooserentry.po,gtkfilechooserutils.po,gtkfilechooserwidget.po,gtkfilefilter.po,gtkfilesel.po,gtkfilesystemmodel.po,gtkfixed.po,gtkfontbutton.po,gtkfontsel.po,gtkframe.po,gtkhandlebox.po,gtkhscale.po,gtkhscrollbar.po,gtkhsv.po,gtkiconcachevalidator.po,gtkiconfactory.po,gtkicontheme.po,gtkiconview.po,gtkimage.po,gtkimagemenuitem.po,gtkimcontext.po,gtkimcontextsimple.po,gtkimmodule.po,gtkimmulticontext.po,gtkinvisible.po,gtkitemfactory.po,gtkkeyhash.po,gtklabel.po,gtklayout.po,gtklinkbutton.po,gtkliststore.po,gtkmain.po,gtkmenu.po,gtkmenubar.po,gtkmenuitem.po,gtkmenushell.po,gtkmenutoolbutton.po,gtkmessagedialog.po,gtkmisc.po,gtkmodules.po,gtkmountoperation.po,gtknotebook.po,gtkoldeditable.po,gtkoptionmenu.po,gtkorientable.po,gtkpagesetup.po,gtkpagesetupunixdialog.po,gtkpaned.po,gtkpapersize.po,gtkpathbar.po,gtkplug.po,gtkprintcontext.po,gtkprinter.po,gtkprintjob.po,gtkprintoperation-unix.po,gtkprintoperation.po,gtkprintoperationpreview.po,gtkprintsettings.po,gtkprintunixdialog.po,gtkprogressbar.po,gtkradioaction.po,gtkradiobutton.po,gtkradiomenuitem.po,gtkradiotoolbutton.po,gtkrange.po,gtkrc.po,gtkrecentaction.po,gtkrecentchooser.po,gtkrecentchooserdialog.po,gtkrecentchoosermenu.po,gtkrecentchooserutils.po,gtkrecentchooserwidget.po,gtkrecentfilter.po,gtkrecentmanager.po,gtkruler.po,gtkscale.po,gtkscalebutton.po,gtkscrollbar.po,gtkscrolledwindow.po,gtkselection.po,gtkseparator.po,gtkseparatortoolitem.po,gtksettings.po,gtkshow.po,gtksizegroup.po,gtksocket.po,gtkspinbutton.po,gtkstatusbar.po,gtkstatusicon.po,gtkstock.po,gtkstyle.po,gtktable.po,gtktestutils.po,gtktextbtree.po,gtktextbuffer.po,gtktextbufferrichtext.po,gtktextchild.po,gtktextiter.po,gtktextlayout.po,gtktextmark.po,gtktexttag.po,gtktexttagtable.po,gtktextview.po,gtktoggleaction.po,gtktogglebutton.po,gtktoggletoolbutton.po,gtktoolbar.po,gtktoolbutton.po,gtktoolitem.po,gtktoolshell.po,gtktooltip.po,gtktooltips.po,gtktreednd.po,gtktreemodel.po,gtktreemodelfilter.po,gtktreemodelsort.po,gtktreeselection.po,gtktreesortable.po,gtktreestore.po,gtktreeview.po,gtktreeviewcolumn.po,gtktypeutils.po,gtkuimanager.po,gtkviewport.po,gtkvolumebutton.po,gtkvscale.po,gtkvscrollbar.po,gtkwidget.po,gtkwindow.po,gtkxembed.po)
+unknown unknown@nomail.com sgml_files=(tmpl/gtkentry.sgml) po_files=()

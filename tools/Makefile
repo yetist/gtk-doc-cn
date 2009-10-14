@@ -34,17 +34,17 @@ allclean:
 	rm -rf tmp *~ po
 
 help:
-	@(echo "帮助：")	
+	@(echo "命令帮助：")	
 	@(echo -e "\tmake               本地初始化(无副作用，可经常运行)")
-	@(echo -e "\tmake init          同make,本地初始化(无副作用，可经常运行)")
+	@(echo -e "\tmake init          同make")
 	@(echo -e "\tmake sgml          翻译sgml/xml文档")
-	@(echo -e "\tmake docs          生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)")
+	@(echo -e "\tmake docs          生成已翻译的中文文档(如果翻译了po文件，请先运行make merge)")
 	@(echo -e "\tmake merge         将自己翻译的po文件与主版本合并")
 	@(echo -e "\tmake commit        提交自己的翻译工作到服务器")
-	@(echo -e "\tmake devhelp       将手册安装到用户目录，并调用devhelp来浏览(要检查自己的翻译，请先运行make merge)")
-	@(echo -e "\tmake reviewsgml    检查所有的sgml/xml翻译情况(不推荐使用)")
+	@(echo -e "\tmake devhelp       将手册安装到用户目录，并调用devhelp来浏览(要查看自己的翻译，请先运行make docs)")
+	@(echo -e "\tmake reviewsgml    检查所有的sgml/xml翻译情况(看起来没完，不推荐使用)")
 	@(echo -e "\tmake clean         清除临时文件")
-	@(echo -e "\tmake allclean      清除所有不需要的文件(请小心使用)")
+	@(echo -e "\tmake allclean      清除所有不需要的文件(请谨慎使用,可能会丢失未提交的po文件翻译)")
 
 release:
 	@(source ./build.rc; \
