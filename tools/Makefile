@@ -45,6 +45,7 @@ help:
 	@(echo -e "\tmake reviewsgml    检查所有的sgml/xml翻译情况(看起来没完，不推荐使用)")
 	@(echo -e "\tmake clean         清除临时文件")
 	@(echo -e "\tmake allclean      清除所有不需要的文件(请谨慎使用,可能会丢失未提交的po文件翻译)")
+	@(echo -e "\n如果分配了po翻译任务，po文件将位于当前的po目录下。\n")
 
 release:
 	@(source ./build.rc; \
