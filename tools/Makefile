@@ -1,3 +1,5 @@
+PATH := ${HOME}/bin:${PATH}
+
 init:
 	@(printf "\033[1;1m  正在初始化, 请稍候... \033[1;0m\n" >&2)
 	@(cd ../../tools; ./gadt-init)
