@@ -19,18 +19,17 @@
 <title>环境变量</title>
 
 <para> 
-GLib inspects a few of environment variables in addition to standard
-variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</envar>. 
+GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</envar> 
+一样的标准环境变量之外的一小部分环境变量.
 </para>
 
 <formalpara id="G_FILENAME_ENCODING">
   <title><envar>G_FILENAME_ENCODING</envar></title>
 
   <para>
-    This environment variable can be set to a comma-separated list of character
-    set names. GLib assumes that filenames are encoded in the first character 
-    set from that list rather than in UTF-8. The special token "@locale" can be
-    used to specify the character set for the current locale.
+    这个环境变量可以被设置为逗号为分隔字符集名称的列表. 
+    GLib 假设文件名编码是以此列表第一个变量指定的编码方式而不是UTF-8.
+    特别标记 "@locale" 可用于指定当前语言环境的字符集编码.
   </para>
 </formalpara>
 
@@ -38,9 +37,8 @@ variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</envar>.
   <title><envar>G_BROKEN_FILENAMES</envar></title>
 
   <para>
-    If this environment variable is set, GLib assumes that filenames are in 
-    the locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes
-    priority over G_BROKEN_FILENAMES. 
+    如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8.  
+    G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES. 
   </para>
 </formalpara>
 
@@ -48,6 +46,7 @@ variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</envar>.
   <title><envar>G_MESSAGES_PREFIXED</envar></title>
 
   <para>
+    日志清单的级别
     A list of log levels for which messages should be prefixed by the 
     program name and PID of the application. The default is to prefix
     everything except <literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</literal>. 
@@ -268,7 +267,7 @@ is 20.
 </refsect2>
 
 <refsect2>
-<title>Memory statistics</title>
+<title>静态内存</title>
 
 <para>
 g_mem_profile() will output a summary g_malloc() memory usage, if memory
