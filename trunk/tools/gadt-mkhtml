@@ -405,12 +405,9 @@ compile_source()
 		./configure $configure || return 1
 	fi
 	if [ -d $moddir/.libs ]; then
-		pushd $docdir
+		cd $docdir
 	fi
 	make || return 1
-	if [ -d $moddir/.libs ]; then
-		popd > /dev/null
-	fi
 	cd $startdir
 	cp -r $htmldir $tmpdir
 	msg "新文档位于 $tmpdir/html"
