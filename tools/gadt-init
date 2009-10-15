@@ -12,7 +12,7 @@ if [ `id -u` -eq 0 ];then
 	cp ./gadt-autotrans /usr/bin
 else
 	[ -d $HOME/bin ] || mkdir $HOME/bin
-	echo $PATH|grep "~/bin" || $( echo "export PATH=~/bin:$PATH" >> ~/.bashrc; source ~/.bashrc)
+	echo $PATH|grep "$HOME/bin:" >/dev/null|| $( echo "export PATH=~/bin:$PATH" >> ~/.bashrc; source ~/.bashrc)
 	cp ./gtkdocpo ~/bin/
 	cp ./gadt-mkhtml ~/bin
 	cp ./gadt-autotrans ~/bin
