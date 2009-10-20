@@ -2,37 +2,36 @@
 ===========
 
 进入项目目录（项目目录位于zh_CN目录下，里面包含有Makefile文件）
+根据分配的任务不同，可能需要翻译po文件和（或）sgml/xml文件。
 
 翻译po文件的大致流程:
-
-make            初始化, 可经常运行, 初始化完成后待翻译的po文件将存在于po目录中
-翻译po文件      (位于po目录下)
-make merge      合并自己的翻译到项目主文件
+^^^^^^^^^^^^^^^^^^^^^^
+make            初始化, 可经常运行(首次初始化完成后待翻译的po文件将位于po目录下)
+make merge      合并自己翻译的po文件到项目主po文件
 make docs       生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)
 make devhelp    使用devhelp查看生成的文档
+make commit     提交自己的翻译结果到服务器(相当于svn ci/commit)
 
 翻译sgml/xml文件的大致流程:
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 make            初始化, 可经常运行
 make sgml       使用vim的对照方式来翻译文档，左侧为英文原文，右侧为中文
-make docs       生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)
+make docs       生成已翻译的中文文档
 make devhelp    使用devhelp查看生成的文档
+make commit     提交自己的翻译结果到服务器(相当于svn ci/commit)
+翻译sgml/xml文件的大致流程:
 
 命令参考：
 ===========
-	make init          同make,本地初始化(无副作用，可经常运行)
-	make sgml          翻译sgml/xml文档
-	make docs          生成已翻译的中文文档(要检查自己的翻译，请先运行make merge)
-	make merge         将自己翻译的po文件与主版本合并
-	make commit        提交自己的翻译工作到服务器
-	make devhelp       将手册安装到用户目录，并调用devhelp来浏览(要检查自己的翻译，请先运行make merge)
-	make reviewsgml    检查所有的sgml/xml翻译情况(不推荐使用)
-	make clean         清除临时文件
-	make allclean      清除所有不需要的文件(请小心使用)
-
-常见问题：
-==============
-
-1. 运行make或者make init时python报错，怎么解决？
-请安装python-simplejson软件包，根据发行版的不同，可能包名有所出入。
-
+make               本地初始化(无副作用，可经常运行)
+make init          同make
+make help          显示此命令帮助信息
+make sgml          翻译sgml/xml文档
+make merge         将自己翻译的po文件与主版本po文件合并
+make docs          生成已翻译的中文文档(如果翻译了po文件，请先运行make merge)
+make devhelp       将手册安装到用户目录，并调用devhelp来浏览(要查看自己的翻译，请先运行make docs)
+make commit        提交自己的翻译工作到服务器
+make reviewsgml    检查所有的sgml/xml翻译情况(看起来没完，不推荐使用)
+make clean         清除临时文件
+make allclean      清除所有不需要的文件(请谨慎使用,可能会丢失未提交的po文件翻译)
+如果分配了po翻译任务，po文件将位于当前的po目录下。
