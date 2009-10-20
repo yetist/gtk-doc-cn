@@ -1,39 +1,39 @@
 PATH := ${HOME}/bin:${PATH}
 
 init:
-	@(printf "\033[1;1m  正在初始化, 请稍候... \033[1;0m\n" >&2)
+	@(printf "\033[1;1m正在初始化, 请稍候... \033[1;0m\n" >&2)
 	@(cd ../../tools; ./gadt-init)
 	@(cd ../..; svn update)
 	@(gadt-mkhtml --nobuild --nosgml --nohtmlhelp)
-	@(printf "\033[1;1m 初始化成功, 要查看帮助请运行make help \033[1;0m\n" >&2 )
+	@(printf "\033[1;1m初始化成功, 要查看帮助请运行make help \033[1;0m\n" >&2 )
 
 sgml:
-	gadt-mkhtml --editsgml
+	@gadt-mkhtml --editsgml
 
 docs:
-	gadt-mkhtml --log --browser
+	@gadt-mkhtml --log --browser
 
 merge:
-	gadt-mkhtml --mergepo
+	@gadt-mkhtml --mergepo
 
 commit:
 	@(if svn status |grep "^M";then \
 		svn commit --editor-cmd=vim; \
 	else \
-		printf "\033[1;1m 目前没有可提交的内容，请尝试先运行make merge命令。\033[1;0m\n" >&2 ; \
+		printf "\033[1;1m目前没有可提交的内容，如果翻译了po文件，请先运行make merge命令。\033[1;0m\n" >&2 ; \
 	fi)
 
 devhelp:
-	gadt-mkhtml --install
+	@gadt-mkhtml --install
 
 reviewsgml:
-	gadt-mkhtml --reviewsgml
+	@gadt-mkhtml --reviewsgml
 
 clean:
-	gadt-mkhtml --clean
+	@gadt-mkhtml --clean
 
 allclean:
-	rm -rf tmp *~ po
+	@rm -rf tmp *~ po
 
 help:
 	@(echo "命令帮助：")	
@@ -67,7 +67,7 @@ release:
 	if [ -f tmp/$$modname-$$pkgver.tgz ]; then \
 		scp tmp/$$modname-$$pkgver.tgz dev.osprg.org:public_html/docs; \
 	else \
-		printf "\033[1;1m htmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
+		printf "\033[1;1mhtmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
 	fi)
 
-.PHONY: sgml docs merge commit devhelp reviewsgml clean allclean release
+.PHONY: init sgml docs merge commit devhelp reviewsgml clean allclean release
