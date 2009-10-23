@@ -46,10 +46,8 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
   <title><envar>G_MESSAGES_PREFIXED</envar></title>
 
   <para>
-    日志清单的级别
-    A list of log levels for which messages should be prefixed by the 
-    program name and PID of the application. The default is to prefix
-    everything except <literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</literal>. 
+    日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了<literal>G_LOG_LEVEL_MESSAGE</literal>
+    和<literal>G_LOG_LEVEL_INFO</literal>的一切.
   </para>
 </formalpara>
 
@@ -76,12 +74,10 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
         <term>gc-friendly</term>
 	<listitem>
 		<para>
-		  Newly allocated memory that isn't directly initialized, as well
-		  as memory being freed will be reset to 0. The point here is to
-		  allow memory checkers and similar programs that use bohem GC alike
-		  algorithms to produce more accurate results.
-		  This option is special in that it doesn't require GLib to be
-		  configured with debugging support.
+		  新分配的内存没有被直接初始化,内存释放后将被重置为0.
+		  这里的要点是允许内存检查系统和使用bohem GC 类似算法
+		  的程序来计算更多精确的結果.此选项比较特殊,不需要将
+		  GLib配置成调试支持.
 		</para>
         </listitem>
       </varlistentry>
@@ -89,12 +85,10 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
         <term>resident-modules</term>
 	<listitem>
 	  <para>
-	    All modules loaded by GModule will be made resident. This can be useful
-	    for tracking memory leaks in modules which are later unloaded; but it can
-	    also hide bugs where code is accessed after the module would have normally
-	    been unloaded.
-	    This option is special in that it doesn't require GLib to be
- 	    configured with debugging support.
+	    所有由GModule加载的模块将长驻内存的.
+	    这可用于在模块卸载后追踪模块的内存泄漏.
+	    但也可能在模块正常卸载后隐藏代码访问时的bugs.
+	    此选项比较特殊,不需要将GLib配置成调试支持.
 	  </para>
         </listitem>
       </varlistentry>
@@ -102,38 +96,33 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
         <term>bind-now-modules</term>
 	<listitem>
 	  <para>
-	    All modules loaded by GModule will bind their symbols at load time, even
-	    when the code uses %G_MODULE_BIND_LAZY.
-	    This option is special in that it doesn't require GLib to be
- 	    configured with debugging support.
+	    所有模块被GModule加载时就会绑定他们的符号,即使代码使用了
+	    %G_MODULE_BIND_LAZY.
+	    此选项比较特殊,不需要将GLib配置成调试支持.
 	  </para>
         </listitem>
       </varlistentry>
     </variablelist>
-    The special value all can be used to turn on all debug options. 
-    The special value help can be used to print all available options.  
+    特殊值可以用来打开所有的调试选项.
+    特殊值可以用来打印所有可用的选项.
   </para>
 </formalpara>
 
 <formalpara id="G_SLICE">
 	<title><envar>G_SLICE</envar></title>
 	<para>
-	  This environment variable allows reconfiguration of the GSlice
-	  memory allocator.
+	　该环境变量允许重新配置GSlice内存分配器.
 	  <variablelist>
 	    <varlistentry>
 	      <term>always-malloc</term>
 	      <listitem>
 		<para>
-		  This will cause all slices allocated through g_slice_alloc() and
-		  released by g_slice_free1() to be actually allocated via direct
-		  calls to g_malloc() and g_free().
-		  This is most useful for memory checkers and similar programs that
-		  use Bohem GC alike algorithms to produce more accurate results.
-		  It can also be in conjunction with debugging features of the system's
-		  malloc implementation such as glibc's MALLOC_CHECK_=2 to debug
-		  erroneous slice allocation code, allthough <literal>debug-blocks</literal>
-		  usually is a better suited debugging tool.
+		　这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将
+		　直接调用g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC
+		　算法的相关程序计算更精确的結果最有帮助.　
+		  它还可以连接系统malloc实现中的调试特性，比如glibc中的MALLOC_CHECK_=2,
+		  然后来调试错误的片分配代码,即使<literal>debug-blocks</literal>通常是
+		  更适合的调试工具.
 		</para>
 	      </listitem>
 	    </varlistentry>
@@ -141,21 +130,14 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
 	      <term>debug-blocks</term>
 	      <listitem>
 		<para>
-		  Using this option (present since GLib-2.13) engages extra code
-		  which performs sanity checks on the released memory slices.
-		  Invalid slice adresses or slice sizes will be reported and lead to
-		  a program halt.
-		  This option is for debugging scenarios.
-		  In particular, client packages sporting their own test suite should
-		  <emphasis>always enable this option when running tests</emphasis>.
-		  Global slice validation is ensured by storing size and address information
-		  for each allocated chunk, and maintaining a global hash table of that data.
-		  That way, multi-thread scalability is given up, and memory consumption is
-		  increased. However, the resulting code usually performs acceptably well,
-		  possibly better than with comparable memory checking carried out using
-		  external tools. An example of a memory corruption scenario that cannot be
-		  reproduced with <literal>G_SLICE=always-malloc</literal>, but will be caught
-		  by <literal>G_SLICE=debug-blocks</literal> is as follows:
+		  使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整
+		  性检查.无效的片地址或片大小将会被报告并导致程序停止。此选项用于调试
+		  方案.特别地，客户端软件包在运行自有的测试套件时应该<emphasis>始终打开此选项</emphasis>.
+		  全局片验证是为了确保存储每个分配块的大小和地址信息,并为此数据维护
+		  一个全局的哈希表.因此,多线程的可扩展性被放弃,而且内存消耗增加.然而
+		  生成的代码通常表现得更好,可能比同类使用外部工具检查内存的还要好.
+		  在一个内存损坏的情况下,<literal>G_SLICE=always-malloc</literal>将不能进行复制,
+		  但设置<literal>G_SLICE=debug-blocks</literal>将能如下面一样捕获:
 		  <programlisting>
 		    void *slist = g_slist_alloc(); /* void* gives up type-safety */
 		    g_list_free (slist);           /* corruption: sizeof (GSList) != sizeof (GList) */
@@ -164,8 +146,8 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
 	      </listitem>
 	    </varlistentry>
 	  </variablelist>
-          The special value all can be used to turn on all options. 
-          The special value help can be used to print all available options.  
+	    特殊值可以用来打开所有的调试选项.
+	    特殊值可以用来打印所有可用的选项.
 	</para>
 </formalpara>
 
@@ -173,11 +155,9 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
   <title><envar>G_RANDOM_VERSION</envar></title>
 
   <para>
-    If this environment variable is set to '2.0', the outdated
-    pseudo-random number seeding and generation algorithms from
-    GLib-2.0 are used instead of the new better ones. Use the GLib-2.0
-    algorithms only if you have sequences of numbers generated with
-    Glib-2.0 that you need to reproduce exactly.  
+  　如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成
+  　算法将会替代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才
+  　使用GLib-2.0的算法.
   </para>
 </formalpara> 
 
@@ -185,79 +165,68 @@ GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME<
   <title><envar>LIBCHARSET_ALIAS_DIR</envar></title>
 
   <para>
-    Allows to specify a nonstandard location for the 
-    <filename>charset.aliases</filename> file that is used by the
-    character set conversion routines. The default location is the 
-    <replaceable>libdir</replaceable> specified at compilation time.
+  　允许为<filename>charset.aliases</filename>文件指定一个非标准的位置,
+    这文件通常用于字符集转换全程.默认位置是编译时指定的<replaceable>libdir</replaceable>.
   </para>
 </formalpara> 
 
 </refsect2>
 
 <refsect2 id="setlocale">
-<title>Locale</title>
+<title>区域设置</title>
 
 <para>
-A number of interfaces in GLib depend on the current locale in which
-an application is running. Therefore, most GLib-using applications should
-call <function>setlocale (LC_ALL, "")</function> to set up the current 
-locale.
+相当数量的GLib接口取决于应用程序在运行时的当前区域设置.
+因此大多数使用GLib的程序应该调用<function>setlocale(LC_ALL,"")</function>
+来设置当前区域.
 </para>
 
 <para>
-On Windows, in a C program there are several locale concepts
-that not necessarily are synchronized. On one hand, there is the
-system default ANSI code-page, which determines what encoding is used
-for file names handled by the C library's functions and the Win32
-API. (We are talking about the "narrow" functions here that take
-character pointers, not the "wide" ones.)
+在Windows中,C程序中有几个区域设置的概念并不是同步的.
+一方面,有系统默认的ANSI代码页,由C库和Win32API来决定用什么
+编码来处理文件名.(我们现在谈论的是"窄"函数处理字符指针,不是
+"宽"的那种.)
 </para>
 
 <para>
-On the other hand, there is the C library's current locale. The
-character set (code-page) used by that is not necessarily the same as
-the system default ANSI code-page. Strings in this character set are
-returned by functions like <function>strftime()</function>.
+另一方面,有一个C函数库的 当前区域.该字符集(代码页)并不一定像
+系统默认ANSI代码页一样使用.它返回的字符集类似<functions>strftime()</functions>.
 </para>
 
 </refsect2>
 
 <refsect2>
-<title>Traps and traces</title>
+<title>陷阱与追踪</title>
 
 <para>
 <indexterm><primary>g_trap_free_size</primary></indexterm>
 <indexterm><primary>g_trap_realloc_size</primary></indexterm>
 <indexterm><primary>g_trap_malloc_size</primary></indexterm>
-Some code portions contain trap variables that can be set during debugging 
-time if GLib has been configured with <option>--enable-debug=yes</option>. 
-Such traps lead to immediate code halts to examine the current program state 
-and backtrace.
+在GLib配置好<option>--enable-debugging=yes</option>
+的调试中,有些包含陷阱变量的代码可被设置.这些陷阱导致代码停止检查
+当前的程序状态并回溯.
 </para>
 
 <para>
-Currently, the following trap variables exist:
+当前,有下列陷阱变量存在:
 <programlisting>
 static volatile gulong g_trap_free_size;
 static volatile gulong g_trap_realloc_size;
 static volatile gulong g_trap_malloc_size;
 </programlisting>
-If set to a size > 0, <link linkend="g-free">g_free</link>(), 
-<link linkend="g-realloc">g_realloc</link>() and 
-<link linkend="g-malloc">g_malloc</link>() will be intercepted if the size 
-matches the size of the corresponding memory block. This will only work with 
-<literal>g_mem_set_vtable (glib_mem_profiler_table)</literal> upon startup 
-though, because memory profiling is required to match on the memory block sizes.
+如果设置 size > 0, 其大小匹配内存块的大小的话,<link linkend="g-free">g_free</link>(),
+<link linkend="g-realloc">g_realloc</link>()和 
+<link linkend="g-malloc">g_malloc</link>() 将被拦截.
+这只会在<literal>g_mem_set_vtable(glib_mem_profiler_table)</literal>启动时才会生效,
+因为内存分析需要匹配内存块的大小.
 </para>
 <para>
-Note that many modern debuggers support conditional breakpoints, which achieve
-pretty much the same. E.g. in gdb, you can do
+注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做
 <programlisting>
 break g_malloc
 condition 1 n_bytes == 20
 </programlisting>
-to break only on g_malloc() calls where the size of the allocated memory block
-is 20. 
+来在只有g_malloc()分配20字节的时候才中断它.
 </para>
 </refsect2>
 
@@ -265,15 +234,14 @@ is 20.
 <title>静态内存</title>
 
 <para>
-g_mem_profile() will output a summary g_malloc() memory usage, if memory
-profiling has been enabled by calling 
-<literal>g_mem_set_vtable (glib_mem_profiler_table)</literal> upon startup.
+如果内存分析已在启动时通过 <literal>g_mem_set_vtable(glib_mem_profiler_table)</literal> 启动,g_mem_profile()
+将输出g_malloc()的内存使用摘要.
 </para>
 
 <para>
-If GLib has been configured with <option>--enable-debug=yes</option>,
-then g_slice_debug_tree_statistics() can be called in a debugger to 
-output details about the memory usage of the slice allocator.
+如果GLib已经配置了选项<option>--enable-debug=yes</option>,
+那么在调试器中则可以调用g_slice_debug_tree_statistics()来查看
+内存片使用的细节.
 </para>
 
 </refsect2>
