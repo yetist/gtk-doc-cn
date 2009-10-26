@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ ! -f ~/.gtkdocpo ];then
     printf "\033[1;31m==> "说明："\033[1;0m\033[1;1m请在下面输入您的用户名,当前可供选择的用户名如下：\033[1;0m\n" >&2;
@@ -10,8 +10,8 @@ if [ ! -f ~/.gtkdocpo ];then
 	    echo -n "请输入:"
 	    read username
     done
-    printf "\033[1;0m\033[1;1m  您输入的用户名为==>\033[1;31m "$username" \033[1;0m\n" >&2;
-    printf "\033[1;0m\033[1;1m  以后还可以通过修改 ~/.gtkdocpo 文件来改变。\033[1;0m\n" >&2;
+    printf "\033[1;0m\033[1;1m您输入的用户名为==>\033[1;31m "$username" \033[1;0m\n" >&2;
+    printf "\033[1;0m\033[1;1m以后可以通过修改 ~/.gtkdocpo 文件来改变。\033[1;0m\n" >&2;
     echo "username=$username" > ~/.gtkdocpo
 fi
 
