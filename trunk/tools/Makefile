@@ -2,7 +2,7 @@ PATH := ${HOME}/bin:${PATH}
 
 init:
 	@(printf "\033[1;1m正在初始化, 请稍候... \033[1;0m\n" >&2)
-	@(cd ../../tools; ./gadt-init)
+	@(../../tools/gadt-init)
 	@(cd ../..; svn update)
 	@(gadt-mkhtml --nobuild --nosgml --nohtmlhelp)
 	@(printf "\033[1;1m初始化成功, 要查看帮助请运行make help \033[1;0m\n" >&2 )
