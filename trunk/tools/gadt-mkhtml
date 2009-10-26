@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # File: gadt-mkhtml
 # Summary: This is a ...
 # Author: yetist <yetist@gmail.com>
@@ -213,8 +213,8 @@ ARGLIST=$@
 OPT_SHORT="bcCefhHilLmnop:rst"
 OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
 # Options
-# OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
-OPT_TEMP="$(getopt -o "$OPT_SHORT" -l "$OPT_LONG" -n "$(basename "$0")" -- "$@" || echo 'PARSE_OPTIONS FAILED')"
+OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
+#OPT_TEMP="$(getopt -o "$OPT_SHORT" -l "$OPT_LONG" -n "$(basename "$0")" -- "$@" || echo 'PARSE_OPTIONS FAILED')"
 if echo "$OPT_TEMP" | grep -q 'PARSE_OPTIONS FAILED'; then
 	# This is a small hack to stop the script bailing with 'set -e'
 	echo; usage; exit 1 # E_INVALID_OPTION;
