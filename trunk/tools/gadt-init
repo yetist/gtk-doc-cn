@@ -2,7 +2,7 @@
 
 if [ ! -f ~/.gtkdocpo ];then
     printf "\033[1;31m==> "说明："\033[1;0m\033[1;1m请在下面输入您的用户名,当前可供选择的用户名如下：\033[1;0m\n" >&2;
-    cat AUTHORS|grep -v "^#"|grep -v "unknown"|grep -v "finished"|awk '{print $1}'
+    cat AUTHORS|grep -v "^#"|grep -v "unknown"|grep -v "finished"|sort|awk '{print $1}'
     echo -n "请输入:"
     read username
     while [ -z $username ]
