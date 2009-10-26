@@ -118,47 +118,45 @@ chmod a-w win32.cache   # prevent configure from changing it
          <title>glib_cv_uscore=[yes/no]</title>
 
          <para>
-            Whether an underscore needs to be prepended to symbols when
-            looking them up via <function>dlsym()</function>. Only needs to 
-            be set if your system uses
-	    <function>dlopen()</function>/<function>dlsym()</function>.
+	 通过<function>dlsym()</function>函数时，
+	 是否需要考虑一个下划线为前缀的符号时，
+	 他们希望通过dlsym了（）。
+	 只需要设置如果你的系统使用<function>dlopen()</function>/<function>dlsym()。
 	 </para>
       </formalpara>
       <formalpara>
          <title>ac_cv_func_posix_getpwuid_r=[yes/no]</title>
 
          <para>
-            Whether you have a getpwuid_r function (in your C library,
-	    not your thread library) that conforms to the POSIX spec.
-            (Takes a 'struct passwd **' as the final argument)
+	 是否你的getpwuid_r函数(在你的C库，而不是线程库)遵守POSIX规范。
+	 接受'struct passwd **'作为最终的参数。
          </para>
       </formalpara>
       <formalpara>
          <title>ac_cv_func_nonposix_getpwuid_r=[yes/no]</title>
  
          <para>
-            Whether you have some variant of <function>getpwuid_r()</function>
-            that doesn't conform to to the POSIX spec, but GLib might be able
-            to use (or might segfault.) Only needs to be set if 
-	    <literal>ac_cv_func_posix_getpwuid_r</literal> is not set. It's 
-            safest to set this to "no".
+是否你有一些<function>getpwuid_r()</function>函数的变量不能遵守POSIX规范，
+但是GLib有能力去使用它(或者发生段错误)。
+只有在<literal>ac_cv_func_posix_getpwuid_r</literal>
+没被设置的情况下才需要设置此变量。
+此变量可以安全地被设置为"no".
          </para>
       </formalpara>
       <formalpara>
          <title>ac_cv_func_posix_getgrgid_r=[yes/no]</title>
  
          <para>
-            Whether you have a getgrgid_r function that conforms to
-            the POSIX spec.
+	 是否你有一个getgrgid_r函数去遵守POSIX规范。
          </para>
       </formalpara>
       <formalpara>
          <title>glib_cv_use_pid_surrogate=[yes/no]</title>
 
          <para>
-            Whether to use a <function>setpriority()</function> on the PID of 
-            the thread as a method for setting the priority of threads. This 
-            only needs to be set when using POSIX threads.
+	 是否使用<function>setpriority()</function>函数在线程的PID上，
+	 作为设置线程优先级的方式。
+	 只有在使用POSIX线程的时候需要设置。
          </para>
       </formalpara>
       <formalpara>
@@ -173,10 +171,9 @@ chmod a-w win32.cache   # prevent configure from changing it
          <title>ac_cv_func_vsnprintf_c99=[yes/no]</title>
 
          <para>
-            Whether you have a <function>vsnprintf()</function> with C99 
-            semantics. (C99 semantics means returning the number of bytes 
-            that would have been written had the output buffer had enough 
-            space.) Defaults to "no".
+	 是否你有一个<function>vsnprintf()</function>函数符合C99的。
+	 (C99语义的意思是返回字符数，被写到输入缓存有足够的空间)。
+	 默认为"no"。
          </para>
       </formalpara>
 
