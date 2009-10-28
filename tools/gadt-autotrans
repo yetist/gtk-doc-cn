@@ -50,7 +50,7 @@ def translate(text,src='en', to='zh'):
             params['q'] = text
             resp = json.load(urllib.urlopen('%s' % (baseUrl), data = urllib.urlencode(params)))
             try:
-                    retText += resp['responseData']['translatedText']
+                    retText += resp['responseData']['translatedText'].replace("\n","")
             except:
                 return ""
     return retText
