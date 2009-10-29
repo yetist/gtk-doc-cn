@@ -1,12 +1,12 @@
 <!-- ##### SECTION Title ##### -->
-Standard Macros
+标准宏
 
 <!-- ##### SECTION Short_Description ##### -->
-commonly-used macros.
+常见宏。
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
-These macros provide a few commonly-used features.
+这些宏提供一些常用的功能。
 </para>
 
 <!-- ##### SECTION See_Also ##### -->
@@ -19,210 +19,197 @@ These macros provide a few commonly-used features.
 
 <!-- ##### MACRO G_OS_WIN32 ##### -->
 <para>
-This macro is defined only on Windows. So you can bracket
-Windows-specific code in "&num;ifdef G_OS_WIN32".
+这些宏只在Windows上定义。所以你要使用针对于Windows的特定代码 "&num;ifdef G_OS_WIN32"。
 </para>
 
 
 
 <!-- ##### MACRO G_OS_BEOS ##### -->
 <para>
-This macro is defined only on BeOS. So you can bracket
-BeOS-specific code in "&num;ifdef G_OS_BEOS".
+这些宏只在BeOS上定义。所以你要使用针对于BeOS的特定代码 "&num;ifdef G_OS_BEOS"。
 </para>
 
 
 
 <!-- ##### MACRO G_OS_UNIX ##### -->
 <para>
-This macro is defined only on UNIX. So you can bracket
-UNIX-specific code in "&num;ifdef G_OS_UNIX".
+这些宏只在UNIX上定义。所以你要使用针对于UNIX的特定代码  "&num;ifdef G_OS_UNIX"。
 </para>
 
 
 
 <!-- ##### MACRO G_DIR_SEPARATOR ##### -->
 <para>
-The directory separator character.
-This is '/' on UNIX machines and '\' under Windows.
+目录分隔符。’/’是UNIX机器上的，’\’是Windows环境下的。
 </para>
 
 
 
 <!-- ##### MACRO G_DIR_SEPARATOR_S ##### -->
 <para>
-The directory separator as a string.
-This is "/" on UNIX machines and "\" under Windows.
+目录分隔字符串。”/”是UNIX机器上的，”\”是Windows环境下的。
 </para>
 
 
 
 <!-- ##### MACRO G_IS_DIR_SEPARATOR ##### -->
 <para>
-Checks whether a character is a directory 
-separator. It returns %TRUE for '/' on UNIX
-machines and for '\' or '/' under Windows.
+检查一个字符是否是目录分隔符。'/'在UNIX机器上，以及'\' 和 '/' 在Windows下，会返回一个%TRUE。
 </para>
 
-@c: a character
+@c: 一个字符
 @Since: 2.6
 
 
 <!-- ##### MACRO G_SEARCHPATH_SEPARATOR ##### -->
 <para>
-The search path separator character.
-This is ':' on UNIX machines and ';' under Windows.
+搜索路径分隔符。':'是UNIX机器上的，';'则是Windows下的。
 </para>
 
 
 
 <!-- ##### MACRO G_SEARCHPATH_SEPARATOR_S ##### -->
 <para>
-The search path separator as a string.
-This is ":" on UNIX machines and ";" under Windows.
+搜索路径分隔字符串。':'是UNIX机器上的，';'则是Windows下的。
 </para>
 
 
 
 <!-- ##### MACRO TRUE ##### -->
 <para>
-Defines the %TRUE value for the #gboolean type.
+定义#gboolean类型的%TRUE。
 </para>
 
 
 
 <!-- ##### MACRO FALSE ##### -->
 <para>
-Defines the %FALSE value for the #gboolean type.
+定义#gboolean类型的% FALSE。
 </para>
 
 
 
 <!-- ##### MACRO NULL ##### -->
 <para>
-Defines the standard %NULL pointer.
+定义标准的%NULL 指针。
 </para>
 
 
 
 <!-- ##### MACRO MIN ##### -->
 <para>
-Calculates the minimum of @a and @b.
+计算@a 和 @b哪个小。
 </para>
 
-@a: a numeric value.
-@b: a numeric value.
-@Returns: the minimum of @a and @b.
+@a: 一个数值变量。
+@b: 一个数值变量。
+@Returns: @a 和 @b之中更小的
 
 
 <!-- ##### MACRO MAX ##### -->
 <para>
-Calculates the maximum of @a and @b.
+计算@a 和 @b哪个大。
 </para>
 
-@a: a numeric value.
-@b: a numeric value.
-@Returns: the maximum of @a and @b.
+@a: 一个数值变量。
+@b: 一个数值变量。
+@Returns: @a 和 @b之中更大的
 
 
 <!-- ##### MACRO ABS ##### -->
 <para>
-Calculates the absolute value of @a.
-The absolute value is simply the number with any negative sign taken away.
+计算@a的绝对值。绝对值仅仅是对任何数去掉负号。
 </para>
 <para>
-For example,
+例如：
 <itemizedlist>
 <listitem><para>
-ABS(-10) is 10.
+ABS(-10) 绝对值为10.
 </para></listitem>
 <listitem><para>
-ABS(10) is also 10.
+ABS(10)  还是 10.
 </para></listitem>
 </itemizedlist>
 </para>
 
-@a: a numeric value.
-@Returns: the absolute value of @a.
+@a: 一个数值变量。
+@Returns: @a的绝对值。
 
 
 <!-- ##### MACRO CLAMP ##### -->
 <para>
-Ensures that @x is between the limits set by @low and @high. If @low is
-greater than @high the result is undefined.
+确保@x在@low 和 @high之间。如果@low大于@high，结果是未知的。
 </para>
 <para>
-For example,
+例如：
 <itemizedlist>
 <listitem><para>
-CLAMP(5, 10, 15) is 10.
+CLAMP(5, 10, 15) 结果是 10。
 </para></listitem>
 <listitem><para>
-CLAMP(15, 5, 10) is 10.
+CLAMP(15, 5, 10) 结果是10.
 </para></listitem>
 <listitem><para>
-CLAMP(20, 15, 25) is 20.
+CLAMP(20, 15, 25) 结果是20.
 </para></listitem>
 </itemizedlist>
 </para>
 
-@x: the value to clamp.
-@low: the minimum value allowed.
-@high: the maximum value allowed.
-@Returns: the value of @x clamped to the range between @low and @high.
+@x: the value to clamp.【不清楚这里如何理解】
+@low: 允许的最小值。
+@high: 允许的最大值。
+@Returns: the value of @x clamped to the range between @low and @high. 【不清楚这里如何理解】
 
 
 <!-- ##### MACRO G_STRUCT_MEMBER ##### -->
 <para>
-Returns a member of a structure at a given offset, using the given type.
+返回一个结构体指定偏移量的成员，使用指定类型
 </para>
 
-@member_type: the type of the struct field.
-@struct_p: a pointer to a struct.
-@struct_offset: the offset of the field from the start of the struct, in bytes.
-@Returns: the struct member.
+@member_type: 结构体类型。
+@struct_p:指向结构体的指针
+@struct_offset: 自结构体起始的偏移，字节类型。
+@Returns:结构体成员。
 
 
 <!-- ##### MACRO G_STRUCT_MEMBER_P ##### -->
 <para>
-Returns an untyped pointer to a given offset of a struct.
+返回一个结构体的既定偏移量的无类型指针。
 </para>
 
-@struct_p: a pointer to a struct.
-@struct_offset: the offset from the start of the struct, in bytes.
-@Returns: an untyped pointer to @struct_p plus @struct_offset bytes.
+@struct_p: 指向结构体的指针。
+@struct_offset: 自结构体起始的偏移，字节类型。
+@Returns:指向@struct_p 加 @struct_offset 个字节数的无类型指针。
 
 
 <!-- ##### MACRO G_STRUCT_OFFSET ##### -->
 <para>
-Returns the offset, in bytes, of a member of a struct.
+返回偏移量，字节类型，结构体的成员。
 </para>
 
-@struct_type: a structure type, e.g. <structname>GtkWidget</structname>.
-@member: a field in the structure, e.g. <structfield>window</structfield>.
-@Returns: the offset of @member from the start of @struct_type.
+@struct_type: 结构体类型, e.g. <structname>GtkWidget</structname>.
+@member:结构体的域。e.g. <structfield>window</structfield>。
+@Returns: @struct_type的@member的偏移量
+
 
 
 <!-- ##### MACRO G_MEM_ALIGN ##### -->
 <para>
-Indicates the number of bytes to which memory will be aligned on the
-current platform.
+指明当前平台内存对齐的字节数。
 </para>
 
 
 
 <!-- ##### MACRO G_CONST_RETURN ##### -->
 <para>
-If %G_DISABLE_CONST_RETURNS is defined, this macro expands to nothing.
-By default, the macro expands to <literal>const</literal>. The macro 
+如果 %G_DISABLE_CONST_RETURNS 定义了, this macro expands to nothing.
+默认情况下，, the macro expands to <literal>const</literal>. The macro 
 should be used in place of <literal>const</literal> for functions that 
 return a value that should not be modified. The purpose of this macro is 
 to allow us to turn on <literal>const</literal> for returned constant 
 strings by default, while allowing programmers who find that annoying to 
 turn it off. This macro should only be used for return values and for
 <emphasis>out</emphasis> parameters, it doesn't make sense for 
-<emphasis>in</emphasis> parameters. 
+<emphasis>in</emphasis> parameters. 【不清楚这里如何理解】
 </para>
-
-
 
