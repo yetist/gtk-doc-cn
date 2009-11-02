@@ -324,7 +324,7 @@ merge_pot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge $startdir/po/$mname.po "$modname-$pkgver.po" -o "$tmpdir/$modname-$pkgver.po.new"
+				msgmerge -N $startdir/po/$mname.po "$modname-$pkgver.po" -o "$tmpdir/$modname-$pkgver.po.new"
 				vim -d "$modname-$pkgver.po" "$tmpdir/$modname-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
