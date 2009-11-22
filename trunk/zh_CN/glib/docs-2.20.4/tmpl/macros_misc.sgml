@@ -1,13 +1,12 @@
 <!-- ##### SECTION Title ##### -->
-Miscellaneous Macros
+特殊宏
 
 <!-- ##### SECTION Short_Description ##### -->
-specialized macros which are not used often
+不常使用的专用宏
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
-These macros provide more specialized features which are not needed so often
-by application programmers.
+这些宏提供了额外特殊的功能，它们通常不被应用程序员使用
 </para>
 
 <!-- ##### SECTION See_Also ##### -->
@@ -20,97 +19,93 @@ by application programmers.
 
 <!-- ##### MACRO G_INLINE_FUNC ##### -->
 <para>
-This macro is used to export function prototypes so they can be linked
-with an external version when no inlining is performed. The file which
-implements the functions should define %G_IMPLEMENTS_INLINES
-before including the headers which contain %G_INLINE_FUNC declarations.
-Since inlining is very compiler-dependent using these macros correctly
-is very difficult. Their use is strongly discouraged.
+这个宏用于导出函数原型，这样当非内联模式时，它们就能被链接
+到一个非内联的扩展版本。执行函数的这个文件要在定义%G_IMPLEMENTS_INLINTS
+之前包含有%G_INLINE_FUNC声明的头文件。由于内联是非常依赖
+编译器的，所以正确的使用这些宏非常难。强烈建议不要使用这
+些宏。
 </para>
 <para>
-This macro is often mistaken for a replacement for the inline keyword;
-inline is already declared in a portable manner in the glib headers
-and can be used normally.
+此宏经常被误认为是inline关键字的替换；内联已经以一种可移
+植的方式在glib头文件里声明，并且它能够被正常的使用。
 </para>
 
 
 
 <!-- ##### MACRO G_STMT_START ##### -->
 <para>
-Used within multi-statement macros so that they can be used in places where
-only one statement is expected by the compiler.
+在多语句宏内使用，以便它们能使用在编译器期望只有一条语句
+的地方。
 </para>
 
 
 
 <!-- ##### MACRO G_STMT_END ##### -->
 <para>
-Used within multi-statement macros so that they can be used in places where
-only one statement is expected by the compiler.
+在多语句宏内使用，以便它们能使用在编译器期望只有一条语句
+的地方。
 </para>
 
 
 
 <!-- ##### MACRO G_BEGIN_DECLS ##### -->
 <para>
-Used (along with #G_END_DECLS) to bracket header files. If the
-compiler in use is a C++ compiler, adds <literal>extern "C"</literal> 
-around the header.
+用于把头文件放在括号{}里（和#G_END_DECLS一起使用）。如果
+使用的编译器是一个C++编译器，就在头文件外添加<literal>
+extern "C"</literal>。
 </para>
 
 
 
 <!-- ##### MACRO G_END_DECLS ##### -->
 <para>
-Used (along with #G_BEGIN_DECLS) to bracket header files. If the
-compiler in use is a C++ compiler, adds <literal>extern "C"</literal> 
-around the header.
+用于把头文件放在括号{}里（和#G_END_DECLS一起使用）。如果
+使用的编译器是一个C++编译器，就在头文件外添加<literal>
+extern "C"</literal>。
 </para>
 
 
 
 <!-- ##### MACRO G_N_ELEMENTS ##### -->
 <para>
-Determines the number of elements in an array. The array must be
-declared so the compiler knows its size at compile-time; this 
-macro will not work on an array allocated on the heap, only static
-arrays or arrays on the stack.
+确定数组中元素的个数。这个数组必须被声明以便编译器在编译
+时知道它的大小；这个宏不能工作在堆上分配的数组上，只能应
+用在静态数组或者在栈上的数组。
 </para>
 
-@arr: the array
+@arr: 数组名
 
 
 <!-- ##### MACRO G_VA_COPY ##### -->
 <para>
-Portable way to copy <type>va_list</type> variables.
+以可移植的方式复制 <type>va_list</type> 变量。 
 </para>
 <para>
-In order to use this function, you must include <filename>string.h</filename> 
-yourself, because this macro may use <function>memmove()</function> and GLib 
-does not include <function>string.h</function> for you.
+为了使用这个功能，你必须包含<filename>string.h</filename> 
+，因为这个宏可能使用 <function>memmove()</function>，而
+GLib并没有包含<function>string.h</function> 。
 </para>
 
-@ap1: the <type>va_list</type> variable to place a copy of @ap2 in.
-@ap2: a <type>va_list</type>.
+@ap1: 这个 <type>va_list</type> 变量用于存放ap2的一个副本。
+@ap2: 一个 <type>va_list</type> 变量。
 
 
 <!-- ##### MACRO G_STRINGIFY ##### -->
 <para>
-Accepts a macro or a string and converts it into a string after
-preprocessor argument expansion.
+接受一个宏或一个字符串转换成一个字符串后，并预处理参数扩展。
 </para>
 
-@macro_or_string: a macro or a string.
+@macro_or_string: 一个宏或者一个字符串。
 
 
 <!-- ##### MACRO G_PASTE ##### -->
 <para>
-Yields a new preprocessor pasted identifier 'identifier1identifier2'
-from its expanded arguments 'identifier1' and 'identifier2'.
+生成一个新的预处理粘贴标识符'identifier1identifier2'
+从它的形参 'identifier1' 和 'identifier2'。
 </para>
 
-@identifier1: an identifier
-@identifier2: an identifier
+@identifier1: 一个标识符
+@identifier2: 一个标识符
 @Since: 2.20
 
 
@@ -125,61 +120,60 @@ from its expanded arguments 'identifier1' and 'identifier2'.
 
 <!-- ##### MACRO G_STATIC_ASSERT ##### -->
 <para>
-The G_STATIC_ASSERT macro lets the programmer check a condition at compile time,
-the condition needs to be compile time computable.
-The macro can be used in any place where a <literal>typedef</literal> is valid.
-The macro should only be used once per source code line.
+G_STATIC_ASSERT 宏让程序员可以在代码编译时进行条件检查，该
+条件必须在程序编译时是可计算的。
+这个宏可以使用在任何使用 <literal>typedef</literal>的地方。
+这个宏只能在每个源代码行使用一次。
 </para>
 
-@expr: a constant expression.
+@expr: 一个常量表达式。
 @Since: 2.20
 
 
 <!-- ##### MACRO G_GNUC_EXTENSION ##### -->
 <para>
-Expands to <literal>__extension__</literal> when <command>gcc</command> is 
-used as the compiler.
-This simply tells <command>gcc</command> not to warn about the following non-standard code
-when compiling with the <option>-pedantic</option> option.
+当使用 <command>gcc</command> 作为编译器时展开为
+<literal>__extension__</literal>。 
+这简单的告诉 <command>gcc</command> 当使用 <option>-pedantic</option>
+参数进行编译时，对于以下的非标准代码不用做出警告。
 </para>
 
 
 
 <!-- ##### MACRO G_GNUC_CONST ##### -->
 <para>
-Expands to the GNU C <literal>const</literal> function attribute if the compiler is 
-<command>gcc</command>. Declaring a function as const enables better optimization of calls 
-to the function. A const function doesn't examine any values except its parameters, and has no 
-effects except its return value. See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>const</literal> 函数属性。将一个函数声明为const，
+可以更好地对函数调用进行优化。 一个const函数不检查其参数
+外的任何值，并且只影响到它的返回值。详见GNU C 文档。
 </para>
 <note><para>
-A function that has pointer arguments and examines the data pointed to 
-must <emphasis>not</emphasis> be declared const. Likewise, a function that 
-calls a non-const function usually must not be const. It doesn't make sense 
-for a const function to return void.
+一个函数的指针参数和此指针所指向的数据<emphasis>不能</emphasis>
+被声明为const。同样的，一个调用非const函数的函数通常不能为const。
+为一个const函数返回void是没意义的。
 </para></note>
 
 
 
 <!-- ##### MACRO G_GNUC_PURE ##### -->
 <para>
-Expands to the GNU C <literal>pure</literal> function attribute if the compiler is 
-<command>gcc</command>. Declaring a function as pure enables better optimization of 
-calls to the function. A pure function has no effects except its return value and the 
-return value depends only on the parameters and/or global variables.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>pure</literal> 函数属性。将一个函数声明为pure，
+可以更好地对函数调用进行优化。一个pure函数只影响它的返回值，
+并且这个返回值只依赖于参数和/或全局变量。
+详见GNU C 文档。
 </para>
 
 
 
 <!-- ##### MACRO G_GNUC_MALLOC ##### -->
 <para>
-Expands to the GNU C <literal>malloc</literal> function attribute if the 
-compiler is <command>gcc</command>. Declaring a function as malloc enables 
-better optimization of the function. A function can have the malloc attribute 
-if it returns a pointer which is guaranteed to not alias with any other pointer
-when the function returns (in practice, this means newly allocated memory).  
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>malloc</literal> 函数属性。将一个函数声明为malloc，
+可以更好地对函数调用进行优化。一个函数可以拥有malloc属性，
+如果能确保在函数返回时，它返回的指针不是其他任意指针的别名的话
+（实际上，这意味著分配新的内存）。
+详见GNU C 文档。
 </para>
 
 @Since: 2.6
@@ -187,39 +181,40 @@ See the GNU C documentation for details.
 
 <!-- ##### MACRO G_GNUC_ALLOC_SIZE ##### -->
 <para>
-Expands to the GNU C <literal>alloc_size</literal> function attribute if the 
-compiler is a new enough <command>gcc</command>. This attribute tells the
-compiler that the function returns a pointer to memory of a size that is
-specified by the @x<!-- -->th function parameter.
-See the GNU C documentation for details. 
+如果使用的是比较新版的 <command>gcc</command> 编译器，就展开为
+GNU C <literal>alloc_size</literal> 函数属性。这个属性告诉编译器
+此函数返回一个指针，该指针指向由函数参数@x<!-- -->th指定大小的
+内存空间。
+详见GNU C 文档。
 </para>
 
-@x: the index of the argument specifying the allocation size
+@x: 分配指定大小内存的参数指数。
 @Since: 2.18
 
 
 <!-- ##### MACRO G_GNUC_ALLOC_SIZE2 ##### -->
 <para>
-Expands to the GNU C <literal>alloc_size</literal> function attribute if the 
-compiler is a new enough <command>gcc</command>. This attribute tells the
-compiler that the function returns a pointer to memory of a size that is
-specified by the product of two function parameters.
-See the GNU C documentation for details. 
+如果使用的是比较新版的 <command>gcc</command> 编译器，就展开为
+GNU C <literal>alloc_size</literal> 函数属性。 这个属性告诉编译器
+此函数返回一个指针，该指针指向由该函数的两个参数的乘积指定大小的
+内存空间。
+详见GNU C 文档。
 </para>
 
-@x: the index of the argument specifying one factor of the allocation size
-@y: the index of the argument specifying the second factor of the allocation size
+@x: 分配指定大小内存的第一个参数指数。
+@y: 分配指定大小内存的第二个参数指数。
 @Since: 2.18
 
 
 <!-- ##### MACRO G_GNUC_DEPRECATED ##### -->
 <para>
-Expands to the GNU C <literal>deprecated</literal> attribute if the compiler 
-is <command>gcc</command>.
-It can be used to mark typedefs, variables and functions as deprecated. 
-When called with the <option>-Wdeprecated-declarations</option> option, the compiler will 
-generate warnings when deprecated interfaces are used.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>deprecated</literal> 属性。
+它可以用来标记某些类型定义，变量和函数是不鼓励使用的。
+如果你使用了这些不鼓励使用的程序接口，当编译器使用
+<option>-Wdeprecated-declarations</option>选项编译时将
+产生警告信息。
+详见GNU C 文档。
 </para>
 
 @Since: 2.2
@@ -227,30 +222,32 @@ See the GNU C documentation for details.
 
 <!-- ##### MACRO G_GNUC_NORETURN ##### -->
 <para>
-Expands to the GNU C <literal>noreturn</literal> function attribute if the 
-compiler is <command>gcc</command>. It is used for declaring functions which never return.
-It enables optimization of the function, and avoids possible compiler
-warnings. See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>noreturn</literal> 函数属性。它用来声明
+该函数没有返回值。它能够使函数得到优化，同时避免了可能
+出现的编译警告。
+详见GNU C 文档。
 </para>
 
 
 
 <!-- ##### MACRO G_GNUC_UNUSED ##### -->
 <para>
-Expands to the GNU C <literal>unused</literal> function attribute if the compiler is 
-<command>gcc</command>. It is used for declaring functions which may never be used.
-It avoids possible compiler warnings. See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>unused</literal> 函数属性。它用来声明
+该函数可能不会被使用。它避免了可能出现的编译警告。
+详见GNU C 文档。
 </para>
 
 
 
 <!-- ##### MACRO G_GNUC_PRINTF ##### -->
 <para>
-Expands to the GNU C <literal>format</literal> function attribute if the compiler is 
-<command>gcc</command>. This is used for declaring functions which take a variable number of
-arguments, with the same syntax as <function>printf()</function>.
-It allows the compiler to type-check the arguments passed to the function.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>format</literal> 函数属性。它用来声明
+使用了可变数目参数的函数，就像<function>printf()</function>
+的语法一样。它允许编译器对传递给函数的参数进行类型检查。
+详见GNU C 文档。
 </para>
 <informalexample><programlisting>
 gint g_snprintf (gchar  *string,
@@ -259,52 +256,52 @@ gint g_snprintf (gchar  *string,
                  ...) G_GNUC_PRINTF (3, 4);
 </programlisting></informalexample>
 
-@format_idx: the index of the argument corresponding to the format string.
-(The arguments are numbered from 1).
-@arg_idx: the index of the first of the format arguments.
+@format_idx: 对应格式字符串参数的索引。
+（这个参数的取值从1开始）。
+@arg_idx: 第一个格式化参数的索引。
 
 
 <!-- ##### MACRO G_GNUC_SCANF ##### -->
 <para>
-Expands to the GNU C <literal>format</literal> function attribute if the compiler is <command>gcc</command>.
-This is used for declaring functions which take a variable number of
-arguments, with the same syntax as <function>scanf()</function>.
-It allows the compiler to type-check the arguments passed to the function.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>format</literal> 函数属性。它用来声明
+使用了可变数目参数的函数，就像<function>scanf()</function>
+的语法一样。它允许编译器对传递给函数的参数进行类型检查。
+详见GNU C 文档。
 </para>
 
-@format_idx: the index of the argument corresponding to the format string.
-(The arguments are numbered from 1).
-@arg_idx: the index of the first of the format arguments.
+@format_idx: 对应格式字符串参数的索引。
+（这个参数的取值从1开始）。
+@arg_idx: 第一个格式化参数的索引。
 
 
 <!-- ##### MACRO G_GNUC_FORMAT ##### -->
 <para>
-Expands to the GNU C <literal>format_arg</literal> function attribute if the compiler is <command>gcc</command>.
-This function attribute specifies that a function takes a format
-string for a <function>printf()</function>, <function>scanf()</function>, 
-<function>strftime()</function> or <function>strfmon()</function> style
-function and modifies it, so that the result can be passed to a 
-<function>printf()</function>, <function>scanf()</function>, 
-<function>strftime()</function> or <function>strfmon()</function> style 
-function (with the remaining arguments to the format function the same as 
-they would have been for the unmodified string). 
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>format_arg</literal> 函数属性。
+这个函数属性为<function>printf()</function>， 
+<function>scanf()</function>，<function>strftime()</function>
+或者 <function>strfmon()</function> 等类型的函数指定了
+函数的格式化字符串，并且修改它，以便结果能传递给
+<function>printf()</function>， <function>scanf()</function>， 
+<function>strftime()</function> 或者 <function>strfmon()</function>
+等类型的函数（其他的参数则和它们未修改时一样，保持不变）。
+详见GNU C 文档。
 </para>
 <informalexample><programlisting>
 gchar *g_dgettext (gchar *domain_name, gchar *msgid) G_GNUC_FORMAT (2);
 </programlisting></informalexample>
 
-@arg_idx: the index of the argument.
+@arg_idx: 参数索引。
 
 
 <!-- ##### MACRO G_GNUC_NULL_TERMINATED ##### -->
 <para>
-Expands to the GNU C <literal>sentinel</literal> function attribute if the 
-compiler is <command>gcc</command>, or "" if it isn't. This function attribute
-only applies to variadic functions and instructs the compiler to check that 
-the argument list is terminated with an explicit %NULL.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>sentinel</literal> 函数属性，或者 ""
+如果不是如此的话。这个函数属性仅适用于可变参函数并且
+指示编译器检查以一个明确的%NULL结束的参数列表。
+详见GNU C 文档。
 </para>
 
 Since: 2.8
@@ -313,10 +310,11 @@ Since: 2.8
 
 <!-- ##### MACRO G_GNUC_WARN_UNUSED_RESULT ##### -->
 <para>
-Expands to the GNU C <literal>warn_unused_result</literal> function attribute 
-if the compiler is <command>gcc</command>, or "" if it isn't. This function 
-attribute makes the compiler emit a warning if the result of a function call
-is ignored. See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>warn_unused_result</literal> 函数属性，
+或者 "" 如果不是如此的话。如果一个函数的调用结果被忽
+略的话，这个函数属性将使编译器发出一个警告。
+详见GNU C 文档。
 </para>
 
 @Since: 2.10
@@ -324,8 +322,9 @@ is ignored. See the GNU C documentation for details.
 
 <!-- ##### MACRO G_GNUC_FUNCTION ##### -->
 <para>
-Expands to "" on all modern compilers, and to <literal>__FUNCTION__</literal>
-on <command>gcc</command> version 2.x. Don't use it.
+在所有的现代编译器上展开为 "" ，并且在<command>gcc</command> 2.x 版本上
+展开为<literal>__FUNCTION__</literal> 。
+不要使用它。
 </para>
 
 @Deprecated: 2.16
@@ -333,9 +332,9 @@ on <command>gcc</command> version 2.x. Don't use it.
 
 <!-- ##### MACRO G_GNUC_PRETTY_FUNCTION ##### -->
 <para>
-Expands to "" on all modern compilers, and to 
-<literal>__PRETTY_FUNCTION__</literal> on <command>gcc</command> version 2.x. 
-Don't use it.
+在所有的现代编译器上展开为 "" ，并且在<command>gcc</command> 2.x 版本上
+展开为<literal>__PRETTY_FUNCTION__</literal> 。
+不要使用它。
 </para>
 
 @Deprecated: 2.16
@@ -343,12 +342,13 @@ Don't use it.
 
 <!-- ##### MACRO G_GNUC_NO_INSTRUMENT ##### -->
 <para>
-Expands to the GNU C <literal>no_instrument_function</literal> function 
-attribute if the compiler is <command>gcc</command>. Functions with this 
-attribute will not be 
-instrumented for profiling, when the compiler is called with the
-<option>-finstrument-functions</option> option.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>no_instrument_function</literal> 函数属性。
+当编译器使用<option>-finstrument-functions</option>选项
+时，拥有这个属性的函数将不会被instrumented for profiling
+（译者：instrumented for profiling 为性能跟踪的工具、方法、
+程序等）。
+详见GNU C 文档。
 </para>
 
 
@@ -362,21 +362,19 @@ See the GNU C documentation for details.
 
 <!-- ##### MACRO G_GNUC_INTERNAL ##### -->
 <para>
-This attribute can be used for marking library functions as being used 
-internally to the library only, which may allow the compiler to handle
-function calls more efficiently. 
-Note that static functions do not need to be marked as internal in this way. 
-See the GNU C documentation for details. 
+这个属性能用来标记仅用于内部的库函数，它可以让编译器更加
+高效的调用句柄函数。
+请注意，静态函数不能使用这种方式来标记为内部函数。
+详见GNU C 文档。
 </para>
 <para>
-When using a compiler that supports the GNU C hidden visibility attribute, 
-this macro expands to <literal>__attribute__((visibility("hidden")))</literal>.
-When using the Sun Studio compiler, it expands to <literal>__hidden</literal>.
+当使用的编译器支持GNU C 隐藏可见性属性时，这个宏被展开为
+<literal>__attribute__((visibility("hidden")))</literal>。
+当使用 Sun Studio 编译器时，该宏被展开为<literal>__hidden</literal>。
 </para>
 <para>
-Note that for portability, the attribute should be placed before the
-function declaration. While GCC allows the macro after the declaration, 
-Sun Studio does not.
+请注意，为了具备可移植性，这个属性应该放在函数声明的前面。
+虽然 GCC 允许这个宏放在函数声明的后面，但是Sun Studio 不允许。
 </para>
 <informalexample><programlisting>
 G_GNUC_INTERNAL
@@ -392,11 +390,11 @@ Since: 2.6
 
 <!-- ##### MACRO G_GNUC_MAY_ALIAS ##### -->
 <para>
-Expands to the GNU C <literal>may_alias</literal> type attribute 
-if the compiler is <command>gcc</command>. Types with this attribute 
-will not be subjected to type-based alias analysis, but are assumed
-to alias with any other type, just like char.
-See the GNU C documentation for details. 
+如果使用的是 <command>gcc</command> 编译器，就展开为
+GNU C <literal>may_alias</literal> 函数属性。
+拥有这个属性的数据类型将不会被进行基于类型别名的分析，
+但将被假设为其他任意类型的别名，就像 char 类型。
+详见GNU C 文档。
 </para>
 
 Since: 2.14
@@ -405,45 +403,45 @@ Since: 2.14
 
 <!-- ##### FUNCTION G_LIKELY ##### -->
 <para>
-Hints the compiler that the expression is likely to evaluate to a true
-value. The compiler may use this information for optimizations.
+这个宏指示编译器，表达式可能为一个真值。编译器可能针对
+这个信息进行编译优化。
 </para>
 <informalexample><programlisting>
 if (G_LIKELY (random () != 1))
   g_print ("not one");
 </programlisting></informalexample>
 
-@Returns: the value of @expr
+@Returns: @expr 的值 
 @Since: 2.2
 <!-- # Unused Parameters # -->
-@expr: the expression
+@expr: 表达式
 
 
 <!-- ##### MACRO G_UNLIKELY ##### -->
 <para>
-Hints the compiler that the expression is unlikely to evaluate to a true
-value. The compiler may use this information for optimizations.
+这个宏指示编译器，表达式可能不是一个真值。编译器可能针对
+这个信息进行编译优化。
 </para>
 <informalexample><programlisting>
 if (G_UNLIKELY (random () == 1))
   g_print ("a random one");
 </programlisting></informalexample>
 
-@expr: the expression
-@Returns: the value of @expr
+@expr: 表达式
+@Returns: @expr 的值
 @Since: 2.2
 
 
 <!-- ##### MACRO G_STRLOC ##### -->
 <para>
-Expands to a string identifying the current code position. 
+展开为一个用于确定当前代码位置的字符串。
 </para>
 
 
 
 <!-- ##### MACRO G_STRFUNC ##### -->
 <para>
-Expands to a string identifying the current function. 
+展开为一个用于确定当前函数位置的字符串。 
 </para>
 
 @Since: 2.4
@@ -451,15 +449,14 @@ Expands to a string identifying the current function.
 
 <!-- ##### MACRO G_GINT16_MODIFIER ##### -->
 <para>
-The platform dependent length modifier for conversion specifiers for scanning
-and printing values of type #gint16 or #guint16. It is a string literal, 
-but doesn't include the percent-sign, such that you can add precision and 
-length modifiers between percent-sign and conversion specifier and append a 
-conversion specifier.
+平台依赖长度修改量的转换符，用于读入和打印 #gint16 或者
+#guint16 类型的值。这是一个串字面值，但不包括百分比符号，
+这样的话你就可以在百分比符号和转换符之间添加精度和长度修改量，
+并且追加一个转换符。
 </para>
 
 <para>
-The following example prints "0x7b";
+下例打印为 "0x7b";
 <informalexample>
 <programlisting>
 gint16 value = 123;
@@ -473,10 +470,9 @@ g_print ("%#" G_GINT16_MODIFIER "x", value);
 
 <!-- ##### MACRO G_GINT16_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #gint16. It is a string literal, but doesn't
-include the percent-sign, such that you can add precision and length
-modifiers between percent-sign and conversion specifier.
+这是一个平台依赖转换符，用于读入和打印 #gint16 类型的值。
+这是一个串字面值，但不包括百分比符号，这样的话你就可以在
+百分比符号和转换符之间添加精度和长度修改量。
 </para>
 
 <para>
@@ -495,17 +491,17 @@ g_print ("%" G_GINT32_FORMAT, out);
 
 <!-- ##### MACRO G_GUINT16_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #guint16. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #guint16 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 
 
 <!-- ##### MACRO G_GINT32_MODIFIER ##### -->
 <para>
-The platform dependent length modifier for conversion specifiers for scanning
-and printing values of type #gint32 or #guint32. It is a string literal, 
-See also #G_GINT16_MODIFIER.
+平台依赖长度修改量的转换符，用于读入和打印 #gint32 或者
+#guint32 类型的值。 
+这是一个串字面值，见 #G_GINT16_MODIFIER。
 </para>
 
 @Since: 2.4
@@ -513,31 +509,30 @@ See also #G_GINT16_MODIFIER.
 
 <!-- ##### MACRO G_GINT32_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #gint32. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #gint32 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 
 
 <!-- ##### MACRO G_GUINT32_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #guint32. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #guint32 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 
 
 <!-- ##### MACRO G_GINT64_MODIFIER ##### -->
 <para>
-The platform dependent length modifier for conversion specifiers for scanning
-and printing values of type #gint64 or #guint64. It is a string literal.
+平台依赖长度修改量的转换符，用于读入和打印 #gint64 或者
+#guint64 类型的值。这是一个串字面。
 </para>
 
 <note>
 <para>
-Some platforms do not support printing 64 bit integers,
-even though the types are supported. On such platforms #G_GINT64_MODIFIER
-is not defined.
+一些平台不支持打印64位整数，尽管支持这个数据类型。
+在这样的平台 #G_GINT64_MODIFIER 是未定义的。
 </para>
 </note>
 
@@ -546,17 +541,17 @@ is not defined.
 
 <!-- ##### MACRO G_GINT64_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #gint64. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #gint64 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 <note>
 <para>
-Some platforms do not support scanning and printing 64 bit integers,
-even though the types are supported. On such platforms #G_GINT64_FORMAT
-is not defined. Note that scanf() may not support 64 bit integers, even
-if #G_GINT64_FORMAT is defined. Due to its weak error handling, scanf() is not 
-recommended for parsing anyway; consider using g_strtoull() instead.
+一些平台不支持读入和打印64位整数，尽管支持这个数据类型。
+在这样的平台 #G_GINT64_FORMAT 是未定义的。 
+请注意，scanf() 可能不支持64位整数，尽管定义了 #G_GINT64_FORMAT。
+因为它薄弱的错误处理，无论如何 scanf() 是不推荐解析的；
+请考虑使用 g_strtoull() 代替它。
 </para>
 </note>
 
@@ -564,17 +559,17 @@ recommended for parsing anyway; consider using g_strtoull() instead.
 
 <!-- ##### MACRO G_GUINT64_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #guint64. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #guint64 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 <note>
 <para>
-Some platforms do not support scanning and printing 64 bit integers,
-even though the types are supported. On such platforms #G_GUINT64_FORMAT
-is not defined.  Note that scanf() may not support 64 bit integers, even
-if #G_GINT64_FORMAT is defined. Due to its weak error handling, scanf() is not 
-recommended for parsing anyway; consider using g_strtoull() instead.
+一些平台不支持读入和打印64位整数，尽管支持这个数据类型。
+在这样的平台 #G_GUINT64_FORMAT 是未定义的。 
+请注意，scanf() 可能不支持64位整数，尽管定义了 #G_GINT64_FORMAT。
+因为它薄弱的错误处理，无论如何 scanf() 是不推荐解析的；
+请考虑使用 g_strtoull() 代替它。
 </para>
 </note>
 
@@ -582,8 +577,8 @@ recommended for parsing anyway; consider using g_strtoull() instead.
 
 <!-- ##### MACRO G_GSIZE_MODIFIER ##### -->
 <para>
-The platform dependent length modifier for conversion specifiers for scanning
-and printing values of type #gsize or #gssize. It is a string literal, 
+平台依赖长度修改量的转换符，用于读入和打印 #gsize 或者
+#gssize 类型的值。这是一个串字面。
 </para>
 
 @Since: 2.6
@@ -591,8 +586,8 @@ and printing values of type #gsize or #gssize. It is a string literal,
 
 <!-- ##### MACRO G_GSIZE_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #gsize. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #gsize 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 @Since: 2.6
@@ -600,8 +595,8 @@ printing values of type #gsize. See also #G_GINT16_FORMAT.
 
 <!-- ##### MACRO G_GSSIZE_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #gssize. See also #G_GINT16_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #gssize 类型的值。
+见 #G_GINT16_FORMAT 。
 </para>
 
 @Since: 2.6
@@ -609,9 +604,8 @@ printing values of type #gssize. See also #G_GINT16_FORMAT.
 
 <!-- ##### MACRO G_GOFFSET_MODIFIER ##### -->
 <para>
-The platform dependent length modifier for conversion specifiers for scanning
-and printing values of type #goffset. It is a string literal. See also
-#G_GINT64_MODIFIER.
+平台依赖长度修改量的转换符，用于读入和打印 #goffset 类型的值。
+这是一个串字面。 见 #G_GINT64_MODIFIER 。
 </para>
 
 @Since: 2.20
@@ -619,8 +613,8 @@ and printing values of type #goffset. It is a string literal. See also
 
 <!-- ##### MACRO G_GOFFSET_FORMAT ##### -->
 <para>
-This is the platform dependent conversion specifier for scanning and
-printing values of type #goffset. See also #G_GINT64_FORMAT.
+这是一个平台依赖转换符，用于读入和打印 #goffset 类型的值。
+见 #G_GINT64_FORMAT 。
 </para>
 
 Since: 2.20
