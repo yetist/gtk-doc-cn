@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GLib 的更改</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="up" href="glib.html" title="GLib概述">
+<link rel="prev" href="glib-running.html" title="运行GLib应用程序">
+<link rel="next" href="glib-regex-syntax.html" title="正则表达式语法">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="glib-running.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="glib.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GLib参考手册</th>
+<td><a accesskey="n" href="glib-regex-syntax.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="glib-changes"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GLib 的更改</span></h2>
+<p>GLib 的更改 — 
+和先前版本的 GLib 之间不兼容的更改
+</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="id3105539"></a><h2>从 2.0 到 2.2 的不兼容更改</h2>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+<p>
+GLib 更改了伪随机数生成器-赛特旋转 (Mersenne Twister，
+就是 <span class="structname">GRand</span> 和 
+<span class="structname">GRandom</span> 所使用的) 的种子算法。 
+这是必须的，因为一些种子可能产生很差的伪随机流。
+使用新版本的 GLib <code class="function">g_rand*_int_range()</code> 
+产生的随机整数也会有稍微好一点的公平分配。
+</p>
+<p>
+网页上关于赛特旋转(Mersenne Twister)伪随机数生成器的进一步信息在 <a class="ulink" href="http://www.math.keio.ac.jp/~matumoto/emt.html" target="_top">http://www.math.keio.ac.jp/~matumoto/emt.html</a>.
+</p>
+<p>
+2.0.x 中的旧的种子和生成算法可以通过设置环境变量 <code class="envar">G_RANDOM_VERSION</code> 
+为 '2.0',来替代新版使用。只在您有的确需要传承的 Glib-2.0 产生的数字序列时
+才使用 GLib-2.0 的算法。
+</p>
+</li></ul></div>
+</div>
+<div class="refsect1">
+<a name="id3107151"></a><h2>从 1.2 到 2.0 的不兼容更改</h2>
+<p>
+位于 <a class="ulink" href="http://developer.gnome.org" target="_top">http://developer.gnome.org</a>
+的 <a class="ulink" href="http://developer.gnome.org/dotplan/porting/" target="_top">GNOME 2.0
+移植指南</a>有更多的从 1.2 到 2.0 移植的细节讨论。请阅读 GLib 一节。
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+<p>
+事件循环功能 <span class="structname">GMain</span> 已经广泛的修订，
+以支持在分离线程的多个分离的主循环。
+所有 sources (计时、空闲等函数) 都与<span class="structname">GMainContext</span>联系起来了。
+</p>
+<p>
+仍然存在兼容函数，以使多数处理主循环的程序代码能继续工作。
+但是创建新的 sources 的自定义类型的代码需要修改。
+</p>
+<p>
+主要的修改是：
+
+  </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>
+   Sources 以 <span class="type">GSource *</span> 暴露，而不是仅仅是数字 id。
+  </p></li>
+<li class="listitem"><p>
+   "derivation" 结构 从<span class="structname">GSource</span>创建一个 sources 新类型，
+   所以虚函数 <span class="structname">GSource</span>的<code class="literal">source_data</code> 参数
+   被替换为 <span class="type">GSource *</span>.
+  </p></li>
+<li class="listitem"><p>
+   Sources 刚刚创建，于是稍候被添加到了具体的 <span class="structname">GMainContext</span>。
+  </p></li>
+<li class="listitem"><p>
+   修改了调度，以使回调和数据都可以传递给 <code class="function">dispatch()</code>虚函数。
+  </p></li>
+</ul></div>
+<p>
+  为了顺应这一变化, <span class="structname">GIOChannel</span> 的 vtable 改变了，同时
+  <code class="function">add_watch()</code> 被替换为
+  <code class="function">create_watch()</code>.
+</p>
+</li>
+<li class="listitem">
+<p>
+更改了<code class="function">g_list_foreach()</code> and 
+<code class="function">g_slist_foreach()</code> ，
+以使它们安全的应对移除当前条目，而不是下一条目。
+</p>
+<p>
+在任何情况下回调这些函数时，都不推荐变更这些链表。
+</p>
+</li>
+<li class="listitem"><p>
+<span class="structname">GDate</span> 现在用 UTF-8，而不是当前区域设置。
+如果希望使用它处理当前区域的编码，
+您需要首先使用<code class="function">g_locale_to_utf8()</code>转换字符串的编码。
+</p></li>
+<li class="listitem">
+<p>
+<code class="function">g_strsplit()</code> 被更正为：
+
+  </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<li class="listitem"><p>
+   包含结尾的空标记，而不是剥离它们
+  </p></li>
+<li class="listitem"><p>
+   最多分割为 <code class="literal">max_tokens</code> 节, 而不是
+   <code class="literal">max_tokens + 1</code>
+  </p></li>
+</ul></div>
+<p>
+
+  所有依赖于这些 bug 的代码需要更正。
+</p>
+</li>
+<li class="listitem"><p>
+移除的过时函数：
+<code class="function">g_set_error_handler()</code>, 
+<code class="function">g_set_warning_handler()</code>,
+<code class="function">g_set_message_handler()</code>, 使用 
+<code class="function">g_log_set_handler()</code> 来替代.
+</p></li>
+</ul></div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

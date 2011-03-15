@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>线程池</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="up" href="glib-core.html" title="GLib核心应用支持">
+<link rel="prev" href="glib-Threads.html" title="Threads">
+<link rel="next" href="glib-Asynchronous-Queues.html" title="Asynchronous Queues">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="glib-Threads.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="glib-core.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GLib参考手册</th>
+<td><a accesskey="n" href="glib-Asynchronous-Queues.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#glib-Thread-Pools.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#glib-Thread-Pools.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="glib-Thread-Pools"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="glib-Thread-Pools.top_of_page"></a>线程池</span></h2>
+<p>线程池 — 线程的集合，可并行的执行任务</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="glib-Thread-Pools.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;glib.h&gt;
+
+struct              <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool">GThreadPool</a>;
+<a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="returnvalue">GThreadPool</span></a> *       <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()">g_thread_pool_new</a>                   (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GFunc" title="GFunc ()"><span class="type">GFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> exclusive</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()">g_thread_pool_push</a>                  (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-threads" title="g_thread_pool_set_max_threads ()">g_thread_pool_set_max_threads</a>       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-threads" title="g_thread_pool_get_max_threads ()">g_thread_pool_get_max_threads</a>       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);
+<a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-threads" title="g_thread_pool_get_num_threads ()">g_thread_pool_get_num_threads</a>       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);
+<a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-Thread-Pools.html#g-thread-pool-unprocessed" title="g_thread_pool_unprocessed ()">g_thread_pool_unprocessed</a>           (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()">g_thread_pool_free</a>                  (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> immediate</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> wait_</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-unused-threads" title="g_thread_pool_set_max_unused_threads ()">g_thread_pool_set_max_unused_threads</a>
+                                                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>);
+<a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-unused-threads" title="g_thread_pool_get_max_unused_threads ()">g_thread_pool_get_max_unused_threads</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-unused-threads" title="g_thread_pool_get_num_unused_threads ()">g_thread_pool_get_num_unused_threads</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-stop-unused-threads" title="g_thread_pool_stop_unused_threads ()">g_thread_pool_stop_unused_threads</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-sort-function" title="g_thread_pool_set_sort_function ()">g_thread_pool_set_sort_function</a>     (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-idle-time" title="g_thread_pool_set_max_idle_time ()">g_thread_pool_set_max_idle_time</a>     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> interval</code></em>);
+<a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-idle-time" title="g_thread_pool_get_max_idle_time ()">g_thread_pool_get_max_idle_time</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="glib-Thread-Pools.description"></a><h2>Description</h2>
+<p>
+有时候，你希望以异步的方式创建一个新的线程来执行任务，
+与此同时你自己的线程也在继续工作。如果这样的事情很频繁，
+那么每一次创建和销毁线程所占的开销可能会非常的大。在这种
+情况下重复使用已经创建的线程似乎是一个好主意；但是，完成
+这样的工作可能会令人感到乏味并且容易出错。
+</p>
+<p>
+因此，为了您的方便 GLib 提供了线程池供你使用。并且，另一
+个优点就是，当使用 GLib 的时候，这些线程能在你程序的不同
+的子系统中共享。
+</p>
+<p>
+创建一个新的线程池，使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()"><code class="function">g_thread_pool_new()</code></a> ；而销毁它
+则使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a> 。
+</p>
+<p>
+如果你想在一个执行线程池里执行某项任务，你就调用
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a> 。
+</p>
+<p>
+要获取你正在使用线程的数目，你可以调用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-threads" title="g_thread_pool_get_num_threads ()"><code class="function">g_thread_pool_get_num_threads()</code></a> 。
+获取仍未处理任务的数目，你可以调用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-unprocessed" title="g_thread_pool_unprocessed ()"><code class="function">g_thread_pool_unprocessed()</code></a> 。
+想控制一个线程池里线程的最大数目，你可以使用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-threads" title="g_thread_pool_get_max_threads ()"><code class="function">g_thread_pool_get_max_threads()</code></a>
+和 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-threads" title="g_thread_pool_set_max_threads ()"><code class="function">g_thread_pool_set_max_threads()</code></a> 。
+</p>
+<p>
+最后你还可以控制未使用线程的数目，通过 GLib 让它们保持
+活跃状态供以后使用。要获取当前未使用线程的数目，可以使用
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-unused-threads" title="g_thread_pool_get_num_unused_threads ()"><code class="function">g_thread_pool_get_num_unused_threads()</code></a> 。想控制未使用线程
+的最大值，可以使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-unused-threads" title="g_thread_pool_get_max_unused_threads ()"><code class="function">g_thread_pool_get_max_unused_threads()</code></a>
+和 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-unused-threads" title="g_thread_pool_set_max_unused_threads ()"><code class="function">g_thread_pool_set_max_unused_threads()</code></a> 。当然，想终止
+所有当前未使用线程的话，你可以调用 calling <a class="link" href="glib-Thread-Pools.html#g-thread-pool-stop-unused-threads" title="g_thread_pool_stop_unused_threads ()"><code class="function">g_thread_pool_stop_unused_threads()</code></a> 。
+</p>
+</div>
+<div class="refsect1">
+<a name="glib-Thread-Pools.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GThreadPool"></a><h3>struct GThreadPool</h3>
+<pre class="programlisting">struct GThreadPool {
+  GFunc func;
+  gpointer user_data;
+  gboolean exclusive;
+};
+</pre>
+<p>
+<a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> 结构体描述为一个线程池。它有三个公共的只读成员，
+但结构体内私有的结构是很大的，所以你不能复制此结构体。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GFunc" title="GFunc ()"><span class="type">GFunc</span></a> <em class="structfield"><code><a name="GThreadPool.func"></a>func</code></em>;</span></p></td>
+<td>在线程池的线程里执行的函数</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GThreadPool.user-data"></a>user_data</code></em>;</span></p></td>
+<td>线程池中线程的用户数据指针</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GThreadPool.exclusive"></a>exclusive</code></em>;</span></p></td>
+<td>为TRUE表示为不共享方式</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-new"></a><h3>g_thread_pool_new ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="returnvalue">GThreadPool</span></a> *       g_thread_pool_new                   (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GFunc" title="GFunc ()"><span class="type">GFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> exclusive</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+这个函数创建一个新的线程池。
+</p>
+<p>
+每当你调用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a> 时，要么创建一个新的线程，要么复用线程池里一
+个还未被使用的线程。至多 <em class="parameter"><code>max_threads</code></em> 个线程在线程池里并行运行。若 
+<em class="parameter"><code>max_threads</code></em> = -1 则表示允许该线程池创建无数个线程。新创建的或者复用的线程将
+执行 <em class="parameter"><code>func</code></em> 函数，并且传递两个参数。第一个参数是 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a> 里面的数
+据，也即要执行的任务，第二个参数则是 <em class="parameter"><code>user_data</code></em> 。
+</p>
+<p>
+参数 <em class="parameter"><code>exclusive</code></em> 确定线程池里的线程是否为全局共享线程。如果 <em class="parameter"><code>exclusive</code></em> 为%
+TRUE， <em class="parameter"><code>max_threads</code></em> 个线程将立即开始并且一直独占的运行在这个线程池，直到通过 
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a> 销毁它；如果 <em class="parameter"><code>exclusive</code></em> 为<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>，则线程被创建，并且当需
+要时和其他非独占性线程池共享。这也就意味着，在独占性线程池里 <em class="parameter"><code>max_threads</code></em> 
+may 不能为 -1 。
+</p>
+<p>
+<em class="parameter"><code>error</code></em> 能通过设置 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来忽略，或者用非<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来报告错误。一个错误仅会发生在 
+<em class="parameter"><code>exclusive</code></em> 设置为 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> 和并非所有 <em class="parameter"><code>max_threads</code></em> 个线程都能被创建时。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>在新线程池的线程里执行的函数</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>每次<em class="parameter"><code>func</code></em>被调用时，<em class="parameter"><code>user_data</code></em>将被作为其参数传递过去</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_threads</code></em> :</span></p></td>
+<td>新线程池中并行线程的最大数目，-1代表无限制</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exclusive</code></em> :</span></p></td>
+<td>让该线程池使用独占模式？</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回发生错误的位置</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>新的 <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-push"></a><h3>g_thread_pool_push ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_push                  (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+将 <em class="parameter"><code>data</code></em> 插入任务列表，让 <em class="parameter"><code>pool</code></em> 来执行。当正在运行线程的数量低于允许线程的最
+大值，一个新的线程将被启动（或者复用），并根据其属性提交给 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()"><code class="function">g_thread_pool_new()</code></a> 。除此之外， <em class="parameter"><code>data</code></em> 将一直保存在任务队列之中，直到线程池里的线程完成了其先
+前的任务然后处理 <em class="parameter"><code>data</code></em> 。
+</p>
+<p>
+<em class="parameter"><code>error</code></em> 能通过设置 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来忽略，或者用非<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来报告错误。一个错误仅会发生在
+一个新的线程不能被创建时。在这样的情况下， <em class="parameter"><code>data</code></em> 只是简单的追加到任务队列里。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>pool</code></em> 的一个新任务</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回发生错误的位置</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-set-max-threads"></a><h3>g_thread_pool_set_max_threads ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_set_max_threads       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+为 <em class="parameter"><code>pool</code></em> 设置其允许线程数目的最大值。值为 -1 的话，则代表无限制。
+</p>
+<p>
+设置 <em class="parameter"><code>max_threads</code></em> 为 0 则以为着停止 <em class="parameter"><code>pool</code></em> 所有的任务。这样的冻结将一直有效，
+直到 <em class="parameter"><code>max_threads</code></em> 被设置为一个非0值。
+</p>
+<p>
+一个线程是永远不会终止的，而是循环调用 <em class="parameter"><code>func</code></em> ，例如 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()"><code class="function">g_thread_pool_new()</code></a> 所提
+供的。反而，线程最大值仅影响 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a> 里新线程的分配。如果一个新
+的线程被分配，无论如何当前 <em class="parameter"><code>pool</code></em> 里运行的线程数目要小于最大值。
+</p>
+<p>
+<em class="parameter"><code>error</code></em> 能通过设置 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来忽略，或者用非<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来报告错误。一个错误仅会发生在
+一个新的线程不能被创建时。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max_threads</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>pool</code></em> 中线程的最大值</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回发生错误的位置</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-get-max-threads"></a><h3>g_thread_pool_get_max_threads ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_thread_pool_get_max_threads       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);</pre>
+<p>
+返回 <em class="parameter"><code>pool</code></em> 线程数目的最大值。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>线程数目的最大值</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-get-num-threads"></a><h3>g_thread_pool_get_num_threads ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_thread_pool_get_num_threads       (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);</pre>
+<p>
+返回 <em class="parameter"><code>pool</code></em> 里当前正在运行线程的数目。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>当前正在运行线程的数目</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-unprocessed"></a><h3>g_thread_pool_unprocessed ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_thread_pool_unprocessed           (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>);</pre>
+<p>
+返回 <em class="parameter"><code>pool</code></em> 里仍未处理的任务的数目。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>未处理任务的数目</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-free"></a><h3>g_thread_pool_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_free                  (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> immediate</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> wait_</code></em>);</pre>
+<p>
+释放所有为 <em class="parameter"><code>pool</code></em> 分配的资源。
+</p>
+<p>
+如果 <em class="parameter"><code>immediate</code></em> 为 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> ，则停止 <em class="parameter"><code>pool</code></em> 处理新的任务。反之，在最后一个任务处
+理完之前， <em class="parameter"><code>pool</code></em> 是不会被销毁的。请注意，无论如何，在线程池处理一个任务的过程
+中，线程池中的线程是不会被中断的。相反，在 <em class="parameter"><code>pool</code></em> 被销毁之前，所有仍在运行的线
+程将完成它们的任务。
+</p>
+<p>
+如果 <em class="parameter"><code>wait_</code></em> 为 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>，则在所有已经准备或者正在执行的任务完成之前，是不会返回
+的（这依赖于 <em class="parameter"><code>immediate</code></em> ，是所有的任务，还是当前正在运行的任务）。否则，函数
+立即返回。
+</p>
+<p>
+在调用这个函数之后， <em class="parameter"><code>pool</code></em> 将不能被使用。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>immediate</code></em> :</span></p></td>
+<td>让 <em class="parameter"><code>pool</code></em> 立即关闭 ？</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wait_</code></em> :</span></p></td>
+<td>让函数等待所有任务完成 ？</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-set-max-unused-threads"></a><h3>g_thread_pool_set_max_unused_threads ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_set_max_unused_threads
+                                                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_threads</code></em>);</pre>
+<p>
+设置未使用的最大线程数为 <em class="parameter"><code>max_threads</code></em>。如果 <em class="parameter"><code>max_threads</code></em> 为-1，则强制未使用的
+线程数为无限制。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>max_threads</code></em> :</span></p></td>
+<td>未使用的最大线程数</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-get-max-unused-threads"></a><h3>g_thread_pool_get_max_unused_threads ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_thread_pool_get_max_unused_threads
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+返回允许未使用线程数目的最大值。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>未使用线程数目的最大值</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-get-num-unused-threads"></a><h3>g_thread_pool_get_num_unused_threads ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_thread_pool_get_num_unused_threads
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+返回当前未使用线程的数目。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>当前未使用线程的数目</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-stop-unused-threads"></a><h3>g_thread_pool_stop_unused_threads ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_stop_unused_threads   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+停止所有当前未使用的线程。这不会改变未使用线程数目的最大值。此函数可用于正常
+的停止所有未使用的线程。例如：从 <a class="link" href="glib-The-Main-Event-Loop.html#g-timeout-add" title="g_timeout_add ()"><code class="function">g_timeout_add()</code></a> 中使用。
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-set-sort-function"></a><h3>g_thread_pool_set_sort_function ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_set_sort_function     (<em class="parameter"><code><a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> *pool</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+设置用来排序任务列表的函数。这使得可以通过 <em class="parameter"><code>func</code></em> 决定的优先级来处理任务，而不
+仅仅只是为了把它们添加到线程池中。
+</p>
+<p>
+请注意，如果最大线程数大于1，则不能100%的保证线程的执行顺序。线程由操作系统调
+度，并随机执行。并且不能假定为线程按照创建它们时的顺序来执行。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pool</code></em> :</span></p></td>
+<td>一个 <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>
+<a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> 用于将任务队列排序。这个函数需要传递两个任务。如果
+两个任务的处理顺序无关紧要，就返回0；如果第一个任务应该优先处理，就返回一个负
+值；如果第二个任务应该被优先处理，就返回一个正值。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>传递给 <em class="parameter"><code>func</code></em> 的用户数据。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-set-max-idle-time"></a><h3>g_thread_pool_set_max_idle_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_thread_pool_set_max_idle_time     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> interval</code></em>);</pre>
+<p>
+这个函数用于设置最大值 <em class="parameter"><code>interval</code></em> ，也就是线程池中一个线程等待新任务的最大空闲
+时间。这个函数类似于在常规的超时时调用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-stop-unused-threads" title="g_thread_pool_stop_unused_threads ()"><code class="function">g_thread_pool_stop_unused_threads()</code></a> ，
+不同的是，这个函数是以一个线程作为基本单位。
+</p>
+<p>
+通过把 <em class="parameter"><code>interval</code></em> 设置为0，来使空闲的线程不会停止。
+ 
+这个函数让 <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop" title="g_async_queue_timed_pop ()"><code class="function">g_async_queue_timed_pop()</code></a> 的使用，使用了 <em class="parameter"><code>interval</code></em> 。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>interval</code></em> :</span></p></td>
+<td>一个线程能被闲置的最大值， <em class="parameter"><code>interval</code></em> (1/1000 分之一秒)。</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-thread-pool-get-max-idle-time"></a><h3>g_thread_pool_get_max_idle_time ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_thread_pool_get_max_idle_time     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+这个函数将返回最大值 <em class="parameter"><code>interval</code></em> ，也就是线程池中一个线程等待新任务的最大空闲时
+间。
+</p>
+<p>
+如果该函数返回0，线程池中的线程在对新任务的等待是没有停止过的。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>最大值 <em class="parameter"><code>interval</code></em> ，在线程池中等待新任务前停止线程的最大空闲时间
+（1/1000分之一秒）。</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="glib-Thread-Pools.see-also"></a><h2>See Also</h2>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><a class="link" href="glib-Threads.html#GThread" title="struct GThread"><span class="type">GThread</span></a></span></p></td>
+<td><p>GLib 线程系统。</p></td>
+</tr></tbody>
+</table></div>
+<p>
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

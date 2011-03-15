@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>交叉编译GLib软件包</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="up" href="glib.html" title="GLib概述">
+<link rel="prev" href="glib-building.html" title="编译GLib包">
+<link rel="next" href="glib-compiling.html" title="编译GLib应用程序">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="glib-building.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="glib.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GLib参考手册</th>
+<td><a accesskey="n" href="glib-compiling.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="glib-cross-compiling"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">交叉编译GLib软件包</span></h2>
+<p>交叉编译GLib软件包 — 
+如何交叉编译GLib
+</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="cross"></a><h2>在不同的体系结构中编译</h2>
+<p>
+        编译出来的程序或库将在不同的平台或操作系统上运行时，
+	这种编译过程就叫做交叉编译。
+	GLib和一些常见软件包的交叉编译稍微有些不同，
+	因为GLib需要隐藏不同系统之间的一些差异。
+      </p>
+<p>
+        下面说明一些GLib交叉编译时的特殊之处，
+	一般的交叉编译信息请查看
+	<span class="application">autoconf</span> 信息页。
+      </p>
+<p>
+        GLib在编译和链接时会努力去尝试检测尽可能多的有关
+	目标系统的信息。但是，GLib需要的一些信息不是通过
+	这种方式的。这些信息通过一个"cache"文件提供给配置
+	(configure)脚本或者通过设置环境变量的方式实现。
+      </p>
+<p>
+        作为一份示例的cache文件，用于在Linux系统上采用"MingW32"交叉
+	编译可运行于Win32环境中的GLib。
+	创建一个名为"win32.cache"的文件，包含以下内容：
+      </p>
+<pre class="programlisting"> 
+glib_cv_long_long_format=I64
+glib_cv_stack_grows=no
+      </pre>
+<p>
+        接着执行以下命令：
+      </p>
+<pre class="programlisting">
+PATH=/path/to/mingw32-compiler/bin:$PATH
+chmod a-w win32.cache   # prevent configure from changing it
+./configure --cache-file=win32.cache --host=mingw32
+      </pre>
+<p>
+      下面列出了cache文件的全部变量。其中一些变量通常并不需要设置。
+      </p>
+</div>
+<div class="refsect1">
+<a name="cache-file-variables"></a><h2>缓存文件变量</h2>
+<p><b>glib_cv_long_long_format=[ll/q/I64]. </b>
+	为64位整形数而使用于<code class="function">printf()</code>和<code class="function">scanf()</code>函数的格式化部分。
+	"ll"是C99的标准，
+	被'trio'库使用来编译GLib,
+	如果你的<code class="function">printf()</code>函数不能胜任的话。
+	如果你正在编译使用trio的话是不需要设置的。
+        </p>
+<p><b>glib_cv_stack_grows=[yes/no]. </b>
+	堆栈是否向上或向下增长。大多数地方都需要设置为"no"，
+	有几个体系结构，如PA-RISC等需要设置为"yes"。
+        </p>
+<p><b>glib_cv_working_bcopy=[yes/no]. </b>
+	<code class="function">bcopy()</code>函数是否可以处理重叠的复制。
+	如果你没有<code class="function">memmove()</code>, 就需要设置。（可能性非常小）
+	</p>
+<p><b>glib_cv_sane_realloc=[yes/np]. </b>  
+	 是否<code class="function">realloc()</code>函数符合ANSI C标准并能够处理第一个参数为<code class="literal">NULL</code>的情况。
+	 默认为"yes", 你可能并不需要设定它。
+	</p>
+<p><b>glib_cv_have_strlcpy=[yes/no]. </b>
+	 是否有匹配OpenBSD的<code class="function">strlcpy()</code>函数。
+	 默认值为"no"，这是安全的，因为在这种情况下GLib使用内置的版本。
+	</p>
+<p><b>glib_cv_va_val_copy=[yes/no]. </b>
+	 <span class="type">va_list</span>是否可以作为指针复制。
+	 如果设置为"no"，那么<code class="function">memcopy()</code>将被使用。
+	 如果你没有<code class="function">va_copy()</code>或<code class="function">__va_copy()</code>会有问题。（所以，GCC不存在问题。）
+	 默认为"yes"，这种情况比"no"要多一些。
+	</p>
+<p><b>glib_cv_rtldglobal_broken=[yes/no]. </b>
+	 是否在OSF/1 v5.0中发现存在有bug。默认为"no"。
+         </p>
+<p><b>glib_cv_uscore=[yes/no]. </b>
+	 通过<code class="function">dlsym()</code>函数时，
+	 是否需要考虑一个下划线为前缀的符号时，
+	 他们希望通过dlsym了（）。
+	 只需要设置如果你的系统使用<code class="function">dlopen()</code>/<code class="function">dlsym()</code>。
+	 </p>
+<p><b>ac_cv_func_posix_getpwuid_r=[yes/no]. </b>
+	 是否你的getpwuid_r函数(在你的C库，而不是线程库)遵守POSIX规范。
+	 接受'struct passwd **'作为最终的参数。
+         </p>
+<p><b>ac_cv_func_nonposix_getpwuid_r=[yes/no]. </b>
+是否你有一些<code class="function">getpwuid_r()</code>函数的变量不能遵守POSIX规范，
+但是GLib有能力去使用它(或者发生段错误)。
+只有在<code class="literal">ac_cv_func_posix_getpwuid_r</code>
+没被设置的情况下才需要设置此变量。
+此变量可以安全地被设置为"no".
+         </p>
+<p><b>ac_cv_func_posix_getgrgid_r=[yes/no]. </b>
+	 是否你有一个getgrgid_r函数去遵守POSIX规范。
+         </p>
+<p><b>glib_cv_use_pid_surrogate=[yes/no]. </b>
+	 是否使用<code class="function">setpriority()</code>函数在线程的PID上，
+	 作为设置线程优先级的方式。
+	 只有在使用POSIX线程的时候需要设置。
+         </p>
+<p><b>ac_cv_func_printf_unix98=[yes/no]. </b>
+	是否你的<code class="function">printf()</code>函数支持Unix98样式的<code class="literal">%N$</code> 位置参数。
+	默认为"no"。
+         </p>
+<p><b>ac_cv_func_vsnprintf_c99=[yes/no]. </b>
+	 是否你有一个<code class="function">vsnprintf()</code>函数符合C99的。
+	 (C99语义的意思是返回字符数，被写到输入缓存有足够的空间)。
+	 默认为"no"。
+         </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
