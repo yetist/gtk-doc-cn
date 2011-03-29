@@ -1,0 +1,304 @@
+<!-- ##### SECTION Title ##### -->
+基本类型
+
+<!-- ##### SECTION Short_Description ##### -->
+GLib 标准类型, 定义的非常易用和简便
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+GLib定义的这些普通的适用类型，分为了4组：
+
+<itemizedlist>
+<listitem><para>
+非标准C的新类型- #gboolean, #gsize, #gssize.
+</para></listitem>
+
+<listitem><para>
+跨平台使用的整型 -
+#gint8, #guint8, #gint16, #guint16, #gint32, #guint32, #gint64, #guint64.
+</para></listitem>
+
+<listitem><para>
+与标准C相似但更好用的类型 -
+#gpointer, #gconstpointer, #guchar, #guint, #gushort, #gulong.
+</para></listitem>
+
+<listitem><para>
+与标准C基本一致的类型【这里拿不定。。】Types which correspond exactly to standard C types, but are included
+for completeness - #gchar, #gint, #gshort, #glong, #gfloat, #gdouble.
+</para></listitem>
+</itemizedlist>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### TYPEDEF gboolean ##### -->
+<para>
+标准 <type>boolean</type> 类型.
+它只储存两个值：%TRUE or %FALSE.
+</para>
+
+
+<!-- ##### TYPEDEF gpointer ##### -->
+<para>
+无类型的指针。
+#gpointer比<type>void*</type>更易理解和更好用.
+</para>
+
+
+<!-- ##### TYPEDEF gconstpointer ##### -->
+<para>
+一个常数的无类型指针。指针的值不能被更改。
+</para>
+<para>
+典型的使用在子函数原型上，指出指针所指向的数据是不能被函数更改的。
+</para>
+
+
+<!-- ##### TYPEDEF gchar ##### -->
+<para>
+与标准C的<type>char</type>类型一致。
+</para>
+
+
+<!-- ##### TYPEDEF guchar ##### -->
+<para>
+与标准C的<type>unsigned char</type>一致。
+</para>
+
+
+<!-- ##### TYPEDEF gint ##### -->
+<para>
+类似标准C的<type>int</type>类型。其值设置在G_MININT 到 G_MAXINT范围内。
+</para>
+
+
+<!-- ##### TYPEDEF guint ##### -->
+<para>
+类似标准C的<type>unsigned int</type>类型。其值设置在0到 G_MAXUINT的范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gshort ##### -->
+<para>
+类似标准C的<type>short</type>类型。其值设置在G_MINSHORT 到 G_MAXSHORT范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gushort ##### -->
+<para>
+类似标准C的<type>unsigned short</type>类型。其值设置在0到 G_MAXUSHORT的范内。
+</para>
+
+
+<!-- ##### TYPEDEF glong ##### -->
+<para>
+类似标准C的<type>long</type>类型。其值设置在G_MINLONG 到 G_MAXLONG范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gulong ##### -->
+<para>
+类似标准C的<type>unsigned long</type>类型。其值设置在0到 G_MAXULONG范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gint8 ##### -->
+<para>
+在任何平台上都保证是一个有符号8位整数。
+取值范围为 -128 到 127
+</para>
+
+
+<!-- ##### TYPEDEF guint8 ##### -->
+<para>
+在任何平台上都保证是一个无符号8位整数。
+取值范围为 0 到 255
+</para>
+
+
+<!-- ##### TYPEDEF gint16 ##### -->
+<para>
+在任何平台上都保证是一个有符号16位整数。
+取值范围为 -32,768 到 32,767
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT16_MODIFIER 和（或) %G_GINT16_FORMAT.
+</para>
+
+
+<!-- ##### TYPEDEF guint16 ##### -->
+<para>
+在任何平台上都保证是一个无符号16位整数。
+取值范围为0 到 65,535
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT16_MODIFIER 和（或) %G_GUINT16_FORMAT.
+</para>
+
+
+<!-- ##### TYPEDEF gint32 ##### -->
+<para>
+在任何平台上都保证是一个有符号32位整数。
+取值范围为 -2,147,483,648 到 2,147,483,647
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT32_MODIFIER 和（或) %G_GINT32_FORMAT.
+</para>
+
+
+<!-- ##### TYPEDEF guint32 ##### -->
+<para>
+在任何平台上都保证是一个无符号32位整数。
+取值范围为 0 到 4,294,967,295
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT32_MODIFIER 和（或) %G_GUINT32_FORMAT.
+</para>
+
+
+<!-- ##### MACRO G_HAVE_GINT64 ##### -->
+<para>
+在任何平台上都保证是一个有符号64位整数。
+取值范围为 -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807
+</para>
+
+@Deprecated: GLib 2.0版以后需要64-bit 整型支持，所以
+%G_HAVE_GINT64 <emphasis>总是</emphasis> 要定义的。
+
+<!-- ##### TYPEDEF gint64 ##### -->
+<para>
+在任何平台上都保证是一个有符号64位整数。
+取值范围为 -9,223,372,036,854,775,808 到 9,223,372,036,854,775,807
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT64_MODIFIER 和（或) %G_GINT64_FORMAT.
+</para>
+
+
+
+<!-- ##### TYPEDEF guint64 ##### -->
+<para>
+在任何平台上都保证是一个无符号32位整数。
+取值范围为 0 到 18,446,744,073,709,551,615
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GINT64_MODIFIER 和（或) %G_GUINT64_FORMAT.
+</para>
+
+
+<!-- ##### MACRO G_GINT64_CONSTANT ##### -->
+<para>
+This macro is used to insert 64-bit integer literals into the source code.【不能确定】
+</para>
+
+@val: a literal integer value, e.g. 0x1d636b02300a7aa7.
+
+
+<!-- ##### MACRO G_GUINT64_CONSTANT ##### -->
+<para>
+This macro is used to insert 64-bit unsigned integer literals into the 
+source code. 【不能确定】
+</para>
+
+@val: a literal integer value, e.g. 0x1d636b02300a7aa7U.
+@Since: 2.10
+
+
+<!-- ##### TYPEDEF gfloat ##### -->
+<para>
+类似标准C的<type>float</type>类型。
+取值为 -G_MAXFLOAT 到 G_MAXFLOAT范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gdouble ##### -->
+<para>
+类似标准C的<type>double</type>类型。
+取值为 -G_MAXDOUBLE 到G_MAXDOUBLE范围内。
+</para>
+
+
+<!-- ##### TYPEDEF gsize ##### -->
+<para>
+无符号整形，用来储存sizeof的结果，与C99的size_t类型类似。
+这个类型能足够存储下一个指针的数据。通常在32为平台上是32位的，在64位平台上是64位的。
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GSIZE_MODIFIER 和（或) %G_GSIZE_FORMAT.
+</para>
+
+
+<!-- ##### TYPEDEF gssize ##### -->
+<para>
+有符号gsize，与大多数平台的ssize_t类型类似。
+</para>
+<para>
+要 print 或scan 此类型的值, 使用
+%G_GSIZE_MODIFIER 和（或) %G_GSSIZE_FORMAT.
+</para>
+
+
+<!-- ##### TYPEDEF goffset ##### -->
+<para>
+有符号的整形，用来作为文件偏移。类似于C99的off64_t。
+Values of this type can range from #G_MINOFFSET to #G_MAXOFFSET.
+</para>
+<para>
+To print or scan values of this type, use
+%G_GOFFSET_MODIFIER and/or %G_GOFFSET_FORMAT.
+</para>
+
+Since: 2.14
+
+
+<!-- ##### MACRO G_GOFFSET_CONSTANT ##### -->
+<para>
+This macro is used to insert #goffset 64-bit integer literals into the source code.
+See also #G_GINT64_CONSTANT. 【不能确定】
+</para>
+
+@val: a literal integer value, e.g. 0x1d636b02300a7aa7.
+Since: 2.20
+
+
+<!-- ##### TYPEDEF gintptr ##### -->
+<para>
+Corresponds to the C99 type <type>intptr_t</type>, a signed integer type that
+can hold any pointer.
+</para>
+<para>
+To print or scan values of this type, use
+%G_GINTPTR_MODIFIER and/or %G_GINTPTR_FORMAT.
+</para>
+
+Since: 2.18
+
+
+<!-- ##### TYPEDEF guintptr ##### -->
+<para>
+Corresponds to the C99 type <type>uintptr_t</type>, an unsigned integer type that
+can hold any pointer.
+</para>
+<para>
+To print or scan values of this type, use
+%G_GINTPTR_MODIFIER and/or %G_GUINTPTR_FORMAT.
+</para>
+
+Since: 2.18
+
+
