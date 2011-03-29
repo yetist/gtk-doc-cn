@@ -63,11 +63,12 @@ help:
 	@(echo -e "\tmake commit     提交自己的翻译结果到服务器(相当于svn ci/commit)")
 
 release:
-	@(source ./build.rc; \
-	if [ -f tmp/$$modname-$$pkgver.tgz ]; then \
-		scp tmp/$$modname-$$pkgver.tgz dev.osprg.org:public_html/docs; \
-	else \
-		printf "\033[1;1mhtmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
-	fi)
+	@(source ./build.rc; make_release;)
+#	@(source ./build.rc; \
+#	if [ -f tmp/$$modname-$$pkgver.tgz ]; then \
+#		scp tmp/$$modname-$$pkgver.tgz dev.osprg.org:public_html/docs; \
+#	else \
+#		printf "\033[1;1mhtmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
+#	fi)
 
 .PHONY: init sgml docs merge commit devhelp reviewsgml clean allclean release
