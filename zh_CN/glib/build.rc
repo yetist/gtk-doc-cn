@@ -1,9 +1,21 @@
 pkgname=glib
 modname=glib
-pkgver=2.20.4
+pkgver=2.26.1
 url="http://www.gtk.org/"
-source="http://ftp.gnome.org/pub/GNOME/sources/glib/2.20/glib-${pkgver}.tar.bz2"
+source="http://ftp.gnome.org/pub/GNOME/sources/glib/2.26/glib-${pkgver}.tar.bz2"
 configure="--enable-gtk-doc --prefix=/usr"
 moddir="$srcdir/glib"
 docdir="$srcdir/docs/reference/glib"
 htmldir="$srcdir/docs/reference/glib/html"
+svnroot="https://gtk-doc-cn.googlecode.com/svn/docs/glib"
+
+make_release()
+{
+	tmpdir=`mktemp -d`
+	svn checkout $svnroot $tmpdir/$modname
+	cp tmp/html/* $tmpdir/$modname/
+	svn status $tmpdir/$modname |grep "?" |awk '{print $2}'|xargs svn add
+	find $tmpdir/$modname -maxdepth 1 -type f -name "*.htm*" -exec svn propset "svn:mime-type" "text/html" {} \;
+	svn commit -m "update $modname docs" $tmpdir/$modname
+	rm -rf $tmpdir
+}
