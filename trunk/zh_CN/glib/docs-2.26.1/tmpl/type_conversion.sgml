@@ -1,0 +1,111 @@
+<!-- ##### SECTION Title ##### -->
+类型转换宏
+
+<!-- ##### SECTION Short_Description ##### -->
+使用可移植的的方式在指针变量中存储整数
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+很多情况下，Glib、GTK+以及其他的一些库，允许你在调用的时候以空指针的形式传递user data 。有时你想传递一个整数而不是一个指针，你可以分配一个整数，像下面的形式：
+<informalexample><programlisting>
+int *ip = g_new (int, 1);
+*ip = 42;
+</programlisting></informalexample>
+但这样非常的不方便，需要在后面的某个时间确定是否回收这些内存。
+</para>
+<para>
+指针的在大小总是至少占用32位空间（在所有的平台上，GLib都是支持的）。
+所以你需要在一个指针中储存至少32位的整数。天真的你可能尝试像以下的方式实现，但是不幸的是，它并不正确：
+<informalexample><programlisting>
+gpointer p;
+int i;
+p = (void*) 42;
+i = (int) p;
+</programlisting></informalexample>
+再强调一次，这个例子是<emphasis>not</emphasis>正确的，不要复制这它。这个问题出在有些系统你需要像如下的方式实现：
+<informalexample><programlisting>
+gpointer p;
+int i;
+p = (void*) (long) 42;
+i = (int) (long) p;
+</programlisting></informalexample>
+所以 GPOINTER_TO_INT(), GINT_TO_POINTER(),在当前的平台是正确的。
+</para>
+<para>
+<warning>
+<para>
+你不能在一个整数中储存一个指针。以任何方式都不可能实现这个目的。
+这些宏<emphasis>只</emphasis>允许在指针中储存整数，而且只储存32位整形。超出32位的整形值，将被截断。
+</para>
+</warning>
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO GINT_TO_POINTER ##### -->
+<para>
+在指针类型中填充整数。
+</para>
+<para>
+记住，你不能在一个整数中储存一个指针。以任何方式都不可能实现这个目的。
+这些宏<emphasis>只</emphasis>允许在指针中储存整数，而且只储存32位整形。超出32位的整形值，将被截断。
+</para>
+
+@i: 在指针类型中填充整数
+
+
+<!-- ##### MACRO GPOINTER_TO_INT ##### -->
+<para>
+在一个指针中取出一个整数。这个整数必须是用GINT_TO_POINTER()存储在一个指针中。（实际上两者都是指针）
+</para>
+<para>
+记住，你不能在一个整数中储存一个指针。以任何方式都不可能实现这个目的。
+这些宏<emphasis>只</emphasis>允许在指针中储存整数，而且只储存32位整形。超出32位的整形值，将被截断。
+</para>
+
+@p: 指针包含整形
+
+
+<!-- ##### MACRO GUINT_TO_POINTER ##### -->
+<para>
+在指针类型中填充无符号整数
+</para>
+
+@u: 指针中填充unsigned integer
+
+
+<!-- ##### MACRO GPOINTER_TO_UINT ##### -->
+<para>
+在指针中取出一个整数。这个整数必须是用GINT_TO_POINTER()存储在一个指针中。（事实上两者都是指针）
+记住，你不能储存指针到整数中。以任何方式都不可能实现这个目的。
+这些宏只允许在指针中储存整数，而且只储存32位整型。超出32位的整型值，将被截断。
+</para>
+
+@p: 从指针类型中取unsigned integer。
+
+
+<!-- ##### MACRO GSIZE_TO_POINTER ##### -->
+<para>
+放一个 #gsize到指针类型中。
+</para>
+
+@s: #gsize 存放到指针类型中
+
+
+<!-- ##### MACRO GPOINTER_TO_SIZE ##### -->
+<para>
+从指针类型中取出一个#gsize类型。 此 #gsize 必须
+使用GSIZE_TO_POINTER()存储到指针类型中。
+</para>
+
+@p: 从指针类型中取出 #gsize 。
+
