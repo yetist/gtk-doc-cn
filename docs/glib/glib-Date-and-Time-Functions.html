@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib实用函数集">
 <link rel="prev" href="glib-I18N.html" title="国际化">
-<link rel="next" href="glib-Random-Numbers.html" title="Random Numbers">
+<link rel="next" href="glib-GTimeZone.html" title="GTimeZone">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib参考手册</th>
-<td><a accesskey="n" href="glib-Random-Numbers.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-GTimeZone.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#glib-Date-and-Time-Functions.synopsis" class="shortcut">Top</a>
@@ -939,14 +939,11 @@ Sets the value of a <a class="link" href="glib-Date-and-Time-Functions.html#GDat
                                                          <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTime" title="GTime"><span class="type">GTime</span></a> time_</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_date_set_time</code> is deprecated and should not be used in newly-written code.</p>
+<p><code class="literal">g_date_set_time</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use <a class="link" href="glib-Date-and-Time-Functions.html#g-date-set-time-t" title="g_date_set_time_t ()"><code class="function">g_date_set_time_t()</code></a> instead.</p>
 </div>
 <p>
 Sets the value of a date from a <a class="link" href="glib-Date-and-Time-Functions.html#GTime" title="GTime"><span class="type">GTime</span></a> value.
 The time to date conversion is done using the user's current timezone.
-</p>
-<p>
-<em class="parameter"><code>Deprecated</code></em>:2.10: Use <a class="link" href="glib-Date-and-Time-Functions.html#g-date-set-time-t" title="g_date_set_time_t ()"><code class="function">g_date_set_time_t()</code></a> instead.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1007,6 +1004,9 @@ To set the value of a date to the current day, you could write:
 Sets the value of a date from a <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> value.  Note that the
 <em class="parameter"><code>tv_usec</code></em> member is ignored, because <a class="link" href="glib-Date-and-Time-Functions.html#GDate" title="struct GDate"><span class="type">GDate</span></a> can't make use of the
 additional precision.
+</p>
+<p>
+The time to date conversion is done using the user's current timezone.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1524,7 +1524,7 @@ Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE">
 <a name="g-date-is-leap-year"></a><h3>g_date_is_leap_year ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_date_is_leap_year                 (<em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GDateYear" title="GDateYear"><span class="type">GDateYear</span></a> year</code></em>);</pre>
 <p>
-Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the year is a leap year.<sup>[<a name="id3370432" href="#ftn.id3370432" class="footnote">4</a>]</sup>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the year is a leap year.<sup>[<a name="id3048439" href="#ftn.id3048439" class="footnote">4</a>]</sup>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1913,7 +1913,7 @@ values are the only valid weekdays.
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3370432" href="#id3370432" class="para">4</a>] </sup>
+<div class="footnote"><p><sup>[<a id="ftn.id3048439" href="#id3048439" class="para">4</a>] </sup>
 For the purposes of this function, leap year is every year divisible by
 4 unless that year is divisible by 100. If it is divisible by 100 it would
 be a leap year only if that year is also divisible by 400.</p></div>

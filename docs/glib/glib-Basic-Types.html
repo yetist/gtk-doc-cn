@@ -73,6 +73,9 @@ typedef             <a class="link" href="glib-Basic-Types.html#gsize" title="gs
 typedef             <a class="link" href="glib-Basic-Types.html#gssize" title="gssize">gssize</a>;
 typedef             <a class="link" href="glib-Basic-Types.html#goffset" title="goffset">goffset</a>;
 #define             <a class="link" href="glib-Basic-Types.html#G-GOFFSET-CONSTANT:CAPS" title="G_GOFFSET_CONSTANT()">G_GOFFSET_CONSTANT</a>                  (val)
+
+typedef             <a class="link" href="glib-Basic-Types.html#gintptr" title="gintptr">gintptr</a>;
+typedef             <a class="link" href="glib-Basic-Types.html#guintptr" title="guintptr">guintptr</a>;
 </pre>
 </div>
 <div class="refsect1">
@@ -412,6 +415,11 @@ source code. 【不能确定】
 </pre>
 <p>
 有符号的整形，用来作为文件偏移。类似于C99的off64_t。
+Values of this type can range from <a class="link" href="glib-Limits-of-Basic-Types.html#G-MINOFFSET:CAPS" title="G_MINOFFSET"><span class="type">G_MINOFFSET</span></a> to <a class="link" href="glib-Limits-of-Basic-Types.html#G-MAXOFFSET:CAPS" title="G_MAXOFFSET"><span class="type">G_MAXOFFSET</span></a>.
+</p>
+<p>
+To print or scan values of this type, use
+<a class="link" href="glib-Miscellaneous-Macros.html#G-GOFFSET-MODIFIER:CAPS" title="G_GOFFSET_MODIFIER"><code class="literal">G_GOFFSET_MODIFIER</code></a> and/or <a class="link" href="glib-Miscellaneous-Macros.html#G-GOFFSET-FORMAT:CAPS" title="G_GOFFSET_FORMAT"><code class="literal">G_GOFFSET_FORMAT</code></a>.
 </p>
 Since: 2.14</div>
 <hr>
@@ -432,6 +440,34 @@ Since: 2.20</td>
 </tr></tbody>
 </table></div>
 </div>
+<hr>
+<div class="refsect2">
+<a name="gintptr"></a><h3>gintptr</h3>
+<pre class="programlisting">typedef signed int gintptr;
+</pre>
+<p>
+Corresponds to the C99 type <span class="type">intptr_t</span>, a signed integer type that
+can hold any pointer.
+</p>
+<p>
+To print or scan values of this type, use
+<a class="link" href="glib-Miscellaneous-Macros.html#G-GINTPTR-MODIFIER:CAPS" title="G_GINTPTR_MODIFIER"><code class="literal">G_GINTPTR_MODIFIER</code></a> and/or <a class="link" href="glib-Miscellaneous-Macros.html#G-GINTPTR-FORMAT:CAPS" title="G_GINTPTR_FORMAT"><code class="literal">G_GINTPTR_FORMAT</code></a>.
+</p>
+Since: 2.18</div>
+<hr>
+<div class="refsect2">
+<a name="guintptr"></a><h3>guintptr</h3>
+<pre class="programlisting">typedef unsigned int guintptr;
+</pre>
+<p>
+Corresponds to the C99 type <span class="type">uintptr_t</span>, an unsigned integer type that
+can hold any pointer.
+</p>
+<p>
+To print or scan values of this type, use
+<a class="link" href="glib-Miscellaneous-Macros.html#G-GINTPTR-MODIFIER:CAPS" title="G_GINTPTR_MODIFIER"><code class="literal">G_GINTPTR_MODIFIER</code></a> and/or <a class="link" href="glib-Miscellaneous-Macros.html#G-GUINTPTR-FORMAT:CAPS" title="G_GUINTPTR_FORMAT"><code class="literal">G_GUINTPTR_FORMAT</code></a>.
+</p>
+Since: 2.18</div>
 </div>
 </div>
 <div class="footer">

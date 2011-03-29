@@ -70,6 +70,16 @@
 #define             <a class="link" href="glib-Byte-Order-Macros.html#GULONG-TO-BE:CAPS" title="GULONG_TO_BE()">GULONG_TO_BE</a>                        (val)
 #define             <a class="link" href="glib-Byte-Order-Macros.html#GULONG-TO-LE:CAPS" title="GULONG_TO_LE()">GULONG_TO_LE</a>                        (val)
 
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSIZE-FROM-BE:CAPS" title="GSIZE_FROM_BE()">GSIZE_FROM_BE</a>                       (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSIZE-FROM-LE:CAPS" title="GSIZE_FROM_LE()">GSIZE_FROM_LE</a>                       (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSIZE-TO-BE:CAPS" title="GSIZE_TO_BE()">GSIZE_TO_BE</a>                         (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSIZE-TO-LE:CAPS" title="GSIZE_TO_LE()">GSIZE_TO_LE</a>                         (val)
+
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSSIZE-FROM-BE:CAPS" title="GSSIZE_FROM_BE()">GSSIZE_FROM_BE</a>                      (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSSIZE-FROM-LE:CAPS" title="GSSIZE_FROM_LE()">GSSIZE_FROM_LE</a>                      (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSSIZE-TO-BE:CAPS" title="GSSIZE_TO_BE()">GSSIZE_TO_BE</a>                        (val)
+#define             <a class="link" href="glib-Byte-Order-Macros.html#GSSIZE-TO-LE:CAPS" title="GSSIZE_TO_LE()">GSSIZE_TO_LE</a>                        (val)
+
 #define             <a class="link" href="glib-Byte-Order-Macros.html#GINT16-FROM-BE:CAPS" title="GINT16_FROM_BE()">GINT16_FROM_BE</a>                      (val)
 #define             <a class="link" href="glib-Byte-Order-Macros.html#GINT16-FROM-LE:CAPS" title="GINT16_FROM_LE()">GINT16_FROM_LE</a>                      (val)
 #define             <a class="link" href="glib-Byte-Order-Macros.html#GINT16-TO-BE:CAPS" title="GINT16_TO_BE()">GINT16_TO_BE</a>                        (val)
@@ -641,6 +651,190 @@ Converts a <a class="link" href="glib-Basic-Types.html#gulong" title="gulong"><s
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
 <td>a <a class="link" href="glib-Basic-Types.html#gulong" title="gulong"><span class="type">gulong</span></a> value in host byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to little-endian.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSIZE-FROM-BE:CAPS"></a><h3>GSIZE_FROM_BE()</h3>
+<pre class="programlisting">#define GSIZE_FROM_BE(val) (GSIZE_TO_BE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value from big-endian to the host byte order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value in big-endian byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to host byte order.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSIZE-FROM-LE:CAPS"></a><h3>GSIZE_FROM_LE()</h3>
+<pre class="programlisting">#define GSIZE_FROM_LE(val) (GSIZE_TO_LE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value from little-endian to host byte order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value in little-endian byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to host byte order.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSIZE-TO-BE:CAPS"></a><h3>GSIZE_TO_BE()</h3>
+<pre class="programlisting">#define GSIZE_TO_BE(val) ((gsize) GUINT32_TO_BE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value from host byte order to big-endian.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value in host byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to big-endian byte order.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSIZE-TO-LE:CAPS"></a><h3>GSIZE_TO_LE()</h3>
+<pre class="programlisting">#define GSIZE_TO_LE(val) ((gsize) GUINT32_TO_LE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value from host byte order to little-endian.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> value in host byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to little-endian.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSSIZE-FROM-BE:CAPS"></a><h3>GSSIZE_FROM_BE()</h3>
+<pre class="programlisting">#define GSSIZE_FROM_BE(val) (GSSIZE_TO_BE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value from big-endian to host byte order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value in big-endian byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to host byte order.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSSIZE-FROM-LE:CAPS"></a><h3>GSSIZE_FROM_LE()</h3>
+<pre class="programlisting">#define GSSIZE_FROM_LE(val) (GSSIZE_TO_LE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value from little-endian to host byte order.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value in little-endian byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to host byte order.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSSIZE-TO-BE:CAPS"></a><h3>GSSIZE_TO_BE()</h3>
+<pre class="programlisting">#define GSSIZE_TO_BE(val) ((gssize) GINT32_TO_BE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value from host byte order to big-endian.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value in host byte order.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>val</code></em> converted to big-endian.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSSIZE-TO-LE:CAPS"></a><h3>GSSIZE_TO_LE()</h3>
+<pre class="programlisting">#define GSSIZE_TO_LE(val) ((gssize) GINT32_TO_LE (val))
+</pre>
+<p>
+Converts a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value from host byte order to little-endian.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> value in host byte order.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>

@@ -66,13 +66,13 @@
 <p>
 Memory slices provide a space-efficient and multi-processing scalable
 way to allocate equal-sized pieces of memory, just like the original
-<a href="../glib/glib-Memory-Chunks.html#GMemChunk"><span class="type">GMemChunks</span></a> (from GLib &lt;= 2.8), while avoiding their excessive
+<a href="glib-Memory-Chunks.html#GMemChunk"><span class="type">GMemChunks</span></a> (from GLib &lt;= 2.8), while avoiding their excessive
 memory-waste, scalability and performance problems.
 </p>
 <p>
 To achieve these goals, the slice allocator uses a sophisticated,
 layered design that has been inspired by Bonwick's slab allocator
-<sup>[<a name="id3588624" href="#ftn.id3588624" class="footnote">6</a>]</sup>.
+<sup>[<a name="id2860259" href="#ftn.id2860259" class="footnote">6</a>]</sup>.
 It uses <code class="function">posix_memalign()</code> to optimize allocations of many equally-sized
 chunks, and has per-thread free lists (the so-called magazine layer)
 to quickly satisfy allocation requests of already known structure sizes.
@@ -93,7 +93,7 @@ friends, as long as objects are not resized during their lifetime and the
 object size used at allocation time is still available when freeing.
 </p>
 <div class="example">
-<a name="id3588734"></a><p class="title"><b>Example 15. Using the slice allocator</b></p>
+<a name="id3123815"></a><p class="title"><b>Example 15. Using the slice allocator</b></p>
 <div class="example-contents"><pre class="programlisting">
   gchar *mem[10000];
   gint i;
@@ -113,7 +113,7 @@ object size used at allocation time is still available when freeing.
 </pre></div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3588756"></a><p class="title"><b>Example 16. Using the slice allocator with data structures</b></p>
+<a name="id3019649"></a><p class="title"><b>Example 16. Using the slice allocator with data structures</b></p>
 <div class="example-contents"><pre class="programlisting">
   GRealArray *array;
   /* Allocate one block, using the g_slice_new() macro. */
@@ -431,7 +431,7 @@ also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLIC
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3588624" href="#id3588624" class="para">6</a>] </sup>
+<div class="footnote"><p><sup>[<a id="ftn.id2860259" href="#id2860259" class="para">6</a>] </sup>
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick94slab.html" target="_top">[Bonwick94]</a> Jeff Bonwick, The slab allocator: An object-caching kernel
 memory allocator. USENIX 1994, and
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick01magazines.html" target="_top">[Bonwick01]</a> Bonwick and Jonathan Adams, Magazines and vmem: Extending the

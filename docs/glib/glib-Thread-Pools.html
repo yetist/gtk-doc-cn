@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>线程池</title>
+<title>Thread Pools</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
@@ -30,8 +30,8 @@
 <a name="glib-Thread-Pools"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Thread-Pools.top_of_page"></a>线程池</span></h2>
-<p>线程池 — 线程的集合，可并行的执行任务</p>
+<h2><span class="refentrytitle"><a name="glib-Thread-Pools.top_of_page"></a>Thread Pools</span></h2>
+<p>Thread Pools — pools of threads to execute work concurrently</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -75,38 +75,40 @@ struct              <a class="link" href="glib-Thread-Pools.html#GThreadPool" ti
 <div class="refsect1">
 <a name="glib-Thread-Pools.description"></a><h2>Description</h2>
 <p>
-有时候，你希望以异步的方式创建一个新的线程来执行任务，
-与此同时你自己的线程也在继续工作。如果这样的事情很频繁，
-那么每一次创建和销毁线程所占的开销可能会非常的大。在这种
-情况下重复使用已经创建的线程似乎是一个好主意；但是，完成
-这样的工作可能会令人感到乏味并且容易出错。
+Sometimes you wish to asynchronously fork out the execution of work
+and continue working in your own thread. If that will happen often,
+the overhead of starting and destroying a thread each time might be
+too high. In such cases reusing already started threads seems like a
+good idea. And it indeed is, but implementing this can be tedious
+and error-prone.
 </p>
 <p>
-因此，为了您的方便 GLib 提供了线程池供你使用。并且，另一
-个优点就是，当使用 GLib 的时候，这些线程能在你程序的不同
-的子系统中共享。
+Therefore GLib provides thread pools for your convenience. An added
+advantage is, that the threads can be shared between the different
+subsystems of your program, when they are using GLib.
 </p>
 <p>
-创建一个新的线程池，使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()"><code class="function">g_thread_pool_new()</code></a> ；而销毁它
-则使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a> 。
+To create a new thread pool, you use <a class="link" href="glib-Thread-Pools.html#g-thread-pool-new" title="g_thread_pool_new ()"><code class="function">g_thread_pool_new()</code></a>. It is
+destroyed by <a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a>.
 </p>
 <p>
-如果你想在一个执行线程池里执行某项任务，你就调用
-<a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a> 。
+If you want to execute a certain task within a thread pool, you call
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-push" title="g_thread_pool_push ()"><code class="function">g_thread_pool_push()</code></a>.
 </p>
 <p>
-要获取你正在使用线程的数目，你可以调用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-threads" title="g_thread_pool_get_num_threads ()"><code class="function">g_thread_pool_get_num_threads()</code></a> 。
-获取仍未处理任务的数目，你可以调用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-unprocessed" title="g_thread_pool_unprocessed ()"><code class="function">g_thread_pool_unprocessed()</code></a> 。
-想控制一个线程池里线程的最大数目，你可以使用<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-threads" title="g_thread_pool_get_max_threads ()"><code class="function">g_thread_pool_get_max_threads()</code></a>
-和 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-threads" title="g_thread_pool_set_max_threads ()"><code class="function">g_thread_pool_set_max_threads()</code></a> 。
+To get the current number of running threads you call
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-threads" title="g_thread_pool_get_num_threads ()"><code class="function">g_thread_pool_get_num_threads()</code></a>. To get the number of still
+unprocessed tasks you call <a class="link" href="glib-Thread-Pools.html#g-thread-pool-unprocessed" title="g_thread_pool_unprocessed ()"><code class="function">g_thread_pool_unprocessed()</code></a>. To control
+the maximal number of threads for a thread pool, you use
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-threads" title="g_thread_pool_get_max_threads ()"><code class="function">g_thread_pool_get_max_threads()</code></a> and <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-threads" title="g_thread_pool_set_max_threads ()"><code class="function">g_thread_pool_set_max_threads()</code></a>.
 </p>
 <p>
-最后你还可以控制未使用线程的数目，通过 GLib 让它们保持
-活跃状态供以后使用。要获取当前未使用线程的数目，可以使用
-<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-unused-threads" title="g_thread_pool_get_num_unused_threads ()"><code class="function">g_thread_pool_get_num_unused_threads()</code></a> 。想控制未使用线程
-的最大值，可以使用 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-unused-threads" title="g_thread_pool_get_max_unused_threads ()"><code class="function">g_thread_pool_get_max_unused_threads()</code></a>
-和 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-unused-threads" title="g_thread_pool_set_max_unused_threads ()"><code class="function">g_thread_pool_set_max_unused_threads()</code></a> 。当然，想终止
-所有当前未使用线程的话，你可以调用 calling <a class="link" href="glib-Thread-Pools.html#g-thread-pool-stop-unused-threads" title="g_thread_pool_stop_unused_threads ()"><code class="function">g_thread_pool_stop_unused_threads()</code></a> 。
+Finally you can control the number of unused threads, that are kept
+alive by GLib for future use. The current number can be fetched with
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-num-unused-threads" title="g_thread_pool_get_num_unused_threads ()"><code class="function">g_thread_pool_get_num_unused_threads()</code></a>. The maximal number can be
+controlled by <a class="link" href="glib-Thread-Pools.html#g-thread-pool-get-max-unused-threads" title="g_thread_pool_get_max_unused_threads ()"><code class="function">g_thread_pool_get_max_unused_threads()</code></a> and
+<a class="link" href="glib-Thread-Pools.html#g-thread-pool-set-max-unused-threads" title="g_thread_pool_set_max_unused_threads ()"><code class="function">g_thread_pool_set_max_unused_threads()</code></a>. All currently unused threads
+can be stopped by calling <a class="link" href="glib-Thread-Pools.html#g-thread-pool-stop-unused-threads" title="g_thread_pool_stop_unused_threads ()"><code class="function">g_thread_pool_stop_unused_threads()</code></a>.
 </p>
 </div>
 <div class="refsect1">
@@ -120,23 +122,24 @@ struct              <a class="link" href="glib-Thread-Pools.html#GThreadPool" ti
 };
 </pre>
 <p>
-<a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> 结构体描述为一个线程池。它有三个公共的只读成员，
-但结构体内私有的结构是很大的，所以你不能复制此结构体。
+The <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> struct represents a thread pool. It has three
+public read-only members, but the underlying struct is bigger, so
+you must not copy this struct.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GFunc" title="GFunc ()"><span class="type">GFunc</span></a> <em class="structfield"><code><a name="GThreadPool.func"></a>func</code></em>;</span></p></td>
-<td>在线程池的线程里执行的函数</td>
+<td>the function to execute in the threads of this pool</td>
 </tr>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> <em class="structfield"><code><a name="GThreadPool.user-data"></a>user_data</code></em>;</span></p></td>
-<td>线程池中线程的用户数据指针</td>
+<td>the user data for the threads of this pool</td>
 </tr>
 <tr>
 <td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="GThreadPool.exclusive"></a>exclusive</code></em>;</span></p></td>
-<td>为TRUE表示为不共享方式</td>
+<td>are all threads exclusive to this pool</td>
 </tr>
 </tbody>
 </table></div>
@@ -160,11 +163,11 @@ struct              <a class="link" href="glib-Thread-Pools.html#GThreadPool" ti
 据，也即要执行的任务，第二个参数则是 <em class="parameter"><code>user_data</code></em> 。
 </p>
 <p>
-参数 <em class="parameter"><code>exclusive</code></em> 确定线程池里的线程是否为全局共享线程。如果 <em class="parameter"><code>exclusive</code></em> 为%
-TRUE， <em class="parameter"><code>max_threads</code></em> 个线程将立即开始并且一直独占的运行在这个线程池，直到通过 
-<a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a> 销毁它；如果 <em class="parameter"><code>exclusive</code></em> 为<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>，则线程被创建，并且当需
-要时和其他非独占性线程池共享。这也就意味着，在独占性线程池里 <em class="parameter"><code>max_threads</code></em> 
-may 不能为 -1 。
+参数 <em class="parameter"><code>exclusive</code></em> 确定线程池里的线程是否为全局共享线程。如果 <em class="parameter"><code>exclusive</code></em> 
+为<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>， <em class="parameter"><code>max_threads</code></em> 个线程将立即开始并且一直独占的运行在这个线程池，直到通
+过 <a class="link" href="glib-Thread-Pools.html#g-thread-pool-free" title="g_thread_pool_free ()"><code class="function">g_thread_pool_free()</code></a> 销毁它；如果 <em class="parameter"><code>exclusive</code></em> 为<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>，则线程被创建，并且
+当需要时和其他非独占性线程池共享。这也就意味着，在独占性线程池里 
+<em class="parameter"><code>max_threads</code></em> may 不能为 -1 。
 </p>
 <p>
 <em class="parameter"><code>error</code></em> 能通过设置 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来忽略，或者用非<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 来报告错误。一个错误仅会发生在 
@@ -528,17 +531,17 @@ may 不能为 -1 。
 </div>
 <div class="refsect1">
 <a name="glib-Thread-Pools.see-also"></a><h2>See Also</h2>
-<p>
-</p>
+<p> </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><a class="link" href="glib-Threads.html#GThread" title="struct GThread"><span class="type">GThread</span></a></span></p></td>
-<td><p>GLib 线程系统。</p></td>
+<td><p>GLib thread
+           system.</p></td>
 </tr></tbody>
 </table></div>
 <p>
-</p>
+           </p>
 </div>
 </div>
 <div class="footer">

@@ -57,6 +57,7 @@ enum                <a class="link" href="glib-Miscellaneous-Utility-Functions.h
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-special-dir" title="g_get_user_special_dir ()">g_get_user_special_dir</a>              (<em class="parameter"><code><a class="link" href="glib-Miscellaneous-Utility-Functions.html#GUserDirectory" title="enum GUserDirectory"><span class="type">GUserDirectory</span></a> directory</code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> * const * <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-system-data-dirs" title="g_get_system_data_dirs ()">g_get_system_data_dirs</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> * const * <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-system-config-dirs" title="g_get_system_config_dirs ()">g_get_system_config_dirs</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-reload-user-special-dirs-cache" title="g_reload_user_special_dirs_cache ()">g_reload_user_special_dirs_cache</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
 
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-host-name" title="g_get_host_name ()">g_get_host_name</a>                     (<em class="parameter"><code><span class="type">void</span></code></em>);
 #define             <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-home-dir" title="g_get_home_dir">g_get_home_dir</a>
@@ -216,19 +217,13 @@ environment variables, they are expanded.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>variable</code></em> :</span></p></td>
-<td>the environment variable to get, in the GLib file name encoding.</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the value of the environment variable, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if
 the environment variable is not found. The returned string may be
 overwritten by the next call to <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-getenv" title="g_getenv"><code class="function">g_getenv()</code></a>, <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-setenv" title="g_setenv"><code class="function">g_setenv()</code></a> or
 <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-unsetenv" title="g_unsetenv"><code class="function">g_unsetenv()</code></a>.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -247,25 +242,11 @@ used for the previous variables and its value isn't reclaimed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>variable</code></em> :</span></p></td>
-<td>the environment variable to set, must not contain '='.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>the value for to set the variable to.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>overwrite</code></em> :</span></p></td>
-<td>whether to change the variable if it already exists.</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> if the environment variable couldn't be set.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -362,7 +343,14 @@ data specific to particular user.
 <p>
 On UNIX platforms this is determined using the mechanisms described in
 the <a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">
-XDG Base Directory Specification</a>
+XDG Base Directory Specification</a>.
+In this case the directory retrieved will be XDG_CACHE_HOME.
+</p>
+<p>
+On Windows is the directory that serves as a common repository for
+temporary Internet files. A typical path is
+C:\Documents and Settings\username\Local Settings\Temporary Internet Files.
+See documentation for CSIDL_INTERNET_CACHE.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -385,7 +373,12 @@ as icons that is customized for a particular user.
 <p>
 On UNIX platforms this is determined using the mechanisms described in
 the <a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">
-XDG Base Directory Specification</a>
+XDG Base Directory Specification</a>.
+In this case the directory retrieved will be XDG_DATA_HOME.
+</p>
+<p>
+On Windows is the virtual folder that represents the My Documents
+desktop item. See documentation for CSIDL_PERSONAL.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -408,7 +401,14 @@ configuration information such as user preferences and settings.
 <p>
 On UNIX platforms this is determined using the mechanisms described in
 the <a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">
-XDG Base Directory Specification</a>
+XDG Base Directory Specification</a>.
+In this case the directory retrieved will be XDG_CONFIG_HOME.
+</p>
+<p>
+On Windows is the directory that serves as a common repository for
+application-specific data. A typical path is
+C:\Documents and Settings\username\Application. See documentation for
+CSIDL_APPDATA.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -545,6 +545,7 @@ system-wide application data.
 On UNIX platforms this is determined using the mechanisms described in
 the <a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">
 XDG Base Directory Specification</a>
+In this case the list of directories retrieved will be XDG_DATA_DIRS.
 </p>
 <p>
 On Windows the first elements in the list are the Application Data
@@ -594,7 +595,16 @@ system-wide configuration information.
 <p>
 On UNIX platforms this is determined using the mechanisms described in
 the <a class="ulink" href="http://www.freedesktop.org/Standards/basedir-spec" target="_top">
-XDG Base Directory Specification</a>
+XDG Base Directory Specification</a>.
+In this case the list of directories retrieved will be XDG_CONFIG_DIRS.
+</p>
+<p>
+On Windows is the directory that contains application data for all users.
+A typical path is C:\Documents and Settings\All Users\Application Data.
+This folder is used for application data that is not user specific.
+For example, an application can store a spell-check dictionary, a database
+of clip art, or a log file in the CSIDL_COMMON_APPDATA folder.
+This information will not roam and is available to anyone using the computer.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -605,6 +615,23 @@ not be modified or freed.</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-reload-user-special-dirs-cache"></a><h3>g_reload_user_special_dirs_cache ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_reload_user_special_dirs_cache    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Resets the cache used for <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-special-dir" title="g_get_user_special_dir ()"><code class="function">g_get_user_special_dir()</code></a>, so
+that the latest on-disk version is used. Call this only
+if you just changed the data on disk yourself.
+</p>
+<p>
+Due to threadsafety issues this may cause leaking of strings
+that were previously returned from <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-get-user-special-dir" title="g_get_user_special_dir ()"><code class="function">g_get_user_special_dir()</code></a>
+that can't be freed. We ensure to only leak the data for
+the directories that actually changed value though.
+</p>
+<p class="since">Since 2.22</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -689,7 +716,7 @@ inspecting the environment variables <code class="envar">TMPDIR</code>,
 <code class="envar">TMP</code>, and <code class="envar">TEMP</code> in that order. If none 
 of those are defined "/tmp" is returned on UNIX and "C:\" on Windows. 
 The encoding of the returned string is system-defined. On Windows, 
-it is always UTF-8. The return value is never <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+it is always UTF-8. The return value is never <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> or the empty string.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1086,17 +1113,11 @@ full name including the type suffix.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>program</code></em> :</span></p></td>
-<td>a program name in the GLib file name encoding</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>absolute path, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>

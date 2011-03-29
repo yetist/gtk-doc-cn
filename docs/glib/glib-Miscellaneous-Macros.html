@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>特殊宏</title>
+<title>特殊宏(Miscellaneous Macros)</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-fundamentals.html" title="GLib基础">
 <link rel="prev" href="glib-Numerical-Definitions.html" title="数值定义">
-<link rel="next" href="glib-Atomic-Operations.html" title="原子操作">
+<link rel="next" href="glib-Atomic-Operations.html" title="Atomic Operations">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -30,8 +30,8 @@
 <a name="glib-Miscellaneous-Macros"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Miscellaneous-Macros.top_of_page"></a>特殊宏</span></h2>
-<p>特殊宏 — 不常使用的专用宏</p>
+<h2><span class="refentrytitle"><a name="glib-Miscellaneous-Macros.top_of_page"></a>特殊宏(Miscellaneous Macros)</span></h2>
+<p>特殊宏(Miscellaneous Macros) — 不常使用的专用宏</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -56,8 +56,6 @@
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-STRINGIFY:CAPS" title="G_STRINGIFY()">G_STRINGIFY</a>                         (macro_or_string)
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-PASTE:CAPS" title="G_PASTE()">G_PASTE</a>                             (identifier1,
                                                          identifier2)
-#define             <a class="link" href="glib-Miscellaneous-Macros.html#G-PASTE-ARGS:CAPS" title="G_PASTE_ARGS()">G_PASTE_ARGS</a>                        (identifier1,
-                                                         identifier2)
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-STATIC-ASSERT:CAPS" title="G_STATIC_ASSERT()">G_STATIC_ASSERT</a>                     (expr)
 
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-EXTENSION:CAPS" title="G_GNUC_EXTENSION">G_GNUC_EXTENSION</a>
@@ -68,6 +66,7 @@
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-ALLOC-SIZE2:CAPS" title="G_GNUC_ALLOC_SIZE2()">G_GNUC_ALLOC_SIZE2</a>                  (x,
                                                          y)
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-DEPRECATED:CAPS" title="G_GNUC_DEPRECATED">G_GNUC_DEPRECATED</a>
+#define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-DEPRECATED-FOR:CAPS" title="G_GNUC_DEPRECATED_FOR()">G_GNUC_DEPRECATED_FOR</a>               (f)
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-NORETURN:CAPS" title="G_GNUC_NORETURN">G_GNUC_NORETURN</a>
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-UNUSED:CAPS" title="G_GNUC_UNUSED">G_GNUC_UNUSED</a>
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-PRINTF:CAPS" title="G_GNUC_PRINTF()">G_GNUC_PRINTF</a>                       (format_idx,
@@ -104,6 +103,9 @@
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GSSIZE-FORMAT:CAPS" title="G_GSSIZE_FORMAT">G_GSSIZE_FORMAT</a>
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GOFFSET-MODIFIER:CAPS" title="G_GOFFSET_MODIFIER">G_GOFFSET_MODIFIER</a>
 #define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GOFFSET-FORMAT:CAPS" title="G_GOFFSET_FORMAT">G_GOFFSET_FORMAT</a>
+#define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GINTPTR-MODIFIER:CAPS" title="G_GINTPTR_MODIFIER">G_GINTPTR_MODIFIER</a>
+#define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GINTPTR-FORMAT:CAPS" title="G_GINTPTR_FORMAT">G_GINTPTR_FORMAT</a>
+#define             <a class="link" href="glib-Miscellaneous-Macros.html#G-GUINTPTR-FORMAT:CAPS" title="G_GUINTPTR_FORMAT">G_GUINTPTR_FORMAT</a>
 </pre>
 </div>
 <div class="refsect1">
@@ -223,7 +225,18 @@ GLib并没有包含<code class="function">string.h</code> 。
 </pre>
 <p>
 接受一个宏或一个字符串转换成一个字符串后，并预处理参数扩展。
+preprocessor argument expansion. For example, the following code:
 </p>
+<div class="informalexample"><pre class="programlisting">
+#define AGE 27
+const gchar *greeting = G_STRINGIFY (AGE) " today!";
+</pre></div>
+<p>
+is transformed by the preprocessor into (code equivalent to):
+</p>
+<div class="informalexample"><pre class="programlisting">
+const gchar *greeting = "27 today!";
+</pre></div>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
@@ -241,6 +254,20 @@ GLib并没有包含<code class="function">string.h</code> 。
 生成一个新的预处理粘贴标识符'identifier1identifier2'
 从它的形参 'identifier1' 和 'identifier2'。
 </p>
+<div class="informalexample"><pre class="programlisting">
+#define GET(traveller,method) G_PASTE(traveller_get_, method) (traveller)
+const gchar *name = GET (traveller, name);
+const gchar *quest = GET (traveller, quest);
+GdkColor *favourite = GET (traveller, favourite_colour);
+</pre></div>
+<p>
+is transformed by the preprocessor into:
+</p>
+<div class="informalexample"><pre class="programlisting">
+const gchar *name = traveller_get_name (traveller);
+const gchar *quest = traveller_get_quest (traveller);
+GdkColor *favourite = traveller_get_favourite_colour (traveller);
+</pre></div>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -255,14 +282,6 @@ GLib并没有包含<code class="function">string.h</code> 。
 </tbody>
 </table></div>
 <p class="since">Since 2.20</p>
-</div>
-<hr>
-<div class="refsect2">
-<a name="G-PASTE-ARGS:CAPS"></a><h3>G_PASTE_ARGS()</h3>
-<pre class="programlisting">#define G_PASTE_ARGS(identifier1,identifier2) identifier1 ## identifier2
-</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -406,6 +425,26 @@ GNU C <code class="literal">deprecated</code> 属性。
 </div>
 <hr>
 <div class="refsect2">
+<a name="G-GNUC-DEPRECATED-FOR:CAPS"></a><h3>G_GNUC_DEPRECATED_FOR()</h3>
+<pre class="programlisting">#define             G_GNUC_DEPRECATED_FOR(f)</pre>
+<p>
+Like <a class="link" href="glib-Miscellaneous-Macros.html#G-GNUC-DEPRECATED:CAPS" title="G_GNUC_DEPRECATED"><code class="literal">G_GNUC_DEPRECATED</code></a>, but names the intended replacement for the
+deprecated symbol if the version of <span class="command"><strong>gcc</strong></span> in use is
+new enough to support custom deprecation messages.
+See the GNU C documentation for details.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>the intended replacement for the deprecated symbol, such as the name of a
+function</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.25.3</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-GNUC-NORETURN:CAPS"></a><h3>G_GNUC_NORETURN</h3>
 <pre class="programlisting">#define             G_GNUC_NORETURN</pre>
 <p>
@@ -545,7 +584,7 @@ GNU C <code class="literal">warn_unused_result</code> 函数属性，
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">G_GNUC_FUNCTION</code> is deprecated and should not be used in newly-written code. 2.16</p>
+<p><code class="literal">G_GNUC_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. 请使用 <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> 代替。</p>
 </div>
 <p>
 在所有的现代编译器上展开为 "" ，并且在<span class="command"><strong>gcc</strong></span> 2.x 版本上
@@ -560,7 +599,7 @@ GNU C <code class="literal">warn_unused_result</code> 函数属性，
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">G_GNUC_PRETTY_FUNCTION</code> is deprecated and should not be used in newly-written code. 2.16</p>
+<p><code class="literal">G_GNUC_PRETTY_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. 请使用 <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> 代替。</p>
 </div>
 <p>
 在所有的现代编译器上展开为 "" ，并且在<span class="command"><strong>gcc</strong></span> 2.x 版本上
@@ -900,6 +939,39 @@ g_print ("%" G_GINT32_FORMAT, out);
 见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a> 。
 </p>
 Since: 2.20</div>
+<hr>
+<div class="refsect2">
+<a name="G-GINTPTR-MODIFIER:CAPS"></a><h3>G_GINTPTR_MODIFIER</h3>
+<pre class="programlisting">#define G_GINTPTR_MODIFIER      ""
+</pre>
+<p>
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#gintptr" title="gintptr"><span class="type">gintptr</span></a> or <a class="link" href="glib-Basic-Types.html#guintptr" title="guintptr"><span class="type">guintptr</span></a>. It is a string literal.
+</p>
+<p class="since">Since 2.22</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-GINTPTR-FORMAT:CAPS"></a><h3>G_GINTPTR_FORMAT</h3>
+<pre class="programlisting">#define G_GINTPTR_FORMAT        "i"
+</pre>
+<p>
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gintptr" title="gintptr"><span class="type">gintptr</span></a>.
+</p>
+<p class="since">Since 2.22</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="G-GUINTPTR-FORMAT:CAPS"></a><h3>G_GUINTPTR_FORMAT</h3>
+<pre class="programlisting">#define G_GUINTPTR_FORMAT       "u"
+</pre>
+<p>
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#guintptr" title="guintptr"><span class="type">guintptr</span></a>.
+</p>
+<p class="since">Since 2.22</p>
+</div>
 </div>
 </div>
 <div class="footer">

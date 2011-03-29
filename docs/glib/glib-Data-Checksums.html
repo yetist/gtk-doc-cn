@@ -66,19 +66,20 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 <div class="refsect1">
 <a name="glib-Data-Checksums.description"></a><h2>Description</h2>
 <p>
-GLib provides a generic API for computing checksums (or "digests") for a
-sequence of arbitrary bytes, using various hashing algorithms like MD5,
-SHA-1 and SHA-256. Checksums are commonly used in various environments and
-specifications.
+GLib provides a generic API for computing checksums (or "digests")
+for a sequence of arbitrary bytes, using various hashing algorithms
+like MD5, SHA-1 and SHA-256. Checksums are commonly used in various
+environments and specifications.
 </p>
 <p>
-GLib supports incremental checksums using the GChecksum data structure, by
-calling <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()"><code class="function">g_checksum_update()</code></a> as long as there's data available and then using
-<a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a> or <a class="link" href="glib-Data-Checksums.html#g-checksum-get-digest" title="g_checksum_get_digest ()"><code class="function">g_checksum_get_digest()</code></a> to compute the checksum
-and return it either as a string in hexadecimal form, or as a raw sequence
-of bytes. To compute the checksum for binary blobs and NUL-terminated strings
-in one go, use the convenience functions <a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-data" title="g_compute_checksum_for_data ()"><code class="function">g_compute_checksum_for_data()</code></a> and
-<a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-string" title="g_compute_checksum_for_string ()"><code class="function">g_compute_checksum_for_string()</code></a>, respectively.
+GLib supports incremental checksums using the GChecksum data
+structure, by calling <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()"><code class="function">g_checksum_update()</code></a> as long as there's data
+available and then using <a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a> or
+<a class="link" href="glib-Data-Checksums.html#g-checksum-get-digest" title="g_checksum_get_digest ()"><code class="function">g_checksum_get_digest()</code></a> to compute the checksum and return it either
+as a string in hexadecimal form, or as a raw sequence of bytes. To
+compute the checksum for binary blobs and NUL-terminated strings in
+one go, use the convenience functions <a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-data" title="g_compute_checksum_for_data ()"><code class="function">g_compute_checksum_for_data()</code></a>
+and <a class="link" href="glib-Data-Checksums.html#g-compute-checksum-for-string" title="g_compute_checksum_for_string ()"><code class="function">g_compute_checksum_for_string()</code></a>, respectively.
 </p>
 <p>
 Support for checksums has been added in GLib 2.16
@@ -99,7 +100,7 @@ The hashing algorithm to be used by <a class="link" href="glib-Data-Checksums.ht
 digest of some data.
 </p>
 <p>
-Note that the <a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> enumeration may be extended at a later 
+Note that the <a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> enumeration may be extended at a later
 date to include new hashing algorithm types.
 </p>
 <div class="variablelist"><table border="0">
@@ -164,7 +165,7 @@ a GChecksum, use <a class="link" href="glib-Data-Checksums.html#g-checksum-free"
 <a name="g-checksum-new"></a><h3>g_checksum_new ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *            g_checksum_new                   (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);</pre>
 <p>
-Creates a new <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a>, using the checksum algorithm <em class="parameter"><code>checksum_type</code></em>. 
+Creates a new <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a>, using the checksum algorithm <em class="parameter"><code>checksum_type</code></em>.
 If the <em class="parameter"><code>checksum_type</code></em> is not known, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 A <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> can be used to compute the checksum, or digest, of an
 arbitrary binary blob, using different hashing algorithms.

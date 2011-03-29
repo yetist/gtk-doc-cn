@@ -128,7 +128,8 @@ file names etc. The returned string should be deallocated with
 <pre class="programlisting">#define             g_win32_get_package_installation_directory</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_win32_get_package_installation_directory</code> is deprecated and should not be used in newly-written code.</p>
+<p><code class="literal">g_win32_get_package_installation_directory</code> has been deprecated since version 2.18 and should not be used in newly-written code. Pass the HMODULE of a DLL or EXE to
+<a class="link" href="glib-Windows-Compatibility-Functions.html#g-win32-get-package-installation-directory-of-module" title="g_win32_get_package_installation_directory_of_module ()"><code class="function">g_win32_get_package_installation_directory_of_module()</code></a> instead.</p>
 </div>
 <p>
 尝试为软件包确定安装目录
@@ -182,25 +183,13 @@ the same way as above.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
-<td>你应该传递<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 给它。</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>dll_name</code></em> :</span></p></td>
-<td>The name of a DLL that a package provides in UTF-8, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string containing the installation directory for
 <em class="parameter"><code>package</code></em>. The string is in the GLib file name encoding,
 i.e. UTF-8. The return value should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when not
-needed any longer. If the function fails <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
-<em class="parameter"><code>Deprecated</code></em>:2.18: Pass the HMODULE of a DLL or EXE to
-<a class="link" href="glib-Windows-Compatibility-Functions.html#g-win32-get-package-installation-directory-of-module" title="g_win32_get_package_installation_directory_of_module ()"><code class="function">g_win32_get_package_installation_directory_of_module()</code></a> instead.</td>
-</tr>
-</tbody>
+needed any longer. If the function fails <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.</td>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -262,7 +251,9 @@ with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"
 <pre class="programlisting">#define             g_win32_get_package_installation_subdirectory</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_win32_get_package_installation_subdirectory</code> is deprecated and should not be used in newly-written code.</p>
+<p><code class="literal">g_win32_get_package_installation_subdirectory</code> has been deprecated since version 2.18 and should not be used in newly-written code. Pass the HMODULE of a DLL or EXE to
+<a class="link" href="glib-Windows-Compatibility-Functions.html#g-win32-get-package-installation-directory-of-module" title="g_win32_get_package_installation_directory_of_module ()"><code class="function">g_win32_get_package_installation_directory_of_module()</code></a> instead, and
+then construct a subdirectory pathname with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-build-filename" title="g_build_filename ()"><code class="function">g_build_filename()</code></a>.</p>
 </div>
 <p>
 此函数不建议使用.使用 <a class="link" href="glib-Windows-Compatibility-Functions.html#g-win32-get-package-installation-directory-of-module" title="g_win32_get_package_installation_directory_of_module ()"><code class="function">g_win32_get_package_installation_directory_of_module()</code></a> 
@@ -279,31 +270,14 @@ as <em class="parameter"><code>package</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
-<td>你应该传递<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 给它。</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>dll_name</code></em> :</span></p></td>
-<td>安装包提供的DLL的名字(UTF-8编码),或者 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>subdir</code></em> :</span></p></td>
-<td>A subdirectory of the package installation directory, also in UTF-8</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string containing the complete path to <em class="parameter"><code>subdir</code></em> inside
 the installation directory of <em class="parameter"><code>package</code></em>. The returned string is in
 the GLib file name encoding, i.e. UTF-8. The return value should be
 freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed. If something goes wrong,
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
-<em class="parameter"><code>Deprecated</code></em>:2.18: Pass the HMODULE of a DLL or EXE to
-<a class="link" href="glib-Windows-Compatibility-Functions.html#g-win32-get-package-installation-directory-of-module" title="g_win32_get_package_installation_directory_of_module ()"><code class="function">g_win32_get_package_installation_directory_of_module()</code></a> instead, and
-then construct a subdirectory pathname with <a class="link" href="glib-Miscellaneous-Utility-Functions.html#g-build-filename" title="g_build_filename ()"><code class="function">g_build_filename()</code></a>.</td>
-</tr>
-</tbody>
+<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.</td>
+</tr></tbody>
 </table></div>
 </div>
 <hr>

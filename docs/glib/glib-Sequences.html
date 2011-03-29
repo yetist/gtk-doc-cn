@@ -129,11 +129,10 @@ typedef             <a class="link" href="glib-Sequences.html#GSequenceIter" tit
 <a name="glib-Sequences.description"></a><h2>Description</h2>
 <p>
 The <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a> data structure has the API of a list, but is
-implemented internally with a balanced binary tree. This means that it
-is possible to maintain a sorted list of n elements in time O(n log
-n). The data contained in each element can be either integer values, by
-using of the
-<a class="link" href="glib-Type-Conversion-Macros.html" title="类型转换宏">Type Conversion Macros</a>,
+implemented internally with a balanced binary tree. This means that
+it is possible to maintain a sorted list of n elements in time O(n
+log n). The data contained in each element can be either integer
+values, by using of the <a class="link" href="glib-Type-Conversion-Macros.html" title="类型转换宏">Type Conversion Macros</a>,
 or simply pointers to any type of data.
 </p>
 <p>
@@ -148,25 +147,25 @@ iterators are the same.
 </p>
 <p>
 Some methods on <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a> operate on ranges of items. For example
-<a class="link" href="glib-Sequences.html#g-sequence-foreach-range" title="g_sequence_foreach_range ()"><code class="function">g_sequence_foreach_range()</code></a> will call a user-specified function on each
-element with the given range. The range is delimited by the gaps
-represented by the passed-in iterators, so if you pass in the begin
-and end iterators, the range in question is the entire sequence.
+<a class="link" href="glib-Sequences.html#g-sequence-foreach-range" title="g_sequence_foreach_range ()"><code class="function">g_sequence_foreach_range()</code></a> will call a user-specified function on
+each element with the given range. The range is delimited by the
+gaps represented by the passed-in iterators, so if you pass in the
+begin and end iterators, the range in question is the entire
+sequence.
 </p>
 <p>
 The function <a class="link" href="glib-Sequences.html#g-sequence-get" title="g_sequence_get ()"><code class="function">g_sequence_get()</code></a> is used with an iterator to access the
-element immediately following the gap that the iterator
-represents. The iterator is said to <em class="firstterm">point</em> to
-that element.
+element immediately following the gap that the iterator represents.
+The iterator is said to <em class="firstterm">point</em> to that element.
 </p>
 <p>
 Iterators are stable across most operations on a <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a>. For
 example an iterator pointing to some element of a sequence will
-continue to point to that element even after the sequence is
-sorted. Even moving an element to another sequence using for example
-<a class="link" href="glib-Sequences.html#g-sequence-move-range" title="g_sequence_move_range ()"><code class="function">g_sequence_move_range()</code></a> will not invalidate the iterators pointing to
-it. The only operation that will invalidate an iterator is when the
-element it points to is removed from any sequence.
+continue to point to that element even after the sequence is sorted.
+Even moving an element to another sequence using for example
+<a class="link" href="glib-Sequences.html#g-sequence-move-range" title="g_sequence_move_range ()"><code class="function">g_sequence_move_range()</code></a> will not invalidate the iterators pointing
+to it. The only operation that will invalidate an iterator is when
+the element it points to is removed from any sequence.
 </p>
 </div>
 <div class="refsect1">
@@ -175,8 +174,8 @@ element it points to is removed from any sequence.
 <a name="GSequence"></a><h3>GSequence</h3>
 <pre class="programlisting">typedef struct _GSequence GSequence;</pre>
 <p>
-The <span class="structname">GSequence</span> struct is an opaque data type
-representing a <a class="link" href="glib-Sequences.html" title="Sequences">Sequence</a> data type.
+The <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a> struct is an opaque data type representing a
+<a class="link" href="glib-Sequences.html" title="Sequences">Sequence</a> data type.
 </p>
 </div>
 <hr>
@@ -185,8 +184,8 @@ representing a <a class="link" href="glib-Sequences.html" title="Sequences">Sequ
 <pre class="programlisting">typedef struct _GSequenceNode  GSequenceIter;
 </pre>
 <p>
-The <span class="structname">GSequenceIter</span> struct is an opaque data
-type representing an iterator pointing into a <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a>.
+The <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> struct is an opaque data type representing an
+iterator pointing into a <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a>.
 </p>
 </div>
 <hr>
@@ -196,10 +195,9 @@ type representing an iterator pointing into a <a class="link" href="glib-Sequenc
                                                          <em class="parameter"><code><a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> *b</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
 <p>
-A <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> is a function used to compare
-iterators. It must return zero if the iterators compare equal, a
-negative value if <em class="parameter"><code>a</code></em> comes before <em class="parameter"><code>b</code></em>, and a positive value if <em class="parameter"><code>b</code></em> comes
-before <em class="parameter"><code>a</code></em>.
+A <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> is a function used to compare iterators.
+It must return zero if the iterators compare equal, a negative value
+if <em class="parameter"><code>a</code></em> comes before <em class="parameter"><code>b</code></em>, and a positive value if <em class="parameter"><code>b</code></em> comes before <em class="parameter"><code>a</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -221,7 +219,8 @@ before <em class="parameter"><code>a</code></em>.
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>zero if the iterators are equal, a negative value if <em class="parameter"><code>a</code></em>
-comes before <em class="parameter"><code>b</code></em>, and a positive value if <em class="parameter"><code>b</code></em> comes before <em class="parameter"><code>a</code></em>.</td>
+comes before <em class="parameter"><code>b</code></em>, and a positive value if <em class="parameter"><code>b</code></em> comes before
+<em class="parameter"><code>a</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -257,7 +256,7 @@ are removed from the sequence.
 <a name="g-sequence-free"></a><h3>g_sequence_free ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_sequence_free                     (<em class="parameter"><code><a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a> *seq</code></em>);</pre>
 <p>
-Frees the memory allocated for <em class="parameter"><code>seq</code></em>. If <em class="parameter"><code>seq</code></em> has a data destroy 
+Frees the memory allocated for <em class="parameter"><code>seq</code></em>. If <em class="parameter"><code>seq</code></em> has a data destroy
 function associated with it, that function is called on all items in
 <em class="parameter"><code>seq</code></em>.
 </p>
@@ -386,7 +385,7 @@ Sorts <em class="parameter"><code>seq</code></em> using <em class="parameter"><c
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
 <td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to sort <em class="parameter"><code>seq</code></em>. This function is
 passed two items of <em class="parameter"><code>seq</code></em> and should return 0 if they are equal,
-a negative value fi the first comes before the second, and a
+a negative value if the first comes before the second, and a
 positive value if the second comes before the first.</td>
 </tr>
 <tr>

@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>缓冲（Caches）</title>
+<title>Caches</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-data-types.html" title="GLib数据类型">
 <link rel="prev" href="glib-Relations-and-Tuples.html" title="Relations and Tuples">
-<link rel="next" href="glib-Memory-Allocators.html" title="内存分配器">
+<link rel="next" href="glib-Memory-Allocators.html" title="Memory Allocators">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -30,8 +30,9 @@
 <a name="glib-Caches"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Caches.top_of_page"></a>缓冲（Caches）</span></h2>
-<p>缓冲（Caches） — caches allow sharing of complex data structures to save resources</p>
+<h2><span class="refentrytitle"><a name="glib-Caches.top_of_page"></a>Caches</span></h2>
+<p>Caches — caches allow sharing of complex data structures
+                    to save resources</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -69,19 +70,18 @@
 <div class="refsect1">
 <a name="glib-Caches.description"></a><h2>Description</h2>
 <p>
-A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> allows sharing of complex data structures, in order to save
-system resources.
+A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> allows sharing of complex data structures, in order to
+save system resources.
 </p>
 <p>
 GTK+ uses caches for <span class="type">GtkStyles</span> and <span class="type">GdkGCs</span>. These consume a lot of
-resources, so a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> is used to see if a <span class="type">GtkStyle</span> or <span class="type">GdkGC</span> with the
-required properties already exists. If it does, then the existing
-object is used instead of creating a new one.
+resources, so a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> is used to see if a <span class="type">GtkStyle</span> or <span class="type">GdkGC</span> with
+the required properties already exists. If it does, then the
+existing object is used instead of creating a new one.
 </p>
 <p>
-<a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> uses keys and values.
-A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key describes the properties of a particular resource.
-A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value is the actual resource.
+<a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> uses keys and values. A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key describes the properties
+of a particular resource. A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value is the actual resource.
 </p>
 </div>
 <div class="refsect1">
@@ -90,8 +90,9 @@ A <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="typ
 <a name="GCache"></a><h3>GCache</h3>
 <pre class="programlisting">typedef struct _GCache GCache;</pre>
 <p>
-The <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> struct is an opaque data structure containing information about
-a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>. It should only be accessed via the following functions.
+The <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> struct is an opaque data structure containing
+information about a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>. It should only be accessed via the
+following functions.
 </p>
 </div>
 <hr>
@@ -113,25 +114,27 @@ Creates a new <a class="link" href="glib-Caches.html#GCache" title="GCache"><spa
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_new_func</code></em> :</span></p></td>
 <td>a function to create a new object given a key.
-This is called by <a class="link" href="glib-Caches.html#g-cache-insert" title="g_cache_insert ()"><code class="function">g_cache_insert()</code></a> if an object with the given key
-does not already exist.</td>
+This is called by <a class="link" href="glib-Caches.html#g-cache-insert" title="g_cache_insert ()"><code class="function">g_cache_insert()</code></a> if an object
+with the given key does not already exist.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_destroy_func</code></em> :</span></p></td>
-<td>a function to destroy an object. It is
-called by <a class="link" href="glib-Caches.html#g-cache-remove" title="g_cache_remove ()"><code class="function">g_cache_remove()</code></a> when the object is no longer needed (i.e. its
-reference count drops to 0).</td>
+<td>a function to destroy an object. It is called
+by <a class="link" href="glib-Caches.html#g-cache-remove" title="g_cache_remove ()"><code class="function">g_cache_remove()</code></a> when the object is no
+longer needed (i.e. its reference count drops
+to 0).</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key_dup_func</code></em> :</span></p></td>
 <td>a function to copy a key. It is called by
-<a class="link" href="glib-Caches.html#g-cache-insert" title="g_cache_insert ()"><code class="function">g_cache_insert()</code></a> if the key does not already exist in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.</td>
+<a class="link" href="glib-Caches.html#g-cache-insert" title="g_cache_insert ()"><code class="function">g_cache_insert()</code></a> if the key does not already exist in
+the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key_destroy_func</code></em> :</span></p></td>
-<td>a function to destroy a key. It is
-called by <a class="link" href="glib-Caches.html#g-cache-remove" title="g_cache_remove ()"><code class="function">g_cache_remove()</code></a> when the object is no longer needed (i.e. its
-reference count drops to 0).</td>
+<td>a function to destroy a key. It is called by
+<a class="link" href="glib-Caches.html#g-cache-remove" title="g_cache_remove ()"><code class="function">g_cache_remove()</code></a> when the object is no longer
+needed (i.e. its reference count drops to 0).</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hash_key_func</code></em> :</span></p></td>
@@ -143,8 +146,8 @@ reference count drops to 0).</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key_equal_func</code></em> :</span></p></td>
-<td>a function to compare two keys. It should return <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if
-the two keys are equivalent.</td>
+<td>a function to compare two keys. It should return
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the two keys are equivalent.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -159,15 +162,14 @@ the two keys are equivalent.</td>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_cache_insert                      (<em class="parameter"><code><a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> *cache</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> key</code></em>);</pre>
 <p>
-Gets the value corresponding to the given key, creating it if necessary.
-It first checks if the value already exists in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>, by using
-the <em class="parameter"><code>key_equal_func</code></em> function passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
-If it does already exist it is returned, and its reference count is increased
-by one.
-If the value does not currently exist, if is created by calling the
-<em class="parameter"><code>value_new_func</code></em>. The key is duplicated by calling
-<em class="parameter"><code>key_dup_func</code></em> and the duplicated key and value are inserted
-into the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
+Gets the value corresponding to the given key, creating it if
+necessary. It first checks if the value already exists in the
+<a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>, by using the <em class="parameter"><code>key_equal_func</code></em> function passed to
+<a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>. If it does already exist it is returned, and its
+reference count is increased by one. If the value does not currently
+exist, if is created by calling the <em class="parameter"><code>value_new_func</code></em>. The key is
+duplicated by calling <em class="parameter"><code>key_dup_func</code></em> and the duplicated key and value
+are inserted into the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -193,9 +195,9 @@ into the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span cla
 <pre class="programlisting"><span class="returnvalue">void</span>                g_cache_remove                      (<em class="parameter"><code><a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> *cache</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> value</code></em>);</pre>
 <p>
-Decreases the reference count of the given value.
-If it drops to 0 then the value and its corresponding key are destroyed,
-using the <em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em> passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
+Decreases the reference count of the given value. If it drops to 0
+then the value and its corresponding key are destroyed, using the
+<em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em> passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -219,8 +221,8 @@ using the <em class="parameter"><code>value_destroy_func</code></em> and <em cla
 Frees the memory allocated for the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
 <p>
-Note that it does not destroy the keys and values which were contained in the
-<a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
+Note that it does not destroy the keys and values which were
+contained in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -239,14 +241,12 @@ Note that it does not destroy the keys and values which were contained in the
 <p>
 Calls the given function for each of the keys in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
 </p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p><em class="parameter"><code>func</code></em> is passed three parameters, the value and key of a
-cache entry and the <em class="parameter"><code>user_data</code></em>. The order of value and key is different
-from the order in which <a class="link" href="glib-Hash-Tables.html#g-hash-table-foreach" title="g_hash_table_foreach ()"><code class="function">g_hash_table_foreach()</code></a> passes key-value pairs
-to its callback function !
+<p>
+NOTE <em class="parameter"><code>func</code></em> is passed three parameters, the value and key of a cache
+entry and the <em class="parameter"><code>user_data</code></em>. The order of value and key is different
+from the order in which <a class="link" href="glib-Hash-Tables.html#g-hash-table-foreach" title="g_hash_table_foreach ()"><code class="function">g_hash_table_foreach()</code></a> passes key-value
+pairs to its callback function !
 </p>
-</div>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -273,8 +273,9 @@ to its callback function !
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_cache_value_foreach</code> has been deprecated since version 2.10 and should not be used in newly-written code. The reason is that it passes pointers to internal data
-structures to <em class="parameter"><code>func</code></em>; use <a class="link" href="glib-Caches.html#g-cache-key-foreach" title="g_cache_key_foreach ()"><code class="function">g_cache_key_foreach()</code></a> instead</p>
+<p><code class="literal">g_cache_value_foreach</code> has been deprecated since version 2.10 and should not be used in newly-written code. The reason is that it passes pointers to internal
+                 data structures to <em class="parameter"><code>func</code></em>; use <a class="link" href="glib-Caches.html#g-cache-key-foreach" title="g_cache_key_foreach ()"><code class="function">g_cache_key_foreach()</code></a>
+                 instead</p>
 </div>
 <p>
 Calls the given function for each of the values in the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a>.
@@ -302,10 +303,10 @@ Calls the given function for each of the values in the <a class="link" href="gli
 <a name="GCacheDestroyFunc"></a><h3>GCacheDestroyFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GCacheDestroyFunc)                (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> value</code></em>);</pre>
 <p>
-Specifies the type of the <em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em> functions
-passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
-The functions are passed a pointer to the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key or <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value and
-should free any memory and other resources associated with it.
+Specifies the type of the <em class="parameter"><code>value_destroy_func</code></em> and <em class="parameter"><code>key_destroy_func</code></em>
+functions passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>. The functions are passed a
+pointer to the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key or <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value and should free any
+memory and other resources associated with it.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -320,8 +321,9 @@ should free any memory and other resources associated with it.
 <a name="GCacheDupFunc"></a><h3>GCacheDupFunc ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            (*GCacheDupFunc)                    (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> value</code></em>);</pre>
 <p>
-Specifies the type of the <em class="parameter"><code>key_dup_func</code></em> function passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
-The function is passed a key (<span class="emphasis"><em>not</em></span> a value as the prototype implies) and
+Specifies the type of the <em class="parameter"><code>key_dup_func</code></em> function passed to
+<a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>. The function is passed a key
+(<span class="emphasis"><em>not</em></span> a value as the prototype implies) and
 should return a duplicate of the key.
 </p>
 <div class="variablelist"><table border="0">
@@ -329,7 +331,8 @@ should return a duplicate of the key.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key to destroy (<span class="emphasis"><em>not</em></span> a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value as it seems).</td>
+<td>the <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key to destroy (<span class="emphasis"><em>not</em></span> a
+<a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> value as it seems).</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -343,9 +346,9 @@ should return a duplicate of the key.
 <a name="GCacheNewFunc"></a><h3>GCacheNewFunc ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            (*GCacheNewFunc)                    (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> key</code></em>);</pre>
 <p>
-Specifies the type of the <em class="parameter"><code>value_new_func</code></em> function passed to <a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>.
-It is passed a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key and should create the value corresponding to the
-key.
+Specifies the type of the <em class="parameter"><code>value_new_func</code></em> function passed to
+<a class="link" href="glib-Caches.html#g-cache-new" title="g_cache_new ()"><code class="function">g_cache_new()</code></a>. It is passed a <a class="link" href="glib-Caches.html#GCache" title="GCache"><span class="type">GCache</span></a> key and should create the
+value corresponding to the key.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">

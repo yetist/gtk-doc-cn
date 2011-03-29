@@ -70,11 +70,6 @@ GLib提供了版本信息，主要在编译脚本中用来做配置检查。通�
 <pre class="programlisting">extern const guint glib_major_version;
 </pre>
 <p>
-GLib库主版本号。
-(例如：GLib库版本号1.2.5中，1表示主版本号。）
-</p>
-<p>
-这个变量存在于GLib库文件中，表示应用程序链接的GLib库的主版本号。注意与宏<a class="link" href="glib-Version-Information.html#GLIB-MAJOR-VERSION:CAPS" title="GLIB_MAJOR_VERSION"><span class="type">GLIB_MAJOR_VERSION</span></a>的区别，宏<a class="link" href="glib-Version-Information.html#GLIB-MAJOR-VERSION:CAPS" title="GLIB_MAJOR_VERSION"><span class="type">GLIB_MAJOR_VERSION</span></a>表示编译时包含的GLib头文件的主版本号。
 </p>
 </div>
 <hr>
@@ -83,11 +78,6 @@ GLib库主版本号。
 <pre class="programlisting">extern const guint glib_minor_version;
 </pre>
 <p>
-GLib库的次版本号。
-(例如：GLib库版本1.2.5中，2表示次版本号。)
-</p>
-<p>
-这个变量存在于GLib库文件中，表示应用程序链接的GLib库的次版本号。注意与宏<a class="link" href="glib-Version-Information.html#GLIB-MINOR-VERSION:CAPS" title="GLIB_MINOR_VERSION"><span class="type">GLIB_MINOR_VERSION</span></a>的区别，宏<a class="link" href="glib-Version-Information.html#GLIB-MINOR-VERSION:CAPS" title="GLIB_MINOR_VERSION"><span class="type">GLIB_MINOR_VERSION</span></a>表示编译时包含的GLib头文件的次版本号。
 </p>
 </div>
 <hr>
@@ -96,11 +86,6 @@ GLib库的次版本号。
 <pre class="programlisting">extern const guint glib_micro_version;
 </pre>
 <p>
- GLib库的小版本号。
-(例如：GLib库版本1.2.5中，5表示小版本号。)
-</p>
-<p>
-这个变量存在于GLib库文件中，表示应用程序链接的GLib库的小版本号。注意与宏<a class="link" href="glib-Version-Information.html#GLIB-MICRO-VERSION:CAPS" title="GLIB_MICRO_VERSION"><span class="type">GLIB_MICRO_VERSION</span></a>的区别，宏<a class="link" href="glib-Version-Information.html#GLIB-MICRO-VERSION:CAPS" title="GLIB_MICRO_VERSION"><span class="type">GLIB_MICRO_VERSION</span></a>表示编译时包含的GLib头文件的小版本号。
 </p>
 </div>
 <hr>
@@ -109,7 +94,6 @@ GLib库的次版本号。
 <pre class="programlisting">extern const guint glib_binary_age;
 </pre>
 <p>
-这个变量是传给<span class="application">libtool</span>的GLib二进制库年龄（通常是次版本号×100＋小版本号）。如果<span class="application">libtool</span>对你来说没有意义，则不用关心这个变量。;-)
 </p>
 </div>
 <hr>
@@ -118,7 +102,6 @@ GLib库的次版本号。
 <pre class="programlisting">extern const guint glib_interface_age;
 </pre>
 <p>
-这个变量是传给<span class="application">libtool</span>的接口年龄（通常是次版本号×100＋小版本号）。如果<span class="application">libtool</span>对你来说没有意义，则不用关心这个变量。;-)
 </p>
 </div>
 <hr>
@@ -176,7 +159,7 @@ GLib头文件的主版本号。来自于应用程序编译时使用的头文件�
 <hr>
 <div class="refsect2">
 <a name="GLIB-MINOR-VERSION:CAPS"></a><h3>GLIB_MINOR_VERSION</h3>
-<pre class="programlisting">#define GLIB_MINOR_VERSION 20
+<pre class="programlisting">#define GLIB_MINOR_VERSION 26
 </pre>
 <p>
 GLib头文件的次版本号。来自于应用程序编译时使用的头文件的次版本号，而不是来自链接的库文件的次版本号。
@@ -185,7 +168,7 @@ GLib头文件的次版本号。来自于应用程序编译时使用的头文件�
 <hr>
 <div class="refsect2">
 <a name="GLIB-MICRO-VERSION:CAPS"></a><h3>GLIB_MICRO_VERSION</h3>
-<pre class="programlisting">#define GLIB_MICRO_VERSION 4
+<pre class="programlisting">#define GLIB_MICRO_VERSION 1
 </pre>
 <p>
 GLib头文件的小版本号。来自于应用程序编译时使用的头文件的小版本号，而不是来自链接的库文件的小版本号。
@@ -200,7 +183,7 @@ GLib头文件的小版本号。来自于应用程序编译时使用的头文件�
 如果引用的GLib头文件的版本与传入的版本号相同，或者比传入的版本号更新，则返回<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>。
 </p>
 <div class="example">
-<a name="id3117829"></a><p class="title"><b>Example 1. 检查GLib的版本号</b></p>
+<a name="id2818459"></a><p class="title"><b>Example 1. 检查GLib的版本号</b></p>
 <div class="example-contents"><pre class="programlisting">
   if (!GLIB_CHECK_VERSION (1, 2, 0))
     g_error ("GLib version 1.2.0 or above is needed");

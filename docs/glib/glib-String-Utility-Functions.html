@@ -236,7 +236,7 @@ wide characters (see <a class="link" href="glib-Unicode-Manipulation.html#g-unic
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
 <p>
 Duplicates a string. If <em class="parameter"><code>str</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> it returns <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
-The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> 
+The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>
 when no longer needed.
 </p>
 <div class="variablelist"><table border="0">
@@ -541,6 +541,7 @@ Looks whether the string <em class="parameter"><code>str</code></em> ends with <
 <p>
 Compares <em class="parameter"><code>str1</code></em> and <em class="parameter"><code>str2</code></em> like <code class="function">strcmp()</code>. Handles <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 
 gracefully by sorting it before non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> strings.
+Comparing two <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointers returns 0.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -570,16 +571,16 @@ gracefully by sorting it before non-<a class="link" href="glib-Standard-Macros.h
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *src</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> dest_size</code></em>);</pre>
 <p>
-Portability wrapper that calls <code class="function">strlcpy()</code> on systems which have it, 
-and emulates <code class="function">strlcpy()</code> otherwise. Copies <em class="parameter"><code>src</code></em> to <em class="parameter"><code>dest</code></em>; <em class="parameter"><code>dest</code></em> is 
-guaranteed to be nul-terminated; <em class="parameter"><code>src</code></em> must be nul-terminated; 
-<em class="parameter"><code>dest_size</code></em> is the buffer size, not the number of chars to copy. 
+Portability wrapper that calls <code class="function">strlcpy()</code> on systems which have it,
+and emulates <code class="function">strlcpy()</code> otherwise. Copies <em class="parameter"><code>src</code></em> to <em class="parameter"><code>dest</code></em>; <em class="parameter"><code>dest</code></em> is
+guaranteed to be nul-terminated; <em class="parameter"><code>src</code></em> must be nul-terminated;
+<em class="parameter"><code>dest_size</code></em> is the buffer size, not the number of chars to copy.
 </p>
 <p>
 At most dest_size - 1 characters will be copied. Always nul-terminates
-(unless dest_size == 0). This function does <span class="emphasis"><em>not</em></span> 
-allocate memory. Unlike <code class="function">strncpy()</code>, this function doesn't pad dest (so 
-it's often faster). It returns the size of the attempted result, 
+(unless dest_size == 0). This function does <span class="emphasis"><em>not</em></span>
+allocate memory. Unlike <code class="function">strncpy()</code>, this function doesn't pad dest (so
+it's often faster). It returns the size of the attempted result,
 strlen (src), so if <em class="parameter"><code>retval</code></em> &gt;= <em class="parameter"><code>dest_size</code></em>, truncation occurred.
 </p>
 <p>
@@ -587,7 +588,7 @@ strlen (src), so if <em class="parameter"><code>retval</code></em> &gt;= <em cla
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>Caveat: <code class="function">strlcpy()</code> is supposedly more secure than
-<code class="function">strcpy()</code> or <code class="function">strncpy()</code>, but if you really want to avoid screwups, 
+<code class="function">strcpy()</code> or <code class="function">strncpy()</code>, but if you really want to avoid screwups,
 <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()"><code class="function">g_strdup()</code></a> is an even better idea.</p>
 </div>
 <p>
@@ -622,10 +623,10 @@ strlen (src), so if <em class="parameter"><code>retval</code></em> &gt;= <em cla
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *src</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> dest_size</code></em>);</pre>
 <p>
-Portability wrapper that calls <code class="function">strlcat()</code> on systems which have it, 
-and emulates it otherwise. Appends nul-terminated <em class="parameter"><code>src</code></em> string to <em class="parameter"><code>dest</code></em>, 
-guaranteeing nul-termination for <em class="parameter"><code>dest</code></em>. The total size of <em class="parameter"><code>dest</code></em> won't 
-exceed <em class="parameter"><code>dest_size</code></em>. 
+Portability wrapper that calls <code class="function">strlcat()</code> on systems which have it,
+and emulates it otherwise. Appends nul-terminated <em class="parameter"><code>src</code></em> string to <em class="parameter"><code>dest</code></em>,
+guaranteeing nul-termination for <em class="parameter"><code>dest</code></em>. The total size of <em class="parameter"><code>dest</code></em> won't
+exceed <em class="parameter"><code>dest_size</code></em>.
 </p>
 <p>
 At most dest_size - 1 characters will be copied.
@@ -633,6 +634,16 @@ Unlike strncat, dest_size is the full size of dest, not the space left over.
 This function does NOT allocate memory.
 This always NUL terminates (unless siz == 0 or there were no NUL characters
 in the dest_size characters of dest to start with).
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>Caveat: this is supposedly a more secure alternative to
+<code class="function">strcat()</code> or <code class="function">strncat()</code>, but for real security <a class="link" href="glib-String-Utility-Functions.html#g-strconcat" title="g_strconcat ()"><code class="function">g_strconcat()</code></a> is harder
+to mess up.</p>
+</div>
+<p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -652,16 +663,9 @@ inside <em class="parameter"><code>dest</code></em>)</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>size of attempted result, which is
-MIN (dest_size, strlen (original dest)) + strlen (src),
-so if retval &gt;= dest_size, truncation occurred.
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p>Caveat: this is supposedly a more secure alternative to
-<code class="function">strcat()</code> or <code class="function">strncat()</code>, but for real security <a class="link" href="glib-String-Utility-Functions.html#g-strconcat" title="g_strconcat ()"><code class="function">g_strconcat()</code></a> is harder
-to mess up.</p>
-</div>
-</td>
+<td>size of attempted result, which is MIN (dest_size, strlen
+(original dest)) + strlen (src), so if retval &gt;= dest_size,
+truncation occurred.</td>
 </tr>
 </tbody>
 </table></div>
@@ -672,9 +676,9 @@ to mess up.</p>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup_printf                  (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
-Similar to the standard C <code class="function">sprintf()</code> function but safer, since it 
-calculates the maximum space required and allocates memory to hold 
-the result. The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no 
+Similar to the standard C <code class="function">sprintf()</code> function but safer, since it
+calculates the maximum space required and allocates memory to hold
+the result. The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no
 longer needed.
 </p>
 <div class="variablelist"><table border="0">
@@ -703,13 +707,13 @@ longer needed.
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup_vprintf                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
 <p>
-Similar to the standard C <code class="function">vsprintf()</code> function but safer, since it 
-calculates the maximum space required and allocates memory to hold 
-the result. The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when 
+Similar to the standard C <code class="function">vsprintf()</code> function but safer, since it
+calculates the maximum space required and allocates memory to hold
+the result. The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when
 no longer needed.
 </p>
 <p>
-See also <a class="link" href="glib-String-Utility-Functions.html#g-vasprintf" title="g_vasprintf ()"><code class="function">g_vasprintf()</code></a>, which offers the same functionality, but 
+See also <a class="link" href="glib-String-Utility-Functions.html#g-vasprintf" title="g_vasprintf ()"><code class="function">g_vasprintf()</code></a>, which offers the same functionality, but
 additionally returns the length of the allocated string.
 </p>
 <div class="variablelist"><table border="0">
@@ -865,8 +869,15 @@ positional parameters, as specified in the Single Unix Specification.
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> const *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
-An implementation of the standard <code class="function">sprintf()</code> function which supports 
+An implementation of the standard <code class="function">sprintf()</code> function which supports
 positional parameters, as specified in the Single Unix Specification.
+</p>
+<p>
+Note that it is usually better to use <a class="link" href="glib-String-Utility-Functions.html#g-snprintf" title="g_snprintf ()"><code class="function">g_snprintf()</code></a>, to avoid the
+risk of buffer overflow.
+</p>
+<p>
+See also <a class="link" href="glib-String-Utility-Functions.html#g-strdup-printf" title="g_strdup_printf ()"><code class="function">g_strdup_printf()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -937,25 +948,25 @@ positional parameters, as specified in the Single Unix Specification.
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 A safer form of the standard <code class="function">sprintf()</code> function. The output is guaranteed
-to not exceed <em class="parameter"><code>n</code></em> characters (including the terminating nul character), so 
+to not exceed <em class="parameter"><code>n</code></em> characters (including the terminating nul character), so
 it is easy to ensure that a buffer overflow cannot occur.
 </p>
 <p>
 See also <a class="link" href="glib-String-Utility-Functions.html#g-strdup-printf" title="g_strdup_printf ()"><code class="function">g_strdup_printf()</code></a>.
 </p>
 <p>
-In versions of GLib prior to 1.2.3, this function may return -1 if the 
-output was truncated, and the truncated string may not be nul-terminated. 
-In versions prior to 1.3.12, this function returns the length of the output 
+In versions of GLib prior to 1.2.3, this function may return -1 if the
+output was truncated, and the truncated string may not be nul-terminated.
+In versions prior to 1.3.12, this function returns the length of the output
 string.
 </p>
 <p>
 The return value of <a class="link" href="glib-String-Utility-Functions.html#g-snprintf" title="g_snprintf ()"><code class="function">g_snprintf()</code></a> conforms to the <code class="function">snprintf()</code>
-function as standardized in ISO C99. Note that this is different from 
+function as standardized in ISO C99. Note that this is different from
 traditional <code class="function">snprintf()</code>, which returns the length of the output string.
 </p>
 <p>
-The format string may contain positional parameters, as specified in 
+The format string may contain positional parameters, as specified in
 the Single Unix Specification.
 </p>
 <div class="variablelist"><table border="0">
@@ -1746,7 +1757,7 @@ semantics that exactly match <a class="link" href="glib-String-Utility-Functions
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strup                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_strup</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed 
+<p><code class="literal">g_strup</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed
 in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> docs - use <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strup" title="g_ascii_strup ()"><code class="function">g_ascii_strup()</code></a> or <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-strup" title="g_utf8_strup ()"><code class="function">g_utf8_strup()</code></a> instead.</p>
 </div>
 <p>
@@ -1772,8 +1783,8 @@ in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" t
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdown                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_strdown</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed 
-in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> docs - use <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strdown" title="g_ascii_strdown ()"><code class="function">g_ascii_strdown()</code></a> or <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-strdown" title="g_utf8_strdown ()"><code class="function">g_utf8_strdown()</code></a> 
+<p><code class="literal">g_strdown</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed
+in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> docs - use <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strdown" title="g_ascii_strdown ()"><code class="function">g_ascii_strdown()</code></a> or <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-strdown" title="g_utf8_strdown ()"><code class="function">g_utf8_strdown()</code></a>
 instead.</p>
 </div>
 <p>
@@ -1800,7 +1811,7 @@ Converts a string to lower case.
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *s2</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_strcasecmp</code> has been deprecated since version 2.2 and should not be used in newly-written code. See <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> for a discussion of why this function 
+<p><code class="literal">g_strcasecmp</code> has been deprecated since version 2.2 and should not be used in newly-written code. See <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> for a discussion of why this function
   is deprecated and how to replace it.</p>
 </div>
 <p>
@@ -1830,7 +1841,7 @@ or a positive value if <em class="parameter"><code>s1</code></em> &gt; <em class
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> n</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_strncasecmp</code> has been deprecated since version 2.2 and should not be used in newly-written code. The problem with <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> is that it does the 
+<p><code class="literal">g_strncasecmp</code> has been deprecated since version 2.2 and should not be used in newly-written code. The problem with <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" title="g_strncasecmp ()"><code class="function">g_strncasecmp()</code></a> is that it does the
 comparison by calling <code class="function">toupper()</code>/<code class="function">tolower()</code>. These functions are
 locale-specific and operate on single bytes. However, it is impossible
 to handle things correctly from an I18N standpoint by operating on
@@ -1848,7 +1859,7 @@ which only works on ASCII and is not locale-sensitive, and
 <p>
 A case-insensitive string comparison, corresponding to the standard
 <code class="function">strncasecmp()</code> function on platforms which support it.
-It is similar to <a class="link" href="glib-String-Utility-Functions.html#g-strcasecmp" title="g_strcasecmp ()"><code class="function">g_strcasecmp()</code></a> except it only compares the first <em class="parameter"><code>n</code></em> 
+It is similar to <a class="link" href="glib-String-Utility-Functions.html#g-strcasecmp" title="g_strcasecmp ()"><code class="function">g_strcasecmp()</code></a> except it only compares the first <em class="parameter"><code>n</code></em>
 characters of the strings.
 </p>
 <div class="variablelist"><table border="0">
@@ -1879,13 +1890,13 @@ or a positive value if <em class="parameter"><code>s1</code></em> &gt; <em class
 <a name="g-strreverse"></a><h3>g_strreverse ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strreverse                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
-Reverses all of the bytes in a string. For example, 
-<code class="literal">g_strreverse ("abcdef")</code> will result 
+Reverses all of the bytes in a string. For example,
+<code class="literal">g_strreverse ("abcdef")</code> will result
 in "fedcba".
 </p>
 <p>
-Note that <a class="link" href="glib-String-Utility-Functions.html#g-strreverse" title="g_strreverse ()"><code class="function">g_strreverse()</code></a> doesn't work on UTF-8 strings 
-containing multibyte characters. For that purpose, use 
+Note that <a class="link" href="glib-String-Utility-Functions.html#g-strreverse" title="g_strreverse ()"><code class="function">g_strreverse()</code></a> doesn't work on UTF-8 strings
+containing multibyte characters. For that purpose, use
 <a class="link" href="glib-Unicode-Manipulation.html#g-utf8-strreverse" title="g_utf8_strreverse ()"><code class="function">g_utf8_strreverse()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
@@ -2033,10 +2044,10 @@ Converts a string to a <a class="link" href="glib-Basic-Types.html#gdouble" titl
 </p>
 <p>
 This function behaves like the standard <code class="function">strtod()</code> function
-does in the C locale. It does this without actually changing 
-the current locale, since that would not be thread-safe. 
+does in the C locale. It does this without actually changing
+the current locale, since that would not be thread-safe.
 A limitation of the implementation is that this function
-will still accept localized versions of infinities and NANs. 
+will still accept localized versions of infinities and NANs.
 </p>
 <p>
 This function is typically used when reading configuration
@@ -2085,7 +2096,7 @@ the last character used in the conversion.</td>
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> d</code></em>);</pre>
 <p>
 Converts a <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> to a string, using the '.' as
-decimal point. 
+decimal point.
 </p>
 <p>
 This functions generates enough precision that converting
@@ -2127,7 +2138,7 @@ be larger than <em class="parameter"><code>G_ASCII_DTOSTR_BUF_SIZE</code></em> b
 Converts a <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> to a string, using the '.' as
 decimal point. To format the number you pass in
 a <code class="function">printf()</code>-style format string. Allowed conversion
-specifiers are 'e', 'E', 'f', 'F', 'g' and 'G'. 
+specifiers are 'e', 'E', 'f', 'F', 'g' and 'G'.
 </p>
 <p>
 If you just want to want to serialize the value into a
@@ -2421,7 +2432,7 @@ nesting such as <code class="literal">g_ascii_strup (g_strcanon (str, "abc", '?'
 <p>
 Splits a string into a maximum of <em class="parameter"><code>max_tokens</code></em> pieces, using the given
 <em class="parameter"><code>delimiter</code></em>. If <em class="parameter"><code>max_tokens</code></em> is reached, the remainder of <em class="parameter"><code>string</code></em> is appended
-to the last token. 
+to the last token.
 </p>
 <p>
 As a special case, the result of splitting the empty string "" is an empty
@@ -2471,7 +2482,7 @@ remainder is appended to the last token.
 </p>
 <p>
 For example the result of g_strsplit_set ("abc:def/ghi", ":/", -1) is a
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated vector containing the three strings "abc", "def", 
+<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated vector containing the three strings "abc", "def",
 and "ghi".
 </p>
 <p>
@@ -2488,7 +2499,7 @@ to represent empty elements, you'll need to check for the empty string
 before calling <a class="link" href="glib-String-Utility-Functions.html#g-strsplit-set" title="g_strsplit_set ()"><code class="function">g_strsplit_set()</code></a>.
 </p>
 <p>
-Note that this function works on bytes not characters, so it can't be used 
+Note that this function works on bytes not characters, so it can't be used
 to delimit UTF-8 strings for anything but ASCII characters.
 </p>
 <div class="variablelist"><table border="0">
@@ -2543,10 +2554,15 @@ Concatenates all of the given strings into one long string.
 The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed.
 </p>
 <p>
+Note that this function is usually not the right function to use to
+assemble a translated message from pieces, since proper translation
+often requires the pieces to be reordered.
+</p>
+<p>
 </p>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p>The variable argument list <span class="emphasis"><em>must</em></span> end 
+<p>The variable argument list <span class="emphasis"><em>must</em></span> end
 with <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. If you forget the <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-strconcat" title="g_strconcat ()"><code class="function">g_strconcat()</code></a> will start appending
 random memory junk to your string.</p>
 </div>
@@ -2577,7 +2593,7 @@ random memory junk to your string.</p>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strjoin                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
-Joins a number of strings together to form one long string, with the 
+Joins a number of strings together to form one long string, with the
 optional <em class="parameter"><code>separator</code></em> inserted between each of them. The returned string
 should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
@@ -2607,7 +2623,7 @@ together, with <em class="parameter"><code>separator</code></em> between them</t
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strjoinv                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);</pre>
 <p>
-Joins a number of strings together to form one long string, with the 
+Joins a number of strings together to form one long string, with the
 optional <em class="parameter"><code>separator</code></em> inserted between each of them. The returned string
 should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
@@ -2636,7 +2652,7 @@ together, with <em class="parameter"><code>separator</code></em> between them</t
 <a name="g-strv-length"></a><h3>g_strv_length ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_strv_length                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);</pre>
 <p>
-Returns the length of the given <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated 
+Returns the length of the given <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated
 string array <em class="parameter"><code>str_array</code></em>.
 </p>
 <div class="variablelist"><table border="0">
@@ -2659,9 +2675,9 @@ string array <em class="parameter"><code>str_array</code></em>.
 <a name="g-strerror"></a><h3>g_strerror ()</h3>
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_strerror                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> errnum</code></em>);</pre>
 <p>
-Returns a string corresponding to the given error code, e.g. 
-"no such process". You should use this function in preference to 
-<code class="function">strerror()</code>, because it returns a string in UTF-8 encoding, and since 
+Returns a string corresponding to the given error code, e.g.
+"no such process". You should use this function in preference to
+<code class="function">strerror()</code>, because it returns a string in UTF-8 encoding, and since
 not all platforms support the <code class="function">strerror()</code> function.
 </p>
 <div class="variablelist"><table border="0">
@@ -2688,7 +2704,7 @@ can only be used until the next call to <a class="link" href="glib-String-Utilit
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_strsignal                         (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> signum</code></em>);</pre>
 <p>
 Returns a string describing the given signal, e.g. "Segmentation fault".
-You should use this function in preference to <code class="function">strsignal()</code>, because it 
+You should use this function in preference to <code class="function">strsignal()</code>, because it
 returns a string in UTF-8 encoding, and since not all platforms support
 the <code class="function">strsignal()</code> function.
 </p>

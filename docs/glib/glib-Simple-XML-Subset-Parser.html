@@ -71,7 +71,7 @@ const <a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct 
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> text_len</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-push" title="g_markup_parse_context_push ()">g_markup_parse_context_push</a>         (<em class="parameter"><code><a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext" title="GMarkupParseContext"><span class="type">GMarkupParseContext</span></a> *context</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParser" title="struct GMarkupParser"><span class="type">GMarkupParser</span></a> *parser</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParser" title="struct GMarkupParser"><span class="type">GMarkupParser</span></a> *parser</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-pop" title="g_markup_parse_context_pop ()">g_markup_parse_context_pop</a>          (<em class="parameter"><code><a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext" title="GMarkupParseContext"><span class="type">GMarkupParseContext</span></a> *context</code></em>);
 
@@ -379,12 +379,11 @@ from being processed according to the XML rules for normalization
 of line endings and attribute values.
 </p>
 <p>
-Note also that if given a string containing them, this function
-will produce character references in the range of &amp;<span class="type">x1</span>; ..
-&amp;<span class="type">x1f</span>; for all control sequences except for tabstop, newline
-and carriage return.  The character references in this range are
-not valid XML 1.0, but they are valid XML 1.1 and will be accepted
-by the GMarkup parser.
+Note also that this function will produce character references in
+the range of &amp;<span class="type">x1</span>; ... &amp;<span class="type">x1f</span>; for all control sequences
+except for tabstop, newline and carriage return.  The character
+references in this range are not valid XML 1.0, but they are
+valid XML 1.1 and will be accepted by the GMarkup parser.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -750,7 +749,7 @@ data may be fed to the <a class="link" href="glib-Simple-XML-Subset-Parser.html#
 <div class="refsect2">
 <a name="g-markup-parse-context-push"></a><h3>g_markup_parse_context_push ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_markup_parse_context_push         (<em class="parameter"><code><a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParseContext" title="GMarkupParseContext"><span class="type">GMarkupParseContext</span></a> *context</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParser" title="struct GMarkupParser"><span class="type">GMarkupParser</span></a> *parser</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="glib-Simple-XML-Subset-Parser.html#GMarkupParser" title="struct GMarkupParser"><span class="type">GMarkupParser</span></a> *parser</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Temporarily redirects markup data to a sub-parser.
@@ -988,7 +987,7 @@ support other types.
 <tr>
 <td><p><a name="G-MARKUP-COLLECT-STRDUP:CAPS"></a><span class="term"><code class="literal">G_MARKUP_COLLECT_STRDUP</code></span></p></td>
 <td>as with <a class="link" href="glib-Simple-XML-Subset-Parser.html#G-MARKUP-COLLECT-STRING:CAPS"><code class="literal">G_MARKUP_COLLECT_STRING</code></a>, but
-                          expects a paramter of type (char **) and
+                          expects a parameter of type (char **) and
                           <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()"><code class="function">g_strdup()</code></a>s the returned pointer.  The
                           pointer must be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </td>

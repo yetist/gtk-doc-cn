@@ -52,6 +52,9 @@ enum                <a class="link" href="glib-File-Utilities.html#GFileTest" ti
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
 #define             <a class="link" href="glib-File-Utilities.html#g-file-test" title="g_file_test">g_file_test</a>
 #define             <a class="link" href="glib-File-Utilities.html#g-mkstemp" title="g_mkstemp">g_mkstemp</a>
+<a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-File-Utilities.html#g-mkstemp-full" title="g_mkstemp_full ()">g_mkstemp_full</a>                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *tmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> mode</code></em>);
 #define             <a class="link" href="glib-File-Utilities.html#g-file-open-tmp" title="g_file_open_tmp">g_file_open_tmp</a>
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-File-Utilities.html#g-file-read-link" title="g_file_read_link ()">g_file_read_link</a>                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *filename</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
@@ -68,6 +71,8 @@ enum                <a class="link" href="glib-File-Utilities.html#GFileTest" ti
 <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="returnvalue">GMappedFile</span></a> *       <a class="link" href="glib-File-Utilities.html#g-mapped-file-new" title="g_mapped_file_new ()">g_mapped_file_new</a>                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *filename</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> writable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="returnvalue">GMappedFile</span></a> *       <a class="link" href="glib-File-Utilities.html#g-mapped-file-ref" title="g_mapped_file_ref ()">g_mapped_file_ref</a>                   (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-File-Utilities.html#g-mapped-file-unref" title="g_mapped_file_unref ()">g_mapped_file_unref</a>                 (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-File-Utilities.html#g-mapped-file-free" title="g_mapped_file_free ()">g_mapped_file_free</a>                  (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);
 <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="returnvalue">gsize</span></a>               <a class="link" href="glib-File-Utilities.html#g-mapped-file-get-length" title="g_mapped_file_get_length ()">g_mapped_file_get_length</a>            (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-File-Utilities.html#g-mapped-file-get-contents" title="g_mapped_file_get_contents ()">g_mapped_file_get_contents</a>          (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);
@@ -75,6 +80,7 @@ enum                <a class="link" href="glib-File-Utilities.html#GFileTest" ti
 #define             <a class="link" href="glib-File-Utilities.html#g-open" title="g_open">g_open</a>
 #define             <a class="link" href="glib-File-Utilities.html#g-rename" title="g_rename">g_rename</a>
 #define             <a class="link" href="glib-File-Utilities.html#g-mkdir" title="g_mkdir">g_mkdir</a>
+typedef             <a class="link" href="glib-File-Utilities.html#GStatBuf" title="GStatBuf">GStatBuf</a>;
 #define             <a class="link" href="glib-File-Utilities.html#g-stat" title="g_stat">g_stat</a>
 #define             <a class="link" href="glib-File-Utilities.html#g-lstat" title="g_lstat">g_lstat</a>
 <span class="returnvalue">int</span>                 <a class="link" href="glib-File-Utilities.html#g-unlink" title="g_unlink ()">g_unlink</a>                            (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *filename</code></em>);
@@ -455,32 +461,11 @@ codes are those in the <a class="link" href="glib-File-Utilities.html#GFileError
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>name of a file to read contents from, in the GLib file name encoding</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>contents</code></em> :</span></p></td>
-<td>location to store an allocated string, use <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> to free
-the returned string</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>location to store length in bytes of the contents, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> on success, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> if an error occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -522,6 +507,10 @@ file which is then renamed to the final name. Notes:
 If the call was sucessful, it returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>. If the call was not successful,
 it returns <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> and sets <em class="parameter"><code>error</code></em>. The error domain is <a class="link" href="glib-File-Utilities.html#G-FILE-ERROR:CAPS" title="G_FILE_ERROR"><span class="type">G_FILE_ERROR</span></a>.
 Possible error codes are those in the <a class="link" href="glib-File-Utilities.html#GFileError" title="enum GFileError"><span class="type">GFileError</span></a> enumeration.
+</p>
+<p>
+Note that the name for the temporary file is constructed by appending up
+to 7 characters to <em class="parameter"><code>filename</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -609,21 +598,11 @@ extensions and those listed in the <code class="literal">PATHEXT</code> environm
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a filename to test in the GLib file name encoding</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>test</code></em> :</span></p></td>
-<td>bitfield of <a class="link" href="glib-File-Utilities.html#GFileTest" title="enum GFileTest"><span class="type">GFileTest</span></a> flags</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>whether a test was <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>
 </td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -646,20 +625,60 @@ on Windows it should be in UTF-8.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A file handle (as from <code class="function">open()</code>) to the file
+opened for reading and writing. The file is opened in binary mode
+on platforms where there is a difference. The file handle should be
+closed with <code class="function">close()</code>. In case of errors, -1 is returned.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-mkstemp-full"></a><h3>g_mkstemp_full ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_mkstemp_full                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *tmpl</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> mode</code></em>);</pre>
+<p>
+Opens a temporary file. See the <code class="function">mkstemp()</code> documentation
+on most UNIX-like systems.
+</p>
+<p>
+The parameter is a string that should follow the rules for
+<code class="function">mkstemp()</code> templates, i.e. contain the string "XXXXXX".
+<a class="link" href="glib-File-Utilities.html#g-mkstemp-full" title="g_mkstemp_full ()"><code class="function">g_mkstemp_full()</code></a> is slightly more flexible than <code class="function">mkstemp()</code>
+in that the sequence does not have to occur at the very end of the
+template and you can pass a <em class="parameter"><code>mode</code></em> and additional <em class="parameter"><code>flags</code></em>. The X
+string will be modified to form the name of a file that didn't exist.
+The string should be in the GLib file name encoding. Most importantly,
+on Windows it should be in UTF-8.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>tmpl</code></em> :</span></p></td>
 <td>template filename</td>
 </tr>
 <tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>flags to pass to an <code class="function">open()</code> call in addition to O_EXCL and
+O_CREAT, which are passed automatically</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>permissios to create the temporary file with</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A file handle (as from <code class="function">open()</code>) to the file
-opened for reading and writing. The file is opened in binary mode
-on platforms where there is a difference. The file handle should be
+opened for reading and writing. The file handle should be
 closed with <code class="function">close()</code>. In case of errors, -1 is returned.</td>
 </tr>
 </tbody>
 </table></div>
+<p class="since">Since 2.22</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -687,31 +706,14 @@ The returned name is in the GLib file name encoding.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>tmpl</code></em> :</span></p></td>
-<td>Template for file name, as in <a class="link" href="glib-File-Utilities.html#g-mkstemp" title="g_mkstemp"><code class="function">g_mkstemp()</code></a>, basename only,
-or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, to a default template</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>name_used</code></em> :</span></p></td>
-<td>location to store actual name used, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A file handle (as from <code class="function">open()</code>) to
 the file opened for reading and writing. The file is opened in binary
 mode on platforms where there is a difference. The file handle should be
 closed with <code class="function">close()</code>. In case of errors, -1 is returned
 and <em class="parameter"><code>error</code></em> will be set.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -788,33 +790,17 @@ An opaque structure representing an opened directory.
 <pre class="programlisting">#define             g_dir_open</pre>
 <p>
 Opens a directory for reading. The names of the files in the
-directory can then be retrieved using <a class="link" href="glib-File-Utilities.html#g-dir-read-name" title="g_dir_read_name"><code class="function">g_dir_read_name()</code></a>.
+directory can then be retrieved using <a class="link" href="glib-File-Utilities.html#g-dir-read-name" title="g_dir_read_name"><code class="function">g_dir_read_name()</code></a>.  Note
+that the ordering is not defined.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
-<td>the path to the directory you are interested in. On Unix
-in the on-disk encoding. On Windows in UTF-8</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>Currently must be set to 0. Reserved for future use.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
-If non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, an error will be set if and only if
-<a class="link" href="glib-File-Utilities.html#g-dir-open" title="g_dir_open"><code class="function">g_dir_open()</code></a> fails.</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly allocated <a class="link" href="glib-File-Utilities.html#GDir" title="GDir"><span class="type">GDir</span></a> on success, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> on failure.
 If non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, you must free the result with <a class="link" href="glib-File-Utilities.html#g-dir-close" title="g_dir_close ()"><code class="function">g_dir_close()</code></a>
 when you are finished with it.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -822,25 +808,27 @@ when you are finished with it.</td>
 <a name="g-dir-read-name"></a><h3>g_dir_read_name</h3>
 <pre class="programlisting">#define             g_dir_read_name</pre>
 <p>
-Retrieves the name of the next entry in the directory.  The '.' and
-'..' entries are omitted. On Windows, the returned name is in
-UTF-8. On Unix, it is in the on-disk encoding.
+Retrieves the name of another entry in the directory, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+The order of entries returned from this function is not defined,
+and may vary by file system or other operating-system dependent
+factors. 
+</p>
+<p>
+On Unix, the '.' and '..' entries are omitted, and the returned
+name is in the on-disk encoding.
+</p>
+<p>
+On Windows, as is true of all GLib functions which operate on
+filenames, the returned name is in UTF-8.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-File-Utilities.html#GDir" title="GDir"><span class="type">GDir</span></a>* created by <a class="link" href="glib-File-Utilities.html#g-dir-open" title="g_dir_open"><code class="function">g_dir_open()</code></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The entry's name or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if there are no
 more entries. The return value is owned by GLib and
 must not be modified or freed.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 </div>
 <hr>
@@ -925,8 +913,8 @@ atomically (e.g. using <a class="link" href="glib-File-Utilities.html#g-file-set
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a newly allocated <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> which must be freed
-with <a class="link" href="glib-File-Utilities.html#g-mapped-file-free" title="g_mapped_file_free ()"><code class="function">g_mapped_file_free()</code></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the mapping failed.</td>
+<td>a newly allocated <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> which must be unref'd
+with <a class="link" href="glib-File-Utilities.html#g-mapped-file-unref" title="g_mapped_file_unref ()"><code class="function">g_mapped_file_unref()</code></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the mapping failed.</td>
 </tr>
 </tbody>
 </table></div>
@@ -934,10 +922,62 @@ with <a class="link" href="glib-File-Utilities.html#g-mapped-file-free" title="g
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-mapped-file-ref"></a><h3>g_mapped_file_ref ()</h3>
+<pre class="programlisting"><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="returnvalue">GMappedFile</span></a> *       g_mapped_file_ref                   (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);</pre>
+<p>
+Increments the reference count of <em class="parameter"><code>file</code></em> by one.  It is safe to call
+this function from any thread.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the passed in <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.22</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-mapped-file-unref"></a><h3>g_mapped_file_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_mapped_file_unref                 (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);</pre>
+<p>
+Decrements the reference count of <em class="parameter"><code>file</code></em> by one.  If the reference count
+drops to 0, unmaps the buffer of <em class="parameter"><code>file</code></em> and frees it.
+</p>
+<p>
+It is safe to call this function from any thread.
+</p>
+<p>
+Since 2.22
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-mapped-file-free"></a><h3>g_mapped_file_free ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_mapped_file_free                  (<em class="parameter"><code><a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> *file</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">g_mapped_file_free</code> has been deprecated since version 2.22 and should not be used in newly-written code. Use <a class="link" href="glib-File-Utilities.html#g-mapped-file-unref" title="g_mapped_file_unref ()"><code class="function">g_mapped_file_unref()</code></a> instead.</p>
+</div>
 <p>
-Unmaps the buffer of <em class="parameter"><code>file</code></em> and frees it.
+This call existed before <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> had refcounting and is currently
+exactly the same as <a class="link" href="glib-File-Utilities.html#g-mapped-file-unref" title="g_mapped_file_unref ()"><code class="function">g_mapped_file_unref()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -983,6 +1023,9 @@ Returns the contents of a <a class="link" href="glib-File-Utilities.html#GMapped
 Note that the contents may not be zero-terminated,
 even if the <a class="link" href="glib-File-Utilities.html#GMappedFile" title="GMappedFile"><span class="type">GMappedFile</span></a> is backed by a text file.
 </p>
+<p>
+If the file is empty then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -993,7 +1036,7 @@ even if the <a class="link" href="glib-File-Utilities.html#GMappedFile" title="G
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the contents of <em class="parameter"><code>file</code></em>.</td>
+<td>the contents of <em class="parameter"><code>file</code></em>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1028,25 +1071,11 @@ See your C library manual for more details about <code class="function">open()</
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>和 <code class="function">open()</code> 函数中的相同</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>和 <code class="function">open()</code> 函数中的相同</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new file descriptor, or -1 if an error occurred. The
 return value can be used exactly like the return value from <code class="function">open()</code>.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1065,20 +1094,10 @@ a file that is open to some process.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>oldfilename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>newfilename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>重命名成功返回 0, 如果发生错误返回 -1.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1096,23 +1115,26 @@ See your C library manual for more details about <code class="function">mkdir()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>permissions to use for the newly created directory</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the directory was successfully created, -1 if an error
 occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GStatBuf"></a><h3>GStatBuf</h3>
+<pre class="programlisting">typedef struct _stat32 GStatBuf;
+</pre>
+<p>
+A type corresponding to the appropriate struct type for the stat
+system call, depending on the platform and/or compiler being used.
+</p>
+<p>
+See <a class="link" href="glib-File-Utilities.html#g-stat" title="g_stat"><code class="function">g_stat()</code></a> for more information.
+</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1126,26 +1148,31 @@ not look at the ACL at all. Thus on Windows the protection bits in
 the st_mode field are a fabrication of little use.
 </p>
 <p>
+On Windows the Microsoft C libraries have several variants of the
+<span class="structname">stat</span> struct and <code class="function">stat()</code> function with names
+like "_stat", "_stat32", "_stat32i64" and "_stat64i32". The one
+used here is for 32-bit code the one with 32-bit size and time
+fields, specifically called "_stat32".
+</p>
+<p>
+In Microsoft's compiler, by default "struct stat" means one with
+64-bit time fields while in MinGW "struct stat" is the legacy one
+with 32-bit fields. To hopefully clear up this messs, the gstdio.h
+header defines a type GStatBuf which is the appropriate struct type
+depending on the platform and/or compiler being used. On POSIX it
+is just "struct stat", but note that even on POSIX platforms,
+"stat" might be a macro.
+</p>
+<p>
 See your C library manual for more details about <code class="function">stat()</code>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
-<td>a pointer to a <span class="structname">stat</span> struct, which
-will be filled with the file information</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the information was successfully retrieved, -1 if an error
 occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1165,22 +1192,11 @@ See your C library manual for more details about <code class="function">lstat()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
-<td>a pointer to a <span class="structname">stat</span> struct, which
-will be filled with the file information</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the information was successfully retrieved, -1 if an error
 occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1241,17 +1257,11 @@ set by <code class="function">rmdir()</code>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the file was successfully removed, -1 if an error
 occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1305,22 +1315,11 @@ See your C library manual for more details about <code class="function">fopen()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>a string describing the mode in which the file should be
-opened</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <span class="type">FILE</span> pointer if the file was successfully
 opened, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if an error occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1337,27 +1336,11 @@ See your C library manual for more details about <code class="function">freopen(
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>a string describing the mode in which the file should be
-opened</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
-<td>an existing stream which will be reused, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <span class="type">FILE</span> pointer if the file was successfully
 opened, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if an error occurred.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1381,21 +1364,10 @@ See your C library manual for more details about <code class="function">chmod()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>as in <code class="function">chmod()</code>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>zero if the operation succeeded, -1 on error.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.8</p>
 </div>
@@ -1472,21 +1444,11 @@ See your C library manual for more details about <code class="function">creat()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
-<td>和 <code class="function">creat()</code> 函数中的相同</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new file descriptor, or -1 if an error occurred. The
 return value can be used exactly like the return value from <code class="function">creat()</code>.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.8</p>
 </div>
@@ -1530,21 +1492,11 @@ on your system.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
-<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>utb</code></em> :</span></p></td>
-<td>a pointer to a struct utimbuf.</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the operation was successful, -1 if an error
 occurred</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.18</p>
 </div>

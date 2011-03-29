@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-data-types.html" title="GLib数据类型">
 <link rel="prev" href="glib-Hash-Tables.html" title="Hash Tables">
-<link rel="next" href="glib-String-Chunks.html" title="字符串块">
+<link rel="next" href="glib-String-Chunks.html" title="String Chunks">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -619,7 +619,8 @@ are reserved in URIs using URI-style escape sequences.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>reserved_chars_allowed</code></em> :</span></p></td>
-<td>a string of reserved characters allowed to be used</td>
+<td>a string of reserved characters allowed to be used, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>allow_utf8</code></em> :</span></p></td>
@@ -865,14 +866,14 @@ append at the end of the string</td>
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *val</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);</pre>
 <p>
-Inserts <em class="parameter"><code>len</code></em> bytes of <em class="parameter"><code>val</code></em> into <em class="parameter"><code>string</code></em> at <em class="parameter"><code>pos</code></em>.  
-Because <em class="parameter"><code>len</code></em> is provided, <em class="parameter"><code>val</code></em> may contain embedded 
-nuls and need not be nul-terminated. If <em class="parameter"><code>pos</code></em> is -1, 
+Inserts <em class="parameter"><code>len</code></em> bytes of <em class="parameter"><code>val</code></em> into <em class="parameter"><code>string</code></em> at <em class="parameter"><code>pos</code></em>.
+Because <em class="parameter"><code>len</code></em> is provided, <em class="parameter"><code>val</code></em> may contain embedded
+nuls and need not be nul-terminated. If <em class="parameter"><code>pos</code></em> is -1,
 bytes are inserted at the end of the string.
 </p>
 <p>
-Since this function does not stop at nul bytes, it is 
-the caller's responsibility to ensure that <em class="parameter"><code>val</code></em> has at 
+Since this function does not stop at nul bytes, it is
+the caller's responsibility to ensure that <em class="parameter"><code>val</code></em> has at
 least <em class="parameter"><code>len</code></em> addressable bytes.
 </p>
 <div class="variablelist"><table border="0">

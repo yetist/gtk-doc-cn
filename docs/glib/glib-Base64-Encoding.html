@@ -66,8 +66,8 @@
 <div class="refsect1">
 <a name="glib-Base64-Encoding.description"></a><h2>Description</h2>
 <p>
-Base64 is an encoding that allows to encode a sequence of arbitrary
-bytes as a sequence of printable ASCII characters. For the definition
+Base64 is an encoding that allows a sequence of arbitrary bytes to be
+encoded as a sequence of printable ASCII characters. For the definition
 of Base64, see <a class="ulink" href="http://www.ietf.org/rfc/rfc1421.txt" target="_top">RFC
 1421</a> or <a class="ulink" href="http://www.ietf.org/rfc/rfc2045.txt" target="_top">RFC
 2045</a>. Base64 is most commonly used as a MIME transfer encoding
@@ -96,11 +96,11 @@ Support for Base64 encoding has been added in GLib 2.12.
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> *save</code></em>);</pre>
 <p>
 Incrementally encode a sequence of binary data into its Base-64 stringified
-representation. By calling this function multiple times you can convert 
+representation. By calling this function multiple times you can convert
 data in chunks to avoid having to have the full encoded data in memory.
 </p>
 <p>
-When all of the data has been converted you must call 
+When all of the data has been converted you must call
 <a class="link" href="glib-Base64-Encoding.html#g-base64-encode-close" title="g_base64_encode_close ()"><code class="function">g_base64_encode_close()</code></a> to flush the saved state.
 </p>
 <p>
@@ -112,7 +112,7 @@ non-zero state). If you enable line-breaking you will need at least:
 </p>
 <p>
 <em class="parameter"><code>break_lines</code></em> is typically used when putting base64-encoded data in emails.
-It breaks the lines at 72 columns instead of putting all of the text on 
+It breaks the lines at 72 columns instead of putting all of the text on
 the same line. This avoids problems with long lines in the email system.
 </p>
 <div class="variablelist"><table border="0">
@@ -160,6 +160,11 @@ the same line. This avoids problems with long lines in the email system.
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> *save</code></em>);</pre>
 <p>
 Flush the status from a sequence of calls to <a class="link" href="glib-Base64-Encoding.html#g-base64-encode-step" title="g_base64_encode_step ()"><code class="function">g_base64_encode_step()</code></a>.
+</p>
+<p>
+The output buffer must be large enough to fit all the data that will
+be written to it. It will need up to 4 bytes, or up to 5 bytes if
+line-breaking is enabled.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -231,7 +236,7 @@ be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> *save</code></em>);</pre>
 <p>
 Incrementally decode a sequence of binary data from its Base-64 stringified
-representation. By calling this function multiple times you can convert 
+representation. By calling this function multiple times you can convert
 data in chunks to avoid having to have the full encoded data in memory.
 </p>
 <p>

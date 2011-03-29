@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>原子操作</title>
+<title>Atomic Operations</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-fundamentals.html" title="GLib基础">
-<link rel="prev" href="glib-Miscellaneous-Macros.html" title="特殊宏">
+<link rel="prev" href="glib-Miscellaneous-Macros.html" title="特殊宏(Miscellaneous Macros)">
 <link rel="next" href="glib-core.html" title="GLib核心应用支持">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -30,8 +30,8 @@
 <a name="glib-Atomic-Operations"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Atomic-Operations.top_of_page"></a>原子操作</span></h2>
-<p>原子操作 — 基本原子整数和指针操作</p>
+<h2><span class="refentrytitle"><a name="glib-Atomic-Operations.top_of_page"></a>Atomic Operations</span></h2>
+<p>Atomic Operations — basic atomic integer and pointer operations</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -75,37 +75,45 @@ The most important usage is reference counting. Using
 <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-inc" title="g_atomic_int_inc ()"><code class="function">g_atomic_int_inc()</code></a> and <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-dec-and-test" title="g_atomic_int_dec_and_test ()"><code class="function">g_atomic_int_dec_and_test()</code></a> makes reference
 counting a very fast operation.
 </p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-You must not directly read integers or pointers concurrently accessed
-by multiple threads, but use the atomic accessor functions instead.
-That is, always use <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-get" title="g_atomic_int_get ()"><code class="function">g_atomic_int_get()</code></a> and <a class="link" href="glib-Atomic-Operations.html#g-atomic-pointer-get" title="g_atomic_pointer_get ()"><code class="function">g_atomic_pointer_get()</code></a> for
-read outs.
-They provide the neccessary synchonization mechanisms like memory
-barriers to access memory locations concurrently.
+<p>You must not directly read integers or pointers concurrently
+accessed by multiple threads, but use the atomic accessor functions
+instead. That is, always use <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-get" title="g_atomic_int_get ()"><code class="function">g_atomic_int_get()</code></a> and <a class="link" href="glib-Atomic-Operations.html#g-atomic-pointer-get" title="g_atomic_pointer_get ()"><code class="function">g_atomic_pointer_get()</code></a>
+for read outs. They provide the neccessary synchonization mechanisms
+like memory barriers to access memory locations concurrently.
 </p>
 </div>
+<p>
+</p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-If you are using those functions for anything apart from simple
-reference counting, you should really be aware of the implications of
-doing that. There are literally thousands of ways to shoot yourself in
-the foot. So if in doubt, use a <a class="link" href="glib-Threads.html#GMutex" title="GMutex"><span class="type">GMutex</span></a>. If you don't know, what
+<p>If you are using those functions for anything apart from
+simple reference counting, you should really be aware of the implications
+of doing that. There are literally thousands of ways to shoot yourself
+in the foot. So if in doubt, use a <a class="link" href="glib-Threads.html#GMutex" title="GMutex"><span class="type">GMutex</span></a>. If you don't know, what
 memory barriers are, do not use anything but <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-inc" title="g_atomic_int_inc ()"><code class="function">g_atomic_int_inc()</code></a> and
 <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-dec-and-test" title="g_atomic_int_dec_and_test ()"><code class="function">g_atomic_int_dec_and_test()</code></a>.
 </p>
 </div>
+<p>
+</p>
+<p>
+</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>
-It is not safe to set an integer or pointer just by assigning to it,
-when it is concurrently accessed by other threads with the following
+<p>It is not safe to set an integer or pointer just by assigning
+to it, when it is concurrently accessed by other threads with the following
 functions. Use <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-compare-and-exchange" title="g_atomic_int_compare_and_exchange ()"><code class="function">g_atomic_int_compare_and_exchange()</code></a> or
 <a class="link" href="glib-Atomic-Operations.html#g-atomic-pointer-compare-and-exchange" title="g_atomic_pointer_compare_and_exchange ()"><code class="function">g_atomic_pointer_compare_and_exchange()</code></a> respectively.
 </p>
 </div>
+<p>
+</p>
 </div>
 <div class="refsect1">
 <a name="glib-Atomic-Operations.details"></a><h2>Details</h2>
@@ -113,16 +121,22 @@ functions. Use <a class="link" href="glib-Atomic-Operations.html#g-atomic-int-co
 <a name="g-atomic-int-get"></a><h3>g_atomic_int_get ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_atomic_int_get                    (<em class="parameter"><code>volatile <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> G_GNUC_MAY_ALIAS *atomic</code></em>);</pre>
 <p>
-Reads the value of the integer pointed to by <em class="parameter"><code>atomic</code></em>. Also acts as
-a memory barrier.
+Reads the value of the integer pointed to by <em class="parameter"><code>atomic</code></em>.
+Also acts as a memory barrier.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to an integer</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the value of *<em class="parameter"><code>atomic</code></em>
 </td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -135,6 +149,19 @@ a memory barrier.
 Sets the value of the integer pointed to by <em class="parameter"><code>atomic</code></em>.
 Also acts as a memory barrier.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to an integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value</td>
+</tr>
+</tbody>
+</table></div>
 <p class="since">Since 2.10</p>
 </div>
 <hr>
@@ -146,6 +173,20 @@ Also acts as a memory barrier.
 Atomically adds <em class="parameter"><code>val</code></em> to the integer pointed to by <em class="parameter"><code>atomic</code></em>.
 Also acts as a memory barrier.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to an integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>the value to add to *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
 <p class="since">Since 2.4</p>
 </div>
 <hr>
@@ -154,16 +195,27 @@ Also acts as a memory barrier.
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_atomic_int_exchange_and_add       (<em class="parameter"><code>volatile <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> G_GNUC_MAY_ALIAS *atomic</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> val</code></em>);</pre>
 <p>
-Atomically adds <em class="parameter"><code>val</code></em> to the integer pointed to by <em class="parameter"><code>atomic</code></em>. It returns
-the value of *<em class="parameter"><code>atomic</code></em> just before the addition took place.
-Also acts as a memory barrier.
+Atomically adds <em class="parameter"><code>val</code></em> to the integer pointed to by <em class="parameter"><code>atomic</code></em>.
+It returns the value of *<em class="parameter"><code>atomic</code></em> just before the addition
+took place. Also acts as a memory barrier.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to an integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>the value to add to *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the value of *<em class="parameter"><code>atomic</code></em> before the addition.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -180,11 +232,27 @@ Also acts as a memory barrier.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to an integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oldval</code></em> :</span></p></td>
+<td>the assumed old value of *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value of *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, if *<em class="parameter"><code>atomic</code></em> was equal <em class="parameter"><code>oldval</code></em>. <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -193,15 +261,21 @@ Also acts as a memory barrier.
 <a name="g-atomic-pointer-get"></a><h3>g_atomic_pointer_get ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_atomic_pointer_get                (<em class="parameter"><code>volatile <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> G_GNUC_MAY_ALIAS *atomic</code></em>);</pre>
 <p>
-Reads the value of the pointer pointed to by <em class="parameter"><code>atomic</code></em>. Also acts as
-a memory barrier.
+Reads the value of the pointer pointed to by <em class="parameter"><code>atomic</code></em>.
+Also acts as a memory barrier.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a>.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the value to add to *<em class="parameter"><code>atomic</code></em>.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -214,6 +288,20 @@ a memory barrier.
 Sets the value of the pointer pointed to by <em class="parameter"><code>atomic</code></em>.
 Also acts as a memory barrier.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value</td>
+</tr>
+</tbody>
+</table></div>
 <p class="since">Since 2.10</p>
 </div>
 <hr>
@@ -230,11 +318,28 @@ Also acts as a memory barrier.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oldval</code></em> :</span></p></td>
+<td>the assumed old value of *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newval</code></em> :</span></p></td>
+<td>the new value of *<em class="parameter"><code>atomic</code></em>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, if *<em class="parameter"><code>atomic</code></em> was equal <em class="parameter"><code>oldval</code></em>. <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -266,13 +371,13 @@ Atomically decrements the integer pointed to by <em class="parameter"><code>atom
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atomic</code></em> :</span></p></td>
-<td>a pointer to an integer.</td>
+<td>a pointer to an integer</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>, if the integer pointed to by <em class="parameter"><code>atomic</code></em> is 0 after
-decrementing it.</td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the integer pointed to by <em class="parameter"><code>atomic</code></em> is 0
+after decrementing it</td>
 </tr>
 </tbody>
 </table></div>
@@ -281,17 +386,7 @@ decrementing it.</td>
 </div>
 <div class="refsect1">
 <a name="glib-Atomic-Operations.see-also"></a><h2>See Also</h2>
-<p>
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><a class="link" href="glib-Threads.html#GMutex" title="GMutex"><span class="type">GMutex</span></a></span></p></td>
-<td><p>GLib mutual exclusions.</p></td>
-</tr></tbody>
-</table></div>
-<p>
-</p>
+<a class="link" href="glib-Threads.html#GMutex" title="GMutex"><span class="type">GMutex</span></a>
 </div>
 </div>
 <div class="footer">

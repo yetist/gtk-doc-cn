@@ -181,35 +181,33 @@ enum                <a class="link" href="glib-Bookmark-file-parser.html#GBookma
 <div class="refsect1">
 <a name="glib-Bookmark-file-parser.description"></a><h2>Description</h2>
 <p>
-<a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFile" title="GBookmarkFile"><span class="type">GBookmarkFile</span></a> lets you parse, edit or create files containing bookmarks
-to URI, along with some meta-data about the resource pointed by the URI like
-its MIME type, the application that is registering the bookmark and the
-icon that should be used to represent the bookmark. The data is stored using
-the
+GBookmarkFile lets you parse, edit or create files containing bookmarks
+to URI, along with some meta-data about the resource pointed by the URI
+like its MIME type, the application that is registering the bookmark and
+the icon that should be used to represent the bookmark. The data is stored
+using the
 <a class="ulink" href="http://www.gnome.org/~ebassi/bookmark-spec" target="_top">Desktop Bookmark
 Specification</a>.
 </p>
 <p>
 The syntax of the bookmark files is described in detail inside the Desktop
-Bookmark Specification, here is a quick summary: bookmark files use a sub-class
-of the
-<a class="ulink" href="" target="_top">XML Bookmark Exchange Language</a> specification, consisting
-of valid UTF-8 encoded XML, under the <code class="literal">xbel</code> root element;
-each bookmark is stored inside a <code class="literal">bookmark</code> element, using
-its URI: no relative paths can be used inside a bookmark file. The bookmark
-may have a user defined title and description, to be used instead of the URI.
-Under the <code class="literal">metadata</code> element, with its <code class="literal">owner</code>
+Bookmark Specification, here is a quick summary: bookmark files use a
+sub-class of the <a class="ulink" href="" target="_top">XML Bookmark Exchange Language</a>
+specification, consisting of valid UTF-8 encoded XML, under the
+<code class="literal">xbel</code> root element; each bookmark is stored inside a
+<code class="literal">bookmark</code> element, using its URI: no relative paths can
+be used inside a bookmark file. The bookmark may have a user defined title
+and description, to be used instead of the URI. Under the
+<code class="literal">metadata</code> element, with its <code class="literal">owner</code>
 attribute set to <code class="literal">http://freedesktop.org</code>, is stored the
 meta-data about a resource pointed by its URI. The meta-data consists of
 the resource's MIME type; the applications that have registered a bookmark;
 the groups to which a bookmark belongs to; a visibility flag, used to set
 the bookmark as "private" to the applications and groups that has it
-registered; the URI and MIME type of an icon, to be used when displaying the
-bookmark inside a GUI.
+registered; the URI and MIME type of an icon, to be used when displaying
+the bookmark inside a GUI.
 </p>
-<div class="informalexample"><pre class="programlisting">
-
-&lt;?xml version="1.0"?&gt;
+<div class="informalexample"><pre class="programlisting">&lt;?xml version="1.0"?&gt;
 &lt;!DOCTYPE xbel PUBLIC
   "+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML"
   "http://www.python.org/topics/xml/dtds/xbel-1.0.dtd"&gt;
@@ -221,29 +219,30 @@ bookmark inside a GUI.
     &lt;info&gt;
       &lt;metadata owner="http://freedesktop.org"&gt;
         &lt;mime:mime-type&gt;text/xml&lt;/mime:mime-type&gt;
-	&lt;bookmark:applications&gt;
+        &lt;bookmark:applications&gt;
           &lt;bookmark:application name="GEdit" count="2" exec="gedit %u" timestamp="1115726763"/&gt;
           &lt;bookmark:application name="GViM" count="7" exec="gvim %f" timestamp="1115726812"/&gt;
-	&lt;/bookmark:applications&gt;
-	&lt;bookmark:groups&gt;
-	  &lt;bookmark:group&gt;Editors&lt;/bookmark:group&gt;
-	&lt;/bookmark:groups&gt;
+        &lt;/bookmark:applications&gt;
+        &lt;bookmark:groups&gt;
+          &lt;bookmark:group&gt;Editors&lt;/bookmark:group&gt;
+        &lt;/bookmark:groups&gt;
       &lt;/metadata&gt;
     &lt;/info&gt;
   &lt;/bookmark&gt;
-&lt;/xbel&gt;
-
+&lt;/xbel
 </pre></div>
 <p>
-A bookmark file might contain more than one bookmark; each bookmark is accessed
-through its URI.
 </p>
 <p>
-The important caveat of bookmark files is that when you add a new bookmark you
-must also add the application that is registering it, using
-<a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-add-application" title="g_bookmark_file_add_application ()"><code class="function">g_bookmark_file_add_application()</code></a> or <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-set-app-info" title="g_bookmark_file_set_app_info ()"><code class="function">g_bookmark_file_set_app_info()</code></a>. If a
-bookmark has no applications then it won't be dumped when creating the
-on disk representation, using <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-to-data" title="g_bookmark_file_to_data ()"><code class="function">g_bookmark_file_to_data()</code></a> or
+A bookmark file might contain more than one bookmark; each bookmark
+is accessed through its URI.
+</p>
+<p>
+The important caveat of bookmark files is that when you add a new
+bookmark you must also add the application that is registering it, using
+<a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-add-application" title="g_bookmark_file_add_application ()"><code class="function">g_bookmark_file_add_application()</code></a> or <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-set-app-info" title="g_bookmark_file_set_app_info ()"><code class="function">g_bookmark_file_set_app_info()</code></a>.
+If a bookmark has no applications then it won't be dumped when creating
+the on disk representation, using <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-to-data" title="g_bookmark_file_to_data ()"><code class="function">g_bookmark_file_to_data()</code></a> or
 <a class="link" href="glib-Bookmark-file-parser.html#g-bookmark-file-to-file" title="g_bookmark_file_to_file ()"><code class="function">g_bookmark_file_to_file()</code></a>.
 </p>
 <p>
@@ -256,8 +255,8 @@ The <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFile" title="G
 <a name="GBookmarkFile"></a><h3>GBookmarkFile</h3>
 <pre class="programlisting">typedef struct _GBookmarkFile GBookmarkFile;</pre>
 <p>
-The <span class="structname">GBookmarkFile</span> struct contains only private data
-and should not be used directly.
+The <span class="structname">GBookmarkFile</span> struct contains only
+private data and should not be directly accessed.
 </p>
 </div>
 <hr>
@@ -266,9 +265,9 @@ and should not be used directly.
 <pre class="programlisting">#define G_BOOKMARK_FILE_ERROR (g_bookmark_file_error_quark ())
 </pre>
 <p>
-Error domain for bookmark file parsing. Errors in this domain will be
-from the <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFileError" title="enum GBookmarkFileError"><span class="type">GBookmarkFileError</span></a> enumeration. See <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> for informations
-on error domains.
+Error domain for bookmark file parsing.
+Errors in this domain will be from the <a class="link" href="glib-Bookmark-file-parser.html#GBookmarkFileError" title="enum GBookmarkFileError"><span class="type">GBookmarkFileError</span></a>
+enumeration. See <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> for information on error domains.
 </p>
 </div>
 <hr>
@@ -304,8 +303,8 @@ Error codes returned by bookmark file parsing.
 </tr>
 <tr>
 <td><p><a name="G-BOOKMARK-FILE-ERROR-APP-NOT-REGISTERED:CAPS"></a><span class="term"><code class="literal">G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code></span></p></td>
-<td>a requested application did not
-register a bookmark
+<td>a requested application did
+    not register a bookmark
 </td>
 </tr>
 <tr>
@@ -320,8 +319,8 @@ register a bookmark
 </tr>
 <tr>
 <td><p><a name="G-BOOKMARK-FILE-ERROR-UNKNOWN-ENCODING:CAPS"></a><span class="term"><code class="literal">G_BOOKMARK_FILE_ERROR_UNKNOWN_ENCODING</code></span></p></td>
-<td>the text being parsed was in an
-unknown encoding
+<td>the text being parsed was
+    in an unknown encoding
 </td>
 </tr>
 <tr>

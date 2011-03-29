@@ -171,6 +171,15 @@
           To build GLib without SELinux support, use the
           <code class="option">--disable-selinux</code> configure option.
         </p></li>
+<li class="listitem"><p>
+          The optional support for DTrace requires the <code class="filename">sys/sdt.h</code> header,
+          which is provided by SystemTap on Linux.  To build GLib without DTrace, use the
+          <code class="option">--disable-dtrace</code> configure option.
+        </p></li>
+<li class="listitem"><p>
+          The optional support for <a class="ulink" href="http://sourceware.org/systemtap/" target="_top">SystemTap</a> can be disabled with the
+          <code class="option">--disable-systemtap</code> configure option.
+        </p></li>
 </ul></div>
 </div>
 <div class="refsect1">
@@ -181,7 +190,7 @@
         library supports these additional arguments:
 
         </p>
-<div class="cmdsynopsis"><p><code class="command">configure</code>  [[--enable-debug=[no|minimum|yes]]] [[--disable-gc-friendly] |  [--enable-gc-friendly]] [[--disable-mem-pools] |  [--enable-mem-pools]] [[--disable-threads] |  [--enable-threads]] [[--with-threads=[none|posix|dce|win32]]] [[--disable-regex] |  [--enable-regex]] [[--with-pcre=[internal|system]]] [[--disable-included-printf] |  [--enable-included-printf]] [[--disable-visibility] |  [--enable-visibility]] [[--disable-gtk-doc] |  [--enable-gtk-doc]] [[--disable-man] |  [--enable-man]] [[--disable-xattr] |  [--enable-xattr]] [[--disable-selinux] |  [--enable-selinux]]</p></div>
+<div class="cmdsynopsis"><p><code class="command">configure</code>  [[--enable-debug=[no|minimum|yes]]] [[--disable-gc-friendly] |  [--enable-gc-friendly]] [[--disable-mem-pools] |  [--enable-mem-pools]] [[--disable-threads] |  [--enable-threads]] [[--with-threads=[none|posix|dce|win32]]] [[--disable-regex] |  [--enable-regex]] [[--with-pcre=[internal|system]]] [[--disable-included-printf] |  [--enable-included-printf]] [[--disable-visibility] |  [--enable-visibility]] [[--disable-gtk-doc] |  [--enable-gtk-doc]] [[--disable-man] |  [--enable-man]] [[--disable-xattr] |  [--enable-xattr]] [[--disable-selinux] |  [--enable-selinux]] [[--disable-dtrace] |  [--enable-dtrace]] [[--disable-systemtap] |  [--enable-systemtap]] [[--enable-gcov] |  [--disable-gcov]] [[--with-runtime-libdir=RELPATH]]</p></div>
 <p>
       </p>
 <p><b><code class="systemitem">--enable-debug</code>. </b>
@@ -230,9 +239,8 @@
 	    stored at that node.
 	  </p></li>
 <li class="listitem"><p>
-	    When destroying or removing a GTree node, Glib will clear the
-	    node, which used to have pointers to the node's value, and the
-	    left and right subnodes.
+	    When destroying or removing a GTree node, Glib will clear the node,
+	    which used to have pointers to the node's value, and the left and right subnodes.
 	  </p></li>
 </ul></div>
 <p>
@@ -414,6 +422,37 @@
           SELinux support in GIO if it is. These options can be
           used to explicitly control whether SELinux support should
 	  be included.
+        </p>
+<p><b><code class="systemitem">--disable-dtrace</code> and
+          <code class="systemitem">--enable-dtrace</code>. </b>
+          By default the <span class="command"><strong>configure</strong></span> script will
+          detect if DTrace support is available, and use it.
+        </p>
+<p><b><code class="systemitem">--disable-systemtap</code> and
+          <code class="systemitem">--enable-systemtap</code>. </b>
+          This option requires DTrace support.  If it is available, then
+	  the <span class="command"><strong>configure</strong></span> script will also check for
+	  the presence of SystemTap.
+        </p>
+<p><b><code class="systemitem">--enable-gcov</code> and
+          <code class="systemitem">--disable-gcov</code>. </b>
+          Enable the generation of coverage reports for the GLib tests.
+          This requires the lcov frontend to gcov from the
+          <a class="ulink" href="http://ltp.sourceforge.net" target="_top">Linux Test Project</a>.
+          To generate a coverage report, use the lcov make target. The
+          report is placed in the <code class="filename">glib-lcov</code> directory.
+        </p>
+<p><b><code class="systemitem">--with-runtime-libdir=RELPATH</code>. </b>
+          Allows specifying a relative path to where to install the runtime
+          libraries (meaning library files used for running, not developing,
+          GLib applications). This can be used in operating system setups where
+          programs using GLib needs to run before e.g. <code class="filename">/usr</code>
+          is mounted.
+          For example, if LIBDIR is <code class="filename">/usr/lib</code> and
+          <code class="filename">../../lib</code> is passed to
+          <code class="systemitem">--with-runtime-libdir</code> then the
+          runtime libraries are installed into <code class="filename">/lib</code> rather
+          than <code class="filename">/usr/lib</code>.
         </p>
 </div>
 </div>

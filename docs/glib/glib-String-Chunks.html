@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>字符串块</title>
+<title>String Chunks</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-data-types.html" title="GLib数据类型">
@@ -30,8 +30,8 @@
 <a name="glib-String-Chunks"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-String-Chunks.top_of_page"></a>字符串块</span></h2>
-<p>字符串块 — 有效地存储字符串组</p>
+<h2><span class="refentrytitle"><a name="glib-String-Chunks.top_of_page"></a>String Chunks</span></h2>
+<p>String Chunks — efficient storage of groups of strings</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -56,19 +56,19 @@
 <div class="refsect1">
 <a name="glib-String-Chunks.description"></a><h2>Description</h2>
 <p>
-String chunks are used to store groups of strings.
-Memory is allocated in blocks, and as strings are added to the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>
-they are copied into the next free position in a block. When a block is
-full a new block is allocated.
+String chunks are used to store groups of strings. Memory is
+allocated in blocks, and as strings are added to the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>
+they are copied into the next free position in a block. When a block
+is full a new block is allocated.
 </p>
 <p>
-When storing a large number of strings, string chunks are more efficient
-than using <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()"><code class="function">g_strdup()</code></a> since fewer calls to <code class="function">malloc()</code> are needed, and less
-memory is wasted in memory allocation overheads.
+When storing a large number of strings, string chunks are more
+efficient than using <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()"><code class="function">g_strdup()</code></a> since fewer calls to <code class="function">malloc()</code> are
+needed, and less memory is wasted in memory allocation overheads.
 </p>
 <p>
-By adding strings with <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a> it is also possible
-to remove duplicates.
+By adding strings with <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a> it is also
+possible to remove duplicates.
 </p>
 <p>
 To create a new <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> use <a class="link" href="glib-String-Chunks.html#g-string-chunk-new" title="g_string_chunk_new ()"><code class="function">g_string_chunk_new()</code></a>.
@@ -77,12 +77,13 @@ To create a new <a class="link" href="glib-String-Chunks.html#GStringChunk" titl
 To add strings to a <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> use <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert" title="g_string_chunk_insert ()"><code class="function">g_string_chunk_insert()</code></a>.
 </p>
 <p>
-To add strings to a <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>, but without duplicating strings which are
-already in the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>, use <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a>.
+To add strings to a <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>, but without duplicating strings
+which are already in the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>, use
+<a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a>.
 </p>
 <p>
-To free the entire <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> use <a class="link" href="glib-String-Chunks.html#g-string-chunk-free" title="g_string_chunk_free ()"><code class="function">g_string_chunk_free()</code></a>.
-It is not possible to free individual strings.
+To free the entire <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> use <a class="link" href="glib-String-Chunks.html#g-string-chunk-free" title="g_string_chunk_free ()"><code class="function">g_string_chunk_free()</code></a>. It is
+not possible to free individual strings.
 </p>
 </div>
 <div class="refsect1">
@@ -91,8 +92,8 @@ It is not possible to free individual strings.
 <a name="GStringChunk"></a><h3>GStringChunk</h3>
 <pre class="programlisting">typedef struct _GStringChunk GStringChunk;</pre>
 <p>
-An opaque data structure representing String Chunks.
-It should only be accessed by using the following functions.
+An opaque data structure representing String Chunks. It should only
+be accessed by using the following functions.
 </p>
 </div>
 <hr>

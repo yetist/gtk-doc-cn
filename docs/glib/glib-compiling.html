@@ -31,7 +31,7 @@
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id3104680"></a><h2>在UNIX上编译GLib应用程序</h2>
+<a name="id2869377"></a><h2>在UNIX上编译GLib应用程序</h2>
 <p>
 为了编译GLib应用程序，你需要告诉编译器在哪里找到GLib的头文件及库.
 <span class="application">pkg-config</span> 工具会帮你.
@@ -92,6 +92,16 @@ G_DISABLE_DEPRECATED 符号,使用命令选项 <code class="literal">-DG_DISABLE
 为了帮助大家过渡,执行器在默认的Glib头文件中未打开(但GObject和GIO是打开的)
 为了打开它,使用命令行<code class="literal"> -DG_DISABLE_DEPRECATED</code> 来定义预处理器符号 G_DISABLE_SINGLE_INCLUDES
 即可.
+<code class="filename">glib/gprintf.h</code> and <code class="filename">glib/gstdio.h</code>
+(we don't want to pull in all of stdio).
+</p>
+<p>
+Starting with 2.17, GLib enforces this by generating an error
+when individual headers are directly included. To help with the 
+transition, the enforcement is not turned on by default for GLib 
+headers (it <span class="emphasis"><em>is</em></span> turned on for GObject and GIO).
+To turn it on, define the preprocessor symbol G_DISABLE_SINGLE_INCLUDES
+by using the command line option <code class="literal">-DG_DISABLE_SINGLE_INCLUDES</code>.
 </p>
 </div>
 </div>

@@ -31,7 +31,8 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Memory-Chunks.top_of_page"></a>Memory Chunks</span></h2>
-<p>Memory Chunks — deprecated way to allocate groups of equal-sized chunks of memory</p>
+<p>Memory Chunks — deprecated way to allocate groups of equal-sized
+                    chunks of memory</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -77,65 +78,71 @@
 <p>
 Memory chunks provide an space-efficient way to allocate equal-sized
 pieces of memory, called atoms. However, due to the administrative
-overhead (in particular for <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>, and when used from multiple
-threads), they are in practise often slower than direct use of <a class="link" href="glib-Memory-Allocation.html#g-malloc" title="g_malloc ()"><code class="function">g_malloc()</code></a>.
-Therefore, memory chunks have been deprecated in favor of the
-<a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice allocator</a>,
-which has been added in 2.10. All internal uses of memory chunks in
-GLib have been converted to the <code class="literal">g_slice</code> API.
+overhead (in particular for <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>, and when used from
+multiple threads), they are in practise often slower than direct use
+of <a class="link" href="glib-Memory-Allocation.html#g-malloc" title="g_malloc ()"><code class="function">g_malloc()</code></a>. Therefore, memory chunks have been deprecated in
+favor of the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
+allocator</a>, which has been added in 2.10. All internal uses of
+memory chunks in GLib have been converted to the
+<code class="literal">g_slice</code> API.
 </p>
 <p>
-There are two types of memory chunks, <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a>, and <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>.
-</p>
+There are two types of memory chunks, <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a>, and
+<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>. </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> chunks only allow allocation of atoms. The atoms can never
-be freed individually. The memory chunk can only be free in its entirety.
+<li class="listitem"><p> <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a>
+chunks only allow allocation of atoms. The atoms can never be freed
+individually. The memory chunk can only be free in its entirety.
 </p></li>
-<li class="listitem"><p>
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> chunks do allow atoms to be freed individually.
-The disadvantage of this is that the memory chunk has to keep track of which
-atoms have been freed. This results in more memory being used and a slight
-degradation in performance.
-</p></li>
+<li class="listitem"><p> <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> chunks do
+allow atoms to be freed individually. The disadvantage of this is
+that the memory chunk has to keep track of which atoms have been
+freed. This results in more memory being used and a slight
+degradation in performance. </p></li>
 </ul></div>
 <p>
 </p>
 <p>
-To create a memory chunk use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> or the convenience macro
-<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a>.
+To create a memory chunk use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> or the convenience
+macro <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a>.
 </p>
 <p>
-To allocate a new atom use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc" title="g_mem_chunk_alloc ()"><code class="function">g_mem_chunk_alloc()</code></a>, <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc0" title="g_mem_chunk_alloc0 ()"><code class="function">g_mem_chunk_alloc0()</code></a>,
-or the convenience macros <a class="link" href="glib-Memory-Chunks.html#g-chunk-new" title="g_chunk_new()"><code class="function">g_chunk_new()</code></a> or <a class="link" href="glib-Memory-Chunks.html#g-chunk-new0" title="g_chunk_new0()"><code class="function">g_chunk_new0()</code></a>.
+To allocate a new atom use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc" title="g_mem_chunk_alloc ()"><code class="function">g_mem_chunk_alloc()</code></a>,
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc0" title="g_mem_chunk_alloc0 ()"><code class="function">g_mem_chunk_alloc0()</code></a>, or the convenience macros <a class="link" href="glib-Memory-Chunks.html#g-chunk-new" title="g_chunk_new()"><code class="function">g_chunk_new()</code></a> or
+<a class="link" href="glib-Memory-Chunks.html#g-chunk-new0" title="g_chunk_new0()"><code class="function">g_chunk_new0()</code></a>.
 </p>
 <p>
 To free an atom use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-free" title="g_mem_chunk_free ()"><code class="function">g_mem_chunk_free()</code></a>, or the convenience macro
-<a class="link" href="glib-Memory-Chunks.html#g-chunk-free" title="g_chunk_free()"><code class="function">g_chunk_free()</code></a>. (Atoms can only be freed if the memory chunk is created
-with the type set to <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>.)
+<a class="link" href="glib-Memory-Chunks.html#g-chunk-free" title="g_chunk_free()"><code class="function">g_chunk_free()</code></a>. (Atoms can only be freed if the memory chunk is
+created with the type set to <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>.)
 </p>
 <p>
 To free any blocks of memory which are no longer being used, use
 <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-clean" title="g_mem_chunk_clean ()"><code class="function">g_mem_chunk_clean()</code></a>. To clean all memory chunks, use <a class="link" href="glib-Memory-Chunks.html#g-blow-chunks" title="g_blow_chunks ()"><code class="function">g_blow_chunks()</code></a>.
 </p>
 <p>
-To reset the memory chunk, freeing all of the atoms, use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-reset" title="g_mem_chunk_reset ()"><code class="function">g_mem_chunk_reset()</code></a>.
+To reset the memory chunk, freeing all of the atoms, use
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-reset" title="g_mem_chunk_reset ()"><code class="function">g_mem_chunk_reset()</code></a>.
 </p>
 <p>
 To destroy a memory chunk, use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-destroy" title="g_mem_chunk_destroy ()"><code class="function">g_mem_chunk_destroy()</code></a>.
 </p>
 <p>
-To help debug memory chunks, use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-info" title="g_mem_chunk_info ()"><code class="function">g_mem_chunk_info()</code></a> and <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a>.
+To help debug memory chunks, use <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-info" title="g_mem_chunk_info ()"><code class="function">g_mem_chunk_info()</code></a> and
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a>.
+</p>
+<p>
 </p>
 <div class="example">
-<a name="id3592733"></a><p class="title"><b>Example 17. Using a <span class="structname">GMemChunk</span></b></p>
+<a name="id3052827"></a><p class="title"><b>Example 17. Using a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a></b></p>
 <div class="example-contents"><pre class="programlisting">
   GMemChunk *mem_chunk;
   gchar *mem[10000];
   gint i;
-  /* Create a GMemChunk with atoms 50 bytes long, and memory blocks holding
-     100 bytes. Note that this means that only 2 atoms fit into each memory
-     block and so isn't very efficient. */
+
+  /* Create a GMemChunk with atoms 50 bytes long, and memory
+     blocks holding 100 bytes. Note that this means that only 2 atoms
+     fit into each memory block and so isn't very efficient. */
   mem_chunk = g_mem_chunk_new ("test mem chunk", 50, 100, G_ALLOC_AND_FREE);
   /* Now allocate 10000 atoms. */
   for (i = 0; i &lt; 10000; i++)
@@ -143,43 +150,48 @@ To help debug memory chunks, use <a class="link" href="glib-Memory-Chunks.html#g
       mem[i] = g_chunk_new (gchar, mem_chunk);
       /* Fill in the atom memory with some junk. */
       for (j = 0; j &lt; 50; j++)
-	mem[i][j] = i * j;
+        mem[i][j] = i * j;
     }
-  /* Now free all of the atoms. Note that since we are going to destroy the
-     GMemChunk, this wouldn't normally be used. */
+  /* Now free all of the atoms. Note that since we are going to
+     destroy the GMemChunk, this wouldn't normally be used. */
   for (i = 0; i &lt; 10000; i++)
     {
       g_mem_chunk_free (mem_chunk, mem[i]);
     }
   /* We are finished with the GMemChunk, so we destroy it. */
   g_mem_chunk_destroy (mem_chunk);
-</pre></div>
+ </pre></div>
 </div>
-<br class="example-break"><div class="example">
-<a name="id3592777"></a><p class="title"><b>Example 18. Using a <span class="structname">GMemChunk</span> with data structures</b></p>
+<p><br class="example-break">
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id3101866"></a><p class="title"><b>Example 18. Using a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> with data structures</b></p>
 <div class="example-contents"><pre class="programlisting">
-  GMemChunk *array_mem_chunk;
-  GRealArray *array;
-  /* Create a GMemChunk to hold GRealArray structures, using the
-     g_mem_chunk_create() convenience macro. We want 1024 atoms in each
-     memory block, and we want to be able to free individual atoms. */
-  array_mem_chunk = g_mem_chunk_create (GRealArray, 1024, G_ALLOC_AND_FREE);
-  /* Allocate one atom, using the g_chunk_new() convenience macro. */
-  array = g_chunk_new (GRealArray, array_mem_chunk);
-  /* We can now use array just like a normal pointer to a structure. */
-  array-&gt;data            = NULL;
-  array-&gt;len             = 0;
-  array-&gt;alloc           = 0;
-  array-&gt;zero_terminated = (zero_terminated ? 1 : 0);
-  array-&gt;clear           = (clear ? 1 : 0);
-  array-&gt;elt_size        = elt_size;
-  /* We can free the element, so it can be reused. */
-  g_chunk_free (array, array_mem_chunk);
-  /* We destroy the GMemChunk when we are finished with it. */
-  g_mem_chunk_destroy (array_mem_chunk);
-</pre></div>
+   GMemChunk *array_mem_chunk;
+   GRealArray *array;
+   /* Create a GMemChunk to hold GRealArray structures, using
+      the g_mem_chunk_create() convenience macro. We want 1024 atoms in each
+      memory block, and we want to be able to free individual atoms. */
+   array_mem_chunk = g_mem_chunk_create (GRealArray, 1024, G_ALLOC_AND_FREE);
+   /* Allocate one atom, using the g_chunk_new() convenience macro. */
+   array = g_chunk_new (GRealArray, array_mem_chunk);
+   /* We can now use array just like a normal pointer to a structure. */
+   array-&gt;data            = NULL;
+   array-&gt;len             = 0;
+   array-&gt;alloc           = 0;
+   array-&gt;zero_terminated = (zero_terminated ? 1 : 0);
+   array-&gt;clear           = (clear ? 1 : 0);
+   array-&gt;elt_size        = elt_size;
+   /* We can free the element, so it can be reused. */
+   g_chunk_free (array, array_mem_chunk);
+   /* We destroy the GMemChunk when we are finished with it. */
+   g_mem_chunk_destroy (array_mem_chunk);
+ </pre></div>
 </div>
-<br class="example-break">
+<p><br class="example-break">
+</p>
 </div>
 <div class="refsect1">
 <a name="glib-Memory-Chunks.details"></a><h2>Details</h2>
@@ -191,8 +203,9 @@ To help debug memory chunks, use <a class="link" href="glib-Memory-Chunks.html#g
 <p><code class="literal">GMemChunk</code> is deprecated and should not be used in newly-written code.</p>
 </div>
 <p>
-The <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> struct is an opaque data structure representing a memory
-chunk. It should be accessed only through the use of the following functions.
+The <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> struct is an opaque data structure representing a
+memory chunk. It should be accessed only through the use of the
+following functions.
 </p>
 </div>
 <hr>
@@ -205,9 +218,9 @@ chunk. It should be accessed only through the use of the following functions.
 <p><code class="literal">G_ALLOC_AND_FREE</code> is deprecated and should not be used in newly-written code.</p>
 </div>
 <p>
-Specifies the type of a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-Used in <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> and <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a> to specify that atoms
-will be freed individually.
+Specifies the type of a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. Used in <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> and
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a> to specify that atoms will be freed
+individually.
 </p>
 </div>
 <hr>
@@ -220,9 +233,9 @@ will be freed individually.
 <p><code class="literal">G_ALLOC_ONLY</code> is deprecated and should not be used in newly-written code.</p>
 </div>
 <p>
-Specifies the type of a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-Used in <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> and <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a> to specify that atoms
-will never be freed individually.
+Specifies the type of a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. Used in <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a> and
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-create" title="g_mem_chunk_create()"><code class="function">g_mem_chunk_create()</code></a> to specify that atoms will never be freed
+individually.
 </p>
 </div>
 <hr>
@@ -234,8 +247,8 @@ will never be freed individually.
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> type</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_mem_chunk_new</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice allocator</a>
-  instead</p>
+<p><code class="literal">g_mem_chunk_new</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
+                 allocator</a> instead</p>
 </div>
 <p>
 Creates a new <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
@@ -246,8 +259,8 @@ Creates a new <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GM
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
 <td>a string to identify the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It is not copied so it
-should be valid for the lifetime of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It is only used in
-<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a>, which is used for debugging.</td>
+should be valid for the lifetime of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It is
+only used in <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a>, which is used for debugging.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>atom_size</code></em> :</span></p></td>
@@ -255,16 +268,17 @@ should be valid for the lifetime of the <a class="link" href="glib-Memory-Chunks
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>area_size</code></em> :</span></p></td>
-<td>the size, in bytes, of each block of memory allocated to contain
-the atoms.</td>
+<td>the size, in bytes, of each block of memory allocated to
+contain the atoms.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
-<td>the type of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> is used if the atoms will be freed individually.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> should be used if atoms will never be freed individually.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> is quicker, since it does not need to track free atoms,
-but it obviously wastes memory if you no longer need many of the atoms.</td>
+<td>the type of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.  <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> is used if the
+atoms will be freed individually.  <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> should be
+used if atoms will never be freed individually.
+<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> is quicker, since it does not need to track
+free atoms, but it obviously wastes memory if you no longer
+need many of the atoms.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -307,7 +321,8 @@ Allocates an atom of memory from a <a class="link" href="glib-Memory-Chunks.html
 <p><code class="literal">g_mem_chunk_alloc0</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use <a class="link" href="glib-Memory-Slices.html#g-slice-alloc0" title="g_slice_alloc0 ()"><code class="function">g_slice_alloc0()</code></a> instead</p>
 </div>
 <p>
-Allocates an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>, setting the memory to 0.
+Allocates an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>, setting the memory to
+0.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -333,9 +348,9 @@ Allocates an atom of memory from a <a class="link" href="glib-Memory-Chunks.html
 <p><code class="literal">g_mem_chunk_free</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use <a class="link" href="glib-Memory-Slices.html#g-slice-free1" title="g_slice_free1 ()"><code class="function">g_slice_free1()</code></a> instead</p>
 </div>
 <p>
-Frees an atom in a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-This should only be called if the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> was created with
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>. Otherwise it will simply return.
+Frees an atom in a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. This should only be called if the
+<a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> was created with <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a>. Otherwise it will
+simply return.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -358,7 +373,7 @@ This should only be called if the <a class="link" href="glib-Memory-Chunks.html#
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_destroy</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
 Frees all of the memory allocated for a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
@@ -378,14 +393,14 @@ Frees all of the memory allocated for a <a class="link" href="glib-Memory-Chunks
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_create</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
-A convenience macro for creating a new <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-It calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a>, using the given type to create the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>
-name. The atom size is determined using <code class="function"><code class="function">sizeof()</code></code>, and the
-area size is calculated by multiplying the <em class="parameter"><code>pre_alloc</code></em> parameter with
-the atom size.
+A convenience macro for creating a new <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It calls
+<a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a>, using the given type to create the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>
+name. The atom size is determined using
+<code class="function"><code class="function">sizeof()</code></code>, and the area size is calculated by
+multiplying the <em class="parameter"><code>pre_alloc</code></em> parameter with the atom size.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -400,11 +415,12 @@ the atom size.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>alloc_type</code></em> :</span></p></td>
-<td>the type of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> is used if the atoms will be freed individually.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> should be used if atoms will never be freed individually.
-<a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> is quicker, since it does not need to track free atoms,
-but it obviously wastes memory if you no longer need many of the atoms.</td>
+<td>the type of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.  <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-AND-FREE:CAPS" title="G_ALLOC_AND_FREE"><span class="type">G_ALLOC_AND_FREE</span></a> is used
+if the atoms will be freed individually.  <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a>
+should be used if atoms will never be freed
+individually.  <a class="link" href="glib-Memory-Chunks.html#G-ALLOC-ONLY:CAPS" title="G_ALLOC_ONLY"><span class="type">G_ALLOC_ONLY</span></a> is quicker, since it does
+not need to track free atoms, but it obviously wastes
+memory if you no longer need many of the atoms.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -423,8 +439,8 @@ but it obviously wastes memory if you no longer need many of the atoms.</td>
 </div>
 <p>
 A convenience macro to allocate an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-It calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc" title="g_mem_chunk_alloc ()"><code class="function">g_mem_chunk_alloc()</code></a> and casts the returned atom to a pointer to
-the given type, avoiding a type cast in the source code.
+It calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc" title="g_mem_chunk_alloc ()"><code class="function">g_mem_chunk_alloc()</code></a> and casts the returned atom to a
+pointer to the given type, avoiding a type cast in the source code.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -439,7 +455,8 @@ the given type, avoiding a type cast in the source code.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a pointer to the allocated atom, cast to a pointer to <em class="parameter"><code>type</code></em>.</td>
+<td>a pointer to the allocated atom, cast to a pointer to
+<em class="parameter"><code>type</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -454,8 +471,8 @@ the given type, avoiding a type cast in the source code.
 </div>
 <p>
 A convenience macro to allocate an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-It calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc0" title="g_mem_chunk_alloc0 ()"><code class="function">g_mem_chunk_alloc0()</code></a> and casts the returned atom to a pointer to
-the given type, avoiding a type cast in the source code.
+It calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-alloc0" title="g_mem_chunk_alloc0 ()"><code class="function">g_mem_chunk_alloc0()</code></a> and casts the returned atom to a
+pointer to the given type, avoiding a type cast in the source code.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -470,7 +487,8 @@ the given type, avoiding a type cast in the source code.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a pointer to the allocated atom, cast to a pointer to <em class="parameter"><code>type</code></em>.</td>
+<td>a pointer to the allocated atom, cast to a pointer to
+<em class="parameter"><code>type</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -484,10 +502,10 @@ the given type, avoiding a type cast in the source code.
 <p><code class="literal">g_chunk_free</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use <a class="link" href="glib-Memory-Slices.html#g-slice-free" title="g_slice_free()"><code class="function">g_slice_free()</code></a> instead</p>
 </div>
 <p>
-A convenience macro to free an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-It simply switches the arguments and calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-free" title="g_mem_chunk_free ()"><code class="function">g_mem_chunk_free()</code></a>
-It is included simply to complement the other convenience macros, <a class="link" href="glib-Memory-Chunks.html#g-chunk-new" title="g_chunk_new()"><code class="function">g_chunk_new()</code></a>
-and <a class="link" href="glib-Memory-Chunks.html#g-chunk-new0" title="g_chunk_new0()"><code class="function">g_chunk_new0()</code></a>.
+A convenience macro to free an atom of memory from a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It
+simply switches the arguments and calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-free" title="g_mem_chunk_free ()"><code class="function">g_mem_chunk_free()</code></a> It is
+included simply to complement the other convenience macros,
+<a class="link" href="glib-Memory-Chunks.html#g-chunk-new" title="g_chunk_new()"><code class="function">g_chunk_new()</code></a> and <a class="link" href="glib-Memory-Chunks.html#g-chunk-new0" title="g_chunk_new0()"><code class="function">g_chunk_new0()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -510,11 +528,11 @@ and <a class="link" href="glib-Memory-Chunks.html#g-chunk-new0" title="g_chunk_n
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_reset</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
-Resets a GMemChunk to its initial state.
-It frees all of the currently allocated blocks of memory.
+Resets a GMemChunk to its initial state. It frees all of the
+currently allocated blocks of memory.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -531,7 +549,7 @@ It frees all of the currently allocated blocks of memory.
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_clean</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
 Frees any blocks in a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> which are no longer being used.
@@ -551,7 +569,7 @@ Frees any blocks in a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" t
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_blow_chunks</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
 Calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-clean" title="g_mem_chunk_clean ()"><code class="function">g_mem_chunk_clean()</code></a> on all <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> objects.
@@ -564,12 +582,13 @@ Calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-clean" title="g_
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_info</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
-Outputs debugging information for all <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> objects currently in use.
-It outputs the number of <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> objects currently allocated,
-and calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a> to output information on each one.
+Outputs debugging information for all <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> objects currently
+in use. It outputs the number of <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> objects currently
+allocated, and calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title="g_mem_chunk_print ()"><code class="function">g_mem_chunk_print()</code></a> to output information on
+each one.
 </p>
 </div>
 <hr>
@@ -579,12 +598,12 @@ and calls <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-print" title
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_mem_chunk_print</code> has been deprecated since version 2.10 and should not be used in newly-written code. Use the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-  allocator</a> instead</p>
+                 allocator</a> instead</p>
 </div>
 <p>
-Outputs debugging information for a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>.
-It outputs the name of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> (set with <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a>),
-the number of bytes used, and the number of blocks of memory allocated.
+Outputs debugging information for a <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a>. It outputs the name
+of the <a class="link" href="glib-Memory-Chunks.html#GMemChunk" title="GMemChunk"><span class="type">GMemChunk</span></a> (set with <a class="link" href="glib-Memory-Chunks.html#g-mem-chunk-new" title="g_mem_chunk_new ()"><code class="function">g_mem_chunk_new()</code></a>), the number of bytes
+used, and the number of blocks of memory allocated.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">

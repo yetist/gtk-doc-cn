@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib参考手册">
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
-<link rel="prev" href="glib-Thread-Pools.html" title="线程池">
+<link rel="prev" href="glib-Thread-Pools.html" title="Thread Pools">
 <link rel="next" href="glib-Dynamic-Loading-of-Modules.html" title="动态加载的模块">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -86,8 +86,8 @@
 Often you need to communicate between different threads. In general
 it's safer not to do this by shared memory, but by explicit message
 passing. These messages only make sense asynchronously for
-multi-threaded applications though, as a synchronous operation could as
-well be done in the same thread.
+multi-threaded applications though, as a synchronous operation could
+as well be done in the same thread.
 </p>
 <p>
 Asynchronous queues are an exception from most other GLib data
@@ -101,10 +101,10 @@ For using an asynchronous queue you first have to create one with
 <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-new" title="g_async_queue_new ()"><code class="function">g_async_queue_new()</code></a>. A newly-created queue will get the reference
 count 1. Whenever another thread is creating a new reference of (that
 is, pointer to) the queue, it has to increase the reference count
-(using <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a>). Also, before removing this reference, the
-reference count has to be decreased (using
-<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>). After that the queue might no longer exist so
-you must not access it after that point.
+(using <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a>). Also, before removing this reference,
+the reference count has to be decreased (using <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>).
+After that the queue might no longer exist so you must not access
+it after that point.
 </p>
 <p>
 A thread, which wants to send a message to that queue simply calls
@@ -120,14 +120,14 @@ and returned. The functions <a class="link" href="glib-Asynchronous-Queues.html#
 of messages or to only wait a certain time for messages respectively.
 </p>
 <p>
-For almost every function there exist two variants, one that locks the
-queue and one that doesn't. That way you can hold the queue lock
+For almost every function there exist two variants, one that locks
+the queue and one that doesn't. That way you can hold the queue lock
 (acquire it with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-lock" title="g_async_queue_lock ()"><code class="function">g_async_queue_lock()</code></a> and release it with
-<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unlock" title="g_async_queue_unlock ()"><code class="function">g_async_queue_unlock()</code></a>) over multiple queue accessing
-instructions. This can be necessary to ensure the integrity of the
-queue, but should only be used when really necessary, as it can make
-your life harder if used unwisely. Normally you should only use the
-locking function variants (those without the suffix _unlocked)
+<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unlock" title="g_async_queue_unlock ()"><code class="function">g_async_queue_unlock()</code></a>) over multiple queue accessing instructions.
+This can be necessary to ensure the integrity of the queue, but should
+only be used when really necessary, as it can make your life harder
+if used unwisely. Normally you should only use the locking function
+variants (those without the suffix _unlocked)
 </p>
 </div>
 <div class="refsect1">
@@ -136,7 +136,7 @@ locking function variants (those without the suffix _unlocked)
 <a name="GAsyncQueue"></a><h3>GAsyncQueue</h3>
 <pre class="programlisting">typedef struct _GAsyncQueue GAsyncQueue;</pre>
 <p>
-The <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> struct is an opaque data structure, which represents
+The GAsyncQueue struct is an opaque data structure, which represents
 an asynchronous queue. It should only be accessed through the
 <code class="function">g_async_queue_*</code> functions.
 </p>

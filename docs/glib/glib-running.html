@@ -31,9 +31,9 @@
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id3105602"></a><h2>运行和调试GLib应用程序</h2>
+<a name="id2871987"></a><h2>运行和调试GLib应用程序</h2>
 <div class="refsect2">
-<a name="id3105608"></a><h3>环境变量</h3>
+<a name="id2870910"></a><h3>环境变量</h3>
 <p> 
 GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PATH</code> or <code class="envar">HOME</code> 
 一样的标准环境变量之外的一小部分环境变量.
@@ -154,6 +154,12 @@ GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PAT
   　允许为<code class="filename">charset.aliases</code>文件指定一个非标准的位置,
     这文件通常用于字符集转换全程.默认位置是编译时指定的<em class="replaceable"><code>libdir</code></em>.
   </p>
+<p><a name="TZDIR"></a><b><code class="envar">TZDIR</code>. </b>
+    Allows to specify a nonstandard location for the timezone data files
+    that are used by the #GDateTime API. The default location is under
+    <code class="filename">/usr/share/zoneinfo</code>. For more information,
+    also look at the <span class="command"><strong>tzset</strong></span> manual page.
+  </p>
 </div>
 <hr>
 <div class="refsect2">
@@ -176,7 +182,7 @@ GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PAT
 </div>
 <hr>
 <div class="refsect2">
-<a name="id3106362"></a><h3>陷阱与追踪</h3>
+<a name="id2874619"></a><h3>陷阱与追踪</h3>
 <p>
 
 
@@ -213,7 +219,49 @@ condition 1 n_bytes == 20
 </div>
 <hr>
 <div class="refsect2">
-<a name="id3106452"></a><h3>静态内存</h3>
+<a name="id2885083"></a><h3>Gdb debugging macros</h3>
+<p>
+glib ships with a set of python macros for the gdb debugger. These includes pretty
+printers for lists, hashtables and gobject types. It also has a backtrace filter
+that makes backtraces with signal emissions easier to read.
+</p>
+<p>
+To use this you need a recent enough gdb that supports python scripting. Gdb 7.0
+should be recent enough, but branches of the "archer" gdb tree as used in Fedora 11
+and Fedora 12 should work too. You then need to install glib in the same prefix as
+gdb so that the python gdb autoloaded files get installed in the right place for
+gdb to pick up.
+</p>
+<p>
+General pretty printing should just happen without having to do anything special.
+To get the signal emission filtered backtrace you must use the "new-backtrace" command
+instead of the standard one.
+</p>
+<p>
+There is also a new command called gforeach that can be used to apply a command
+on each item in a list. E.g. you can do
+</p>
+<pre class="programlisting">
+gforeach i in some_list_variable: print *(GtkWidget *)l
+</pre>
+<p>
+Which would print the contents of each widget in a list of widgets.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id2885128"></a><h3>SystemTap</h3>
+<p>
+<a class="ulink" href="http://sourceware.org/systemtap/" target="_top">SystemTap</a> is a dynamic whole-system
+analysis toolkit.  GLib ships with a file <code class="filename">glib.stp</code> which defines a
+set of probe points, which you can hook into with custom SystemTap scripts.
+See the files <code class="filename">glib.stp</code> and <code class="filename">gobject.stp</code> which
+are in your shared SystemTap scripts directory.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id2885166"></a><h3>静态内存</h3>
 <p>
 如果内存分析已在启动时通过 <code class="literal">g_mem_set_vtable(glib_mem_profiler_table)</code> 启动,g_mem_profile()
 将输出g_malloc()的内存使用摘要.
