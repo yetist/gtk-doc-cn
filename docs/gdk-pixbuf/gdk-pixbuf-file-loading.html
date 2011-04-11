@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>加载文件(File Loading)</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="gdk-pixbuf-refcounting.html" title="引用计数和内存管理 (Reference Counting and Memory Mangement)">
 <link rel="next" href="gdk-pixbuf-file-saving.html" title="保存文件(File saving)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gdk-pixbuf-refcounting.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<th width="100%" align="center">GDK-PixBuf参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-file-saving.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -81,11 +81,21 @@
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>读取以Glib方式编码的文件名</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回错误的位置</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 ：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -108,11 +118,29 @@ and image at the requested size, regardless of aspect ratio, use
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>读取以Glib方式编码的文件名</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>图像的宽度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>图像的高度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回错误的位置</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 ：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.4</p>
 </div>
@@ -133,11 +161,34 @@ and image at the requested size, regardless of aspect ratio, use
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>读取以Glib方式编码的文件名</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>图像的宽度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>图像的高度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preserve_aspect_ratio</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 时保持图像的长宽比。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回错误的位置</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
 ：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
