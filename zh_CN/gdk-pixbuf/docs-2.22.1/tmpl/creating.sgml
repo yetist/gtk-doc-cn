@@ -1,0 +1,120 @@
+<!-- ##### SECTION Title ##### -->
+内存中的图象数据(Image Data in Memory)
+
+<!-- ##### SECTION Short_Description ##### -->
+使用内存中的数据创建一个 pixbuf 。
+
+<!-- ##### SECTION Long_Description ##### -->
+  <para>
+    创建一个 pixbuf 的最基本的方法是使用 #GdkPixbuf 结构包装(wrap)一个已经
+    存在的像素缓冲区(pixel buffer)。可以使用gdk_pixbuf_new_from_data()函数
+    来完成。但需要指定销毁通知函数(destroy notification function)，该函数
+    在这个数据缓冲区需要被释放的时候调用--这将在一个 #GdkPixbuf 被引用计数析构
+    的时候发生。如果有被编译进程序内部的静态数据，可以传递 %NULL 作为销毁通知函数
+    以使这些数据不被释放。
+  </para>
+
+  <para>
+    函数 gdk_pixbuf_new() 可以作为一个从空的缓冲区(buffer)创建 pixbuf 的便捷
+    途径。这等同于使用 <function>malloc()</function> 创建一个数据缓冲区，然后
+    使用 gdk_pixbuf_new_from_data() 包装(wrapping)它。函数 gdk_pixbuf_new()
+    会计算一个优化的行跨度(rowstride)以使得渲染可以更有效率的进行。
+  </para>
+
+  <para>
+    作为一个特例，可以使用 gdk_pixbuf_new_from_xpm_data() 函数从内联的
+    XPM 图像数据创建一个 pixbuf 。
+  </para>
+
+  <para>
+    也可以使用函数 gdk_pixbuf_copy() 来拷贝一个已经存在的 pixbuf。这与只
+    对老的 pixbuf 进行 g_object_ref() 不同 -- 拷贝函数实际上会为像素数据在内存中
+    创建一个副本并为其创建一个 #GdkPixbuf 结构。
+  </para>
+
+<!-- ##### SECTION See_Also ##### -->
+  <para>
+    gdk_pixbuf_finalize().
+  </para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION gdk_pixbuf_new ##### -->
+<para>
+
+</para>
+
+@colorspace: 
+@has_alpha: 
+@bits_per_sample: 
+@width: 
+@height: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_new_from_data ##### -->
+<para>
+
+</para>
+
+@data: 
+@colorspace: 
+@has_alpha: 
+@bits_per_sample: 
+@width: 
+@height: 
+@rowstride: 
+@destroy_fn: 
+@destroy_fn_data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_new_from_xpm_data ##### -->
+<para>
+
+</para>
+
+@data: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_new_from_inline ##### -->
+<para>
+
+</para>
+
+@data_length: 
+@data: 
+@copy_pixels: 
+@error: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_new_subpixbuf ##### -->
+<para>
+
+</para>
+
+@src_pixbuf: 
+@src_x: 
+@src_y: 
+@width: 
+@height: 
+@Returns: 
+
+
+<!-- ##### FUNCTION gdk_pixbuf_copy ##### -->
+<para>
+
+</para>
+
+@pixbuf: 
+@Returns: <!--
+Local variables:
+mode: sgml
+sgml-parent-document: ("../gdk-pixbuf.sgml" "book" "refsect2" "")
+End:
+-->
+
+
