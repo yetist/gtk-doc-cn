@@ -22,6 +22,7 @@ CLEANUP=0
 EDITSGML=0
 FUZZY=0
 INSTALL=0
+TARBALL=0
 LIST=0
 LOGGING=0
 MERGEPO=0
@@ -114,6 +115,7 @@ usage() {
 	echo "  -H, --nohtmlhelp Do not create htmlhelp file"
 	echo "  -r, --reviewsgml Review all sgml files"
 	echo "  -t, --editsgml   Edit your sgml file"
+	echo "  -T, --tarball    Create tarball for release"
 	echo "  -m, --mergepo    Merge youre po to master po file"
 	echo "  -n, --noconfigure     Do not configure the source"
 	printf "  -p <buildscript> Use an alternate build script (instead of '%s')\n" "$BUILDSCRIPT"
@@ -210,8 +212,8 @@ parse_options() {
 ARGLIST=$@
 
 # Parse Command Line Options.
-OPT_SHORT="bcCefhHilLmnop:rst"
-OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,nobuild"
+OPT_SHORT="bcCefhHilLmnop:rstT"
+OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,tarball,nobuild"
 # Options
 OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
 #OPT_TEMP="$(getopt -o "$OPT_SHORT" -l "$OPT_LONG" -n "$(basename "$0")" -- "$@" || echo 'PARSE_OPTIONS FAILED')"
@@ -237,6 +239,7 @@ while true; do
 		-f|--fuzzy)       FUZZY=1 ;;
 		-h|--help)        usage; exit 0 ;; # E_OK
 		-i|--install)      INSTALL=1 ;;
+		-T|--tarball)      TARBALL=1 ;;
 		-l|--list)        LIST=1 ;;
 		--nocolor)     USE_COLOR='n' ;;
 		-m|--mergepo)     MERGEPO=1 ;;
@@ -474,21 +477,49 @@ make_htmlhelp()
 make_install()
 {
 	msg "正在将文档安装到用户目录, 将调用devhelp来显示..."
-	if [ ! -d ~/.local/share/devhelp/books ];
+	if [ ! -d ~/.local/share/gtk-doc/html ];
 	then
-		mkdir -p ~/.local/share/devhelp/books;
+		mkdir -p ~/.local/share/gtk-doc/html;
 	fi
 
-	if [ -d ~/.local/share/devhelp/books/$modname ];
+	if [ -d ~/.local/share/gtk-doc/html/$modname ];
 	then
-		rm -rf ~/.local/share/devhelp/books/$modname
+		rm -rf ~/.local/share/gtk-doc/html/$modname
 	fi
-	cp -r $tmpdir/html ~/.local/share/devhelp/books/$modname
+	cp -r $tmpdir/html ~/.local/share/gtk-doc/html/$modname
 	PID=$(pidof -o %PPID /usr/bin/devhelp)
 	if [ ! -z "$PID" ]; then
 		kill $PID
 	fi
 	devhelp -s "$modname参考手册" &
+}
+
+make_tarball()
+{
+	msg "正在将文档打包..."
+	mkdir -p $tmpdir/$modname-$pkgver-docs
+	cat > $tmpdir/$modname-$pkgver-docs/install.sh << MYEOF
+#/bin/sh
+
+if [ ! -d ~/.local/share/gtk-doc/html ];
+then
+	mkdir -p ~/.local/share/gtk-doc/html;
+fi
+
+if [ -d ~/.local/share/gtk-doc/html/$modname ];
+then
+	rm -rf ~/.local/share/gtk-doc/html/$modname
+fi
+cp -r html ~/.local/share/gtk-doc/html/$modname
+
+MYEOF
+	chmod +x $tmpdir/$modname-$pkgver-docs/install.sh
+	cp -r $tmpdir/html/ $tmpdir/$modname-$pkgver-docs/
+	pushd $tmpdir >/dev/null
+	tar zcf $modname-$pkgver-docs.tar.gz $modname-$pkgver-docs
+	popd >/dev/null
+	rm -rf $tmpdir/$modname-$pkgver-docs/
+	msg "文档已打包成功： $tmpdir/$modname-$pkgver-docs.tar.gz"
 }
 
 edit_sgml()
@@ -592,6 +623,14 @@ if [ "$INSTALL" -eq 1 ]; then
 		exit 0
 	fi
 fi
+
+if [ "$TARBALL" -eq 1 ]; then
+	if [ -d $tmpdir/html ]; then
+		run_function make_tarball
+		exit 0
+	fi
+fi
+
 
 if [ "$NOEXTRACT" -eq 1 ]; then
 	warning "Skipping source retrieval        -- using existing $srcdir tree"

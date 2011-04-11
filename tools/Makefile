@@ -62,8 +62,17 @@ help:
 	@(echo -e "\tmake devhelp    使用devhelp查看生成的文档")
 	@(echo -e "\tmake commit     提交自己的翻译结果到服务器(相当于svn ci/commit)")
 
-release:
+synchtml:
 	@(source ./build.rc; make_release;)
+
+release: tarball
+	tarfile=tmp/*-docs.tar.gz; \
+	  basename $$tarfile; \
+	  googlecode-upload.py -s $$tarfile -p gtk-doc-cn -u yetist@gmail.com -l Featured,Type-Source,OpSys-Linux $$tarfile
+
+tarball:
+	@gadt-mkhtml --tarball
+
 #	@(source ./build.rc; \
 #	if [ -f tmp/$$modname-$$pkgver.tgz ]; then \
 #		scp tmp/$$modname-$$pkgver.tgz dev.osprg.org:public_html/docs; \
@@ -71,4 +80,4 @@ release:
 #		printf "\033[1;1mhtmlhelp文件还没有生成。\033[1;0m\n" >&2 ; \
 #	fi)
 
-.PHONY: init sgml docs merge commit devhelp reviewsgml clean allclean release
+.PHONY: init sgml docs merge commit devhelp reviewsgml clean allclean release synchtml tarball
