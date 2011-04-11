@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>加载文件(File Loading)</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="up" href="rn01.html" title="API 参考">
+<link rel="prev" href="gdk-pixbuf-refcounting.html" title="引用计数和内存管理 (Reference Counting and Memory Mangement)">
+<link rel="next" href="gdk-pixbuf-file-saving.html" title="保存文件(File saving)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gdk-pixbuf-refcounting.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<td><a accesskey="n" href="gdk-pixbuf-file-saving.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gdk-pixbuf-file-loading.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gdk-pixbuf-file-loading.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gdk-pixbuf-file-loading"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk-pixbuf-file-loading.top_of_page"></a>加载文件(File Loading)</span></h2>
+<p>加载文件(File Loading) — 从一个文件加载一个 pixbuf。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gdk-pixbuf-file-loading.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
+
+#define             <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file" title="gdk_pixbuf_new_from_file">gdk_pixbuf_new_from_file</a>
+#define             <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file-at-size" title="gdk_pixbuf_new_from_file_at_size">gdk_pixbuf_new_from_file_at_size</a>
+#define             <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file-at-scale" title="gdk_pixbuf_new_from_file_at_scale">gdk_pixbuf_new_from_file_at_scale</a>
+<a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="returnvalue">GdkPixbufFormat</span></a> *   <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-get-file-info" title="gdk_pixbuf_get_file_info ()">gdk_pixbuf_get_file_info</a>            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-stream" title="gdk_pixbuf_new_from_stream ()">gdk_pixbuf_new_from_stream</a>          (<em class="parameter"><code><a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-stream-at-scale" title="gdk_pixbuf_new_from_stream_at_scale ()">gdk_pixbuf_new_from_stream_at_scale</a> (<em class="parameter"><code><a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> preserve_aspect_ratio</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-file-loading.description"></a><h2>Description</h2>
+<p>
+    <span class="application">gdk-pixbuf</span> 库提供了一个简单的机制用来从文件同步的加载一个图像。这意味这
+    当这个文件被加载的时候程序将被 <span class="application">gdk-pixbuf</span> 库将控制 -- 从使用者的角度来看，
+    在图像加载完成前程序将被阻塞。
+  </p>
+<p>
+    这个接口可以被用作允许阻塞的程序中加载图像。通常也可以用来加载很小的图像。
+    需要渐进加载的程序可以使用 <a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a> 功能来代替。
+  </p>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-file-loading.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gdk-pixbuf-new-from-file"></a><h3>gdk_pixbuf_new_from_file</h3>
+<pre class="programlisting">#define gdk_pixbuf_new_from_file gdk_pixbuf_new_from_file_utf8
+</pre>
+<p>
+通过加载一个图像文件创建一个新的 pixbuf。文件格式自动探测。如果返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> ，
+＠error 将会被设置。可能的错误为<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> 或 <a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a>。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-new-from-file-at-size"></a><h3>gdk_pixbuf_new_from_file_at_size</h3>
+<pre class="programlisting">#define gdk_pixbuf_new_from_file_at_size gdk_pixbuf_new_from_file_at_size_utf8
+</pre>
+<p>
+Creates a new pixbuf by loading an image from a file.  
+The file format is detected automatically. If <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned, then 
+<em class="parameter"><code>error</code></em> will be set. Possible errors are in the <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> and 
+<a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a> domains.
+</p>
+<p>
+The image will be scaled to fit in the requested size, preserving
+the image's aspect ratio. Note that the returned pixbuf may be smaller
+than <em class="parameter"><code>width</code></em> x <em class="parameter"><code>height</code></em>, if the aspect ratio requires it. To load
+and image at the requested size, regardless of aspect ratio, use
+<a class="link" href="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file-at-scale" title="gdk_pixbuf_new_from_file_at_scale"><code class="function">gdk_pixbuf_new_from_file_at_scale()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-new-from-file-at-scale"></a><h3>gdk_pixbuf_new_from_file_at_scale</h3>
+<pre class="programlisting">#define gdk_pixbuf_new_from_file_at_scale gdk_pixbuf_new_from_file_at_scale_utf8
+</pre>
+<p>
+通过加载一个图像文件创建一个新的 pixbuf。文件格式自动探测。如果返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> ,
+<em class="parameter"><code>error</code></em> 将会被设置，可能的错误为 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> 或 <a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a>。图像将被
+缩放到请求的大小，是否保持长宽比可选。
+</p>
+<p>
+当保持长宽比缩放时，当 <em class="parameter"><code>width</code></em> 为 -1 时图像将被缩放到给定的高度，当 <em class="parameter"><code>height</code></em> 
+为 -1 时，图像被缩放到给定的宽度。当不保持长宽比缩放时，<em class="parameter"><code>widht</code></em> 或 <em class="parameter"><code>height</code></em> 为 
+-1时，图像不缩放。从2.8开始允许负的 <em class="parameter"><code>width</code></em> 和 <em class="parameter"><code>height</code></em> 值。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个信创建的 pixbuf，引用数为1，当发生下面任何错误时返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+：文件不能打开，没有这种文件格式的 loader，内存不足，或者该文件含有非法数据。</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-get-file-info"></a><h3>gdk_pixbuf_get_file_info ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="returnvalue">GdkPixbufFormat</span></a> *   gdk_pixbuf_get_file_info            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>);</pre>
+<p>
+解析一个图像文件以得到文件的格式和图像的大小。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>用以标识的文件名.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>返回图像的宽度或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>返回图像的高度或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>描述这个文件的图像格式的 <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> ，如果文件格式无法识别则返
+回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>。该返回值被 GdkPixbuf 持有且不应该被释放。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-new-from-stream"></a><h3>gdk_pixbuf_new_from_stream ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_new_from_stream          (<em class="parameter"><code><a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Creates a new pixbuf by loading an image from an input stream.  
+</p>
+<p>
+The file format is detected automatically. If <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned, then 
+<em class="parameter"><code>error</code></em> will be set. The <em class="parameter"><code>cancellable</code></em> can be used to abort the operation
+from another thread. If the operation was cancelled, the error 
+<code class="literal">GIO_ERROR_CANCELLED</code> will be returned. Other possible errors are in 
+the <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> and <a href="../gio/gio-GIOError.html#G-IO-ERROR:CAPS"><code class="literal">G_IO_ERROR</code></a> domains. 
+</p>
+<p>
+The stream is not closed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> to load the pixbuf from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> object, <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回错误的位置</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created pixbuf, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if any of several error
+conditions occurred: the file could not be opened, the image format is
+not supported, there was not enough memory to allocate the image buffer,
+the stream contained invalid data, or the operation was cancelled.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-new-from-stream-at-scale"></a><h3>gdk_pixbuf_new_from_stream_at_scale ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_new_from_stream_at_scale (<em class="parameter"><code><a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> *stream</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> preserve_aspect_ratio</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Creates a new pixbuf by loading an image from an input stream.  
+</p>
+<p>
+The file format is detected automatically. If <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> is returned, then 
+<em class="parameter"><code>error</code></em> will be set. The <em class="parameter"><code>cancellable</code></em> can be used to abort the operation
+from another thread. If the operation was cancelled, the error 
+<code class="literal">GIO_ERROR_CANCELLED</code> will be returned. Other possible errors are in 
+the <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> and <a href="../gio/gio-GIOError.html#G-IO-ERROR:CAPS"><code class="literal">G_IO_ERROR</code></a> domains. 
+</p>
+<p>
+The image will be scaled to fit in the requested size, optionally 
+preserving the image's aspect ratio. When preserving the aspect ratio, 
+a <em class="parameter"><code>width</code></em> of -1 will cause the image to be scaled to the exact given 
+height, and a <em class="parameter"><code>height</code></em> of -1 will cause the image to be scaled to the 
+exact given width. When not preserving aspect ratio, a <em class="parameter"><code>width</code></em> or 
+<em class="parameter"><code>height</code></em> of -1 means to not scale the image at all in that dimension.
+</p>
+<p>
+The stream is not closed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>a <a href="../gio/GInputStream.html"><span class="type">GInputStream</span></a> to load the pixbuf from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>图像的宽度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>图像的高度，如果没有则设置为 -1</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>preserve_aspect_ratio</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 时保持图像的长宽比。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <a href="../gio/GCancellable.html"><span class="type">GCancellable</span></a> object, <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回错误的位置</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created pixbuf, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if any of several error
+conditions occurred: the file could not be opened, the image format is
+not supported, there was not enough memory to allocate the image buffer,
+the stream contained invalid data, or the operation was cancelled.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-file-loading.see-also"></a><h2>See Also</h2>
+<p>
+    <a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a>.
+  </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

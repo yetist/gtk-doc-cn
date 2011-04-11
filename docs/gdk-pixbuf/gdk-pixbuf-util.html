@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>工具 (Utilities)</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="up" href="rn01.html" title="API 参考">
+<link rel="prev" href="gdk-pixbuf-gdk-pixbuf-from-drawables.html" title="Drawables to Pixbufs">
+<link rel="next" href="gdk-pixbuf-animation.html" title="Animations">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gdk-pixbuf-gdk-pixbuf-from-drawables.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<td><a accesskey="n" href="gdk-pixbuf-animation.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gdk-pixbuf-util.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gdk-pixbuf-util.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gdk-pixbuf-util"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk-pixbuf-util.top_of_page"></a>工具 (Utilities)</span></h2>
+<p>工具 (Utilities) — 工具和混杂的便捷函数。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gdk-pixbuf-util.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
+
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-util.html#gdk-pixbuf-add-alpha" title="gdk_pixbuf_add_alpha ()">gdk_pixbuf_add_alpha</a>                (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> substitute_color</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> r</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> g</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> b</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-util.html#gdk-pixbuf-copy-area" title="gdk_pixbuf_copy_area ()">gdk_pixbuf_copy_area</a>                (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src_pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> src_x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> src_y</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *dest_pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dest_x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dest_y</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-util.html#gdk-pixbuf-saturate-and-pixelate" title="gdk_pixbuf_saturate_and_pixelate ()">gdk_pixbuf_saturate_and_pixelate</a>    (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> saturation</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> pixelate</code></em>);
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-util.html#gdk-pixbuf-apply-embedded-orientation" title="gdk_pixbuf_apply_embedded_orientation ()">gdk_pixbuf_apply_embedded_orientation</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-util.html#gdk-pixbuf-fill" title="gdk_pixbuf_fill ()">gdk_pixbuf_fill</a>                     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> pixel</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-util.description"></a><h2>Description</h2>
+<p>
+    这些功能提供了一些用来操作pixbuf的混杂的工具。应用程序可以直接操作
+    pixbuf中的像素数据，但一些常用的操作可以使用这些函数来进行。
+  </p>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-util.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gdk-pixbuf-add-alpha"></a><h3>gdk_pixbuf_add_alpha ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_add_alpha                (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> substitute_color</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> r</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> g</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> b</code></em>);</pre>
+<p>
+获取一个已经存在的 pixbuf，并为之增加 alpha 通道。如果这个已经存在的 pixbuf 
+已经有 alpha 通道，则会从原始图像那里拷贝 alpha 值；否则，alpha 将被初始化为
+255(完全不透明)。
+</p>
+<p>
+如果 <em class="parameter"><code>substitute_color</code></em> 被设置为 <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>，则由(<em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em>)所指定的颜色将被设置为
+完全透明。也就是说，如果传递给替代颜色(255, 255, 255)，那么所有的白色色素将变
+成完全透明。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>substitute_color</code></em> :</span></p></td>
+<td>是否设置一种颜色为透明。如果该值为 <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>，那么(<em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>,
+<em class="parameter"><code>b</code></em>) 参数将被忽略。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>填充 Red 值</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>填充 Green 值</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>填充 Blue 值</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个新创建的 pixbuf，引用数为 1。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-copy-area"></a><h3>gdk_pixbuf_copy_area ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_copy_area                (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src_pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> src_x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> src_y</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> height</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *dest_pixbuf</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dest_x</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> dest_y</code></em>);</pre>
+<p>
+将 <em class="parameter"><code>src_pixbuf</code></em> 的一个矩形区域拷贝到 <em class="parameter"><code>dest_pixbuf</code></em>， pixbuf 的格式将被自动转
+换。
+</p>
+<p>
+If the source rectangle overlaps the destination rectangle on the
+same pixbuf, it will be overwritten during the copy operation.
+Therefore, you can not use this function to scroll a pixbuf.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_pixbuf</code></em> :</span></p></td>
+<td>源 pixbuf.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_x</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>src_pixbuf</code></em> 中的源 Y 坐标</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src_y</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>src_pixbuf</code></em> 中的源 Y 坐标</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>复制区域的宽度</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>复制区域的高度</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest_pixbuf</code></em> :</span></p></td>
+<td>目标 pixbuf.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest_x</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>dest_pixbuf</code></em> 中的 X 坐标</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest_y</code></em> :</span></p></td>
+<td>
+<em class="parameter"><code>dest_pixbuf</code></em> 中的 Y 坐标</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-saturate-and-pixelate"></a><h3>gdk_pixbuf_saturate_and_pixelate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_saturate_and_pixelate    (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *dest</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> saturation</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> pixelate</code></em>);</pre>
+<p>
+修改 <em class="parameter"><code>src</code></em> 的饱和度和像素化，将结果放在 <em class="parameter"><code>dest</code></em>。<em class="parameter"><code>src</code></em> 和 <em class="parameter"><code>dest</code></em> 可以是同一个 
+pixbuf 且没有任何副作用。当 <em class="parameter"><code>saturation</code></em> 是 1.0 图像饱和度不变化。当其值小于 
+1.0 时，饱和度降低(图像朝灰度方向变化)；当大于 1.0时，图像饱和度增加(图像变得
+更加生动)。如果  <em class="parameter"><code>pixelate</code></em> 设置为 <em class="parameter"><code>TRUE</code></em>，会按棋盘模式褪色以像素化这个图像。
+<em class="parameter"><code>src</code></em> 和 <em class="parameter"><code>dest</code></em> 必须有同样的图像格式、大小和行宽度。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>源图像</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>写修改后的 <em class="parameter"><code>src</code></em> 的地方。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>saturation</code></em> :</span></p></td>
+<td>饱和度因子</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixelate</code></em> :</span></p></td>
+<td>是否像素化</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-apply-embedded-orientation"></a><h3>gdk_pixbuf_apply_embedded_orientation ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_apply_embedded_orientation
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *src</code></em>);</pre>
+<p>
+Takes an existing pixbuf and checks for the presence of an
+associated "orientation" option, which may be provided by the 
+jpeg loader (which reads the exif orientation tag) or the 
+tiff loader (which reads the tiff orientation tag, and
+compensates it for the partial transforms performed by 
+libtiff). If an orientation option/tag is present, the
+appropriate transform will be performed so that the pixbuf
+is oriented correctly.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>A <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created pixbuf, or a reference to the
+input pixbuf (with an increased reference count).
+Since 2.12</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-fill"></a><h3>gdk_pixbuf_fill ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_fill                     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> pixel</code></em>);</pre>
+<p>
+用给定的 RGBA 值来清除一个 pixbuf，转换这个 RGBA 值到 pixbuf 的像素格式。如果
+这个 pixbuf 没有 alpha 通道，则 alpha 值被忽略。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>a <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixel</code></em> :</span></p></td>
+<td>用RGBA像素来填充(0xffffffff 为不透明的白色, 0x00000000 为透明的黑
+色。)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-util.see-also"></a><h2>See Also</h2>
+<p>
+    <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>
+  </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

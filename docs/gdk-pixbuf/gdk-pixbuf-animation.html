@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Animations</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="up" href="rn01.html" title="API 参考">
+<link rel="prev" href="gdk-pixbuf-util.html" title="工具 (Utilities)">
+<link rel="next" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gdk-pixbuf-util.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<td><a accesskey="n" href="GdkPixbufLoader.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gdk-pixbuf-animation.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gdk-pixbuf-animation.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gdk-pixbuf-animation.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gdk-pixbuf-animation"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk-pixbuf-animation.top_of_page"></a>Animations</span></h2>
+<p>Animations — 动画。</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gdk-pixbuf-animation.synopsis"></a><h2>Synopsis</h2>
+<a name="GdkPixbufAnimation"></a><a name="GdkPixbufAnimationIter"></a><pre class="synopsis">
+#include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
+
+struct              <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation-struct" title="struct GdkPixbufAnimation">GdkPixbufAnimation</a>;
+struct              <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter-struct" title="struct GdkPixbufAnimationIter">GdkPixbufAnimationIter</a>;
+#define             <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-new-from-file" title="gdk_pixbuf_animation_new_from_file">gdk_pixbuf_animation_new_from_file</a>
+<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="returnvalue">GdkPixbufAnimation</span></a> * <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-ref" title="gdk_pixbuf_animation_ref ()">gdk_pixbuf_animation_ref</a>           (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-unref" title="gdk_pixbuf_animation_unref ()">gdk_pixbuf_animation_unref</a>          (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-width" title="gdk_pixbuf_animation_get_width ()">gdk_pixbuf_animation_get_width</a>      (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-height" title="gdk_pixbuf_animation_get_height ()">gdk_pixbuf_animation_get_height</a>     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="returnvalue">GdkPixbufAnimationIter</span></a> * <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-iter" title="gdk_pixbuf_animation_get_iter ()">gdk_pixbuf_animation_get_iter</a>  (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *start_time</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-is-static-image" title="gdk_pixbuf_animation_is_static_image ()">gdk_pixbuf_animation_is_static_image</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-static-image" title="gdk_pixbuf_animation_get_static_image ()">gdk_pixbuf_animation_get_static_image</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-advance" title="gdk_pixbuf_animation_iter_advance ()">gdk_pixbuf_animation_iter_advance</a>   (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *current_time</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-delay-time" title="gdk_pixbuf_animation_iter_get_delay_time ()">gdk_pixbuf_animation_iter_get_delay_time</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-on-currently-loading-frame" title="gdk_pixbuf_animation_iter_on_currently_loading_frame ()">gdk_pixbuf_animation_iter_on_currently_loading_frame</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);
+<a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf" title="gdk_pixbuf_animation_iter_get_pixbuf ()">gdk_pixbuf_animation_iter_get_pixbuf</a>
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);
+
+                    <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim">GdkPixbufSimpleAnim</a>;
+<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-new" title="gdk_pixbuf_simple_anim_new ()">gdk_pixbuf_simple_anim_new</a>        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> rate</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-add-frame" title="gdk_pixbuf_simple_anim_add_frame ()">gdk_pixbuf_simple_anim_add_frame</a>    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GdkPixbufAnimation
+</pre>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----GdkPixbufAnimationIter
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.description"></a><h2>Description</h2>
+<p>
+    <span class="application">gdk-pixbuf</span> 库提供了一个简单的机制用来加载和显示动画。一个动画从概念上讲就是一系列随
+    时间显示的帧。所有的帧都一样大小。动画内部可能并不是表现为一些列的帧；比如，它可能储存
+    一个小精灵(sprite)和使之绕背景移动的指令。要显示一个动画您并不去要理解它的表现形式，
+    而只要询问 <span class="application">gdk-pixbuf</span> 在给定的时间点需要显示什么。
+  </p>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GdkPixbufAnimation-struct"></a><h3>struct GdkPixbufAnimation</h3>
+<pre class="programlisting">struct GdkPixbufAnimation;</pre>
+<p>
+An opaque struct representing an animation.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GdkPixbufAnimationIter-struct"></a><h3>struct GdkPixbufAnimationIter</h3>
+<pre class="programlisting">struct GdkPixbufAnimationIter;</pre>
+<p>
+An opaque struct representing an iterator which points to a
+certain position in an animation.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-new-from-file"></a><h3>gdk_pixbuf_animation_new_from_file</h3>
+<pre class="programlisting">#define gdk_pixbuf_animation_new_from_file gdk_pixbuf_animation_new_from_file_utf8
+</pre>
+<p>
+从一个文件中读取信息创建动画。文件格式会被自动检测到。如果文件格式是不支持多
+帧动画的，则将创建一个单帧的动画。错误信息将可能置于  <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> 和 
+<a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a> 对象中。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个引用数为1的新建立的动画，或者几个条件错误发生了的<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>：文
+件不能被打开，没有调用器来识别文件的格式，没有足够的内存以供图像缓冲分配，或
+者图像文件包含不正确的数据。</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-ref"></a><h3>gdk_pixbuf_animation_ref ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="returnvalue">GdkPixbufAnimation</span></a> * gdk_pixbuf_animation_ref           (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gdk_pixbuf_animation_ref</code> is deprecated and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.</p>
+</div>
+<p>
+为动画添加引用(reference)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个动画</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>和参数 <em class="parameter"><code>animation</code></em> 一样</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-unref"></a><h3>gdk_pixbuf_animation_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_animation_unref          (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gdk_pixbuf_animation_unref</code> is deprecated and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</p>
+</div>
+<p>
+为一个动画删除引用（reference)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个动画</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-get-width"></a><h3>gdk_pixbuf_animation_get_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 gdk_pixbuf_animation_get_width      (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<p>
+一个pixbuf动画的边界宽度查询。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个动画</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>装载动画的盒子的宽度</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-get-height"></a><h3>gdk_pixbuf_animation_get_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 gdk_pixbuf_animation_get_height     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<p>
+一个pixbuf动画的边界高度查询。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个动画</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>装有动画的盒子的高度</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-get-iter"></a><h3>gdk_pixbuf_animation_get_iter ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="returnvalue">GdkPixbufAnimationIter</span></a> * gdk_pixbuf_animation_get_iter  (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *start_time</code></em>);</pre>
+<p>
+得到一个显示动画用的迭代子(iterator)。该迭代子提供了在给定的时间显示的帧
+(frame)。可以使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> 将其释放
+</p>
+<p>
+<em class="parameter"><code>start_time</code></em> 通常可以由 <a href="../glib/glib-Date-and-Time-Functions.html#g-get-current-time"><code class="function">g_get_current_time()</code></a> 得到，且标记该动画回放的开始。生
+成迭代子后，应该立即显示由 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf" title="gdk_pixbuf_animation_iter_get_pixbuf ()"><code class="function">gdk_pixbuf_animation_iter_get_pixbuf()</code></a> 返回的
+pixbuf。这时，应该设定一个计时器(timeout)(使用 <a href="../glib/glib-The-Main-Event-Loop.html#g-timeout-add"><code class="function">g_timeout_add()</code></a>)或者通过其他机
+制确保你可以在由 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-delay-time" title="gdk_pixbuf_animation_iter_get_delay_time ()"><code class="function">gdk_pixbuf_animation_iter_get_delay_time()</code></a> 得到的数值的毫秒
+之后更新图像，你需要重新设定定时器到新的，有可能改变的延迟时间
+</p>
+<p>
+作为一个捷径，如果 <em class="parameter"><code>start_time</code></em> 设置为 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, 将自动使用 <a href="../glib/glib-Date-and-Time-Functions.html#g-get-current-time"><code class="function">g_get_current_time()</code></a> 
+的结果(result)
+</p>
+<p>
+要更新图片(例如，要将 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf" title="gdk_pixbuf_animation_iter_get_pixbuf ()"><code class="function">gdk_pixbuf_animation_iter_get_pixbuf()</code></a> 的结果变成动画的
+新的帧)，调用 <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-advance" title="gdk_pixbuf_animation_iter_advance ()"><code class="function">gdk_pixbuf_animation_iter_advance()</code></a>。
+</p>
+<p>
+如果正在使用 <a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a>，除了在延迟时间之后更新图像外，还需要在收到 
+area_updated 信号且<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-on-currently-loading-frame" title="gdk_pixbuf_animation_iter_on_currently_loading_frame ()"><code class="function">gdk_pixbuf_animation_iter_on_currently_loading_frame()</code></a> 返
+回 <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 时更新图像。在这种情况下，当前放在这个 loader 里的帧接收到了新的数
+据，所以需要刷新。该帧的延迟时间也应该在收到 area_updated 信号后被修改，比如
+一个帧的延迟时间被编码在该帧本身之后的数据里。所以定时器应该在收到任何 
+area_updated 信号之后被修改。
+</p>
+<p>
+延迟时间有可能为 -1，表示"无限长."
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start_time</code></em> :</span></p></td>
+<td>动画开始播放的时间</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>指示此动画的迭代子(iterator)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-is-static-image"></a><h3>gdk_pixbuf_animation_is_static_image ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_pixbuf_animation_is_static_image
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<p>
+如果你使用<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-new-from-file" title="gdk_pixbuf_animation_new_from_file"><code class="function">gdk_pixbuf_animation_new_from_file()</code></a> 函数装载一个文件并被证明是一个
+普通的，非动画的图像，则这个函数将返回<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>. 使用 
+<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-static-image" title="gdk_pixbuf_animation_get_static_image ()"><code class="function">gdk_pixbuf_animation_get_static_image()</code></a> 函数来取得图像。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> 如果 "animation" 仅仅是一个图像</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-get-static-image"></a><h3>gdk_pixbuf_animation_get_static_image ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_animation_get_static_image
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
+<p>
+如果一个动画是一个普通图像（只有一帧），这个函数返回此图像。如果动画是一个可
+动的图像，这个函数返回一个合理的字符串来显示一个静态的，非动画的图像，这可能
+是第一帧，或更多。如果一个动画未能装载更多帧，这个函数将返回<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>非动画图像表示动画图像</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-iter-advance"></a><h3>gdk_pixbuf_animation_iter_advance ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_pixbuf_animation_iter_advance   (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Date-and-Time-Functions.html#GTimeVal"><span class="type">GTimeVal</span></a> *current_time</code></em>);</pre>
+<p>
+可能更新一个动画到新的帧。这个帧的选择依赖于传递给 
+<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-iter" title="gdk_pixbuf_animation_get_iter ()"><code class="function">gdk_pixbuf_animation_get_iter()</code></a> 的开始时间
+</p>
+<p>
+<em class="parameter"><code>current_time</code></em> 通常由 <a href="../glib/glib-Date-and-Time-Functions.html#g-get-current-time"><code class="function">g_get_current_time()</code></a> 得到，而且必须大于或等于传递给 
+<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-iter" title="gdk_pixbuf_animation_get_iter ()"><code class="function">gdk_pixbuf_animation_get_iter()</code></a> 的时间，而且当每次 
+<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf" title="gdk_pixbuf_animation_iter_get_pixbuf ()"><code class="function">gdk_pixbuf_animation_iter_get_pixbuf()</code></a> 被调用时必须增加或保持不变。
+</p>
+<p>
+作为一个捷径，为当前时间传递 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 则 <a href="../glib/glib-Date-and-Time-Functions.html#g-get-current-time"><code class="function">g_get_current_time()</code></a> 将被自动介入。如果
+你想做一些象加倍速度播放的怪事，只需要为 <em class="parameter"><code>current_time</code></em> 传递确切的值。
+</p>
+<p>
+如果该函数返回 <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>，将不需要更新动画显示，假定先前渲染的显示为更新; 如果
+是 <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>，则需要调用<code class="function">gdk_animation_iter_get_pixbuf()</code> 且用新的 pixbuf 更新显
+示。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>current_time</code></em> :</span></p></td>
+<td>现在的时间</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>如果图像需要更新则返回 <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-iter-get-delay-time"></a><h3>gdk_pixbuf_animation_iter_get_delay_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 gdk_pixbuf_animation_iter_get_delay_time
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);</pre>
+<p>
+得到当前 pixbuf 应该显示的毫秒数或 -1， 如果为 -1 则当前 pixbuf 应该永久显
+示。<a href="../glib/glib-The-Main-Event-Loop.html#g-timeout-add"><code class="function">g_timeout_add()</code></a> 可以方便的生成一个以毫秒计算的定时器(timeout)，可以使用定
+时器来安排下一次更新图像
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>一个动画的迭代子（iterator）</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>毫秒级延时 (千分之一秒)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-iter-on-currently-loading-frame"></a><h3>gdk_pixbuf_animation_iter_on_currently_loading_frame ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_pixbuf_animation_iter_on_currently_loading_frame
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);</pre>
+<p>
+用来决定如何响应 <a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a> 加载动画（animation）时收到的 area_updated 
+信号。area_updated 在当该帧的一区域正加载进这个 loader 是被发送。所以，如果正
+在当前加载的帧时，则需要重画屏幕的这个区域。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>如果当前帧被部分的加载返回 <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> ，否则表示为最后帧。</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-animation-iter-get-pixbuf"></a><h3>gdk_pixbuf_animation_iter_get_pixbuf ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_animation_iter_get_pixbuf
+                                                        (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);</pre>
+<p>
+得到应该在当前显示的 pixbuf；这个 pixbuf 应该和这个动画一样大小
+(<code class="function">gdk_pixbuf_animation_iter_get_width()</code>，<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-height" title="gdk_pixbuf_animation_get_height ()"><code class="function">gdk_pixbuf_animation_get_height()</code></a>)。
+这个 pixbuf 应该被显示 <code class="function">gdk_pixbuf_animation_iter_get_get_delay_time()</code> 个毫秒
+长。这个函数的调用者并不拥有返回的 pixbuf 的引用，任何时候调用 
+<a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-advance" title="gdk_pixbuf_animation_iter_advance ()"><code class="function">gdk_pixbuf_animation_iter_advance()</code></a> ，这个迭代子（iterator）更新到下一个帧时
+这个 pixbuf 便失效了。如果想再更新了迭代子后重复利用该 pixbuf，拷贝这个 
+pixbuf (不要只增加一个引用)。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>一个动画的迭代子（iterator）</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>将显示的pixbuf</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GdkPixbufSimpleAnim"></a><h3>GdkPixbufSimpleAnim</h3>
+<pre class="programlisting">typedef struct _GdkPixbufSimpleAnim GdkPixbufSimpleAnim;</pre>
+<p>
+An opaque struct representing a simple animation.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-simple-anim-new"></a><h3>gdk_pixbuf_simple_anim_new ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * gdk_pixbuf_simple_anim_new        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> rate</code></em>);</pre>
+<p>
+创建一个新的，空的动画。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>动画的宽度</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>动画的高度</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rate</code></em> :</span></p></td>
+<td>动画的速度，每秒多少帧</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>一个新分配的<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> 对象。</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-simple-anim-add-frame"></a><h3>gdk_pixbuf_simple_anim_add_frame ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_simple_anim_add_frame    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
+<p>
+给 <em class="parameter"><code>animation</code></em> 增加一个新的帧。这个 <em class="parameter"><code>pixbuf</code></em> 必须在动画被构造的时候指定尺寸。
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>添加一个pixbuf</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.8</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.see-also"></a><h2>See Also</h2>
+<p>
+    <a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a>
+  </p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

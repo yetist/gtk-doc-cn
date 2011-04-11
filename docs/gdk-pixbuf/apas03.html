@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>将程序转换到 gdk-pixbuf</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="up" href="apa.html" title="Appendix A. 将 Imlib 程序移植到 gdk-pixbuf">
+<link rel="prev" href="apas02.html" title="Imlib 和 gdk-pixbuf 之间的区别">
+<link rel="next" href="license.html" title="Appendix B. 许可证">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="apas02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="apa.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<td><a accesskey="n" href="license.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id3140792"></a>将程序转换到 <span class="application">gdk-pixbuf</span>
+</h2></div></div></div>
+<p>
+	该章节描述了将使用 <span class="application">Imlib</span> 的程序转换到使用 <span class="application">gdk-pixbuf</span> 所需要进行的
+	实际改变。
+      </p>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id3140819"></a>加载和创建图像</h3></div></div></div>
+<p>
+	  <span class="application">gdk-pixbuf</span> 库可以同步的加载图像文件(例如使用一个单独的函数调用)，
+	  从内存中的 RGB 数据创建一个图像，作为一个便捷途径，还可以从内嵌的
+	   XPM 数据创建图像。
+	</p>
+<p>
+	  使用一个单独的函数调用来加载一个图像文件，可以简单的使用
+	   <code class="function">gdk_pixbuf_new_from_file()</code>。注意，这将
+	  导致程序在整个文件加载完成前被阻塞。这个函数有效的取代了
+	   <code class="function">gdk_imlib_load_image()</code>。
+	</p>
+<p>
+	  如果内存中有 RGB 数据，可以使用
+	  <code class="function">gdk_pixbuf_new_from_data()</code> 来用这些数据
+	  创建一个 pixbuf，这个函数可以代替
+	  <code class="function">gdk_imlib_create_image_from_data()</code> 。
+	  <span class="application">gdk-pixbuf</span> 并不复制图像数据；需要你定义一个使用将在图像数据被释
+	  放时调用的销毁通知函数(destroy notification function)的策略。你
+	  提供的这个函数可以释放这些数据或者做其他的合适的事情。
+	</p>
+<p>
+	  作为一个便捷途径，你可以使用
+	  <code class="function">gdk_pixbuf_new_from_xpm_data()</code> 函数使用
+	  内嵌的已经编译到你的 C 程序的 XPM 数据来创建一个 pixbuf。该函数可以
+	  作为 <code class="function">gdk_imlib_create_image_from_xpm_data()</code>
+	  的一个替代。
+	</p>
+<p>
+	  当你创建了一个 pixbuf 后，可以使用任何喜欢的方法来对其进行操作，当
+	  一切完成后最终调用 <code class="function">g_object_unref()</code>。这个函数
+	  可以被看作 <code class="function">gdk_imlib_destroy_image()</code> 的替代
+	  函数，但其具有更多的清除语义(cleaner semantics)。
+	</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id3134766"></a>渲染图像</h3></div></div></div>
+<p>
+	  使用 <span class="application">Imlib</span> 的程序必须先调用 <code class="function">gdk_imlib_render()</code> 
+	  来将整个的图像数据渲染到其创建的 pixmap 上。让后必须拷贝这个 pixmap 的
+	  数据到图像的最终目的地。
+	</p>
+<p>
+	  相比之下，<span class="application">gdk-pixbuf</span> 提供了一些可以方便的将一个图像的任意一个矩形
+	  区域渲染到一个程序提供的 drawable 上。可以使用
+	  <code class="function">gdk_pixbuf_render_to_drawable()</code> 或者
+	  <code class="function">gdk_pixbuf_render_to_drawable_alpha()</code>
+	  来完成这些。让你的程序提供 drawable 和指定任意区域意味着你的程序可以
+	  完全控制图像的渲染方式。
+	</p>
+<p>
+	  为了方便起见， <span class="application">gdk-pixbuf</span> 也提供了
+	  <code class="function">gdk_pixbuf_render_pixmap_and_mask()</code>
+	  函数 -- 这将为整个 pixbuf 创建新的 pixmap 和 mask drawable
+	  并为其渲染图像数据。只有一些琐碎的小程序会使用这个函数，因为通常
+	  都想很好的控制怎样去进行渲染。
+	</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id3140622"></a>图像的缩放</h3></div></div></div>
+<p>
+	  <span class="application">Imlib</span> 可以使你在调用 <code class="function">gdk_imlib_render()</code>
+	  的同时渲染缩放图像。同样，这个也是缩放和渲染整个的图像到一个新的
+	  pixmap。
+	</p>
+<p>
+	  <span class="application">gdk-pixbuf</span> 提供了很多可以缩放源 pixbuf 的任何区域并渲染到目标
+	  pixbuf 的函数。这些函数还可以处理合成操作，与目标 pixbuf 合成、
+	  与单一颜色(solid color)合成或者与颜色棋盘合成。
+	  <sup>[<a name="id3140656" href="#ftn.id3140656" class="footnote">1</a>]</sup>
+	</p>
+<p>
+	  非常简单的程序使用
+	  <code class="function">gdk_pixbuf_scale_simple()</code> or
+	  <code class="function">gdk_pixbuf_composite_color_simple()</code>
+	  可能就足够了。这些函数缩放整个的源图像并使用的结果创建一个新的
+	  pixbuf。
+	</p>
+<p>
+	  更复杂的程序将需要使用
+	  <code class="function">gdk_pixbuf_scale()</code>,
+	  <code class="function">gdk_pixbuf_composite()</code>, 或者
+	  <code class="function">gdk_pixbuf_composite_color()</code>
+	  函数来替代。这些函数允许你缩放和合成源 pixbuf 的任何一个区域
+	  到你提供的目标 pixbuf。
+	</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id3140994"></a>从 Drawable 获取图像数据</h3></div></div></div>
+<p>
+	  <span class="application">Imlib</span> 允许你通过从 X 服务器获取一个 drawable 的内容并将其转
+	  换成 RGB 数据来创建一个图像。这使用
+	  <code class="function">gdk_imlib_create_image_from_drawable()</code>
+	  来完成。
+	</p>
+<p>
+	  <span class="application">gdk-pixbuf</span> 提供了
+	  <code class="function">gdk_pixbuf_get_from_drawable()</code> 函数来
+	  代替。这需要你指定一个目标 pixbuf，而不是总为你创建一个新的。
+	</p>
+</div>
+<div class="footnotes">
+<br><hr width="100" align="left">
+<div class="footnote">
+<p><sup>[<a id="ftn.id3140656" href="#id3140656" class="para">1</a>] </sup>
+	      当你想为这个图像有部分不透明区域提供一个可见的指示时，你可以使用
+	      一个色彩棋盘作为一个背景进行合成。这在图像编辑和查看程序中很常用。
+	    </p>
+<p>
+	      将图像与单一颜色(solid color)合成实际上是一种特殊情况的棋盘 -- 
+	      该棋盘使用相同颜色的格子。
+	    </p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
