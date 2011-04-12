@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>保存文件(File saving)</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="gdk-pixbuf-file-loading.html" title="加载文件(File Loading)">
 <link rel="next" href="gdk-pixbuf-creating.html" title="内存中的图象数据(Image Data in Memory)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gdk-pixbuf-file-loading.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf参考手册</th>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-creating.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -124,7 +124,7 @@ $_1_$|, "tiff", "ico" or "bmp"。如果
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -183,6 +183,30 @@ gdk_pixbuf_save (pixbuf, handle, "jpeg", &amp;error,
 compression" 参数指定PNG图像的压缩级别，其值应该是 [0,9] 范围的整数。
 </p>
 <p>
+ICC color profiles can also be embedded into PNG and TIFF images.
+The "icc-profile" value should be the complete ICC profile encoded
+into base64.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+gchar *contents;
+gchar *contents_encode;
+gsize length;
+g_file_get_contents ("/home/hughsie/.color/icc/L225W.icm", &amp;contents, &amp;length, NULL);
+contents_encode = g_base64_encode ((const guchar *) contents, length);
+gdk_pixbuf_save (pixbuf, handle, "png", &amp;error,
+                 "icc-profile", contents_encode,
+                 NULL);
+</pre></div>
+<p>
+</p>
+<p>
+TIFF images recognize a "compression" option which acceps an integer value.
+Among the codecs are 1 None, 2 Huffman, 5 LZW, 7 JPEG and 8 Deflate, see
+the libtiff documentation and tiff.h for all supported codec values.
+</p>
+<p>
 ICO 图像可以通过使用 "depth" 参数指定以16，24或32(位)色深保存。当
 保存 ICO 时给定了 "x_hot" 和 "y_hot" 参数，则生成一
 个 CUR 来取代 ICO.
@@ -204,7 +228,7 @@ ICO 图像可以通过使用 "depth" 参数指定以16，24或32(位)色深保�
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -286,7 +310,9 @@ ICO 图像可以通过使用 "depth" 参数指定以16，24或32(位)色深保�
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>save_func</code></em> :</span></p></td>
-<td>一个被用来保存由保存例程创建的每块数据的函数。</td>
+<td>a function that is called to save each block of data that
+the save routine generates. <span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -298,7 +324,7 @@ ICO 图像可以通过使用 "depth" 参数指定以16，24或32(位)色深保�
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -338,7 +364,9 @@ $|。如果 <em class="parameter"><code>error</code></em> 被设置，则返回 
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>save_func</code></em> :</span></p></td>
-<td>一个被用来保存由保存例程创建的每块数据的函数。</td>
+<td>a function that is called to save each block of data that
+the save routine generates. <span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -358,7 +386,7 @@ $|。如果 <em class="parameter"><code>error</code></em> 被设置，则返回 
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -411,7 +439,7 @@ domain.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -470,7 +498,7 @@ $_1_$|。参见 <a class="link" href="gdk-pixbuf-file-saving.html#gdk-pixbuf-sav
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -528,7 +556,7 @@ The stream is not closed.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回错误的位置， 或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+<td>return location for error, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>

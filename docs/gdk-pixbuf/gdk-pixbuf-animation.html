@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Animations</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="gdk-pixbuf-util.html" title="工具 (Utilities)">
 <link rel="next" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gdk-pixbuf-util.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf参考手册</th>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
 <td><a accesskey="n" href="GdkPixbufLoader.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -26,6 +26,8 @@
                   <a href="#gdk-pixbuf-animation.description" class="shortcut">Description</a>
                    | 
                   <a href="#gdk-pixbuf-animation.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gdk-pixbuf-animation.properties" class="shortcut">Properties</a>
 </td></tr>
 </table>
 <div class="refentry">
@@ -39,7 +41,7 @@
 </tr></table></div>
 <div class="refsynopsisdiv">
 <a name="gdk-pixbuf-animation.synopsis"></a><h2>Synopsis</h2>
-<a name="GdkPixbufAnimation"></a><a name="GdkPixbufAnimationIter"></a><pre class="synopsis">
+<a name="GdkPixbufAnimation"></a><a name="GdkPixbufAnimationIter"></a><a name="GdkPixbufSimpleAnim"></a><pre class="synopsis">
 #include &lt;gdk-pixbuf/gdk-pixbuf.h&gt;
 
 struct              <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation-struct" title="struct GdkPixbufAnimation">GdkPixbufAnimation</a>;
@@ -64,12 +66,15 @@ struct              <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAni
 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf" title="gdk_pixbuf_animation_iter_get_pixbuf ()">gdk_pixbuf_animation_iter_get_pixbuf</a>
                                                         (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a> *iter</code></em>);
 
-                    <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim">GdkPixbufSimpleAnim</a>;
-<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-new" title="gdk_pixbuf_simple_anim_new ()">gdk_pixbuf_simple_anim_new</a>        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+                    <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim-struct" title="GdkPixbufSimpleAnim">GdkPixbufSimpleAnim</a>;
+<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-new" title="gdk_pixbuf_simple_anim_new ()">gdk_pixbuf_simple_anim_new</a>        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> rate</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-add-frame" title="gdk_pixbuf_simple_anim_add_frame ()">gdk_pixbuf_simple_anim_add_frame</a>    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-add-frame" title="gdk_pixbuf_simple_anim_add_frame ()">gdk_pixbuf_simple_anim_add_frame</a>    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-set-loop" title="gdk_pixbuf_simple_anim_set_loop ()">gdk_pixbuf_simple_anim_set_loop</a>     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> loop</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-get-loop" title="gdk_pixbuf_simple_anim_get_loop ()">gdk_pixbuf_simple_anim_get_loop</a>     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -77,10 +82,22 @@ struct              <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAni
 <pre class="synopsis">
   <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GdkPixbufAnimation
+         +----<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim">GdkPixbufSimpleAnim</a>
 </pre>
 <pre class="synopsis">
   <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
    +----GdkPixbufAnimationIter
+</pre>
+<pre class="synopsis">
+  <a href="../gobject/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation">GdkPixbufAnimation</a>
+         +----GdkPixbufSimpleAnim
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim--loop" title='The "loop" property'>loop</a>"                     <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write
 </pre>
 </div>
 <div class="refsect1">
@@ -146,7 +163,7 @@ certain position in an animation.
 <pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="returnvalue">GdkPixbufAnimation</span></a> * gdk_pixbuf_animation_ref           (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">gdk_pixbuf_animation_ref</code> is deprecated and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.</p>
+<p><code class="literal">gdk_pixbuf_animation_ref</code> has been deprecated since version 2.0 and should not be used in newly-written code. Use <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.</p>
 </div>
 <p>
 为动画添加引用(reference)
@@ -171,7 +188,7 @@ certain position in an animation.
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_animation_unref          (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *animation</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">gdk_pixbuf_animation_unref</code> is deprecated and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</p>
+<p><code class="literal">gdk_pixbuf_animation_unref</code> has been deprecated since version 2.0 and should not be used in newly-written code. Use <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</p>
 </div>
 <p>
 为一个动画删除引用（reference)
@@ -275,7 +292,8 @@ area_updated 信号之后被修改。
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>指示此动画的迭代子(iterator)</td>
+<td>an iterator to move over the animation. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -326,7 +344,8 @@ area_updated 信号之后被修改。
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>非动画图像表示动画图像</td>
+<td>unanimated image representing the animation. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -446,14 +465,15 @@ pixbuf (不要只增加一个引用)。
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>将显示的pixbuf</td>
+<td>the pixbuf to be displayed. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
 <div class="refsect2">
-<a name="GdkPixbufSimpleAnim"></a><h3>GdkPixbufSimpleAnim</h3>
+<a name="GdkPixbufSimpleAnim-struct"></a><h3>GdkPixbufSimpleAnim</h3>
 <pre class="programlisting">typedef struct _GdkPixbufSimpleAnim GdkPixbufSimpleAnim;</pre>
 <p>
 An opaque struct representing a simple animation.
@@ -462,7 +482,7 @@ An opaque struct representing a simple animation.
 <hr>
 <div class="refsect2">
 <a name="gdk-pixbuf-simple-anim-new"></a><h3>gdk_pixbuf_simple_anim_new ()</h3>
-<pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * gdk_pixbuf_simple_anim_new        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="returnvalue">GdkPixbufSimpleAnim</span></a> * gdk_pixbuf_simple_anim_new        (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> width</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> height</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> rate</code></em>);</pre>
 <p>
@@ -485,7 +505,7 @@ An opaque struct representing a simple animation.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个新分配的<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> 对象。</td>
+<td>一个新分配的<a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> 对象。</td>
 </tr>
 </tbody>
 </table></div>
@@ -494,7 +514,7 @@ An opaque struct representing a simple animation.
 <hr>
 <div class="refsect2">
 <a name="gdk-pixbuf-simple-anim-add-frame"></a><h3>gdk_pixbuf_simple_anim_add_frame ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_simple_anim_add_frame    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_simple_anim_add_frame    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <p>
 给 <em class="parameter"><code>animation</code></em> 增加一个新的帧。这个 <em class="parameter"><code>pixbuf</code></em> 必须在动画被构造的时候指定尺寸。
@@ -504,7 +524,7 @@ An opaque struct representing a simple animation.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>animation</code></em> :</span></p></td>
-<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim" title="GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a>
+<td>一个 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a>
 </td>
 </tr>
 <tr>
@@ -514,6 +534,29 @@ An opaque struct representing a simple animation.
 </tbody>
 </table></div>
 <p class="since">Since 2.8</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-simple-anim-set-loop"></a><h3>gdk_pixbuf_simple_anim_set_loop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_simple_anim_set_loop     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> loop</code></em>);</pre>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-simple-anim-get-loop"></a><h3>gdk_pixbuf_simple_anim_get_loop ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gdk_pixbuf_simple_anim_get_loop     (<em class="parameter"><code><a class="link" href="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"><span class="type">GdkPixbufSimpleAnim</span></a> *animation</code></em>);</pre>
+<p class="since">Since 2.18</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk-pixbuf-animation.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GdkPixbufSimpleAnim--loop"></a><h3>The <code class="literal">"loop"</code> property</h3>
+<pre class="programlisting">  "loop"                     <a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read / Write</pre>
+<p>Whether the animation should loop when it reaches the end.</p>
+<p>Default value: FALSE</p>
+<p class="since">Since 2.18</p>
 </div>
 </div>
 <div class="refsect1">

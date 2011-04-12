@@ -4,10 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>模块接口 (Module Interface)</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)">
-<link rel="next" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html" title="gdk-pixbuf Xlib 初始化">
+<link rel="next" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html" title="gdk-pixbuf Xlib 初始化 (gdk-pixbuf Xlib initialization)">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="GdkPixbufLoader.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf参考手册</th>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-gdk-pixbuf-xlib-init.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -44,6 +44,8 @@
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);
 <a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-get-formats" title="gdk_pixbuf_get_formats ()">gdk_pixbuf_get_formats</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="returnvalue">GdkPixbufFormat</span></a> *   <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-copy" title="gdk_pixbuf_format_copy ()">gdk_pixbuf_format_copy</a>              (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-free" title="gdk_pixbuf_format_free ()">gdk_pixbuf_format_free</a>              (<em class="parameter"><code><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);
 <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-name" title="gdk_pixbuf_format_get_name ()">gdk_pixbuf_format_get_name</a>          (<em class="parameter"><code><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);
 <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-description" title="gdk_pixbuf_format_get_description ()">gdk_pixbuf_format_get_description</a>   (<em class="parameter"><code><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);
 <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-mime-types" title="gdk_pixbuf_format_get_mime_types ()">gdk_pixbuf_format_get_mime_types</a>    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);
@@ -127,8 +129,8 @@ struct              <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPi
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *value</code></em>);</pre>
 <p>
-给一个 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> 附加一个作为选项的键值对。如果在这个 pixbuf 的选项列表里 %
-key 已经存在，则新值被忽略且返回 <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>。
+给一个 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> 附加一个作为选项的键值对。如果在这个 pixbuf 的选项列表里 
+<code class="literal">key</code> 已经存在，则新值被忽略且返回 <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>。
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -166,11 +168,27 @@ key 已经存在，则新值被忽略且返回 <a href="../glib/glib-Standard-Ma
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个描述被支持的图像格式的 <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> 的列表。当不再使用时，该
-列表应该被释放，但这些结构本身属于 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> 并不需要释放。</td>
+<td>A list of
+<a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a>s describing the supported
+image formats.  The list should be freed when it is no longer needed,
+but the structures themselves are owned by <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> and should not be
+freed. <span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdkPixbufFormat]</span>
+</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-format-copy"></a><h3>gdk_pixbuf_format_copy ()</h3>
+<pre class="programlisting"><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="returnvalue">GdkPixbufFormat</span></a> *   gdk_pixbuf_format_copy              (<em class="parameter"><code>const <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);</pre>
+<p class="since">Since 2.22</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pixbuf-format-free"></a><h3>gdk_pixbuf_format_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_format_free              (<em class="parameter"><code><a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufFormat" title="struct GdkPixbufFormat"><span class="type">GdkPixbufFormat</span></a> *format</code></em>);</pre>
+<p class="since">Since 2.22</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -235,8 +253,9 @@ key 已经存在，则新值被忽略且返回 <a href="../glib/glib-Standard-Ma
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个包含 mime type 的数组，以 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 结束，当不再使用时必须使用
-<a href="../glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> 释放内存。</td>
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of mime types which must be freed with
+<a href="../glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when it is no longer needed. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -259,8 +278,9 @@ key 已经存在，则新值被忽略且返回 <a href="../glib/glib-Standard-Ma
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个包含文件扩展名的数组，以 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 结束，当不再使用时必须使用
-<a href="../glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> 释放内存。</td>
+<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of filename extensions which must be
+freed with <a href="../glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a> when it is no longer needed. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>

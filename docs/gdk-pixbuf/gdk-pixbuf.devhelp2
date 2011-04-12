@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
-<book xmlns="http://www.devhelp.net/book" title="GDK-PixBuf参考手册" link="index.html" author="Federico Mena Quintero" name="gdk-pixbuf" version="2" language="c">
+<book xmlns="http://www.devhelp.net/book" title="GDK-PixBuf 库参考手册" link="index.html" author="Federico Mena Quintero" name="gdk-pixbuf" version="2" language="c">
   <chapters>
     <sub name="API 参考" link="rn01.html">
       <sub name="初始化和版本 (Initialization and Versions)" link="gdk-pixbuf-Versioning.html"/>
@@ -17,7 +17,7 @@
       <sub name="Animations" link="gdk-pixbuf-animation.html"/>
       <sub name="GdkPixbuf加载器(GdkPixbufLoader)" link="GdkPixbufLoader.html"/>
       <sub name="模块接口 (Module Interface)" link="gdk-pixbuf-Module-Interface.html"/>
-      <sub name="gdk-pixbuf Xlib 初始化" link="gdk-pixbuf-gdk-pixbuf-xlib-init.html"/>
+      <sub name="gdk-pixbuf Xlib 初始化 (gdk-pixbuf Xlib initialization)" link="gdk-pixbuf-gdk-pixbuf-xlib-init.html"/>
       <sub name="渲染 Xlib (Xlib Rendering)" link="gdk-pixbuf-gdk-pixbuf-xlib-rendering.html"/>
       <sub name="从X Drawable 到 Pixbuf (X Drawables to Pixbufs)" link="gdk-pixbuf-gdk-pixbuf-xlib-from-drawables.html"/>
       <sub name="XlibRGB" link="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html"/>
@@ -26,21 +26,17 @@
       <sub name="gdk-pixbuf-csource" link="gdk-pixbuf-csource.html"/>
       <sub name="gdk-pixbuf-query-loaders" link="gdk-pixbuf-query-loaders.html"/>
     </sub>
-    <sub name="所有符号索引" link="api-index-full.html"/>
-    <sub name="已过时的符号索引" link="api-index-deprecated.html"/>
-    <sub name="2.2中的新符号索引" link="api-index-2-2.html"/>
-    <sub name="2.4中的新符号索引" link="api-index-2-4.html"/>
-    <sub name="2.6中的新符号索引" link="api-index-2-6.html"/>
-    <sub name="2.8中的新符号索引" link="api-index-2-8.html"/>
-    <sub name="2.10中的新符号索引" link="api-index-2-10.html"/>
-    <sub name="2.12中的新符号索引" link="api-index-2-12.html"/>
-    <sub name="2.14中的新符号索引" link="api-index-2-14.html"/>
-    <sub name="将 Imlib 程序移植到 gdk-pixbuf" link="apa.html">
-      <sub name="介绍" link="apa.html#id3056378"/>
-      <sub name="Imlib 和 gdk-pixbuf 之间的区别" link="apas02.html"/>
-      <sub name="将程序转换到 gdk-pixbuf" link="apas03.html"/>
-    </sub>
+    <sub name="Index of all symbols" link="api-index-full.html"/>
+    <sub name="Index of deprecated symbols" link="api-index-deprecated.html"/>
+    <sub name="Index of new symbols in 2.2" link="api-index-2-2.html"/>
+    <sub name="Index of new symbols in 2.4" link="api-index-2-4.html"/>
+    <sub name="Index of new symbols in 2.6" link="api-index-2-6.html"/>
+    <sub name="Index of new symbols in 2.8" link="api-index-2-8.html"/>
+    <sub name="Index of new symbols in 2.10" link="api-index-2-10.html"/>
+    <sub name="Index of new symbols in 2.12" link="api-index-2-12.html"/>
+    <sub name="Index of new symbols in 2.14" link="api-index-2-14.html"/>
     <sub name="许可证" link="license.html"/>
+    <sub name="Annotation Glossary" link="annotation-glossary.html"/>
   </chapters>
   <functions>
     <keyword type="variable" name="gdk_pixbuf_version" link="gdk-pixbuf-Versioning.html#gdk-pixbuf-version"/>
@@ -73,8 +69,8 @@
     <keyword type="property" name="The &quot;pixels&quot; property" link="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf--pixels"/>
     <keyword type="property" name="The &quot;rowstride&quot; property" link="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf--rowstride"/>
     <keyword type="property" name="The &quot;width&quot; property" link="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf--width"/>
-    <keyword type="function" name="gdk_pixbuf_ref ()" link="gdk-pixbuf-refcounting.html#gdk-pixbuf-ref" deprecated="请使用 g_object_ref()."/>
-    <keyword type="function" name="gdk_pixbuf_unref ()" link="gdk-pixbuf-refcounting.html#gdk-pixbuf-unref" deprecated="请使用 g_object_unref()."/>
+    <keyword type="function" name="gdk_pixbuf_ref ()" link="gdk-pixbuf-refcounting.html#gdk-pixbuf-ref" deprecated="2.0: Use g_object_ref()."/>
+    <keyword type="function" name="gdk_pixbuf_unref ()" link="gdk-pixbuf-refcounting.html#gdk-pixbuf-unref" deprecated="2.0: Use g_object_unref()."/>
     <keyword type="function" name="GdkPixbufDestroyNotify ()" link="gdk-pixbuf-refcounting.html#GdkPixbufDestroyNotify"/>
     <keyword type="macro" name="gdk_pixbuf_new_from_file" link="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file"/>
     <keyword type="macro" name="gdk_pixbuf_new_from_file_at_size" link="gdk-pixbuf-file-loading.html#gdk-pixbuf-new-from-file-at-size" since="2.4"/>
@@ -118,13 +114,13 @@
     <keyword type="function" name="gdk_pixbuf_add_alpha ()" link="gdk-pixbuf-util.html#gdk-pixbuf-add-alpha"/>
     <keyword type="function" name="gdk_pixbuf_copy_area ()" link="gdk-pixbuf-util.html#gdk-pixbuf-copy-area"/>
     <keyword type="function" name="gdk_pixbuf_saturate_and_pixelate ()" link="gdk-pixbuf-util.html#gdk-pixbuf-saturate-and-pixelate"/>
-    <keyword type="function" name="gdk_pixbuf_apply_embedded_orientation ()" link="gdk-pixbuf-util.html#gdk-pixbuf-apply-embedded-orientation"/>
+    <keyword type="function" name="gdk_pixbuf_apply_embedded_orientation ()" link="gdk-pixbuf-util.html#gdk-pixbuf-apply-embedded-orientation" since="2.12"/>
     <keyword type="function" name="gdk_pixbuf_fill ()" link="gdk-pixbuf-util.html#gdk-pixbuf-fill"/>
     <keyword type="struct" name="struct GdkPixbufAnimation" link="gdk-pixbuf-animation.html#GdkPixbufAnimation-struct"/>
     <keyword type="struct" name="struct GdkPixbufAnimationIter" link="gdk-pixbuf-animation.html#GdkPixbufAnimationIter-struct"/>
     <keyword type="macro" name="gdk_pixbuf_animation_new_from_file" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-new-from-file"/>
-    <keyword type="function" name="gdk_pixbuf_animation_ref ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-ref" deprecated="请使用 g_object_ref()."/>
-    <keyword type="function" name="gdk_pixbuf_animation_unref ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-unref" deprecated="请使用 g_object_unref()."/>
+    <keyword type="function" name="gdk_pixbuf_animation_ref ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-ref" deprecated="2.0: Use g_object_ref()."/>
+    <keyword type="function" name="gdk_pixbuf_animation_unref ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-unref" deprecated="2.0: Use g_object_unref()."/>
     <keyword type="function" name="gdk_pixbuf_animation_get_width ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-width"/>
     <keyword type="function" name="gdk_pixbuf_animation_get_height ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-height"/>
     <keyword type="function" name="gdk_pixbuf_animation_get_iter ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-get-iter"/>
@@ -134,10 +130,13 @@
     <keyword type="function" name="gdk_pixbuf_animation_iter_get_delay_time ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-delay-time"/>
     <keyword type="function" name="gdk_pixbuf_animation_iter_on_currently_loading_frame ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-on-currently-loading-frame"/>
     <keyword type="function" name="gdk_pixbuf_animation_iter_get_pixbuf ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-animation-iter-get-pixbuf"/>
-    <keyword type="struct" name="GdkPixbufSimpleAnim" link="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim"/>
+    <keyword type="struct" name="GdkPixbufSimpleAnim" link="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim-struct"/>
     <keyword type="function" name="gdk_pixbuf_simple_anim_new ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-new" since="2.8"/>
     <keyword type="function" name="gdk_pixbuf_simple_anim_add_frame ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-add-frame" since="2.8"/>
-    <keyword type="" name="加载一个动画 (Loading an animation)" link="GdkPixbufLoader.html#id3080533"/>
+    <keyword type="function" name="gdk_pixbuf_simple_anim_set_loop ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-set-loop" since="2.18"/>
+    <keyword type="function" name="gdk_pixbuf_simple_anim_get_loop ()" link="gdk-pixbuf-animation.html#gdk-pixbuf-simple-anim-get-loop" since="2.18"/>
+    <keyword type="property" name="The &quot;loop&quot; property" link="gdk-pixbuf-animation.html#GdkPixbufSimpleAnim--loop"/>
+    <keyword type="" name="加载一个动画 (Loading an animation)" link="GdkPixbufLoader.html#id2856541"/>
     <keyword type="struct" name="struct GdkPixbufLoader" link="GdkPixbufLoader.html#GdkPixbufLoader-struct"/>
     <keyword type="function" name="gdk_pixbuf_loader_new ()" link="GdkPixbufLoader.html#gdk-pixbuf-loader-new"/>
     <keyword type="function" name="gdk_pixbuf_loader_new_with_type ()" link="GdkPixbufLoader.html#gdk-pixbuf-loader-new-with-type"/>
@@ -154,6 +153,8 @@
     <keyword type="signal" name="The &quot;size-prepared&quot; signal" link="GdkPixbufLoader.html#GdkPixbufLoader-size-prepared"/>
     <keyword type="function" name="gdk_pixbuf_set_option ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-set-option" since="2.2"/>
     <keyword type="function" name="gdk_pixbuf_get_formats ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-get-formats" since="2.2"/>
+    <keyword type="function" name="gdk_pixbuf_format_copy ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-copy" since="2.22"/>
+    <keyword type="function" name="gdk_pixbuf_format_free ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-free" since="2.22"/>
     <keyword type="function" name="gdk_pixbuf_format_get_name ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-name" since="2.2"/>
     <keyword type="function" name="gdk_pixbuf_format_get_description ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-description" since="2.2"/>
     <keyword type="function" name="gdk_pixbuf_format_get_mime_types ()" link="gdk-pixbuf-Module-Interface.html#gdk-pixbuf-format-get-mime-types" since="2.2"/>
@@ -205,7 +206,7 @@
     <keyword type="function" name="xlib_rgb_get_depth ()" link="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-depth"/>
     <keyword type="function" name="xlib_rgb_get_display ()" link="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-display"/>
     <keyword type="function" name="xlib_rgb_get_screen ()" link="gdk-pixbuf-gdk-pixbuf-xlib-rgb.html#xlib-rgb-get-screen"/>
-    <keyword type="" name="选项" link="gdk-pixbuf-csource.html#id3080640"/>
+    <keyword type="" name="选项" link="gdk-pixbuf-csource.html#id2812597"/>
     <keyword type="constant" name="GDK_PIXBUF_ERROR_CORRUPT_IMAGE" link="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR-CORRUPT-IMAGE:CAPS"/>
     <keyword type="constant" name="GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY" link="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR-INSUFFICIENT-MEMORY:CAPS"/>
     <keyword type="constant" name="GDK_PIXBUF_ERROR_BAD_OPTION" link="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR-BAD-OPTION:CAPS"/>
@@ -231,14 +232,6 @@
     <keyword type="constant" name="GDK_PIXDATA_DUMP_STATIC" link="gdk-pixbuf-inline.html#GDK-PIXDATA-DUMP-STATIC:CAPS"/>
     <keyword type="constant" name="GDK_PIXDATA_DUMP_CONST" link="gdk-pixbuf-inline.html#GDK-PIXDATA-DUMP-CONST:CAPS"/>
     <keyword type="constant" name="GDK_PIXDATA_DUMP_RLE_DECODER" link="gdk-pixbuf-inline.html#GDK-PIXDATA-DUMP-RLE-DECODER:CAPS"/>
-    <keyword type="constant" name="GDK_INTERP_NEAREST" link="gdk-pixbuf-scaling.html#GDK-INTERP-NEAREST:CAPS"/>
-    <keyword type="constant" name="GDK_INTERP_TILES" link="gdk-pixbuf-scaling.html#GDK-INTERP-TILES:CAPS"/>
-    <keyword type="constant" name="GDK_INTERP_BILINEAR" link="gdk-pixbuf-scaling.html#GDK-INTERP-BILINEAR:CAPS"/>
-    <keyword type="constant" name="GDK_INTERP_HYPER" link="gdk-pixbuf-scaling.html#GDK-INTERP-HYPER:CAPS"/>
-    <keyword type="constant" name="GDK_PIXBUF_ROTATE_NONE" link="gdk-pixbuf-scaling.html#GDK-PIXBUF-ROTATE-NONE:CAPS"/>
-    <keyword type="constant" name="GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE" link="gdk-pixbuf-scaling.html#GDK-PIXBUF-ROTATE-COUNTERCLOCKWISE:CAPS"/>
-    <keyword type="constant" name="GDK_PIXBUF_ROTATE_UPSIDEDOWN" link="gdk-pixbuf-scaling.html#GDK-PIXBUF-ROTATE-UPSIDEDOWN:CAPS"/>
-    <keyword type="constant" name="GDK_PIXBUF_ROTATE_CLOCKWISE" link="gdk-pixbuf-scaling.html#GDK-PIXBUF-ROTATE-CLOCKWISE:CAPS"/>
     <keyword type="constant" name="GDK_PIXBUF_FORMAT_WRITABLE" link="gdk-pixbuf-Module-Interface.html#GDK-PIXBUF-FORMAT-WRITABLE:CAPS"/>
     <keyword type="constant" name="GDK_PIXBUF_FORMAT_SCALABLE" link="gdk-pixbuf-Module-Interface.html#GDK-PIXBUF-FORMAT-SCALABLE:CAPS"/>
     <keyword type="constant" name="GDK_PIXBUF_FORMAT_THREADSAFE" link="gdk-pixbuf-Module-Interface.html#GDK-PIXBUF-FORMAT-THREADSAFE:CAPS"/>

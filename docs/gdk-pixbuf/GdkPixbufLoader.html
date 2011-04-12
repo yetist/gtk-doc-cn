@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GdkPixbuf加载器(GdkPixbufLoader)</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="gdk-pixbuf-animation.html" title="Animations">
 <link rel="next" href="gdk-pixbuf-Module-Interface.html" title="模块接口 (Module Interface)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gdk-pixbuf-animation.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf参考手册</th>
+<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-Module-Interface.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -114,7 +114,7 @@ struct              <a class="link" href="GdkPixbufLoader.html#GdkPixbufLoader-s
     图像完全加载之前进行多次传递。
   </p>
 <div class="refsect2">
-<a name="id3080533"></a><h3>加载一个动画 (Loading an animation)</h3>
+<a name="id2856541"></a><h3>加载一个动画 (Loading an animation)</h3>
 <p>
       加载一个动画几乎和加载一个图像一样简单。当第一个 "<a class="link" href="GdkPixbufLoader.html#GdkPixbufLoader-area-prepared" title='The "area-prepared" signal'>area_prepared</a>" 信号
       被发送后，可以调用 <a class="link" href="GdkPixbufLoader.html#gdk-pixbuf-loader-get-animation" title="gdk_pixbuf_loader_get_animation ()"><code class="function">gdk_pixbuf_loader_get_animation()</code></a> 来得到这个
@@ -175,7 +175,8 @@ $_1_$|xpm" 都是可支持的格式。可以通过为 <a class="link" href="gdk-
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回 <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> 对象的位置，或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 以忽略错误</td>
+<td>return location for an allocated <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore errors. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -212,7 +213,8 @@ image/tiff" and "image/x-xpixmap" 都是可支持的mime类型。可
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回 <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> 对象的位置，或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 以忽略错误</td>
+<td>return location for an allocated <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore errors. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -345,8 +347,9 @@ return the "static image" of the animation
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>这个 loader 创建的 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> ，如果还没有读取可以创建图像缓冲
-区(image buffer)的足够的数据时则返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>。</td>
+<td>The <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> that the loader is creating, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not
+enough data has been read to determine how to create the image buffer. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -371,8 +374,9 @@ return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="litera
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>这个 loader 加载的 <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>，但还没有读取到足够的数
-据来确定其信息的时候则返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>。</td>
+<td>The <a class="link" href="gdk-pixbuf-animation.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> that the loader is loading, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+not enough data has been read to determine the information. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -389,6 +393,10 @@ return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="litera
 可能的错误为 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> 或 <a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a> 。如果只想取消一个 loader 而
 不是要结束它，可以给 <em class="parameter"><code>error</code></em> 传递一个 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>。
 </p>
+<p>
+Remember that this does not unref the loader, so if you plan not to
+use it anymore, please <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> it.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -398,12 +406,13 @@ return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="litera
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>返回<a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>对象的位置，或者返回 <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> 以忽略错误</td>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to ignore errors. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>如果当前所有写入的数据可以通过 update_area 信号成功解吸则返回 %
-TRUE。</td>
+<td>如果当前所有写入的数据可以通过 update_area 信号成功解吸则返回
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>。</td>
 </tr>
 </tbody>
 </table></div>
