@@ -283,7 +283,7 @@ init_pot()
 	else
 		msg "正在初始化您的po文件..."
 		mkdir $startdir/po
-		gtkdocpo -c -p $tmpdir/pot $moddir
+		gadt-po -c -p $tmpdir/pot $moddir
 		if [ -f ~/.gtkdocpo ];then
 			username=$(source ~/.gtkdocpo; echo $username)
 		else
@@ -397,9 +397,9 @@ download_source()
 	# 合并已翻译po文件内容到源文件
 	if [ "$FUZZY" -eq 1 ]; then
 		warning "Use fuzzy item -- Unsafe"
-		gtkdocpo -f -n $modname -V $pkgver -m -p . $moddir || return 1
+		gadt-po -f -n $modname -V $pkgver -m -p . $moddir || return 1
 	else
-		gtkdocpo -n $modname -V $pkgver -m -p . $moddir || return 1
+		gadt-po -n $modname -V $pkgver -m -p . $moddir || return 1
 	fi
 }
 

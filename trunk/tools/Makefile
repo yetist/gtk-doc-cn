@@ -67,8 +67,8 @@ synchtml:
 
 release: tarball
 	tarfile=tmp/*-docs.tar.gz; \
-	  basename $$tarfile; \
-	  googlecode-upload.py -s $$tarfile -p gtk-doc-cn -u yetist@gmail.com -l Featured,Type-Source,OpSys-Linux $$tarfile
+	  bname=`basename $$tarfile`; \
+	  googlecode-upload.py -s $$bname -p gtk-doc-cn -u yetist@gmail.com -l Featured,Type-Source,OpSys-Linux $$tarfile
 
 tarball:
 	@gadt-mkhtml --tarball
