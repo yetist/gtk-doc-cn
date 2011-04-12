@@ -9,9 +9,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-08 20:18-0800\n"
-"PO-Revision-Date: 2009-10-13 11:53+0800\n"
+"PO-Revision-Date: 2011-04-12 18:15+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,11 +25,10 @@ msgstr "@group: 一个选项组。"
 
 # #used by: gdk_add_option_entries_libgtk_only:
 #: gdk.c:177:2
-#, fuzzy
 msgid ""
 "Appends gdk option entries to the passed in option group. This is not public "
 "API and must not be used by applications."
-msgstr "追加的gdk选择项，以传入的选项组。这不是公开的API，不能由应用程序使用。"
+msgstr "追加gdk的选项到已传入的选项组中。这不是公开的API，不能由应用程序使用。"
 
 # used by: gdk_parse_args:
 #: gdk.c:219:1
@@ -188,39 +188,35 @@ msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NUL
 
 # #used by: gdk_threads_init:
 #: gdk.c:429:3
-#, fuzzy
 msgid ""
 "Initializes GDK so that it can be used from multiple threads in conjunction "
 "with gdk_threads_enter() and gdk_threads_leave(). g_thread_init() must be "
 "called previous to this function."
 msgstr ""
-"初始化的GDK，以便它可以用来与gdk_threads_enter结合（）和gdk_threads_leave从多"
-"个线程（）。 g_thread_init（）前必须调用这个函数。"
+"初始化GDK，以便它可以在多线程中与 gdk_threads_enter() 和gdk_threads_leave() "
+"结合。 在使用此函数前必须先调用 g_thread_init()。"
 
 # #used by: gdk_threads_init:
 #: gdk.c:433:2
-#, fuzzy
 msgid ""
 "This call must be made before any use of the main loop from GTK+; to be "
 "safe, call it before gtk_init()."
 msgstr ""
-"这一呼吁必须对之前中，GTK +主循环利用，是安全的，它之前调用gtk_init（）。"
+"这个函数必须在任何使用 GTK+ 的主事件循环之前调用，在 gtk_init() 之前调用是安"
+"全的。"
 
 # used by: gdk_threads_set_lock_functions:
 #: gdk.c:451:1
-#, fuzzy
 msgid "@enter_fn:   function called to guard GDK"
-msgstr "@enter_fn:   函数调用看守的GDK"
+msgstr ""
 
 # used by: gdk_threads_set_lock_functions:
 #: gdk.c:452:1
-#, fuzzy
 msgid "@leave_fn: function called to release the guard"
-msgstr "@ leave_fn：函数调用释放守卫"
+msgstr ""
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:454:7
-#, fuzzy
 msgid ""
 "Allows the application to replace the standard method that GDK uses to "
 "protect its data structures. Normally, GDK creates a single #GMutex that is "
@@ -229,47 +225,35 @@ msgid ""
 "called by gdk_threads_enter() and a function @leave_fn that is called by "
 "gdk_threads_leave()."
 msgstr ""
-"允许应用程序取代标准方法的GDK来保护它的数据结构。通常情况下，创建一个单一的"
-"GDK＃GMutex是由gdk_threads_enter锁定（），并发布gdk_threads_leave（）;此功能"
-"的应用程序提供，而不是一个@ enter_fn是由gdk_threads_enter称为（）和@ leave_fn"
-"函数，函数呼吁gdk_threads_leave（）。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:462:3
-#, fuzzy
 msgid ""
 "The functions must provide at least same locking functionality as the "
 "default implementation, but can also do extra application specific "
 "processing."
 msgstr ""
-"职能必须提供至少相同的锁定为默认的执行功能，但也可以做额外的应用程序特定的处"
-"理。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:466:4
-#, fuzzy
 msgid ""
 "As an example, consider an application that has its own recursive lock that "
 "when held, holds the GTK+ lock as well. When GTK+ unlocks the GTK+ lock when "
 "entering a recursive main loop, the application must temporarily release its "
 "lock as well."
 msgstr ""
-"作为一个例子，考虑一个应用程序，有自己的递归锁时举行，举行的GTK +锁定以及。当"
-"GTK +的解锁GTK +的锁，当进入一个递归主循环，应用程序必须暂时释放其锁定以及。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:471:1
-#, fuzzy
 msgid "Most threaded GTK+ apps won't need to use this method."
-msgstr "大多数线程GTK +的应用程序不需要使用此方法。"
+msgstr "大多数线程GTK+的应用程序不需要使用此方法。"
 
 # #used by: gdk_threads_set_lock_functions:
 #: gdk.c:473:2
-#, fuzzy
 msgid ""
 "This method must be called before gdk_threads_init(), and cannot be called "
 "multiple times."
-msgstr "此方法之前必须调用gdk_threads_init（），并不能称为多次。"
+msgstr "此方法必须在调用 gdk_threads_init() 之前，并且不能多次调用。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_set_lock_functions:
@@ -286,13 +270,10 @@ msgstr "Since: 2.4"
 
 # used by: gdk_threads_add_idle_full:
 #: gdk.c:519:2
-#, fuzzy
 msgid ""
 "@priority: the priority of the idle source. Typically this will be in the "
 "range btweeen #G_PRIORITY_DEFAULT_IDLE and #G_PRIORITY_HIGH_IDLE"
 msgstr ""
-"@优先：对闲置源的优先事项。这通常会在范围btweeen＃G_PRIORITY_DEFAULT_IDLE和＃"
-"G_PRIORITY_HIGH_IDLE"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -308,7 +289,7 @@ msgstr ""
 # used by: gdk_threads_add_timeout_seconds:
 #: gdk.c:521:1 gdk.c:594:1 gdk.c:621:1 gdk.c:700:1 gdk.c:727:1 gdk.c:765:1
 msgid "@function: function to call"
-msgstr "@function: 函数调用"
+msgstr "@function: 被调用的函数"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -328,33 +309,25 @@ msgstr "@data: 传递给@function的数据"
 
 # used by: gdk_threads_add_idle_full:
 #: gdk.c:523:1
-#, fuzzy
 msgid "@notify:   function to call when the idle is removed, or %NULL"
-msgstr "@通知：函数来调用空闲时被删除，或％空"
+msgstr ""
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:525:3
-#, fuzzy
 msgid ""
 "Adds a function to be called whenever there are no higher priority events "
 "pending.  If the function returns %FALSE it is automatically removed from "
 "the list of event sources and will not be called again."
 msgstr ""
-"增加了一个被称为每当有没有更高级别的赛事待功能。如果该函数返回％假它会自动删"
-"除从事件源列表，不会再次调用。"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:529:5
-#, fuzzy
 msgid ""
 "This variant of g_idle_add_full() calls @function with the GDK lock held. It "
 "can be thought of a MT-safe version for GTK+ widgets for the following use "
 "case, where you have to worry about idle_callback() running in thread A and "
 "accessing @self after it has been finalized in thread B:"
 msgstr ""
-"这种变异g_idle_add_full（）@函数调用与GDK的锁举行。它可以被认为是一吨，安全版"
-"本的GTK +以下的用例，在这里您不必担心idle_callback部件（）的线程A和@自我运行"
-"后，访问已在线程完成乙："
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:535:5
@@ -362,16 +335,18 @@ msgid ""
 "|[ static gboolean idle_callback (gpointer data) { /&ast; gdk_threads_enter"
 "(); would be needed for g_idle_add() &ast;/"
 msgstr ""
+"|[ static gboolean idle_callback (gpointer data) { /&ast; gdk_threads_enter"
+"(); would be needed for g_idle_add() &ast;/"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:541:2
 msgid "SomeWidget *self = data; /&ast; do stuff with self &ast;/"
-msgstr ""
+msgstr "SomeWidget *self = data; /&ast; 你在这里做点啥吧 &ast;/"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:544:1
 msgid "self->idle_id = 0;"
-msgstr ""
+msgstr "self->idle_id = 0;"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:546:3
@@ -379,6 +354,8 @@ msgid ""
 "/&ast; gdk_threads_leave(); would be needed for g_idle_add() &ast;/ return "
 "FALSE; }"
 msgstr ""
+"/&ast; gdk_threads_leave(); would be needed for g_idle_add() &ast;/ return "
+"FALSE; }"
 
 # #used by: gdk_threads_add_idle_full:
 #: gdk.c:550:6
@@ -436,43 +413,35 @@ msgstr "Since: 2.12"
 
 # #used by: gdk_threads_add_idle:
 #: gdk.c:597:2
-#, fuzzy
 msgid ""
 "A wrapper for the common usage of gdk_threads_add_idle_full() assigning the "
 "default priority, #G_PRIORITY_DEFAULT_IDLE."
 msgstr ""
-"汇gdk_threads_add_idle_full（）指定默认的优先级，＃G_PRIORITY_DEFAULT_IDLE普"
-"遍使用的包装。"
 
 # #used by: gdk_threads_add_idle:
 #: gdk.c:600:1
-#, fuzzy
 msgid "See gdk_threads_add_idle_full()."
-msgstr "见gdk_threads_add_idle_full（）。"
+msgstr "见 gdk_threads_add_idle_full()。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds_full:
 #: gdk.c:617:2 gdk.c:724:2
-#, fuzzy
 msgid ""
 "@priority: the priority of the timeout source. Typically this will be in the "
 "range between #G_PRIORITY_DEFAULT_IDLE and #G_PRIORITY_HIGH_IDLE."
 msgstr ""
-"@优先：即优先超时来源。这通常会在G_PRIORITY_DEFAULT_IDLE之间＃和＃"
-"G_PRIORITY_HIGH_IDLE范围。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout:
 #: gdk.c:619:2 gdk.c:698:2
-#, fuzzy
 msgid ""
 "@interval: the time between calls to the function, in milliseconds "
 "(1/1000ths of a second)"
-msgstr "@间隔：之间的函数调用的时间，以毫秒为单位（1/1000ths第二条）"
+msgstr ""
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_full:
@@ -484,22 +453,17 @@ msgstr "@notify:  超时被删除时调用的函数，或%NULL。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:625:6
-#, fuzzy
 msgid ""
 "Sets a function to be called at regular intervals holding the GDK lock, with "
-"the given priority.  The function is called repeatedly until it returns %"
-"FALSE, at which point the timeout is automatically destroyed and the "
+"the given priority.  The function is called repeatedly until it returns "
+"%FALSE, at which point the timeout is automatically destroyed and the "
 "function will not be called again.  The @notify function is called when the "
 "timeout is destroyed.  The first call to the function will be at the end of "
 "the first @interval."
 msgstr ""
-"设置给定的优先级将在举行GDK的锁定期调用的函数。该函数被调用多次，直到它返回％"
-"假，此时，超时自动摧毁，功能不会被再次调用。 @通知该函数被调用时，超时被破"
-"坏。在第一次调用该函数将在第一时间间隔@结束。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:632:5
-#, fuzzy
 msgid ""
 "Note that timeout functions may be delayed, due to the processing of other "
 "event sources. Thus they should not be relied on for precise timing. After "
@@ -507,22 +471,16 @@ msgid ""
 "recalculated based on the current time and the given interval (it does not "
 "try to 'catch up' time lost in delays)."
 msgstr ""
-"请注意，超时功能可能会延迟，由于其他事件源处理。因此，他们不应该依靠精确的时"
-"间。在每次的超时函数调用，在下次重新计算超时时间是基于当前的时间和给定的时间"
-"间隔（不尝试&#39;追赶&#39;的时间延误，丢失）。"
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:638:2
-#, fuzzy
 msgid ""
 "This variant of g_timeout_add_full() can be thought of a MT-safe version for "
 "GTK+ widgets for the following use case:"
 msgstr ""
-"这g_timeout_add_full（）可以被认为是一吨，安全版本的GTK +以下用例部件变种："
 
 # #used by: gdk_threads_add_timeout_full:
 #: gdk.c:641:4
-#, fuzzy
 msgid ""
 "|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
 "data;"
@@ -575,18 +533,15 @@ msgstr "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
 
 # #used by: gdk_threads_add_timeout:
 #: gdk.c:703:2
-#, fuzzy
 msgid ""
 "A wrapper for the common usage of gdk_threads_add_timeout_full() assigning "
 "the default priority, #G_PRIORITY_DEFAULT."
 msgstr ""
-"汇gdk_threads_add_timeout_full（）指定默认的优先级，＃G_PRIORITY_DEFAULT普遍"
-"使用的包装。"
 
 # #used by: gdk_threads_add_timeout:
 #: gdk.c:706:1
 msgid "See gdk_threads_add_timeout_full()."
-msgstr "见gdk_threads_add_timeout_full()。"
+msgstr "见 gdk_threads_add_timeout_full()。"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds_full:
@@ -598,15 +553,11 @@ msgstr "@interval: 两次函数调用之间的间隔时间，以秒为单位"
 
 # #used by: gdk_threads_add_timeout_seconds_full:
 #: gdk.c:731:3
-#, fuzzy
 msgid ""
 "A variant of gdk_threads_add_timout_full() with second-granularity. See "
 "g_timeout_add_seconds_full() for a discussion of why it is a good idea to "
 "use this function if you don't need finer granularity."
 msgstr ""
-"一个gdk_threads_add_timout_full（）的第二粒度变体。见"
-"g_timeout_add_seconds_full（）为讨论为什么它是一个好主意，使用此功能，如果你"
-"并不需要更细的粒度。"
 
 # #-#-#-#-#  gdk.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -1016,9 +967,8 @@ msgstr ""
 # #used by: gdk_screen_get_toplevel_windows:
 #: gdkcairo.c:41:1 gdkcairo.c:65:1 gdkcairo.c:87:1 gdkcairo.c:108:1
 #: gdkcairo.c:142:1 gdkwindow.c:3781:1
-#, fuzzy
 msgid "Since: 2.8"
-msgstr "Since: 2.2"
+msgstr "Since: 2.8"
 
 # #-#-#-#-#  gdkcairo.pot (PACKAGE VERSION)  #-#-#-#-#
 # #-#-#-#-#  gdkcairo.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -1180,9 +1130,8 @@ msgstr ""
 # #used by: gdk_window_set_composited:
 #: gdkcairo.c:247:1 gdkscreen.c:117:1 gdkscreen.c:409:1 gdkscreen.c:440:1
 #: gdkscreen.c:461:1 gdkscreen.c:490:1
-#, fuzzy
 msgid "Since: 2.10"
-msgstr "Since: 2.12"
+msgstr "Since: 2.10"
 
 # #-#-#-#-#  gdkcolor.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_colormap_ref:
@@ -1245,9 +1194,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkcolor.c:68:1
-#, fuzzy
 msgid "Return value: the visual of the colormap."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # used by: gdk_colors_store:
 #: gdkcolor.c:81:1
@@ -1256,9 +1204,8 @@ msgstr ""
 
 # used by: gdk_parse_args:
 #: gdkcolor.c:82:1
-#, fuzzy
 msgid "@ncolors: the number of colors to change."
-msgstr "@argc: 在命令行参数的个数。"
+msgstr ""
 
 # #used by: gdk_colors_store:
 #: gdkcolor.c:84:3
@@ -2122,9 +2069,8 @@ msgstr ""
 
 # #used by: gdk_display_open_default_libgtk_only:
 #: gdkdraw.c:258:1
-#, fuzzy
 msgid "Return value: the colormap, or %NULL"
-msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NULL。"
+msgstr "Return value: 返回colormap 对象或者%NULL。"
 
 # #used by: gdk_drawable_ref:
 #: gdkdraw.c:272:2
@@ -2359,9 +2305,8 @@ msgstr ""
 
 # used by: gdk_parse_args:
 #: gdkdraw.c:468:1
-#, fuzzy
 msgid "@n_points: the number of points."
-msgstr "@argc: 在命令行参数的个数。"
+msgstr ""
 
 # #used by: gdk_draw_polygon:
 #: gdkdraw.c:470:1
@@ -2516,8 +2461,8 @@ msgid ""
 "or errors will result. (On X11, failure to match visual/colormap results in "
 "a BadMatch error from the X server.) A common cause of this problem is an "
 "attempt to draw a bitmap to a color drawable. The way to draw a bitmap is to "
-"set the bitmap as the stipple on the #GdkGC, set the fill mode to %"
-"GDK_STIPPLED, and then draw the rectangle."
+"set the bitmap as the stipple on the #GdkGC, set the fill mode to "
+"%GDK_STIPPLED, and then draw the rectangle."
 msgstr ""
 
 # used by: gdk_draw_image:
@@ -2737,9 +2682,8 @@ msgstr ""
 
 # used by: gdk_parse_args:
 #: gdkdraw.c:811:1
-#, fuzzy
 msgid "Draws a number of unconnected lines."
-msgstr "@argc: 在命令行参数的个数。"
+msgstr ""
 
 # used by: gdk_draw_lines:
 #: gdkdraw.c:836:1
@@ -2965,9 +2909,8 @@ msgstr ""
 # #used by: gdk_screen_get_toplevel_windows:
 #: gdkdraw.c:951:1 gdkdraw.c:982:1 gdkpango.c:557:1 gdkpango.c:598:1
 #: gdkpango.c:629:1 gdkpango.c:663:1 gdkpango.c:702:1 gdkpango.c:739:1
-#, fuzzy
 msgid "Since: 2.6"
-msgstr "Since: 2.2"
+msgstr "Since: 2.6"
 
 # used by: gdk_draw_trapezoids:
 #: gdkdraw.c:973:1
@@ -3199,9 +3142,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:62:1
-#, fuzzy
 msgid "Return value: Pointer to the list node for that event, or NULL."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # used by: _gdk_event_queue_prepend:
 #: gdkevents.c:84:1
@@ -3258,9 +3200,8 @@ msgstr ""
 
 # used by: gdk_threads_set_lock_functions:
 #: gdkevents.c:175:1
-#, fuzzy
 msgid "@func: the function to call to handle events from GDK."
-msgstr "@enter_fn:   函数调用看守的GDK"
+msgstr ""
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -3275,9 +3216,8 @@ msgstr "@enter_fn:   函数调用看守的GDK"
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:176:1
-#, fuzzy
 msgid "@data: user data to pass to the function."
-msgstr "@data: 传递给@function的数据"
+msgstr "@data: 传递给这个函数的用户数据"
 
 # used by: gdk_event_handler_set:
 #: gdkevents.c:177:2
@@ -3488,9 +3428,8 @@ msgstr ""
 
 # #used by: gdk_display_open_default_libgtk_only:
 #: gdkevents.c:796:1
-#, fuzzy
 msgid "Return value: %TRUE if the specified axis was found, otherwise %FALSE"
-msgstr "Return value: 如果可以打开，返回默认显示，否则返回%NULL。"
+msgstr "Return value: 如果指定的axis 可以找到，返回%TRUE，否则返回%NULL。"
 
 # used by: gdk_event_request_motions:
 #: gdkevents.c:863:1
@@ -3504,8 +3443,8 @@ msgid ""
 "function should be used instead of gdk_window_get_pointer() to request "
 "further motion notifies, because it also works for extension events where "
 "motion notifies are provided for devices other than the core pointer. "
-"Coordinate extraction, processing and requesting more motion events from a %"
-"GDK_MOTION_NOTIFY event usually works like this:"
+"Coordinate extraction, processing and requesting more motion events from a "
+"%GDK_MOTION_NOTIFY event usually works like this:"
 msgstr ""
 
 # #used by: gdk_event_request_motions:
@@ -3546,9 +3485,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:928:1
-#, fuzzy
 msgid "Return value: the screen for the event"
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr "Return value: 事件的屏幕。"
 
 # used by: gdk_set_show_events:
 #: gdkevents.c:951:1
@@ -3602,9 +3540,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:1022:1 gdkevents.c:1072:1
-#, fuzzy
 msgid "@function: the callback function."
-msgstr "@function: 函数调用"
+msgstr "@function: 被调用的函数"
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -3619,17 +3556,15 @@ msgstr "@function: 函数调用"
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkevents.c:1023:1 gdkevents.c:1073:1
-#, fuzzy
 msgid "@data: callback data passed to @function."
-msgstr "@data: 传递给@function的数据"
+msgstr "@data: 传递给@function的回调数据"
 
 # used by: gdk_threads_add_idle_full:
 #: gdkevents.c:1024:2
-#, fuzzy
 msgid ""
 "@destroy: callback function to call with @data when the input handler is "
 "removed."
-msgstr "@通知：函数来调用空闲时被删除，或％空"
+msgstr ""
 
 # #-#-#-#-#  gdkevents.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_input_add_full:
@@ -3718,8 +3653,8 @@ msgstr ""
 # #used by: gdk_setting_get:
 #: gdkevents.c:1294:2
 msgid ""
-"Returns: %TRUE if the setting existed and a value was stored in @value, %"
-"FALSE otherwise."
+"Returns: %TRUE if the setting existed and a value was stored in @value, "
+"%FALSE otherwise."
 msgstr ""
 
 # #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -3796,9 +3731,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:98:1
-#, fuzzy
 msgid "Return value: the width of the string in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_char_width:
@@ -3830,9 +3764,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:117:1 gdkfont.c:138:1
-#, fuzzy
 msgid "Return value: the width of the character in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # #-#-#-#-#  gdkfont.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_char_width:
@@ -3881,9 +3814,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:160:1 gdkfont.c:213:1
-#, fuzzy
 msgid "Return value: the right bearing of the string in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # used by: gdk_string_extents:
 #: gdkfont.c:176:1
@@ -3960,9 +3892,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:239:1
-#, fuzzy
 msgid "Return value: the right bearing of the character in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # #used by: gdk_string_height:
 #: gdkfont.c:255:4
@@ -4009,9 +3940,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkfont.c:309:1
-#, fuzzy
 msgid "Return value: the height of the character in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # used by: gdk_font_from_description:
 #: gdkfont.c:324:1
@@ -4225,9 +4155,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkgc.c:392:1
-#, fuzzy
 msgid "@function: the #GdkFunction to use"
-msgstr "@function: 函数调用"
+msgstr "@function: 将使用的 #GdkFunction 函数"
 
 # #used by: gdk_gc_set_function:
 #: gdkgc.c:394:3
@@ -4374,13 +4303,10 @@ msgstr ""
 
 # #used by: gdk_get_display_arg_name:
 #: gdkgc.c:649:2
-#, fuzzy
 msgid ""
 "Return value: the tile set on the GC, or %NULL. The value is owned by the GC "
 "and must not be freed."
 msgstr ""
-"Returns: 如果显式地指定的话，返回显示(display)名称，否则返回%NULL。这个字符串"
-"将被GTK+拥有, 不得修改或释放。"
 
 # #used by: _gdk_gc_get_stipple:
 #: gdkgc.c:664:1
@@ -4389,13 +4315,10 @@ msgstr ""
 
 # #used by: gdk_get_display_arg_name:
 #: gdkgc.c:666:2
-#, fuzzy
 msgid ""
 "Return value: the stipple set on the GC, or %NULL. The value is owned by the "
 "GC and must not be freed."
 msgstr ""
-"Returns: 如果显式地指定的话，返回显示(display)名称，否则返回%NULL。这个字符串"
-"将被GTK+拥有, 不得修改或释放。"
 
 # #used by: _gdk_gc_get_fg_pixel:
 #: gdkgc.c:681:3
@@ -4483,9 +4406,8 @@ msgstr ""
 
 # used by: gdk_parse_args:
 #: gdkgc.c:793:1
-#, fuzzy
 msgid "@n: the number of elements in @dash_list."
-msgstr "@argc: 在命令行参数的个数。"
+msgstr ""
 
 # #used by: gdk_gc_set_dashes:
 #: gdkgc.c:795:6
@@ -4606,8 +4528,8 @@ msgstr ""
 #: gdkgc.c:1114:4
 msgid ""
 "@override_stipple: a stipple pattern to use to override the stipple from the "
-"GC. If this is present and the fill mode of the GC isn't %GDK_STIPPLED or %"
-"GDK_OPAQUE_STIPPLED the fill mode will be forced to %GDK_STIPPLED"
+"GC. If this is present and the fill mode of the GC isn't %GDK_STIPPLED or "
+"%GDK_OPAQUE_STIPPLED the fill mode will be forced to %GDK_STIPPLED"
 msgstr ""
 
 # used by: _gdk_gc_update_context:
@@ -4833,9 +4755,8 @@ msgstr ""
 # #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_screen_get_toplevel_windows:
 #: gdkkeys.c:56:1
-#, fuzzy
 msgid "Since: 2.0"
-msgstr "Since: 2.2"
+msgstr "Since: 2.0"
 
 # #used by: GdkKeymap::keys-changed:
 #: gdkkeys.c:71:2
@@ -4870,9 +4791,8 @@ msgstr ""
 # #-#-#-#-#  gdkwindow.pot (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_window_set_composited:
 #: gdkkeys.c:94:1
-#, fuzzy
 msgid "Since: 2.16"
-msgstr "Since: 2.12"
+msgstr "Since: 2.16"
 
 # used by: gdk_keyval_convert_case:
 #: gdkkeys.c:123:1
@@ -5511,9 +5431,9 @@ msgstr ""
 # #used by: gdk_pixbuf_get_from_drawable:
 #: gdkpixbuf-drawable.c:1153:10
 msgid ""
-"If the drawable @src has no colormap (gdk_drawable_get_colormap() returns %"
-"NULL), then a suitable colormap must be specified. Typically a #GdkWindow or "
-"a pixmap created by passing a #GdkWindow to gdk_pixmap_new() will already "
+"If the drawable @src has no colormap (gdk_drawable_get_colormap() returns "
+"%NULL), then a suitable colormap must be specified. Typically a #GdkWindow "
+"or a pixmap created by passing a #GdkWindow to gdk_pixmap_new() will already "
 "have a colormap associated with it.  If the drawable has a colormap, the "
 "@cmap argument will be ignored.  If the drawable is a bitmap (1 bit per "
 "pixel pixmap), then a colormap is not required; pixels with a value of 1 are "
@@ -6129,8 +6049,8 @@ msgstr ""
 # #used by: gdk_region_rect_in:
 #: gdkregion-generic.c:1596:3
 msgid ""
-"Returns: %GDK_OVERLAP_RECTANGLE_IN, %GDK_OVERLAP_RECTANGLE_OUT, or %"
-"GDK_OVERLAP_RECTANGLE_PART, depending on whether the rectangle is inside, "
+"Returns: %GDK_OVERLAP_RECTANGLE_IN, %GDK_OVERLAP_RECTANGLE_OUT, or "
+"%GDK_OVERLAP_RECTANGLE_PART, depending on whether the rectangle is inside, "
 "outside, or partly inside the #GdkRegion, respectively."
 msgstr ""
 
@@ -6162,9 +6082,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkregion-generic.c:1751:1
-#, fuzzy
 msgid "@function: function to call on each span in the intersection"
-msgstr "@function: 函数调用"
+msgstr ""
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -6179,7 +6098,6 @@ msgstr "@function: 函数调用"
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkregion-generic.c:1752:1
-#, fuzzy
 msgid "@data: data to pass to @function"
 msgstr "@data: 传递给@function的数据"
 
@@ -6211,8 +6129,8 @@ msgstr ""
 #: gdkrgb.c:827:4
 msgid ""
 "In many cases, you can avoid this whole issue by calling "
-"gdk_gc_set_rgb_fg_color() or gdk_gc_set_rgb_bg_color(), which do not expect %"
-"pixel to be initialized in advance. If you use those functions, there's no "
+"gdk_gc_set_rgb_fg_color() or gdk_gc_set_rgb_bg_color(), which do not expect "
+"%pixel to be initialized in advance. If you use those functions, there's no "
 "need for gdk_rgb_find_color()."
 msgstr ""
 
@@ -6564,9 +6482,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkscreen.c:346:1
-#, fuzzy
 msgid "Return value: the width of the default screen in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # #used by: gdk_screen_height:
 #: gdkscreen.c:357:1
@@ -6586,9 +6503,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_threads_add_timeout_seconds:
 #: gdkscreen.c:359:1
-#, fuzzy
 msgid "Return value: the height of the default screen in pixels."
-msgstr "Return value: 事件源的ID（大于0）。"
+msgstr ""
 
 # #used by: gdk_screen_width_mm:
 #: gdkscreen.c:370:2
@@ -7011,9 +6927,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:812:1
-#, fuzzy
 msgid "@function: filter callback"
-msgstr "@function: 函数调用"
+msgstr ""
 
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_idle_full:
@@ -7028,9 +6943,8 @@ msgstr "@function: 函数调用"
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:813:1
-#, fuzzy
 msgid "@data: data to pass to filter callback"
-msgstr "@data: 传递给@function的数据"
+msgstr ""
 
 # #used by: gdk_window_add_filter:
 #: gdkwindow.c:815:5
@@ -7066,9 +6980,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:866:1
-#, fuzzy
 msgid "@data: user data for previously-added filter function"
-msgstr "@data: 传递给@function的数据"
+msgstr ""
 
 # #used by: gdk_window_remove_filter:
 #: gdkwindow.c:868:1
@@ -7393,9 +7306,8 @@ msgstr ""
 # #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # used by: gdk_threads_add_timeout_seconds:
 #: gdkwindow.c:2814:1
-#, fuzzy
 msgid "@user_data: data passed to @child_func"
-msgstr "@data: 传递给@function的数据"
+msgstr ""
 
 # #-#-#-#-#  gdkwindow.pot~ (PACKAGE VERSION)  #-#-#-#-#
 # #used by: gdk_window_invalidate_maybe_recurse:
@@ -7688,8 +7600,8 @@ msgstr ""
 # #used by: gdk_window_foreign_new:
 #: gdkwindow.c:3392:2
 msgid ""
-"Return value: the newly-created #GdkWindow wrapper for the native window or %"
-"NULL if the window has been destroyed."
+"Return value: the newly-created #GdkWindow wrapper for the native window or "
+"%NULL if the window has been destroyed."
 msgstr ""
 
 # #used by: gdk_window_show_unraised:
@@ -8201,8 +8113,8 @@ msgstr ""
 #: gdkwindow.c:4035:3
 msgid ""
 "If @shape_region is %NULL, the shape will be unset, so the whole window will "
-"be opaque again. @offset_x and @offset_y are ignored if @shape_region is %"
-"NULL."
+"be opaque again. @offset_x and @offset_y are ignored if @shape_region is "
+"%NULL."
 msgstr ""
 
 # #used by: gdk_window_set_child_shapes:
