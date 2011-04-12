@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pango Interaction</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GDK 3参考手册">
+<link rel="up" href="reference.html" title="API参考">
+<link rel="prev" href="gdk3-Threads.html" title="Threads">
+<link rel="next" href="gdk3-Cairo-Interaction.html" title="Cairo Interaction">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gdk3-Threads.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="reference.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GDK 3参考手册</th>
+<td><a accesskey="n" href="gdk3-Cairo-Interaction.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gdk3-Pango-Interaction.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gdk3-Pango-Interaction.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gdk3-Pango-Interaction"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk3-Pango-Interaction.top_of_page"></a>Pango Interaction</span></h2>
+<p>Pango Interaction — Using Pango in GDK</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gdk3-Pango-Interaction.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gdk/gdk.h&gt;
+
+<a href="../cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *    <a class="link" href="gdk3-Pango-Interaction.html#gdk-pango-layout-get-clip-region" title="gdk_pango_layout_get_clip_region ()">gdk_pango_layout_get_clip_region</a>    (<em class="parameter"><code><a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x_origin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y_origin</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *index_ranges</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_ranges</code></em>);
+<a href="../cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *    <a class="link" href="gdk3-Pango-Interaction.html#gdk-pango-layout-line-get-clip-region" title="gdk_pango_layout_line_get_clip_region ()">gdk_pango_layout_line_get_clip_region</a>
+                                                        (<em class="parameter"><code><a href="../pango/pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a> *line</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x_origin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y_origin</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *index_ranges</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_ranges</code></em>);
+<a href="../pango/pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      <a class="link" href="gdk3-Pango-Interaction.html#gdk-pango-context-get" title="gdk_pango_context_get ()">gdk_pango_context_get</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../pango/pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      <a class="link" href="gdk3-Pango-Interaction.html#gdk-pango-context-get-for-screen" title="gdk_pango_context_get_for_screen ()">gdk_pango_context_get_for_screen</a>    (<em class="parameter"><code><a class="link" href="gdk3-GdkScreen.html#GdkScreen" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk3-Pango-Interaction.description"></a><h2>Description</h2>
+<p>
+Pango is the text layout system used by GDK and GTK+. The functions
+and types in this section are used to obtain clip regions for
+<a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayouts</span></a>, and to get <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContexts</span></a> that can be used with
+GDK.
+</p>
+<p>
+Creating a <a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> object is the first step in rendering text,
+and requires getting a handle to a <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a>. For GTK+ programs,
+you'll usually want to use <code class="function">gtk_widget_get_pango_context()</code>, or
+<code class="function">gtk_widget_create_pango_layout()</code>, rather than using the lowlevel
+<a class="link" href="gdk3-Pango-Interaction.html#gdk-pango-context-get-for-screen" title="gdk_pango_context_get_for_screen ()"><code class="function">gdk_pango_context_get_for_screen()</code></a>. Once you have a <a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>, you
+can set the text and attributes of it with Pango functions like
+<a href="../pango/pango-Layout-Objects.html#pango-layout-set-text"><code class="function">pango_layout_set_text()</code></a> and get its size with <a href="../pango/pango-Layout-Objects.html#pango-layout-get-size"><code class="function">pango_layout_get_size()</code></a>.
+(Note that Pango uses a fixed point system internally, so converting
+between Pango units and pixels using PANGO_SCALE or the <a href="../pango/pango-Glyph-Storage.html#PANGO-PIXELS:CAPS"><code class="function">PANGO_PIXELS()</code></a> macro.)
+</p>
+<p>
+Rendering a Pango layout is done most simply with <a href="../pango/pango-Cairo-Rendering.html#pango-cairo-show-layout"><code class="function">pango_cairo_show_layout()</code></a>;
+you can also draw pieces of the layout with <a href="../pango/pango-Cairo-Rendering.html#pango-cairo-show-layout-line"><code class="function">pango_cairo_show_layout_line()</code></a>.
+</p>
+<div class="example">
+<a name="rotated-example"></a><p class="title"><b>Example 4. Draw transformed text with Pango and cairo</b></p>
+<div class="example-contents"><pre class="programlisting">
+#define RADIUS 100
+#define N_WORDS 10
+#define FONT "Sans Bold 18"
+
+PangoContext *context;
+PangoLayout *layout;
+PangoFontDescription *desc;
+
+double radius;
+int width, height;
+int i;
+
+/* Set up a transformation matrix so that the user space coordinates for
+ * where we are drawing are [-RADIUS, RADIUS], [-RADIUS, RADIUS]
+ * We first center, then change the scale */
+
+width = gdk_window_get_width (window);
+height = gdk_window_get_height (window);
+radius = MIN (width, height) / 2.;
+
+cairo_translate (cr,
+                 radius + (width - 2 * radius) / 2,
+                 radius + (height - 2 * radius) / 2);
+                 cairo_scale (cr, radius / RADIUS, radius / RADIUS);
+
+/* Create a PangoLayout, set the font and text */
+context = gdk_pango_context_get_for_screen (screen);
+layout = pango_layout_new (context);
+pango_layout_set_text (layout, "Text", -1);
+desc = pango_font_description_from_string (FONT);
+pango_layout_set_font_description (layout, desc);
+pango_font_description_free (desc);
+
+/* Draw the layout N_WORDS times in a circle */
+for (i = 0; i &lt; N_WORDS; i++)
+  {
+    double red, green, blue;
+    double angle = 2 * G_PI * i / n_words;
+
+    cairo_save (cr);
+
+    /* Gradient from red at angle == 60 to blue at angle == 300 */
+    red = (1 + cos (angle - 60)) / 2;
+    green = 0;
+    blue = 1 - red;
+
+    cairo_set_source_rgb (cr, red, green, blue);
+    cairo_rotate (cr, angle);
+
+    /* Inform Pango to re-layout the text with the new transformation matrix */
+    pango_cairo_update_layout (cr, layout);
+
+    pango_layout_get_size (layout, &amp;width, &amp;height);
+
+    cairo_move_to (cr, - width / 2 / PANGO_SCALE, - DEFAULT_TEXT_RADIUS);
+    pango_cairo_show_layout (cr, layout);
+
+    cairo_restore (cr);
+  }
+
+g_object_unref (layout);
+g_object_unref (context);
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+<div class="figure">
+<a name="id3127090"></a><p class="title"><b>Figure 1. Output of <a class="xref" href="gdk3-Pango-Interaction.html#rotated-example" title="Example 4. Draw transformed text with Pango and cairo">Example 4, “Draw transformed text with Pango and cairo”</a></b></p>
+<div class="figure-contents"><div><img src="rotated-text.png" alt="Output of"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+</div>
+<div class="refsect1">
+<a name="gdk3-Pango-Interaction.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gdk-pango-layout-get-clip-region"></a><h3>gdk_pango_layout_get_clip_region ()</h3>
+<pre class="programlisting"><a href="../cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *    gdk_pango_layout_get_clip_region    (<em class="parameter"><code><a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a> *layout</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x_origin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y_origin</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *index_ranges</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_ranges</code></em>);</pre>
+<p>
+Obtains a clip region which contains the areas where the given ranges
+of text would be drawn. <em class="parameter"><code>x_origin</code></em> and <em class="parameter"><code>y_origin</code></em> are the top left point
+to center the layout. <em class="parameter"><code>index_ranges</code></em> should contain
+ranges of bytes in the layout's text.
+</p>
+<p>
+Note that the regions returned correspond to logical extents of the text
+ranges, not ink extents. So the drawn layout may in fact touch areas out of
+the clip region.  The clip region is mainly useful for highlightling parts
+of text, such as when text is selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>layout</code></em> :</span></p></td>
+<td>a <a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_origin</code></em> :</span></p></td>
+<td>X pixel where you intend to draw the layout with this clip</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_origin</code></em> :</span></p></td>
+<td>Y pixel where you intend to draw the layout with this clip</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index_ranges</code></em> :</span></p></td>
+<td>array of byte indexes into the layout, where even members of array are start indexes and odd elements are end indexes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_ranges</code></em> :</span></p></td>
+<td>number of ranges in <em class="parameter"><code>index_ranges</code></em>, i.e. half the size of <em class="parameter"><code>index_ranges</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a clip region containing the given ranges</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pango-layout-line-get-clip-region"></a><h3>gdk_pango_layout_line_get_clip_region ()</h3>
+<pre class="programlisting"><a href="../cairo/cairo-Regions.html#cairo-region-t"><span class="returnvalue">cairo_region_t</span></a> *    gdk_pango_layout_line_get_clip_region
+                                                        (<em class="parameter"><code><a href="../pango/pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a> *line</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x_origin</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y_origin</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *index_ranges</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_ranges</code></em>);</pre>
+<p>
+Obtains a clip region which contains the areas where the given
+ranges of text would be drawn. <em class="parameter"><code>x_origin</code></em> and <em class="parameter"><code>y_origin</code></em> are the top left
+position of the layout. <em class="parameter"><code>index_ranges</code></em>
+should contain ranges of bytes in the layout's text. The clip
+region will include space to the left or right of the line (to the
+layout bounding box) if you have indexes above or below the indexes
+contained inside the line. This is to draw the selection all the way
+to the side of the layout. However, the clip region is in line coordinates,
+not layout coordinates.
+</p>
+<p>
+Note that the regions returned correspond to logical extents of the text
+ranges, not ink extents. So the drawn line may in fact touch areas out of
+the clip region.  The clip region is mainly useful for highlightling parts
+of text, such as when text is selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
+<td>a <a href="../pango/pango-Layout-Objects.html#PangoLayoutLine"><span class="type">PangoLayoutLine</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_origin</code></em> :</span></p></td>
+<td>X pixel where you intend to draw the layout line with this clip</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_origin</code></em> :</span></p></td>
+<td>baseline pixel where you intend to draw the layout line with this clip</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index_ranges</code></em> :</span></p></td>
+<td>array of byte indexes into the layout,
+where even members of array are start indexes and odd elements
+are end indexes. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_ranges</code></em> :</span></p></td>
+<td>number of ranges in <em class="parameter"><code>index_ranges</code></em>, i.e. half the size of <em class="parameter"><code>index_ranges</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a clip region containing the given ranges</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pango-context-get"></a><h3>gdk_pango_context_get ()</h3>
+<pre class="programlisting"><a href="../pango/pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      gdk_pango_context_get               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> for the default GDK screen.
+</p>
+<p>
+The context must be freed when you're finished with it.
+</p>
+<p>
+When using GTK+, normally you should use <code class="function">gtk_widget_get_pango_context()</code>
+instead of this function, to get the appropriate context for
+the widget you intend to render text onto.
+</p>
+<p>
+The newly created context will have the default font options (see
+<a href="../cairo/cairo-cairo-font-options-t.html#cairo-font-options-t"><span class="type">cairo_font_options_t</span></a>) for the default screen; if these options
+change it will not be updated. Using <code class="function">gtk_widget_get_pango_context()</code>
+is more convenient if you want to keep a context around and track
+changes to the screen's font rendering settings.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> for the default display. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gdk-pango-context-get-for-screen"></a><h3>gdk_pango_context_get_for_screen ()</h3>
+<pre class="programlisting"><a href="../pango/pango-Text-Processing.html#PangoContext"><span class="returnvalue">PangoContext</span></a> *      gdk_pango_context_get_for_screen    (<em class="parameter"><code><a class="link" href="gdk3-GdkScreen.html#GdkScreen" title="GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<p>
+Creates a <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> for <em class="parameter"><code>screen</code></em>.
+</p>
+<p>
+The context must be freed when you're finished with it.
+</p>
+<p>
+When using GTK+, normally you should use <code class="function">gtk_widget_get_pango_context()</code>
+instead of this function, to get the appropriate context for
+the widget you intend to render text onto.
+</p>
+<p>
+The newly created context will have the default font options
+(see <a href="../cairo/cairo-cairo-font-options-t.html#cairo-font-options-t"><span class="type">cairo_font_options_t</span></a>) for the screen; if these options
+change it will not be updated. Using <code class="function">gtk_widget_get_pango_context()</code>
+is more convenient if you want to keep a context around and track
+changes to the screen's font rendering settings.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>the <a class="link" href="gdk3-GdkScreen.html#GdkScreen" title="GdkScreen"><span class="type">GdkScreen</span></a> for which the context is to be created.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a href="../pango/pango-Text-Processing.html#PangoContext"><span class="type">PangoContext</span></a> for <em class="parameter"><code>screen</code></em>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.2</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
