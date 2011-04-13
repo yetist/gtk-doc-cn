@@ -517,19 +517,22 @@ location for array of keyvals, or <a href="../glib/glib-Standard-Macros.html#NUL
 <a name="gdk-keymap-get-direction"></a><h3>gdk_keymap_get_direction ()</h3>
 <pre class="programlisting"><a href="../pango/pango-Bidirectional-Text.html#PangoDirection"><span class="returnvalue">PangoDirection</span></a>      gdk_keymap_get_direction            (<em class="parameter"><code><a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap" title="GdkKeymap"><span class="type">GdkKeymap</span></a> *keymap</code></em>);</pre>
 <p>
-Returns the direction of the keymap.
+Returns the direction of effective layout of the keymap.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>keymap</code></em> :</span></p></td>
-<td>a <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap" title="GdkKeymap"><span class="type">GdkKeymap</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default keymap.</td>
+<td>a <a class="link" href="gdk3-Keyboard-Handling.html#GdkKeymap" title="GdkKeymap"><span class="type">GdkKeymap</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the direction of the keymap, <a href="../pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-LTR:CAPS"><code class="literal">PANGO_DIRECTION_LTR</code></a> or
-<a href="../pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-RTL:CAPS"><code class="literal">PANGO_DIRECTION_RTL</code></a>.</td>
+<td>
+<a href="../pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-LTR:CAPS"><code class="literal">PANGO_DIRECTION_LTR</code></a> or <a href="../pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-RTL:CAPS"><code class="literal">PANGO_DIRECTION_RTL</code></a>
+if it can determine the direction. <a href="../pango/pango-Bidirectional-Text.html#PANGO-DIRECTION-NEUTRAL:CAPS"><code class="literal">PANGO_DIRECTION_NEUTRAL</code></a>
+otherwise.</td>
 </tr>
 </tbody>
 </table></div>
@@ -719,17 +722,22 @@ modified. <span class="annotation">[<acronym title="Don't free data after the co
 <p>
 Converts a key name to a key value.
 </p>
+<p>
+The names are the same as those in the
+<code class="filename">&lt;gdk/gdkkeysyms.h&gt;</code> header file
+but without the leading "GDK_KEY_".
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>keyval_name</code></em> :</span></p></td>
-<td>a key name.</td>
+<td>a key name</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the corresponding key value, or <code class="literal">GDK_VoidSymbol</code> if the key name is
-not a valid key.</td>
+<td>the corresponding key value, or <code class="literal">GDK_KEY_VoidSymbol</code>
+if the key name is not a valid key</td>
 </tr>
 </tbody>
 </table></div>
