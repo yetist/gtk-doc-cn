@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GtkCssProvider</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK+ 3 参考手册">
-<link rel="up" href="theming.html" title="Part III. Theming in GTK+">
+<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="up" href="theming.html" title="Part III. GTK+中的主题">
 <link rel="prev" href="gtk3-GtkStyleContext.html" title="GtkStyleContext">
 <link rel="next" href="gtk3-GtkStyleProvider.html" title="GtkStyleProvider">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gtk3-GtkStyleContext.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="theming.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK+ 3 参考手册</th>
+<th width="100%" align="center">GTK3参考手册</th>
 <td><a accesskey="n" href="gtk3-GtkStyleProvider.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -104,7 +104,7 @@ share the same declaration block, by putting all the separators in
 front of the block, separated by commas.
 </p>
 <div class="example">
-<a name="id3168262"></a><p class="title"><b>Example 23. A rule set with two selectors</b></p>
+<a name="id3227307"></a><p class="title"><b>Example 23. A rule set with two selectors</b></p>
 <div class="example-contents"><pre class="programlisting">
 GtkButton, GtkEntry {
     color: #ff00ea;
@@ -148,7 +148,7 @@ various ways:
 <p>
 </p>
 <div class="example">
-<a name="id3190144"></a><p class="title"><b>Example 24. Widget classes and names in selectors</b></p>
+<a name="id3233255"></a><p class="title"><b>Example 24. Widget classes and names in selectors</b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Theme labels that are descendants of a window */
 GtkWindow GtkLabel {
@@ -201,7 +201,7 @@ a string as a widget class name if it contains any uppercase characters
 (which should work for more widgets with names like GtkLabel).
 </p>
 <div class="example">
-<a name="id3190174"></a><p class="title"><b>Example 25. Style classes in selectors</b></p>
+<a name="id3233285"></a><p class="title"><b>Example 25. Style classes in selectors</b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Theme all widgets defining the class entry */
 .entry {
@@ -235,7 +235,7 @@ regions and pseudo-classes they define and see
 used by GTK+ widgets.
 </p>
 <div class="example">
-<a name="id3197619"></a><p class="title"><b>Example 26. Regions in selectors</b></p>
+<a name="id3223080"></a><p class="title"><b>Example 26. Regions in selectors</b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Theme any label within a notebook */
 GtkNotebook GtkLabel {
@@ -263,7 +263,7 @@ are :active, :prelight (or :hover), :insensitive, :selected, :focused
 and :inconsistent.
 </p>
 <div class="example">
-<a name="id3197650"></a><p class="title"><b>Example 27. Styling specific widget states</b></p>
+<a name="id3223111"></a><p class="title"><b>Example 27. Styling specific widget states</b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Theme active (pressed) buttons */
 GtkButton:active {
@@ -320,7 +320,7 @@ GTK+'s CSS supports the @import rule, in order to load another
 CSS style sheet in addition to the currently parsed one.
 </p>
 <div class="example">
-<a name="id3107097"></a><p class="title"><b>Example 28. Using the @import rule</b></p>
+<a name="id3120355"></a><p class="title"><b>Example 28. Using the @import rule</b></p>
 <div class="example-contents"><pre class="programlisting">
 @import url ("path/to/common.css");
 </pre></div>
@@ -339,7 +339,7 @@ according to the current key theme, which is defined by the
 <span class="type">"gtk-key-theme-name"</span> setting.
 </p>
 <div class="example">
-<a name="id3107733"></a><p class="title"><b>Example 29. Using the @binding rule</b></p>
+<a name="id3162934"></a><p class="title"><b>Example 29. Using the @binding rule</b></p>
 <div class="example-contents"><pre class="programlisting">
 @binding-set binding-set1 {
   bind "&lt;alt&gt;Left" { "move-cursor" (visual-positions, -3, 0) };
@@ -364,7 +364,7 @@ representations. Also see the <span class="type">"gtk-color-scheme"</span> setti
 for a way to override the values of these named colors.
 </p>
 <div class="example">
-<a name="id3197697"></a><p class="title"><b>Example 30. Defining colors</b></p>
+<a name="id3223157"></a><p class="title"><b>Example 30. Defining colors</b></p>
 <div class="example-contents"><pre class="programlisting">
 @define-color bg_color #f9a039;
 
@@ -387,7 +387,7 @@ a rich language to define colors which are derived from a set of base
 colors.
 </p>
 <div class="example">
-<a name="id3197734"></a><p class="title"><b>Example 31. Using symbolic colors</b></p>
+<a name="id3223194"></a><p class="title"><b>Example 31. Using symbolic colors</b></p>
 <div class="example-contents"><pre class="programlisting">
 @define-color entry-color shade (@bg_color, 0.7);
 
@@ -501,7 +501,7 @@ stop. 'from (<em class="parameter"><code>color</code></em>)' and 'to (<em class=
 color stops with position 0 and 1, respectively.
 </p>
 <div class="example">
-<a name="id3224082"></a><p class="title"><b>Example 32. A linear gradient</b></p>
+<a name="id3256773"></a><p class="title"><b>Example 32. A linear gradient</b></p>
 <div class="example-contents">
 <img src="gradient1.png"><p>This gradient was specified with
 </p>
@@ -511,7 +511,7 @@ color stops with position 0 and 1, respectively.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3224110"></a><p class="title"><b>Example 33. Another linear gradient</b></p>
+<a name="id3256801"></a><p class="title"><b>Example 33. Another linear gradient</b></p>
 <div class="example-contents">
 <img src="gradient2.png"><p>This gradient was specified with
 </p>
@@ -537,7 +537,7 @@ where <em class="parameter"><code>start_radius</code></em> and <em class="parame
 the other parameters are as before.
 </p>
 <div class="example">
-<a name="id3218933"></a><p class="title"><b>Example 34. A radial gradient</b></p>
+<a name="id3251633"></a><p class="title"><b>Example 34. A radial gradient</b></p>
 <div class="example-contents">
 <img src="gradient3.png"><p>This gradient was specified with
 </p>
@@ -548,7 +548,7 @@ the other parameters are as before.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3218962"></a><p class="title"><b>Example 35. Another radial gradient</b></p>
+<a name="id3251662"></a><p class="title"><b>Example 35. Another radial gradient</b></p>
 <div class="example-contents">
 <img src="gradient4.png"><p>This gradient was specified with
 </p>
@@ -586,7 +586,7 @@ the horizontal behaviour and the second one the vertical behaviour.
 If only one option is specified, it affects both.
 </p>
 <div class="example">
-<a name="id3219096"></a><p class="title"><b>Example 36. A border image</b></p>
+<a name="id3251796"></a><p class="title"><b>Example 36. A border image</b></p>
 <div class="example-contents">
 <img src="border1.png"><p>This border image was specified with
 </p>
@@ -596,7 +596,7 @@ If only one option is specified, it affects both.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3219123"></a><p class="title"><b>Example 37. A repeating border image</b></p>
+<a name="id3251823"></a><p class="title"><b>Example 37. A repeating border image</b></p>
 <div class="example-contents">
 <img src="border2.png"><p>This border image was specified with
 </p>
@@ -606,7 +606,7 @@ If only one option is specified, it affects both.
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3219150"></a><p class="title"><b>Example 38. A stretched border image</b></p>
+<a name="id3251850"></a><p class="title"><b>Example 38. A stretched border image</b></p>
 <div class="example-contents">
 <img src="border3.png"><p>This border image was specified with
 </p>
@@ -634,31 +634,31 @@ The option after the duration determines the transition function from a
 small set of predefined functions.
 </p>
 <div class="figure">
-<a name="id3219215"></a><p class="title"><b>Figure 3. Linear transition</b></p>
+<a name="id3251915"></a><p class="title"><b>Figure 3. Linear transition</b></p>
 <div class="figure-contents"><div><img src="linear.png" alt="Linear transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id3219231"></a><p class="title"><b>Figure 4. Ease transition</b></p>
+<a name="id3251931"></a><p class="title"><b>Figure 4. Ease transition</b></p>
 <div class="figure-contents"><div><img src="ease.png" alt="Ease transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id3219248"></a><p class="title"><b>Figure 5. Ease-in-out transition</b></p>
+<a name="id3251948"></a><p class="title"><b>Figure 5. Ease-in-out transition</b></p>
 <div class="figure-contents"><div><img src="ease-in-out.png" alt="Ease-in-out transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id3219264"></a><p class="title"><b>Figure 6. Ease-in transition</b></p>
+<a name="id3251964"></a><p class="title"><b>Figure 6. Ease-in transition</b></p>
 <div class="figure-contents"><div><img src="ease-in.png" alt="Ease-in transition"></div></div>
 </div>
 <p><br class="figure-break">
 </p>
 <div class="figure">
-<a name="id3219280"></a><p class="title"><b>Figure 7. Ease-out transition</b></p>
+<a name="id3251980"></a><p class="title"><b>Figure 7. Ease-out transition</b></p>
 <div class="figure-contents"><div><img src="ease-out.png" alt="Ease-out transition"></div></div>
 </div>
 <p><br class="figure-break">
@@ -823,7 +823,7 @@ using <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-p
 way, using the widget class name for <em class="replaceable"><code>namespace</code></em>.
 </p>
 <div class="example">
-<a name="id3219898"></a><p class="title"><b>Example 39. Using engine-specific style properties</b></p>
+<a name="id3252598"></a><p class="title"><b>Example 39. Using engine-specific style properties</b></p>
 <div class="example-contents"><pre class="programlisting">
 * {
     engine: clearlooks;
