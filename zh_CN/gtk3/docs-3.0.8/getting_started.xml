@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+]>
+<chapter id="gtk-getting-started" xmlns:xi="http://www.w3.org/2003/XInclude">
+  <title>Getting Started with GTK+</title>
+
+  <para>这个文章中包含一个GTK+编程的入门教程，这里有个前提是你已经把GTK+环境配置好了，
+  如已经准备好它的依赖库 和 C 编译器.如果你想先编译gtk+,
+  可以参考 <link linkend="gtk-compiling">编译 GTK+ 库</link>
+  相关章节。</para>
+
+  <simplesect>
+    <title>基础</title>
+
+    <para>
+    现在开始介绍gtk ，我们先以一个简单的程序开始，这个程序将建立一个内容为空 200*200像素的窗口:
+    </para>
+
+    <para>
+      <inlinegraphic fileref="window-default.png" format="PNG"></inlinegraphic>
+    </para>
+
+    <informalexample><programlisting>
+      <xi:include href="../../../../examples/window-default.c" parse="text">
+        <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+      </xi:include>
+    </programlisting></informalexample>
+
+    <para>你可以由以下的gcc命令编译这个程序:</para>
+
+    <para><literallayout>
+      <literal>gcc `pkg-config --cflags gtk+-3.0` -o window-default window-default.c `pkg-config --libs gtk+-3.0`</literal>
+    </literallayout></para>
+
+    <note><para>
+    关于更多编译一个gtk+应用程序的信息，
+    请引用<link linkend="gtk-compiling">Compiling GTK+ Applications</link>。</para></note>
+
+    <para>任何的gtk+版本都是可以的。
+    包含<filename>gtk/gtk.h</filename>, 
+    里面声明了gtk+应用程序需要的函数声明和类型还有宏。</para>
+
+    <warning><para>可能gtk+的安装需要多个头文件，
+    但仅需要包含顶层头<filename>gtk/gtk.h</filename>到第三方代码中就可以了，
+    当直接包含了其他的头，编译器会中止和出现错误信息。
+    </para></warning>
+
+    <para>
+    我们在<function>main</function>()函数中处理这个程序，
+    定义一个 #GtkWidget 类型指针的<varname>window</varname>变量。</para>
+
+    <para>
+    接着的一行，我们将调用GTK+的初始化函数gtk_init()；
+    这个函数将会为GTK+建立起类型系统，到窗体环境的连接等等。
+    gtk_init()将由命令行所传递的参数作为自己的参数，
+    这样就可由GTK+来解析一些特殊的命令行参数以控制GTK+自己的行为。
+    被解析的参数将会从字符串中被删除，只留下那些GTK+无法识别的参数以供应用程序去解析。 
+    </para>
+
+    <note><para>若想获得更多关于GTK+可识别的参数的信息，
+    请参考本文档中<link linkend="gtk-running">运行GTK+程序</link> 一章。</para></note>
+
+    <para>The call to gtk_window_new() will create a new #GtkWindow and store
+    it inside the <varname>window</varname> variable. The type of the window
+    is %GTK_WINDOW_TOPLEVEL, which means that the #GtkWindow will be managed
+    by the windowing system: it will have a frame, a title bar and window
+    controls, depending on the platform.</para>
+
+    <para>In order to terminate the application when the #GtkWindow is
+    destroyed, we connect the #GtkWidget::destroy signal to the gtk_main_quit()
+    function. This function will terminate the GTK+ main loop started by calling
+    gtk_main() later. The #GtkWidget::destroy signal is emitted when a widget is
+    destroyed, either by explicitly calling gtk_widget_destroy() or when the
+    widget is unparented. Top-level #GtkWindow<!-- -->s are also destroyed when
+    the Close window control button is clicked.</para>
+
+    <para>#GtkWidget<!-- -->s are hidden by default. By calling gtk_widget_show()
+    on a #GtkWidget we are asking GTK+ to set the visibility attribute so that it
+    can be displayed. All this work is done after the main loop has been
+    started.</para>
+
+    <para>The last line of interest is the call to gtk_main(). This function will
+    start the GTK+ main loop and will block the control flow of the
+    main() until the gtk_main_quit() function is called.</para>
+
+    <para>While the program is running, GTK+ is receiving
+    <firstterm>events</firstterm>. These are typically input events caused by
+    the user interacting with your program, but also things like messages from
+    the window manager or other applications. GTK+ processes these and as a
+    result, <firstterm>signals</firstterm> may be emitted on your widgets.
+    Connecting handlers for these signals is how you normally make your
+    program do something in response to user input.</para>
+
+    <para>The following example is slightly more complex, and tries to
+    showcase some of the capabilities of GTK+.</para>
+
+    <para>In the long tradition of programming languages and libraries,
+    it is called <emphasis>Hello, World</emphasis>.</para>
+
+    <para>
+      <inlinegraphic fileref="hello-world.png" format="PNG"></inlinegraphic>
+    </para>
+
+    <example id="gtk-getting-started-hello-world">
+      <title>Hello World in GTK+</title>
+      <programlisting>
+        <xi:include href="../../../../examples/hello-world.c" parse="text">
+          <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+        </xi:include>
+      </programlisting>
+    </example>
+  </simplesect>
+
+  <simplesect>
+    <title>Packing</title>
+
+    <para>When creating an application, you'll want to put more than one widget
+    inside a window. Our first helloworld example only used one widget so we
+    could simply use a gtk_container_add() call to "pack" the widget into the
+    window. But when you want to put more than one widget into a window, it
+    it becomes important to control how each widget is positioned and sized.
+    This is where packing comes in.</para>
+
+    <para>GTK+ comes with a large variety of <firstterm>layout containers</firstterm>
+    whose purpose it is to control the layout of the child widgets that are
+    added to them. See <xref linkend="LayoutContainers"/> for an overview.</para>
+
+    <para>The following example shows how the GtkGrid container lets you
+    arrange several buttons:</para>
+
+    <para>
+      <inlinegraphic fileref="grid-packing.png" format="PNG"></inlinegraphic>
+    </para>
+
+    <example id="gtk-getting-started-grid-packing">
+      <title>Packing buttons</title>
+      <programlisting>
+        <xi:include href="../../../../examples/grid-packing.c" parse="text">
+          <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+        </xi:include>
+      </programlisting>
+    </example>
+  </simplesect>
+
+  <simplesect>
+    <title>Drawing</title>
+
+    <para>Many widgets, like buttons, do all their drawing themselves. You
+    just tell them the label you want to see, and they figure out what font
+    to use, draw the button outline and focus rectangle, etc. Sometimes, it
+    is necessary to do some custom drawing. In that case, a #GtkDrawingArea
+    might be the right widget to use. It offers a canvas on which you can
+    draw by connecting to the #GtkWidget::draw signal.
+    </para>
+
+    <para>The contents of a widget often need to be partially or fully redrawn,
+    e.g. when another window is moved and uncovers part of the widget, or
+    when tie window containing it is resized. It is also possible to explicitly
+    cause part or all of the widget to be redrawn, by calling
+    gtk_widget_queue_draw() or its variants. GTK+ takes care of most of the
+    details by providing a ready-to-use cairo context to the ::draw signal
+    handler.</para>
+
+    <para>The following example shows a ::draw signal handler. It is a bit
+    more complicated than the previous examples, since it also demonstrates
+    input event handling by means of ::button-press and ::motion-notify
+    handlers.</para>
+
+    <para>
+      <inlinegraphic fileref="drawing.png" format="PNG"></inlinegraphic>
+    </para>
+
+    <example id="gtk-getting-started-drawing">
+      <title>Drawing in response to input</title>
+      <programlisting>
+        <xi:include href="../../../../examples/drawing.c" parse="text">
+          <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+        </xi:include>
+      </programlisting>
+    </example>
+  </simplesect>
+
+  <simplesect>
+    <title>Building interfaces</title>
+
+    <para>When construcing a more complicated user interface, with dozens
+    or hundreds of widgets, doing all the setup work in C code is
+    cumbersome, and making changes becomes next to impossible.</para>
+
+    <para>Thankfully, GTK+ supports the separation of user interface
+    layout from your business logic, by using UI descriptions in an
+    XML format that can be parsed by the #GtkBuilder class.</para>
+
+    <example>
+      <title>Packing buttons with GtkBuilder</title>
+      <programlisting>
+        <xi:include href="../../../../examples/builder.c" parse="text">
+          <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+        </xi:include>
+      </programlisting>
+      The builder.ui file looks like this:
+      <programlisting>
+        <xi:include href="../../../../examples/builder.ui" parse="text">
+          <xi:fallback>FIXME: MISSING XINCLUDE CONTENT</xi:fallback>
+        </xi:include>
+      </programlisting>
+    </example>
+
+    <para>Note that GtkBuilder can also be used to construct objects
+    that are not widgets, such as tree models, adjustments, etc.
+    That is the reason the method we use here is called
+    gtk_builder_get_object() and returns a GObject* instead of a
+    GtkWidget*.</para>
+
+    <para>Normally, you would pass a full path to
+    gtk_builder_add_from_file() to make the execution of your program
+    independent of the current directory. A common location to install
+    UI descriptions and similar data is
+    <filename>/usr/share/<replaceable>appname</replaceable></filename>.
+    </para>
+
+    <para>It is also possible to embed the UI description in the source
+    code as a string and use gtk_builder_add_from_string() to load it.
+    But keeping the UI description in a separate file has several
+    advantages: It is then possible to make minor adjustments to the UI
+    without recompiling your program, and, more importantly, graphical
+    UI editors such as <ulink url="http://glade.gnome.org">glade</ulink>
+    can load the file and allow you to create and modify your UI by
+    point-and-click.</para>
+
+  </simplesect>
+</chapter>
