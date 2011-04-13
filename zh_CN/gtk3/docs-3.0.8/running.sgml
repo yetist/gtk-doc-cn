@@ -17,27 +17,23 @@
 </refnamediv>
 
 <refsect1>
-<title>Running and debugging GTK+ Applications</title>
+<title>运行并调试GTK+应用程序</title>
 
 <refsect2>
-<title>Common commandline options</title>
+<title>通用命令行选项</title>
 
 <para>
-All GTK+ applications support a number of standard commandline
-options. These are removed from <literal>argv</literal> by gtk_init().
-Modules may parse and remove further options. The
-<link linkend="x11-cmdline">X11</link> and
-<link linkend="win32-cmdline">Windows</link> GDK backends parse
-some additional commandline options.
+所有 GTK+ 应用程序支持一些标准命令行选项。
+它们被 gtk_init() 从 <literal>argv</literal>中移除。
+模块可以解析并进一步移除选项。
+<link linkend="x11-cmdline">X11</link>和<link linkend="win32-cmdline">Windows</link> GDK后端解析一些附加命令行选项。
 </para>
 
 <formalpara>
-<title><systemitem>--gtk-module <replaceable>module</replaceable></systemitem></title>
+<title><systemitem>--gtk-module <replaceable>模块</replaceable></systemitem></title>
 
 <para>
-A list of modules to load in addition to those specified in the
-<envar>GTK_MODULES</envar> environment variable and the
-<literal>gtk-modules</literal> setting.
+载入附加组件的列表，他们是在<envar>GTK_MODULES</envar> 环境变量中和<literal>gtk-modules</literal>设置中指定的。
 </para>
 </formalpara>
 
@@ -45,151 +41,135 @@ A list of modules to load in addition to those specified in the
 <title><systemitem>--g-fatal-warnings</systemitem></title>
 
 <para>
-Make GTK+ abort on all warnings. This is useful to stop on the first
-warning in a debugger, if your application is printing multiple
-warnings.  It's almost always best to start debugging with the first
-warning that occurs.
+有任何警告，就让 GTK+ 终止。
+在调试器里，让程序在第一次警告时停止，这很有用。
+如果您的应用程序输出了多个警告。这是在第一次警告发生时最好的启动调试的办法。
 </para>
 </formalpara>
 
 <formalpara>
-<title><systemitem>--gtk-debug <replaceable>options</replaceable></systemitem></title>
+<title><systemitem>--gtk-debug <replaceable>选项</replaceable></systemitem></title>
 
 <para>
-A list of <link linkend="GTK-Debug-Options">debug options</link>
-to turn on in addition to those specified in the <envar>GTK_DEBUG</envar>
-environment variable. This option is only available if GTK+ has been
-configured with <option>--enable-debug=yes</option>.
+附加开启<link linkend="GTK-Debug-Options">调试选项</link>的一个列表，它们在 GTK_DEBUG 环境变量中指定。
+此选项仅在使用<option>--enable-debug=yes</option>后可用。
 </para>
 </formalpara>
 
 <formalpara>
-<title><systemitem>--gtk-no-debug <replaceable>options</replaceable></systemitem></title>
+<title><systemitem>--gtk-no-debug <replaceable>选项</replaceable></systemitem></title>
 
 <para>
-A list of <link linkend="GTK-Debug-Options">debug options</link>
-to turn off. This option is only available if GTK+ has been configured with
-<option>--enable-debug=yes</option>.
+关闭<link linkend="GTK-Debug-Options">调试选项</link>的列表。
+此选项仅在使用<option>--enable-debug=yes</option>后可用。
 </para>
 </formalpara>
 
 <para>
-The following options are really used by GDK, not by GTK+, but we
-list them here for completeness nevertheless.
+以下选项由 GDK 使用，不是 GTK+，但是兼顾完整我们在这里列出它们。
 </para>
 
 <formalpara>
-<title><systemitem>--class <replaceable>class</replaceable></systemitem></title>
+<title><systemitem>--class <replaceable>类</replaceable></systemitem></title>
 
 <para>
-Sets the program class; see gdk_set_program_class().
-</para>
-</formalpara>
-
-<formalpara>
-<title><systemitem>--name <replaceable>name</replaceable></systemitem></title>
-
-<para>
-Sets the program name.
+置程序类；参见 gdk_set_program_class()。
 </para>
 </formalpara>
 
 <formalpara>
-<title><systemitem>--gdk-debug <replaceable>options</replaceable></systemitem></title>
+<title><systemitem>--name <replaceable>名称</replaceable></systemitem></title>
 
 <para>
-A list of <link linkend="GDK-Debug-Options">debug options</link>
-to turn on in addition to those specified in the <envar>GDK_DEBUG</envar>
-environment variable. This option is only available if GTK+ has been
-configured with <option>--enable-debug=yes</option>.
+置程序名称。
 </para>
 </formalpara>
 
 <formalpara>
-<title><systemitem>--gdk-no-debug <replaceable>options</replaceable></systemitem></title>
+<title><systemitem>--gdk-debug <replaceable>选项</replaceable></systemitem></title>
 
 <para>
-A list of <link linkend="GDK-Debug-Options">debug options</link>
-to turn off. This option is only available if GTK+ has been configured with
-<option>--enable-debug=yes</option>.
+要附加开启的<link linkend="GDK-Debug-Options">调试选项</link>的列表指定在 <envar>GDK_DEBUG</envar>环境变量中。
+此选项仅在使用<option>--enable-debug=yes</option>后可用。
+</para>
+</formalpara>
+
+<formalpara>
+<title><systemitem>--gdk-no-debug <replaceable>选项</replaceable></systemitem></title>
+
+<para>
+要关闭的<link linkend="GDK-Debug-Options">调试选项</link>的列表。此选项仅在使用<option>--enable-debug=yes</option>后可用。
 </para>
 </formalpara>
 
 </refsect2>
 
 <refsect2>
-<title>Environment variables</title>
+<title>环境变量</title>
 
 <para>
-GTK+ inspects a number of environment variables in addition to standard
-variables like <envar>LANG</envar>, <envar>PATH</envar>, <envar>HOME</envar>
-or <envar>DISPLAY</envar>; mostly to determine paths to look for certain
-files. The <link linkend="x11-envar">X11</link>,
-<link linkend="win32-envar">Windows</link> and
-<link linkend="fb-envar">Framebuffer</link> GDK backends use some
-additional environment variables.
+GTK+ 检查一些附加标准环境变量像<envar>LANG</envar>、<envar>PATH</envar>、<envar>HOME</envar>或<envar>DISPLAY</envar>。
+主要是为了确定路径查找某些文件。
+<link linkend="x11-envar">X11</link>、<link linkend="win32-envar">视窗</link>和<link linkend="fb-envar">帧缓冲</link> GDK后端使用一些附加环境变量。
 </para>
 
 <formalpara id="GTK-Debug-Options">
   <title><envar>GTK_DEBUG</envar></title>
 
   <para>
-  If GTK+ has been configured with <option>--enable-debug=yes</option>,
-  this variable can be set to a list of debug options, which cause GTK+
-  to print out different types of debugging information.
+    如果GTK+ 用<option>--enable-debug=yes</option>配置过，那这个变量可以设置为调试选项的列表，让GTK+输出不同类型的调试信息。
   <variablelist>
     <varlistentry>
       <term>misc</term>
-      <listitem><para>Miscellaneous information</para></listitem>
+      <listitem><para>杂项信息</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>plugsocket</term>
-      <listitem><para>Cross-process embedding</para></listitem>
+      <listitem><para>跨进程嵌入</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>text</term>
-      <listitem><para>Text widget internals</para></listitem>
+      <listitem><para>文本控件内部</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>tree</term>
-      <listitem><para>Tree widget internals</para></listitem>
+      <listitem><para>树空间内核</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>updates</term>
-      <listitem><para>Visual feedback about window updates</para></listitem>
+      <listitem><para>关于窗口更新的可视反馈</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>keybindings</term>
-      <listitem><para>Keybindings</para></listitem>
+      <listitem><para>键绑定</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>multihead</term>
-      <listitem><para>Working on multiple displays</para></listitem>
+      <listitem><para>在多显示上工作</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>modules</term>
-      <listitem><para>Loading of modules</para></listitem>
+      <listitem><para>组件载入</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>geometry</term>
-      <listitem><para>Size allocation</para></listitem>
+      <listitem><para>大小分配</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>icontheme</term>
-      <listitem><para>Icon themes</para></listitem>
+      <listitem><para>图标主题</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>printing</term>
-      <listitem><para>Printing support</para></listitem>
+      <listitem><para>打印支持</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>builder</term>
-      <listitem><para>GtkBuilder support</para></listitem>
+      <listitem><para>GtkBuilder支持</para></listitem>
     </varlistentry>
 
   </variablelist>
-  The special value <literal>all</literal> can be used to turn on all
-  debug options.
+    <literal>all</literal>指定的值可以用来开启所有调试选项。
   </para>
 </formalpara>
 
@@ -197,11 +177,10 @@ additional environment variables.
   <title><envar>GTK_MODULES</envar></title>
 
   <para>
-    A list of modules to load. Note that GTK+ also allows to specify modules to load via a commandline option (<option>--gtk-module</option>) and with the <literal>gtk-modules</literal> setting.
+    要载入模块的列表。注意GTK+也允许通过一个命令行选项（<option>--gtk-module</option>）和<literal>gtk-modules</literal>设置指定要载入的模块。
   </para>
   <warning>
-    Note that this environment variable is read by GTK+ 2.x too,
-    which may not have the same set of modules available for loading.
+    注意这个环境变量也被 GTK+ 2.X 读取，它可能没有用于载入的相同模块集可用。
   </warning>
 </formalpara>
 
@@ -209,47 +188,22 @@ additional environment variables.
   <title><envar>GTK_PATH</envar></title>
 
   <para>
-    Specifies a list of directories to search when GTK+ is looking for
-    dynamically loaded objects such as the modules specified by
-    <envar>GTK_MODULES</envar>, theme engines, input method
-    modules, file system backends and print backends. If the path to
-    the dynamically loaded object is given as an absolute path name,
-    then GTK+ loads it directly.
-    Otherwise, GTK+ goes in turn through the directories in <envar>GTK_PATH</envar>,
-    followed by the directory <filename>.gtk-3.0</filename> in the user's
-    home directory, followed by the system default directory,
-    which is <filename><replaceable>libdir</replaceable>/gtk-3.0/modules</filename>.
-    (If <envar>GTK_EXE_PREFIX</envar> is defined, <replaceable>libdir</replaceable> is
-    <filename>$GTK_EXE_PREFIX/lib</filename>. Otherwise it is the libdir
-    specified when GTK+ was configured, usually
-    <filename>/usr/lib</filename>, or
-    <filename>/usr/local/lib</filename>.)
-    For each directory in this list, GTK+ actually looks in a
-    subdirectory
-    <filename><replaceable>directory</replaceable>/<replaceable>version</replaceable>/<replaceable>host</replaceable>/<replaceable>type</replaceable></filename>
-    Where <replaceable>version</replaceable> is derived from the
-    version of GTK+ (use <literal>pkg-config
-    --variable=gtk_binary_version gtk+-3.0</literal> to determine this from a
-    script), <replaceable>host</replaceable> is the architecture on
-    which GTK+ was built. (use <literal>pkg-config
-    --variable=gtk_host gtk+-3.0</literal> to determine this from a
-    script), and <replaceable>type</replaceable> is a directory
-    specific to the type of modules; currently it can be
-    <literal>modules</literal>, <literal>engines</literal>,
-    <literal>immodules</literal>, <literal>filesystems</literal> or
-    <literal>printbackends</literal>, corresponding to the types of
-    modules mentioned above. Either <replaceable>version</replaceable>,
-    <replaceable>host</replaceable>, or both may be omitted. GTK+ looks
-    first in the most specific directory, then in directories with
-    fewer components.
-    The components of GTK_PATH are separated by the ':' character on
-    Linux and Unix, and the ';' character on Windows.
+        指定搜索目录列表，GTK+ 会在这里寻找如<envar>GTK_MODULES</envar>指定的模块、主题引擎、输入法模块、文件系统后端和打印后端等的动态载入模块。
+如果给予的是绝对路径名，GTK+ 会直接载入。
+否则 GTK+ 依次经过<envar>GTK_PATH</envar>中指定的、其次是用户主目录中<filename>.gtk-3.0</filename>中指定的、再次是系统默认目录<filename><replaceable>libdir</replaceable>/gtk-3.0/modules</filename>。
+（如果已定义<envar>GTK_EXE_PREFIX</envar>，<replaceable>libdir</replaceable>将为<filename>$GTK_EXE_PREFIX/lib</filename>。
+否则当 GTK+ 被配置，就是指定的 libdir ，通常是<filename>/usr/lib</filename>或<filename>/usr/local/lib</filename>。）
+遍历在此列表中的目录，GTK+ 实际在一个子目录 “<filename><replaceable>目录</replaceable>/<replaceable>版本</replaceable>/<replaceable>主机</replaceable>/<replaceable>类型</replaceable></filename>” 中察看，
+<replaceable>版本</replaceable>是 GTK+ 的版本（使用<literal>pkg-config --variable=gtk_binary_version gtk+-3.0</literal>可以看到），
+<replaceable>主机</replaceable>是GTK+编译时的架构。
+（使用<literal>pkg-config --variable=gtk_host gtk+-3.0</literal>可以看到），<replaceable>类型</replaceable>是一个具体到模块类型的目录。目前它可以是 <literal>modules</literal>、 <literal>engines</literal>、
+<literal>immodules</literal>、 <literal>filesystems</literal>或   <literal>printbackends</literal>，对应于上面提到的模块的类型。
+任何<replaceable>版本</replaceable>、<replaceable>主机</replaceable>或是两者都可以被省略。
+GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PATH 的组件在 UNIX/Linux 由 ‘:’ 分隔，在视窗上是 ‘;’。
   </para>
   <warning>
-    Note that this environment variable is read by GTK+ 2.x too, which
-    makes it unsuitable for setting it system-wide (or session-wide),
-    since doing so will cause either GTK+ 2.x applications or GTK+ 3
-    applications to see incompatible modules.
+    注意此环境变量也被GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），
+这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看互不兼容的模块。
   </warning>
 </formalpara>
 
@@ -257,11 +211,9 @@ additional environment variables.
   <title><envar>GTK_IM_MODULE</envar></title>
 
   <para>
-    Specifies an IM module to use in preference to the one determined
-    from the locale. If this isn't set and you are running on the system
-    that enables <literal>XSETTINGS</literal> and has a value in
-    <literal>Gtk/IMModule</literal>, that will be used for the default
-    IM module.
+    使用从locale中确定的、在首选项中指定的一个输入法模块。
+如果它没有被设置而且你在一个应用了<literal>XSETTINGS</literal>并且有在<literal>Gtk/IMModule</literal>中的一个值的系统上运行，
+将使用默认输入法模块。
   </para>
 </formalpara>
 
@@ -269,20 +221,16 @@ additional environment variables.
   <title><envar>GTK_IM_MODULE_FILE</envar></title>
 
   <para>
-    Specifies the file listing the IM modules to load. This environment
-    variable the default value
-    <filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/immodules.cache</filename>
-    (<replaceable>libdir</replaceable> has the same meaning here as explained for <envar>GTK_PATH</envar>).
+    指定要载入的输入法文件列表。
+该环境变量的默认值为<filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/immodules.cache</filename>
+（<replaceable>libdir</replaceable>在这里有正如前面<envar>GTK_PATH</envar>解释的相同含义）。
   </para>
   <para>
-    The <filename>immodules.cache</filename> file is generated by the
-    <command>gtk-query-immodules-3.0</command> utility.
+    <filename>immodules.cache</filename>文件由<command>gtk-query-immodules-3.0</command>实用程序生成。
   </para>
   <warning>
-    Note that this environment variable is read by GTK+ 2.x too, which
-    makes it unsuitable for setting it system-wide (or session-wide),
-    since doing so will cause either GTK+ 2.x applications or GTK+ 3
-    applications to see the wrong list of IM modules.
+    注意这个环境变量也被 GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），
+这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看错误的输入法模块列表。
   </warning>
 </formalpara>
 
@@ -290,8 +238,7 @@ additional environment variables.
   <title><envar>GTK_EXE_PREFIX</envar></title>
 
   <para>
-    If set, GTK+ uses <filename>$GTK_EXE_PREFIX/lib</filename> instead of
-    the libdir configured when GTK+ was compiled.
+    如果设置，当 GTK+ 编译，GTK+ 使用<filename>$GTK_EXE_PREFIX/lib</filename>而不是配置的 libdir。
   </para>
 </formalpara>
 
@@ -299,30 +246,24 @@ additional environment variables.
   <title><envar>GTK_DATA_PREFIX</envar></title>
 
   <para>
-    If set, makes GTK+ use <filename>$GTK_DATA_PREFIX</filename>
-    instead of the prefix configured when GTK+ was compiled.
+    	如果设置，当 GTK+ 编译，让 GTK+ 使用<filename>$GTK_DATA_PREFIX</filename>而不是配置的 prefix。
   </para>
 </formalpara>
 
 <para>
-The following environment variables are used by GdkPixbuf, GDK or
-Pango, not by GTK+ itself, but we list them here for completeness
-nevertheless.
+以下环境变量由 GdkPixbuf、 GDK 和 Pango 使用，并非 GTK+ 本身，但我们为兼顾完整性在这里列出它们。
 </para>
 
 <formalpara>
   <title><envar>GDK_PIXBUF_MODULE_FILE</envar></title>
 
   <para>
-    Specifies the file listing the GdkPixbuf loader modules to load.
-    This environment variable overrides the default value
-    <filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/loaders.cache</filename>
-    (<replaceable>libdir</replaceable> is the sysconfdir specified when
-    GTK+ was configured, usually <filename>/usr/local/lib</filename>.)
+    指定 GdkPixbuf 载入器模块要载入的文件列表。
+该环境变量覆盖默认值<filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/loaders.cache</filename>
+（只要GTK+被配置，<replaceable>libdir</replaceable>就是 sysconfdir指定的，通常是<filename>/usr/local/lib</filename>。）
   </para>
   <para>
-    The <filename>loaders.cache</filename> file is generated by the
-    <command>gdk-pixbuf-query-loaders</command> utility.
+    <filename>loaders.cache</filename>文件是由<command>gdk-pixbuf-query-loaders</command>实用程序生成的。
   </para>
  </formalpara>
 
@@ -330,54 +271,51 @@ nevertheless.
   <title><envar>GDK_DEBUG</envar></title>
 
   <para>
-  If GTK+ has been configured with <option>--enable-debug=yes</option>,
-  this variable can be set to a list of debug options, which cause GDK
-  to print out different types of debugging information.
+  如果GTK+ 用<option>--enable-debug=yes</option>配置过，这个变量可以设置调试选项的列表，让 GDK 输出不同类型的调试信息。
   <variablelist>
     <varlistentry>
       <term>misc</term>
-      <listitem><para>Miscellaneous information</para></listitem>
+      <listitem><para>杂项信息</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>events</term>
-      <listitem><para>Show all events received by GDK</para></listitem>
+      <listitem><para>显示所有GDK接收的事件</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>dnd</term>
-      <listitem><para>Information about drag-and-drop</para></listitem>
+      <listitem><para>关于拖放的信息</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>xim</term>
-      <listitem><para>Information about XIM support</para></listitem>
+      <listitem><para>关于XIM支持的信息</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>nograbs</term>
-      <listitem><para>Turn off all pointer and keyboard grabs</para></listitem>
+      <listitem><para>关闭所有指针和键盘抓取（grabs）</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>multihead</term>
-      <listitem><para>Information related to multiple screens</para></listitem>
+      <listitem><para>有关多屏幕的信息</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>xinerama</term>
-      <listitem><para>Simulate a multi-monitor setup</para></listitem>
+      <listitem><para>模拟多显示器设置</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>cursor</term>
-      <listitem><para>Information about cursor objects (only win32)</para></listitem>
+      <listitem><para>关于鼠标对象的信息（仅 win32）</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>draw</term>
-      <listitem><para>Information about drawing operations (only win32)</para></listitem>
+      <listitem><para>关于绘图操作的信息（仅 win32）</para></listitem>
     </varlistentry>
     <varlistentry>
       <term>eventloop</term>
-      <listitem><para>Information about event loop operation (mostly Quartz)</para></listitem>
+      <listitem><para>关于事件循环的信息（大多为 Quartz）</para></listitem>
     </varlistentry>
 
   </variablelist>
-  The special value <literal>all</literal> can be used to turn on all
-  debug options.
+  <literal>all</literal>指定的值可以用来开启所有调试选项。
   </para>
 </formalpara>
 
@@ -385,27 +323,26 @@ nevertheless.
   <title><envar>GDK_BACKEND</envar></title>
 
   <para>
-    If set, selects the GDK backend to use. Selecting a backend requires that GTK is compiled
-    with support for that backend. The following backends can be selected:
+    如果设置，选择要使用的 GDK 后端。选择一个需要它的后端，GTK 支持这个后端。可以选择以下后端：
     <variablelist>
 
       <varlistentry>
         <term>quartz</term>
-        <listitem><para>Selects the native Quartz backend</para></listitem>
+        <listitem><para>用原生 Quartz 后端</para></listitem>
       </varlistentry>
 
       <varlistentry>
         <term>win32</term>
-        <listitem><para>Selects the native backend for Microsoft Windows</para></listitem>
+        <listitem><para>微软视窗的原生后端</para></listitem>
       </varlistentry>
 
       <varlistentry>
         <term>x11</term>
-        <listitem><para>Selects the native backend for connecting to X11 servers.</para></listitem>
+        <listitem><para>用原生的后端连接到X11服务器</para></listitem>
       </varlistentry>
 
     </variablelist>
-    For more information about selecting backends, see the gdk_display_manager_get() function.
+    关于选择后端的更多信息，参见 gdk_display_manager_get() 函数。
   </para>
 </formalpara>
 
@@ -413,8 +350,7 @@ nevertheless.
   <title><envar>GDK_SYNCHRONIZE</envar></title>
 
   <para>
-    If set, GDK makes all X requests synchronously. This is a useful
-    option for debugging, but it will slow down the performance considerably.
+    	如果设置，GDK 会让所有 X 请求成为交互式的（译注：非多线程的）。这对调试很有用，但会大大减慢执行速度。
   </para>
 </formalpara>
 
@@ -422,11 +358,8 @@ nevertheless.
   <title><envar>XDG_DATA_HOME</envar>, <envar>XDG_DATA_DIRS</envar></title>
 
   <para>
-    GTK+ uses these environment variables to locate icon themes
-    and MIME information. For more information, see
-    <ulink url="http://freedesktop.org/Standards/icon-theme-spec">Icon Theme Specification</ulink>,
-    the <ulink url="http://freedesktop.org/Standards/shared-mime-info-spec">Shared MIME-info Database</ulink>
-    and the <ulink url="http://freedesktop.org/Standards/basedir-spec">Base Directory Specification</ulink>.
+    GTK+ 使用这些环境变量找到图标主题和 MIME 信息。更多信息参见<ulink url="http://freedesktop.org/Standards/icon-theme-spec">图标主题规范</ulink>、
+<ulink url="http://freedesktop.org/Standards/shared-mime-info-spec">共享的MIME信息数据库</ulink> 和<ulink url="http://freedesktop.org/Standards/basedir-spec">基本目录规范</ulink>。
   </para>
 </formalpara>
 
@@ -434,12 +367,9 @@ nevertheless.
   <title><envar>DESKTOP_STARTUP_ID</envar></title>
 
   <para>
-    GTK+ uses this environment variable to provide startup notification
-    according to the <ulink url="http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt">Startup Notification Spec</ulink>.
-    Following the specification, GTK+ unsets this variable after reading
-    it (to keep it from leaking to child processes). So, if you need its
-    value for your own purposes, you have to read it before calling
-    gtk_init().
+    GTK+ 根据<ulink url="http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt">启动通知规范</ulink>使用这些变量来提供启动通知。
+根据规范，GTK+ 在读取这个变量后反置（unset）它（防止泄漏到子进程）。
+所以，如果你需要它的值达到你的目的，你应该在调用 gtk_init() 前读取。
   </para>
 </formalpara>
 
