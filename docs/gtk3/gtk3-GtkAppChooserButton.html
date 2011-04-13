@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkAppChooserButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="ApplicationChoosing.html" title="Choosing from installed applications">
+<link rel="prev" href="gtk3-GtkAppChooser.html" title="GtkAppChooser">
+<link rel="next" href="gtk3-GtkAppChooserDialog.html" title="GtkAppChooserDialog">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkAppChooser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ApplicationChoosing.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkAppChooserDialog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkAppChooserButton.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkAppChooserButton.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkAppChooserButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkAppChooserButton.top_of_page"></a>GtkAppChooserButton</span></h2>
+<p>GtkAppChooserButton — A button to launch an application chooser dialog</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkAppChooserButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton">GtkAppChooserButton</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-new" title="gtk_app_chooser_button_new ()">gtk_app_chooser_button_new</a>          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-append-custom-item" title="gtk_app_chooser_button_append_custom_item ()">gtk_app_chooser_button_append_custom_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GIcon.html"><span class="type">GIcon</span></a> *icon</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-append-separator" title="gtk_app_chooser_button_append_separator ()">gtk_app_chooser_button_append_separator</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-set-active-custom-item" title="gtk_app_chooser_button_set_active_custom_item ()">gtk_app_chooser_button_set_active_custom_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-get-show-dialog-item" title="gtk_app_chooser_button_get_show_dialog_item ()">gtk_app_chooser_button_get_show_dialog_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-set-show-dialog-item" title="gtk_app_chooser_button_set_show_dialog_item ()">gtk_app_chooser_button_set_show_dialog_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-get-heading" title="gtk_app_chooser_button_get_heading ()">gtk_app_chooser_button_get_heading</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-set-heading" title="gtk_app_chooser_button_set_heading ()">gtk_app_chooser_button_set_heading</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *heading</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserButton.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> is a widget that lets the user select
+an application. It implements the <a class="link" href="gtk3-GtkAppChooser.html#GtkAppChooser" title="GtkAppChooser"><span class="type">GtkAppChooser</span></a> interface.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserButton.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkAppChooserButton"></a><h3>struct GtkAppChooserButton</h3>
+<pre class="programlisting">struct GtkAppChooserButton {
+  GtkComboBox parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-new"></a><h3>gtk_app_chooser_button_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_app_chooser_button_new          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> for applications
+that can handle content of the given type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content_type</code></em> :</span></p></td>
+<td>the content type to show applications for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly created <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-append-custom-item"></a><h3>gtk_app_chooser_button_append_custom_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_button_append_custom_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GIcon.html"><span class="type">GIcon</span></a> *icon</code></em>);</pre>
+<p>
+Appends a custom item to the list of applications that is shown
+in the popup; the item name must be unique per-widget.
+Clients can use the provided name as a detail for the ::custom-item-activated
+signal, to add a callback for the activation of a particular
+custom item in the list.
+See also <a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-append-separator" title="gtk_app_chooser_button_append_separator ()"><code class="function">gtk_app_chooser_button_append_separator()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the custom item</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the label for the custom item</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>the icon for the custom item</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-append-separator"></a><h3>gtk_app_chooser_button_append_separator ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_button_append_separator
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);</pre>
+<p>
+Appends a separator to the list of applications that is shown
+in the popup.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-set-active-custom-item"></a><h3>gtk_app_chooser_button_set_active_custom_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_button_set_active_custom_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<p>
+Selects a custom item previously added with
+<a class="link" href="gtk3-GtkAppChooserButton.html#gtk-app-chooser-button-append-custom-item" title="gtk_app_chooser_button_append_custom_item ()"><code class="function">gtk_app_chooser_button_append_custom_item()</code></a>.
+</p>
+<p>
+Use <a class="link" href="gtk3-GtkAppChooser.html#gtk-app-chooser-refresh" title="gtk_app_chooser_refresh ()"><code class="function">gtk_app_chooser_refresh()</code></a> to bring the selection
+to its initial state.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the custom item</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-get-show-dialog-item"></a><h3>gtk_app_chooser_button_get_show_dialog_item ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_button_get_show_dialog_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-dialog-item"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-dialog-item"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-set-show-dialog-item"></a><h3>gtk_app_chooser_button_set_show_dialog_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_button_set_show_dialog_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the dropdown menu of this button should show an
+entry to trigger a <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-dialog-item"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-get-heading"></a><h3>gtk_app_chooser_button_get_heading ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_app_chooser_button_get_heading  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>);</pre>
+<p>
+Returns the text to display at the top of the dialog.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the text to display at the top of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in which
+case a default text is displayed</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-button-set-heading"></a><h3>gtk_app_chooser_button_set_heading ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_button_set_heading  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *heading</code></em>);</pre>
+<p>
+Sets the text to display at the top of the dialog.
+If the heading is not set, the dialog displays a default text.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserButton.html#GtkAppChooserButton" title="struct GtkAppChooserButton"><span class="type">GtkAppChooserButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>heading</code></em> :</span></p></td>
+<td>a string containing Pango markup</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

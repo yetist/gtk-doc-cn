@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkPaned</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="LayoutContainers.html" title="Layout Containers">
+<link rel="prev" href="gtk3-GtkFixed.html" title="GtkFixed">
+<link rel="next" href="gtk3-GtkHPaned.html" title="GtkHPaned">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkFixed.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkHPaned.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkPaned.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkPaned.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkPaned"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkPaned.top_of_page"></a>GtkPaned</span></h2>
+<p>GtkPaned — Base class for widgets with two adjustable panes</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkPaned.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned">GtkPaned</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPaned.html#gtk-paned-new" title="gtk_paned_new ()">gtk_paned_new</a>                       (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-add1" title="gtk_paned_add1 ()">gtk_paned_add1</a>                      (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-add2" title="gtk_paned_add2 ()">gtk_paned_add2</a>                      (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-pack1" title="gtk_paned_pack1 ()">gtk_paned_pack1</a>                     (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> resize</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> shrink</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-pack2" title="gtk_paned_pack2 ()">gtk_paned_pack2</a>                     (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> resize</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> shrink</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPaned.html#gtk-paned-get-child1" title="gtk_paned_get_child1 ()">gtk_paned_get_child1</a>                (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPaned.html#gtk-paned-get-child2" title="gtk_paned_get_child2 ()">gtk_paned_get_child2</a>                (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-set-position" title="gtk_paned_set_position ()">gtk_paned_set_position</a>              (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkPaned.html#gtk-paned-get-position" title="gtk_paned_get_position ()">gtk_paned_get_position</a>              (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);
+<a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         <a class="link" href="gtk3-GtkPaned.html#gtk-paned-get-handle-window" title="gtk_paned_get_handle_window ()">gtk_paned_get_handle_window</a>         (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkPaned.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> is the base class for widgets with two panes, arranged either
+horizontally (<a class="link" href="gtk3-GtkHPaned.html#GtkHPaned" title="struct GtkHPaned"><span class="type">GtkHPaned</span></a>) or vertically (<a class="link" href="gtk3-GtkVPaned.html#GtkVPaned" title="struct GtkVPaned"><span class="type">GtkVPaned</span></a>). Child widgets are
+added to the panes of the widget with <a class="link" href="gtk3-GtkPaned.html#gtk-paned-pack1" title="gtk_paned_pack1 ()"><code class="function">gtk_paned_pack1()</code></a> and
+<a class="link" href="gtk3-GtkPaned.html#gtk-paned-pack2" title="gtk_paned_pack2 ()"><code class="function">gtk_paned_pack2()</code></a>. The division between the two children is set by default
+from the size requests of the children, but it can be adjusted by the
+user.
+</p>
+<p>
+A paned widget draws a separator between the two child widgets and a
+small handle that the user can drag to adjust the division. It does not
+draw any relief around the children or around the separator. (The space
+in which the separator is called the gutter.) Often, it is useful to put
+each child inside a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> with the shadow type set to <a class="link" href="gtk3-Standard-Enumerations.html#GTK-SHADOW-IN:CAPS"><code class="literal">GTK_SHADOW_IN</code></a>
+so that the gutter appears as a ridge. No separator is drawn if one of
+the children is missing.
+</p>
+<p>
+Each child has two options that can be set, <em class="parameter"><code>resize</code></em> and <em class="parameter"><code>shrink</code></em>. If
+<em class="parameter"><code>resize</code></em> is true, then when the <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> is resized, that child will
+expand or shrink along with the paned widget. If <em class="parameter"><code>shrink</code></em> is true, then
+that child can be made smaller than its requisition by the user.
+Setting <em class="parameter"><code>shrink</code></em> to <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> allows the application to set a minimum size.
+If <em class="parameter"><code>resize</code></em> is false for both children, then this is treated as if
+<em class="parameter"><code>resize</code></em> is true for both children.
+</p>
+<p>
+The application can set the position of the slider as if it were set
+by the user, by calling <a class="link" href="gtk3-GtkPaned.html#gtk-paned-set-position" title="gtk_paned_set_position ()"><code class="function">gtk_paned_set_position()</code></a>.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="id3650003"></a><p class="title"><b>Example 76. Creating a paned widget with minimum sizes.</b></p>
+<div class="example-contents"><pre class="programlisting">
+GtkWidget *hpaned = gtk_paned_new (GTK_ORIENTATION_HORIZONTAL);
+GtkWidget *frame1 = gtk_frame_new (NULL);
+GtkWidget *frame2 = gtk_frame_new (NULL);
+gtk_frame_set_shadow_type (GTK_FRAME (frame1), GTK_SHADOW_IN);
+gtk_frame_set_shadow_type (GTK_FRAME (frame2), GTK_SHADOW_IN);
+
+gtk_widget_set_size_request (hpaned, 200, -1);
+
+gtk_paned_pack1 (GTK_PANED (hpaned), frame1, TRUE, FALSE);
+gtk_widget_set_size_request (frame1, 50, -1);
+
+gtk_paned_pack2 (GTK_PANED (hpaned), frame2, FALSE, FALSE);
+gtk_widget_set_size_request (frame2, 50, -1);
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkPaned.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkPaned"></a><h3>struct GtkPaned</h3>
+<pre class="programlisting">struct GtkPaned {
+  GtkContainer container;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-new"></a><h3>gtk_paned_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_paned_new                       (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> widget.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>orientation</code></em> :</span></p></td>
+<td>the paned's orientation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-add1"></a><h3>gtk_paned_add1 ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_paned_add1                      (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);</pre>
+<p>
+Adds a child to the top or left pane with default parameters. This is
+equivalent to
+<code class="literal">gtk_paned_pack1 (paned, child, FALSE, TRUE)</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a paned widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the child to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-add2"></a><h3>gtk_paned_add2 ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_paned_add2                      (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);</pre>
+<p>
+Adds a child to the bottom or right pane with default parameters. This
+is equivalent to
+<code class="literal">gtk_paned_pack2 (paned, child, TRUE, TRUE)</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a paned widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the child to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-pack1"></a><h3>gtk_paned_pack1 ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_paned_pack1                     (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> resize</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> shrink</code></em>);</pre>
+<p>
+Adds a child to the top or left pane.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a paned widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the child to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>resize</code></em> :</span></p></td>
+<td>should this child expand when the paned widget is resized.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shrink</code></em> :</span></p></td>
+<td>can this child be made smaller than its requisition.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-pack2"></a><h3>gtk_paned_pack2 ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_paned_pack2                     (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> resize</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> shrink</code></em>);</pre>
+<p>
+Adds a child to the bottom or right pane.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a paned widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the child to add</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>resize</code></em> :</span></p></td>
+<td>should this child expand when the paned widget is resized.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shrink</code></em> :</span></p></td>
+<td>can this child be made smaller than its requisition.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-get-child1"></a><h3>gtk_paned_get_child1 ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_paned_get_child1                (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);</pre>
+<p>
+Obtains the first child of the paned widget.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>first child, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-get-child2"></a><h3>gtk_paned_get_child2 ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_paned_get_child2                (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);</pre>
+<p>
+Obtains the second child of the paned widget.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>second child, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if it is not set. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-set-position"></a><h3>gtk_paned_set_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_paned_set_position              (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);</pre>
+<p>
+Sets the position of the divider between the two panes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>pixel position of divider, a negative value means that the position
+is unset.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-get-position"></a><h3>gtk_paned_get_position ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_paned_get_position              (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);</pre>
+<p>
+Obtains the position of the divider between the two panes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>position of the divider</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-paned-get-handle-window"></a><h3>gtk_paned_get_handle_window ()</h3>
+<pre class="programlisting"><a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="returnvalue">GdkWindow</span></a> *         gtk_paned_get_handle_window         (<em class="parameter"><code><a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a> *paned</code></em>);</pre>
+<p>
+Returns the <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a> of the handle. This function is
+useful when handling button or motion events because it
+enables the callback to distinguish between the window
+of the paned, a child and the handle.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>paned</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPaned.html#GtkPaned" title="struct GtkPaned"><span class="type">GtkPaned</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the paned's handle window. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

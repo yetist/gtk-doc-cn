@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkToggleAction</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="Actions.html" title="Action-based menus and toolbars">
+<link rel="prev" href="gtk3-GtkAction.html" title="GtkAction">
+<link rel="next" href="gtk3-GtkRadioAction.html" title="GtkRadioAction">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkAction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="Actions.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkRadioAction.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkToggleAction.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkToggleAction.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkToggleAction"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkToggleAction.top_of_page"></a>GtkToggleAction</span></h2>
+<p>GtkToggleAction — An action which can be toggled between two states</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkToggleAction.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction">GtkToggleAction</a>;
+<a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="returnvalue">GtkToggleAction</span></a> *   <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-new" title="gtk_toggle_action_new ()">gtk_toggle_action_new</a>               (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-toggled" title="gtk_toggle_action_toggled ()">gtk_toggle_action_toggled</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-set-active" title="gtk_toggle_action_set_active ()">gtk_toggle_action_set_active</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_active</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-get-active" title="gtk_toggle_action_get_active ()">gtk_toggle_action_get_active</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-set-draw-as-radio" title="gtk_toggle_action_set_draw_as_radio ()">gtk_toggle_action_set_draw_as_radio</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> draw_as_radio</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkToggleAction.html#gtk-toggle-action-get-draw-as-radio" title="gtk_toggle_action_get_draw_as_radio ()">gtk_toggle_action_get_draw_as_radio</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkToggleAction.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> corresponds roughly to a <a class="link" href="gtk3-gtkcheckmenuitem.html#GtkCheckMenuItem" title="struct GtkCheckMenuItem"><span class="type">GtkCheckMenuItem</span></a>. It has an
+"active" state specifying whether the action has been checked or not.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkToggleAction.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkToggleAction"></a><h3>struct GtkToggleAction</h3>
+<pre class="programlisting">struct GtkToggleAction {
+  GtkAction parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-new"></a><h3>gtk_toggle_action_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="returnvalue">GtkToggleAction</span></a> *   gtk_toggle_action_new               (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *tooltip</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> object. To add the action to
+a <a class="link" href="gtk3-GtkActionGroup.html#GtkActionGroup" title="struct GtkActionGroup"><span class="type">GtkActionGroup</span></a> and set the accelerator for the action,
+call <a class="link" href="gtk3-GtkActionGroup.html#gtk-action-group-add-action-with-accel" title="gtk_action_group_add_action_with_accel ()"><code class="function">gtk_action_group_add_action_with_accel()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A unique name for the action</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>The label displayed in menu items and on buttons,
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tooltip</code></em> :</span></p></td>
+<td>A tooltip for the action, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td>The stock icon to display in widgets representing
+the action, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-toggled"></a><h3>gtk_toggle_action_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_toggle_action_toggled           (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);</pre>
+<p>
+Emits the "toggled" signal on the toggle action.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the action object</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-set-active"></a><h3>gtk_toggle_action_set_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_toggle_action_set_active        (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_active</code></em>);</pre>
+<p>
+Sets the checked state on the toggle action.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the action object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_active</code></em> :</span></p></td>
+<td>whether the action should be checked or not</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-get-active"></a><h3>gtk_toggle_action_get_active ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_toggle_action_get_active        (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);</pre>
+<p>
+Returns the checked state of the toggle action.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the action object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the checked state of the toggle action</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-set-draw-as-radio"></a><h3>gtk_toggle_action_set_draw_as_radio ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_toggle_action_set_draw_as_radio (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> draw_as_radio</code></em>);</pre>
+<p>
+Sets whether the action should have proxies like a radio action.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the action object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>draw_as_radio</code></em> :</span></p></td>
+<td>whether the action should have proxies like a radio
+action</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-toggle-action-get-draw-as-radio"></a><h3>gtk_toggle_action_get_draw_as_radio ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_toggle_action_get_draw_as_radio (<em class="parameter"><code><a class="link" href="gtk3-GtkToggleAction.html#GtkToggleAction" title="struct GtkToggleAction"><span class="type">GtkToggleAction</span></a> *action</code></em>);</pre>
+<p>
+Returns whether the action should have proxies like a radio action.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the action object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether the action should have proxies like a radio action.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

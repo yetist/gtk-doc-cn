@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCellRendererText</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="prev" href="gtk3-GtkCellRendererSpin.html" title="GtkCellRendererSpin">
+<link rel="next" href="gtk3-GtkCellRendererToggle.html" title="GtkCellRendererToggle">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkCellRendererSpin.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkCellRendererToggle.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkCellRendererText.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkCellRendererText.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkCellRendererText"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkCellRendererText.top_of_page"></a>GtkCellRendererText</span></h2>
+<p>GtkCellRendererText — Renders text in a cell</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkCellRendererText.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText">GtkCellRendererText</a>;
+<a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   <a class="link" href="gtk3-GtkCellRendererText.html#gtk-cell-renderer-text-new" title="gtk_cell_renderer_text_new ()">gtk_cell_renderer_text_new</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCellRendererText.html#gtk-cell-renderer-text-set-fixed-height-from-font" title="gtk_cell_renderer_text_set_fixed_height_from_font ()">gtk_cell_renderer_text_set_fixed_height_from_font</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> number_of_rows</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererText.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a> renders a given text in its cell, using the font, color and
+style information provided by its properties. The text will be ellipsized if it is
+too long and the <span class="type">"ellipsize"</span> property allows it.
+</p>
+<p>
+If the <span class="type">"mode"</span> is <a class="link" href="gtk3-GtkCellRenderer.html#GTK-CELL-RENDERER-MODE-EDITABLE:CAPS"><code class="literal">GTK_CELL_RENDERER_MODE_EDITABLE</code></a>,
+the <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a> allows to edit its text using an entry.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererText.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkCellRendererText"></a><h3>struct GtkCellRendererText</h3>
+<pre class="programlisting">struct GtkCellRendererText {
+  GtkCellRenderer parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-text-new"></a><h3>gtk_cell_renderer_text_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   gtk_cell_renderer_text_new          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a>. Adjust how text is drawn using
+object properties. Object properties can be
+set globally (with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-set"><code class="function">g_object_set()</code></a>). Also, with <a class="link" href="gtk3-GtkTreeViewColumn.html#GtkTreeViewColumn" title="struct GtkTreeViewColumn"><span class="type">GtkTreeViewColumn</span></a>,
+you can bind a property to a value in a <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. For example,
+you can bind the "text" property on the cell renderer to a string
+value in the model, thus rendering a different string in each row
+of the <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new cell renderer</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-text-set-fixed-height-from-font"></a><h3>gtk_cell_renderer_text_set_fixed_height_from_font ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_cell_renderer_text_set_fixed_height_from_font
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a> *renderer</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> number_of_rows</code></em>);</pre>
+<p>
+Sets the height of a renderer to explicitly be determined by the "font" and
+"y_pad" property set on it.  Further changes in these properties do not
+affect the height, so they must be accompanied by a subsequent call to this
+function.  Using this function is unflexible, and should really only be used
+if calculating the size of a cell is too slow (ie, a massive number of cells
+displayed).  If <em class="parameter"><code>number_of_rows</code></em> is -1, then the fixed height is unset, and
+the height is determined by the properties again.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>renderer</code></em> :</span></p></td>
+<td>A <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>number_of_rows</code></em> :</span></p></td>
+<td>Number of rows of text each cell renderer is allocated, or -1</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

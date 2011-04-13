@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkAppChooserDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="ApplicationChoosing.html" title="Choosing from installed applications">
+<link rel="prev" href="gtk3-GtkAppChooserButton.html" title="GtkAppChooserButton">
+<link rel="next" href="gtk3-GtkAppChooserWidget.html" title="GtkAppChooserWidget">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkAppChooserButton.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ApplicationChoosing.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkAppChooserWidget.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkAppChooserDialog.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkAppChooserDialog.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkAppChooserDialog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkAppChooserDialog.top_of_page"></a>GtkAppChooserDialog</span></h2>
+<p>GtkAppChooserDialog — An application chooser dialog</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkAppChooserDialog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog">GtkAppChooserDialog</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-new" title="gtk_app_chooser_dialog_new ()">gtk_app_chooser_dialog_new</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-new-for-content-type" title="gtk_app_chooser_dialog_new_for_content_type ()">gtk_app_chooser_dialog_new_for_content_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-get-widget" title="gtk_app_chooser_dialog_get_widget ()">gtk_app_chooser_dialog_get_widget</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-set-heading" title="gtk_app_chooser_dialog_set_heading ()">gtk_app_chooser_dialog_set_heading</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *heading</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-get-heading" title="gtk_app_chooser_dialog_get_heading ()">gtk_app_chooser_dialog_get_heading</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserDialog.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> shows a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> inside a <a class="link" href="gtk3-GtkDialog.html#GtkDialog" title="struct GtkDialog"><span class="type">GtkDialog</span></a>.
+</p>
+<p>
+Note that <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> does not have any interesting methods
+of its own. Instead, you should get the embedded <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+using <a class="link" href="gtk3-GtkAppChooserDialog.html#gtk-app-chooser-dialog-get-widget" title="gtk_app_chooser_dialog_get_widget ()"><code class="function">gtk_app_chooser_dialog_get_widget()</code></a> and call its methods if
+the generic <a class="link" href="gtk3-GtkAppChooser.html#GtkAppChooser" title="GtkAppChooser"><span class="type">GtkAppChooser</span></a> interface is not sufficient for your needs.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserDialog.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkAppChooserDialog"></a><h3>struct GtkAppChooserDialog</h3>
+<pre class="programlisting">struct GtkAppChooserDialog {
+  GtkDialog parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-dialog-new"></a><h3>gtk_app_chooser_dialog_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_app_chooser_dialog_new          (<em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> for the provided <a href="../gio/GFile.html"><span class="type">GFile</span></a>,
+to allow the user to select an application for it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>flags for this dialog</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a <a href="../gio/GFile.html"><span class="type">GFile</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly created <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-dialog-new-for-content-type"></a><h3>gtk_app_chooser_dialog_new_for_content_type ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_app_chooser_dialog_new_for_content_type
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialogFlags" title="enum GtkDialogFlags"><span class="type">GtkDialogFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> for the provided content type,
+to allow the user to select an application for it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>flags for this dialog</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content_type</code></em> :</span></p></td>
+<td>a content type string</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly created <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-dialog-get-widget"></a><h3>gtk_app_chooser_dialog_get_widget ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_app_chooser_dialog_get_widget   (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>);</pre>
+<p>
+Returns the <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> of this dialog.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> of <em class="parameter"><code>self</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-dialog-set-heading"></a><h3>gtk_app_chooser_dialog_set_heading ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_dialog_set_heading  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *heading</code></em>);</pre>
+<p>
+Sets the text to display at the top of the dialog.
+If the heading is not set, the dialog displays a default text.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>heading</code></em> :</span></p></td>
+<td>a string containing Pango markup</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-dialog-get-heading"></a><h3>gtk_app_chooser_dialog_get_heading ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_app_chooser_dialog_get_heading  (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a> *self</code></em>);</pre>
+<p>
+Returns the text to display at the top of the dialog.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the text to display at the top of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, in which
+case a default text is displayed</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCalendar</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="MiscObjects.html" title="Miscellaneous">
+<link rel="prev" href="gtk3-GtkArrow.html" title="GtkArrow">
+<link rel="next" href="gtk3-GtkDrawingArea.html" title="GtkDrawingArea">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkArrow.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MiscObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkDrawingArea.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkCalendar.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkCalendar.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkCalendar"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkCalendar.top_of_page"></a>GtkCalendar</span></h2>
+<p>GtkCalendar — Displays a calendar and allows the user to select a date</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkCalendar.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar">GtkCalendar</a>;
+<a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             (<a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDetailFunc" title="GtkCalendarDetailFunc ()">*GtkCalendarDetailFunc</a>)            (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> year</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+enum                <a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDisplayOptions" title="enum GtkCalendarDisplayOptions">GtkCalendarDisplayOptions</a>;
+
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-new" title="gtk_calendar_new ()">gtk_calendar_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-select-month" title="gtk_calendar_select_month ()">gtk_calendar_select_month</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> year</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-select-day" title="gtk_calendar_select_day ()">gtk_calendar_select_day</a>             (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-mark-day" title="gtk_calendar_mark_day ()">gtk_calendar_mark_day</a>               (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-unmark-day" title="gtk_calendar_unmark_day ()">gtk_calendar_unmark_day</a>             (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-day-is-marked" title="gtk_calendar_get_day_is_marked ()">gtk_calendar_get_day_is_marked</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-clear-marks" title="gtk_calendar_clear_marks ()">gtk_calendar_clear_marks</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);
+
+<a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDisplayOptions" title="enum GtkCalendarDisplayOptions"><span class="returnvalue">GtkCalendarDisplayOptions</span></a>  <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-display-options" title="gtk_calendar_get_display_options ()">gtk_calendar_get_display_options</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-display-options" title="gtk_calendar_set_display_options ()">gtk_calendar_set_display_options</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDisplayOptions" title="enum GtkCalendarDisplayOptions"><span class="type">GtkCalendarDisplayOptions</span></a> flags</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-date" title="gtk_calendar_get_date ()">gtk_calendar_get_date</a>               (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *year</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *day</code></em>);
+
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-detail-func" title="gtk_calendar_set_detail_func ()">gtk_calendar_set_detail_func</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDetailFunc" title="GtkCalendarDetailFunc ()"><span class="type">GtkCalendarDetailFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-detail-width-chars" title="gtk_calendar_get_detail_width_chars ()">gtk_calendar_get_detail_width_chars</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-detail-width-chars" title="gtk_calendar_set_detail_width_chars ()">gtk_calendar_set_detail_width_chars</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> chars</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-detail-height-rows" title="gtk_calendar_get_detail_height_rows ()">gtk_calendar_get_detail_height_rows</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-detail-height-rows" title="gtk_calendar_set_detail_height_rows ()">gtk_calendar_set_detail_height_rows</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> rows</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCalendar.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> is a widget that displays a Gregorian calendar, one month
+at a time. It can be created with <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-new" title="gtk_calendar_new ()"><code class="function">gtk_calendar_new()</code></a>.
+</p>
+<p>
+The month and year currently displayed can be altered with
+<a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-select-month" title="gtk_calendar_select_month ()"><code class="function">gtk_calendar_select_month()</code></a>. The exact day can be selected from the
+displayed month using <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-select-day" title="gtk_calendar_select_day ()"><code class="function">gtk_calendar_select_day()</code></a>.
+</p>
+<p>
+To place a visual marker on a particular day, use <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-mark-day" title="gtk_calendar_mark_day ()"><code class="function">gtk_calendar_mark_day()</code></a>
+and to remove the marker, <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-unmark-day" title="gtk_calendar_unmark_day ()"><code class="function">gtk_calendar_unmark_day()</code></a>. Alternative, all
+marks can be cleared with <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-clear-marks" title="gtk_calendar_clear_marks ()"><code class="function">gtk_calendar_clear_marks()</code></a>.
+</p>
+<p>
+The way in which the calendar itself is displayed can be altered using
+<a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-display-options" title="gtk_calendar_set_display_options ()"><code class="function">gtk_calendar_set_display_options()</code></a>.
+</p>
+<p>
+The selected date can be retrieved from a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> using
+<a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-get-date" title="gtk_calendar_get_date ()"><code class="function">gtk_calendar_get_date()</code></a>.
+</p>
+<p>
+Users should be aware that, although the Gregorian calendar is the legal
+calendar in most countries, it was adopted progressively between 1582 and
+1929. Display before these dates is likely to be historically incorrect.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCalendar.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkCalendar"></a><h3>struct GtkCalendar</h3>
+<pre class="programlisting">struct GtkCalendar {
+  GtkWidget widget;
+
+  GtkCalendarPrivate *priv;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkCalendarDetailFunc"></a><h3>GtkCalendarDetailFunc ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             (*GtkCalendarDetailFunc)            (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> year</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+This kind of functions provide Pango markup with detail information for the
+specified day. Examples for such details are holidays or appointments. The
+function returns <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> when no information is available.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
+<td>the year for which details are needed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
+<td>the month for which details are needed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>the day of <em class="parameter"><code>month</code></em> for which details are needed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>the data passed with <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-detail-func" title="gtk_calendar_set_detail_func ()"><code class="function">gtk_calendar_set_detail_func()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly allocated string with Pango markup with details
+for the specified day, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkCalendarDisplayOptions"></a><h3>enum GtkCalendarDisplayOptions</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_CALENDAR_SHOW_HEADING		= 1 &lt;&lt; 0,
+  GTK_CALENDAR_SHOW_DAY_NAMES		= 1 &lt;&lt; 1,
+  GTK_CALENDAR_NO_MONTH_CHANGE		= 1 &lt;&lt; 2,
+  GTK_CALENDAR_SHOW_WEEK_NUMBERS = 1 &lt;&lt; 3,
+  GTK_CALENDAR_SHOW_DETAILS		= 1 &lt;&lt; 5
+} GtkCalendarDisplayOptions;
+</pre>
+<p>
+These options can be used to influence the display and behaviour of a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GTK-CALENDAR-SHOW-HEADING:CAPS"></a><span class="term"><code class="literal">GTK_CALENDAR_SHOW_HEADING</code></span></p></td>
+<td>Specifies that the month and year should be displayed.
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-CALENDAR-SHOW-DAY-NAMES:CAPS"></a><span class="term"><code class="literal">GTK_CALENDAR_SHOW_DAY_NAMES</code></span></p></td>
+<td>Specifies that three letter day descriptions should be present.
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-CALENDAR-NO-MONTH-CHANGE:CAPS"></a><span class="term"><code class="literal">GTK_CALENDAR_NO_MONTH_CHANGE</code></span></p></td>
+<td>Prevents the user from switching months with the calendar.
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-CALENDAR-SHOW-WEEK-NUMBERS:CAPS"></a><span class="term"><code class="literal">GTK_CALENDAR_SHOW_WEEK_NUMBERS</code></span></p></td>
+<td>Displays each week numbers of the current year, down the
+left side of the calendar.
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-CALENDAR-SHOW-DETAILS:CAPS"></a><span class="term"><code class="literal">GTK_CALENDAR_SHOW_DETAILS</code></span></p></td>
+<td>Just show an indicator, not the full details
+text when details are provided. See <a class="link" href="gtk3-GtkCalendar.html#gtk-calendar-set-detail-func" title="gtk_calendar_set_detail_func ()"><code class="function">gtk_calendar_set_detail_func()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-new"></a><h3>gtk_calendar_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_calendar_new                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new calendar, with the current date being selected.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> widget</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-select-month"></a><h3>gtk_calendar_select_month ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_select_month           (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> year</code></em>);</pre>
+<p>
+Shifts the calendar to a different month.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
+<td>a month number between 0 and 11.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
+<td>the year the month is in.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-select-day"></a><h3>gtk_calendar_select_day ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_select_day             (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);</pre>
+<p>
+Selects a day from the current month.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>the day number between 1 and 31, or 0 to unselect
+the currently selected day.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-mark-day"></a><h3>gtk_calendar_mark_day ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_mark_day               (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);</pre>
+<p>
+Places a visual marker on a particular day.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>the day number to mark between 1 and 31.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-unmark-day"></a><h3>gtk_calendar_unmark_day ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_unmark_day             (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);</pre>
+<p>
+Removes the visual marker from a particular day.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>the day number to unmark between 1 and 31.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-get-day-is-marked"></a><h3>gtk_calendar_get_day_is_marked ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_calendar_get_day_is_marked      (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> day</code></em>);</pre>
+<p>
+Returns if the <em class="parameter"><code>day</code></em> of the <em class="parameter"><code>calendar</code></em> is already marked.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>the day number between 1 and 31.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether the day is marked.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-clear-marks"></a><h3>gtk_calendar_clear_marks ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_clear_marks            (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);</pre>
+<p>
+Remove all visual markers.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-get-display-options"></a><h3>gtk_calendar_get_display_options ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDisplayOptions" title="enum GtkCalendarDisplayOptions"><span class="returnvalue">GtkCalendarDisplayOptions</span></a>  gtk_calendar_get_display_options
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);</pre>
+<p>
+Returns the current display options of <em class="parameter"><code>calendar</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the display options.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-set-display-options"></a><h3>gtk_calendar_set_display_options ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_set_display_options    (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDisplayOptions" title="enum GtkCalendarDisplayOptions"><span class="type">GtkCalendarDisplayOptions</span></a> flags</code></em>);</pre>
+<p>
+Sets display options (whether to display the heading and the month
+headings).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>the display options to set</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-get-date"></a><h3>gtk_calendar_get_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_get_date               (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *year</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *month</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *day</code></em>);</pre>
+<p>
+Obtains the selected date from a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
+<td>location to store the year as a decimal
+number (e.g. 2011), or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
+<td>location to store the month number
+(between 0 and 11), or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
+<td>location to store the day number (between
+1 and 31), or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-set-detail-func"></a><h3>gtk_calendar_set_detail_func ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_set_detail_func        (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendarDetailFunc" title="GtkCalendarDetailFunc ()"><span class="type">GtkCalendarDetailFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> destroy</code></em>);</pre>
+<p>
+Installs a function which provides Pango markup with detail information
+for each day. Examples for such details are holidays or appointments. That
+information is shown below each day when <span class="type">"show-details"</span> is set.
+A tooltip containing with full detail information is provided, if the entire
+text should not fit into the details area, or if <span class="type">"show-details"</span>
+is not set.
+</p>
+<p>
+The size of the details area can be restricted by setting the
+<span class="type">"detail-width-chars"</span> and <span class="type">"detail-height-rows"</span>
+properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>a function providing details for each day.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>data to pass to <em class="parameter"><code>func</code></em> invokations.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy</code></em> :</span></p></td>
+<td>a function for releasing <em class="parameter"><code>data</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-get-detail-width-chars"></a><h3>gtk_calendar_get_detail_width_chars ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_calendar_get_detail_width_chars (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);</pre>
+<p>
+Queries the width of detail cells, in characters.
+See <span class="type">"detail-width-chars"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The width of detail cells, in characters.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-set-detail-width-chars"></a><h3>gtk_calendar_set_detail_width_chars ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_set_detail_width_chars (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> chars</code></em>);</pre>
+<p>
+Updates the width of detail cells.
+See <span class="type">"detail-width-chars"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chars</code></em> :</span></p></td>
+<td>detail width in characters.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-get-detail-height-rows"></a><h3>gtk_calendar_get_detail_height_rows ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_calendar_get_detail_height_rows (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>);</pre>
+<p>
+Queries the height of detail cells, in rows.
+See <span class="type">"detail-width-chars"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The height of detail cells, in rows.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-calendar-set-detail-height-rows"></a><h3>gtk_calendar_set_detail_height_rows ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_calendar_set_detail_height_rows (<em class="parameter"><code><a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a> *calendar</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> rows</code></em>);</pre>
+<p>
+Updates the height of detail cells.
+See <span class="type">"detail-height-rows"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>calendar</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCalendar.html#GtkCalendar" title="struct GtkCalendar"><span class="type">GtkCalendar</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rows</code></em> :</span></p></td>
+<td>detail height in rows.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

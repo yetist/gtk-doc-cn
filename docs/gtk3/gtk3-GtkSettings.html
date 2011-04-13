@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Settings</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="gtkbase.html" title="Part II. GTK+ Core Reference">
+<link rel="prev" href="gtk3-Stock-Items.html" title="Stock Items">
+<link rel="next" href="gtk3-Bindings.html" title="Bindings">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-Stock-Items.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="gtkbase.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-Bindings.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkSettings.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkSettings.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkSettings"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkSettings.top_of_page"></a>Settings</span></h2>
+<p>Settings — Sharing settings between applications</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkSettings.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+                    <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings">GtkSettings</a>;
+struct              <a class="link" href="gtk3-GtkSettings.html#GtkSettingsValue" title="struct GtkSettingsValue">GtkSettingsValue</a>;
+<a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="returnvalue">GtkSettings</span></a> *       <a class="link" href="gtk3-GtkSettings.html#gtk-settings-get-default" title="gtk_settings_get_default ()">gtk_settings_get_default</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="returnvalue">GtkSettings</span></a> *       <a class="link" href="gtk3-GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()">gtk_settings_get_for_screen</a>         (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property" title="gtk_settings_install_property ()">gtk_settings_install_property</a>       (<em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()">gtk_settings_install_property_parser</a>
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> parser</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkSettings.html#gtk-rc-property-parse-color" title="gtk_rc_property_parse_color ()">gtk_rc_property_parse_color</a>         (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkSettings.html#gtk-rc-property-parse-enum" title="gtk_rc_property_parse_enum ()">gtk_rc_property_parse_enum</a>          (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkSettings.html#gtk-rc-property-parse-flags" title="gtk_rc_property_parse_flags ()">gtk_rc_property_parse_flags</a>         (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkSettings.html#gtk-rc-property-parse-requisition" title="gtk_rc_property_parse_requisition ()">gtk_rc_property_parse_requisition</a>   (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkSettings.html#gtk-rc-property-parse-border" title="gtk_rc_property_parse_border ()">gtk_rc_property_parse_border</a>        (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-property-value" title="gtk_settings_set_property_value ()">gtk_settings_set_property_value</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkSettings.html#GtkSettingsValue" title="struct GtkSettingsValue"><span class="type">GtkSettingsValue</span></a> *svalue</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-string-property" title="gtk_settings_set_string_property ()">gtk_settings_set_string_property</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *v_string</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-long-property" title="gtk_settings_set_long_property ()">gtk_settings_set_long_property</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> v_long</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-double-property" title="gtk_settings_set_double_property ()">gtk_settings_set_double_property</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> v_double</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkSettings.description"></a><h2>Description</h2>
+<p>
+GtkSettings provide a mechanism to share global settings between
+applications.
+</p>
+<p>
+On the X window system, this sharing is realized by an
+<a class="ulink" href="http://www.freedesktop.org/wiki/Specifications/xsettings-spec" target="_top">XSettings</a>
+manager that is usually part of the desktop environment, along with
+utilities that let the user change these settings. In the absence of
+an Xsettings manager, GTK+ reads default values for settings from
+<code class="filename">settings.ini</code> files in
+<code class="filename">/etc/gtk-3.0</code> and <code class="filename">$XDG_CONFIG_HOME/gtk-3.0</code>. These files must be valid key files (see <a href="../glib/glib-Key-value-file-parser.html#GKeyFile"><span class="type">GKeyFile</span></a>), and have
+a section called Settings. Themes can also provide default values
+for settings by installing a <code class="filename">settings.ini</code> file
+next to their <code class="filename">gtk.css</code> file.
+</p>
+<p>
+Applications can override system-wide settings with
+<a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-string-property" title="gtk_settings_set_string_property ()"><code class="function">gtk_settings_set_string_property()</code></a>, <a class="link" href="gtk3-GtkSettings.html#gtk-settings-set-long-property" title="gtk_settings_set_long_property ()"><code class="function">gtk_settings_set_long_property()</code></a>,
+etc. This should be restricted to special cases though; GtkSettings are
+not meant as an application configuration facility. When doing so, you
+need to be aware that settings that are specific to individual widgets
+may not be available before the widget type has been realized at least
+once. The following example demonstrates a way to do this:
+</p>
+<div class="informalexample"><pre class="programlisting">
+  gtk_init (&amp;argc, &amp;argv);
+
+  /* make sure the type is realized */
+  g_type_class_unref (g_type_class_ref (GTK_TYPE_IMAGE_MENU_ITEM));
+
+  g_object_set (gtk_settings_get_default (), "gtk-menu-images", FALSE, NULL);
+</pre></div>
+<p>
+</p>
+<p>
+There is one GtkSettings instance per screen. It can be obtained with
+<a class="link" href="gtk3-GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()"><code class="function">gtk_settings_get_for_screen()</code></a>, but in many cases, it is more convenient
+to use <a class="link" href="gtk3-GtkWidget.html#gtk-widget-get-settings" title="gtk_widget_get_settings ()"><code class="function">gtk_widget_get_settings()</code></a>. <a class="link" href="gtk3-GtkSettings.html#gtk-settings-get-default" title="gtk_settings_get_default ()"><code class="function">gtk_settings_get_default()</code></a> returns the
+GtkSettings instance for the default screen.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkSettings.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkSettings"></a><h3>GtkSettings</h3>
+<pre class="programlisting">typedef struct {
+  GObject parent_instance;
+} GtkSettings;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkSettingsValue"></a><h3>struct GtkSettingsValue</h3>
+<pre class="programlisting">struct GtkSettingsValue {
+  /* origin should be something like "filename:linenumber" for rc files,
+   * or e.g. "XProperty" for other sources
+   */
+  gchar *origin;
+
+  /* valid types are LONG, DOUBLE and STRING corresponding to the token parsed,
+   * or a GSTRING holding an unparsed statement
+   */
+  GValue value;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-get-default"></a><h3>gtk_settings_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="returnvalue">GtkSettings</span></a> *       gtk_settings_get_default            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Gets the <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> object for the default GDK screen, creating
+it if necessary. See <a class="link" href="gtk3-GtkSettings.html#gtk-settings-get-for-screen" title="gtk_settings_get_for_screen ()"><code class="function">gtk_settings_get_for_screen()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> object. If there is no default
+screen, then returns <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-get-for-screen"></a><h3>gtk_settings_get_for_screen ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="returnvalue">GtkSettings</span></a> *       gtk_settings_get_for_screen         (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<p>
+Gets the <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> object for <em class="parameter"><code>screen</code></em>, creating it if necessary.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>a <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> object. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.2</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-install-property"></a><h3>gtk_settings_install_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_install_property       (<em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-install-property-parser"></a><h3>gtk_settings_install_property_parser ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_install_property_parser
+                                                        (<em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> parser</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>parser</code></em> :</span></p></td>
+<td>. <span class="annotation">[<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-rc-property-parse-color"></a><h3>gtk_rc_property_parse_color ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_rc_property_parse_color         (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<p>
+A <a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
+or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a
+color given either by its name or in the form
+<code class="literal">{ red, green, blue }</code> where <code class="literal">red</code>, <code class="literal">green</code> and
+<code class="literal">blue</code> are integers between 0 and 65535 or floating-point numbers
+between 0 and 1.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstring</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> to be parsed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_value</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold <a href="../gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a> values.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em> could be parsed and <em class="parameter"><code>property_value</code></em>
+has been set to the resulting <a href="../gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-rc-property-parse-enum"></a><h3>gtk_rc_property_parse_enum ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_rc_property_parse_enum          (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<p>
+A <a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
+or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a single
+enumeration value.
+</p>
+<p>
+The enumeration value can be specified by its name, its nickname or
+its numeric value. For consistency with flags parsing, the value
+may be surrounded by parentheses.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstring</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> to be parsed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_value</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold enum values.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em> could be parsed and <em class="parameter"><code>property_value</code></em>
+has been set to the resulting <a href="../gobject/gobject-Enumeration-and-Flag-Types.html#GEnumValue"><span class="type">GEnumValue</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-rc-property-parse-flags"></a><h3>gtk_rc_property_parse_flags ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_rc_property_parse_flags         (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<p>
+A <a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
+or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses flags.
+</p>
+<p>
+Flags can be specified by their name, their nickname or
+numerically. Multiple flags can be specified in the form
+<code class="literal">"( flag1 | flag2 | ... )"</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstring</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> to be parsed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_value</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold flags values.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em> could be parsed and <em class="parameter"><code>property_value</code></em>
+has been set to the resulting flags value.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-rc-property-parse-requisition"></a><h3>gtk_rc_property_parse_requisition ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_rc_property_parse_requisition   (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<p>
+A <a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
+or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses a
+requisition in the form
+<code class="literal">"{ width, height }"</code> for integers <code class="literal">width</code> and <code class="literal">height</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstring</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> to be parsed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_value</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold boxed values.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em> could be parsed and <em class="parameter"><code>property_value</code></em>
+has been set to the resulting <a class="link" href="gtk3-GtkWidget.html#GtkRequisition" title="struct GtkRequisition"><span class="type">GtkRequisition</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-rc-property-parse-border"></a><h3>gtk_rc_property_parse_border ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_rc_property_parse_border        (<em class="parameter"><code>const <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> *gstring</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *property_value</code></em>);</pre>
+<p>
+A <a class="link" href="gtk3-GtkStyle.html#GtkRcPropertyParser" title="GtkRcPropertyParser ()"><span class="type">GtkRcPropertyParser</span></a> for use with <a class="link" href="gtk3-GtkSettings.html#gtk-settings-install-property-parser" title="gtk_settings_install_property_parser ()"><code class="function">gtk_settings_install_property_parser()</code></a>
+or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property-parser" title="gtk_widget_class_install_style_property_parser ()"><code class="function">gtk_widget_class_install_style_property_parser()</code></a> which parses
+borders in the form
+<code class="literal">"{ left, right, top, bottom }"</code> for integers
+<code class="literal">left</code>, <code class="literal">right</code>, <code class="literal">top</code> and <code class="literal">bottom</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gstring</code></em> :</span></p></td>
+<td>the <a href="../glib/glib-Strings.html#GString"><span class="type">GString</span></a> to be parsed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_value</code></em> :</span></p></td>
+<td>a <a href="../gobject/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> which must hold boxed values.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>gstring</code></em> could be parsed and <em class="parameter"><code>property_value</code></em>
+has been set to the resulting <a class="link" href="gtk3-GtkStyleContext.html#GtkBorder" title="struct GtkBorder"><span class="type">GtkBorder</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-set-property-value"></a><h3>gtk_settings_set_property_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_set_property_value     (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkSettings.html#GtkSettingsValue" title="struct GtkSettingsValue"><span class="type">GtkSettingsValue</span></a> *svalue</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-set-string-property"></a><h3>gtk_settings_set_string_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_set_string_property    (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *v_string</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-set-long-property"></a><h3>gtk_settings_set_long_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_set_long_property      (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#glong"><span class="type">glong</span></a> v_long</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-settings-set-double-property"></a><h3>gtk_settings_set_double_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_settings_set_double_property    (<em class="parameter"><code><a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a> *settings</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> v_double</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *origin</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

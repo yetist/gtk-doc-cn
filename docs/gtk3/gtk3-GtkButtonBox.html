@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkButtonBox</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="LayoutContainers.html" title="Layout Containers">
+<link rel="prev" href="gtk3-GtkVBox.html" title="GtkVBox">
+<link rel="next" href="gtk3-GtkHButtonBox.html" title="GtkHButtonBox">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkVBox.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkHButtonBox.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkButtonBox.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkButtonBox.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkButtonBox"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkButtonBox.top_of_page"></a>GtkButtonBox</span></h2>
+<p>GtkButtonBox — Base class for GtkHButtonBox and GtkVButtonBox</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkButtonBox.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox">GtkButtonBox</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-new" title="gtk_button_box_new ()">gtk_button_box_new</a>                  (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);
+<a class="link" href="gtk3-Standard-Enumerations.html#GtkButtonBoxStyle" title="enum GtkButtonBoxStyle"><span class="returnvalue">GtkButtonBoxStyle</span></a>   <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-get-layout" title="gtk_button_box_get_layout ()">gtk_button_box_get_layout</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-get-child-secondary" title="gtk_button_box_get_child_secondary ()">gtk_button_box_get_child_secondary</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-set-layout" title="gtk_button_box_set_layout ()">gtk_button_box_set_layout</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkButtonBoxStyle" title="enum GtkButtonBoxStyle"><span class="type">GtkButtonBoxStyle</span></a> layout_style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-set-child-secondary" title="gtk_button_box_set_child_secondary ()">gtk_button_box_set_child_secondary</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_secondary</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkButtonBox.description"></a><h2>Description</h2>
+<p>
+The primary purpose of this class is to keep track of the various
+properties of <a class="link" href="gtk3-GtkHButtonBox.html#GtkHButtonBox" title="struct GtkHButtonBox"><span class="type">GtkHButtonBox</span></a> and <a class="link" href="gtk3-GtkVButtonBox.html#GtkVButtonBox" title="struct GtkVButtonBox"><span class="type">GtkVButtonBox</span></a> widgets.
+</p>
+<p>
+<a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-get-layout" title="gtk_button_box_get_layout ()"><code class="function">gtk_button_box_get_layout()</code></a> and <a class="link" href="gtk3-GtkButtonBox.html#gtk-button-box-set-layout" title="gtk_button_box_set_layout ()"><code class="function">gtk_button_box_set_layout()</code></a> retrieve and
+alter the method used to spread the buttons in a button box across the
+container, respectively.
+</p>
+<p>
+The main purpose of GtkButtonBox is to make sure the children have all the
+same size. GtkButtonBox gives all children the same size, but it does allow
+'outliers' to keep their own larger size. To force all children to be
+strictly the same size without exceptions, you can set the
+<span class="type">"homogeneous"</span> property to <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkButtonBox.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkButtonBox"></a><h3>struct GtkButtonBox</h3>
+<pre class="programlisting">struct GtkButtonBox {
+  GtkBox box;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-button-box-new"></a><h3>gtk_button_box_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_button_box_new                  (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>orientation</code></em> :</span></p></td>
+<td>the box' orientation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-button-box-get-layout"></a><h3>gtk_button_box_get_layout ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-Standard-Enumerations.html#GtkButtonBoxStyle" title="enum GtkButtonBoxStyle"><span class="returnvalue">GtkButtonBoxStyle</span></a>   gtk_button_box_get_layout           (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>);</pre>
+<p>
+Retrieves the method being used to arrange the buttons in a button box.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the method used to lay out buttons in <em class="parameter"><code>widget</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-button-box-get-child-secondary"></a><h3>gtk_button_box_get_child_secondary ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_button_box_get_child_secondary  (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>);</pre>
+<p>
+Returns whether <em class="parameter"><code>child</code></em> should appear in a secondary group of children.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>a child of <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>child</code></em> should appear in a secondary group of children.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-button-box-set-layout"></a><h3>gtk_button_box_set_layout ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_button_box_set_layout           (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkButtonBoxStyle" title="enum GtkButtonBoxStyle"><span class="type">GtkButtonBoxStyle</span></a> layout_style</code></em>);</pre>
+<p>
+Changes the way buttons are arranged in their container.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>layout_style</code></em> :</span></p></td>
+<td>the new layout style</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-button-box-set-child-secondary"></a><h3>gtk_button_box_set_child_secondary ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_button_box_set_child_secondary  (<em class="parameter"><code><a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_secondary</code></em>);</pre>
+<p>
+Sets whether <em class="parameter"><code>child</code></em> should appear in a secondary group of children.
+A typical use of a secondary child is the help button in a dialog.
+</p>
+<p>
+This group appears after the other children if the style
+is <a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-START:CAPS"><code class="literal">GTK_BUTTONBOX_START</code></a>, <a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-SPREAD:CAPS"><code class="literal">GTK_BUTTONBOX_SPREAD</code></a> or
+<a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-EDGE:CAPS"><code class="literal">GTK_BUTTONBOX_EDGE</code></a>, and before the other children if the style
+is <a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-END:CAPS"><code class="literal">GTK_BUTTONBOX_END</code></a>. For horizontal button boxes, the definition
+of before/after depends on direction of the widget (see
+<a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-direction" title="gtk_widget_set_direction ()"><code class="function">gtk_widget_set_direction()</code></a>). If the style is <a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-START:CAPS"><code class="literal">GTK_BUTTONBOX_START</code></a>
+or <a class="link" href="gtk3-Standard-Enumerations.html#GTK-BUTTONBOX-END:CAPS"><code class="literal">GTK_BUTTONBOX_END</code></a>, then the secondary children are aligned at
+the other end of the button box from the main children. For the
+other styles, they appear immediately next to the main children.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkButtonBox.html#GtkButtonBox" title="struct GtkButtonBox"><span class="type">GtkButtonBox</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>a child of <em class="parameter"><code>widget</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>is_secondary</code></em> :</span></p></td>
+<td>if <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, the <em class="parameter"><code>child</code></em> appears in a secondary group of the
+button box.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkButtonBox.see-also"></a><h2>See Also</h2>
+<a class="link" href="gtk3-GtkVButtonBox.html#GtkVButtonBox" title="struct GtkVButtonBox"><span class="type">GtkVButtonBox</span></a>, <a class="link" href="gtk3-GtkHButtonBox.html#GtkHButtonBox" title="struct GtkHButtonBox"><span class="type">GtkHButtonBox</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

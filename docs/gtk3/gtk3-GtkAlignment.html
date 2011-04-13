@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkAlignment</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="LayoutContainers.html" title="Layout Containers">
+<link rel="prev" href="gtk3-GtkGrid.html" title="GtkGrid">
+<link rel="next" href="gtk3-GtkAspectFrame.html" title="GtkAspectFrame">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkGrid.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="LayoutContainers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkAspectFrame.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkAlignment.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkAlignment.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkAlignment"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkAlignment.top_of_page"></a>GtkAlignment</span></h2>
+<p>GtkAlignment — A widget which controls the alignment and size of its child</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkAlignment.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment">GtkAlignment</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAlignment.html#gtk-alignment-new" title="gtk_alignment_new ()">gtk_alignment_new</a>                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAlignment.html#gtk-alignment-set" title="gtk_alignment_set ()">gtk_alignment_set</a>                   (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAlignment.html#gtk-alignment-get-padding" title="gtk_alignment_get_padding ()">gtk_alignment_get_padding</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAlignment.html#gtk-alignment-set-padding" title="gtk_alignment_set_padding ()">gtk_alignment_set_padding</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAlignment.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> widget controls the alignment and size of its child widget.
+It has four settings: xscale, yscale, xalign, and yalign.
+</p>
+<p>
+The scale settings are used to specify how much the child widget should
+expand to fill the space allocated to the <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.
+The values can range from 0 (meaning the child doesn't expand at all) to
+1 (meaning the child expands to fill all of the available space).
+</p>
+<p>
+The align settings are used to place the child widget within the available
+area. The values range from 0 (top or left) to 1 (bottom or right).
+Of course, if the scale settings are both set to 1, the alignment settings
+have no effect.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+Note that the desired effect can in most cases be achieved by using the
+<span class="type">"halign"</span>, <span class="type">"valign"</span> and <span class="type">"margin"</span> properties
+on the child widget, so <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> should not be used in new code.
+</p>
+</div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAlignment.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkAlignment"></a><h3>struct GtkAlignment</h3>
+<pre class="programlisting">struct GtkAlignment {
+  GtkBin bin;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-alignment-new"></a><h3>gtk_alignment_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_alignment_new                   (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td>the horizontal alignment of the child widget, from 0 (left) to 1
+(right).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td>the vertical alignment of the child widget, from 0 (top) to 1
+(bottom).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xscale</code></em> :</span></p></td>
+<td>the amount that the child widget expands horizontally to fill up
+unused space, from 0 to 1.
+A value of 0 indicates that the child widget should never expand.
+A value of 1 indicates that the child widget will expand to fill all of the
+space allocated for the <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yscale</code></em> :</span></p></td>
+<td>the amount that the child widget expands vertically to fill up
+unused space, from 0 to 1. The values are similar to <em class="parameter"><code>xscale</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-alignment-set"></a><h3>gtk_alignment_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_set                   (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xscale</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yscale</code></em>);</pre>
+<p>
+Sets the <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> values.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td>the horizontal alignment of the child widget, from 0 (left) to 1
+(right).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td>the vertical alignment of the child widget, from 0 (top) to 1
+(bottom).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xscale</code></em> :</span></p></td>
+<td>the amount that the child widget expands horizontally to fill up
+unused space, from 0 to 1.
+A value of 0 indicates that the child widget should never expand.
+A value of 1 indicates that the child widget will expand to fill all of the
+space allocated for the <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yscale</code></em> :</span></p></td>
+<td>the amount that the child widget expands vertically to fill up
+unused space, from 0 to 1. The values are similar to <em class="parameter"><code>xscale</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-alignment-get-padding"></a><h3>gtk_alignment_get_padding ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_get_padding           (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *padding_right</code></em>);</pre>
+<p>
+Gets the padding on the different sides of the widget.
+See <a class="link" href="gtk3-GtkAlignment.html#gtk-alignment-set-padding" title="gtk_alignment_set_padding ()"><code class="function">gtk_alignment_set_padding()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_top</code></em> :</span></p></td>
+<td>location to store the padding for
+the top of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_bottom</code></em> :</span></p></td>
+<td>location to store the padding
+for the bottom of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_left</code></em> :</span></p></td>
+<td>location to store the padding
+for the left of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_right</code></em> :</span></p></td>
+<td>location to store the padding
+for the right of the widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-alignment-set-padding"></a><h3>gtk_alignment_set_padding ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_alignment_set_padding           (<em class="parameter"><code><a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a> *alignment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_top</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_bottom</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_left</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> padding_right</code></em>);</pre>
+<p>
+Sets the padding on the different sides of the widget.
+The padding adds blank space to the sides of the widget. For instance,
+this can be used to indent the child widget towards the right by adding
+padding on the left.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alignment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAlignment.html#GtkAlignment" title="struct GtkAlignment"><span class="type">GtkAlignment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_top</code></em> :</span></p></td>
+<td>the padding at the top of the widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_bottom</code></em> :</span></p></td>
+<td>the padding at the bottom of the widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_left</code></em> :</span></p></td>
+<td>the padding at the left of the widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>padding_right</code></em> :</span></p></td>
+<td>the padding at the right of the widget.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

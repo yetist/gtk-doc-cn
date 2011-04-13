@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkFrame</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="Ornaments.html" title="Ornaments">
+<link rel="prev" href="Ornaments.html" title="Ornaments">
+<link rel="next" href="gtk3-GtkSeparator.html" title="GtkSeparator">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="Ornaments.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="Ornaments.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkSeparator.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkFrame.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkFrame.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkFrame"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkFrame.top_of_page"></a>GtkFrame</span></h2>
+<p>GtkFrame</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkFrame.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame">GtkFrame</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkFrame.html#gtk-frame-new" title="gtk_frame_new ()">gtk_frame_new</a>                       (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-label" title="gtk_frame_set_label ()">gtk_frame_set_label</a>                 (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-label-widget" title="gtk_frame_set_label_widget ()">gtk_frame_set_label_widget</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *label_widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-label-align" title="gtk_frame_set_label_align ()">gtk_frame_set_label_align</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-shadow-type" title="gtk_frame_set_shadow_type ()">gtk_frame_set_shadow_type</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> type</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-GtkFrame.html#gtk-frame-get-label" title="gtk_frame_get_label ()">gtk_frame_get_label</a>                 (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkFrame.html#gtk-frame-get-label-align" title="gtk_frame_get_label_align ()">gtk_frame_get_label_align</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *yalign</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkFrame.html#gtk-frame-get-label-widget" title="gtk_frame_get_label_widget ()">gtk_frame_get_label_widget</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);
+<a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="returnvalue">GtkShadowType</span></a>       <a class="link" href="gtk3-GtkFrame.html#gtk-frame-get-shadow-type" title="gtk_frame_get_shadow_type ()">gtk_frame_get_shadow_type</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkFrame.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkFrame.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkFrame"></a><h3>struct GtkFrame</h3>
+<pre class="programlisting">struct GtkFrame {
+  GtkBin bin;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-new"></a><h3>gtk_frame_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_frame_new                       (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>, with optional label <em class="parameter"><code>label</code></em>.
+If <em class="parameter"><code>label</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the label is omitted.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the text to use as the label of the frame</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> widget</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-set-label"></a><h3>gtk_frame_set_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_frame_set_label                 (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *label</code></em>);</pre>
+<p>
+Sets the text of the label. If <em class="parameter"><code>label</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>,
+the current label is removed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>the text to use as the label of the frame. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-set-label-widget"></a><h3>gtk_frame_set_label_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_frame_set_label_widget          (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *label_widget</code></em>);</pre>
+<p>
+Sets the label widget for the frame. This is the widget that
+will appear embedded in the top edge of the frame as a
+title.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label_widget</code></em> :</span></p></td>
+<td>the new label widget</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-set-label-align"></a><h3>gtk_frame_set_label_align ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_frame_set_label_align           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> yalign</code></em>);</pre>
+<p>
+Sets the alignment of the frame widget's label. The
+default values for a newly created frame are 0.0 and 0.5.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td>The position of the label along the top edge
+of the widget. A value of 0.0 represents left alignment;
+1.0 represents right alignment.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td>The y alignment of the label. A value of 0.0 aligns under
+the frame; 1.0 aligns above the frame. If the values are exactly
+0.0 or 1.0 the gap in the frame won't be painted because the label
+will be completely above or below the frame.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-set-shadow-type"></a><h3>gtk_frame_set_shadow_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_frame_set_shadow_type           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a> type</code></em>);</pre>
+<p>
+Sets the shadow type for <em class="parameter"><code>frame</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>the new <a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-get-label"></a><h3>gtk_frame_get_label ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_frame_get_label                 (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);</pre>
+<p>
+If the frame's label widget is a <a class="link" href="gtk3-GtkLabel.html#GtkLabel" title="struct GtkLabel"><span class="type">GtkLabel</span></a>, returns the
+text in the label widget. (The frame will have a <a class="link" href="gtk3-GtkLabel.html#GtkLabel" title="struct GtkLabel"><span class="type">GtkLabel</span></a>
+for the label widget if a non-<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> argument was passed
+to <a class="link" href="gtk3-GtkFrame.html#gtk-frame-new" title="gtk_frame_new ()"><code class="function">gtk_frame_new()</code></a>.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the text in the label, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there
+was no label widget or the lable widget was not
+a <a class="link" href="gtk3-GtkLabel.html#GtkLabel" title="struct GtkLabel"><span class="type">GtkLabel</span></a>. This string is owned by GTK+ and
+must not be modified or freed.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-get-label-align"></a><h3>gtk_frame_get_label_align ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_frame_get_label_align           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *xalign</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gfloat"><span class="type">gfloat</span></a> *yalign</code></em>);</pre>
+<p>
+Retrieves the X and Y alignment of the frame's label. See
+<a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-label-align" title="gtk_frame_set_label_align ()"><code class="function">gtk_frame_set_label_align()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xalign</code></em> :</span></p></td>
+<td>location to store X alignment of
+frame's label, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>yalign</code></em> :</span></p></td>
+<td>location to store X alignment of
+frame's label, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-get-label-widget"></a><h3>gtk_frame_get_label_widget ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_frame_get_label_widget          (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);</pre>
+<p>
+Retrieves the label widget for the frame. See
+<a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-label-widget" title="gtk_frame_set_label_widget ()"><code class="function">gtk_frame_set_label_widget()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the label widget, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is none. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-frame-get-shadow-type"></a><h3>gtk_frame_get_shadow_type ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="returnvalue">GtkShadowType</span></a>       gtk_frame_get_shadow_type           (<em class="parameter"><code><a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a> *frame</code></em>);</pre>
+<p>
+Retrieves the shadow type of the frame. See
+<a class="link" href="gtk3-GtkFrame.html#gtk-frame-set-shadow-type" title="gtk_frame_set_shadow_type ()"><code class="function">gtk_frame_set_shadow_type()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>frame</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkFrame.html#GtkFrame" title="struct GtkFrame"><span class="type">GtkFrame</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current shadow type of the frame.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

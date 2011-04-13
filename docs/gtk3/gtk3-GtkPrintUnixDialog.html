@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkPrintUnixDialog</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="Printing.html" title="Printing">
+<link rel="prev" href="gtk3-GtkPrintJob.html" title="GtkPrintJob">
+<link rel="next" href="gtk3-GtkPageSetupUnixDialog.html" title="GtkPageSetupUnixDialog">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkPrintJob.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="Printing.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkPageSetupUnixDialog.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkPrintUnixDialog.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkPrintUnixDialog.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkPrintUnixDialog"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkPrintUnixDialog.top_of_page"></a>GtkPrintUnixDialog</span></h2>
+<p>GtkPrintUnixDialog</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkPrintUnixDialog.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtkprintunixdialog.h&gt;
+
+struct              <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog">GtkPrintUnixDialog</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *           <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-new" title="gtk_print_unix_dialog_new ()">gtk_print_unix_dialog_new</a>         (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-page-setup" title="gtk_print_unix_dialog_set_page_setup ()">gtk_print_unix_dialog_set_page_setup</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPageSetup.html#GtkPageSetup" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a> *page_setup</code></em>);
+<a class="link" href="gtk3-GtkPageSetup.html#GtkPageSetup" title="GtkPageSetup"><span class="returnvalue">GtkPageSetup</span></a> *        <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-page-setup" title="gtk_print_unix_dialog_get_page_setup ()">gtk_print_unix_dialog_get_page_setup</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-current-page" title="gtk_print_unix_dialog_set_current_page ()">gtk_print_unix_dialog_set_current_page</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> current_page</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-current-page" title="gtk_print_unix_dialog_get_current_page ()">gtk_print_unix_dialog_get_current_page</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-settings" title="gtk_print_unix_dialog_set_settings ()">gtk_print_unix_dialog_set_settings</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a> *settings</code></em>);
+<a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="returnvalue">GtkPrintSettings</span></a> *    <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-settings" title="gtk_print_unix_dialog_get_settings ()">gtk_print_unix_dialog_get_settings</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<a class="link" href="gtk3-GtkPrinter.html#GtkPrinter" title="struct GtkPrinter"><span class="returnvalue">GtkPrinter</span></a> *          <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-selected-printer" title="gtk_print_unix_dialog_get_selected_printer ()">gtk_print_unix_dialog_get_selected_printer</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-add-custom-tab" title="gtk_print_unix_dialog_add_custom_tab ()">gtk_print_unix_dialog_add_custom_tab</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *tab_label</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-support-selection" title="gtk_print_unix_dialog_set_support_selection ()">gtk_print_unix_dialog_set_support_selection</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> support_selection</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-support-selection" title="gtk_print_unix_dialog_get_support_selection ()">gtk_print_unix_dialog_get_support_selection</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-has-selection" title="gtk_print_unix_dialog_set_has_selection ()">gtk_print_unix_dialog_set_has_selection</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> has_selection</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-has-selection" title="gtk_print_unix_dialog_get_has_selection ()">gtk_print_unix_dialog_get_has_selection</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-embed-page-setup" title="gtk_print_unix_dialog_set_embed_page_setup ()">gtk_print_unix_dialog_set_embed_page_setup</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> embed</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-embed-page-setup" title="gtk_print_unix_dialog_get_embed_page_setup ()">gtk_print_unix_dialog_get_embed_page_setup</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-page-setup-set" title="gtk_print_unix_dialog_get_page_setup_set ()">gtk_print_unix_dialog_get_page_setup_set</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+enum                <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintCapabilities" title="enum GtkPrintCapabilities">GtkPrintCapabilities</a>;
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-set-manual-capabilities" title="gtk_print_unix_dialog_set_manual_capabilities ()">gtk_print_unix_dialog_set_manual_capabilities</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintCapabilities" title="enum GtkPrintCapabilities"><span class="type">GtkPrintCapabilities</span></a> capabilities</code></em>);
+<a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintCapabilities" title="enum GtkPrintCapabilities"><span class="returnvalue">GtkPrintCapabilities</span></a>  <a class="link" href="gtk3-GtkPrintUnixDialog.html#gtk-print-unix-dialog-get-manual-capabilities" title="gtk_print_unix_dialog_get_manual_capabilities ()">gtk_print_unix_dialog_get_manual_capabilities</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkPrintUnixDialog.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkPrintUnixDialog.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkPrintUnixDialog"></a><h3>struct GtkPrintUnixDialog</h3>
+<pre class="programlisting">struct GtkPrintUnixDialog {
+  GtkDialog parent_instance;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-new"></a><h3>gtk_print_unix_dialog_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *           gtk_print_unix_dialog_new         (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *title</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *parent</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>Title of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>Transient parent of the dialog, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-page-setup"></a><h3>gtk_print_unix_dialog_set_page_setup ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_page_setup
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPageSetup.html#GtkPageSetup" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a> *page_setup</code></em>);</pre>
+<p>
+Sets the page setup of the <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_setup</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPageSetup.html#GtkPageSetup" title="GtkPageSetup"><span class="type">GtkPageSetup</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-page-setup"></a><h3>gtk_print_unix_dialog_get_page_setup ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkPageSetup.html#GtkPageSetup" title="GtkPageSetup"><span class="returnvalue">GtkPageSetup</span></a> *        gtk_print_unix_dialog_get_page_setup
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the page setup that is used by the <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the page setup of <em class="parameter"><code>dialog</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-current-page"></a><h3>gtk_print_unix_dialog_set_current_page ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_current_page
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> current_page</code></em>);</pre>
+<p>
+Sets the current page number. If <em class="parameter"><code>current_page</code></em> is not -1, this enables
+the current page choice for the range of pages to print.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>current_page</code></em> :</span></p></td>
+<td>the current page number.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-current-page"></a><h3>gtk_print_unix_dialog_get_current_page ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_print_unix_dialog_get_current_page
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the current page of the <span class="type">GtkPrintDialog</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the current page of <em class="parameter"><code>dialog</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-settings"></a><h3>gtk_print_unix_dialog_set_settings ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_settings  (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a> *settings</code></em>);</pre>
+<p>
+Sets the <a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a> for the <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>. Typically,
+this is used to restore saved print settings from a previous print
+operation before the print dialog is shown.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>settings</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-settings"></a><h3>gtk_print_unix_dialog_get_settings ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="returnvalue">GtkPrintSettings</span></a> *    gtk_print_unix_dialog_get_settings
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets a new <a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a> object that represents the
+current values in the print dialog. Note that this creates a
+<span class="emphasis"><em>new object</em></span>, and you need to unref it
+if don't want to keep it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkPrintSettings.html#GtkPrintSettings" title="GtkPrintSettings"><span class="type">GtkPrintSettings</span></a> object with the values from <em class="parameter"><code>dialog</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-selected-printer"></a><h3>gtk_print_unix_dialog_get_selected_printer ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkPrinter.html#GtkPrinter" title="struct GtkPrinter"><span class="returnvalue">GtkPrinter</span></a> *          gtk_print_unix_dialog_get_selected_printer
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the currently selected printer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the currently selected printer. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-add-custom-tab"></a><h3>gtk_print_unix_dialog_add_custom_tab ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_add_custom_tab
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *tab_label</code></em>);</pre>
+<p>
+Adds a custom tab to the print dialog.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>child</code></em> :</span></p></td>
+<td>the widget to put in the custom tab</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tab_label</code></em> :</span></p></td>
+<td>the widget to use as tab label</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-support-selection"></a><h3>gtk_print_unix_dialog_set_support_selection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_support_selection
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> support_selection</code></em>);</pre>
+<p>
+Sets whether the print dialog allows user to print a selection.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>support_selection</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to allow print selection</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-support-selection"></a><h3>gtk_print_unix_dialog_get_support_selection ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_print_unix_dialog_get_support_selection
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the value of <span class="type">"support-selection"</span> property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether the application supports print of selection</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-has-selection"></a><h3>gtk_print_unix_dialog_set_has_selection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_has_selection
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> has_selection</code></em>);</pre>
+<p>
+Sets whether a selection exists.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>has_selection</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> indicates that a selection exists</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-has-selection"></a><h3>gtk_print_unix_dialog_get_has_selection ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_print_unix_dialog_get_has_selection
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the value of <span class="type">"has-selection"</span> property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether there is a selection</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-embed-page-setup"></a><h3>gtk_print_unix_dialog_set_embed_page_setup ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_embed_page_setup
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> embed</code></em>);</pre>
+<p>
+Embed page size combo box and orientation combo box into page setup page.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>embed</code></em> :</span></p></td>
+<td>embed page setup selection</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-embed-page-setup"></a><h3>gtk_print_unix_dialog_get_embed_page_setup ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_print_unix_dialog_get_embed_page_setup
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the value of <span class="type">"embed-page-setup"</span> property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether there is a selection</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-page-setup-set"></a><h3>gtk_print_unix_dialog_get_page_setup_set ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_print_unix_dialog_get_page_setup_set
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the page setup that is used by the <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether a page setup was set by user.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkPrintCapabilities"></a><h3>enum GtkPrintCapabilities</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_PRINT_CAPABILITY_PAGE_SET         = 1 &lt;&lt; 0,
+  GTK_PRINT_CAPABILITY_COPIES           = 1 &lt;&lt; 1,
+  GTK_PRINT_CAPABILITY_COLLATE          = 1 &lt;&lt; 2,
+  GTK_PRINT_CAPABILITY_REVERSE          = 1 &lt;&lt; 3,
+  GTK_PRINT_CAPABILITY_SCALE            = 1 &lt;&lt; 4,
+  GTK_PRINT_CAPABILITY_GENERATE_PDF     = 1 &lt;&lt; 5,
+  GTK_PRINT_CAPABILITY_GENERATE_PS      = 1 &lt;&lt; 6,
+  GTK_PRINT_CAPABILITY_PREVIEW          = 1 &lt;&lt; 7,
+  GTK_PRINT_CAPABILITY_NUMBER_UP        = 1 &lt;&lt; 8,
+  GTK_PRINT_CAPABILITY_NUMBER_UP_LAYOUT = 1 &lt;&lt; 9
+} GtkPrintCapabilities;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-set-manual-capabilities"></a><h3>gtk_print_unix_dialog_set_manual_capabilities ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_print_unix_dialog_set_manual_capabilities
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintCapabilities" title="enum GtkPrintCapabilities"><span class="type">GtkPrintCapabilities</span></a> capabilities</code></em>);</pre>
+<p>
+This lets you specify the printing capabilities your application
+supports. For instance, if you can handle scaling the output then
+you pass <span class="type">GTK_PRINT_CAPABILITY_SCALE</span>. If you don't pass that, then
+the dialog will only let you select the scale if the printing
+system automatically handles scaling.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>capabilities</code></em> :</span></p></td>
+<td>the printing capabilities of your application</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.10</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-print-unix-dialog-get-manual-capabilities"></a><h3>gtk_print_unix_dialog_get_manual_capabilities ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintCapabilities" title="enum GtkPrintCapabilities"><span class="returnvalue">GtkPrintCapabilities</span></a>  gtk_print_unix_dialog_get_manual_capabilities
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a> *dialog</code></em>);</pre>
+<p>
+Gets the value of <span class="type">"manual-capabilities"</span> property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dialog</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkPrintUnixDialog.html#GtkPrintUnixDialog" title="struct GtkPrintUnixDialog"><span class="type">GtkPrintUnixDialog</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the printing capabilities</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

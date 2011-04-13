@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkTextTag</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="TextWidgetObjects.html" title="Multiline Text Editor">
+<link rel="prev" href="gtk3-GtkTextBuffer.html" title="GtkTextBuffer">
+<link rel="next" href="gtk3-GtkTextTagTable.html" title="GtkTextTagTable">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkTextBuffer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="TextWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkTextTagTable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkTextTag.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkTextTag.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkTextTag"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkTextTag.top_of_page"></a>GtkTextTag</span></h2>
+<p>GtkTextTag — A tag that can be applied to text in a GtkTextBuffer</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkTextTag.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag">GtkTextTag</a>;
+enum                <a class="link" href="gtk3-GtkTextTag.html#GtkWrapMode" title="enum GtkWrapMode">GtkWrapMode</a>;
+struct              <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes">GtkTextAttributes</a>;
+<a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="returnvalue">GtkTextTag</span></a> *        <a class="link" href="gtk3-GtkTextTag.html#gtk-text-tag-new" title="gtk_text_tag_new ()">gtk_text_tag_new</a>                    (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkTextTag.html#gtk-text-tag-get-priority" title="gtk_text_tag_get_priority ()">gtk_text_tag_get_priority</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkTextTag.html#gtk-text-tag-set-priority" title="gtk_text_tag_set_priority ()">gtk_text_tag_set_priority</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkTextTag.html#gtk-text-tag-event" title="gtk_text_tag_event ()">gtk_text_tag_event</a>                  (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *event_object</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkTextIter.html#GtkTextIter" title="GtkTextIter"><span class="type">GtkTextIter</span></a> *iter</code></em>);
+struct              <a class="link" href="gtk3-GtkTextTag.html#GtkTextAppearance" title="struct GtkTextAppearance">GtkTextAppearance</a>;
+<a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> *  <a class="link" href="gtk3-GtkTextTag.html#gtk-text-attributes-new" title="gtk_text_attributes_new ()">gtk_text_attributes_new</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> *  <a class="link" href="gtk3-GtkTextTag.html#gtk-text-attributes-copy" title="gtk_text_attributes_copy ()">gtk_text_attributes_copy</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *src</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkTextTag.html#gtk-text-attributes-copy-values" title="gtk_text_attributes_copy_values ()">gtk_text_attributes_copy_values</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *dest</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkTextTag.html#gtk-text-attributes-unref" title="gtk_text_attributes_unref ()">gtk_text_attributes_unref</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *values</code></em>);
+<a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> * <a class="link" href="gtk3-GtkTextTag.html#gtk-text-attributes-ref" title="gtk_text_attributes_ref ()">gtk_text_attributes_ref</a>             (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *values</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkTextTag.description"></a><h2>Description</h2>
+<p>
+You may wish to begin by reading the <a class="link" href="TextWidget.html" title="Text Widget Overview">text widget
+conceptual overview</a> which gives an overview of all the objects and
+data types related to the text widget and how they work together.
+</p>
+<p>
+Tags should be in the <a class="link" href="gtk3-GtkTextTagTable.html#GtkTextTagTable" title="GtkTextTagTable"><span class="type">GtkTextTagTable</span></a> for a given <a class="link" href="gtk3-GtkTextBuffer.html#GtkTextBuffer" title="GtkTextBuffer"><span class="type">GtkTextBuffer</span></a>
+before using them with that buffer.
+</p>
+<p>
+<a class="link" href="gtk3-GtkTextBuffer.html#gtk-text-buffer-create-tag" title="gtk_text_buffer_create_tag ()"><code class="function">gtk_text_buffer_create_tag()</code></a> is the best way to create tags.
+See <span class="application">gtk3-demo</span> for numerous examples.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkTextTag.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkTextTag"></a><h3>struct GtkTextTag</h3>
+<pre class="programlisting">struct GtkTextTag {
+  GObject parent_instance;
+
+  GtkTextTagPrivate *priv;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkWrapMode"></a><h3>enum GtkWrapMode</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_WRAP_NONE,
+  GTK_WRAP_CHAR,
+  GTK_WRAP_WORD,
+  GTK_WRAP_WORD_CHAR
+} GtkWrapMode;
+</pre>
+<p>
+Describes a type of line wrapping.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GTK-WRAP-NONE:CAPS"></a><span class="term"><code class="literal">GTK_WRAP_NONE</code></span></p></td>
+<td>do not wrap lines; just make the text area wider
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-WRAP-CHAR:CAPS"></a><span class="term"><code class="literal">GTK_WRAP_CHAR</code></span></p></td>
+<td>wrap text, breaking lines anywhere the cursor can
+    appear (between characters, usually - if you want to be technical,
+    between graphemes, see <a href="../pango/pango-Text-Processing.html#pango-get-log-attrs"><code class="function">pango_get_log_attrs()</code></a>)
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-WRAP-WORD:CAPS"></a><span class="term"><code class="literal">GTK_WRAP_WORD</code></span></p></td>
+<td>wrap text, breaking lines in between words
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-WRAP-WORD-CHAR:CAPS"></a><span class="term"><code class="literal">GTK_WRAP_WORD_CHAR</code></span></p></td>
+<td>wrap text, breaking lines in between words, or if
+    that is not enough, also between graphemes
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkTextAttributes"></a><h3>struct GtkTextAttributes</h3>
+<pre class="programlisting">struct GtkTextAttributes {
+  GtkTextAppearance appearance;
+
+  GtkJustification justification;
+  GtkTextDirection direction;
+
+  /* Individual chunks of this can be set/unset as a group */
+  PangoFontDescription *font;
+
+  gdouble font_scale;
+
+  gint left_margin;
+  gint right_margin;
+  gint indent;
+
+  gint pixels_above_lines;
+  gint pixels_below_lines;
+  gint pixels_inside_wrap;
+
+  PangoTabArray *tabs;
+
+  GtkWrapMode wrap_mode;        /* How to handle wrap-around for this tag.
+                                 * Must be GTK_WRAPMODE_CHAR,
+                                 * GTK_WRAPMODE_NONE, GTK_WRAPMODE_WORD
+                                 */
+
+  PangoLanguage *language;
+
+  /* hide the text  */
+  guint invisible : 1;
+
+  /* Background is fit to full line height rather than
+   * baseline +/- ascent/descent (font height)
+   */
+  guint bg_full_height : 1;
+
+  /* can edit this text */
+  guint editable : 1;
+};
+</pre>
+<p>
+Using <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> directly should rarely be necessary.
+It's primarily useful with <a class="link" href="gtk3-GtkTextIter.html#gtk-text-iter-get-attributes" title="gtk_text_iter_get_attributes ()"><code class="function">gtk_text_iter_get_attributes()</code></a>.
+As with most GTK+ structs, the fields in this struct should only
+be read, never modified directly.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-tag-new"></a><h3>gtk_text_tag_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="returnvalue">GtkTextTag</span></a> *        gtk_text_tag_new                    (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<p>
+Creates a <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>. Configure the tag using object arguments,
+i.e. using <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-set"><code class="function">g_object_set()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>tag name, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-tag-get-priority"></a><h3>gtk_text_tag_get_priority ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_text_tag_get_priority           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>);</pre>
+<p>
+Get the tag priority.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tag</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The tag's priority.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-tag-set-priority"></a><h3>gtk_text_tag_set_priority ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_text_tag_set_priority           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> priority</code></em>);</pre>
+<p>
+Sets the priority of a <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>. Valid priorities are
+start at 0 and go to one less than <a class="link" href="gtk3-GtkTextTagTable.html#gtk-text-tag-table-get-size" title="gtk_text_tag_table_get_size ()"><code class="function">gtk_text_tag_table_get_size()</code></a>.
+Each tag in a table has a unique priority; setting the priority
+of one tag shifts the priorities of all the other tags in the
+table to maintain a unique priority for each tag. Higher priority
+tags "win" if two tags both set the same text attribute. When adding
+a tag to a tag table, it will be assigned the highest priority in
+the table by default; so normally the precedence of a set of tags
+is the order in which they were added to the table, or created with
+<a class="link" href="gtk3-GtkTextBuffer.html#gtk-text-buffer-create-tag" title="gtk_text_buffer_create_tag ()"><code class="function">gtk_text_buffer_create_tag()</code></a>, which adds the tag to the buffer's table
+automatically.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tag</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>priority</code></em> :</span></p></td>
+<td>the new priority</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-tag-event"></a><h3>gtk_text_tag_event ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_text_tag_event                  (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a> *tag</code></em>,
+                                                         <em class="parameter"><code><a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> *event_object</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-Event-Structures.html#GdkEvent"><span class="type">GdkEvent</span></a> *event</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkTextIter.html#GtkTextIter" title="GtkTextIter"><span class="type">GtkTextIter</span></a> *iter</code></em>);</pre>
+<p>
+Emits the "event" signal on the <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tag</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_object</code></em> :</span></p></td>
+<td>object that received the event, such as a widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>the event</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iter</code></em> :</span></p></td>
+<td>location where the event was received</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>result of signal emission (whether the event was handled)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkTextAppearance"></a><h3>struct GtkTextAppearance</h3>
+<pre class="programlisting">struct GtkTextAppearance {
+  GdkColor bg_color;
+  GdkColor fg_color;
+
+  /* super/subscript rise, can be negative */
+  gint rise;
+
+  guint underline : 4;          /* PangoUnderline */
+  guint strikethrough : 1;
+
+  /* Whether to use background-related values; this is irrelevant for
+   * the values struct when in a tag, but is used for the composite
+   * values struct; it's true if any of the tags being composited
+   * had background stuff set.
+   */
+  guint draw_bg : 1;
+
+  /* These are only used when we are actually laying out and rendering
+   * a paragraph; not when a GtkTextAppearance is part of a
+   * GtkTextAttributes.
+   */
+  guint inside_selection : 1;
+  guint is_text : 1;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-attributes-new"></a><h3>gtk_text_attributes_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> *  gtk_text_attributes_new            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>, which describes
+a set of properties on some text.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-attributes-copy"></a><h3>gtk_text_attributes_copy ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> *  gtk_text_attributes_copy           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *src</code></em>);</pre>
+<p>
+Copies <em class="parameter"><code>src</code></em> and returns a new <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> to be copied</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a copy of <em class="parameter"><code>src</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-attributes-copy-values"></a><h3>gtk_text_attributes_copy_values ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_text_attributes_copy_values     (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *src</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *dest</code></em>);</pre>
+<p>
+Copies the values from <em class="parameter"><code>src</code></em> to <em class="parameter"><code>dest</code></em> so that <em class="parameter"><code>dest</code></em> has the same values
+as <em class="parameter"><code>src</code></em>. Frees existing values in <em class="parameter"><code>dest</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>another <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-attributes-unref"></a><h3>gtk_text_attributes_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_text_attributes_unref           (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *values</code></em>);</pre>
+<p>
+Decrements the reference count on <em class="parameter"><code>values</code></em>, freeing the structure
+if the reference count reaches 0.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-text-attributes-ref"></a><h3>gtk_text_attributes_ref ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="returnvalue">GtkTextAttributes</span></a> * gtk_text_attributes_ref             (<em class="parameter"><code><a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> *values</code></em>);</pre>
+<p>
+Increments the reference count on <em class="parameter"><code>values</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-GtkTextTag.html#GtkTextAttributes" title="struct GtkTextAttributes"><span class="type">GtkTextAttributes</span></a> that were passed in</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

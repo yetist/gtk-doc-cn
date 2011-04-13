@@ -1,0 +1,1057 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCssProvider</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="theming.html" title="Part III. Theming in GTK+">
+<link rel="prev" href="gtk3-GtkStyleContext.html" title="GtkStyleContext">
+<link rel="next" href="gtk3-GtkStyleProvider.html" title="GtkStyleProvider">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkStyleContext.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="theming.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkStyleProvider.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkCssProvider.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkCssProvider.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkCssProvider"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkCssProvider.top_of_page"></a>GtkCssProvider</span></h2>
+<p>GtkCssProvider — CSS-like styling for widgets</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkCssProvider.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider">GtkCssProvider</a>;
+<a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-get-default" title="gtk_css_provider_get_default ()">gtk_css_provider_get_default</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-get-named" title="gtk_css_provider_get_named ()">gtk_css_provider_get_named</a>          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-load-from-data" title="gtk_css_provider_load_from_data ()">gtk_css_provider_load_from_data</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()">gtk_css_provider_load_from_file</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-load-from-path" title="gtk_css_provider_load_from_path ()">gtk_css_provider_load_from_path</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-new" title="gtk_css_provider_new ()">gtk_css_provider_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+#define             <a class="link" href="gtk3-GtkCssProvider.html#GTK-CSS-PROVIDER-ERROR:CAPS" title="GTK_CSS_PROVIDER_ERROR">GTK_CSS_PROVIDER_ERROR</a>
+enum                <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProviderError" title="enum GtkCssProviderError">GtkCssProviderError</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCssProvider.description"></a><h2>Description</h2>
+<p>
+GtkCssProvider is an object implementing the <a class="link" href="gtk3-GtkStyleProvider.html#GtkStyleProvider" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a> interface.
+It is able to parse <a class="ulink" href="http://www.w3.org/TR/CSS2" target="_top">CSS</a>-like
+input in order to style widgets.
+</p>
+<p>
+</p>
+<div class="refsect2">
+<a name="gtkcssprovider-files"></a><h3>Default files</h3>
+<p>
+An application can cause GTK+ to parse a specific CSS style sheet by
+calling <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()"><code class="function">gtk_css_provider_load_from_file()</code></a> and adding the provider with
+<a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider" title="gtk_style_context_add_provider ()"><code class="function">gtk_style_context_add_provider()</code></a> or <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider-for-screen" title="gtk_style_context_add_provider_for_screen ()"><code class="function">gtk_style_context_add_provider_for_screen()</code></a>.
+In addition, certain files will be read when GTK+ is initialized. First,
+the file <code class="filename"><code class="envar">$XDG_CONFIG_HOME</code>/gtk-3.0/gtk.css</code>
+is loaded if it exists. Then, GTK+ tries to load
+<code class="filename"><code class="envar">$HOME</code>/.themes/<em class="replaceable"><code>theme-name</code></em>/gtk-3.0/gtk.css</code>,
+falling back to
+<code class="filename"><em class="replaceable"><code>datadir</code></em>/share/themes/<em class="replaceable"><code>theme-name</code></em>/gtk-3.0/gtk.css</code>,
+where <em class="replaceable"><code>theme-name</code></em> is the name of the current theme
+(see the <span class="type">"gtk-theme-name"</span> setting) and <em class="replaceable"><code>datadir</code></em>
+is the prefix configured when GTK+ was compiled, unless overridden by the
+<code class="envar">GTK_DATA_PREFIX</code> environment variable.
+</p>
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-stylesheets"></a><h3>Style sheets</h3>
+<p>
+The basic structure of the style sheets understood by this provider is
+a series of statements, which are either rule sets or '@-rules', separated
+by whitespace.
+</p>
+<p>
+A rule set consists of a selector and a declaration block, which is
+a series of declarations enclosed in curly braces ({ and }). The
+declarations are separated by semicolons (;). Multiple selectors can
+share the same declaration block, by putting all the separators in
+front of the block, separated by commas.
+</p>
+<div class="example">
+<a name="id3168262"></a><p class="title"><b>Example 23. A rule set with two selectors</b></p>
+<div class="example-contents"><pre class="programlisting">
+GtkButton, GtkEntry {
+    color: #ff00ea;
+    font: Comic Sans 12
+}
+</pre></div>
+</div>
+<br class="example-break">
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-selectors"></a><h3>Selectors</h3>
+<p>
+Selectors work very similar to the way they do in CSS, with widget class
+names taking the role of element names, and widget names taking the role
+of IDs. When used in a selector, widget names must be prefixed with a
+'#' character. The '*' character represents the so-called universal
+selector, which matches any widget.
+</p>
+<p>
+To express more complicated situations, selectors can be combined in
+various ways:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>To require that a widget satisfies several conditions,
+  combine several selectors into one by concatenating them. E.g.
+  <code class="literal">GtkButton#button1</code> matches a GtkButton widget
+  with the name button1.</p></li>
+<li class="listitem"><p>To only match a widget when it occurs inside some other
+  widget, write the two selectors after each other, separated by whitespace.
+  E.g. <code class="literal">GtkToolBar GtkButton</code> matches GtkButton widgets
+  that occur inside a GtkToolBar.</p></li>
+<li class="listitem"><p>In the previous example, the GtkButton is matched even
+  if it occurs deeply nested inside the toolbar. To restrict the match
+  to direct children of the parent widget, insert a '&gt;' character between
+  the two selectors. E.g. <code class="literal">GtkNotebook &gt; GtkLabel</code> matches
+  GtkLabel widgets that are direct children of a GtkNotebook.</p></li>
+</ul></div>
+<p>
+</p>
+<div class="example">
+<a name="id3190144"></a><p class="title"><b>Example 24. Widget classes and names in selectors</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Theme labels that are descendants of a window */
+GtkWindow GtkLabel {
+    background-color: #898989
+}
+
+/* Theme notebooks, and anything that's within these */
+GtkNotebook {
+    background-color: #a939f0
+}
+
+/* Theme combo boxes, and entries that
+ are direct children of a notebook */
+GtkComboBox,
+GtkNotebook &gt; GtkEntry {
+    color: @fg_color;
+    background-color: #1209a2
+}
+
+/* Theme any widget within a GtkBin */
+GtkBin * {
+    font-name: Sans 20
+}
+
+/* Theme a label named title-label */
+GtkLabel#title-label {
+    font-name: Sans 15
+}
+
+/* Theme any widget named main-entry */
+#main-entry {
+    background-color: #f0a810
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+Widgets may also define style classes, which can be used for matching.
+When used in a selector, style classes must be prefixed with a '.'
+character.
+</p>
+<p>
+Refer to the documentation of individual widgets to learn which
+style classes they define and see <a class="xref" href="gtk3-GtkStyleContext.html#gtkstylecontext-classes" title="Style classes and regions">the section called “Style classes and regions”</a>
+for a list of all style classes used by GTK+ widgets.
+</p>
+<p>
+Note that there is some ambiguity in the selector syntax when it comes
+to differentiation widget class names from regions. GTK+ currently treats
+a string as a widget class name if it contains any uppercase characters
+(which should work for more widgets with names like GtkLabel).
+</p>
+<div class="example">
+<a name="id3190174"></a><p class="title"><b>Example 25. Style classes in selectors</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Theme all widgets defining the class entry */
+.entry {
+    color: #39f1f9;
+}
+
+/* Theme spinbuttons' entry */
+GtkSpinButton.entry {
+    color: #900185
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+In complicated widgets like e.g. a GtkNotebook, it may be desirable
+to style different parts of the widget differently. To make this
+possible, container widgets may define regions, whose names
+may be used for matching in selectors.
+</p>
+<p>
+Some containers allow to further differentiate between regions by
+applying so-called pseudo-classes to the region. For example, the
+tab region in GtkNotebook allows to single out the first or last
+tab by using the :first-child or :last-child pseudo-class.
+When used in selectors, pseudo-classes must be prefixed with a
+':' character.
+</p>
+<p>
+Refer to the documentation of individual widgets to learn which
+regions and pseudo-classes they define and see
+<a class="xref" href="gtk3-GtkStyleContext.html#gtkstylecontext-classes" title="Style classes and regions">the section called “Style classes and regions”</a> for a list of all regions
+used by GTK+ widgets.
+</p>
+<div class="example">
+<a name="id3197619"></a><p class="title"><b>Example 26. Regions in selectors</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Theme any label within a notebook */
+GtkNotebook GtkLabel {
+    color: #f90192;
+}
+
+/* Theme labels within notebook tabs */
+GtkNotebook tab GtkLabel {
+    color: #703910;
+}
+
+/* Theme labels in the any first notebook
+ tab, both selectors are equivalent */
+GtkNotebook tab:nth-child(first) GtkLabel,
+GtkNotebook tab:first-child GtkLabel {
+    color: #89d012;
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+Another use of pseudo-classes is to match widgets depending on their
+state. This is conceptually similar to the :hover, :active or :focus
+pseudo-classes in CSS. The available pseudo-classes for widget states
+are :active, :prelight (or :hover), :insensitive, :selected, :focused
+and :inconsistent.
+</p>
+<div class="example">
+<a name="id3197650"></a><p class="title"><b>Example 27. Styling specific widget states</b></p>
+<div class="example-contents"><pre class="programlisting">
+/* Theme active (pressed) buttons */
+GtkButton:active {
+    background-color: #0274d9;
+}
+
+/* Theme buttons with the mouse pointer on it,
+   both are equivalent */
+GtkButton:hover,
+GtkButton:prelight {
+    background-color: #3085a9;
+}
+
+/* Theme insensitive widgets, both are equivalent */
+:insensitive,
+*:insensitive {
+    background-color: #320a91;
+}
+
+/* Theme selection colors in entries */
+GtkEntry:selected {
+    background-color: #56f9a0;
+}
+
+/* Theme focused labels */
+GtkLabel:focused {
+    background-color: #b4940f;
+}
+
+/* Theme inconsistent checkbuttons */
+GtkCheckButton:inconsistent {
+    background-color: #20395a;
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+Widget state pseudoclasses may only apply to the last element
+in a selector.
+</p>
+<p>
+To determine the effective style for a widget, all the matching rule
+sets are merged. As in CSS, rules apply by specificity, so the rules
+whose selectors more closely match a widget path will take precedence
+over the others.
+</p>
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-rules"></a><h3>@ Rules</h3>
+<p>
+GTK+'s CSS supports the @import rule, in order to load another
+CSS style sheet in addition to the currently parsed one.
+</p>
+<div class="example">
+<a name="id3107097"></a><p class="title"><b>Example 28. Using the @import rule</b></p>
+<div class="example-contents"><pre class="programlisting">
+@import url ("path/to/common.css");
+</pre></div>
+</div>
+<br class="example-break"><p><a name="css-binding-set"></a>
+In order to extend key bindings affecting different widgets, GTK+
+supports the @binding-set rule to parse a set of bind/unbind
+directives, see <a class="link" href="gtk3-Bindings.html#GtkBindingSet" title="struct GtkBindingSet"><span class="type">GtkBindingSet</span></a> for the supported syntax. Note that
+the binding sets defined in this way must be associated with rule sets
+by setting the gtk-key-bindings style property.
+</p>
+<p>
+Customized key bindings are typically defined in a separate
+<code class="filename">gtk-keys.css</code> CSS file and GTK+ loads this file
+according to the current key theme, which is defined by the
+<span class="type">"gtk-key-theme-name"</span> setting.
+</p>
+<div class="example">
+<a name="id3107733"></a><p class="title"><b>Example 29. Using the @binding rule</b></p>
+<div class="example-contents"><pre class="programlisting">
+@binding-set binding-set1 {
+  bind "&lt;alt&gt;Left" { "move-cursor" (visual-positions, -3, 0) };
+  unbind "End";
+};
+
+@binding-set binding-set2 {
+  bind "&lt;alt&gt;Right" { "move-cursor" (visual-positions, 3, 0) };
+  bind "&lt;alt&gt;KP_space" { "delete-from-cursor" (whitespace, 1)
+                         "insert-at-cursor" (" ") };
+};
+
+GtkEntry {
+  gtk-key-bindings: binding-set1, binding-set2;
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+GTK+ also supports an additional @define-color rule, in order
+to define a color name which may be used instead of color numeric
+representations. Also see the <span class="type">"gtk-color-scheme"</span> setting
+for a way to override the values of these named colors.
+</p>
+<div class="example">
+<a name="id3197697"></a><p class="title"><b>Example 30. Defining colors</b></p>
+<div class="example-contents"><pre class="programlisting">
+@define-color bg_color #f9a039;
+
+* {
+    background-color: @bg_color;
+}
+</pre></div>
+</div>
+<br class="example-break">
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-symbolic-colors"></a><h3>Symbolic colors</h3>
+<p>
+Besides being able to define color names, the CSS parser is also able
+to read different color expressions, which can also be nested, providing
+a rich language to define colors which are derived from a set of base
+colors.
+</p>
+<div class="example">
+<a name="id3197734"></a><p class="title"><b>Example 31. Using symbolic colors</b></p>
+<div class="example-contents"><pre class="programlisting">
+@define-color entry-color shade (@bg_color, 0.7);
+
+GtkEntry {
+    background-color: @entry-color;
+}
+
+GtkEntry:focused {
+    background-color: mix (@entry-color,
+                           shade (#fff, 0.5),
+                           0.8);
+}
+</pre></div>
+</div>
+<br class="example-break"><p>
+  The various ways to express colors in GTK+ CSS are:
+</p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Syntax</th>
+<th>Explanation</th>
+<th>Examples</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>rgb(<em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em>)</td>
+<td>An opaque color; <em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em> can be either integers between
+               0 and 255 or percentages</td>
+<td><div class="literallayout"><p>rgb(128, 10, 54)<br>
+rgb(20%, 30%, 0%)</p></div></td>
+</tr>
+<tr>
+<td>rgba(<em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em>, <em class="parameter"><code>a</code></em>)</td>
+<td>A translucent color; <em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em> are as in the previous row,
+               <em class="parameter"><code>a</code></em> is a floating point number between 0 and 1</td>
+<td><div class="literallayout"><p>rgba(255, 255, 0, 0.5)</p></div></td>
+</tr>
+<tr>
+<td>#<em class="parameter"><code>xxyyzz</code></em>
+</td>
+<td>An opaque color; <em class="parameter"><code>xx</code></em>, <em class="parameter"><code>yy</code></em>, <em class="parameter"><code>zz</code></em> are hexadecimal numbers
+               specifying <em class="parameter"><code>r</code></em>, <em class="parameter"><code>g</code></em>, <em class="parameter"><code>b</code></em> variants with between 1 and 4
+               hexadecimal digits per component are allowed</td>
+<td><div class="literallayout"><p>#ff12ab<br>
+#f0c</p></div></td>
+</tr>
+<tr>
+<td>@name</td>
+<td>Reference to a color that has been defined with
+               @define-color
+        </td>
+<td>@bg_color</td>
+</tr>
+<tr>
+<td>mix(<em class="parameter"><code>color1</code></em>, <em class="parameter"><code>color2</code></em>, <em class="parameter"><code>f</code></em>)</td>
+<td>A linear combination of <em class="parameter"><code>color1</code></em> and <em class="parameter"><code>color2</code></em>. <em class="parameter"><code>f</code></em> is a
+               floating point number between 0 and 1.</td>
+<td><div class="literallayout"><p>mix(#ff1e0a, @bg_color, 0.8)</p></div></td>
+</tr>
+<tr>
+<td>shade(<em class="parameter"><code>color</code></em>, <em class="parameter"><code>f</code></em>)</td>
+<td>A lighter or darker variant of <em class="parameter"><code>color</code></em>. <em class="parameter"><code>f</code></em> is a
+               floating point number.
+        </td>
+<td>shade(@fg_color, 0.5)</td>
+</tr>
+<tr>
+<td>lighter(<em class="parameter"><code>color</code></em>)</td>
+<td>A lighter variant of <em class="parameter"><code>color</code></em>
+</td>
+<td class="auto-generated"> </td>
+</tr>
+<tr>
+<td>darker(<em class="parameter"><code>color</code></em>)</td>
+<td>A darker variant of <em class="parameter"><code>color</code></em>
+</td>
+<td class="auto-generated"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-gradients"></a><h3>Gradients</h3>
+<p>
+Linear or radial Gradients can be used as background images.
+</p>
+<p>
+A linear gradient along the line from (<em class="parameter"><code>start_x</code></em>, <em class="parameter"><code>start_y</code></em>) to
+(<em class="parameter"><code>end_x</code></em>, <em class="parameter"><code>end_y</code></em>) is specified using the syntax
+</p>
+<div class="literallayout"><p>-gtk-gradient (linear,<br>
+              <em class="parameter"><code>start_x</code></em> <em class="parameter"><code>start_y</code></em>, <em class="parameter"><code>end_x</code></em> <em class="parameter"><code>end_y</code></em>,<br>
+              color-stop (<em class="parameter"><code>position</code></em>, <em class="parameter"><code>color</code></em>),<br>
+              ...)</p></div>
+<p>
+where <em class="parameter"><code>start_x</code></em> and <em class="parameter"><code>end_x</code></em> can be either a floating point number between
+0 and 1 or one of the special values 'left', 'right' or 'center', <em class="parameter"><code>start_y</code></em>
+and <em class="parameter"><code>end_y</code></em> can be either a floating point number between 0 and 1 or one
+of the special values 'top', 'bottom' or 'center', <em class="parameter"><code>position</code></em> is a floating
+point number between 0 and 1 and <em class="parameter"><code>color</code></em> is a color expression (see above).
+The color-stop can be repeated multiple times to add more than one color
+stop. 'from (<em class="parameter"><code>color</code></em>)' and 'to (<em class="parameter"><code>color</code></em>)' can be used as abbreviations for
+color stops with position 0 and 1, respectively.
+</p>
+<div class="example">
+<a name="id3224082"></a><p class="title"><b>Example 32. A linear gradient</b></p>
+<div class="example-contents">
+<img src="gradient1.png"><p>This gradient was specified with
+</p>
+<div class="literallayout"><p>-gtk-gradient (linear,<br>
+               left top, right bottom,<br>
+               from(@yellow), to(@blue))</p></div>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3224110"></a><p class="title"><b>Example 33. Another linear gradient</b></p>
+<div class="example-contents">
+<img src="gradient2.png"><p>This gradient was specified with
+</p>
+<div class="literallayout"><p>-gtk-gradient (linear,<br>
+               0 0, 0 1,<br>
+               color-stop(0, @yellow),<br>
+               color-stop(0.2, @blue),<br>
+               color-stop(1, #0f0))</p></div>
+</div>
+</div>
+<br class="example-break"><p>
+A radial gradient along the two circles defined by (<em class="parameter"><code>start_x</code></em>, <em class="parameter"><code>start_y</code></em>,
+<em class="parameter"><code>start_radius</code></em>) and (<em class="parameter"><code>end_x</code></em>, <em class="parameter"><code>end_y</code></em>, <em class="parameter"><code>end_radius</code></em>) is specified using the
+syntax
+</p>
+<div class="literallayout"><p>-gtk-gradient (radial,<br>
+               <em class="parameter"><code>start_x</code></em> <em class="parameter"><code>start_y</code></em>, <em class="parameter"><code>start_radius</code></em>,<br>
+               <em class="parameter"><code>end_x</code></em> <em class="parameter"><code>end_y</code></em>, <em class="parameter"><code>end_radius</code></em>,<br>
+               color-stop (<em class="parameter"><code>position</code></em>, <em class="parameter"><code>color</code></em>),<br>
+               ...)</p></div>
+<p>
+where <em class="parameter"><code>start_radius</code></em> and <em class="parameter"><code>end_radius</code></em> are floating point numbers and
+the other parameters are as before.
+</p>
+<div class="example">
+<a name="id3218933"></a><p class="title"><b>Example 34. A radial gradient</b></p>
+<div class="example-contents">
+<img src="gradient3.png"><p>This gradient was specified with
+</p>
+<div class="literallayout"><p>-gtk-gradient (radial,<br>
+               center center, 0,<br>
+               center center, 1,<br>
+               from(@yellow), to(@green))</p></div>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3218962"></a><p class="title"><b>Example 35. Another radial gradient</b></p>
+<div class="example-contents">
+<img src="gradient4.png"><p>This gradient was specified with
+</p>
+<div class="literallayout"><p>-gtk-gradient (radial,<br>
+               0.4 0.4, 0.1,<br>
+               0.6 0.6, 0.7,<br>
+               color-stop (0, #f00),<br>
+               color-stop (0.1, #a0f),<br>
+               color-stop (0.2, @yellow),<br>
+               color-stop (1, @green))</p></div>
+</div>
+</div>
+<br class="example-break">
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-slices"></a><h3>Border images</h3>
+<p>
+Images can be used in 'slices' for the purpose of creating scalable
+borders.
+</p>
+<img src="slices.png"><p>
+The syntax for specifying border images of this kind is:
+</p>
+<div class="literallayout"><p>url(<em class="parameter"><code>path</code></em>) <em class="parameter"><code>top</code></em> <em class="parameter"><code>right</code></em> <em class="parameter"><code>bottom</code></em> <em class="parameter"><code>left</code></em> [repeat|stretch]? [repeat|stretch]?</p></div>
+<p>
+The sizes of the 'cut off' portions are specified
+with the <em class="parameter"><code>top</code></em>, <em class="parameter"><code>right</code></em>, <em class="parameter"><code>bottom</code></em> and <em class="parameter"><code>left</code></em> parameters.
+The 'middle' sections can be repeated or stretched to create
+the desired effect, by adding the 'repeat' or 'stretch' options after
+the dimensions. If two options are specified, the first one affects
+the horizontal behaviour and the second one the vertical behaviour.
+If only one option is specified, it affects both.
+</p>
+<div class="example">
+<a name="id3219096"></a><p class="title"><b>Example 36. A border image</b></p>
+<div class="example-contents">
+<img src="border1.png"><p>This border image was specified with
+</p>
+<div class="literallayout"><p>url("gradient1.png") 10 10 10 10</p></div>
+<p>
+</p>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3219123"></a><p class="title"><b>Example 37. A repeating border image</b></p>
+<div class="example-contents">
+<img src="border2.png"><p>This border image was specified with
+</p>
+<div class="literallayout"><p>url("gradient1.png") 10 10 10 10 repeat</p></div>
+<p>
+</p>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3219150"></a><p class="title"><b>Example 38. A stretched border image</b></p>
+<div class="example-contents">
+<img src="border3.png"><p>This border image was specified with
+</p>
+<div class="literallayout"><p>url("gradient1.png") 10 10 10 10 stretch</p></div>
+<p>
+</p>
+</div>
+</div>
+<br class="example-break">
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-transitions"></a><p>Styles can specify transitions that will be used to create a gradual
+change in the appearance when a widget state changes. The following
+syntax is used to specify transitions:
+</p>
+<div class="literallayout"><p><em class="parameter"><code>duration</code></em> [s|ms] [linear|ease|ease-in|ease-out|ease-in-out] [loop]?</p></div>
+<p>
+The <em class="parameter"><code>duration</code></em> is the amount of time that the animation will take for
+a complete cycle from start to end. If the loop option is given, the
+animation will be repated until the state changes again.
+The option after the duration determines the transition function from a
+small set of predefined functions.
+</p>
+<div class="figure">
+<a name="id3219215"></a><p class="title"><b>Figure 3. Linear transition</b></p>
+<div class="figure-contents"><div><img src="linear.png" alt="Linear transition"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+<div class="figure">
+<a name="id3219231"></a><p class="title"><b>Figure 4. Ease transition</b></p>
+<div class="figure-contents"><div><img src="ease.png" alt="Ease transition"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+<div class="figure">
+<a name="id3219248"></a><p class="title"><b>Figure 5. Ease-in-out transition</b></p>
+<div class="figure-contents"><div><img src="ease-in-out.png" alt="Ease-in-out transition"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+<div class="figure">
+<a name="id3219264"></a><p class="title"><b>Figure 6. Ease-in transition</b></p>
+<div class="figure-contents"><div><img src="ease-in.png" alt="Ease-in transition"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+<div class="figure">
+<a name="id3219280"></a><p class="title"><b>Figure 7. Ease-out transition</b></p>
+<div class="figure-contents"><div><img src="ease-out.png" alt="Ease-out transition"></div></div>
+</div>
+<p><br class="figure-break">
+</p>
+</div>
+<p>
+</p>
+<hr>
+<div class="refsect2">
+<a name="gtkcssprovider-properties"></a><h3>Supported properties</h3>
+<p>
+Properties are the part that differ the most to common CSS,
+not all properties are supported (some are planned to be
+supported eventually, some others are meaningless or don't
+map intuitively in a widget based environment).
+</p>
+<p>
+There is also a difference in shorthand properties, for
+example in common CSS it is fine to define a font through
+the different <em class="parameter"><code>font</code></em>-family, <em class="parameter"><code>font</code></em>-style, <em class="parameter"><code>font</code></em>-size
+properties, meanwhile in GTK+'s CSS only the canonical
+<em class="parameter"><code>font</code></em> property is supported.
+</p>
+<p>
+The currently supported properties are:
+</p>
+<div class="informaltable"><table border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th>Property name</th>
+<th>Syntax</th>
+<th>Maps to</th>
+<th>Examples</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>engine</td>
+<td>engine-name</td>
+<td><a class="link" href="gtk3-GtkThemingEngine.html#GtkThemingEngine" title="struct GtkThemingEngine"><span class="type">GtkThemingEngine</span></a></td>
+<td>engine: clearlooks;
+ engine: none; /* use the default (i.e. builtin) engine) */ </td>
+</tr>
+<tr>
+<td>background-color</td>
+<td rowspan="3">color (see above)</td>
+<td rowspan="3"><a href="../gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></td>
+<td rowspan="3">
+<div class="literallayout"><p>background-color: #fff;<br>
+color: &amp;color1;<br>
+background-color: shade (&amp;color1, 0.5);<br>
+color: mix (&amp;color1, #f0f, 0.8);</p></div>
+        </td>
+</tr>
+<tr><td>color</td></tr>
+<tr><td>border-color</td></tr>
+<tr>
+<td>font</td>
+<td>
+<em class="parameter"><code>family</code></em> [<em class="parameter"><code>style</code></em>] [<em class="parameter"><code>size</code></em>]</td>
+<td><a href="../pango/pango-Fonts.html#PangoFontDescription"><span class="type">PangoFontDescription</span></a></td>
+<td>font: Sans 15;</td>
+</tr>
+<tr>
+<td>margin</td>
+<td rowspan="2">
+<div class="literallayout"><p><em class="parameter"><code>width</code></em><br>
+<em class="parameter"><code>vertical_width</code></em> <em class="parameter"><code>horizontal_width</code></em><br>
+<em class="parameter"><code>top_width</code></em> <em class="parameter"><code>horizontal_width</code></em> <em class="parameter"><code>bottom_width</code></em><br>
+<em class="parameter"><code>top_width</code></em> <em class="parameter"><code>right_width</code></em> <em class="parameter"><code>bottom_width</code></em> <em class="parameter"><code>left_width</code></em></p></div>
+        </td>
+<td rowspan="2"><a class="link" href="gtk3-GtkStyleContext.html#GtkBorder" title="struct GtkBorder"><span class="type">GtkBorder</span></a></td>
+<td rowspan="2">
+<div class="literallayout"><p>margin: 5;<br>
+margin: 5 10;<br>
+margin: 5 10 3;<br>
+margin: 5 10 3 5;</p></div>
+        </td>
+</tr>
+<tr><td>padding</td></tr>
+<tr>
+<td>background-image</td>
+<td><div class="literallayout"><p>gradient (see above) or<br>
+url(<em class="parameter"><code>path</code></em>)</p></div></td>
+<td><a href="../cairo/cairo-cairo-pattern-t.html#cairo-pattern-t"><span class="type">cairo_pattern_t</span></a></td>
+<td>
+<div class="literallayout"><p>-gtk-gradient (linear,<br>
+               left top, right top,<br>
+               from (#fff), to (#000));<br>
+-gtk-gradient (linear, 0.0 0.5, 0.5 1.0,<br>
+               from (#fff),<br>
+               color-stop (0.5, #f00),<br>
+               to (#000));<br>
+-gtk-gradient (radial,<br>
+               center center, 0.2,<br>
+               center center, 0.8,<br>
+               color-stop (0.0, #fff),<br>
+               color-stop (1.0, #000));<br>
+url ('background.png');</p></div>
+        </td>
+</tr>
+<tr>
+<td>border-width</td>
+<td>integer</td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td>border-width: 5;</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>integer</td>
+<td><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a></td>
+<td>border-radius: 5;</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>[none|solid|inset|outset]</td>
+<td><a class="link" href="gtk3-Standard-Enumerations.html#GtkBorderStyle" title="enum GtkBorderStyle"><span class="type">GtkBorderStyle</span></a></td>
+<td>border-style: solid;</td>
+</tr>
+<tr>
+<td>border-image</td>
+<td><div class="literallayout"><p>border image (see above)</p></div></td>
+<td>internal use only</td>
+<td>
+<div class="literallayout"><p>border-image: url("/path/to/image.png") 3 4 3 4 stretch;<br>
+border-image: url("/path/to/image.png") 3 4 4 3 repeat stretch;</p></div>
+        </td>
+</tr>
+<tr>
+<td>transition</td>
+<td>transition (see above)</td>
+<td>internal use only</td>
+<td>
+<div class="literallayout"><p>transition: 150ms ease-in-out;<br>
+transition: 1s linear loop;</p></div>
+        </td>
+</tr>
+<tr>
+<td>gtk-key-bindings</td>
+<td>binding set name list</td>
+<td>internal use only</td>
+<td>
+<div class="literallayout"><p>gtk-bindings: binding1, binding2, ...;</p></div>
+        </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+GtkThemingEngines can register their own, engine-specific style properties
+with the function <a class="link" href="gtk3-GtkThemingEngine.html#gtk-theming-engine-register-property" title="gtk_theming_engine_register_property ()"><code class="function">gtk_theming_engine_register_property()</code></a>. These properties
+can be set in CSS like other properties, using a name of the form
+</p>
+<div class="literallayout"><p>-<em class="replaceable"><code>namespace</code></em>-<em class="replaceable"><code>name</code></em></p></div>
+<p>, where <em class="replaceable"><code>namespace</code></em> is typically
+the name of the theming engine, and <em class="replaceable"><code>name</code></em> is the
+name of the property. Style properties that have been registered by widgets
+using <a class="link" href="gtk3-GtkWidget.html#gtk-widget-class-install-style-property" title="gtk_widget_class_install_style_property ()"><code class="function">gtk_widget_class_install_style_property()</code></a> can also be set in this
+way, using the widget class name for <em class="replaceable"><code>namespace</code></em>.
+</p>
+<div class="example">
+<a name="id3219898"></a><p class="title"><b>Example 39. Using engine-specific style properties</b></p>
+<div class="example-contents"><pre class="programlisting">
+* {
+    engine: clearlooks;
+    border-radius: 4;
+    -GtkPaned-handle-size: 6;
+    -clearlooks-colorize-scrollbar: false;
+}
+</pre></div>
+</div>
+<br class="example-break">
+</div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCssProvider.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkCssProvider"></a><h3>struct GtkCssProvider</h3>
+<pre class="programlisting">struct GtkCssProvider {
+  GObject parent_instance;
+  gpointer priv;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-get-default"></a><h3>gtk_css_provider_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    gtk_css_provider_get_default        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the provider containing the style settings used as a
+fallback for all widgets.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The provider used for fallback styling.
+This memory is owned by GTK+, and you must not free it. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-get-named"></a><h3>gtk_css_provider_get_named ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    gtk_css_provider_get_named          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *variant</code></em>);</pre>
+<p>
+Loads a theme from the usual theme paths
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A theme name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>variant</code></em> :</span></p></td>
+<td>variant to load, for example, "dark", or
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for the default. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> with the theme loaded.
+This memory is owned by GTK+, and you must not free it. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-load-from-data"></a><h3>gtk_css_provider_load_from_data ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_data     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *data</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gssize"><span class="type">gssize</span></a> length</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Loads <em class="parameter"><code>data</code></em> into <em class="parameter"><code>css_provider</code></em>, making it clear any previously loaded
+information.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>CSS data loaded in memory</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>the length of <em class="parameter"><code>data</code></em> in bytes, or -1 for NUL terminated strings</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-load-from-file"></a><h3>gtk_css_provider_load_from_file ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_file     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code><a href="../gio/GFile.html"><span class="type">GFile</span></a> *file</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Loads the data contained in <em class="parameter"><code>file</code></em> into <em class="parameter"><code>css_provider</code></em>, making it
+clear any previously loaded information.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+<a href="../gio/GFile.html"><span class="type">GFile</span></a> pointing to a file to load</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-load-from-path"></a><h3>gtk_css_provider_load_from_path ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_css_provider_load_from_path     (<em class="parameter"><code><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a> *css_provider</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Loads the data contained in <em class="parameter"><code>path</code></em> into <em class="parameter"><code>css_provider</code></em>, making it clear
+any previously loaded information.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>css_provider</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>the path of a filename to load, in the GLib filename encoding</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the data could be loaded.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-css-provider-new"></a><h3>gtk_css_provider_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="returnvalue">GtkCssProvider</span></a> *    gtk_css_provider_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns a newly created <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GTK-CSS-PROVIDER-ERROR:CAPS"></a><h3>GTK_CSS_PROVIDER_ERROR</h3>
+<pre class="programlisting">#define GTK_CSS_PROVIDER_ERROR (gtk_css_provider_error_quark ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkCssProviderError"></a><h3>enum GtkCssProviderError</h3>
+<pre class="programlisting">typedef enum
+{
+  GTK_CSS_PROVIDER_ERROR_FAILED
+} GtkCssProviderError;
+</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCssProvider.see-also"></a><h2>See Also</h2>
+<a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a>, <a class="link" href="gtk3-GtkStyleProvider.html#GtkStyleProvider" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

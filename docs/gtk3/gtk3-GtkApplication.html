@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkApplication</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="Application.html" title="应用程序支持">
+<link rel="prev" href="Application.html" title="应用程序支持">
+<link rel="next" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="Application.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="Application.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="migrating.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkApplication.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkApplication.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkApplication"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkApplication.top_of_page"></a>GtkApplication</span></h2>
+<p>GtkApplication — Application class</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkApplication.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication">GtkApplication</a>;
+<a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *         <a class="link" href="gtk3-GtkApplication.html#gtk-application-new" title="gtk_application_new ()">gtk_application_new</a>            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GApplicationFlags</span> flags</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkApplication.html#gtk-application-add-window" title="gtk_application_add_window ()">gtk_application_add_window</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkApplication.html#gtk-application-remove-window" title="gtk_application_remove_window ()">gtk_application_remove_window</a>       (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);
+<a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *                  <a class="link" href="gtk3-GtkApplication.html#gtk-application-get-windows" title="gtk_application_get_windows ()">gtk_application_get_windows</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkApplication.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> is a class that handles many important aspects
+of a GTK+ application in a convenient fashion, without enforcing
+a one-size-fits-all application model.
+</p>
+<p>
+Currently, GtkApplication handles GTK+ initialization, application
+uniqueness, provides some basic scriptability by exporting 'actions',
+and manages a list of toplevel windows whose life-cycle is automatically
+tied to the life-cycle of your application.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="gtkapplication"></a><p class="title"><b>Example 91. A simple application</b></p>
+<div class="example-contents"><pre class="programlisting">
+#include &lt;gtk/gtk.h&gt;
+
+static void
+new_window (GApplication *app,
+            GFile        *file)
+{
+  GtkWidget *window, *scrolled, *view;
+
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_application (GTK_WINDOW (window), GTK_APPLICATION (app));
+  gtk_window_set_title (GTK_WINDOW (window), "Bloatpad");
+  scrolled = gtk_scrolled_window_new (NULL, NULL);
+  view = gtk_text_view_new ();
+  gtk_container_add (GTK_CONTAINER (scrolled), view);
+  gtk_container_add (GTK_CONTAINER (window), scrolled);
+
+  if (file != NULL)
+    {
+      gchar *contents;
+      gsize length;
+
+      if (g_file_load_contents (file, NULL, &amp;contents, &amp;length, NULL, NULL))
+        {
+          GtkTextBuffer *buffer;
+
+          buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+          gtk_text_buffer_set_text (buffer, contents, length);
+          g_free (contents);
+        }
+    }
+
+  gtk_widget_show_all (GTK_WIDGET (window));
+}
+
+static void
+bloat_pad_activate (GApplication *application)
+{
+  new_window (application, NULL);
+}
+
+static void
+bloat_pad_open (GApplication  *application,
+                GFile        **files,
+                gint           n_files,
+                const gchar   *hint)
+{
+  gint i;
+
+  for (i = 0; i &lt; n_files; i++)
+    new_window (application, files[i]);
+}
+
+typedef GtkApplication BloatPad;
+typedef GtkApplicationClass BloatPadClass;
+
+G_DEFINE_TYPE (BloatPad, bloat_pad, GTK_TYPE_APPLICATION)
+
+static void
+bloat_pad_finalize (GObject *object)
+{
+  G_OBJECT_CLASS (bloat_pad_parent_class)-&gt;finalize (object);
+}
+
+static void
+bloat_pad_init (BloatPad *app)
+{
+}
+
+static void
+bloat_pad_class_init (BloatPadClass *class)
+{
+  G_OBJECT_CLASS (class)-&gt;finalize= bloat_pad_finalize;
+
+  G_APPLICATION_CLASS (class)-&gt;activate = bloat_pad_activate;
+  G_APPLICATION_CLASS (class)-&gt;open = bloat_pad_open;
+}
+
+BloatPad *
+bloat_pad_new (void)
+{
+  g_type_init ();
+
+  return g_object_new (bloat_pad_get_type (),
+                       "application-id", "org.gtk.Test.bloatpad",
+                       "flags", G_APPLICATION_HANDLES_OPEN,
+                       NULL);
+}
+
+int
+main (int argc, char **argv)
+{
+  BloatPad *bloat_pad;
+  int status;
+
+  bloat_pad = bloat_pad_new ();
+  status = g_application_run (G_APPLICATION (bloat_pad), argc, argv);
+  g_object_unref (bloat_pad);
+
+  return status;
+}
+
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkApplication.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkApplication"></a><h3>struct GtkApplication</h3>
+<pre class="programlisting">struct GtkApplication {
+  GApplication parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-application-new"></a><h3>gtk_application_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *         gtk_application_new            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GApplicationFlags</span> flags</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> instance.
+</p>
+<p>
+This function calls <a href="../gobject/gobject-Type-Information.html#g-type-init"><code class="function">g_type_init()</code></a> for you. <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> is called
+as soon as the application gets registered as the primary instance.
+</p>
+<p>
+The application id must be valid. See <code class="function">g_application_id_is_valid()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application_id</code></em> :</span></p></td>
+<td>the application id</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>the application flags</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> instance</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-application-add-window"></a><h3>gtk_application_add_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_application_add_window          (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);</pre>
+<p>
+Adds a window from <em class="parameter"><code>application</code></em>.
+</p>
+<p>
+This call is equivalent to setting the <span class="type">"application"</span>
+property of <em class="parameter"><code>window</code></em> to <em class="parameter"><code>application</code></em>.
+</p>
+<p>
+Normally, the connection between the application and the window
+will remain until the window is destroyed, but you can explicitly
+remove it with <a class="link" href="gtk3-GtkApplication.html#gtk-application-remove-window" title="gtk_application_remove_window ()"><code class="function">gtk_application_remove_window()</code></a>.
+</p>
+<p>
+GTK+ will keep the application running as long as it has
+any windows.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-application-remove-window"></a><h3>gtk_application_remove_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_application_remove_window       (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);</pre>
+<p>
+Remove a window from <em class="parameter"><code>application</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>window</code></em> belongs to <em class="parameter"><code>application</code></em> then this call is equivalent to
+setting the <span class="type">"application"</span> property of <em class="parameter"><code>window</code></em> to
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<p>
+The application may stop running as a result of a call to this
+function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-application-get-windows"></a><h3>gtk_application_get_windows ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *                  gtk_application_get_windows    (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
+<p>
+Gets a list of the <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>s associated with <em class="parameter"><code>application</code></em>.
+</p>
+<p>
+The list that is returned should not be modified in any way.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkWindow][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

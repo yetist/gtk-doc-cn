@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Migrating from GTK+ 2.x to GTK+ 3</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="migrating.html" title="Part V. Migrating from Previous Versions of GTK+">
+<link rel="prev" href="checklist-named-icons.html" title="Use named icons">
+<link rel="next" href="ch25s02.html" title="Changes that need to be done at the time of the switch">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="checklist-named-icons.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="migrating.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="ch25s02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="gtk-migrating-2-to-3"></a>Migrating from GTK+ 2.x to GTK+ 3</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977492">Preparation in GTK+ 2.x</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977580">Do not include individual headers</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977446">Do not use deprecated symbols</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977370">Use accessor functions instead of direct access</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977384">Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3977329">Use GIO for launching applications</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3812500">Use cairo for drawing</a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="ch25s02.html">Changes that need to be done at the time of the switch</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="ch25s02.html#id3824119">Replace size_request by get_preferred_width/height</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3846240">Replace GdkRegion by cairo_region_t</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3924603">Replace GdkPixmap by cairo surfaces</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3969974">Replace GdkColormap by GdkVisual</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3950815">GdkDrawable is gone</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3959209">Event filtering</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3925099">Backend-specific code</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3968128">GtkPlug and GtkSocket</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3965701">The GtkWidget::draw signal</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3971137">GtkProgressBar orientation</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3942556">Check your expand and fill flags</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3965598">Scrolling changes</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3949996">GtkObject is gone</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3925027">GtkEntryCompletion signal parameters</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3925057">Resize grips</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3934625">Prevent mixed linkage</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3960637">Install GTK+ modules in the right place</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#gtk-migrating-GtkStyleContext">Theming changes</a></span></dt>
+</dl></dd>
+</dl></div>
+<p>
+    GTK+ 3 is a major new version of GTK+ that breaks both API and ABI
+    compared to GTK+ 2.x, which has remained API- and ABI-stable for a
+    long time. Thankfully, most of the changes are not hard to adapt to
+    and there are a number of steps that you can take to prepare your
+    GTK+ 2.x application for the switch to GTK+ 3. After that, there's
+    a small number of adjustments that you may have to do when you actually
+    switch your application to build against GTK+ 3.
+  </p>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id3977492"></a>Preparation in GTK+ 2.x</h3></div></div></div>
+<p>
+      The steps outlined in the following sections assume that your
+      application is working with GTK+ 2.24, which is the final stable
+      release of GTK+ 2.x. It includes all the necessary APIs and tools
+      to help you port your application to GTK+ 3. If you are still using
+      an older version of GTK+ 2.x, you should first get your application
+      to build and work with 2.24.
+    </p>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3977580"></a>Do not include individual headers</h4></div></div></div>
+<p>
+    With GTK+ 2.x it was common to include just the header files for
+    a few widgets that your application was using, which could lead
+    to problems with missing definitions, etc. GTK+ 3 tightens the
+    rules about which header files you are allowed to include directly.
+    The allowed header files are are
+    </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><code class="filename">gtk/gtk.h</code></span></p></td>
+<td>for GTK</td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="filename">gtk/gtkunixprint.h</code></span></p></td>
+<td>for low-level, UNIX-specific printing functions</td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="filename">gdk/gdk.h</code></span></p></td>
+<td>for GDK</td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="filename">gdk/gdkx.h</code></span></p></td>
+<td>for GDK functions that are X11-specific</td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="filename">gdk/gdkwin32.h</code></span></p></td>
+<td>for GDK functions that are Windows-specific</td>
+</tr>
+</tbody>
+</table></div>
+<p>
+    (these relative paths are assuming that you are using the include
+     paths that are specified in the gtk+-2.0.pc file, as returned by
+     <code class="literal">pkg-config --cflags gtk+-2.0.pc</code>.)
+  </p>
+<p>
+    To check that your application only includes the allowed headers,
+    you can use defines to disable inclusion of individual headers,
+    as follows:
+    </p>
+<pre class="programlisting">
+    make CFLAGS+="-DGTK_DISABLE_SINGLE_INCLUDES"
+    </pre>
+<p>
+  </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3977446"></a>Do not use deprecated symbols</h4></div></div></div>
+<p>
+    Over the years, a number of functions, and in some cases, entire
+    widgets have been deprecated. These deprecations are clearly spelled
+    out in the API reference, with hints about the recommended replacements.
+    The API reference also includes an
+    <a class="link" href="api-index-deprecated.html" title="已过时符号索引">index</a> of all deprecated
+    symbols.
+  </p>
+<p>
+    To verify that your program does not use any deprecated symbols,
+    you can use defines to remove deprecated symbols from the header files,
+    as follows:
+    </p>
+<pre class="programlisting">
+    make CFLAGS+="-DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED"
+    </pre>
+<p>
+  </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3977370"></a>Use accessor functions instead of direct access</h4></div></div></div>
+<p>
+    GTK+ 3 removes many implementation details and struct members from
+    its public headers.
+  </p>
+<p>
+    To ensure that your application does not have problems with this, you
+    define the preprocessor symbol <code class="literal">GSEAL_ENABLE</code> while
+    building your application against GTK+ 2.x. This will make the compiler
+    catch all uses of direct access to struct fields so that you can go
+    through them one by one and replace them with a call to an accessor
+    function instead.
+    </p>
+<pre class="programlisting">
+    make CFLAGS+="-DGSEAL_ENABLE"
+    </pre>
+<p>
+  </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3977384"></a>Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</h4></div></div></div>
+<p>
+      Key constants have gained a <code class="literal">_KEY_</code> infix.
+      For example, <code class="literal">GDK_a</code> is now
+      <code class="literal">GDK_KEY_a</code>.  In GTK+ 2, the old names continue
+      to be available.  In GTK+ 3 however, the old names will require
+      an explicit include of the <code class="literal">gdkkeysyms-compat.h</code> header.
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3977329"></a>Use GIO for launching applications</h4></div></div></div>
+<p>
+      The <code class="literal">gdk_spawn</code> family of functions has been
+      deprecated in GDK 2.24 and removed from GDK 3. Various replacements
+      exist; the best replacement depends on the circumstances:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">If you are opening a document or URI by launching a command
+        like <code class="literal">firefox http://my-favourite-website.com</code> or
+        <code class="literal">gnome-open ghelp:epiphany</code>, it is best to just use
+        <a class="link" href="gtk3-Filesystem-utilities.html#gtk-show-uri" title="gtk_show_uri ()"><code class="function">gtk_show_uri()</code></a>; as an added benefit, your application will henceforth
+        respect the users preference for what application to use.</li>
+<li class="listitem">If you are launching a regular, installed application that
+        has a desktop file, it is best to use GIOs <a href="../gio/GAppInfo.html"><span class="type">GAppInfo</span></a> with a suitable
+        launch context.
+        <div class="informalexample"><pre class="programlisting">
+        GAppInfo *info;
+        GAppLaunchContext *context;
+        GError *error = NULL;
+
+        info = (GAppInfo*) g_desktop_app_info_new ("epiphany.desktop");
+        context = (GAppLaunchContext*) gdk_display_get_app_launch_context (display);
+        g_app_info_launch (info, NULL, context, &amp;error);
+
+        if (error)
+          {
+            g_warning ("Failed to launch epiphany: %s", error-&gt;message);
+            g_error_free (error);
+          }
+
+        g_object_unref (info);
+        g_object_unref (context);
+        </pre></div>
+        Remember that you have to include
+        <code class="filename">gio/gdesktopappinfo.h</code>
+        and use the <code class="filename">gio-unix-2.0</code> pkg-config file
+        when using <a href="../gio/gio-Desktop-file-based-GAppInfo.html#g-desktop-app-info-new"><code class="function">g_desktop_app_info_new()</code></a>.
+        </li>
+<li class="listitem">If you are launching a custom commandline, you can
+        still use <a href="../gio/GAppInfo.html#g-app-info-launch"><code class="function">g_app_info_launch()</code></a> with a GAppInfo that is constructed
+        with <a href="../gio/GAppInfo.html#g-app-info-create-from-commandline"><code class="function">g_app_info_create_from_commandline()</code></a>, or you can use the
+        more lowlevel <code class="literal">g_spawn</code> family of functions
+        (e.g. <a href="../glib/glib-Spawning-Processes.html#g-spawn-command-line-async"><code class="function">g_spawn_command_line_async()</code></a>), and pass <code class="envar">DISPLAY</code>
+        in the environment. <a href="../gdk3/GdkScreen.html#gdk-screen-make-display-name"><code class="function">gdk_screen_make_display_name()</code></a> can be
+        used to find the right value for the <code class="envar">DISPLAY</code>
+        environment variable.
+        </li>
+</ul></div>
+<p>
+    </p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id3812500"></a>Use cairo for drawing</h4></div></div></div>
+<p>
+      In GTK+ 3, the GDK drawing API (which closely mimics the X
+      drawing API, which is itself modeled after PostScript) has been
+      removed. All drawing in GTK+ 3 is done via cairo.
+    </p>
+<p>
+      The <span class="type">GdkGC</span> and <span class="type">GdkImage</span> objects, as well as all the functions using
+      them, are gone. This includes the <code class="literal">gdk_draw</code> family
+      of functions like <code class="function">gdk_draw_rectangle()</code> and <code class="function">gdk_draw_drawable()</code>. As
+      <span class="type">GdkGC</span> is roughly equivalent to <a href="../cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> and <span class="type">GdkImage</span> was used for
+      drawing images to GdkWindows, which cairo supports automatically,
+      a transition is usually straightforward.
+    </p>
+<p>
+      The following examples show a few common drawing idioms used by
+      applications that have been ported to use cairo and how the code
+      was replaced.
+    </p>
+<div class="example">
+<a name="id3824821"></a><p class="title"><b>Example 92. Drawing a GdkPixbuf onto a GdkWindow</b></p>
+<div class="example-contents">
+<p>
+           Drawing a pixbuf onto a drawable used to be done like this:
+           </p>
+<div class="informalexample"><pre class="programlisting">
+gdk_draw_pixbuf (window,
+                 gtk_widget_get_style (widget)-&gt;black_gc,
+                 pixbuf,
+                 0, 0
+                 x, y,
+                 gdk_pixbuf_get_width (pixbuf),
+                 gdk_pixbuf_get_height (pixbuf),
+                 GDK_RGB_DITHER_NORMAL,
+                 0, 0);
+           </pre></div>
+<p>
+           Doing the same thing with cairo:
+           </p>
+<div class="informalexample"><pre class="programlisting">
+cairo_t *cr = gdk_cairo_create (window);
+gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);
+cairo_paint (cr);
+cairo_destroy (cr);
+           </pre></div>
+<p>
+           Note that very similar code can be used when porting code
+           using GdkPixmap to <a href="../cairo/cairo-cairo-surface-t.html#cairo-surface-t"><span class="type">cairo_surface_t</span></a> by calling
+           <a href="../cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a> instead of
+           <a href="../gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a>.
+         </p>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3830004"></a><p class="title"><b>Example 93. Drawing a tiled GdkPixmap to a GdkWindow</b></p>
+<div class="example-contents">
+<p>
+          Tiled pixmaps are often used for drawing backgrounds.
+          Old code looked something like this:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+GdkGCValues gc_values;
+GdkGC *gc;
+
+/* setup */
+gc = gtk_widget_get_style (widget)-&gt;black_gc;
+gdk_gc_set_tile (gc, pixmap);
+gdk_gc_set_fill (gc, GDK_TILED);
+gdk_gc_set_ts_origin (gc, x_origin, y_origin);
+/* use */
+gdk_draw_rectangle (window, gc, TRUE, 0, 0, width, height);
+/* restore */
+gdk_gc_set_tile (gc, NULL);
+gdk_gc_set_fill (gc, GDK_SOLID);
+gdk_gc_set_ts_origin (gc, 0, 0);
+          </pre></div>
+<p>
+          The equivalent cairo code to draw a tiled surface looks
+          like this:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+cairo_t *cr;
+cairo_surface_t *surface;
+
+surface = ...
+cr = gdk_cairo_create (window);
+cairo_set_source_surface (cr, surface, x_origin, y_origin);
+cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);
+cairo_rectangle (cr, 0, 0, width, height);
+cairo_fill (cr);
+cairo_destroy (cr);
+          </pre></div>
+<p>
+The surface here can be either an image surface or a X surface,
+and can either be created on the spot or kept around for caching purposes.
+Another alternative is to use pixbufs instead of surfaces with
+<a href="../gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <a href="../cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a>.
+        </p>
+</div>
+</div>
+<br class="example-break"><div class="example">
+<a name="id3861127"></a><p class="title"><b>Example 94. Drawing a PangoLayout to a clipped area</b></p>
+<div class="example-contents">
+<p>
+          Drawing layouts clipped is often used to avoid overdraw or to
+          allow drawing selections. Code would have looked like this:
+	  </p>
+<div class="informalexample"><pre class="programlisting">
+GdkGC *gc;
+
+/* setup */
+gc = gtk_widget_get_style (widget)-&gt;text_gc[state];
+gdk_gc_set_clip_rectangle (gc, &amp;area);
+/* use */
+gdk_draw_layout (drawable, gc, x, y, layout);
+/* restore */
+gdk_gc_set_clip_rectangle (gc, NULL);
+          </pre></div>
+<p>
+          With cairo, the same effect can be achieved using:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+GtkStyleContext *context;
+GtkStateFlags flags;
+GdkRGBA rgba;
+cairo_t *cr;
+
+cr = gdk_cairo_create (drawable);
+/* clip */
+gdk_cairo_rectangle (cr, &amp;area);
+cairo_clip (cr);
+/* set the correct source color */
+context = gtk_widget_get_style_context (widget));
+state = gtk_widget_get_state_flags (widget);
+gtk_style_context_get_color (context, state, &amp;rgba);
+gdk_cairo_set_source_rgba (cr, &amp;rgba);
+/* draw the text */
+cairo_move_to (cr, x, y);
+pango_cairo_show_layout (cr, layout);
+cairo_destroy (cr);
+          </pre></div>
+<p>
+          Clipping using <a href="../cairo/cairo-cairo-t.html#cairo-clip"><code class="function">cairo_clip()</code></a> is of course not restricted to text
+          rendering and can be used everywhere where GC clips were used.
+          And using <a href="../gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-color"><code class="function">gdk_cairo_set_source_color()</code></a> with style colors should
+          be used in all the places where a style’s GC was used to achieve
+          a particular color.
+        </p>
+</div>
+</div>
+<br class="example-break"><div class="section">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="id3815999"></a>What should you be aware of ?</h5></div></div></div>
+<p><b>No more stippling. </b>
+          Stippling is the usage of a bi-level mask, called a <span class="type">GdkBitmap</span>.
+          It was often used to achieve a checkerboard effect. You can use
+          <a href="../cairo/cairo-cairo-t.html#cairo-mask"><code class="function">cairo_mask()</code></a> to achieve this effect. To get a checkerbox mask,
+          you can use code like this:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+static cairo_pattern_t *
+gtk_color_button_get_checkered (void)
+{
+    /* need to respect pixman's stride being a multiple of 4 */
+    static unsigned char data[8] = { 0xFF, 0x00, 0x00, 0x00,
+                                     0x00, 0xFF, 0x00, 0x00 };
+    cairo_surface_t *surface;
+    cairo_pattern_t *pattern;
+
+    surface = cairo_image_surface_create_for_data (data,
+                                                   CAIRO_FORMAT_A8,
+                                                   2, 2,
+                                                   4);
+    pattern = cairo_pattern_create_for_surface (surface);
+    cairo_surface_destroy (surface);
+    cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);
+    cairo_pattern_set_filter (pattern, CAIRO_FILTER_NEAREST);
+
+    return pattern;
+}
+          </pre></div>
+<p>
+          Note that stippling looks very outdated in UIs, and is rarely
+          used in modern applications. All properties that made use of
+          stippling have been removed from GTK+ 3. Most prominently,
+          stippling is absent from text rendering, in particular <a class="link" href="gtk3-GtkTextTag.html#GtkTextTag" title="struct GtkTextTag"><span class="type">GtkTextTag</span></a>.
+        </p>
+<p><b>Using the target also as source or mask. </b>
+          The <code class="function">gdk_draw_drawable()</code> function allowed using the same drawable
+          as source and target. This was often used to achieve a scrolling
+          effect. Cairo does not allow this yet. You can however use
+          <a href="../cairo/cairo-cairo-t.html#cairo-push-group"><code class="function">cairo_push_group()</code></a> to get a different intermediate target that
+          you can copy to. So you can replace this code:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+gdk_draw_drawable (pixmap,
+                   gc,
+                   pixmap,
+                   area.x + dx, area.y + dy,
+                   area.x, area.y,
+                   area.width, area.height);
+          </pre></div>
+<p>
+          By using this code:
+          </p>
+<div class="informalexample"><pre class="programlisting">
+cairo_t *cr = cairo_create (surface);
+/* clipping restricts the intermediate surface's size, so it's a good idea
+ * to use it. */
+gdk_cairo_rectangle (cr, &amp;area);
+cairo_clip (cr);
+/* Now push a group to change the target */
+cairo_push_group (cr);
+cairo_set_source_surface (cr, surface, dx, dy);
+cairo_paint (cr);
+/* Now copy the intermediate target back */
+cairo_pop_group_to_source (cr);
+cairo_paint (cr);
+cairo_destroy (cr);
+          </pre></div>
+<p>
+The surface here can be either an image surface or a X surface,
+and can either be created on the spot or kept around for caching purposes.
+Another alternative is to use pixbufs instead of surfaces with
+<a href="../gdk3/gdk3-Cairo-Interaction.html#gdk-cairo-set-source-pixbuf"><code class="function">gdk_cairo_set_source_pixbuf()</code></a> instead of <a href="../cairo/cairo-cairo-t.html#cairo-set-source-surface"><code class="function">cairo_set_source_surface()</code></a>.
+        
+          The cairo developers plan to add self-copies in the future to allow
+          exactly this effect, so you might want to keep up on cairo
+          development to be able to change your code.
+        </p>
+<p><b>Using pango_cairo_show_layout() instead of gdk_draw_layout_with_colors(). </b>
+          GDK provided a way to ignore the color attributes of text and use
+          a hardcoded text color with the <code class="function">gdk_draw_layout_with_colors()</code>
+          function. This is often used to draw text shadows or selections.
+          Pango’s cairo support does not yet provide this functionality. If
+          you use Pango layouts that change colors, the easiest way to achieve
+          a similar effect is using <a href="../pango/pango-Cairo-Rendering.html#pango-cairo-layout-path"><code class="function">pango_cairo_layout_path()</code></a> and <a href="../cairo/cairo-cairo-t.html#cairo-fill"><code class="function">cairo_fill()</code></a>
+          instead of <code class="function">gdk_draw_layout_with_colors()</code>. Note that this results in
+          a slightly uglier-looking text, as subpixel anti-aliasing is not
+          supported.
+        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

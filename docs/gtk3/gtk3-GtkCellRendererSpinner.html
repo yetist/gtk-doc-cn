@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCellRendererSpinner</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="prev" href="gtk3-GtkCellRendererToggle.html" title="GtkCellRendererToggle">
+<link rel="next" href="gtk3-GtkListStore.html" title="GtkListStore">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkCellRendererToggle.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkListStore.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkCellRendererSpinner.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkCellRendererSpinner.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkCellRendererSpinner"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkCellRendererSpinner.top_of_page"></a>GtkCellRendererSpinner</span></h2>
+<p>GtkCellRendererSpinner — Renders a spinning animation in a cell</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkCellRendererSpinner.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkCellRendererSpinner.html#GtkCellRendererSpinner" title="struct GtkCellRendererSpinner">GtkCellRendererSpinner</a>;
+<a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   <a class="link" href="gtk3-GtkCellRendererSpinner.html#gtk-cell-renderer-spinner-new" title="gtk_cell_renderer_spinner_new ()">gtk_cell_renderer_spinner_new</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererSpinner.description"></a><h2>Description</h2>
+<p>
+GtkCellRendererSpinner renders a spinning animation in a cell, very
+similar to <a class="link" href="gtk3-GtkSpinner.html#GtkSpinner" title="struct GtkSpinner"><span class="type">GtkSpinner</span></a>. It can often be used as an alternative
+to a <a class="link" href="gtk3-GtkCellRendererProgress.html#GtkCellRendererProgress" title="struct GtkCellRendererProgress"><span class="type">GtkCellRendererProgress</span></a> for displaying indefinite activity,
+instead of actual progress.
+</p>
+<p>
+To start the animation in a cell, set the <span class="type">"active"</span>
+property to <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and increment the <span class="type">"pulse"</span> property
+at regular intervals. The usual way to set the cell renderer properties
+for each cell is to bind them to columns in your tree model using e.g.
+<a class="link" href="gtk3-GtkTreeViewColumn.html#gtk-tree-view-column-add-attribute" title="gtk_tree_view_column_add_attribute ()"><code class="function">gtk_tree_view_column_add_attribute()</code></a>.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererSpinner.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkCellRendererSpinner"></a><h3>struct GtkCellRendererSpinner</h3>
+<pre class="programlisting">struct GtkCellRendererSpinner {
+  GtkCellRenderer                parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-spinner-new"></a><h3>gtk_cell_renderer_spinner_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   gtk_cell_renderer_spinner_new       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns a new cell renderer which will show a spinner to indicate
+activity.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="type">GtkCellRenderer</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererSpinner.see-also"></a><h2>See Also</h2>
+<a class="link" href="gtk3-GtkSpinner.html#GtkSpinner" title="struct GtkSpinner"><span class="type">GtkSpinner</span></a>, <a class="link" href="gtk3-GtkCellRendererProgress.html#GtkCellRendererProgress" title="struct GtkCellRendererProgress"><span class="type">GtkCellRendererProgress</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

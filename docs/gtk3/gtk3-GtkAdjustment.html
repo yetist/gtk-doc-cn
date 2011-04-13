@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkAdjustment</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="MiscObjects.html" title="Miscellaneous">
+<link rel="prev" href="MiscObjects.html" title="Miscellaneous">
+<link rel="next" href="gtk3-GtkArrow.html" title="GtkArrow">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="MiscObjects.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MiscObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkArrow.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkAdjustment.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkAdjustment.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkAdjustment"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkAdjustment.top_of_page"></a>GtkAdjustment</span></h2>
+<p>GtkAdjustment — A representation of an adjustable bounded value</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkAdjustment.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment">GtkAdjustment</a>;
+<a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *     <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-new" title="gtk_adjustment_new ()">gtk_adjustment_new</a>                  (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-value" title="gtk_adjustment_get_value ()">gtk_adjustment_get_value</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-value" title="gtk_adjustment_set_value ()">gtk_adjustment_set_value</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-clamp-page" title="gtk_adjustment_clamp_page ()">gtk_adjustment_clamp_page</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-changed" title="gtk_adjustment_changed ()">gtk_adjustment_changed</a>              (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-value-changed" title="gtk_adjustment_value_changed ()">gtk_adjustment_value_changed</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-configure" title="gtk_adjustment_configure ()">gtk_adjustment_configure</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-lower" title="gtk_adjustment_get_lower ()">gtk_adjustment_get_lower</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-page-increment" title="gtk_adjustment_get_page_increment ()">gtk_adjustment_get_page_increment</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-page-size" title="gtk_adjustment_get_page_size ()">gtk_adjustment_get_page_size</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-step-increment" title="gtk_adjustment_get_step_increment ()">gtk_adjustment_get_step_increment</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-get-upper" title="gtk_adjustment_get_upper ()">gtk_adjustment_get_upper</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()">gtk_adjustment_set_lower</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-page-increment" title="gtk_adjustment_set_page_increment ()">gtk_adjustment_set_page_increment</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-page-size" title="gtk_adjustment_set_page_size ()">gtk_adjustment_set_page_size</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-step-increment" title="gtk_adjustment_set_step_increment ()">gtk_adjustment_set_step_increment</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-upper" title="gtk_adjustment_set_upper ()">gtk_adjustment_set_upper</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAdjustment.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> object represents a value which has an associated lower
+and upper bound, together with step and page increments, and a page size.
+It is used within several GTK+ widgets, including
+<a class="link" href="gtk3-GtkSpinButton.html#GtkSpinButton" title="struct GtkSpinButton"><span class="type">GtkSpinButton</span></a>, <a class="link" href="gtk3-GtkViewport.html#GtkViewport" title="struct GtkViewport"><span class="type">GtkViewport</span></a>, and <a class="link" href="gtk3-GtkRange.html#GtkRange" title="struct GtkRange"><span class="type">GtkRange</span></a> (which is a base class for
+<a class="link" href="gtk3-GtkHScrollbar.html#GtkHScrollbar" title="struct GtkHScrollbar"><span class="type">GtkHScrollbar</span></a>, <a class="link" href="gtk3-GtkVScrollbar.html#GtkVScrollbar" title="struct GtkVScrollbar"><span class="type">GtkVScrollbar</span></a>, <a class="link" href="gtk3-GtkHScale.html#GtkHScale" title="struct GtkHScale"><span class="type">GtkHScale</span></a>, and <a class="link" href="gtk3-GtkVScale.html#GtkVScale" title="struct GtkVScale"><span class="type">GtkVScale</span></a>).
+</p>
+<p>
+The <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> object does not update the value itself. Instead
+it is left up to the owner of the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> to control the value.
+</p>
+<p>
+The owner of the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> typically calls the
+<a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-value-changed" title="gtk_adjustment_value_changed ()"><code class="function">gtk_adjustment_value_changed()</code></a> and <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-changed" title="gtk_adjustment_changed ()"><code class="function">gtk_adjustment_changed()</code></a> functions
+after changing the value and its bounds. This results in the emission of the
+<span class="type">"value_changed"</span> or <span class="type">"changed"</span> signal respectively.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAdjustment.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkAdjustment"></a><h3>struct GtkAdjustment</h3>
+<pre class="programlisting">struct GtkAdjustment {
+  GInitiallyUnowned parent_instance;
+
+  GtkAdjustmentPrivate *priv;
+};
+</pre>
+<p>
+The <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> struct contains only private fields and
+should not be directly accessed.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-new"></a><h3>gtk_adjustment_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *     gtk_adjustment_new                  (<em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the initial value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lower</code></em> :</span></p></td>
+<td>the minimum value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>upper</code></em> :</span></p></td>
+<td>the maximum value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step_increment</code></em> :</span></p></td>
+<td>the step increment.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_increment</code></em> :</span></p></td>
+<td>the page increment.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_size</code></em> :</span></p></td>
+<td>the page size.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-value"></a><h3>gtk_adjustment_get_value ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_value            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Gets the current value of the adjustment. See
+<a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-value" title="gtk_adjustment_set_value ()"><code class="function">gtk_adjustment_set_value()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current value of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-value"></a><h3>gtk_adjustment_set_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_value            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>);</pre>
+<p>
+Sets the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> value. The value is clamped to lie between
+<span class="type">GtkAdjustment.lower</span> and <span class="type">GtkAdjustment.upper</span>.
+</p>
+<p>
+Note that for adjustments which are used in a <a class="link" href="gtk3-GtkScrollbar.html#GtkScrollbar" title="struct GtkScrollbar"><span class="type">GtkScrollbar</span></a>, the effective
+range of allowed values goes from <span class="type">GtkAdjustment.lower</span> to
+<span class="type">GtkAdjustment.upper</span> - <span class="type">GtkAdjustment.page_size</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the new value.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-clamp-page"></a><h3>gtk_adjustment_clamp_page ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_clamp_page           (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>);</pre>
+<p>
+Updates the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> <span class="type">GtkAdjustment.value</span> to ensure that the range
+between <em class="parameter"><code>lower</code></em> and <em class="parameter"><code>upper</code></em> is in the current page (i.e. between
+<span class="type">GtkAdjustment.value</span> and <span class="type">GtkAdjustment.value</span> + <span class="type">GtkAdjustment.page_size</span>).
+If the range is larger than the page size, then only the start of it will
+be in the current page.
+A <span class="type">"changed"</span> signal will be emitted if the value is changed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lower</code></em> :</span></p></td>
+<td>the lower value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>upper</code></em> :</span></p></td>
+<td>the upper value.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-changed"></a><h3>gtk_adjustment_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_changed              (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Emits a <span class="type">"changed"</span> signal from the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.
+This is typically called by the owner of the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> after it has
+changed any of the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> fields other than the value.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-value-changed"></a><h3>gtk_adjustment_value_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_value_changed        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Emits a <span class="type">"value_changed"</span> signal from the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>.
+This is typically called by the owner of the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> after it has
+changed the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> value field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-configure"></a><h3>gtk_adjustment_configure ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_configure            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> value</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);</pre>
+<p>
+Sets all properties of the adjustment at once.
+</p>
+<p>
+Use this function to avoid multiple emissions of the "changed"
+signal. See <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()"><code class="function">gtk_adjustment_set_lower()</code></a> for an alternative way
+of compressing multiple emissions of "changed" into one.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the new value</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lower</code></em> :</span></p></td>
+<td>the new minimum value</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>upper</code></em> :</span></p></td>
+<td>the new maximum value</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step_increment</code></em> :</span></p></td>
+<td>the new step increment</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_increment</code></em> :</span></p></td>
+<td>the new page increment</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_size</code></em> :</span></p></td>
+<td>the new page size</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-lower"></a><h3>gtk_adjustment_get_lower ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_lower            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Retrieves the minimum value of the adjustment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current minimum value of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-page-increment"></a><h3>gtk_adjustment_get_page_increment ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_page_increment   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Retrieves the page increment of the adjustment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current page increment of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-page-size"></a><h3>gtk_adjustment_get_page_size ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_page_size        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Retrieves the page size of the adjustment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current page size of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-step-increment"></a><h3>gtk_adjustment_get_step_increment ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_step_increment   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Retrieves the step increment of the adjustment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current step increment of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-get-upper"></a><h3>gtk_adjustment_get_upper ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>             gtk_adjustment_get_upper            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Retrieves the maximum value of the adjustment.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current maximum value of the adjustment.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-lower"></a><h3>gtk_adjustment_set_lower ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_lower            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> lower</code></em>);</pre>
+<p>
+Sets the minimum value of the adjustment.
+</p>
+<p>
+When setting multiple adjustment properties via their individual
+setters, multiple "changed" signals will be emitted. However, since
+the emission of the "changed" signal is tied to the emission of the
+"GObject::notify" signals of the changed properties, it's possible
+to compress the "changed" signals into one by calling
+<a href="../gobject/gobject-The-Base-Object-Type.html#g-object-freeze-notify"><code class="function">g_object_freeze_notify()</code></a> and <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-thaw-notify"><code class="function">g_object_thaw_notify()</code></a> around the
+calls to the individual setters.
+</p>
+<p>
+Alternatively, using a single <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-set"><code class="function">g_object_set()</code></a> for all the properties
+to change, or using <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-configure" title="gtk_adjustment_configure ()"><code class="function">gtk_adjustment_configure()</code></a> has the same effect
+of compressing "changed" emissions.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lower</code></em> :</span></p></td>
+<td>the new minimum value</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-page-increment"></a><h3>gtk_adjustment_set_page_increment ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_page_increment   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_increment</code></em>);</pre>
+<p>
+Sets the page increment of the adjustment.
+</p>
+<p>
+See <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()"><code class="function">gtk_adjustment_set_lower()</code></a> about how to compress multiple
+emissions of the "changed" signal when setting multiple adjustment
+properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_increment</code></em> :</span></p></td>
+<td>the new page increment</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-page-size"></a><h3>gtk_adjustment_set_page_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_page_size        (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> page_size</code></em>);</pre>
+<p>
+Sets the page size of the adjustment.
+</p>
+<p>
+See <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()"><code class="function">gtk_adjustment_set_lower()</code></a> about how to compress multiple
+emissions of the "changed" signal when setting multiple adjustment
+properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>page_size</code></em> :</span></p></td>
+<td>the new page size</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-step-increment"></a><h3>gtk_adjustment_set_step_increment ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_step_increment   (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> step_increment</code></em>);</pre>
+<p>
+Sets the step increment of the adjustment.
+</p>
+<p>
+See <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()"><code class="function">gtk_adjustment_set_lower()</code></a> about how to compress multiple
+emissions of the "changed" signal when setting multiple adjustment
+properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>step_increment</code></em> :</span></p></td>
+<td>the new step increment</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-adjustment-set-upper"></a><h3>gtk_adjustment_set_upper ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_adjustment_set_upper            (<em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> upper</code></em>);</pre>
+<p>
+Sets the maximum value of the adjustment.
+</p>
+<p>
+Note that values will be restricted by
+<code class="literal">upper - page-size</code> if the page-size
+property is nonzero.
+</p>
+<p>
+See <a class="link" href="gtk3-GtkAdjustment.html#gtk-adjustment-set-lower" title="gtk_adjustment_set_lower ()"><code class="function">gtk_adjustment_set_lower()</code></a> about how to compress multiple
+emissions of the "changed" signal when setting multiple adjustment
+properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>upper</code></em> :</span></p></td>
+<td>the new maximum value</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.14</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkRadioToolButton</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="MenusAndCombos.html" title="菜单、复选框和工具栏">
+<link rel="prev" href="gtk3-GtkToggleToolButton.html" title="GtkToggleToolButton">
+<link rel="next" href="Actions.html" title="Action-based menus and toolbars">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkToggleToolButton.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MenusAndCombos.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="Actions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkRadioToolButton.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkRadioToolButton.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkRadioToolButton"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkRadioToolButton.top_of_page"></a>GtkRadioToolButton</span></h2>
+<p>GtkRadioToolButton</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkRadioToolButton.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton">GtkRadioToolButton</a>;
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-new" title="gtk_radio_tool_button_new ()">gtk_radio_tool_button_new</a>           (<em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>);
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-new-from-stock" title="gtk_radio_tool_button_new_from_stock ()">gtk_radio_tool_button_new_from_stock</a>
+                                                        (<em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-new-from-widget" title="gtk_radio_tool_button_new_from_widget ()">gtk_radio_tool_button_new_from_widget</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *group</code></em>);
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-new-with-stock-from-widget" title="gtk_radio_tool_button_new_with_stock_from_widget ()">gtk_radio_tool_button_new_with_stock_from_widget</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);
+<a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-get-group" title="gtk_radio_tool_button_get_group ()">gtk_radio_tool_button_get_group</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *button</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkRadioToolButton.html#gtk-radio-tool-button-set-group" title="gtk_radio_tool_button_set_group ()">gtk_radio_tool_button_set_group</a>     (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *button</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkRadioToolButton.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkRadioToolButton.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkRadioToolButton"></a><h3>struct GtkRadioToolButton</h3>
+<pre class="programlisting">struct GtkRadioToolButton {
+  GtkToggleToolButton parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-new"></a><h3>gtk_radio_tool_button_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       gtk_radio_tool_button_new           (<em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>, adding it to <em class="parameter"><code>group</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>An existing radio button group, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you are creating a new group. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-new-from-stock"></a><h3>gtk_radio_tool_button_new_from_stock ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       gtk_radio_tool_button_new_from_stock
+                                                        (<em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>, adding it to <em class="parameter"><code>group</code></em>. 
+The new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> will contain an icon and label from the
+stock item indicated by <em class="parameter"><code>stock_id</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>an existing radio button group, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you are creating a new group. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td>the name of a stock item</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The new <span class="type">GtkRadioToolItem</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-new-from-widget"></a><h3>gtk_radio_tool_button_new_from_widget ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       gtk_radio_tool_button_new_from_widget
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *group</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> adding it to the same group as <em class="parameter"><code>gruup</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>An existing <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-new-with-stock-from-widget"></a><h3>gtk_radio_tool_button_new_with_stock_from_widget ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *       gtk_radio_tool_button_new_with_stock_from_widget
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *group</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *stock_id</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> adding it to the same group as <em class="parameter"><code>group</code></em>.
+The new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> will contain an icon and label from the
+stock item indicated by <em class="parameter"><code>stock_id</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>An existing <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stock_id</code></em> :</span></p></td>
+<td>the name of a stock item</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-get-group"></a><h3>gtk_radio_tool_button_get_group ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *            gtk_radio_tool_button_get_group     (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *button</code></em>);</pre>
+<p>
+Returns the radio button group <em class="parameter"><code>button</code></em> belongs to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The group <em class="parameter"><code>button</code></em> belongs to. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-radio-tool-button-set-group"></a><h3>gtk_radio_tool_button_set_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_radio_tool_button_set_group     (<em class="parameter"><code><a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a> *button</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *group</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>button</code></em> to <em class="parameter"><code>group</code></em>, removing it from the group it belonged to before.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkRadioToolButton.html#GtkRadioToolButton" title="struct GtkRadioToolButton"><span class="type">GtkRadioToolButton</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>an existing radio button group</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.4</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

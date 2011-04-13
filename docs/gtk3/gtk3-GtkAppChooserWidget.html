@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkAppChooserWidget</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="ApplicationChoosing.html" title="Choosing from installed applications">
+<link rel="prev" href="gtk3-GtkAppChooserDialog.html" title="GtkAppChooserDialog">
+<link rel="next" href="Builder.html" title="Interface builder">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkAppChooserDialog.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ApplicationChoosing.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="Builder.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkAppChooserWidget.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkAppChooserWidget.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkAppChooserWidget"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkAppChooserWidget.top_of_page"></a>GtkAppChooserWidget</span></h2>
+<p>GtkAppChooserWidget — Application chooser widget that can be embedded in other widgets</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkAppChooserWidget.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget">GtkAppChooserWidget</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-new" title="gtk_app_chooser_widget_new ()">gtk_app_chooser_widget_new</a>          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-show-default" title="gtk_app_chooser_widget_set_show_default ()">gtk_app_chooser_widget_set_show_default</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-show-default" title="gtk_app_chooser_widget_get_show_default ()">gtk_app_chooser_widget_get_show_default</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-show-recommended" title="gtk_app_chooser_widget_set_show_recommended ()">gtk_app_chooser_widget_set_show_recommended</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-show-recommended" title="gtk_app_chooser_widget_get_show_recommended ()">gtk_app_chooser_widget_get_show_recommended</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-show-fallback" title="gtk_app_chooser_widget_set_show_fallback ()">gtk_app_chooser_widget_set_show_fallback</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-show-fallback" title="gtk_app_chooser_widget_get_show_fallback ()">gtk_app_chooser_widget_get_show_fallback</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-show-other" title="gtk_app_chooser_widget_set_show_other ()">gtk_app_chooser_widget_set_show_other</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-show-other" title="gtk_app_chooser_widget_get_show_other ()">gtk_app_chooser_widget_get_show_other</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-show-all" title="gtk_app_chooser_widget_set_show_all ()">gtk_app_chooser_widget_set_show_all</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-show-all" title="gtk_app_chooser_widget_get_show_all ()">gtk_app_chooser_widget_get_show_all</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-set-default-text" title="gtk_app_chooser_widget_set_default_text ()">gtk_app_chooser_widget_set_default_text</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-GtkAppChooserWidget.html#gtk-app-chooser-widget-get-default-text" title="gtk_app_chooser_widget_get_default_text ()">gtk_app_chooser_widget_get_default_text</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserWidget.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> is a widget for selecting applications.
+It is the main building block for <a class="link" href="gtk3-GtkAppChooserDialog.html#GtkAppChooserDialog" title="struct GtkAppChooserDialog"><span class="type">GtkAppChooserDialog</span></a>. Most
+applications only need to use the latter; but you can use
+this widget as part of a larger widget if you have special needs.
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkAppChooserWidget.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkAppChooserWidget"></a><h3>struct GtkAppChooserWidget</h3>
+<pre class="programlisting">struct GtkAppChooserWidget {
+  GtkBox parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-new"></a><h3>gtk_app_chooser_widget_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_app_chooser_widget_new          (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *content_type</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> for applications
+that can handle content of the given type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content_type</code></em> :</span></p></td>
+<td>the content type to show applications for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly created <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-show-default"></a><h3>gtk_app_chooser_widget_set_show_default ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_show_default
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the app chooser should show the default handler
+for the content type in a separate section.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-default"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-show-default"></a><h3>gtk_app_chooser_widget_get_show_default ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_widget_get_show_default
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-default"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-default"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-show-recommended"></a><h3>gtk_app_chooser_widget_set_show_recommended ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_show_recommended
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the app chooser should show recommended applications
+for the content type in a separate section.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-recommended"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-show-recommended"></a><h3>gtk_app_chooser_widget_get_show_recommended ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_widget_get_show_recommended
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-recommended"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-recommended"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-show-fallback"></a><h3>gtk_app_chooser_widget_set_show_fallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_show_fallback
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the app chooser should show related applications
+for the content type in a separate section.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-fallback"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-show-fallback"></a><h3>gtk_app_chooser_widget_get_show_fallback ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_widget_get_show_fallback
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-fallback"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-fallback"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-show-other"></a><h3>gtk_app_chooser_widget_set_show_other ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_show_other
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the app chooser should show applications
+which are unrelated to the content type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-other"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-show-other"></a><h3>gtk_app_chooser_widget_get_show_other ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_widget_get_show_other
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-other"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-other"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-show-all"></a><h3>gtk_app_chooser_widget_set_show_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_show_all (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Sets whether the app chooser should show all applications
+in a flat list.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the new value for <span class="type">"show-all"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-show-all"></a><h3>gtk_app_chooser_widget_get_show_all ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_app_chooser_widget_get_show_all (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the current value of the <span class="type">"show-all"</span>
+property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"show-all"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-set-default-text"></a><h3>gtk_app_chooser_widget_set_default_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_app_chooser_widget_set_default_text
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>
+Sets the text that is shown if there are not applications
+that can handle the content type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>the new value for <span class="type">"default-text"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-app-chooser-widget-get-default-text"></a><h3>gtk_app_chooser_widget_get_default_text ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       gtk_app_chooser_widget_get_default_text
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a> *self</code></em>);</pre>
+<p>
+Returns the text that is shown if there are not applications
+that can handle the content type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkAppChooserWidget.html#GtkAppChooserWidget" title="struct GtkAppChooserWidget"><span class="type">GtkAppChooserWidget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of <span class="type">"default-text"</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkToolPalette</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="MenusAndCombos.html" title="菜单、复选框和工具栏">
+<link rel="prev" href="gtk3-GtkToolItem.html" title="GtkToolItem">
+<link rel="next" href="gtk3-GtkToolItemGroup.html" title="GtkToolItemGroup">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkToolItem.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="MenusAndCombos.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkToolItemGroup.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkToolPalette.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkToolPalette.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkToolPalette"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkToolPalette.top_of_page"></a>GtkToolPalette</span></h2>
+<p>GtkToolPalette — A tool palette with categories</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkToolPalette.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette">GtkToolPalette</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *                      <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-new" title="gtk_tool_palette_new ()">gtk_tool_palette_new</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-exclusive" title="gtk_tool_palette_get_exclusive ()">gtk_tool_palette_get_exclusive</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-exclusive" title="gtk_tool_palette_set_exclusive ()">gtk_tool_palette_set_exclusive</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> exclusive</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-expand" title="gtk_tool_palette_get_expand ()">gtk_tool_palette_get_expand</a>         (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-expand" title="gtk_tool_palette_set_expand ()">gtk_tool_palette_set_expand</a>         (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-group-position" title="gtk_tool_palette_get_group_position ()">gtk_tool_palette_get_group_position</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-group-position" title="gtk_tool_palette_set_group_position ()">gtk_tool_palette_set_group_position</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);
+<a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="returnvalue">GtkIconSize</span></a>         <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-icon-size" title="gtk_tool_palette_get_icon_size ()">gtk_tool_palette_get_icon_size</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-icon-size" title="gtk_tool_palette_set_icon_size ()">gtk_tool_palette_set_icon_size</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> icon_size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-unset-icon-size" title="gtk_tool_palette_unset_icon_size ()">gtk_tool_palette_unset_icon_size</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+<a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="returnvalue">GtkToolbarStyle</span></a>     <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-style" title="gtk_tool_palette_get_style ()">gtk_tool_palette_get_style</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-style" title="gtk_tool_palette_set_style ()">gtk_tool_palette_set_style</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="type">GtkToolbarStyle</span></a> style</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-unset-style" title="gtk_tool_palette_unset_style ()">gtk_tool_palette_unset_style</a>        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-add-drag-dest" title="gtk_tool_palette_add_drag_dest ()">gtk_tool_palette_add_drag_dest</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Drag-and-Drop.html#GtkDestDefaults" title="enum GtkDestDefaults"><span class="type">GtkDestDefaults</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets"><span class="type">GtkToolPaletteDragTargets</span></a> targets</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *                      <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drag-item" title="gtk_tool_palette_get_drag_item ()">gtk_tool_palette_get_drag_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkWidget.html#GtkSelectionData" title="GtkSelectionData"><span class="type">GtkSelectionData</span></a> *selection</code></em>);
+const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="returnvalue">GtkTargetEntry</span></a> *  <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drag-target-group" title="gtk_tool_palette_get_drag_target_group ()">gtk_tool_palette_get_drag_target_group</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="returnvalue">GtkTargetEntry</span></a> *  <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drag-target-item" title="gtk_tool_palette_get_drag_target_item ()">gtk_tool_palette_get_drag_target_item</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="returnvalue">GtkToolItemGroup</span></a> *               <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drop-group" title="gtk_tool_palette_get_drop_group ()">gtk_tool_palette_get_drop_group</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *                    <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drop-item" title="gtk_tool_palette_get_drop_item ()">gtk_tool_palette_get_drop_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);
+enum                <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets">GtkToolPaletteDragTargets</a>;
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-drag-source" title="gtk_tool_palette_set_drag_source ()">gtk_tool_palette_set_drag_source</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets"><span class="type">GtkToolPaletteDragTargets</span></a> targets</code></em>);
+<a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *                  <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-hadjustment" title="gtk_tool_palette_get_hadjustment ()">gtk_tool_palette_get_hadjustment</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+<a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *                  <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-vadjustment" title="gtk_tool_palette_get_vadjustment ()">gtk_tool_palette_get_vadjustment</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkToolPalette.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> allows you to add <a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="type">GtkToolItem</span></a>s to a palette-like
+container with different categories and drag and drop support.
+</p>
+<p>
+A <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> is created with a call to <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-new" title="gtk_tool_palette_new ()"><code class="function">gtk_tool_palette_new()</code></a>.
+</p>
+<p>
+<a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="type">GtkToolItem</span></a>s cannot be added directly to a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> - 
+instead they are added to a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which can than be added
+to a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>. To add a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> to a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>,
+use <a class="link" href="gtk3-GtkContainer.html#gtk-container-add" title="gtk_container_add ()"><code class="function">gtk_container_add()</code></a>.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+GtkWidget *palette, *group;
+GtkToolItem *item;
+
+palette = gtk_tool_palette_new ();
+group = gtk_tool_item_group_new (_("Test Category"));
+gtk_container_add (GTK_CONTAINER (palette), group);
+
+item = gtk_tool_button_new_from_stock (GTK_STOCK_OK);
+gtk_tool_item_group_insert (GTK_TOOL_ITEM_GROUP (group), item, -1);
+</pre></div>
+<p>
+</p>
+<p>
+The easiest way to use drag and drop with <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> is to call
+<a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-add-drag-dest" title="gtk_tool_palette_add_drag_dest ()"><code class="function">gtk_tool_palette_add_drag_dest()</code></a> with the desired drag source <em class="parameter"><code>palette</code></em>
+and the desired drag target <em class="parameter"><code>widget</code></em>. Then <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drag-item" title="gtk_tool_palette_get_drag_item ()"><code class="function">gtk_tool_palette_get_drag_item()</code></a>
+can be used to get the dragged item in the <span class="type">"drag-data-received"</span>
+signal handler of the drag target.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+static void
+passive_canvas_drag_data_received (GtkWidget        *widget,
+                                   GdkDragContext   *context,
+                                   gint              x,
+                                   gint              y,
+                                   GtkSelectionData *selection,
+                                   guint             info,
+                                   guint             time,
+                                   gpointer          data)
+{
+  GtkWidget *palette;
+  GtkWidget *item;
+
+  /* Get the dragged item */
+  palette = gtk_widget_get_ancestor (gtk_drag_get_source_widget (context),
+                                     GTK_TYPE_TOOL_PALETTE);
+  if (palette != NULL)
+    item = gtk_tool_palette_get_drag_item (GTK_TOOL_PALETTE (palette),
+                                           selection);
+
+  /* Do something with item */
+}
+
+GtkWidget *target, palette;
+
+palette = gtk_tool_palette_new ();
+target = gtk_drawing_area_new ();
+
+g_signal_connect (G_OBJECT (target), "drag-data-received",
+                  G_CALLBACK (passive_canvas_drag_data_received), NULL);
+gtk_tool_palette_add_drag_dest (GTK_TOOL_PALETTE (palette), target,
+                                GTK_DEST_DEFAULT_ALL,
+                                GTK_TOOL_PALETTE_DRAG_ITEMS,
+                                GDK_ACTION_COPY);
+</pre></div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkToolPalette.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkToolPalette"></a><h3>struct GtkToolPalette</h3>
+<pre class="programlisting">struct GtkToolPalette {
+  GtkContainer parent_instance;
+  GtkToolPalettePrivate *priv;
+};
+</pre>
+<p>
+This should not be accessed directly. Use the accessor functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-new"></a><h3>gtk_tool_palette_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *                      gtk_tool_palette_new   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-exclusive"></a><h3>gtk_tool_palette_get_exclusive ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_tool_palette_get_exclusive      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
+<p>
+Gets whether <em class="parameter"><code>group</code></em> is exclusive or not.
+See <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-exclusive" title="gtk_tool_palette_set_exclusive ()"><code class="function">gtk_tool_palette_set_exclusive()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which is a child of palette</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>group</code></em> is exclusive</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-exclusive"></a><h3>gtk_tool_palette_set_exclusive ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_exclusive      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> exclusive</code></em>);</pre>
+<p>
+Sets whether the group should be exclusive or not.
+If an exclusive group is expanded all other groups are collapsed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which is a child of palette</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exclusive</code></em> :</span></p></td>
+<td>whether the group should be exclusive or not</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-expand"></a><h3>gtk_tool_palette_get_expand ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_tool_palette_get_expand         (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
+<p>
+Gets whether group should be given extra space.
+See <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-expand" title="gtk_tool_palette_set_expand ()"><code class="function">gtk_tool_palette_set_expand()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which is a child of palette</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if group should be given extra space, <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-expand"></a><h3>gtk_tool_palette_set_expand ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_expand         (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> expand</code></em>);</pre>
+<p>
+Sets whether the group should be given extra space.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which is a child of palette</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>expand</code></em> :</span></p></td>
+<td>whether the group should be given extra space</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-group-position"></a><h3>gtk_tool_palette_get_group_position ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                gtk_tool_palette_get_group_position (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>);</pre>
+<p>
+Gets the position of <em class="parameter"><code>group</code></em> in <em class="parameter"><code>palette</code></em> as index.
+See <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-group-position" title="gtk_tool_palette_set_group_position ()"><code class="function">gtk_tool_palette_set_group_position()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the index of group or -1 if <em class="parameter"><code>group</code></em> is not a child of <em class="parameter"><code>palette</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-group-position"></a><h3>gtk_tool_palette_set_group_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_group_position (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> *group</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);</pre>
+<p>
+Sets the position of the group as an index of the tool palette.
+If position is 0 the group will become the first child, if position is
+-1 it will become the last child.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> which is a child of palette</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>a new index for group</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-icon-size"></a><h3>gtk_tool_palette_get_icon_size ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="returnvalue">GtkIconSize</span></a>         gtk_tool_palette_get_icon_size      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<p>
+Gets the size of icons in the tool palette.
+See <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-icon-size" title="gtk_tool_palette_set_icon_size ()"><code class="function">gtk_tool_palette_set_icon_size()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> of icons in the tool palette. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> int]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-icon-size"></a><h3>gtk_tool_palette_set_icon_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_icon_size      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> icon_size</code></em>);</pre>
+<p>
+Sets the size of icons in the tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_size</code></em> :</span></p></td>
+<td>the <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="type">GtkIconSize</span></a> that icons in the tool
+palette shall have. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> int]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-unset-icon-size"></a><h3>gtk_tool_palette_unset_icon_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_unset_icon_size    (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<p>
+Unsets the tool palette icon size set with <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-icon-size" title="gtk_tool_palette_set_icon_size ()"><code class="function">gtk_tool_palette_set_icon_size()</code></a>,
+so that user preferences will be used to determine the icon size.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-style"></a><h3>gtk_tool_palette_get_style ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="returnvalue">GtkToolbarStyle</span></a>     gtk_tool_palette_get_style          (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<p>
+Gets the style (icons, text or both) of items in the tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="type">GtkToolbarStyle</span></a> of items in the tool palette.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-style"></a><h3>gtk_tool_palette_set_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_style          (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="type">GtkToolbarStyle</span></a> style</code></em>);</pre>
+<p>
+Sets the style (text, icons or both) of items in the tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>style</code></em> :</span></p></td>
+<td>the <a class="link" href="gtk3-Standard-Enumerations.html#GtkToolbarStyle" title="enum GtkToolbarStyle"><span class="type">GtkToolbarStyle</span></a> that items in the tool palette shall have</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-unset-style"></a><h3>gtk_tool_palette_unset_style ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_unset_style        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<p>
+Unsets a toolbar style set with <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-style" title="gtk_tool_palette_set_style ()"><code class="function">gtk_tool_palette_set_style()</code></a>,
+so that user preferences will be used to determine the toolbar style.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-add-drag-dest"></a><h3>gtk_tool_palette_add_drag_dest ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_add_drag_dest      (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-Drag-and-Drop.html#GtkDestDefaults" title="enum GtkDestDefaults"><span class="type">GtkDestDefaults</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets"><span class="type">GtkToolPaletteDragTargets</span></a> targets</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a> actions</code></em>);</pre>
+<p>
+Sets <em class="parameter"><code>palette</code></em> as drag source (see <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-set-drag-source" title="gtk_tool_palette_set_drag_source ()"><code class="function">gtk_tool_palette_set_drag_source()</code></a>)
+and sets <em class="parameter"><code>widget</code></em> as a drag destination for drags from <em class="parameter"><code>palette</code></em>.
+See <a class="link" href="gtk3-Drag-and-Drop.html#gtk-drag-dest-set" title="gtk_drag_dest_set ()"><code class="function">gtk_drag_dest_set()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> which should be a drag destination for <em class="parameter"><code>palette</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>the flags that specify what actions GTK+ should take for drops
+on that widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>targets</code></em> :</span></p></td>
+<td>the <span class="type">GtkToolPaletteDragTarget</span>s which the widget
+should support</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>actions</code></em> :</span></p></td>
+<td>the <a href="../gdk3/gdk3-Drag-and-Drop.html#GdkDragAction"><span class="type">GdkDragAction</span></a>s which the widget should suppport</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-drag-item"></a><h3>gtk_tool_palette_get_drag_item ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *                      gtk_tool_palette_get_drag_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="gtk3-GtkWidget.html#GtkSelectionData" title="GtkSelectionData"><span class="type">GtkSelectionData</span></a> *selection</code></em>);</pre>
+<p>
+Get the dragged item from the selection.
+This could be a <a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="type">GtkToolItem</span></a> or a <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selection</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkWidget.html#GtkSelectionData" title="GtkSelectionData"><span class="type">GtkSelectionData</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the dragged item in selection. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-drag-target-group"></a><h3>gtk_tool_palette_get_drag_target_group ()</h3>
+<pre class="programlisting">const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="returnvalue">GtkTargetEntry</span></a> *  gtk_tool_palette_get_drag_target_group
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Get the target entry for a dragged <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="type">GtkTargetEntry</span></a> for a dragged group. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-drag-target-item"></a><h3>gtk_tool_palette_get_drag_target_item ()</h3>
+<pre class="programlisting">const <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="returnvalue">GtkTargetEntry</span></a> *  gtk_tool_palette_get_drag_target_item
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Gets the target entry for a dragged <a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="type">GtkToolItem</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-Selections.html#GtkTargetEntry" title="struct GtkTargetEntry"><span class="type">GtkTargetEntry</span></a> for a dragged item. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-drop-group"></a><h3>gtk_tool_palette_get_drop_group ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="returnvalue">GtkToolItemGroup</span></a> *               gtk_tool_palette_get_drop_group
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+<p>
+Gets the group at position (x, y).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the x position</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the y position</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-GtkToolItemGroup.html#GtkToolItemGroup" title="struct GtkToolItemGroup"><span class="type">GtkToolItemGroup</span></a> at position or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+if there is no such group. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-drop-item"></a><h3>gtk_tool_palette_get_drop_item ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="returnvalue">GtkToolItem</span></a> *                    gtk_tool_palette_get_drop_item
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> x</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> y</code></em>);</pre>
+<p>
+Gets the item at position (x, y).
+See <a class="link" href="gtk3-GtkToolPalette.html#gtk-tool-palette-get-drop-group" title="gtk_tool_palette_get_drop_group ()"><code class="function">gtk_tool_palette_get_drop_group()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>the x position</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>the y position</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="gtk3-GtkToolItem.html#GtkToolItem" title="struct GtkToolItem"><span class="type">GtkToolItem</span></a> at position or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no such item. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GtkToolPaletteDragTargets"></a><h3>enum GtkToolPaletteDragTargets</h3>
+<pre class="programlisting">typedef enum /*&lt; flags &gt;*/
+{
+  GTK_TOOL_PALETTE_DRAG_ITEMS = (1 &lt;&lt; 0),
+  GTK_TOOL_PALETTE_DRAG_GROUPS = (1 &lt;&lt; 1)
+}
+GtkToolPaletteDragTargets;
+</pre>
+<p>
+Flags used to specify the supported drag targets.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GTK-TOOL-PALETTE-DRAG-ITEMS:CAPS"></a><span class="term"><code class="literal">GTK_TOOL_PALETTE_DRAG_ITEMS</code></span></p></td>
+<td>Support drag of items.
+</td>
+</tr>
+<tr>
+<td><p><a name="GTK-TOOL-PALETTE-DRAG-GROUPS:CAPS"></a><span class="term"><code class="literal">GTK_TOOL_PALETTE_DRAG_GROUPS</code></span></p></td>
+<td>Support drag of groups.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-set-drag-source"></a><h3>gtk_tool_palette_set_drag_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_tool_palette_set_drag_source    (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPaletteDragTargets" title="enum GtkToolPaletteDragTargets"><span class="type">GtkToolPaletteDragTargets</span></a> targets</code></em>);</pre>
+<p>
+Sets the tool palette as a drag source.
+Enables all groups and items in the tool palette as drag sources
+on button 1 and button 3 press with copy and move actions.
+See <a class="link" href="gtk3-Drag-and-Drop.html#gtk-drag-source-set" title="gtk_drag_source_set ()"><code class="function">gtk_drag_source_set()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>targets</code></em> :</span></p></td>
+<td>the <span class="type">GtkToolPaletteDragTarget</span>s
+which the widget should support</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-hadjustment"></a><h3>gtk_tool_palette_get_hadjustment ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *                  gtk_tool_palette_get_hadjustment
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tool_palette_get_hadjustment</code> has been deprecated since version 3.0 and should not be used in newly-written code. Use <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-hadjustment" title="gtk_scrollable_get_hadjustment ()"><code class="function">gtk_scrollable_get_hadjustment()</code></a></p>
+</div>
+<p>
+Gets the horizontal adjustment of the tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the horizontal adjustment of <em class="parameter"><code>palette</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-tool-palette-get-vadjustment"></a><h3>gtk_tool_palette_get_vadjustment ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="returnvalue">GtkAdjustment</span></a> *                  gtk_tool_palette_get_vadjustment
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a> *palette</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">gtk_tool_palette_get_vadjustment</code> has been deprecated since version 3.0 and should not be used in newly-written code. Use <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-vadjustment" title="gtk_scrollable_get_vadjustment ()"><code class="function">gtk_scrollable_get_vadjustment()</code></a></p>
+</div>
+<p>
+Gets the vertical adjustment of the tool palette.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>palette</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkToolPalette.html#GtkToolPalette" title="struct GtkToolPalette"><span class="type">GtkToolPalette</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the vertical adjustment of <em class="parameter"><code>palette</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

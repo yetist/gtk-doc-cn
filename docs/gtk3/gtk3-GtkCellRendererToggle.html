@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkCellRendererToggle</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="TreeWidgetObjects.html" title="Tree, List and Icon Grid Widgets">
+<link rel="prev" href="gtk3-GtkCellRendererText.html" title="GtkCellRendererText">
+<link rel="next" href="gtk3-GtkCellRendererSpinner.html" title="GtkCellRendererSpinner">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gtk3-GtkCellRendererText.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="TreeWidgetObjects.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkCellRendererSpinner.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkCellRendererToggle.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkCellRendererToggle.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkCellRendererToggle"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkCellRendererToggle.top_of_page"></a>GtkCellRendererToggle</span></h2>
+<p>GtkCellRendererToggle</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkCellRendererToggle.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle">GtkCellRendererToggle</a>;
+<a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-new" title="gtk_cell_renderer_toggle_new ()">gtk_cell_renderer_toggle_new</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-get-radio" title="gtk_cell_renderer_toggle_get_radio ()">gtk_cell_renderer_toggle_get_radio</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-set-radio" title="gtk_cell_renderer_toggle_set_radio ()">gtk_cell_renderer_toggle_set_radio</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> radio</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-get-active" title="gtk_cell_renderer_toggle_get_active ()">gtk_cell_renderer_toggle_get_active</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-set-active" title="gtk_cell_renderer_toggle_set_active ()">gtk_cell_renderer_toggle_set_active</a> (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-get-activatable" title="gtk_cell_renderer_toggle_get_activatable ()">gtk_cell_renderer_toggle_get_activatable</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-set-activatable" title="gtk_cell_renderer_toggle_set_activatable ()">gtk_cell_renderer_toggle_set_activatable</a>
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererToggle.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkCellRendererToggle.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkCellRendererToggle"></a><h3>struct GtkCellRendererToggle</h3>
+<pre class="programlisting">struct GtkCellRendererToggle {
+  GtkCellRenderer parent;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-new"></a><h3>gtk_cell_renderer_toggle_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="returnvalue">GtkCellRenderer</span></a> *   gtk_cell_renderer_toggle_new        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>. Adjust rendering
+parameters using object properties. Object properties can be set
+globally (with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-set"><code class="function">g_object_set()</code></a>). Also, with <a class="link" href="gtk3-GtkTreeViewColumn.html#GtkTreeViewColumn" title="struct GtkTreeViewColumn"><span class="type">GtkTreeViewColumn</span></a>, you
+can bind a property to a value in a <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>. For example, you
+can bind the "active" property on the cell renderer to a boolean value
+in the model, thus causing the check button to reflect the state of
+the model.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new cell renderer</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-get-radio"></a><h3>gtk_cell_renderer_toggle_get_radio ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_cell_renderer_toggle_get_radio  (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);</pre>
+<p>
+Returns whether we're rendering radio toggles rather than checkboxes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if we're rendering radio toggles rather than checkboxes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-set-radio"></a><h3>gtk_cell_renderer_toggle_set_radio ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_cell_renderer_toggle_set_radio  (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> radio</code></em>);</pre>
+<p>
+If <em class="parameter"><code>radio</code></em> is <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, the cell renderer renders a radio toggle
+(i.e. a toggle in a group of mutually-exclusive toggles).
+If <a href="../glib/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, it renders a check toggle (a standalone boolean option).
+This can be set globally for the cell renderer, or changed just
+before rendering each cell in the model (for <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a>, you set
+up a per-row setting using <a class="link" href="gtk3-GtkTreeViewColumn.html#GtkTreeViewColumn" title="struct GtkTreeViewColumn"><span class="type">GtkTreeViewColumn</span></a> to associate model
+columns with cell renderer properties).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>radio</code></em> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> to make the toggle look like a radio button</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-get-active"></a><h3>gtk_cell_renderer_toggle_get_active ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_cell_renderer_toggle_get_active (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);</pre>
+<p>
+Returns whether the cell renderer is active. See
+<a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-set-active" title="gtk_cell_renderer_toggle_set_active ()"><code class="function">gtk_cell_renderer_toggle_set_active()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the cell renderer is active.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-set-active"></a><h3>gtk_cell_renderer_toggle_set_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_cell_renderer_toggle_set_active (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Activates or deactivates a cell renderer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the value to set.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-get-activatable"></a><h3>gtk_cell_renderer_toggle_get_activatable ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_cell_renderer_toggle_get_activatable
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>);</pre>
+<p>
+Returns whether the cell renderer is activatable. See
+<a class="link" href="gtk3-GtkCellRendererToggle.html#gtk-cell-renderer-toggle-set-activatable" title="gtk_cell_renderer_toggle_set_activatable ()"><code class="function">gtk_cell_renderer_toggle_set_activatable()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the cell renderer is activatable.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-cell-renderer-toggle-set-activatable"></a><h3>gtk_cell_renderer_toggle_set_activatable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gtk_cell_renderer_toggle_set_activatable
+                                                        (<em class="parameter"><code><a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a> *toggle</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> setting</code></em>);</pre>
+<p>
+Makes the cell renderer activatable.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>toggle</code></em> :</span></p></td>
+<td>a <a class="link" href="gtk3-GtkCellRendererToggle.html#GtkCellRendererToggle" title="struct GtkCellRendererToggle"><span class="type">GtkCellRendererToggle</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>setting</code></em> :</span></p></td>
+<td>the value to set.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.18</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

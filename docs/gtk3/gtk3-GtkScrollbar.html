@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GtkScrollbar</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
+<link rel="up" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="prev" href="ScrollingWidgets.html" title="Scrolling">
+<link rel="next" href="gtk3-GtkHScrollbar.html" title="GtkHScrollbar">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ScrollingWidgets.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ScrollingWidgets.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
+<td><a accesskey="n" href="gtk3-GtkHScrollbar.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gtk3-GtkScrollbar.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gtk3-GtkScrollbar.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gtk3-GtkScrollbar"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gtk3-GtkScrollbar.top_of_page"></a>GtkScrollbar</span></h2>
+<p>GtkScrollbar — Base class for GtkHScrollbar and GtkVScrollbar</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gtk3-GtkScrollbar.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gtk/gtk.h&gt;
+
+struct              <a class="link" href="gtk3-GtkScrollbar.html#GtkScrollbar" title="struct GtkScrollbar">GtkScrollbar</a>;
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkScrollbar.html#gtk-scrollbar-new" title="gtk_scrollbar_new ()">gtk_scrollbar_new</a>                   (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkScrollbar.description"></a><h2>Description</h2>
+<p>
+The <a class="link" href="gtk3-GtkScrollbar.html#GtkScrollbar" title="struct GtkScrollbar"><span class="type">GtkScrollbar</span></a> widget is the base class for <a class="link" href="gtk3-GtkHScrollbar.html#GtkHScrollbar" title="struct GtkHScrollbar"><span class="type">GtkHScrollbar</span></a> and
+<a class="link" href="gtk3-GtkVScrollbar.html#GtkVScrollbar" title="struct GtkVScrollbar"><span class="type">GtkVScrollbar</span></a>. It can be used in the same way as these, by setting
+the "orientation" property appropriately.
+</p>
+<p>
+The position of the thumb in a scrollbar is controlled by the scroll
+adjustments. See <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> for the fields in an adjustment - for
+<a class="link" href="gtk3-GtkScrollbar.html#GtkScrollbar" title="struct GtkScrollbar"><span class="type">GtkScrollbar</span></a>, the <span class="type">GtkAdjustment.value</span> field represents the position
+of the scrollbar, which must be between the <span class="type">GtkAdjustment.lower</span> field
+and <span class="type">GtkAdjustment.upper</span> - <span class="type">GtkAdjustment.page_size</span>. The
+<span class="type">GtkAdjustment.page_size</span> field represents the size of the visible
+scrollable area. The <span class="type">GtkAdjustment.step_increment</span> and
+<span class="type">GtkAdjustment.page_increment</span> fields are used when the user asks to
+step down (using the small stepper arrows) or page down (using for
+example the <span class="keycap"><strong>PageDown</strong></span> key).
+</p>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkScrollbar.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GtkScrollbar"></a><h3>struct GtkScrollbar</h3>
+<pre class="programlisting">struct GtkScrollbar {
+  GtkRange range;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gtk-scrollbar-new"></a><h3>gtk_scrollbar_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_scrollbar_new                   (<em class="parameter"><code><a class="link" href="gtk3-Standard-Enumerations.html#GtkOrientation" title="enum GtkOrientation"><span class="type">GtkOrientation</span></a> orientation</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *adjustment</code></em>);</pre>
+<p>
+Creates a new scrollbar with the given orientation.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>orientation</code></em> :</span></p></td>
+<td>the scrollbar's orientation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>adjustment</code></em> :</span></p></td>
+<td>the <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> to use, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to create a new adjustment. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the new <a class="link" href="gtk3-GtkScrollbar.html#GtkScrollbar" title="struct GtkScrollbar"><span class="type">GtkScrollbar</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.0</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gtk3-GtkScrollbar.see-also"></a><h2>See Also</h2>
+<a class="link" href="gtk3-GtkHScrollbar.html#GtkHScrollbar" title="struct GtkHScrollbar"><span class="type">GtkHScrollbar</span></a>, <a class="link" href="gtk3-GtkVScrollbar.html#GtkVScrollbar" title="struct GtkVScrollbar"><span class="type">GtkVScrollbar</span></a>, <a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a>,
+  <a class="link" href="gtk3-GtkScrolledWindow.html#GtkScrolledWindow" title="struct GtkScrolledWindow"><span class="type">GtkScrolledWindow</span></a>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
