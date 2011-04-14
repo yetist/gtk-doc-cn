@@ -1,0 +1,5547 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 14:21+0800\n"
+"PO-Revision-Date: 2011-04-14 14:22+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: building.sgml:0(None) changes.sgml:0(None) compiling.sgml:0(None)
+#: cross.sgml:0(None) glib-docs.sgml:0(None) gvariant-varargs.xml:0(None)
+#: regex-syntax.sgml:0(None) resources.sgml:0(None) running.sgml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: building.sgml:107(para)
+msgid ""
+"If your system has an <function>iconv()</function> implementation but you "
+"want to use libiconv instead, you can pass the --with-libiconv option to "
+"configure. This forces libiconv to be used."
+msgstr ""
+
+#: building.sgml:113(para)
+msgid ""
+"Note that if you have libiconv installed in your default include search path "
+"(for instance, in <filename>/usr/local/</filename>), but don't enable it, "
+"you will get an error while compiling GLib because the <filename>iconv.h</"
+"filename> that libiconv installs hides the system iconv."
+msgstr ""
+
+#: building.sgml:120(para)
+msgid ""
+"If you are using the native iconv implementation on Solaris instead of "
+"libiconv, you'll need to make sure that you have the converters between "
+"locale encodings and UTF-8 installed. At a minimum you'll need the SUNWuiu8 "
+"package. You probably should also install the SUNWciu8, SUNWhiu8, SUNWjiu8, "
+"and SUNWkiu8 packages."
+msgstr ""
+
+#: building.sgml:128(para)
+msgid ""
+"The native iconv on Compaq Tru64 doesn't contain support for UTF-8, so "
+"you'll need to use GNU libiconv instead. (When using GNU libiconv for GLib, "
+"you'll need to use GNU libiconv for GNU gettext as well.) This probably "
+"applies to related operating systems as well."
+msgstr ""
+
+#: building.sgml:13(refname)
+msgid "Compiling the GLib Package"
+msgstr ""
+
+#: building.sgml:137(para)
+msgid ""
+"The libintl library from the <ulink url=\"http://www.gnu.org/software/gettext"
+"\">GNU gettext package</ulink> is needed if your system doesn't have the "
+"<function>gettext()</function> functionality for handling message "
+"translation databases."
+msgstr ""
+
+#: building.sgml:14(refpurpose)
+msgid "How to compile GLib itself"
+msgstr ""
+
+#: building.sgml:146(para)
+msgid ""
+"A thread implementation is needed, unless you want to compile GLib without "
+"thread support, which is not recommended. The thread support in GLib can be "
+"based upon several native thread implementations, e.g. POSIX threads, DCE "
+"threads or Solaris threads."
+msgstr ""
+
+#: building.sgml:154(para)
+msgid ""
+"GRegex uses the <ulink url=\"http://www.pcre.org/\">PCRE library</ulink> for "
+"regular expression matching. The default is to use the internal version of "
+"PCRE that is patched to use GLib for memory management and Unicode handling. "
+"If you prefer to use the system-supplied PCRE library you can pass the --"
+"with-pcre=system option to configure, but it is not recommended."
+msgstr ""
+
+#: building.sgml:164(para)
+msgid ""
+"The optional extended attribute support in GIO requires the getxattr() "
+"family of functions that may be provided by glibc or by the standalone "
+"libattr library. To build GLib without extended attribute support, use the "
+"<option>--disable-xattr</option> configure option."
+msgstr ""
+
+#: building.sgml:173(para)
+msgid ""
+"The optional SELinux support in GIO requires libselinux. To build GLib "
+"without SELinux support, use the <option>--disable-selinux</option> "
+"configure option."
+msgstr ""
+
+#: building.sgml:180(para)
+msgid ""
+"The optional support for DTrace requires the <filename>sys/sdt.h</filename> "
+"header, which is provided by SystemTap on Linux. To build GLib without "
+"DTrace, use the <option>--disable-dtrace</option> configure option."
+msgstr ""
+
+#: building.sgml:187(para)
+msgid ""
+"The optional support for <ulink url=\"http://sourceware.org/systemtap/"
+"\">SystemTap</ulink> can be disabled with the <option>--disable-systemtap</"
+"option> configure option."
+msgstr ""
+
+#: building.sgml:196(title)
+msgid "Extra Configuration Options"
+msgstr ""
+
+#: building.sgml:198(para)
+msgid ""
+"In addition to the normal options, the <command>configure</command> script "
+"in the GLib library supports these additional arguments: "
+"<cmdsynopsis><command>configure</command><group><arg>--enable-debug=[no|"
+"minimum|yes]</arg></group><group><arg>--disable-gc-friendly</arg><arg>--"
+"enable-gc-friendly</arg></group><group><arg>--disable-mem-pools</arg><arg>--"
+"enable-mem-pools</arg></group><group><arg>--disable-threads</arg><arg>--"
+"enable-threads</arg></group><group><arg>--with-threads=[none|posix|dce|win32]"
+"</arg></group><group><arg>--disable-regex</arg><arg>--enable-regex</arg></"
+"group><group><arg>--with-pcre=[internal|system]</arg></group><group><arg>--"
+"disable-included-printf</arg><arg>--enable-included-printf</arg></"
+"group><group><arg>--disable-visibility</arg><arg>--enable-visibility</arg></"
+"group><group><arg>--disable-gtk-doc</arg><arg>--enable-gtk-doc</arg></"
+"group><group><arg>--disable-man</arg><arg>--enable-man</arg></"
+"group><group><arg>--disable-xattr</arg><arg>--enable-xattr</arg></"
+"group><group><arg>--disable-selinux</arg><arg>--enable-selinux</arg></"
+"group><group><arg>--disable-dtrace</arg><arg>--enable-dtrace</arg></"
+"group><group><arg>--disable-systemtap</arg><arg>--enable-systemtap</arg></"
+"group><group><arg>--enable-gcov</arg><arg>--disable-gcov</arg></"
+"group><group><arg>--with-runtime-libdir=RELPATH</arg></group></cmdsynopsis>"
+msgstr ""
+
+#: building.sgml:20(title)
+msgid "Building the Library on UNIX"
+msgstr ""
+
+#: building.sgml:21(para)
+msgid ""
+"On UNIX, GLib uses the standard GNU build system, using "
+"<application>autoconf</application> for package configuration and resolving "
+"portability issues, <application>automake</application> for building "
+"makefiles that comply with the GNU Coding Standards, and "
+"<application>libtool</application> for building shared libraries on multiple "
+"platforms. The normal sequence for compiling and installing the GLib library "
+"is thus: <literallayout>\n"
+"          <userinput>./configure</userinput>\n"
+"          <userinput>make</userinput>\n"
+"          <userinput>make install</userinput>\n"
+"        </literallayout>"
+msgstr ""
+
+#: building.sgml:273(systemitem)
+msgid "--enable-debug"
+msgstr ""
+
+#: building.sgml:275(para)
+msgid ""
+"Turns on various amounts of debugging support. Setting this to 'no' disables "
+"g_assert(), g_return_if_fail(), g_return_val_if_fail() and all cast checks "
+"between different object types. Setting it to 'minimum' disables only cast "
+"checks. Setting it to 'yes' enables <link linkend=\"GLIB-Debug-Options"
+"\">runtime debugging</link>. The default is 'minimum'. Note that 'no' is "
+"fast, but dangerous as it tends to destabilize even mostly bug-free software "
+"by changing the effect of many bugs from simple warnings into fatal crashes. "
+"Thus <option>--enable-debug=no</option> should <emphasis>not</emphasis> be "
+"used for stable releases of GLib."
+msgstr ""
+
+#: building.sgml:290(title)
+msgid ""
+"<systemitem>--disable-gc-friendly</systemitem> and <systemitem>--enable-gc-"
+"friendly</systemitem>"
+msgstr ""
+
+#: building.sgml:293(para)
+msgid ""
+"By default, and with <systemitem>--disable-gc-friendly</systemitem> as well, "
+"Glib does not clear the memory for certain objects before they are freed. "
+"For example, Glib may decide to recycle GList nodes by putting them in a "
+"free list. However, memory profiling and debugging tools like <ulink url="
+"\"http://www.valgrind.org\">Valgrind</ulink> work better if an application "
+"does not keep dangling pointers to freed memory (even though these pointers "
+"are no longer dereferenced), or invalid pointers inside uninitialized "
+"memory. The <systemitem>--enable-gc-friendly</systemitem> option makes Glib "
+"clear memory in these situations:"
+msgstr ""
+
+#: building.sgml:309(para)
+msgid ""
+"When shrinking a GArray, Glib will clear the memory no longer available in "
+"the array: shrink an array from 10 bytes to 7, and the last 3 bytes will be "
+"cleared. This includes removals of single and multiple elements."
+msgstr ""
+
+#: building.sgml:320(para)
+msgid ""
+"When growing a GArray, Glib will clear the new chunk of memory. Grow an "
+"array from 7 bytes to 10 bytes, and the last 3 bytes will be cleared."
+msgstr ""
+
+#: building.sgml:326(para)
+msgid "The above applies to GPtrArray as well."
+msgstr ""
+
+#: building.sgml:331(para)
+msgid ""
+"When freeing a node from a GHashTable, Glib will first clear the node, which "
+"used to have pointers to the key and the value stored at that node."
+msgstr ""
+
+#: building.sgml:338(para)
+msgid ""
+"When destroying or removing a GTree node, Glib will clear the node, which "
+"used to have pointers to the node's value, and the left and right subnodes."
+msgstr ""
+
+#: building.sgml:345(para)
+msgid ""
+"Since clearing the memory has a cost, <systemitem>--disable-gc-friendly</"
+"systemitem> is the default."
+msgstr ""
+
+#: building.sgml:351(title)
+msgid ""
+"<systemitem>--disable-mem-pools</systemitem> and <systemitem>--enable-mem-"
+"pools</systemitem>"
+msgstr ""
+
+#: building.sgml:354(para)
+msgid ""
+"Many small chunks of memory are often allocated via collective pools in GLib "
+"and are cached after release to speed up reallocations. For sparse memory "
+"systems this behaviour is often inferior, so memory pools can be disabled to "
+"avoid excessive caching and force atomic maintenance of chunks through the "
+"<function>g_malloc()</function> and <function>g_free()</function> functions. "
+"Code currently affected by this: <placeholder-1/>"
+msgstr ""
+
+#: building.sgml:364(para)
+msgid ""
+"<structname>GList</structname>, <structname>GSList</structname>, "
+"<structname>GNode</structname>, <structname>GHash</structname> allocations. "
+"The functions g_list_push_allocator(), g_list_pop_allocator(), "
+"g_slist_push_allocator(), g_slist_pop_allocator(), g_node_push_allocator() "
+"and g_node_pop_allocator() are not available"
+msgstr ""
+
+#: building.sgml:374(para)
+msgid "<structname>GMemChunk</structname>s become basically non-effective"
+msgstr ""
+
+#: building.sgml:379(para)
+msgid ""
+"<structname>GSignal</structname> disables all caching (potentially very slow)"
+msgstr ""
+
+#: building.sgml:38(para)
+msgid ""
+"The standard options provided by <application>GNU autoconf</application> may "
+"be passed to the <command>configure</command> script. Please see the "
+"<application>autoconf</application> documentation or run <command>./"
+"configure --help</command> for information about the standard options."
+msgstr ""
+
+#: building.sgml:385(para)
+msgid ""
+"<structname>GType</structname> doesn't honour the <structname>GTypeInfo</"
+"structname><structfield>n_preallocs</structfield> field anymore"
+msgstr ""
+
+#: building.sgml:392(para)
+msgid ""
+"the <structname>GBSearchArray</structname> flag "
+"<literal>G_BSEARCH_ALIGN_POWER2</literal> becomes non-functional"
+msgstr ""
+
+#: building.sgml:402(title)
+msgid ""
+"<systemitem>--disable-threads</systemitem> and <systemitem>--enable-threads</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:405(para)
+msgid ""
+"Do not compile GLib to be multi thread safe. GLib will be slightly faster "
+"then. This is however not recommended, as many programs rely on GLib being "
+"multi thread safe."
+msgstr ""
+
+#: building.sgml:414(systemitem)
+msgid "--with-threads"
+msgstr ""
+
+#: building.sgml:416(para)
+msgid "Specify a thread implementation to use. <placeholder-1/>"
+msgstr ""
+
+#: building.sgml:419(para)
+msgid ""
+"'posix' and 'dce' can be used interchangeable to mean the different versions "
+"of Posix threads. configure tries to find out, which one is installed."
+msgstr ""
+
+#: building.sgml:426(para)
+msgid ""
+"'none' means that GLib will be thread safe, but does not have a default "
+"thread implementation. This has to be supplied to <function>g_thread_init()</"
+"function> by the programmer."
+msgstr ""
+
+#: building.sgml:438(title)
+msgid ""
+"<systemitem>--disable-regex</systemitem> and <systemitem>--enable-regex</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:441(para)
+msgid ""
+"Do not compile GLib with regular expression support. GLib will be smaller "
+"because it will not need the PCRE library. This is however not recommended, "
+"as programs may need GRegex."
+msgstr ""
+
+#: building.sgml:450(systemitem)
+msgid "--with-pcre"
+msgstr ""
+
+#: building.sgml:452(para)
+msgid ""
+"Specify whether to use the internal or the system-supplied PCRE library. "
+"<placeholder-1/> Using the internal PCRE is the preferred solution: "
+"<placeholder-2/>"
+msgstr ""
+
+#: building.sgml:456(para)
+msgid ""
+"'internal' means that GRegex will be compiled to use the internal PCRE "
+"library."
+msgstr ""
+
+#: building.sgml:46(para)
+msgid ""
+"The GTK+ documentation contains <ulink url=\"../gtk/gtk-building.html"
+"\">further details</ulink> about the build process and ways to influence it."
+msgstr ""
+
+#: building.sgml:461(para)
+msgid ""
+"'system' means that GRegex will be compiled to use the system-supplied PCRE "
+"library."
+msgstr ""
+
+#: building.sgml:469(para)
+msgid ""
+"System-supplied PCRE has a separated copy of the big tables used for Unicode "
+"handling."
+msgstr ""
+
+#: building.sgml:475(para)
+msgid ""
+"Some systems have PCRE libraries compiled without some needed features, such "
+"as UTF-8 and Unicode support."
+msgstr ""
+
+#: building.sgml:481(para)
+msgid ""
+"PCRE uses some global variables for memory management and other features. In "
+"the rare case of a program using both GRegex and PCRE (maybe indirectly "
+"through a library), this variables could lead to problems when they are "
+"modified."
+msgstr ""
+
+#: building.sgml:493(title)
+msgid ""
+"<systemitem>--disable-included-printf</systemitem> and <systemitem>--enable-"
+"included-printf</systemitem>"
+msgstr ""
+
+#: building.sgml:496(para)
+msgid ""
+"By default the <command>configure</command> script will try to auto-detect "
+"whether the C library provides a suitable set of <function>printf()</"
+"function> functions. In detail, <command>configure</command> checks that the "
+"semantics of <function>snprintf()</function> are as specified by C99 and "
+"that positional parameters as specified in the Single Unix Specification are "
+"supported. If this not the case, GLib will include an implementation of the "
+"<function>printf()</function> family. These options can be used to "
+"explicitly control whether an implementation fo the <function>printf()</"
+"function> family should be included or not."
+msgstr ""
+
+#: building.sgml:513(title)
+msgid ""
+"<systemitem>--disable-visibility</systemitem> and <systemitem>--enable-"
+"visibility</systemitem>"
+msgstr ""
+
+#: building.sgml:516(para)
+msgid ""
+"By default, GLib uses ELF visibility attributes to optimize PLT table "
+"entries if the compiler supports ELF visibility attributes. A side-effect of "
+"the way in which this is currently implemented is that any header change "
+"forces a full recompilation, and missing includes may go unnoticed. "
+"Therefore, it makes sense to turn this feature off while doing GLib "
+"development, even if the compiler supports ELF visibility attributes. The "
+"<option>--disable-visibility</option> option allows to do that."
+msgstr ""
+
+#: building.sgml:53(title)
+msgid "Dependencies"
+msgstr ""
+
+#: building.sgml:530(title)
+msgid ""
+"<systemitem>--disable-gtk-doc</systemitem> and <systemitem>--enable-gtk-doc</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:533(para)
+msgid ""
+"By default the <command>configure</command> script will try to auto-detect "
+"whether the <application>gtk-doc</application> package is installed. If it "
+"is, then it will use it to extract and build the documentation for the GLib "
+"library. These options can be used to explicitly control whether "
+"<application>gtk-doc</application> should be used or not. If it is not used, "
+"the distributed, pre-generated HTML files will be installed instead of "
+"building them on your machine."
+msgstr ""
+
+#: building.sgml:54(para)
+msgid ""
+"Before you can compile the GLib library, you need to have various other "
+"tools and libraries installed on your system. The two tools needed during "
+"the build process (as differentiated from the tools used in when creating "
+"GLib mentioned above such as <application>autoconf</application>) are "
+"<command>pkg-config</command> and GNU make."
+msgstr ""
+
+#: building.sgml:548(title)
+msgid ""
+"<systemitem>--disable-man</systemitem> and <systemitem>--enable-man</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:551(para)
+msgid ""
+"By default the <command>configure</command> script will try to auto-detect "
+"whether <application>xsltproc</application> and the necessary Docbook "
+"stylesheets are installed. If they are, then it will use them to rebuild the "
+"included man pages from the XML sources. These options can be used to "
+"explicitly control whether man pages should be rebuilt used or not. The "
+"distribution includes pre-generated man pages."
+msgstr ""
+
+#: building.sgml:564(title)
+msgid ""
+"<systemitem>--disable-xattr</systemitem> and <systemitem>--enable-xattr</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:567(para)
+msgid ""
+"By default the <command>configure</command> script will try to auto-detect "
+"whether the getxattr() family of functions is available. If it is, then "
+"extended attribute support will be included in GIO. These options can be "
+"used to explicitly control whether extended attribute support should be "
+"included or not. getxattr() and friends can be provided by glibc or by the "
+"standalone libattr library."
+msgstr ""
+
+#: building.sgml:579(title)
+msgid ""
+"<systemitem>--disable-selinux</systemitem> and <systemitem>--enable-selinux</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:582(para)
+msgid ""
+"By default the <command>configure</command> script will auto-detect if "
+"libselinux is available and include SELinux support in GIO if it is. These "
+"options can be used to explicitly control whether SELinux support should be "
+"included."
+msgstr ""
+
+#: building.sgml:592(title)
+msgid ""
+"<systemitem>--disable-dtrace</systemitem> and <systemitem>--enable-dtrace</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:595(para)
+msgid ""
+"By default the <command>configure</command> script will detect if DTrace "
+"support is available, and use it."
+msgstr ""
+
+#: building.sgml:602(title)
+msgid ""
+"<systemitem>--disable-systemtap</systemitem> and <systemitem>--enable-"
+"systemtap</systemitem>"
+msgstr ""
+
+#: building.sgml:605(para)
+msgid ""
+"This option requires DTrace support. If it is available, then the "
+"<command>configure</command> script will also check for the presence of "
+"SystemTap."
+msgstr ""
+
+#: building.sgml:613(title)
+msgid ""
+"<systemitem>--enable-gcov</systemitem> and <systemitem>--disable-gcov</"
+"systemitem>"
+msgstr ""
+
+#: building.sgml:616(para)
+msgid ""
+"Enable the generation of coverage reports for the GLib tests. This requires "
+"the lcov frontend to gcov from the <ulink url=\"http://ltp.sourceforge.net"
+"\">Linux Test Project</ulink>. To generate a coverage report, use the lcov "
+"make target. The report is placed in the <filename>glib-lcov</filename> "
+"directory."
+msgstr ""
+
+#: building.sgml:626(systemitem)
+msgid "--with-runtime-libdir=RELPATH"
+msgstr ""
+
+#: building.sgml:628(para)
+msgid ""
+"Allows specifying a relative path to where to install the runtime libraries "
+"(meaning library files used for running, not developing, GLib applications). "
+"This can be used in operating system setups where programs using GLib needs "
+"to run before e.g. <filename>/usr</filename> is mounted. For example, if "
+"LIBDIR is <filename>/usr/lib</filename> and <filename>../../lib</filename> "
+"is passed to <systemitem>--with-runtime-libdir</systemitem> then the runtime "
+"libraries are installed into <filename>/lib</filename> rather than "
+"<filename>/usr/lib</filename>."
+msgstr ""
+
+#: building.sgml:64(para)
+msgid ""
+"<ulink url=\"http://www.freedesktop.org/software/pkgconfig/\">pkg-config</"
+"ulink> is a tool for tracking the compilation flags needed for libraries "
+"that are used by the GLib library. (For each library, a small <literal>.pc</"
+"literal> text file is installed in a standard location that contains the "
+"compilation flags needed for that library along with version number "
+"information.) The version of <command>pkg-config</command> needed to build "
+"GLib is mirrored in the <filename>dependencies</filename> directory on the "
+"<ulink url=\"ftp://ftp.gtk.org/pub/gtk/v2.2/\">GTK+ FTP site.</ulink>"
+msgstr ""
+
+#: building.sgml:7(refentrytitle)
+msgid "Compiling the GLib package"
+msgstr ""
+
+#: building.sgml:8(manvolnum) changes.sgml:8(manvolnum)
+#: compiling.sgml:8(manvolnum) cross.sgml:8(manvolnum)
+#: resources.sgml:8(manvolnum) running.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: building.sgml:80(para)
+msgid ""
+"The GTK+ makefiles will mostly work with different versions of "
+"<command>make</command>, however, there tends to be a few incompatibilities, "
+"so the GTK+ team recommends installing <ulink url=\"http://www.gnu.org/"
+"software/make\">GNU make</ulink> if you don't already have it on your system "
+"and using it. (It may be called <command>gmake</command> rather than "
+"<command>make</command>.)"
+msgstr ""
+
+#: building.sgml:9(refmiscinfo) compiling.sgml:9(refmiscinfo)
+#: cross.sgml:9(refmiscinfo) running.sgml:9(refmiscinfo)
+msgid "GLib Library"
+msgstr ""
+
+#: building.sgml:91(para)
+msgid "GLib depends on a number of other libraries."
+msgstr ""
+
+#: building.sgml:96(para)
+msgid ""
+"The <ulink url=\"http://www.gnu.org/software/libiconv/\">GNU libiconv "
+"library</ulink> is needed to build GLib if your system doesn't have the "
+"<function>iconv()</function> function for doing conversion between character "
+"encodings. Most modern systems should have <function>iconv()</function>, "
+"however many older systems lack an <function>iconv()</function> "
+"implementation. On such systems, you must install the libiconv library. This "
+"can be found at: <ulink url=\"http://www.gnu.org/software/libiconv\">http://"
+"www.gnu.org/software/libiconv</ulink>."
+msgstr ""
+
+#: changes.sgml:105(para)
+msgid ""
+"Sources are first created, then later added to a specific "
+"<structname>GMainContext</structname>."
+msgstr ""
+
+#: changes.sgml:112(para)
+msgid ""
+"Dispatching has been modified so both the callback and data are passed in to "
+"the <function>dispatch()</function> virtual function."
+msgstr ""
+
+#: changes.sgml:127(para)
+msgid ""
+"<function>g_list_foreach()</function> and <function>g_slist_foreach()</"
+"function> have been changed so they are now safe against removal of the "
+"current item, not the next item."
+msgstr ""
+
+#: changes.sgml:13(refname) changes.sgml:7(refentrytitle)
+#: changes.sgml:9(refmiscinfo)
+msgid "Changes to GLib"
+msgstr ""
+
+#: changes.sgml:133(para)
+msgid ""
+"It's not recommended to mutate the list in the callback to these functions "
+"in any case."
+msgstr ""
+
+#: changes.sgml:14(refpurpose)
+msgid "Incompatible changes made between successing versions of GLib"
+msgstr ""
+
+#: changes.sgml:140(para)
+msgid ""
+"<structname>GDate</structname> now works in UTF-8, not in the current "
+"locale. If you want to use it with the encoding of the locale, you need to "
+"convert strings using <function>g_locale_to_utf8()</function> first."
+msgstr ""
+
+#: changes.sgml:148(para)
+msgid ""
+"<function>g_strsplit()</function> has been fixed to: <placeholder-1/> Code "
+"depending on either of these bugs will need to be fixed."
+msgstr ""
+
+#: changes.sgml:153(para)
+msgid "include trailing empty tokens, rather than stripping them"
+msgstr ""
+
+#: changes.sgml:158(para)
+msgid ""
+"split into a maximum of <literal>max_tokens</literal> tokens, rather than "
+"<literal>max_tokens + 1</literal>"
+msgstr ""
+
+#: changes.sgml:170(para)
+msgid ""
+"Deprecated functions that got removed: <function>g_set_error_handler()</"
+"function>, <function>g_set_warning_handler()</function>, "
+"<function>g_set_message_handler()</function>, use <function>g_log_set_handler"
+"()</function> instead."
+msgstr ""
+
+#: changes.sgml:21(title)
+msgid "Incompatible changes from 2.0 to 2.2"
+msgstr ""
+
+#: changes.sgml:26(para)
+msgid ""
+"GLib changed the seeding algorithm for the pseudo-random number generator "
+"Mersenne Twister, as used by <structname>GRand</structname> and "
+"<structname>GRandom</structname>. This was necessary, because some seeds "
+"would yield very bad pseudo-random streams. Also the pseudo-random integers "
+"generated by <function>g_rand*_int_range()</function> will have a slightly "
+"better equal distribution with the new version of GLib."
+msgstr ""
+
+#: changes.sgml:36(para)
+msgid ""
+"Further information can be found at the website of the Mersenne Twister "
+"random number generator at <ulink url=\"http://www.math.keio.ac.jp/~matumoto/"
+"emt.html\">http://www.math.keio.ac.jp/~matumoto/emt.html</ulink>."
+msgstr ""
+
+#: changes.sgml:42(para)
+msgid ""
+"The original seeding and generation algorithms, as found in GLib 2.0.x, can "
+"be used instead of the new ones by setting the environment variable "
+"<envar>G_RANDOM_VERSION</envar> to the value of '2.0'. Use the GLib-2.0 "
+"algorithms only if you have sequences of numbers generated with Glib-2.0 "
+"that you need to reproduce exactly."
+msgstr ""
+
+#: changes.sgml:57(title)
+msgid "Incompatible changes from 1.2 to 2.0"
+msgstr ""
+
+#: changes.sgml:59(para)
+msgid ""
+"The <ulink url=\"http://developer.gnome.org/dotplan/porting/\">GNOME 2.0 "
+"porting guide</ulink> on <ulink url=\"http://developer.gnome.org\">http://"
+"developer.gnome.org</ulink> has some more detailed discussion of porting "
+"from 1.2 to 2.0. See the section on GLib."
+msgstr ""
+
+#: changes.sgml:70(para)
+msgid ""
+"The event loop functionality <structname>GMain</structname> has extensively "
+"been revised to support multiple separate main loops in separate threads. "
+"All sources (timeouts, idle functions, etc.) are associated with a "
+"<structname>GMainContext</structname>."
+msgstr ""
+
+#: changes.sgml:77(para)
+msgid ""
+"Compatibility functions exist so that most application code dealing with the "
+"main loop will continue to work. However, code that creates new custom types "
+"of sources will require modification."
+msgstr ""
+
+#: changes.sgml:83(para)
+msgid ""
+"The main changes here are: <placeholder-1/> To go along with this change, "
+"the vtable for <structname>GIOChannel</structname> has changed and "
+"<function>add_watch()</function> has been replaced by <function>create_watch"
+"()</function>."
+msgstr ""
+
+#: changes.sgml:89(para)
+msgid ""
+"Sources are now exposed as <type>GSource *</type>, rather than simply as "
+"numeric ids."
+msgstr ""
+
+#: changes.sgml:96(para)
+msgid ""
+"New types of sources are created by structure \"derivation\" from "
+"<structname>GSource</structname>, so the <literal>source_data</literal> "
+"parameter to the <structname>GSource</structname> virtual functions has been "
+"replaced with a <type>GSource *</type>."
+msgstr ""
+
+#: compiling.sgml:13(refname) compiling.sgml:7(refentrytitle)
+msgid "Compiling GLib Applications"
+msgstr ""
+
+#: compiling.sgml:14(refpurpose)
+msgid "How to compile your GLib application"
+msgstr ""
+
+#: compiling.sgml:20(title)
+msgid "Compiling GLib Applications on UNIX"
+msgstr ""
+
+#: compiling.sgml:22(para)
+msgid ""
+"To compile a GLib application, you need to tell the compiler where to find "
+"the GLib header files and libraries. This is done with the <application>pkg-"
+"config</application> utility."
+msgstr ""
+
+#: compiling.sgml:27(para)
+msgid ""
+"The following interactive shell session demonstrates how <application>pkg-"
+"config</application> is used (the actual output on your system may be "
+"different): <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:31(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ pkg-config --cflags glib-2.0\n"
+" -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
+"$ pkg-config --libs glib-2.0\n"
+" -L/usr/lib -lm -lglib-2.0  \n"
+msgstr ""
+
+#: compiling.sgml:38(para)
+msgid ""
+"If your application uses threads or <structname>GObject</structname> "
+"features, it must be compiled and linked with the options returned by the "
+"following <application>pkg-config</application> invocations: <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:42(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ pkg-config --cflags --libs gthread-2.0\n"
+"$ pkg-config --cflags --libs gobject-2.0\n"
+msgstr ""
+
+#: compiling.sgml:47(para)
+msgid ""
+"If your application uses modules, it must be compiled and linked with the "
+"options returned by one of the following <application>pkg-config</"
+"application> invocations: <placeholder-1/> The difference between the two is "
+"that gmodule-2.0 adds <option>--export-dynamic</option> to the linker flags, "
+"which is often not needed."
+msgstr ""
+
+#: compiling.sgml:50(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
+"$ pkg-config --cflags --libs gmodule-2.0 \n"
+msgstr ""
+
+#: compiling.sgml:57(para)
+msgid ""
+"The simplest way to compile a program is to use the \"backticks\" feature of "
+"the shell. If you enclose a command in backticks (<emphasis>not single "
+"quotes</emphasis>), then its output will be substituted into the command "
+"line before execution. So to compile a GLib Hello, World, you would type the "
+"following: <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:63(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
+msgstr ""
+
+#: compiling.sgml:68(para)
+msgid ""
+"If you want to make sure that your program doesn't use any deprecated "
+"functions, you can define the preprocessor symbol G_DISABLE_DEPRECATED by "
+"using the command line option <literal>-DG_DISABLE_DEPRECATED=1</literal>."
+msgstr ""
+
+#: compiling.sgml:74(para)
+msgid ""
+"The recommended way of using GLib has always been to only include the "
+"toplevel headers <filename>glib.h</filename>, <filename>glib-object.h</"
+"filename>, <filename>gio.h</filename>. Still, there are some exceptions; "
+"these headers have to be included separately: <filename>gmodule.h</"
+"filename>, <filename>glib/gi18n-lib.h</filename> or <filename>glib/gi18n.h</"
+"filename> (see the <link linkend=\"glib-I18N\">Internationalization section</"
+"link>), <filename>glib/gprintf.h</filename> and <filename>glib/gstdio.h</"
+"filename> (we don't want to pull in all of stdio)."
+msgstr ""
+
+#: compiling.sgml:86(para)
+msgid ""
+"Starting with 2.17, GLib enforces this by generating an error when "
+"individual headers are directly included. To help with the transition, the "
+"enforcement is not turned on by default for GLib headers (it <emphasis>is</"
+"emphasis> turned on for GObject and GIO). To turn it on, define the "
+"preprocessor symbol G_DISABLE_SINGLE_INCLUDES by using the command line "
+"option <literal>-DG_DISABLE_SINGLE_INCLUDES</literal>."
+msgstr ""
+
+#: cross.sgml:104(title)
+msgid "glib_cv_have_strlcpy=[yes/no]"
+msgstr ""
+
+#: cross.sgml:106(para)
+msgid ""
+"Whether you have <function>strlcpy()</function> that matches OpenBSD. "
+"Defaults to \"no\", which is safe, since GLib uses a built-in version in "
+"that case."
+msgstr ""
+
+#: cross.sgml:113(title)
+msgid "glib_cv_va_val_copy=[yes/no]"
+msgstr ""
+
+#: cross.sgml:115(para)
+msgid ""
+"Whether <type>va_list</type> can be copied as a pointer. If set to \"no\", "
+"then <function>memcopy()</function> will be used. Only matters if you don't "
+"have <function>va_copy()</function> or <function>__va_copy()</function>. "
+"(So, doesn't matter for GCC.) Defaults to \"yes\" which is slightly more "
+"common than \"no\"."
+msgstr ""
+
+#: cross.sgml:124(title)
+msgid "glib_cv_rtldglobal_broken=[yes/no]"
+msgstr ""
+
+#: cross.sgml:126(para)
+msgid "Whether you have a bug found in OSF/1 v5.0. Defaults to \"no\"."
+msgstr ""
+
+#: cross.sgml:13(refname)
+msgid "Cross-compiling the GLib Package"
+msgstr ""
+
+#: cross.sgml:131(title)
+msgid "glib_cv_uscore=[yes/no]"
+msgstr ""
+
+#: cross.sgml:133(para)
+msgid ""
+"Whether an underscore needs to be prepended to symbols when looking them up "
+"via <function>dlsym()</function>. Only needs to be set if your system uses "
+"<function>dlopen()</function>/<function>dlsym()</function>."
+msgstr ""
+
+#: cross.sgml:14(refpurpose)
+msgid "How to cross-compile GLib"
+msgstr ""
+
+#: cross.sgml:141(title)
+msgid "ac_cv_func_posix_getpwuid_r=[yes/no]"
+msgstr ""
+
+#: cross.sgml:143(para)
+msgid ""
+"Whether you have a getpwuid_r function (in your C library, not your thread "
+"library) that conforms to the POSIX spec. (Takes a 'struct passwd **' as the "
+"final argument)"
+msgstr ""
+
+#: cross.sgml:150(title)
+msgid "ac_cv_func_nonposix_getpwuid_r=[yes/no]"
+msgstr ""
+
+#: cross.sgml:152(para)
+msgid ""
+"Whether you have some variant of <function>getpwuid_r()</function> that "
+"doesn't conform to to the POSIX spec, but GLib might be able to use (or "
+"might segfault.) Only needs to be set if "
+"<literal>ac_cv_func_posix_getpwuid_r</literal> is not set. It's safest to "
+"set this to \"no\"."
+msgstr ""
+
+#: cross.sgml:161(title)
+msgid "ac_cv_func_posix_getgrgid_r=[yes/no]"
+msgstr ""
+
+#: cross.sgml:163(para)
+msgid "Whether you have a getgrgid_r function that conforms to the POSIX spec."
+msgstr ""
+
+#: cross.sgml:169(title)
+msgid "glib_cv_use_pid_surrogate=[yes/no]"
+msgstr ""
+
+#: cross.sgml:171(para)
+msgid ""
+"Whether to use a <function>setpriority()</function> on the PID of the thread "
+"as a method for setting the priority of threads. This only needs to be set "
+"when using POSIX threads."
+msgstr ""
+
+#: cross.sgml:178(title)
+msgid "ac_cv_func_printf_unix98=[yes/no]"
+msgstr ""
+
+#: cross.sgml:180(para)
+msgid ""
+"Whether your <function>printf()</function> family supports Unix98 style "
+"<literal>%N$</literal> positional parameters. Defaults to \"no\"."
+msgstr ""
+
+#: cross.sgml:187(title)
+msgid "ac_cv_func_vsnprintf_c99=[yes/no]"
+msgstr ""
+
+#: cross.sgml:189(para)
+msgid ""
+"Whether you have a <function>vsnprintf()</function> with C99 semantics. (C99 "
+"semantics means returning the number of bytes that would have been written "
+"had the output buffer had enough space.) Defaults to \"no\"."
+msgstr ""
+
+#: cross.sgml:20(title)
+msgid "Building the Library for a different architecture"
+msgstr ""
+
+#: cross.sgml:21(para)
+msgid ""
+"Cross-compilation is the process of compiling a program or library on a "
+"different architecture or operating system then it will be run upon. GLib is "
+"slightly more difficult to cross-compile than many packages because much of "
+"GLib is about hiding differences between different systems."
+msgstr ""
+
+#: cross.sgml:28(para)
+msgid ""
+"These notes cover things specific to cross-compiling GLib; for general "
+"information about cross-compilation, see the <application>autoconf</"
+"application> info pages."
+msgstr ""
+
+#: cross.sgml:33(para)
+msgid ""
+"GLib tries to detect as much information as possible about the target system "
+"by compiling and linking programs without actually running anything; "
+"however, some information GLib needs is not available this way. This "
+"information needs to be provided to the configure script via a \"cache file"
+"\" or by setting the cache variables in your environment."
+msgstr ""
+
+#: cross.sgml:41(para)
+msgid ""
+"As an example of using a cache file, to cross compile for the \"MingW32\" "
+"Win32 runtine environment on a Linux system, create a file 'win32.cache' "
+"with the following contents:"
+msgstr ""
+
+#: cross.sgml:46(programlisting)
+#, no-wrap
+msgid ""
+" \n"
+"glib_cv_long_long_format=I64\n"
+"glib_cv_stack_grows=no\n"
+"      "
+msgstr ""
+
+#: cross.sgml:50(para)
+msgid "Then execute the following commands:"
+msgstr ""
+
+#: cross.sgml:53(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"PATH=/path/to/mingw32-compiler/bin:$PATH\n"
+"chmod a-w win32.cache   # prevent configure from changing it\n"
+"./configure --cache-file=win32.cache --host=mingw32\n"
+"      "
+msgstr ""
+
+#: cross.sgml:58(para)
+msgid ""
+"The complete list of cache file variables follows. Most of these won't need "
+"to be set in most cases."
+msgstr ""
+
+#: cross.sgml:64(title)
+msgid "Cache file variables"
+msgstr ""
+
+#: cross.sgml:66(title)
+msgid "glib_cv_long_long_format=[ll/q/I64]"
+msgstr ""
+
+#: cross.sgml:68(para)
+msgid ""
+"Format used by <function>printf()</function> and <function>scanf()</"
+"function> for 64 bit integers. \"ll\" is the C99 standard, and what is used "
+"by the 'trio' library that GLib builds if your <function>printf()</function> "
+"is insufficiently capable. Doesn't need to be set if you are compiling using "
+"trio."
+msgstr ""
+
+#: cross.sgml:7(refentrytitle)
+msgid "Cross-compiling the GLib package"
+msgstr ""
+
+#: cross.sgml:78(title)
+msgid "glib_cv_stack_grows=[yes/no]"
+msgstr ""
+
+#: cross.sgml:80(para)
+msgid ""
+"Whether the stack grows up or down. Most places will want \"no\", A few "
+"architectures, such as PA-RISC need \"yes\"."
+msgstr ""
+
+#: cross.sgml:86(title)
+msgid "glib_cv_working_bcopy=[yes/no]"
+msgstr ""
+
+#: cross.sgml:88(para)
+msgid ""
+"Whether your <function>bcopy()</function> can handle overlapping copies. "
+"Only needs to be set if you don't have <function>memmove()</function>. (Very "
+"unlikely)"
+msgstr ""
+
+#: cross.sgml:95(title)
+msgid "glib_cv_sane_realloc=[yes/np]"
+msgstr ""
+
+#: cross.sgml:97(para)
+msgid ""
+"Whether your <function>realloc()</function> conforms to ANSI C and can "
+"handle <literal>NULL</literal> as the first argument. Defaults to \"yes\" "
+"and probably doesn't need to be set."
+msgstr ""
+
+#: glib-docs.sgml:10(releaseinfo)
+msgid ""
+"for GLib 2.26.1 The latest version of this documentation can be found on-"
+"line at <ulink role=\"online-location\" url=\"http://library.gnome.org/devel/"
+"glib/unstable/\">http://library.gnome.org/devel/glib/unstable/</ulink>."
+msgstr ""
+
+#: glib-docs.sgml:103(title)
+msgid "GLib Data Types"
+msgstr ""
+
+#: glib-docs.sgml:131(title)
+msgid "GLib Tools"
+msgstr ""
+
+#: glib-docs.sgml:138(title)
+msgid "Index"
+msgstr ""
+
+#: glib-docs.sgml:142(title)
+msgid "Index of deprecated symbols"
+msgstr ""
+
+#: glib-docs.sgml:146(title)
+msgid "Index of new symbols in 2.2"
+msgstr ""
+
+#: glib-docs.sgml:150(title)
+msgid "Index of new symbols in 2.4"
+msgstr ""
+
+#: glib-docs.sgml:154(title)
+msgid "Index of new symbols in 2.6"
+msgstr ""
+
+#: glib-docs.sgml:158(title)
+msgid "Index of new symbols in 2.8"
+msgstr ""
+
+#: glib-docs.sgml:162(title)
+msgid "Index of new symbols in 2.10"
+msgstr ""
+
+#: glib-docs.sgml:166(title)
+msgid "Index of new symbols in 2.12"
+msgstr ""
+
+#: glib-docs.sgml:170(title)
+msgid "Index of new symbols in 2.14"
+msgstr ""
+
+#: glib-docs.sgml:174(title)
+msgid "Index of new symbols in 2.16"
+msgstr ""
+
+#: glib-docs.sgml:178(title)
+msgid "Index of new symbols in 2.18"
+msgstr ""
+
+#: glib-docs.sgml:18(title)
+msgid "GLib Overview"
+msgstr ""
+
+#: glib-docs.sgml:182(title)
+msgid "Index of new symbols in 2.20"
+msgstr ""
+
+#: glib-docs.sgml:186(title)
+msgid "Index of new symbols in 2.22"
+msgstr ""
+
+#: glib-docs.sgml:19(para)
+msgid ""
+"GLib is a general-purpose utility library, which provides many useful data "
+"types, macros, type conversions, string utilities, file utilities, a main "
+"loop abstraction, and so on. It works on many UNIX-like platforms, Windows, "
+"OS/2 and BeOS. GLib is released under the GNU Library General Public License "
+"(GNU LGPL)."
+msgstr ""
+
+#: glib-docs.sgml:190(title)
+msgid "Index of new symbols in 2.24"
+msgstr ""
+
+#: glib-docs.sgml:194(title)
+msgid "Index of new symbols in 2.26"
+msgstr ""
+
+#: glib-docs.sgml:26(para)
+msgid ""
+"The general policy of GLib is that all functions are invisibly threadsafe "
+"with the exception of data structure manipulation functions, where, if you "
+"have two threads manipulating the <emphasis>same</emphasis> data structure, "
+"they must use a lock to synchronize their operation."
+msgstr ""
+
+#: glib-docs.sgml:44(title)
+msgid "GLib Fundamentals"
+msgstr ""
+
+#: glib-docs.sgml:57(title)
+msgid "GLib Core Application Support"
+msgstr ""
+
+#: glib-docs.sgml:71(title)
+msgid "GLib Utilities"
+msgstr ""
+
+#: glib-docs.sgml:9(title)
+msgid "GLib Reference Manual"
+msgstr ""
+
+#: gvariant-varargs.xml:1005(literal)
+msgid "^a&amp;s"
+msgstr ""
+
+#: gvariant-varargs.xml:101(emphasis)
+msgid ""
+"<placeholder-1/>, <placeholder-2/>, <placeholder-3/>, <placeholder-4/>, "
+"<placeholder-5/>, <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, "
+"<placeholder-9/>, <placeholder-10/>"
+msgstr ""
+
+#: gvariant-varargs.xml:1010(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-get-strv"
+"\"><function>g_variant_get_strv()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:102(literal) gvariant-varargs.xml:287(literal)
+#: gvariant-varargs.xml:324(literal)
+msgid "b"
+msgstr ""
+
+#: gvariant-varargs.xml:102(literal) gvariant-varargs.xml:288(literal)
+#: gvariant-varargs.xml:380(literal) regex-syntax.sgml:1126(entry)
+msgid "i"
+msgstr ""
+
+#: gvariant-varargs.xml:102(literal) gvariant-varargs.xml:287(literal)
+#: gvariant-varargs.xml:352(literal)
+msgid "n"
+msgstr ""
+
+#: gvariant-varargs.xml:102(literal) gvariant-varargs.xml:287(literal)
+#: gvariant-varargs.xml:366(literal)
+msgid "q"
+msgstr ""
+
+#: gvariant-varargs.xml:102(literal) gvariant-varargs.xml:287(literal)
+#: gvariant-varargs.xml:338(literal)
+msgid "y"
+msgstr ""
+
+#: gvariant-varargs.xml:1020(literal)
+msgid "^ay"
+msgstr ""
+
+#: gvariant-varargs.xml:1025(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-new-bytestring"
+"\"><function>g_variant_new_bytestring()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:289(literal)
+#: gvariant-varargs.xml:450(literal)
+msgid "d"
+msgstr ""
+
+#: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:288(literal)
+#: gvariant-varargs.xml:436(literal)
+msgid "h"
+msgstr ""
+
+#: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:288(literal)
+#: gvariant-varargs.xml:422(literal)
+msgid "t"
+msgstr ""
+
+#: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:288(literal)
+#: gvariant-varargs.xml:394(literal)
+msgid "u"
+msgstr ""
+
+#: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:288(literal)
+#: gvariant-varargs.xml:408(literal) regex-syntax.sgml:1138(entry)
+msgid "x"
+msgstr ""
+
+#: gvariant-varargs.xml:1030(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-dup-bytestring"
+"\"><function>g_variant_dup_bytestring()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:1040(literal)
+msgid "^&amp;ay"
+msgstr ""
+
+#: gvariant-varargs.xml:1045(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-get-bytestring"
+"\"><function>g_variant_get_bytestring()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:1055(literal)
+msgid "^aay"
+msgstr ""
+
+#: gvariant-varargs.xml:1060(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-new-bytestring-array"
+"\"><function>g_variant_new_bytestring_array()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:1065(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-dup-bytestring-array"
+"\"><function>g_variant_dup_bytestring_array()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:1075(literal)
+msgid "^a&amp;ay"
+msgstr ""
+
+#: gvariant-varargs.xml:108(para)
+msgid ""
+"Used for building or deconstructing boolean, byte and numeric types. See "
+"<link linkend=\"gvariant-format-strings-numeric-types\">Numeric Types</link> "
+"below."
+msgstr ""
+
+#: gvariant-varargs.xml:1080(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-get-bytestring-array"
+"\"><function>g_variant_get_bytestring_array()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:11(para)
+msgid ""
+"This page attempts to document how to perform variable argument conversions "
+"with GVariant."
+msgstr ""
+
+#: gvariant-varargs.xml:118(emphasis) gvariant-varargs.xml:236(emphasis)
+msgid "<placeholder-1/>, <placeholder-2/>, <placeholder-3/>"
+msgstr ""
+
+#: gvariant-varargs.xml:119(literal) gvariant-varargs.xml:515(literal)
+msgid "g"
+msgstr ""
+
+#: gvariant-varargs.xml:119(literal) gvariant-varargs.xml:515(literal)
+msgid "o"
+msgstr ""
+
+#: gvariant-varargs.xml:119(literal) gvariant-varargs.xml:515(literal)
+#: regex-syntax.sgml:1134(entry)
+msgid "s"
+msgstr ""
+
+#: gvariant-varargs.xml:124(para)
+msgid ""
+"Used for building or deconstructing string types. See <link linkend="
+"\"gvariant-format-strings-strings\">Strings</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:134(literal) gvariant-varargs.xml:565(literal)
+msgid "v"
+msgstr ""
+
+#: gvariant-varargs.xml:138(para)
+msgid ""
+"Used for building or deconstructing variant types. See <link linkend="
+"\"gvariant-format-strings-variant\">Variants</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:14(para)
+msgid ""
+"Conversions occur according to format strings. A format string is a two-way "
+"mapping between a single <link linkend=\"GVariant\">GVariant</link> value "
+"and one or more C values."
+msgstr ""
+
+#: gvariant-varargs.xml:149(literal) gvariant-varargs.xml:606(literal)
+msgid "a"
+msgstr ""
+
+#: gvariant-varargs.xml:154(para)
+msgid ""
+"Used for building or deconstructing arrays. See <link linkend=\"gvariant-"
+"format-strings-arrays\">Arrays</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:165(literal) gvariant-varargs.xml:664(literal)
+#: regex-syntax.sgml:1130(entry)
+msgid "m"
+msgstr ""
+
+#: gvariant-varargs.xml:170(para)
+msgid ""
+"Used for building or deconstructing maybe types. See <link linkend="
+"\"gvariant-format-strings-maybe-types\">Maybe Types</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:18(para)
+msgid ""
+"A conversion from C values into a <link linkend=\"GVariant\">GVariant</link> "
+"value is made using the <link linkend=\"g-variant-new"
+"\"><function>g_variant_new()</function></link> function. A conversion from a "
+"<link linkend=\"GVariant\">GVariant</link> into C values is made using the "
+"<link linkend=\"g-variant-get\"><function>g_variant_get()</function></link> "
+"function."
+msgstr ""
+
+#: gvariant-varargs.xml:181(literal) gvariant-varargs.xml:775(code)
+msgid "()"
+msgstr ""
+
+#: gvariant-varargs.xml:186(para)
+msgid ""
+"Used for building or deconstructing tuples. See <link linkend=\"gvariant-"
+"format-strings-tuples\">Tuples</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:197(literal) gvariant-varargs.xml:808(code)
+msgid "{}"
+msgstr ""
+
+#: gvariant-varargs.xml:202(para)
+msgid ""
+"Used for building or deconstructing dictionary entries. See <link linkend="
+"\"gvariant-format-strings-dictionaries\">Dictionaries</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:213(literal) gvariant-varargs.xml:833(literal)
+msgid "@"
+msgstr ""
+
+#: gvariant-varargs.xml:218(para)
+msgid ""
+"Used as a prefix on a GVariant type string (not format string). Denotes that "
+"a pointer to a <link linkend=\"GVariant\">GVariant</link> should be used in "
+"place of the normal C type or types. For <link linkend=\"g-variant-new"
+"\"><function>g_variant_new()</function></link> this means that you must pass "
+"a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link><code>"
+"(<link linkend=\"GVariant\">GVariant</link> *)</code>; if it is a floating "
+"reference, ownership will be taken, as if by using <link linkend=\"g-variant-"
+"ref-sink\"><function>g_variant_ref_sink()</function></link>. For <link "
+"linkend=\"g-variant-get\"><function>g_variant_get()</function></link> this "
+"means that you must pass a pointer to a <code>(<link linkend=\"GVariant"
+"\">GVariant</link> *)</code> for the value to be returned by reference or "
+"<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> to ignore the "
+"value. See <link linkend=\"gvariant-format-strings-gvariant\"><code>GVariant "
+"*</code></link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+#: regex-syntax.sgml:107(entry) regex-syntax.sgml:1403(entry)
+msgid "*"
+msgstr ""
+
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+#: regex-syntax.sgml:103(entry) regex-syntax.sgml:1411(entry)
+msgid "?"
+msgstr ""
+
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+msgid "r"
+msgstr ""
+
+#: gvariant-varargs.xml:242(para)
+msgid ""
+"Exactly equivalent to <literal>@*</literal>, <literal>@?</literal> and "
+"<literal>@r</literal>. Provided only for completeness so that all GVariant "
+"type strings can be used also as format strings. See <link linkend="
+"\"gvariant-format-strings-gvariant\"><code>GVariant *</code></link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:253(literal) gvariant-varargs.xml:898(code)
+msgid "&amp;"
+msgstr ""
+
+#: gvariant-varargs.xml:257(para)
+msgid ""
+"Used as a prefix on a GVariant type string (not format string). Denotes that "
+"a C pointer to serialised data should be used in place of the normal C type. "
+"See <link linkend=\"gvariant-format-strings-pointers\">Pointers</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:268(literal) gvariant-varargs.xml:935(literal)
+#: regex-syntax.sgml:143(entry) regex-syntax.sgml:75(entry)
+msgid "^"
+msgstr ""
+
+#: gvariant-varargs.xml:27(title)
+msgid "Syntax"
+msgstr ""
+
+#: gvariant-varargs.xml:272(para)
+msgid ""
+"Used as a prefix on some specific types of format strings. See <link linkend="
+"\"gvariant-format-strings-convenience\">Convenience Conversions</link> below."
+msgstr ""
+
+#: gvariant-varargs.xml:284(title)
+msgid "Numeric Types"
+msgstr ""
+
+#: gvariant-varargs.xml:286(emphasis)
+msgid ""
+"Characters: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, "
+"<placeholder-4/>, <placeholder-5/>, <placeholder-6/>, <placeholder-7/>, "
+"<placeholder-8/>, <placeholder-9/>, <placeholder-10/>"
+msgstr ""
+
+#: gvariant-varargs.xml:29(para)
+msgid ""
+"This section exhaustively describes all possibilities for GVariant format "
+"strings. There are no valid forms of format strings other than those "
+"described here. Please note that the format string syntax is likely to "
+"expand in the future."
+msgstr ""
+
+#: gvariant-varargs.xml:293(para)
+msgid ""
+"Variable argument conversions from numeric types work in the most obvious "
+"way possible. Upon encountering one of these characters, <link linkend=\"g-"
+"variant-new\"><function>g_variant_new()</function></link> takes the "
+"equivalent C type as an argument. <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> takes a pointer to the "
+"equivalent C type (or <link linkend=\"NULL--CAPS\"><literal>NULL</literal></"
+"link> to ignore the value)."
+msgstr ""
+
+#: gvariant-varargs.xml:300(para)
+msgid "The equivalent C types are as follows:"
+msgstr ""
+
+#: gvariant-varargs.xml:311(emphasis) regex-syntax.sgml:133(entry)
+#: regex-syntax.sgml:65(entry)
+msgid "Character"
+msgstr ""
+
+#: gvariant-varargs.xml:316(emphasis)
+msgid "Equivalent C type"
+msgstr ""
+
+#: gvariant-varargs.xml:330(type)
+msgid "gboolean"
+msgstr ""
+
+#: gvariant-varargs.xml:34(para)
+msgid "Valid format strings have one of the following forms:"
+msgstr ""
+
+#: gvariant-varargs.xml:344(type)
+msgid "guchar"
+msgstr ""
+
+#: gvariant-varargs.xml:358(type)
+msgid "gint16"
+msgstr ""
+
+#: gvariant-varargs.xml:372(type)
+msgid "guint16"
+msgstr ""
+
+#: gvariant-varargs.xml:386(type) gvariant-varargs.xml:442(type)
+msgid "gint32"
+msgstr ""
+
+#: gvariant-varargs.xml:39(para)
+msgid "any type string"
+msgstr ""
+
+#: gvariant-varargs.xml:400(type)
+msgid "guint32"
+msgstr ""
+
+#: gvariant-varargs.xml:414(type)
+msgid "gint64"
+msgstr ""
+
+#: gvariant-varargs.xml:42(para)
+msgid "a type string prefixed with a '<literal>@</literal>'"
+msgstr ""
+
+#: gvariant-varargs.xml:428(type)
+msgid "guint64"
+msgstr ""
+
+#: gvariant-varargs.xml:456(type)
+msgid "gdouble"
+msgstr ""
+
+#: gvariant-varargs.xml:464(para)
+msgid ""
+"Note that in C, small integer types in variable argument lists are promoted "
+"up to <link linkend=\"gint\"><type>int</type></link> or <link linkend=\"guint"
+"\"><type>unsigned int</type></link> as appropriate, and read back "
+"accordingly. <link linkend=\"gint\"><type>int</type></link> is 32 bits on "
+"every platform on which GLib is currently suported. This means that you can "
+"use C expressions of type <link linkend=\"gint\"><type>int</type></link> "
+"with <link linkend=\"g-variant-new\"><function>g_variant_new()</function></"
+"link> and format characters '<literal>b</literal>', '<literal>y</literal>', "
+"'<literal>n</literal>', '<literal>q</literal>', '<literal>i</literal>', "
+"'<literal>u</literal>' and '<literal>h</literal>'. Specifically, you can use "
+"integer literals with these characters."
+msgstr ""
+
+#: gvariant-varargs.xml:47(para)
+msgid ""
+"'<literal>&amp;s</literal>' '<literal>&amp;o</literal>', '<literal>&amp;g</"
+"literal>', '<literal>^as</literal>', '<literal>^a&amp;s</literal>', "
+"'<literal>^ay</literal>', '<literal>^&amp;ay</literal>', '<literal>^aay</"
+"literal>' or '<literal>^a&amp;ay</literal>'."
+msgstr ""
+
+#: gvariant-varargs.xml:475(para)
+msgid ""
+"When using the '<literal>x</literal>' and '<literal>t</literal>' characters, "
+"you must ensure that the value that you provide is 64 bit. This means that "
+"you should use a cast or make use of the <link linkend=\"G-GINT64-CONSTANT--"
+"CAPS\"><literal>G_GINT64_CONSTANT</literal></link> or <link linkend=\"G-"
+"GUINT64-CONSTANT--CAPS\"><literal>G_GUINT64_CONSTANT</literal></link> macros."
+msgstr ""
+
+#: gvariant-varargs.xml:482(para)
+msgid ""
+"No type promotion occurs when using <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> since it operates with "
+"pointers. The pointers must always point to a memory region of exactly the "
+"correct size."
+msgstr ""
+
+#: gvariant-varargs.xml:488(title) gvariant-varargs.xml:539(title)
+#: gvariant-varargs.xml:587(title) gvariant-varargs.xml:633(title)
+#: gvariant-varargs.xml:711(title) gvariant-varargs.xml:784(title)
+#: gvariant-varargs.xml:817(title) gvariant-varargs.xml:866(title)
+#: gvariant-varargs.xml:917(title)
+msgid "Examples"
+msgstr ""
+
+#: gvariant-varargs.xml:5(refentrytitle)
+msgid "GVariant Format Strings"
+msgstr ""
+
+#: gvariant-varargs.xml:512(title)
+msgid "Strings"
+msgstr ""
+
+#: gvariant-varargs.xml:514(emphasis)
+msgid "Characters: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>"
+msgstr ""
+
+#: gvariant-varargs.xml:519(para)
+msgid ""
+"String conversions occur to and from standard nul-terminated C strings. Upon "
+"encountering an '<literal>s</literal>', '<literal>o</literal>' or "
+"'<literal>g</literal>' in a format string, <link linkend=\"g-variant-new"
+"\"><function>g_variant_new()</function></link> takes a <code>(const <link "
+"linkend=\"gchar\">gchar</link> *)</code> and makes a copy of it. <link "
+"linkend=\"NULL--CAPS\"><literal>NULL</literal></link> is not a valid string. "
+"If the '<literal>o</literal>' or '<literal>g</literal>' characters are used, "
+"care must be taken to ensure that the passed string is a valid DBus object "
+"path or DBus type signature, respectively."
+msgstr ""
+
+#: gvariant-varargs.xml:528(para)
+msgid ""
+"Upon encounting '<literal>s</literal>', '<literal>o</literal>' or "
+"'<literal>g</literal>', <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> takes a pointer to a <code>"
+"(<link linkend=\"gchar\">gchar</link> *)</code> (ie: <code>(<link linkend="
+"\"gchar\">gchar</link> **)</code>) and sets it to a newly-allocated copy of "
+"the string. It is appropriate to free this copy using <link linkend=\"g-free"
+"\"><function>g_free()</function></link>. <link linkend=\"NULL--CAPS"
+"\"><literal>NULL</literal></link> may also be passed to indicate that the "
+"value of the string should be ignored (in which case no copy is made)."
+msgstr ""
+
+#: gvariant-varargs.xml:54(para)
+msgid "any format string, prefixed with an '<literal>m</literal>'"
+msgstr ""
+
+#: gvariant-varargs.xml:562(title)
+msgid "Variants"
+msgstr ""
+
+#: gvariant-varargs.xml:564(emphasis) gvariant-varargs.xml:605(emphasis)
+#: gvariant-varargs.xml:663(emphasis) gvariant-varargs.xml:774(emphasis)
+#: gvariant-varargs.xml:807(emphasis) gvariant-varargs.xml:897(emphasis)
+#: gvariant-varargs.xml:934(emphasis)
+msgid "Characters: <placeholder-1/>"
+msgstr ""
+
+#: gvariant-varargs.xml:569(para)
+msgid ""
+"Upon encountering a '<literal>v</literal>', <link linkend=\"g-variant-new"
+"\"><function>g_variant_new()</function></link> takes a <code>(<link linkend="
+"\"GVariant\">GVariant</link> *)</code>. The value of the <link linkend="
+"\"GVariant\"><type>GVariant</type></link> is used as the contents of the "
+"variant value."
+msgstr ""
+
+#: gvariant-varargs.xml:575(para)
+msgid ""
+"Upon encountering a '<literal>v</literal>', <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> takes a pointer to a <code>"
+"(<link linkend=\"GVariant\">GVariant</link> *)</code> (ie: <code>(<link "
+"linkend=\"GVariant\">GVariant</link> **) </code>). It is set to a new "
+"reference to a <link linkend=\"GVariant\"><type>GVariant</type></link> "
+"instance containing the contents of the variant value. It is appropriate to "
+"free this reference using <link linkend=\"g-variant-unref"
+"\"><function>g_variant_unref()</function></link>. <link linkend=\"NULL--CAPS"
+"\"><literal>NULL</literal></link> may also be passed to indicate that the "
+"value should be ignored (in which case no new reference is created)."
+msgstr ""
+
+#: gvariant-varargs.xml:59(para)
+msgid ""
+"a sequence of zero or more format strings strings, concatenated and enclosed "
+"in parentheses"
+msgstr ""
+
+#: gvariant-varargs.xml:603(title)
+msgid "Arrays"
+msgstr ""
+
+#: gvariant-varargs.xml:610(para)
+msgid ""
+"Upon encountering an '<literal>a</literal>' character followed by a type "
+"string, <link linkend=\"g-variant-new\"><function>g_variant_new()</"
+"function></link> will take a <code>(<link linkend=\"GVariantBuilder"
+"\">GVariantBuilder</link> *)</code> that has been created as an array "
+"builder for an array of the type given in the type string. The builder will "
+"have <link linkend=\"g-variant-builder-end\"><function>g_variant_builder_end"
+"()</function></link> called on it and the result will be used as the value. "
+"As a special exception, if the given type string is a definite type, then "
+"<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> may be given to "
+"mean an empty array of that type."
+msgstr ""
+
+#: gvariant-varargs.xml:620(para)
+msgid ""
+"Upon encountering an '<literal>a</literal>' character followed by a type "
+"string, <link linkend=\"g-variant-get\"><function>g_variant_get()</"
+"function></link> will take a pointer to a <code>(<link linkend=\"GVariantIter"
+"\">GVariantIter</link> *)</code> (ie: <code>(<link linkend=\"GVariantIter"
+"\">GVariantIter</link> **)</code>). A new heap-allocated iterator is created "
+"and returned, initialised for iterating over the elements of the array. This "
+"iterator should be freed when you are done with it, using <link linkend=\"g-"
+"variant-iter-free\"><function>g_variant_iter_free()</function></link>. <link "
+"linkend=\"NULL--CAPS\"><literal>NULL</literal></link> may also be given to "
+"indicate that the value of the array should be ignored."
+msgstr ""
+
+#: gvariant-varargs.xml:64(para)
+msgid ""
+"an opening brace, followed by two format strings, followed by a closing "
+"brace (subject to the constraint that the first format string correspond to "
+"a type valid for use as the key type of a dictionary)"
+msgstr ""
+
+#: gvariant-varargs.xml:661(title)
+msgid "Maybe Types"
+msgstr ""
+
+#: gvariant-varargs.xml:667(para)
+msgid ""
+"Maybe types are handled in two separate ways depending on the format string "
+"that follows the '<literal>m</literal>'. The method that is used currently "
+"depends entirely on the character immediately following the '<literal>m</"
+"literal>'."
+msgstr ""
+
+#: gvariant-varargs.xml:673(para)
+msgid ""
+"The first way is used with format strings starting with '<literal>s</"
+"literal>', '<literal>o</literal>', '<literal>g</literal>', '<literal>v</"
+"literal>', '<literal>@</literal>', '<literal>*</literal>', '<literal>?</"
+"literal>', '<literal>r</literal>', '<literal>&amp;</literal>', or "
+"'<literal>^</literal>'. In all of these cases, for non-maybe types, <link "
+"linkend=\"g-variant-new\"><function>g_variant_new()</function></link> takes "
+"a pointer to a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></"
+"link> value and <link linkend=\"g-variant-get\"><function>g_variant_get()</"
+"function></link> returns (by reference) a non-<link linkend=\"NULL--CAPS"
+"\"><literal>NULL</literal></link> pointer. When any of these format strings "
+"are prefixed with an '<literal>m</literal>', the type of arguments that are "
+"collected does not change in any way, but <link linkend=\"NULL--CAPS"
+"\"><literal>NULL</literal></link> becomes a permissable value, to indicate "
+"the Nothing case."
+msgstr ""
+
+#: gvariant-varargs.xml:684(para)
+msgid ""
+"The second way is used with all other format strings. For <link linkend=\"g-"
+"variant-new\"><function>g_variant_new()</function></link> an additional "
+"<link linkend=\"gboolean\"><type>gboolean</type></link> argument is "
+"collected and for <link linkend=\"g-variant-get\"><function>g_variant_get()</"
+"function></link> an additional <code>(<link linkend=\"gboolean\">gboolean</"
+"link> *)</code>. Following this argument, the arguments that are normally "
+"collected for the equivalent non-maybe type will be collected."
+msgstr ""
+
+#: gvariant-varargs.xml:692(para)
+msgid ""
+"If <link linkend=\"FALSE--CAPS\"><literal>FALSE</literal></link> is given to "
+"<link linkend=\"g-variant-new\"><function>g_variant_new()</function></link> "
+"then the Nothing value is constructed and the collected arguments are "
+"ignored. Otherwise (if <link linkend=\"TRUE--CAPS\"><literal>TRUE</literal></"
+"link> was given), the arguments are used in the normal way to create the "
+"Just value."
+msgstr ""
+
+#: gvariant-varargs.xml:698(para)
+msgid ""
+"If <link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> is given to "
+"<link linkend=\"g-variant-get\"><function>g_variant_get()</function></link> "
+"then the value is ignored. If a non-<link linkend=\"NULL--CAPS"
+"\"><literal>NULL</literal></link> pointer is given then it is used to return "
+"by reference whether the value was Just. In the case that the value was "
+"Just, the <link linkend=\"gboolean\"><type>gboolean</type></link> will be "
+"set to <link linkend=\"TRUE--CAPS\"><literal>TRUE</literal></link> and the "
+"value will be stored in the arguments in the usual way. In the case that the "
+"value was Nothing, the <link linkend=\"gboolean\"><type>gboolean</type></"
+"link> will be set to <link linkend=\"FALSE--CAPS\"><literal>FALSE</literal></"
+"link> and the arguments will be collected in the normal way but have their "
+"values set to binary zero."
+msgstr ""
+
+#: gvariant-varargs.xml:72(title)
+msgid "Symbols"
+msgstr ""
+
+#: gvariant-varargs.xml:74(para)
+msgid ""
+"The following table describes the rough meaning of symbols that may appear "
+"inside a GVariant format string. Each symbol is described in detail in its "
+"own section, including usage examples."
+msgstr ""
+
+#: gvariant-varargs.xml:772(title)
+msgid "Tuples"
+msgstr ""
+
+#: gvariant-varargs.xml:779(para)
+msgid ""
+"Tuples are handled by handling each item in the tuple, in sequence. Each "
+"item is handled in the usual way."
+msgstr ""
+
+#: gvariant-varargs.xml:805(title)
+msgid "Dictionaries"
+msgstr ""
+
+#: gvariant-varargs.xml:812(para)
+msgid ""
+"Dictionary entries are handled by handling first the key, then the value. "
+"Each is handled in the usual way."
+msgstr ""
+
+#: gvariant-varargs.xml:830(title)
+msgid "GVariant *"
+msgstr ""
+
+#: gvariant-varargs.xml:832(emphasis)
+msgid ""
+"Characters: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, "
+"<placeholder-4/>"
+msgstr ""
+
+#: gvariant-varargs.xml:837(para)
+msgid ""
+"Upon encountering a '<literal>@</literal>' in front of a type string, <link "
+"linkend=\"g-variant-new\"><function>g_variant_new()</function></link> takes "
+"a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> pointer to "
+"a <link linkend=\"GVariant\"><type>GVariant</type></link> and uses its value "
+"directly instead of collecting arguments to create the value. The provided "
+"<link linkend=\"GVariant\"><type>GVariant</type></link> must have a type "
+"that matches the type string following the '<literal>@</literal>'. "
+"'<literal>*</literal>' is the same as '<literal>@*</literal>' (ie: take a "
+"<link linkend=\"GVariant\"><type>GVariant</type></link> of any type). "
+"'<literal>?</literal>' is the same as '<literal>@?</literal>' (ie: take a "
+"<link linkend=\"GVariant\"><type>GVariant</type></link> of any basic type). "
+"'<literal>r</literal>' is the same as '<literal>@r</literal>' (ie: take a "
+"<link linkend=\"GVariant\"><type>GVariant</type></link> of any tuple type)."
+msgstr ""
+
+#: gvariant-varargs.xml:849(para)
+msgid ""
+"Upon encountering a '<literal>@</literal>' in front of a type string, <link "
+"linkend=\"g-variant-get\"><function>g_variant_get()</function></link> takes "
+"a pointer to a <code>(<link linkend=\"GVariant\">GVariant</link> *)</code> "
+"(ie: a <code>(<link linkend=\"GVariant\">GVariant</link> **)</code>) and "
+"sets it to a new reference to a <link linkend=\"GVariant\"><type>GVariant</"
+"type></link> containing the value (instead of deconstructing the value into "
+"C types in the usual way). <link linkend=\"NULL--CAPS\"><literal>NULL</"
+"literal></link> can be given to ignore the value. '<literal>*</literal>', "
+"'<literal>?</literal>' and '<literal>r</literal>' are handled in a way "
+"analogous to what is stated above."
+msgstr ""
+
+#: gvariant-varargs.xml:859(para)
+msgid ""
+"You can always use '<literal>*</literal>' as an alternative to '<literal>?</"
+"literal>', '<literal>r</literal>' or any use of '<literal>@</literal>'. "
+"Using the other characters where possible is recommended, however, due to "
+"the improvements in type safety and code self-documentation."
+msgstr ""
+
+#: gvariant-varargs.xml:88(emphasis) regex-syntax.sgml:597(entry)
+msgid "Symbol"
+msgstr ""
+
+#: gvariant-varargs.xml:895(title)
+msgid "Pointers"
+msgstr ""
+
+#: gvariant-varargs.xml:9(title)
+msgid "Variable Argument Conversions"
+msgstr ""
+
+#: gvariant-varargs.xml:902(para)
+msgid ""
+"The '<code>&amp;</code>' character is used to indicate that serialised data "
+"should be directly exchanged via a pointer."
+msgstr ""
+
+#: gvariant-varargs.xml:906(para)
+msgid ""
+"Currently, the only use for this character is when it is applied to a string "
+"(ie: '<literal>&amp;s</literal>', '<literal>&amp;o</literal>' or '<code>&amp;"
+"g</code>'). For <link linkend=\"g-variant-new\"><function>g_variant_new()</"
+"function></link> this has absolutely no effect. The string is collected and "
+"duplicated normally. For <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> it means that instead of "
+"creating a newly allocated copy of the string, a pointer to the serialised "
+"data is returned. This pointer should not be freed. Validity checks are "
+"performed to ensure that the string data will always be properly nul-"
+"terminated."
+msgstr ""
+
+#: gvariant-varargs.xml:93(emphasis) regex-syntax.sgml:134(entry)
+#: regex-syntax.sgml:1398(entry) regex-syntax.sgml:221(entry)
+#: regex-syntax.sgml:328(entry) regex-syntax.sgml:410(entry)
+#: regex-syntax.sgml:497(entry) regex-syntax.sgml:571(entry)
+#: regex-syntax.sgml:66(entry) regex-syntax.sgml:671(entry)
+#: regex-syntax.sgml:993(entry)
+msgid "Meaning"
+msgstr ""
+
+#: gvariant-varargs.xml:932(title)
+msgid "Convenience Conversions"
+msgstr ""
+
+#: gvariant-varargs.xml:939(para)
+msgid ""
+"The '<literal>^</literal>' character currently supports conversion to and "
+"from bytestrings or to and from arrays of strings or bytestrings. It has a "
+"number of forms."
+msgstr ""
+
+#: gvariant-varargs.xml:944(para)
+msgid ""
+"In all forms, when used with <link linkend=\"g-variant-new"
+"\"><function>g_variant_new()</function></link> one pointer value is "
+"collected from the variable arguments and passed to a function (as given in "
+"the table below). The result of that function is used as the value for this "
+"position. When used with <link linkend=\"g-variant-get"
+"\"><function>g_variant_get()</function></link> one pointer value is produced "
+"by using the function (given in the table) and returned by reference."
+msgstr ""
+
+#: gvariant-varargs.xml:962(emphasis)
+msgid "Conversion"
+msgstr ""
+
+#: gvariant-varargs.xml:967(emphasis)
+msgid "Used with <link linkend=\"g-variant-new\"><placeholder-1/></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:968(function)
+msgid "g_variant_new()"
+msgstr ""
+
+#: gvariant-varargs.xml:974(emphasis)
+msgid "Used with <link linkend=\"g-variant-get\"><placeholder-1/></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:975(function)
+msgid "g_variant_get()"
+msgstr ""
+
+#: gvariant-varargs.xml:985(literal)
+msgid "^as"
+msgstr ""
+
+#: gvariant-varargs.xml:990(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-new-strv"
+"\"><function>g_variant_new_strv()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:995(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-dup-strv"
+"\"><function>g_variant_dup_strv()</function></link>"
+msgstr ""
+
+#: regex-syntax.sgml:100(entry)
+msgid "end subpattern"
+msgstr ""
+
+#: regex-syntax.sgml:1002(entry)
+msgid "alpha"
+msgstr ""
+
+#: regex-syntax.sgml:1003(entry)
+msgid "letters"
+msgstr ""
+
+#: regex-syntax.sgml:1006(entry)
+msgid "ascii"
+msgstr ""
+
+#: regex-syntax.sgml:1007(entry)
+msgid "character codes 0 - 127"
+msgstr ""
+
+#: regex-syntax.sgml:1010(entry)
+msgid "blank"
+msgstr ""
+
+#: regex-syntax.sgml:1011(entry)
+msgid "space or tab only"
+msgstr ""
+
+#: regex-syntax.sgml:1014(entry)
+msgid "cntrl"
+msgstr ""
+
+#: regex-syntax.sgml:1015(entry)
+msgid "control characters"
+msgstr ""
+
+#: regex-syntax.sgml:1018(entry)
+msgid "digit"
+msgstr ""
+
+#: regex-syntax.sgml:1019(entry)
+msgid "decimal digits (same as \\d)"
+msgstr ""
+
+#: regex-syntax.sgml:1022(entry)
+msgid "graph"
+msgstr ""
+
+#: regex-syntax.sgml:1023(entry)
+msgid "printing characters, excluding space"
+msgstr ""
+
+#: regex-syntax.sgml:1026(entry)
+msgid "lower"
+msgstr ""
+
+#: regex-syntax.sgml:1027(entry)
+msgid "lower case letters"
+msgstr ""
+
+#: regex-syntax.sgml:1030(entry)
+msgid "print"
+msgstr ""
+
+#: regex-syntax.sgml:1031(entry)
+msgid "printing characters, including space"
+msgstr ""
+
+#: regex-syntax.sgml:1034(entry)
+msgid "punct"
+msgstr ""
+
+#: regex-syntax.sgml:1035(entry)
+msgid "printing characters, excluding letters and digits"
+msgstr ""
+
+#: regex-syntax.sgml:1038(entry)
+msgid "space"
+msgstr ""
+
+#: regex-syntax.sgml:1039(entry)
+msgid "white space (not quite the same as \\s)"
+msgstr ""
+
+#: regex-syntax.sgml:104(entry)
+msgid "extends the meaning of (, or 0/1 quantifier, or quantifier minimizer"
+msgstr ""
+
+#: regex-syntax.sgml:1042(entry)
+msgid "upper"
+msgstr ""
+
+#: regex-syntax.sgml:1043(entry)
+msgid "upper case letters"
+msgstr ""
+
+#: regex-syntax.sgml:1046(entry)
+msgid "word"
+msgstr ""
+
+#: regex-syntax.sgml:1047(entry)
+msgid "\"word\" characters (same as \\w)"
+msgstr ""
+
+#: regex-syntax.sgml:1050(entry)
+msgid "xdigit"
+msgstr ""
+
+#: regex-syntax.sgml:1051(entry)
+msgid "hexadecimal digits"
+msgstr ""
+
+#: regex-syntax.sgml:1057(para)
+msgid ""
+"The \"space\" characters are HT (9), LF (10), VT (11), FF (12), CR (13), and "
+"space (32). Notice that this list includes the VT character (code 11). This "
+"makes \"space\" different to \\s, which does not include VT (for Perl "
+"compatibility)."
+msgstr ""
+
+#: regex-syntax.sgml:1064(para)
+msgid ""
+"The name \"word\" is a Perl extension, and \"blank\" is a GNU extension. "
+"Another Perl extension is negation, which is indicated by a ^ character "
+"after the colon. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:1070(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"[12[:^digit:]]\n"
+msgstr ""
+
+#: regex-syntax.sgml:1074(para)
+msgid ""
+"matches \"1\", \"2\", or any non-digit. GRegex also recognize the POSIX "
+"syntax [.ch.] and [=ch=] where \"ch\" is a \"collating element\", but these "
+"are not supported, and an error is given if they are encountered."
+msgstr ""
+
+#: regex-syntax.sgml:108(entry)
+msgid "0 or more quantifier"
+msgstr ""
+
+#: regex-syntax.sgml:1080(para)
+msgid ""
+"In UTF-8 mode, characters with values greater than 128 do not match any of "
+"the POSIX character classes."
+msgstr ""
+
+#: regex-syntax.sgml:1087(title)
+msgid "Vertical bar"
+msgstr ""
+
+#: regex-syntax.sgml:1088(para)
+msgid ""
+"Vertical bar characters are used to separate alternative patterns. For "
+"example, the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1093(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+" gilbert|sullivan\n"
+msgstr ""
+
+#: regex-syntax.sgml:1097(para)
+msgid ""
+"matches either \"gilbert\" or \"sullivan\". Any number of alternatives may "
+"appear, and an empty alternative is permitted (matching the empty string). "
+"The matching process tries each alternative in turn, from left to right, and "
+"the first one that succeeds is used. If the alternatives are within a "
+"subpattern (defined below), \"succeeds\" means matching the rest of the main "
+"pattern as well as the alternative in the subpattern."
+msgstr ""
+
+#: regex-syntax.sgml:1106(title)
+msgid "Internal option setting"
+msgstr ""
+
+#: regex-syntax.sgml:1107(para)
+msgid ""
+"The settings of the <varname>G_REGEX_CASELESS</varname>, "
+"<varname>G_REGEX_MULTILINE</varname>, <varname>G_REGEX_MULTILINE</varname>, "
+"and <varname>G_REGEX_EXTENDED</varname> options can be changed from within "
+"the pattern by a sequence of Perl-style option letters enclosed between \"(?"
+"\" and \")\". The option letters are"
+msgstr ""
+
+#: regex-syntax.sgml:111(entry) regex-syntax.sgml:1407(entry)
+msgid "+"
+msgstr ""
+
+#: regex-syntax.sgml:1115(title)
+msgid "Option settings"
+msgstr ""
+
+#: regex-syntax.sgml:112(entry)
+msgid "1 or more quantifier, also \"possessive quantifier\""
+msgstr ""
+
+#: regex-syntax.sgml:1120(entry)
+msgid "Option"
+msgstr ""
+
+#: regex-syntax.sgml:1121(entry)
+msgid "Flag"
+msgstr ""
+
+#: regex-syntax.sgml:1127(varname)
+msgid "G_REGEX_CASELESS"
+msgstr ""
+
+#: regex-syntax.sgml:1131(varname)
+msgid "G_REGEX_MULTILINE"
+msgstr ""
+
+#: regex-syntax.sgml:1135(varname)
+msgid "G_REGEX_DOTALL"
+msgstr ""
+
+#: regex-syntax.sgml:1139(varname)
+msgid "G_REGEX_EXTENDED"
+msgstr ""
+
+#: regex-syntax.sgml:1145(para)
+msgid ""
+"For example, (?im) sets caseless, multiline matching. It is also possible to "
+"unset these options by preceding the letter with a hyphen, and a combined "
+"setting and unsetting such as (?im-sx), which sets "
+"<varname>G_REGEX_CASELESS</varname> and <varname>G_REGEX_MULTILINE</varname> "
+"while unsetting <varname>G_REGEX_DOTALL</varname> and "
+"<varname>G_REGEX_EXTENDED</varname>, is also permitted. If a letter appears "
+"both before and after the hyphen, the option is unset."
+msgstr ""
+
+#: regex-syntax.sgml:115(entry)
+msgid "{"
+msgstr ""
+
+#: regex-syntax.sgml:1154(para)
+msgid ""
+"When an option change occurs at top level (that is, not inside subpattern "
+"parentheses), the change applies to the remainder of the pattern that "
+"follows."
+msgstr ""
+
+#: regex-syntax.sgml:116(entry)
+msgid "start min/max quantifier"
+msgstr ""
+
+#: regex-syntax.sgml:1160(para)
+msgid ""
+"An option change within a subpattern (see below for a description of "
+"subpatterns) affects only that part of the current pattern that follows it, "
+"so"
+msgstr ""
+
+#: regex-syntax.sgml:1165(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(a(?i)b)c\n"
+msgstr ""
+
+#: regex-syntax.sgml:1169(para)
+msgid ""
+"matches abc and aBc and no other strings (assuming "
+"<varname>G_REGEX_CASELESS</varname> is not used). By this means, options can "
+"be made to have different settings in different parts of the pattern. Any "
+"changes made in one alternative do carry on into subsequent branches within "
+"the same subpattern. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:1177(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(a(?i)b|c)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1181(para)
+msgid ""
+"matches \"ab\", \"aB\", \"c\", and \"C\", even though when matching \"C\" "
+"the first branch is abandoned before the option setting. This is because the "
+"effects of option settings happen at compile time. There would be some very "
+"weird behaviour otherwise."
+msgstr ""
+
+#: regex-syntax.sgml:1188(para)
+msgid ""
+"The options <varname>G_REGEX_UNGREEDY</varname> and <varname>G_REGEX_EXTRA</"
+"varname> and <varname>G_REGEX_DUPNAMES</varname> can be changed in the same "
+"way as the Perl-compatible options by using the characters U, X and J "
+"respectively."
+msgstr ""
+
+#: regex-syntax.sgml:1197(title)
+msgid "Subpatterns"
+msgstr ""
+
+#: regex-syntax.sgml:1198(para)
+msgid ""
+"Subpatterns are delimited by parentheses (round brackets), which can be "
+"nested. Turning part of a pattern into a subpattern does two things:"
+msgstr ""
+
+#: regex-syntax.sgml:1204(para)
+msgid ""
+"It localizes a set of alternatives. For example, the pattern cat(aract|"
+"erpillar|) matches one of the words \"cat\", \"cataract\", or \"caterpillar"
+"\". Without the parentheses, it would match \"cataract\", \"erpillar\" or an "
+"empty string."
+msgstr ""
+
+#: regex-syntax.sgml:1210(para)
+msgid ""
+"It sets up the subpattern as a capturing subpattern. This means that, when "
+"the whole pattern matches, that portion of the string that matched the "
+"subpattern can be obtained using <function>g_regex_fetch()</function>. "
+"Opening parentheses are counted from left to right (starting from 1, as "
+"subpattern 0 is the whole matched string) to obtain numbers for the "
+"capturing subpatterns."
+msgstr ""
+
+#: regex-syntax.sgml:122(para)
+msgid ""
+"Part of a pattern that is in square brackets is called a \"character class"
+"\". In a character class the only metacharacters are:"
+msgstr ""
+
+#: regex-syntax.sgml:1220(para)
+msgid ""
+"For example, if the string \"the red king\" is matched against the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1224(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"the ((red|white) (king|queen))\n"
+msgstr ""
+
+#: regex-syntax.sgml:1228(para)
+msgid ""
+"the captured substrings are \"red king\", \"red\", and \"king\", and are "
+"numbered 1, 2, and 3, respectively."
+msgstr ""
+
+#: regex-syntax.sgml:1232(para)
+msgid ""
+"The fact that plain parentheses fulfil two functions is not always helpful. "
+"There are often times when a grouping subpattern is required without a "
+"capturing requirement. If an opening parenthesis is followed by a question "
+"mark and a colon, the subpattern does not do any capturing, and is not "
+"counted when computing the number of any subsequent capturing subpatterns. "
+"For example, if the string \"the white queen\" is matched against the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1242(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"the ((?:red|white) (king|queen))\n"
+msgstr ""
+
+#: regex-syntax.sgml:1246(para)
+msgid ""
+"the captured substrings are \"white queen\" and \"queen\", and are numbered "
+"1 and 2. The maximum number of capturing subpatterns is 65535."
+msgstr ""
+
+#: regex-syntax.sgml:1251(para)
+msgid ""
+"As a convenient shorthand, if any option settings are required at the start "
+"of a non-capturing subpattern, the option letters may appear between the \"?"
+"\" and the \":\". Thus the two patterns"
+msgstr ""
+
+#: regex-syntax.sgml:1257(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?i:saturday|sunday)\n"
+"(?:(?i)saturday|sunday)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1262(para)
+msgid ""
+"match exactly the same set of strings. Because alternative branches are "
+"tried from left to right, and options are not reset until the end of the "
+"subpattern is reached, an option setting in one branch does affect "
+"subsequent branches, so the above patterns match \"SUNDAY\" as well as "
+"\"Saturday\"."
+msgstr ""
+
+#: regex-syntax.sgml:1272(title)
+msgid "Named subpatterns"
+msgstr ""
+
+#: regex-syntax.sgml:1273(para)
+msgid ""
+"Identifying capturing parentheses by number is simple, but it can be very "
+"hard to keep track of the numbers in complicated regular expressions. "
+"Furthermore, if an expression is modified, the numbers may change. To help "
+"with this difficulty, GRegex supports the naming of subpatterns. A "
+"subpattern can be named in one of three ways: (?&lt;name&gt;...) or "
+"(?'name'...) as in Perl, or (?P&lt;name&gt;...) as in Python. References to "
+"capturing parentheses from other parts of the pattern, such as "
+"backreferences, recursion, and conditions, can be made by name as well as by "
+"number."
+msgstr ""
+
+#: regex-syntax.sgml:128(title)
+msgid "Metacharacters inside square brackets"
+msgstr ""
+
+#: regex-syntax.sgml:1285(para)
+msgid ""
+"Names consist of up to 32 alphanumeric characters and underscores. Named "
+"capturing parentheses are still allocated numbers as well as names, exactly "
+"as if the names were not present. By default, a name must be unique within a "
+"pattern, but it is possible to relax this constraint by setting the "
+"<varname>G_REGEX_DUPNAMES</varname> option at compile time. This can be "
+"useful for patterns where only one instance of the named parentheses can "
+"match. Suppose you want to match the name of a weekday, either as a 3-letter "
+"abbreviation or as the full name, and in both cases you want to extract the "
+"abbreviation. This pattern (ignoring the line breaks) does the job:"
+msgstr ""
+
+#: regex-syntax.sgml:1298(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;DN&gt;Mon|Fri|Sun)(?:day)?|\n"
+"(?&lt;DN&gt;Tue)(?:sday)?|\n"
+"(?&lt;DN&gt;Wed)(?:nesday)?|\n"
+"(?&lt;DN&gt;Thu)(?:rsday)?|\n"
+"(?&lt;DN&gt;Sat)(?:urday)?\n"
+msgstr ""
+
+#: regex-syntax.sgml:1306(para)
+msgid ""
+"There are five capturing substrings, but only one is ever set after a match. "
+"The function for extracting the data by name returns the substring for the "
+"first (and in this example, the only) subpattern of that name that matched. "
+"This saves searching to find which numbered subpattern it was. If you make a "
+"reference to a non-unique named subpattern from elsewhere in the pattern, "
+"the one that corresponds to the lowest number is used."
+msgstr ""
+
+#: regex-syntax.sgml:1317(title)
+msgid "Repetition"
+msgstr ""
+
+#: regex-syntax.sgml:1318(para)
+msgid ""
+"Repetition is specified by quantifiers, which can follow any of the "
+"following items:"
+msgstr ""
+
+#: regex-syntax.sgml:1324(para)
+msgid "a literal data character"
+msgstr ""
+
+#: regex-syntax.sgml:1325(para)
+msgid "the dot metacharacter"
+msgstr ""
+
+#: regex-syntax.sgml:1326(para)
+msgid "the \\C escape sequence"
+msgstr ""
+
+#: regex-syntax.sgml:1327(para)
+msgid "the \\X escape sequence (in UTF-8 mode)"
+msgstr ""
+
+#: regex-syntax.sgml:1328(para)
+msgid "the \\R escape sequence"
+msgstr ""
+
+#: regex-syntax.sgml:1329(para)
+msgid "an escape such as \\d that matches a single character"
+msgstr ""
+
+#: regex-syntax.sgml:1330(para)
+msgid "a character class"
+msgstr ""
+
+#: regex-syntax.sgml:1331(para)
+msgid "a back reference (see next section)"
+msgstr ""
+
+#: regex-syntax.sgml:1332(para)
+msgid "a parenthesized subpattern (unless it is an assertion)"
+msgstr ""
+
+#: regex-syntax.sgml:1335(para)
+msgid ""
+"The general repetition quantifier specifies a minimum and maximum number of "
+"permitted matches, by giving the two numbers in curly brackets (braces), "
+"separated by a comma. The numbers must be less than 65536, and the first "
+"must be less than or equal to the second. For example:"
+msgstr ""
+
+#: regex-syntax.sgml:1342(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"z{2,4}\n"
+msgstr ""
+
+#: regex-syntax.sgml:1346(para)
+msgid ""
+"matches \"zz\", \"zzz\", or \"zzzz\". A closing brace on its own is not a "
+"special character. If the second number is omitted, but the comma is "
+"present, there is no upper limit; if the second number and the comma are "
+"both omitted, the quantifier specifies an exact number of required matches. "
+"Thus"
+msgstr ""
+
+#: regex-syntax.sgml:1354(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"[aeiou]{3,}\n"
+msgstr ""
+
+#: regex-syntax.sgml:1358(para)
+msgid "matches at least 3 successive vowels, but may match many more, while"
+msgstr ""
+
+#: regex-syntax.sgml:1362(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\d{8}\n"
+msgstr ""
+
+#: regex-syntax.sgml:1366(para)
+msgid ""
+"matches exactly 8 digits. An opening curly bracket that appears in a "
+"position where a quantifier is not allowed, or one that does not match the "
+"syntax of a quantifier, is taken as a literal character. For example, {,6} "
+"is not a quantifier, but a literal string of four characters."
+msgstr ""
+
+#: regex-syntax.sgml:1373(para)
+msgid ""
+"In UTF-8 mode, quantifiers apply to UTF-8 characters rather than to "
+"individual bytes. Thus, for example, \\x{100}{2} matches two UTF-8 "
+"characters, each of which is represented by a two-byte sequence. Similarly, "
+"\\X{3} matches three Unicode extended sequences, each of which may be "
+"several bytes long (and they may be of different lengths)."
+msgstr ""
+
+#: regex-syntax.sgml:1381(para)
+msgid ""
+"The quantifier {0} is permitted, causing the expression to behave as if the "
+"previous item and the quantifier were not present."
+msgstr ""
+
+#: regex-syntax.sgml:1386(para)
+msgid ""
+"For convenience, the three most common quantifiers have single-character "
+"abbreviations:"
+msgstr ""
+
+#: regex-syntax.sgml:139(entry) regex-syntax.sgml:71(entry)
+msgid "\\"
+msgstr ""
+
+#: regex-syntax.sgml:1392(title)
+msgid "Abbreviations for quantifiers"
+msgstr ""
+
+#: regex-syntax.sgml:1397(entry)
+msgid "Abbreviation"
+msgstr ""
+
+#: regex-syntax.sgml:140(entry)
+msgid "general escape character"
+msgstr ""
+
+#: regex-syntax.sgml:1404(entry)
+msgid "is equivalent to {0,}"
+msgstr ""
+
+#: regex-syntax.sgml:1408(entry)
+msgid "is equivalent to {1,}"
+msgstr ""
+
+#: regex-syntax.sgml:1412(entry)
+msgid "is equivalent to {0,1}"
+msgstr ""
+
+#: regex-syntax.sgml:1418(para)
+msgid ""
+"It is possible to construct infinite loops by following a subpattern that "
+"can match no characters with a quantifier that has no upper limit, for "
+"example:"
+msgstr ""
+
+#: regex-syntax.sgml:1424(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(a?)*\n"
+msgstr ""
+
+#: regex-syntax.sgml:1428(para)
+msgid ""
+"Because there are cases where this can be useful, such patterns are "
+"accepted, but if any repetition of the subpattern does in fact match no "
+"characters, the loop is forcibly broken."
+msgstr ""
+
+#: regex-syntax.sgml:1434(para)
+msgid ""
+"By default, the quantifiers are \"greedy\", that is, they match as much as "
+"possible (up to the maximum number of permitted times), without causing the "
+"rest of the pattern to fail. The classic example of where this gives "
+"problems is in trying to match comments in C programs. These appear between /"
+"* and */ and within the comment, individual * and / characters may appear. "
+"An attempt to match C comments by applying the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:144(entry)
+msgid "negate the class, but only if the first character"
+msgstr ""
+
+#: regex-syntax.sgml:1444(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/\\*.*\\*/\n"
+msgstr ""
+
+#: regex-syntax.sgml:1448(para)
+msgid "to the string"
+msgstr ""
+
+#: regex-syntax.sgml:1452(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/* first comment */  not comment  /* second comment */\n"
+msgstr ""
+
+#: regex-syntax.sgml:1456(para)
+msgid ""
+"fails, because it matches the entire string owing to the greediness of the ."
+"* item."
+msgstr ""
+
+#: regex-syntax.sgml:1461(para)
+msgid ""
+"However, if a quantifier is followed by a question mark, it ceases to be "
+"greedy, and instead matches the minimum number of times possible, so the "
+"pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1467(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/\\*.*?\\*/\n"
+msgstr ""
+
+#: regex-syntax.sgml:147(entry)
+msgid "-"
+msgstr ""
+
+#: regex-syntax.sgml:1471(para)
+msgid ""
+"does the right thing with the C comments. The meaning of the various "
+"quantifiers is not otherwise changed, just the preferred number of matches. "
+"Do not confuse this use of question mark with its use as a quantifier in its "
+"own right. Because it has two uses, it can sometimes appear doubled, as in"
+msgstr ""
+
+#: regex-syntax.sgml:1479(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\d??\\d\n"
+msgstr ""
+
+#: regex-syntax.sgml:148(entry)
+msgid "indicates character range"
+msgstr ""
+
+#: regex-syntax.sgml:1483(para)
+msgid ""
+"which matches one digit by preference, but can match two if that is the only "
+"way the rest of the pattern matches."
+msgstr ""
+
+#: regex-syntax.sgml:1488(para)
+msgid ""
+"If the <varname>G_REGEX_UNGREEDY</varname> flag is set, the quantifiers are "
+"not greedy by default, but individual ones can be made greedy by following "
+"them with a question mark. In other words, it inverts the default behaviour."
+msgstr ""
+
+#: regex-syntax.sgml:1494(para)
+msgid ""
+"When a parenthesized subpattern is quantified with a minimum repeat count "
+"that is greater than 1 or with a limited maximum, more memory is required "
+"for the compiled pattern, in proportion to the size of the minimum or "
+"maximum."
+msgstr ""
+
+#: regex-syntax.sgml:1501(para)
+msgid ""
+"If a pattern starts with .* or .{0,} and the <varname>G_REGEX_DOTALL</"
+"varname> flag is set, thus allowing the dot to match newlines, the pattern "
+"is implicitly anchored, because whatever follows will be tried against every "
+"character position in the string, so there is no point in retrying the "
+"overall match at any position after the first. GRegex normally treats such a "
+"pattern as though it were preceded by \\A."
+msgstr ""
+
+#: regex-syntax.sgml:151(entry) regex-syntax.sgml:87(entry)
+msgid "["
+msgstr ""
+
+#: regex-syntax.sgml:1510(para)
+msgid ""
+"In cases where it is known that the string contains no newlines, it is worth "
+"setting <varname>G_REGEX_DOTALL</varname> in order to obtain this "
+"optimization, or alternatively using ^ to indicate anchoring explicitly."
+msgstr ""
+
+#: regex-syntax.sgml:1516(para)
+msgid ""
+"However, there is one situation where the optimization cannot be used. When ."
+"* is inside capturing parentheses that are the subject of a backreference "
+"elsewhere in the pattern, a match at the start may fail where a later one "
+"succeeds. Consider, for example:"
+msgstr ""
+
+#: regex-syntax.sgml:152(entry)
+msgid "POSIX character class (only if followed by POSIX syntax)"
+msgstr ""
+
+#: regex-syntax.sgml:1523(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(.*)abc\\1\n"
+msgstr ""
+
+#: regex-syntax.sgml:1527(para)
+msgid ""
+"If the string is \"xyz123abc123\" the match point is the fourth character. "
+"For this reason, such a pattern is not implicitly anchored."
+msgstr ""
+
+#: regex-syntax.sgml:1532(para)
+msgid ""
+"When a capturing subpattern is repeated, the value captured is the substring "
+"that matched the final iteration. For example, after"
+msgstr ""
+
+#: regex-syntax.sgml:1537(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(tweedle[dume]{3}\\s*)+\n"
+msgstr ""
+
+#: regex-syntax.sgml:1541(para)
+msgid ""
+"has matched \"tweedledum tweedledee\" the value of the captured substring is "
+"\"tweedledee\". However, if there are nested capturing subpatterns, the "
+"corresponding captured values may have been set in previous iterations. For "
+"example, after"
+msgstr ""
+
+#: regex-syntax.sgml:1548(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/(a|(b))+/\n"
+msgstr ""
+
+#: regex-syntax.sgml:155(entry)
+msgid "]"
+msgstr ""
+
+#: regex-syntax.sgml:1552(para)
+msgid "matches \"aba\" the value of the second captured substring is \"b\"."
+msgstr ""
+
+#: regex-syntax.sgml:1558(title)
+msgid "Atomic grouping and possessive quantifiers"
+msgstr ""
+
+#: regex-syntax.sgml:1559(para)
+msgid ""
+"With both maximizing (\"greedy\") and minimizing (\"ungreedy\" or \"lazy\") "
+"repetition, failure of what follows normally causes the repeated item to be "
+"re-evaluated to see if a different number of repeats allows the rest of the "
+"pattern to match. Sometimes it is useful to prevent this, either to change "
+"the nature of the match, or to cause it fail earlier than it otherwise "
+"might, when the author of the pattern knows there is no point in carrying on."
+msgstr ""
+
+#: regex-syntax.sgml:156(entry)
+msgid "terminates the character class"
+msgstr ""
+
+#: regex-syntax.sgml:1569(para)
+msgid "Consider, for example, the pattern \\d+foo when applied to the string"
+msgstr ""
+
+#: regex-syntax.sgml:1573(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"123456bar\n"
+msgstr ""
+
+#: regex-syntax.sgml:1577(para)
+msgid ""
+"After matching all 6 digits and then failing to match \"foo\", the normal "
+"action of the matcher is to try again with only 5 digits matching the \\d+ "
+"item, and then with 4, and so on, before ultimately failing. \"Atomic "
+"grouping\" (a term taken from Jeffrey Friedl\342\200\231s book) provides the "
+"means for specifying that once a subpattern has matched, it is not to be re-"
+"evaluated in this way."
+msgstr ""
+
+#: regex-syntax.sgml:1586(para)
+msgid ""
+"If we use atomic grouping for the previous example, the matcher give up "
+"immediately on failing to match \"foo\" the first time. The notation is a "
+"kind of special parenthesis, starting with (?&gt; as in this example:"
+msgstr ""
+
+#: regex-syntax.sgml:1593(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&gt;\\d+)foo\n"
+msgstr ""
+
+#: regex-syntax.sgml:1597(para)
+msgid ""
+"This kind of parenthesis \"locks up\" the part of the pattern it contains "
+"once it has matched, and a failure further into the pattern is prevented "
+"from backtracking into it. Backtracking past it to previous items, however, "
+"works as normal."
+msgstr ""
+
+#: regex-syntax.sgml:1604(para)
+msgid ""
+"An alternative description is that a subpattern of this type matches the "
+"string of characters that an identical standalone pattern would match, if "
+"anchored at the current point in the string."
+msgstr ""
+
+#: regex-syntax.sgml:1610(para)
+msgid ""
+"Atomic grouping subpatterns are not capturing subpatterns. Simple cases such "
+"as the above example can be thought of as a maximizing repeat that must "
+"swallow everything it can. So, while both \\d+ and \\d+? are prepared to "
+"adjust the number of digits they match in order to make the rest of the "
+"pattern match, (?&gt;\\d+) can only match an entire sequence of digits."
+msgstr ""
+
+#: regex-syntax.sgml:1619(para)
+msgid ""
+"Atomic groups in general can of course contain arbitrarily complicated "
+"subpatterns, and can be nested. However, when the subpattern for an atomic "
+"group is just a single repeated item, as in the example above, a simpler "
+"notation, called a \"possessive quantifier\" can be used. This consists of "
+"an additional + character following a quantifier. Using this notation, the "
+"previous example can be rewritten as"
+msgstr ""
+
+#: regex-syntax.sgml:1628(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\d++foo\n"
+msgstr ""
+
+#: regex-syntax.sgml:1632(para)
+msgid ""
+"Possessive quantifiers are always greedy; the setting of the "
+"<varname>G_REGEX_UNGREEDY</varname> option is ignored. They are a convenient "
+"notation for the simpler forms of atomic group. However, there is no "
+"difference in the meaning of a possessive quantifier and the equivalent "
+"atomic group, though there may be a performance difference; possessive "
+"quantifiers should be slightly faster."
+msgstr ""
+
+#: regex-syntax.sgml:164(title)
+msgid "Backslash"
+msgstr ""
+
+#: regex-syntax.sgml:1641(para)
+msgid ""
+"The possessive quantifier syntax is an extension to the Perl syntax. It was "
+"invented by Jeffrey Friedl in the first edition of his book and then "
+"implemented by Mike McCloskey in Sun's Java package. It ultimately found its "
+"way into Perl at release 5.10."
+msgstr ""
+
+#: regex-syntax.sgml:1648(para)
+msgid ""
+"GRegex has an optimization that automatically \"possessifies\" certain "
+"simple pattern constructs. For example, the sequence A+B is treated as A++B "
+"because there is no point in backtracking into a sequence of A's when B must "
+"follow."
+msgstr ""
+
+#: regex-syntax.sgml:165(para)
+msgid ""
+"The backslash character has several uses. Firstly, if it is followed by a "
+"non-alphanumeric character, it takes away any special meaning that character "
+"may have. This use of backslash as an escape character applies both inside "
+"and outside character classes."
+msgstr ""
+
+#: regex-syntax.sgml:1654(para)
+msgid ""
+"When a pattern contains an unlimited repeat inside a subpattern that can "
+"itself be repeated an unlimited number of times, the use of an atomic group "
+"is the only way to avoid some failing matches taking a very long time "
+"indeed. The pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1661(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(\\D+|&lt;\\d+&gt;)*[!?]\n"
+msgstr ""
+
+#: regex-syntax.sgml:1665(para)
+msgid ""
+"matches an unlimited number of substrings that either consist of non- "
+"digits, or digits enclosed in &lt;&gt;, followed by either ! or ?. When it "
+"matches, it runs quickly. However, if it is applied to"
+msgstr ""
+
+#: regex-syntax.sgml:1671(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
+msgstr ""
+
+#: regex-syntax.sgml:1675(para)
+msgid ""
+"it takes a long time before reporting failure. This is because the string "
+"can be divided between the internal \\D+ repeat and the external * repeat in "
+"a large number of ways, and all have to be tried. (The example uses [!?] "
+"rather than a single character at the end, because GRegex has an "
+"optimization that allows for fast failure when a single character is used. "
+"It remember the last single character that is required for a match, and fail "
+"early if it is not present in the string.) If the pattern is changed so that "
+"it uses an atomic group, like this:"
+msgstr ""
+
+#: regex-syntax.sgml:1687(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"((?&gt;\\D+)|&lt;\\d+&gt;)*[!?]\n"
+msgstr ""
+
+#: regex-syntax.sgml:1691(para)
+msgid "sequences of non-digits cannot be broken, and failure happens quickly."
+msgstr ""
+
+#: regex-syntax.sgml:1697(title)
+msgid "Back references"
+msgstr ""
+
+#: regex-syntax.sgml:1698(para)
+msgid ""
+"Outside a character class, a backslash followed by a digit greater than 0 "
+"(and possibly further digits) is a back reference to a capturing subpattern "
+"earlier (that is, to its left) in the pattern, provided there have been that "
+"many previous capturing left parentheses."
+msgstr ""
+
+#: regex-syntax.sgml:1705(para)
+msgid ""
+"However, if the decimal number following the backslash is less than 10, it "
+"is always taken as a back reference, and causes an error only if there are "
+"not that many capturing left parentheses in the entire pattern. In other "
+"words, the parentheses that are referenced need not be to the left of the "
+"reference for numbers less than 10. A \"forward back reference\" of this "
+"type can make sense when a repetition is involved and the subpattern to the "
+"right has participated in an earlier iteration."
+msgstr ""
+
+#: regex-syntax.sgml:1715(para)
+msgid ""
+"It is not possible to have a numerical \"forward back reference\" to "
+"subpattern whose number is 10 or more using this syntax because a sequence "
+"such as \\e50 is interpreted as a character defined in octal. See the "
+"subsection entitled \"Non-printing characters\" above for further details of "
+"the handling of digits following a backslash. There is no such problem when "
+"named parentheses are used. A back reference to any subpattern is possible "
+"using named parentheses (see below)."
+msgstr ""
+
+#: regex-syntax.sgml:172(para)
+msgid ""
+"For example, if you want to match a * character, you write \\* in the "
+"pattern. This escaping action applies whether or not the following character "
+"would otherwise be interpreted as a metacharacter, so it is always safe to "
+"precede a non-alphanumeric with backslash to specify that it stands for "
+"itself. In particular, if you want to match a backslash, you write \\\\."
+msgstr ""
+
+#: regex-syntax.sgml:1724(para)
+msgid ""
+"Another way of avoiding the ambiguity inherent in the use of digits "
+"following a backslash is to use the \\g escape sequence (introduced in Perl "
+"5.10.) This escape must be followed by a positive or a negative number, "
+"optionally enclosed in braces."
+msgstr ""
+
+#: regex-syntax.sgml:1731(para)
+msgid ""
+"A positive number specifies an absolute reference without the ambiguity that "
+"is present in the older syntax. It is also useful when literal digits follow "
+"the reference. A negative number is a relative reference. Consider \"(abc"
+"(def)ghi)\\g{-1}\", the sequence \\g{-1} is a reference to the most recently "
+"started capturing subpattern before \\g, that is, is it equivalent to \\2. "
+"Similarly, \\g{-2} would be equivalent to \\1. The use of relative "
+"references can be helpful in long patterns, and also in patterns that are "
+"created by joining together fragments that contain references within "
+"themselves."
+msgstr ""
+
+#: regex-syntax.sgml:1742(para)
+msgid ""
+"A back reference matches whatever actually matched the capturing subpattern "
+"in the current string, rather than anything matching the subpattern itself "
+"(see \"Subpatterns as subroutines\" below for a way of doing that). So the "
+"pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1749(programlisting)
+#: regex-syntax.sgml:2403(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(sens|respons)e and \\1ibility\n"
+msgstr ""
+
+#: regex-syntax.sgml:1753(para)
+msgid ""
+"matches \"sense and sensibility\" and \"response and responsibility\", but "
+"not \"sense and responsibility\". If caseful matching is in force at the "
+"time of the back reference, the case of letters is relevant. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:1759(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"((?i)rah)\\s+\\1\n"
+msgstr ""
+
+#: regex-syntax.sgml:1763(para)
+msgid ""
+"matches \"rah rah\" and \"RAH RAH\", but not \"RAH rah\", even though the "
+"original capturing subpattern is matched caselessly."
+msgstr ""
+
+#: regex-syntax.sgml:1768(para)
+msgid ""
+"Back references to named subpatterns use the Perl syntax \\k&lt;name&gt; or "
+"\\k'name' or the Python syntax (?P=name). We could rewrite the above example "
+"in either of the following ways:"
+msgstr ""
+
+#: regex-syntax.sgml:1774(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;p1&gt;(?i)rah)\\s+\\k&lt;p1&gt;\n"
+"(?P&lt;p1&gt;(?i)rah)\\s+(?P=p1)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1779(para)
+msgid ""
+"A subpattern that is referenced by name may appear in the pattern before or "
+"after the reference."
+msgstr ""
+
+#: regex-syntax.sgml:1784(para)
+msgid ""
+"There may be more than one back reference to the same subpattern. If a "
+"subpattern has not actually been used in a particular match, any back "
+"references to it always fail. For example, the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1790(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(a|(bc))\\2\n"
+msgstr ""
+
+#: regex-syntax.sgml:1794(para)
+msgid ""
+"always fails if it starts to match \"a\" rather than \"bc\". Because there "
+"may be many capturing parentheses in a pattern, all digits following the "
+"backslash are taken as part of a potential back reference number. If the "
+"pattern continues with a digit character, some delimiter must be used to "
+"terminate the back reference. If the <varname>G_REGEX_EXTENDED</varname> "
+"flag is set, this can be whitespace. Otherwise an empty comment (see "
+"\"Comments\" below) can be used."
+msgstr ""
+
+#: regex-syntax.sgml:1803(para)
+msgid ""
+"A back reference that occurs inside the parentheses to which it refers fails "
+"when the subpattern is first used, so, for example, (a\\1) never matches. "
+"However, such references can be useful inside repeated subpatterns. For "
+"example, the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:181(para)
+msgid ""
+"If a pattern is compiled with the <varname>G_REGEX_EXTENDED</varname> "
+"option, whitespace in the pattern (other than in a character class) and "
+"characters between a # outside a character class and the next newline are "
+"ignored. An escaping backslash can be used to include a whitespace or # "
+"character as part of the pattern."
+msgstr ""
+
+#: regex-syntax.sgml:1810(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(a|b\\1)+\n"
+msgstr ""
+
+#: regex-syntax.sgml:1814(para)
+msgid ""
+"matches any number of \"a\"s and also \"aba\", \"ababbaa\" etc. At each "
+"iteration of the subpattern, the back reference matches the character string "
+"corresponding to the previous iteration. In order for this to work, the "
+"pattern must be such that the first iteration does not need to match the "
+"back reference. This can be done using alternation, as in the example above, "
+"or by a quantifier with a minimum of zero."
+msgstr ""
+
+#: regex-syntax.sgml:1825(title)
+msgid "Assertions"
+msgstr ""
+
+#: regex-syntax.sgml:1826(para)
+msgid ""
+"An assertion is a test on the characters following or preceding the current "
+"matching point that does not actually consume any characters. The simple "
+"assertions coded as \\b, \\B, \\A, \\G, \\Z, \\z, ^ and $ are described "
+"above."
+msgstr ""
+
+#: regex-syntax.sgml:1833(para)
+msgid ""
+"More complicated assertions are coded as subpatterns. There are two kinds: "
+"those that look ahead of the current position in the string, and those that "
+"look behind it. An assertion subpattern is matched in the normal way, except "
+"that it does not cause the current matching position to be changed."
+msgstr ""
+
+#: regex-syntax.sgml:1841(para)
+msgid ""
+"Assertion subpatterns are not capturing subpatterns, and may not be "
+"repeated, because it makes no sense to assert the same thing several times. "
+"If any kind of assertion contains capturing subpatterns within it, these are "
+"counted for the purposes of numbering the capturing subpatterns in the whole "
+"pattern. However, substring capturing is carried out only for positive "
+"assertions, because it does not make sense for negative assertions."
+msgstr ""
+
+#: regex-syntax.sgml:1852(title)
+msgid "Lookahead assertions"
+msgstr ""
+
+#: regex-syntax.sgml:1853(para)
+msgid ""
+"Lookahead assertions start with (?= for positive assertions and (?! for "
+"negative assertions. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:1858(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\w+(?=;)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1862(para)
+msgid ""
+"matches a word followed by a semicolon, but does not include the semicolon "
+"in the match, and"
+msgstr ""
+
+#: regex-syntax.sgml:1867(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"foo(?!bar)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1871(para)
+msgid ""
+"matches any occurrence of \"foo\" that is not followed by \"bar\". Note that "
+"the apparently similar pattern"
+msgstr ""
+
+#: regex-syntax.sgml:1876(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?!foo)bar\n"
+msgstr ""
+
+#: regex-syntax.sgml:1880(para)
+msgid ""
+"does not find an occurrence of \"bar\" that is preceded by something other "
+"than \"foo\"; it finds any occurrence of \"bar\" whatsoever, because the "
+"assertion (?!foo) is always true when the next three characters are \"bar\". "
+"A lookbehind assertion is needed to achieve the other effect."
+msgstr ""
+
+#: regex-syntax.sgml:1887(para)
+msgid ""
+"If you want to force a matching failure at some point in a pattern, the most "
+"convenient way to do it is with (?!) because an empty string always matches, "
+"so an assertion that requires there not to be an empty string must always "
+"fail."
+msgstr ""
+
+#: regex-syntax.sgml:1896(title)
+msgid "Lookbehind assertions"
+msgstr ""
+
+#: regex-syntax.sgml:1897(para)
+msgid ""
+"Lookbehind assertions start with (?&lt;= for positive assertions and (?&lt;! "
+"for negative assertions. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:190(para)
+msgid ""
+"Note that the C compiler interprets backslash in strings itself, therefore "
+"you need to duplicate all \\ characters when you put a regular expression in "
+"a C string, like \"\\\\d{3}\"."
+msgstr ""
+
+#: regex-syntax.sgml:1902(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;!foo)bar\n"
+msgstr ""
+
+#: regex-syntax.sgml:1906(para)
+msgid ""
+"does find an occurrence of \"bar\" that is not preceded by \"foo\". The "
+"contents of a lookbehind assertion are restricted such that all the strings "
+"it matches must have a fixed length. However, if there are several top-level "
+"alternatives, they do not all have to have the same fixed length. Thus"
+msgstr ""
+
+#: regex-syntax.sgml:1914(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=bullock|donkey)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1918(para)
+msgid "is permitted, but"
+msgstr ""
+
+#: regex-syntax.sgml:1922(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;!dogs?|cats?)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1926(para)
+msgid ""
+"causes an error at compile time. Branches that match different length "
+"strings are permitted only at the top level of a lookbehind assertion. An "
+"assertion such as"
+msgstr ""
+
+#: regex-syntax.sgml:1932(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=ab(c|de))\n"
+msgstr ""
+
+#: regex-syntax.sgml:1936(para)
+msgid ""
+"is not permitted, because its single top-level branch can match two "
+"different lengths, but it is acceptable if rewritten to use two top- level "
+"branches:"
+msgstr ""
+
+#: regex-syntax.sgml:1942(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=abc|abde)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1946(para)
+msgid ""
+"The implementation of lookbehind assertions is, for each alternative, to "
+"temporarily move the current position back by the fixed length and then try "
+"to match. If there are insufficient characters before the current position, "
+"the assertion fails."
+msgstr ""
+
+#: regex-syntax.sgml:1953(para)
+msgid ""
+"GRegex does not allow the \\C escape (which matches a single byte in UTF-8 "
+"mode) to appear in lookbehind assertions, because it makes it impossible to "
+"calculate the length of the lookbehind. The \\X and \\R escapes, which can "
+"match different numbers of bytes, are also not permitted."
+msgstr ""
+
+#: regex-syntax.sgml:196(para)
+msgid ""
+"If you want to remove the special meaning from a sequence of characters, you "
+"can do so by putting them between \\Q and \\E. The \\Q...\\E sequence is "
+"recognized both inside and outside character classes."
+msgstr ""
+
+#: regex-syntax.sgml:1960(para)
+msgid ""
+"Possessive quantifiers can be used in conjunction with lookbehind assertions "
+"to specify efficient matching at the end of the subject string. Consider a "
+"simple pattern such as"
+msgstr ""
+
+#: regex-syntax.sgml:1966(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"abcd$\n"
+msgstr ""
+
+#: regex-syntax.sgml:1970(para)
+msgid ""
+"when applied to a long string that does not match. Because matching proceeds "
+"from left to right, GRegex will look for each \"a\" in the string and then "
+"see if what follows matches the rest of the pattern. If the pattern is "
+"specified as"
+msgstr ""
+
+#: regex-syntax.sgml:1977(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"^.*abcd$\n"
+msgstr ""
+
+#: regex-syntax.sgml:1981(para)
+msgid ""
+"the initial .* matches the entire string at first, but when this fails "
+"(because there is no following \"a\"), it backtracks to match all but the "
+"last character, then all but the last two characters, and so on. Once again "
+"the search for \"a\" covers the entire string, from right to left, so we are "
+"no better off. However, if the pattern is written as"
+msgstr ""
+
+#: regex-syntax.sgml:1989(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"^.*+(?&lt;=abcd)\n"
+msgstr ""
+
+#: regex-syntax.sgml:1993(para)
+msgid ""
+"there can be no backtracking for the .*+ item; it can match only the entire "
+"string. The subsequent lookbehind assertion does a single test on the last "
+"four characters. If it fails, the match fails immediately. For long strings, "
+"this approach makes a significant difference to the processing time."
+msgstr ""
+
+#: regex-syntax.sgml:20(refname) regex-syntax.sgml:7(refentrytitle)
+msgid "Regular expression syntax"
+msgstr ""
+
+#: regex-syntax.sgml:2003(title)
+msgid "Using multiple assertions"
+msgstr ""
+
+#: regex-syntax.sgml:2004(para)
+msgid "Several assertions (of any sort) may occur in succession. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:2008(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=\\d{3})(?&lt;!999)foo\n"
+msgstr ""
+
+#: regex-syntax.sgml:2012(para)
+msgid ""
+"matches \"foo\" preceded by three digits that are not \"999\". Notice that "
+"each of the assertions is applied independently at the same point in the "
+"string. First there is a check that the previous three characters are all "
+"digits, and then there is a check that the same three characters are not "
+"\"999\". This pattern does not match \"foo\" preceded by six characters, the "
+"first of which are digits and the last three of which are not \"999\". For "
+"example, it doesn\342\200\231t match \"123abcfoo\". A pattern to do that is"
+msgstr ""
+
+#: regex-syntax.sgml:2023(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=\\d{3}...)(?&lt;!999)foo\n"
+msgstr ""
+
+#: regex-syntax.sgml:2027(para)
+msgid ""
+"This time the first assertion looks at the preceding six characters, "
+"checking that the first three are digits, and then the second assertion "
+"checks that the preceding three characters are not \"999\"."
+msgstr ""
+
+#: regex-syntax.sgml:2033(para)
+msgid "Assertions can be nested in any combination. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:2037(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=(?&lt;!foo)bar)baz\n"
+msgstr ""
+
+#: regex-syntax.sgml:204(title) regex-syntax.sgml:215(title)
+#: regex-syntax.sgml:322(title)
+msgid "Non-printing characters"
+msgstr ""
+
+#: regex-syntax.sgml:2041(para)
+msgid ""
+"matches an occurrence of \"baz\" that is preceded by \"bar\" which in turn "
+"is not preceded by \"foo\", while"
+msgstr ""
+
+#: regex-syntax.sgml:2046(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;=\\d{3}(?!999)...)foo\n"
+msgstr ""
+
+#: regex-syntax.sgml:205(para)
+msgid ""
+"A second use of backslash provides a way of encoding non-printing characters "
+"in patterns in a visible manner. There is no restriction on the appearance "
+"of non-printing characters, apart from the binary zero that terminates a "
+"pattern, but when a pattern is being prepared by text editing, it is usually "
+"easier to use one of the following escape sequences than the binary "
+"character it represents:"
+msgstr ""
+
+#: regex-syntax.sgml:2050(para)
+msgid ""
+"is another pattern that matches \"foo\" preceded by three digits and any "
+"three characters that are not \"999\"."
+msgstr ""
+
+#: regex-syntax.sgml:2058(title)
+msgid "Conditional subpatterns"
+msgstr ""
+
+#: regex-syntax.sgml:2059(para)
+msgid ""
+"It is possible to cause the matching process to obey a subpattern "
+"conditionally or to choose between two alternative subpatterns, depending on "
+"the result of an assertion, or whether a previous capturing subpattern "
+"matched or not. The two possible forms of conditional subpattern are"
+msgstr ""
+
+#: regex-syntax.sgml:2066(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?(condition)yes-pattern)\n"
+"(?(condition)yes-pattern|no-pattern)\n"
+msgstr ""
+
+#: regex-syntax.sgml:2071(para)
+msgid ""
+"If the condition is satisfied, the yes-pattern is used; otherwise the no-"
+"pattern (if present) is used. If there are more than two alternatives in the "
+"subpattern, a compile-time error occurs."
+msgstr ""
+
+#: regex-syntax.sgml:2077(para)
+msgid ""
+"There are four kinds of condition: references to subpatterns, references to "
+"recursion, a pseudo-condition called DEFINE, and assertions."
+msgstr ""
+
+#: regex-syntax.sgml:2083(title)
+msgid "Checking for a used subpattern by number"
+msgstr ""
+
+#: regex-syntax.sgml:2084(para)
+msgid ""
+"If the text between the parentheses consists of a sequence of digits, the "
+"condition is true if the capturing subpattern of that number has previously "
+"matched."
+msgstr ""
+
+#: regex-syntax.sgml:2090(para)
+msgid ""
+"Consider the following pattern, which contains non-significant white space "
+"to make it more readable (assume the <varname>G_REGEX_EXTENDED</varname>) "
+"and to divide it into three parts for ease of discussion:"
+msgstr ""
+
+#: regex-syntax.sgml:2096(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"( \\( )?    [^()]+    (?(1) \\) )\n"
+msgstr ""
+
+#: regex-syntax.sgml:21(refpurpose)
+msgid "Syntax and semantics of the regular expressions supported by GRegex"
+msgstr ""
+
+#: regex-syntax.sgml:2100(para)
+msgid ""
+"The first part matches an optional opening parenthesis, and if that "
+"character is present, sets it as the first captured substring. The second "
+"part matches one or more characters that are not parentheses. The third part "
+"is a conditional subpattern that tests whether the first set of parentheses "
+"matched or not. If they did, that is, if string started with an opening "
+"parenthesis, the condition is true, and so the yes-pattern is executed and a "
+"closing parenthesis is required. Otherwise, since no-pattern is not present, "
+"the subpattern matches nothing. In other words, this pattern matches a "
+"sequence of non-parentheses, optionally enclosed in parentheses."
+msgstr ""
+
+#: regex-syntax.sgml:2115(title)
+msgid "Checking for a used subpattern by name"
+msgstr ""
+
+#: regex-syntax.sgml:2116(para)
+msgid ""
+"Perl uses the syntax (?(&lt;name&gt;)...) or (?('name')...) to test for a "
+"used subpattern by name, the Python syntax (?(name)...) is also recognized. "
+"However, there is a possible ambiguity with this syntax, because subpattern "
+"names may consist entirely of digits. GRegex looks first for a named "
+"subpattern; if it cannot find one and the name consists entirely of digits, "
+"GRegex looks for a subpattern of that number, which must be greater than "
+"zero. Using subpattern names that consist entirely of digits is not "
+"recommended."
+msgstr ""
+
+#: regex-syntax.sgml:2126(para)
+msgid "Rewriting the above example to use a named subpattern gives this:"
+msgstr ""
+
+#: regex-syntax.sgml:2130(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;OPEN&gt; \\( )?    [^()]+    (?(&lt;OPEN&gt;) \\) )\n"
+msgstr ""
+
+#: regex-syntax.sgml:2136(title)
+msgid "Checking for pattern recursion"
+msgstr ""
+
+#: regex-syntax.sgml:2137(para)
+msgid ""
+"If the condition is the string (R), and there is no subpattern with the name "
+"R, the condition is true if a recursive call to the whole pattern or any "
+"subpattern has been made. If digits or a name preceded by ampersand follow "
+"the letter R, for example:"
+msgstr ""
+
+#: regex-syntax.sgml:2144(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?(R3)...)\n"
+"(?(R&amp;name)...)\n"
+msgstr ""
+
+#: regex-syntax.sgml:2149(para)
+msgid ""
+"the condition is true if the most recent recursion is into the subpattern "
+"whose number or name is given. This condition does not check the entire "
+"recursion stack."
+msgstr ""
+
+#: regex-syntax.sgml:2155(para)
+msgid ""
+"At \"top level\", all these recursion test conditions are false. Recursive "
+"patterns are described below."
+msgstr ""
+
+#: regex-syntax.sgml:2162(title)
+msgid "Defining subpatterns for use by reference only"
+msgstr ""
+
+#: regex-syntax.sgml:2163(para)
+msgid ""
+"If the condition is the string (DEFINE), and there is no subpattern with the "
+"name DEFINE, the condition is always false. In this case, there may be only "
+"one alternative in the subpattern. It is always skipped if control reaches "
+"this point in the pattern; the idea of DEFINE is that it can be used to "
+"define \"subroutines\" that can be referenced from elsewhere. (The use of "
+"\"subroutines\" is described below.) For example, a pattern to match an IPv4 "
+"address could be written like this (ignore whitespace and line breaks):"
+msgstr ""
+
+#: regex-syntax.sgml:2173(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?(DEFINE) (?&lt;byte&gt; 2[0-4]\\d | 25[0-5] | 1\\d\\d | [1-9]?\\d) )\n"
+"\\b (?&amp;byte) (\\.(?&amp;byte)){3} \\b\n"
+msgstr ""
+
+#: regex-syntax.sgml:2178(para)
+msgid ""
+"The first part of the pattern is a DEFINE group inside which a another group "
+"named \"byte\" is defined. This matches an individual component of an IPv4 "
+"address (a number less than 256). When matching takes place, this part of "
+"the pattern is skipped because DEFINE acts like a false condition."
+msgstr ""
+
+#: regex-syntax.sgml:2185(para)
+msgid ""
+"The rest of the pattern uses references to the named group to match the four "
+"dot-separated components of an IPv4 address, insisting on a word boundary at "
+"each end."
+msgstr ""
+
+#: regex-syntax.sgml:2193(title)
+msgid "Assertion conditions"
+msgstr ""
+
+#: regex-syntax.sgml:2194(para)
+msgid ""
+"If the condition is not in any of the above formats, it must be an "
+"assertion. This may be a positive or negative lookahead or lookbehind "
+"assertion. Consider this pattern, again containing non-significant white "
+"space, and with the two alternatives on the second line:"
+msgstr ""
+
+#: regex-syntax.sgml:220(entry) regex-syntax.sgml:327(entry)
+#: regex-syntax.sgml:409(entry) regex-syntax.sgml:496(entry)
+#: regex-syntax.sgml:670(entry)
+msgid "Escape"
+msgstr ""
+
+#: regex-syntax.sgml:2201(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?(?=[^a-z]*[a-z])\n"
+"\\d{2}-[a-z]{3}-\\d{2}  |  \\d{2}-\\d{2}-\\d{2} )\n"
+msgstr ""
+
+#: regex-syntax.sgml:2206(para)
+msgid ""
+"The condition is a positive lookahead assertion that matches an optional "
+"sequence of non-letters followed by a letter. In other words, it tests for "
+"the presence of at least one letter in the string. If a letter is found, the "
+"string is matched against the first alternative; otherwise it is matched "
+"against the second. This pattern matches strings in one of the two forms dd-"
+"aaa-dd or dd-dd-dd, where aaa are letters and dd are digits."
+msgstr ""
+
+#: regex-syntax.sgml:2219(title)
+msgid "Comments"
+msgstr ""
+
+#: regex-syntax.sgml:2220(para)
+msgid ""
+"The sequence (?# marks the start of a comment that continues up to the next "
+"closing parenthesis. Nested parentheses are not permitted. The characters "
+"that make up a comment play no part in the pattern matching at all."
+msgstr ""
+
+#: regex-syntax.sgml:2227(para)
+msgid ""
+"If the <varname>G_REGEX_EXTENDED</varname> option is set, an unescaped # "
+"character outside a character class introduces a comment that continues to "
+"immediately after the next newline in the pattern."
+msgstr ""
+
+#: regex-syntax.sgml:2235(title)
+msgid "Recursive patterns"
+msgstr ""
+
+#: regex-syntax.sgml:2236(para)
+msgid ""
+"Consider the problem of matching a string in parentheses, allowing for "
+"unlimited nested parentheses. Without the use of recursion, the best that "
+"can be done is to use a pattern that matches up to some fixed depth of "
+"nesting. It is not possible to handle an arbitrary nesting depth."
+msgstr ""
+
+#: regex-syntax.sgml:2244(para)
+msgid ""
+"For some time, Perl has provided a facility that allows regular expressions "
+"to recurse (amongst other things). It does this by interpolating Perl code "
+"in the expression at run time, and the code can refer to the expression "
+"itself. A Perl pattern using code interpolation to solve the parentheses "
+"problem can be created like this:"
+msgstr ""
+
+#: regex-syntax.sgml:2252(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$re = qr{\\( (?: (?&gt;[^()]+) | (?p{$re}) )* \\)}x;\n"
+msgstr ""
+
+#: regex-syntax.sgml:2256(para)
+msgid ""
+"The (?p{...}) item interpolates Perl code at run time, and in this case "
+"refers recursively to the pattern in which it appears."
+msgstr ""
+
+#: regex-syntax.sgml:226(entry)
+msgid "\\a"
+msgstr ""
+
+#: regex-syntax.sgml:2261(para)
+msgid ""
+"Obviously, GRegex cannot support the interpolation of Perl code. Instead, it "
+"supports special syntax for recursion of the entire pattern, and also for "
+"individual subpattern recursion. This kind of recursion was introduced into "
+"Perl at release 5.10."
+msgstr ""
+
+#: regex-syntax.sgml:2268(para)
+msgid ""
+"A special item that consists of (? followed by a number greater than zero "
+"and a closing parenthesis is a recursive call of the subpattern of the given "
+"number, provided that it occurs inside that subpattern. (If not, it is a "
+"\"subroutine\" call, which is described in the next section.) The special "
+"item (?R) or (?0) is a recursive call of the entire regular expression."
+msgstr ""
+
+#: regex-syntax.sgml:227(entry)
+msgid "alarm, that is, the BEL character (hex 07)"
+msgstr ""
+
+#: regex-syntax.sgml:2276(para)
+msgid ""
+"In GRegex (like Python, but unlike Perl), a recursive subpattern call is "
+"always treated as an atomic group. That is, once it has matched some of the "
+"subject string, it is never re-entered, even if it contains untried "
+"alternatives and there is a subsequent matching failure."
+msgstr ""
+
+#: regex-syntax.sgml:2283(para)
+msgid ""
+"This pattern solves the nested parentheses problem (assume the "
+"<varname>G_REGEX_EXTENDED</varname> option is set so that white space is "
+"ignored):"
+msgstr ""
+
+#: regex-syntax.sgml:2289(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\( ( (?&gt;[^()]+) | (?R) )* \\)\n"
+msgstr ""
+
+#: regex-syntax.sgml:2293(para)
+msgid ""
+"First it matches an opening parenthesis. Then it matches any number of "
+"substrings which can either be a sequence of non-parentheses, or a recursive "
+"match of the pattern itself (that is, a correctly parenthesized substring). "
+"Finally there is a closing parenthesis."
+msgstr ""
+
+#: regex-syntax.sgml:230(entry)
+msgid "\\cx"
+msgstr ""
+
+#: regex-syntax.sgml:2300(para)
+msgid ""
+"If this were part of a larger pattern, you would not want to recurse the "
+"entire pattern, so instead you could use this:"
+msgstr ""
+
+#: regex-syntax.sgml:2305(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"( \\( ( (?&gt;[^()]+) | (?1) )* \\) )\n"
+msgstr ""
+
+#: regex-syntax.sgml:2309(para)
+msgid ""
+"We have put the pattern into parentheses, and caused the recursion to refer "
+"to them instead of the whole pattern. In a larger pattern, keeping track of "
+"parenthesis numbers can be tricky. It may be more convenient to use named "
+"parentheses instead. The Perl syntax for this is (?&amp;name); GRegex also "
+"supports the(?P&gt;name) syntac. We could rewrite the above example as "
+"follows:"
+msgstr ""
+
+#: regex-syntax.sgml:231(entry)
+msgid "\"control-x\", where x is any character"
+msgstr ""
+
+#: regex-syntax.sgml:2318(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&lt;pn&gt; \\( ( (?&gt;[^()]+) | (?&amp;pn) )* \\) )\n"
+msgstr ""
+
+#: regex-syntax.sgml:2322(para)
+msgid ""
+"If there is more than one subpattern with the same name, the earliest one is "
+"used. This particular example pattern contains nested unlimited repeats, and "
+"so the use of atomic grouping for matching strings of non-parentheses is "
+"important when applying the pattern to strings that do not match. For "
+"example, when this pattern is applied to"
+msgstr ""
+
+#: regex-syntax.sgml:2330(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa()\n"
+msgstr ""
+
+#: regex-syntax.sgml:2334(para)
+msgid ""
+"it yields \"no match\" quickly. However, if atomic grouping is not used, the "
+"match runs for a very long time indeed because there are so many different "
+"ways the + and * repeats can carve up the string, and all have to be tested "
+"before failure can be reported."
+msgstr ""
+
+#: regex-syntax.sgml:234(entry)
+msgid "\\e"
+msgstr ""
+
+#: regex-syntax.sgml:2341(para)
+msgid ""
+"At the end of a match, the values set for any capturing subpatterns are "
+"those from the outermost level of the recursion at which the subpattern "
+"value is set. If the pattern above is matched against"
+msgstr ""
+
+#: regex-syntax.sgml:235(entry)
+msgid "escape (hex 1B)"
+msgstr ""
+
+#: regex-syntax.sgml:2353(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(ab(cd)ef)\n"
+msgstr ""
+
+#: regex-syntax.sgml:2357(para)
+msgid ""
+"the value for the capturing parentheses is \"ef\", which is the last value "
+"taken on at the top level. If additional parentheses are added, giving"
+msgstr ""
+
+#: regex-syntax.sgml:2363(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\( ( ( (?&gt;[^()]+) | (?R) )* ) \\)\n"
+"   ^                        ^\n"
+"   ^                        ^\n"
+msgstr ""
+
+#: regex-syntax.sgml:2369(para)
+msgid ""
+"the string they capture is \"ab(cd)ef\", the contents of the top level "
+"parentheses."
+msgstr ""
+
+#: regex-syntax.sgml:2374(para)
+msgid ""
+"Do not confuse the (?R) item with the condition (R), which tests for "
+"recursion. Consider this pattern, which matches text in angle brackets, "
+"allowing for arbitrary nesting. Only digits are allowed in nested brackets "
+"(that is, when recursing), whereas any characters are permitted at the outer "
+"level."
+msgstr ""
+
+#: regex-syntax.sgml:238(entry)
+msgid "\\f"
+msgstr ""
+
+#: regex-syntax.sgml:2382(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"&lt; (?: (?(R) \\d++ | [^&lt;&gt;]*+) | (?R)) * &gt;\n"
+msgstr ""
+
+#: regex-syntax.sgml:2386(para)
+msgid ""
+"In this pattern, (?(R) is the start of a conditional subpattern, with two "
+"different alternatives for the recursive and non-recursive cases. The (?R) "
+"item is the actual recursive call."
+msgstr ""
+
+#: regex-syntax.sgml:239(entry)
+msgid "formfeed (hex 0C)"
+msgstr ""
+
+#: regex-syntax.sgml:2394(title)
+msgid "Subpatterns as subroutines"
+msgstr ""
+
+#: regex-syntax.sgml:2395(para)
+msgid ""
+"If the syntax for a recursive subpattern reference (either by number or by "
+"name) is used outside the parentheses to which it refers, it operates like a "
+"subroutine in a programming language. The \"called\" subpattern may be "
+"defined before or after the reference. An earlier example pointed out that "
+"the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:2407(para)
+msgid ""
+"matches \"sense and sensibility\" and \"response and responsibility\", but "
+"not \"sense and responsibility\". If instead the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:2412(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(sens|respons)e and (?1)ibility\n"
+msgstr ""
+
+#: regex-syntax.sgml:2416(para)
+msgid ""
+"is used, it does match \"sense and responsibility\" as well as the other two "
+"strings. Another example is given in the discussion of DEFINE above."
+msgstr ""
+
+#: regex-syntax.sgml:242(entry)
+msgid "\\n"
+msgstr ""
+
+#: regex-syntax.sgml:2421(para)
+msgid ""
+"Like recursive subpatterns, a \"subroutine\" call is always treated as an "
+"atomic group. That is, once it has matched some of the string, it is never "
+"re-entered, even if it contains untried alternatives and there is a "
+"subsequent matching failure."
+msgstr ""
+
+#: regex-syntax.sgml:2428(para)
+msgid ""
+"When a subpattern is used as a subroutine, processing options such as case-"
+"independence are fixed when the subpattern is defined. They cannot be "
+"changed for different calls. For example, consider this pattern:"
+msgstr ""
+
+#: regex-syntax.sgml:243(entry)
+msgid "newline (hex 0A)"
+msgstr ""
+
+#: regex-syntax.sgml:2434(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(abc)(?i:(?1))\n"
+msgstr ""
+
+#: regex-syntax.sgml:2438(para)
+msgid ""
+"It matches \"abcabc\". It does not match \"abcABC\" because the change of "
+"processing option does not affect the called subpattern."
+msgstr ""
+
+#: regex-syntax.sgml:246(entry)
+msgid "\\r"
+msgstr ""
+
+#: regex-syntax.sgml:247(entry)
+msgid "carriage return (hex 0D)"
+msgstr ""
+
+#: regex-syntax.sgml:2491(title)
+msgid "Copyright"
+msgstr ""
+
+#: regex-syntax.sgml:2492(para)
+msgid ""
+"This document was copied and adapted from the PCRE documentation, "
+"specifically from the man page for pcrepattern. The original copyright note "
+"is:"
+msgstr ""
+
+#: regex-syntax.sgml:2498(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"Copyright (c) 1997-2006 University of Cambridge.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions are met:\n"
+"\n"
+"    * Redistributions of source code must retain the above copyright notice,\n"
+"      this list of conditions and the following disclaimer.\n"
+"\n"
+"    * Redistributions in binary form must reproduce the above copyright\n"
+"      notice, this list of conditions and the following disclaimer in the\n"
+"      documentation and/or other materials provided with the distribution.\n"
+"\n"
+"    * Neither the name of the University of Cambridge nor the name of Google\n"
+"      Inc. nor the names of their contributors may be used to endorse or\n"
+"      promote products derived from this software without specific prior\n"
+"      written permission.\n"
+"\n"
+"THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n"
+"AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n"
+"IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\n"
+"ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE\n"
+"LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n"
+"CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\n"
+"SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\n"
+"INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\n"
+"CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\n"
+"ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n"
+"POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: regex-syntax.sgml:250(entry)
+msgid "\\t"
+msgstr ""
+
+#: regex-syntax.sgml:251(entry)
+msgid "tab (hex 09)"
+msgstr ""
+
+#: regex-syntax.sgml:254(entry)
+msgid "\\ddd"
+msgstr ""
+
+#: regex-syntax.sgml:255(entry)
+msgid "character with octal code ddd, or backreference"
+msgstr ""
+
+#: regex-syntax.sgml:258(entry)
+msgid "\\xhh"
+msgstr ""
+
+#: regex-syntax.sgml:259(entry)
+msgid "character with hex code hh"
+msgstr ""
+
+#: regex-syntax.sgml:262(entry)
+msgid "\\x{hhh..}"
+msgstr ""
+
+#: regex-syntax.sgml:263(entry)
+msgid "character with hex code hhh.."
+msgstr ""
+
+#: regex-syntax.sgml:269(para)
+msgid ""
+"The precise effect of \\cx is as follows: if x is a lower case letter, it is "
+"converted to upper case. Then bit 6 of the character (hex 40) is inverted. "
+"Thus \\cz becomes hex 1A, but \\c{ becomes hex 3B, while \\c; becomes hex 7B."
+msgstr ""
+
+#: regex-syntax.sgml:27(title)
+msgid "GRegex regular expression details"
+msgstr ""
+
+#: regex-syntax.sgml:276(para)
+msgid ""
+"After \\x, from zero to two hexadecimal digits are read (letters can be in "
+"upper or lower case). Any number of hexadecimal digits may appear between \\x"
+"{ and }, but the value of the character code must be less than 2**31 (that "
+"is, the maximum hexadecimal value is 7FFFFFFF). If characters other than "
+"hexadecimal digits appear between \\x{ and }, or if there is no "
+"terminating }, this form of escape is not recognized. Instead, the initial "
+"\\x will be interpreted as a basic hexadecimal escape, with no following "
+"digits, giving a character whose value is zero."
+msgstr ""
+
+#: regex-syntax.sgml:28(para)
+msgid ""
+"A regular expression is a pattern that is matched against a string from left "
+"to right. Most characters stand for themselves in a pattern, and match the "
+"corresponding characters in the string. As a trivial example, the pattern"
+msgstr ""
+
+#: regex-syntax.sgml:288(para)
+msgid ""
+"Characters whose value is less than 256 can be defined by either of the two "
+"syntaxes for \\x. There is no difference in the way they are handled. For "
+"example, \\xdc is exactly the same as \\x{dc}."
+msgstr ""
+
+#: regex-syntax.sgml:295(para)
+msgid ""
+"After \\0 up to two further octal digits are read. If there are fewer than "
+"two digits, just those that are present are used. Thus the sequence \\0\\x"
+"\\07 specifies two binary zeros followed by a BEL character (code value 7). "
+"Make sure you supply two digits after the initial zero if the pattern "
+"character that follows is itself an octal digit."
+msgstr ""
+
+#: regex-syntax.sgml:304(para)
+msgid ""
+"The handling of a backslash followed by a digit other than 0 is complicated. "
+"Outside a character class, GRegex reads it and any following digits as a "
+"decimal number. If the number is less than 10, or if there have been at "
+"least that many previous capturing left parentheses in the expression, the "
+"entire sequence is taken as a back reference. A description of how this "
+"works is given later, following the discussion of parenthesized subpatterns."
+msgstr ""
+
+#: regex-syntax.sgml:314(para)
+msgid ""
+"Inside a character class, or if the decimal number is greater than 9 and "
+"there have not been that many capturing subpatterns, GRegex re-reads up to "
+"three octal digits following the backslash, and uses them to generate a data "
+"character. Any subsequent digits stand for themselves. For example:"
+msgstr ""
+
+#: regex-syntax.sgml:333(entry)
+msgid "\\040"
+msgstr ""
+
+#: regex-syntax.sgml:334(entry)
+msgid "is another way of writing a space"
+msgstr ""
+
+#: regex-syntax.sgml:337(entry)
+msgid "\\40"
+msgstr ""
+
+#: regex-syntax.sgml:338(entry)
+msgid ""
+"is the same, provided there are fewer than 40 previous capturing subpatterns"
+msgstr ""
+
+#: regex-syntax.sgml:341(entry)
+msgid "\\7"
+msgstr ""
+
+#: regex-syntax.sgml:342(entry)
+msgid "is always a back reference"
+msgstr ""
+
+#: regex-syntax.sgml:345(entry)
+msgid "\\11"
+msgstr ""
+
+#: regex-syntax.sgml:346(entry)
+msgid "might be a back reference, or another way of writing a tab"
+msgstr ""
+
+#: regex-syntax.sgml:349(entry)
+msgid "\\011"
+msgstr ""
+
+#: regex-syntax.sgml:35(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"The quick brown fox\n"
+msgstr ""
+
+#: regex-syntax.sgml:350(entry)
+msgid "is always a tab"
+msgstr ""
+
+#: regex-syntax.sgml:353(entry)
+msgid "\\0113"
+msgstr ""
+
+#: regex-syntax.sgml:354(entry)
+msgid "is a tab followed by the character \"3\""
+msgstr ""
+
+#: regex-syntax.sgml:357(entry)
+msgid "\\113"
+msgstr ""
+
+#: regex-syntax.sgml:358(entry)
+msgid "might be a back reference, otherwise the character with octal code 113"
+msgstr ""
+
+#: regex-syntax.sgml:361(entry)
+msgid "\\377"
+msgstr ""
+
+#: regex-syntax.sgml:362(entry)
+msgid ""
+"might be a back reference, otherwise the byte consisting entirely of 1 bits"
+msgstr ""
+
+#: regex-syntax.sgml:365(entry)
+msgid "\\81"
+msgstr ""
+
+#: regex-syntax.sgml:366(entry)
+msgid ""
+"is either a back reference, or a binary zero followed by the two characters "
+"\"8\" and \"1\""
+msgstr ""
+
+#: regex-syntax.sgml:372(para)
+msgid ""
+"Note that octal values of 100 or greater must not be introduced by a leading "
+"zero, because no more than three octal digits are ever read."
+msgstr ""
+
+#: regex-syntax.sgml:377(para)
+msgid ""
+"All the sequences that define a single character can be used both inside and "
+"outside character classes. In addition, inside a character class, the "
+"sequence \\b is interpreted as the backspace character (hex 08), and the "
+"sequences \\R and \\X are interpreted as the characters \"R\" and \"X\", "
+"respectively. Outside a character class, these sequences have different "
+"meanings (see below)."
+msgstr ""
+
+#: regex-syntax.sgml:387(title)
+msgid "Absolute and relative back references"
+msgstr ""
+
+#: regex-syntax.sgml:388(para)
+msgid ""
+"The sequence \\g followed by a positive or negative number, optionally "
+"enclosed in braces, is an absolute or relative back reference. Back "
+"references are discussed later, following the discussion of parenthesized "
+"subpatterns."
+msgstr ""
+
+#: regex-syntax.sgml:39(para)
+msgid ""
+"matches a portion of a string that is identical to itself. When caseless "
+"matching is specified (the <varname>G_REGEX_CASELESS</varname> flag), "
+"letters are matched independently of case."
+msgstr ""
+
+#: regex-syntax.sgml:396(title) regex-syntax.sgml:491(title)
+msgid "Generic character types"
+msgstr ""
+
+#: regex-syntax.sgml:398(para)
+msgid ""
+"Another use of backslash is for specifying generic character types. The "
+"following are always recognized:"
+msgstr ""
+
+#: regex-syntax.sgml:404(title)
+msgid "Generic characters"
+msgstr ""
+
+#: regex-syntax.sgml:415(entry)
+msgid "\\d"
+msgstr ""
+
+#: regex-syntax.sgml:416(entry)
+msgid "any decimal digit"
+msgstr ""
+
+#: regex-syntax.sgml:419(entry)
+msgid "\\D"
+msgstr ""
+
+#: regex-syntax.sgml:420(entry)
+msgid "any character that is not a decimal digit"
+msgstr ""
+
+#: regex-syntax.sgml:423(entry)
+msgid "\\s"
+msgstr ""
+
+#: regex-syntax.sgml:424(entry)
+msgid "any whitespace character"
+msgstr ""
+
+#: regex-syntax.sgml:427(entry)
+msgid "\\S"
+msgstr ""
+
+#: regex-syntax.sgml:428(entry)
+msgid "any character that is not a whitespace character"
+msgstr ""
+
+#: regex-syntax.sgml:431(entry)
+msgid "\\w"
+msgstr ""
+
+#: regex-syntax.sgml:432(entry)
+msgid "any \"word\" character"
+msgstr ""
+
+#: regex-syntax.sgml:435(entry)
+msgid "\\W"
+msgstr ""
+
+#: regex-syntax.sgml:436(entry)
+msgid "any \"non-word\" character"
+msgstr ""
+
+#: regex-syntax.sgml:442(para)
+msgid ""
+"Each pair of escape sequences partitions the complete set of characters into "
+"two disjoint sets. Any given character matches one, and only one, of each "
+"pair."
+msgstr ""
+
+#: regex-syntax.sgml:448(para)
+msgid ""
+"These character type sequences can appear both inside and outside character "
+"classes. They each match one character of the appropriate type. If the "
+"current matching point is at the end of the passed string, all of them fail, "
+"since there is no character to match."
+msgstr ""
+
+#: regex-syntax.sgml:45(para)
+msgid ""
+"The power of regular expressions comes from the ability to include "
+"alternatives and repetitions in the pattern. These are encoded in the "
+"pattern by the use of metacharacters, which do not stand for themselves but "
+"instead are interpreted in some special way."
+msgstr ""
+
+#: regex-syntax.sgml:455(para)
+msgid ""
+"For compatibility with Perl, \\s does not match the VT character (code 11). "
+"This makes it different from the the POSIX \"space\" class. The \\s "
+"characters are HT (9), LF (10), FF (12), CR (13), and space (32)."
+msgstr ""
+
+#: regex-syntax.sgml:461(para)
+msgid ""
+"A \"word\" character is an underscore or any character less than 256 that is "
+"a letter or digit."
+msgstr ""
+
+#: regex-syntax.sgml:465(para)
+msgid ""
+"Characters with values greater than 128 never match \\d, \\s, or \\w, and "
+"always match \\D, \\S, and \\W."
+msgstr ""
+
+#: regex-syntax.sgml:472(title)
+msgid "Newline sequences"
+msgstr ""
+
+#: regex-syntax.sgml:473(para)
+msgid ""
+"Outside a character class, the escape sequence \\R matches any Unicode "
+"newline sequence. This particular group matches either the two-character "
+"sequence CR followed by LF, or one of the single characters LF (linefeed, U"
+"+000A), VT (vertical tab, U+000B), FF (formfeed, U+000C), CR (carriage "
+"return, U+000D), NEL (next line, U+0085), LS (line separator, U+2028), or PS "
+"(paragraph separator, U+2029). The two-character sequence is treated as a "
+"single unit that cannot be split. Inside a character class, \\R matches the "
+"letter \"R\"."
+msgstr ""
+
+#: regex-syntax.sgml:484(title)
+msgid "Unicode character properties"
+msgstr ""
+
+#: regex-syntax.sgml:485(para)
+msgid ""
+"To support generic character types there are three additional escape "
+"sequences, they are:"
+msgstr ""
+
+#: regex-syntax.sgml:502(entry)
+msgid "\\p{xx}"
+msgstr ""
+
+#: regex-syntax.sgml:503(entry)
+msgid "a character with the xx property"
+msgstr ""
+
+#: regex-syntax.sgml:506(entry)
+msgid "\\P{xx}"
+msgstr ""
+
+#: regex-syntax.sgml:507(entry)
+msgid "a character without the xx property"
+msgstr ""
+
+#: regex-syntax.sgml:510(entry)
+msgid "\\X"
+msgstr ""
+
+#: regex-syntax.sgml:511(entry)
+msgid "an extended Unicode sequence"
+msgstr ""
+
+#: regex-syntax.sgml:517(para)
+msgid ""
+"The property names represented by xx above are limited to the Unicode script "
+"names, the general category properties, and \"Any\", which matches any "
+"character (including newline). Other properties such as \"InMusicalSymbols\" "
+"are not currently supported. Note that \\P{Any} does not match any "
+"characters, so always causes a match failure."
+msgstr ""
+
+#: regex-syntax.sgml:52(para)
+msgid ""
+"There are two different sets of metacharacters: those that are recognized "
+"anywhere in the pattern except within square brackets, and those that are "
+"recognized in square brackets. Outside square brackets, the metacharacters "
+"are as follows:"
+msgstr ""
+
+#: regex-syntax.sgml:525(para)
+msgid ""
+"Sets of Unicode characters are defined as belonging to certain scripts. A "
+"character from one of these sets can be matched using a script name. For "
+"example, \\p{Greek} or \\P{Han}."
+msgstr ""
+
+#: regex-syntax.sgml:531(para)
+msgid ""
+"Those that are not part of an identified script are lumped together as "
+"\"Common\". The current list of scripts can be found in the documentation "
+"for the #GUnicodeScript enumeration. Script names for use with \\p{} can be "
+"found by replacing all spaces with underscores, e.g. for Linear B use \\p"
+"{Linear_B}."
+msgstr ""
+
+#: regex-syntax.sgml:539(para)
+msgid ""
+"Each character has exactly one general category property, specified by a two-"
+"letter abbreviation. For compatibility with Perl, negation can be specified "
+"by including a circumflex between the opening brace and the property name. "
+"For example, \\p{^Lu} is the same as \\P{Lu}."
+msgstr ""
+
+#: regex-syntax.sgml:546(para)
+msgid ""
+"If only one letter is specified with \\p or \\P, it includes all the general "
+"category properties that start with that letter. In this case, in the "
+"absence of negation, the curly brackets in the escape sequence are optional; "
+"these two examples have the same effect:"
+msgstr ""
+
+#: regex-syntax.sgml:553(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\\p{L}\n"
+"\\pL\n"
+msgstr ""
+
+#: regex-syntax.sgml:558(para)
+msgid ""
+"In addition to the two-letter category codes listed in the documentation for "
+"the #GUnicodeType enumeration, the following general category property codes "
+"are supported:"
+msgstr ""
+
+#: regex-syntax.sgml:565(title)
+msgid "Property codes"
+msgstr ""
+
+#: regex-syntax.sgml:570(entry)
+msgid "Code"
+msgstr ""
+
+#: regex-syntax.sgml:576(entry)
+msgid "C"
+msgstr ""
+
+#: regex-syntax.sgml:577(entry)
+msgid "Other"
+msgstr ""
+
+#: regex-syntax.sgml:580(entry)
+msgid "L"
+msgstr ""
+
+#: regex-syntax.sgml:581(entry)
+msgid "Letter"
+msgstr ""
+
+#: regex-syntax.sgml:584(entry)
+msgid "M"
+msgstr ""
+
+#: regex-syntax.sgml:585(entry)
+msgid "Mark"
+msgstr ""
+
+#: regex-syntax.sgml:588(entry)
+msgid "N"
+msgstr ""
+
+#: regex-syntax.sgml:589(entry)
+msgid "Number"
+msgstr ""
+
+#: regex-syntax.sgml:592(entry)
+msgid "P"
+msgstr ""
+
+#: regex-syntax.sgml:593(entry)
+msgid "Punctuation"
+msgstr ""
+
+#: regex-syntax.sgml:596(entry)
+msgid "S"
+msgstr ""
+
+#: regex-syntax.sgml:60(title)
+msgid "Metacharacters outside square brackets"
+msgstr ""
+
+#: regex-syntax.sgml:600(entry)
+msgid "Z"
+msgstr ""
+
+#: regex-syntax.sgml:601(entry)
+msgid "Separator"
+msgstr ""
+
+#: regex-syntax.sgml:607(para)
+msgid ""
+"The special property L&amp; is also supported: it matches a character that "
+"has the Lu, Ll, or Lt property, in other words, a letter that is not "
+"classified as a modifier or \"other\"."
+msgstr ""
+
+#: regex-syntax.sgml:613(para)
+msgid ""
+"The long synonyms for these properties that Perl supports (such as \\ep"
+"{Letter}) are not supported by GRegex, nor is it permitted to prefix any of "
+"these properties with \"Is\"."
+msgstr ""
+
+#: regex-syntax.sgml:619(para)
+msgid ""
+"No character that is in the Unicode table has the Cn (unassigned) property. "
+"Instead, this property is assumed for any code point that is not in the "
+"Unicode table."
+msgstr ""
+
+#: regex-syntax.sgml:625(para)
+msgid ""
+"Specifying caseless matching does not affect these escape sequences. For "
+"example, \\p{Lu} always matches only upper case letters."
+msgstr ""
+
+#: regex-syntax.sgml:630(para)
+msgid ""
+"The \\X escape matches any number of Unicode characters that form an "
+"extended Unicode sequence. \\X is equivalent to"
+msgstr ""
+
+#: regex-syntax.sgml:635(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"(?&gt;\\PM\\pM*)\n"
+msgstr ""
+
+#: regex-syntax.sgml:639(para)
+msgid ""
+"That is, it matches a character without the \"mark\" property, followed by "
+"zero or more characters with the \"mark\" property, and treats the sequence "
+"as an atomic group (see below). Characters with the \"mark\" property are "
+"typically accents that affect the preceding character."
+msgstr ""
+
+#: regex-syntax.sgml:646(para)
+msgid ""
+"Matching characters by Unicode property is not fast, because GRegex has to "
+"search a structure that contains data for over fifteen thousand characters. "
+"That is why the traditional escape sequences such as \\d and \\w do not use "
+"Unicode properties."
+msgstr ""
+
+#: regex-syntax.sgml:655(title) regex-syntax.sgml:665(title)
+msgid "Simple assertions"
+msgstr ""
+
+#: regex-syntax.sgml:656(para)
+msgid ""
+"The final use of backslash is for certain simple assertions. An assertion "
+"specifies a condition that has to be met at a particular point in a match, "
+"without consuming any characters from the string. The use of subpatterns for "
+"more complicated assertions is described below. The backslashed assertions "
+"are:"
+msgstr ""
+
+#: regex-syntax.sgml:676(entry)
+msgid "\\b"
+msgstr ""
+
+#: regex-syntax.sgml:677(entry)
+msgid "matches at a word boundary"
+msgstr ""
+
+#: regex-syntax.sgml:680(entry)
+msgid "\\B"
+msgstr ""
+
+#: regex-syntax.sgml:681(entry)
+msgid "matches when not at a word boundary"
+msgstr ""
+
+#: regex-syntax.sgml:684(entry)
+msgid "\\A"
+msgstr ""
+
+#: regex-syntax.sgml:685(entry)
+msgid "matches at the start of the string"
+msgstr ""
+
+#: regex-syntax.sgml:688(entry)
+msgid "\\Z"
+msgstr ""
+
+#: regex-syntax.sgml:689(entry)
+msgid ""
+"matches at the end of the string or before a newline at the end of the string"
+msgstr ""
+
+#: regex-syntax.sgml:692(entry)
+msgid "\\z"
+msgstr ""
+
+#: regex-syntax.sgml:693(entry)
+msgid "matches only at the end of the string"
+msgstr ""
+
+#: regex-syntax.sgml:696(entry)
+msgid "\\G"
+msgstr ""
+
+#: regex-syntax.sgml:697(entry)
+msgid "matches at first matching position in the string"
+msgstr ""
+
+#: regex-syntax.sgml:703(para)
+msgid ""
+"These assertions may not appear in character classes (but note that \\b has "
+"a different meaning, namely the backspace character, inside a character "
+"class)."
+msgstr ""
+
+#: regex-syntax.sgml:709(para)
+msgid ""
+"A word boundary is a position in the string where the current character and "
+"the previous character do not both match \\w or \\W (i.e. one matches \\w "
+"and the other matches \\W), or the start or end of the string if the first "
+"or last character matches \\w, respectively."
+msgstr ""
+
+#: regex-syntax.sgml:716(para)
+msgid ""
+"The \\A, \\Z, and \\z assertions differ from the traditional circumflex and "
+"dollar (described in the next section) in that they only ever match at the "
+"very start and end of the string, whatever options are set. Thus, they are "
+"independent of multiline mode. These three assertions are not affected by "
+"the <varname>G_REGEX_MATCH_NOTBOL</varname> or "
+"<varname>G_REGEX_MATCH_NOTEOL</varname> options, which affect only the "
+"behaviour of the circumflex and dollar metacharacters. However, if the "
+"start_position argument of a matching function is non-zero, indicating that "
+"matching is to start at a point other than the beginning of the string, \\A "
+"can never match. The difference between \\Z and \\z is that \\Z matches "
+"before a newline at the end of the string as well at the very end, whereas "
+"\\z matches only at the end."
+msgstr ""
+
+#: regex-syntax.sgml:72(entry)
+msgid "general escape character with several uses"
+msgstr ""
+
+#: regex-syntax.sgml:730(para)
+msgid ""
+"The \\G assertion is true only when the current matching position is at the "
+"start point of the match, as specified by the start_position argument to the "
+"matching functions. It differs from \\A when the value of startoffset is non-"
+"zero."
+msgstr ""
+
+#: regex-syntax.sgml:737(para)
+msgid ""
+"Note, however, that the interpretation of \\G, as the start of the current "
+"match, is subtly different from Perl\342\200\231s, which defines it as the "
+"end of the previous match. In Perl, these can be different when the "
+"previously matched string was empty."
+msgstr ""
+
+#: regex-syntax.sgml:744(para)
+msgid ""
+"If all the alternatives of a pattern begin with \\G, the expression is "
+"anchored to the starting match position, and the \"anchored\" flag is set in "
+"the compiled regular expression."
+msgstr ""
+
+#: regex-syntax.sgml:753(title)
+msgid "Circumflex and dollar"
+msgstr ""
+
+#: regex-syntax.sgml:754(para)
+msgid ""
+"Outside a character class, in the default matching mode, the circumflex "
+"character is an assertion that is true only if the current matching point is "
+"at the start of the string. If the start_position argument to the matching "
+"functions is non-zero, circumflex can never match if the "
+"<varname>G_REGEX_MULTILINE</varname> option is unset. Inside a character "
+"class, circumflex has an entirely different meaning (see below)."
+msgstr ""
+
+#: regex-syntax.sgml:76(entry)
+msgid "assert start of string (or line, in multiline mode)"
+msgstr ""
+
+#: regex-syntax.sgml:763(para)
+msgid ""
+"Circumflex need not be the first character of the pattern if a number of "
+"alternatives are involved, but it should be the first thing in each "
+"alternative in which it appears if the pattern is ever to match that branch. "
+"If all possible alternatives start with a circumflex, that is, if the "
+"pattern is constrained to match only at the start of the string, it is said "
+"to be an \"anchored\" pattern. (There are also other constructs that can "
+"cause a pattern to be anchored.)"
+msgstr ""
+
+#: regex-syntax.sgml:773(para)
+msgid ""
+"A dollar character is an assertion that is true only if the current matching "
+"point is at the end of the string, or immediately before a newline at the "
+"end of the string (by default). Dollar need not be the last character of the "
+"pattern if a number of alternatives are involved, but it should be the last "
+"item in any branch in which it appears. Dollar has no special meaning in a "
+"character class."
+msgstr ""
+
+#: regex-syntax.sgml:782(para)
+msgid ""
+"The meaning of dollar can be changed so that it matches only at the very end "
+"of the string, by setting the <varname>G_REGEX_DOLLAR_ENDONLY</varname> "
+"option at compile time. This does not affect the \\Z assertion."
+msgstr ""
+
+#: regex-syntax.sgml:788(para)
+msgid ""
+"The meanings of the circumflex and dollar characters are changed if the "
+"<varname>G_REGEX_MULTILINE</varname> option is set. When this is the case, a "
+"circumflex matches immediately after internal newlines as well as at the "
+"start of the string. It does not match after a newline that ends the string. "
+"A dollar matches before any newlines in the string, as well as at the very "
+"end, when <varname>G_REGEX_MULTILINE</varname> is set. When newline is "
+"specified as the two-character sequence CRLF, isolated CR and LF characters "
+"do not indicate newlines."
+msgstr ""
+
+#: regex-syntax.sgml:79(entry)
+msgid "$"
+msgstr ""
+
+#: regex-syntax.sgml:799(para)
+msgid ""
+"For example, the pattern /^abc$/ matches the string \"def\\nabc\" (where \\n "
+"represents a newline) in multiline mode, but not otherwise. Consequently, "
+"patterns that are anchored in single line mode because all branches start "
+"with ^ are not anchored in multiline mode, and a match for circumflex is "
+"possible when the <varname>start_position</varname> argument of a matching "
+"function is non-zero. The <varname>G_REGEX_DOLLAR_ENDONLY</varname> option "
+"is ignored if <varname>G_REGEX_MULTILINE</varname> is set."
+msgstr ""
+
+#: regex-syntax.sgml:80(entry)
+msgid "assert end of string (or line, in multiline mode)"
+msgstr ""
+
+#: regex-syntax.sgml:809(para)
+msgid ""
+"Note that the sequences \\A, \\Z, and \\z can be used to match the start and "
+"end of the string in both modes, and if all branches of a pattern start with "
+"\\A it is always anchored, whether or not <varname>G_REGEX_MULTILINE</"
+"varname> is set."
+msgstr ""
+
+#: regex-syntax.sgml:818(title)
+msgid "Full stop (period, dot)"
+msgstr ""
+
+#: regex-syntax.sgml:819(para)
+msgid ""
+"Outside a character class, a dot in the pattern matches any one character in "
+"the string, including a non-printing character, but not (by default) "
+"newline. In UTF-8 a character might be more than one byte long."
+msgstr ""
+
+#: regex-syntax.sgml:825(para)
+msgid ""
+"When a line ending is defined as a single character, dot never matches that "
+"character; when the two-character sequence CRLF is used, dot does not match "
+"CR if it is immediately followed by LF, but otherwise it matches all "
+"characters (including isolated CRs and LFs). When any Unicode line endings "
+"are being recognized, dot does not match CR or LF or any of the other line "
+"ending characters."
+msgstr ""
+
+#: regex-syntax.sgml:83(entry)
+msgid "."
+msgstr ""
+
+#: regex-syntax.sgml:834(para)
+msgid ""
+"If the <varname>G_REGEX_DOTALL</varname> flag is set, dots match newlines as "
+"well. The handling of dot is entirely independent of the handling of "
+"circumflex and dollar, the only relationship being that they both involve "
+"newline characters. Dot has no special meaning in a character class."
+msgstr ""
+
+#: regex-syntax.sgml:84(entry)
+msgid "match any character except newline (by default)"
+msgstr ""
+
+#: regex-syntax.sgml:841(para)
+msgid ""
+"The behaviour of dot with regard to newlines can be changed. If the "
+"<varname>G_REGEX_DOTALL</varname> option is set, a dot matches any one "
+"character, without exception. If newline is defined as the two-character "
+"sequence CRLF, it takes two dots to match it."
+msgstr ""
+
+#: regex-syntax.sgml:848(para)
+msgid ""
+"The handling of dot is entirely independent of the handling of circumflex "
+"and dollar, the only relationship being that they both involve newlines. Dot "
+"has no special meaning in a character class."
+msgstr ""
+
+#: regex-syntax.sgml:856(title)
+msgid "Matching a single byte"
+msgstr ""
+
+#: regex-syntax.sgml:857(para)
+msgid ""
+"Outside a character class, the escape sequence \\C matches any one byte, "
+"both in and out of UTF-8 mode. Unlike a dot, it always matches any line "
+"ending characters. The feature is provided in Perl in order to match "
+"individual bytes in UTF-8 mode. Because it breaks up UTF-8 characters into "
+"individual bytes, what remains in the string may be a malformed UTF-8 "
+"string. For this reason, the \\C escape sequence is best avoided."
+msgstr ""
+
+#: regex-syntax.sgml:867(para)
+msgid ""
+"GRegex does not allow \\C to appear in lookbehind assertions (described "
+"below), because in UTF-8 mode this would make it impossible to calculate the "
+"length of the lookbehind."
+msgstr ""
+
+#: regex-syntax.sgml:875(title)
+msgid "Square brackets and character classes"
+msgstr ""
+
+#: regex-syntax.sgml:876(para)
+msgid ""
+"An opening square bracket introduces a character class, terminated by a "
+"closing square bracket. A closing square bracket on its own is not special. "
+"If a closing square bracket is required as a member of the class, it should "
+"be the first data character in the class (after an initial circumflex, if "
+"present) or escaped with a backslash."
+msgstr ""
+
+#: regex-syntax.sgml:88(entry)
+msgid "start character class definition"
+msgstr ""
+
+#: regex-syntax.sgml:883(para)
+msgid ""
+"A character class matches a single character in the string. A matched "
+"character must be in the set of characters defined by the class, unless the "
+"first character in the class definition is a circumflex, in which case the "
+"string character must not be in the set defined by the class. If a "
+"circumflex is actually required as a member of the class, ensure it is not "
+"the first character, or escape it with a backslash."
+msgstr ""
+
+#: regex-syntax.sgml:892(para)
+msgid ""
+"For example, the character class [aeiou] matches any lower case vowel, while "
+"[^aeiou] matches any character that is not a lower case vowel. Note that a "
+"circumflex is just a convenient notation for specifying the characters that "
+"are in the class by enumerating those that are not. A class that starts with "
+"a circumflex is not an assertion: it still consumes a character from the "
+"string, and therefore it fails if the current pointer is at the end of the "
+"string."
+msgstr ""
+
+#: regex-syntax.sgml:902(para)
+msgid ""
+"In UTF-8 mode, characters with values greater than 255 can be included in a "
+"class as a literal string of bytes, or by using the \\x{ escaping mechanism."
+msgstr ""
+
+#: regex-syntax.sgml:908(para)
+msgid ""
+"When caseless matching is set, any letters in a class represent both their "
+"upper case and lower case versions, so for example, a caseless [aeiou] "
+"matches \"A\" as well as \"a\", and a caseless [^aeiou] does not match \"A"
+"\", whereas a caseful version would."
+msgstr ""
+
+#: regex-syntax.sgml:91(entry)
+msgid "|"
+msgstr ""
+
+#: regex-syntax.sgml:915(para)
+msgid ""
+"Characters that might indicate line breaks are never treated in any special "
+"way when matching character classes, whatever line-ending sequence is in "
+"use, and whatever setting of the <varname>G_REGEX_DOTALL</varname> and "
+"<varname>G_REGEX_MULTILINE</varname> options is used. A class such as [^a] "
+"always matches one of these characters."
+msgstr ""
+
+#: regex-syntax.sgml:92(entry)
+msgid "start of alternative branch"
+msgstr ""
+
+#: regex-syntax.sgml:923(para)
+msgid ""
+"The minus (hyphen) character can be used to specify a range of characters in "
+"a character class. For example, [d-m] matches any letter between d and m, "
+"inclusive. If a minus character is required in a class, it must be escaped "
+"with a backslash or appear in a position where it cannot be interpreted as "
+"indicating a range, typically as the first or last character in the class."
+msgstr ""
+
+#: regex-syntax.sgml:932(para)
+msgid ""
+"It is not possible to have the literal character \"]\" as the end character "
+"of a range. A pattern such as [W-]46] is interpreted as a class of two "
+"characters (\"W\" and \"-\") followed by a literal string \"46]\", so it "
+"would match \"W46]\" or \"-46]\". However, if the \"]\" is escaped with a "
+"backslash it is interpreted as the end of range, so [W-\\]46] is interpreted "
+"as a class containing a range followed by two other characters. The octal or "
+"hexadecimal representation of \"]\" can also be used to end a range."
+msgstr ""
+
+#: regex-syntax.sgml:943(para)
+msgid ""
+"Ranges operate in the collating sequence of character values. They can also "
+"be used for characters specified numerically, for example [\\000-\\037]. In "
+"UTF-8 mode, ranges can include characters whose values are greater than 255, "
+"for example [\\x{100}-\\x{2ff}]."
+msgstr ""
+
+#: regex-syntax.sgml:95(entry)
+msgid "("
+msgstr ""
+
+#: regex-syntax.sgml:950(para)
+msgid ""
+"The character types \\d, \\D, \\p, \\P, \\s, \\S, \\w, and \\W may also "
+"appear in a character class, and add the characters that they match to the "
+"class. For example, [\\dABCDEF] matches any hexadecimal digit. A circumflex "
+"can conveniently be used with the upper case character types to specify a "
+"more restricted set of characters than the matching lower case type. For "
+"example, the class [^\\W_] matches any letter or digit, but not underscore."
+msgstr ""
+
+#: regex-syntax.sgml:96(entry)
+msgid "start subpattern"
+msgstr ""
+
+#: regex-syntax.sgml:960(para)
+msgid ""
+"The only metacharacters that are recognized in character classes are "
+"backslash, hyphen (only where it can be interpreted as specifying a range), "
+"circumflex (only at the start), opening square bracket (only when it can be "
+"interpreted as introducing a POSIX class name - see the next section), and "
+"the terminating closing square bracket. However, escaping other non-"
+"alphanumeric characters does no harm."
+msgstr ""
+
+#: regex-syntax.sgml:971(title)
+msgid "Posix character classes"
+msgstr ""
+
+#: regex-syntax.sgml:972(para)
+msgid ""
+"GRegex supports the POSIX notation for character classes. This uses names "
+"enclosed by [: and :] within the enclosing square brackets. For example,"
+msgstr ""
+
+#: regex-syntax.sgml:977(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"[01[:alpha:]%]\n"
+msgstr ""
+
+#: regex-syntax.sgml:981(para)
+msgid ""
+"matches \"0\", \"1\", any alphabetic character, or \"%\". The supported "
+"class names are"
+msgstr ""
+
+#: regex-syntax.sgml:987(title)
+msgid "Posix classes"
+msgstr ""
+
+#: regex-syntax.sgml:99(entry)
+msgid ")"
+msgstr ""
+
+#: regex-syntax.sgml:992(entry)
+msgid "Name"
+msgstr ""
+
+#: regex-syntax.sgml:998(entry)
+msgid "alnum"
+msgstr ""
+
+#: regex-syntax.sgml:999(entry)
+msgid "letters and digits"
+msgstr ""
+
+#: resources.sgml:101(ulink)
+msgid "gtk-doc-list@gnome.org"
+msgstr ""
+
+#: resources.sgml:102(para)
+msgid ""
+"gtk-doc-list is for discussion of the <application>gtk-doc</application> "
+"documentation system (used to document GTK+ and Glib), and for work on the "
+"GTK+ (and GLib) documentation."
+msgstr ""
+
+#: resources.sgml:13(refname) resources.sgml:7(refentrytitle)
+#: resources.sgml:9(refmiscinfo)
+msgid "Mailing lists and bug reports"
+msgstr ""
+
+#: resources.sgml:14(refpurpose)
+msgid "Getting help with GLib"
+msgstr ""
+
+#: resources.sgml:20(title)
+msgid "Filing a bug report or feature request"
+msgstr ""
+
+#: resources.sgml:22(para)
+msgid ""
+"If you encounter a bug, misfeature, or missing feature in GLib, please file "
+"a bug report on <ulink url=\"http://bugzilla.gnome.org\">http://bugzilla."
+"gnome.org</ulink>. We'd also appreciate reports of incomplete or misleading "
+"information in the GLib documentation; file those against the \"docs\" "
+"component of the \"glib\" product in Bugzilla."
+msgstr ""
+
+#: resources.sgml:31(para)
+msgid ""
+"Don't hesitate to file a bug report, even if you think we may know about it "
+"already, or aren't sure of the details. Just give us as much information as "
+"you have, and if it's already fixed or has already been discussed, we'll add "
+"a note to that effect in the report."
+msgstr ""
+
+#: resources.sgml:38(para)
+msgid ""
+"The bug tracker should definitely be used for feature requests, it's not "
+"only for bugs. We track all GLib development in Bugzilla, so it's the way to "
+"be sure the GLib developers won't forget about an issue."
+msgstr ""
+
+#: resources.sgml:47(title)
+msgid "Submitting Patches"
+msgstr ""
+
+#: resources.sgml:49(para)
+msgid ""
+"If you develop a bugfix or enhancement for GLib, please file that in "
+"Bugzilla as well. Bugzilla allows you to attach files; please attach a patch "
+"generated by the <command>diff</command> utility, using the <option>-u</"
+"option> option to make the patch more readable. All patches must be offered "
+"under the terms of the GNU LGPL license, so be sure you are authorized to "
+"give us the patch under those terms."
+msgstr ""
+
+#: resources.sgml:58(para)
+msgid ""
+"If you want to discuss your patch before or after developing it, mail <ulink "
+"url=\"mailto:gtk-devel-list@gnome.org\">gtk-devel-list@gnome.org</ulink>. "
+"But be sure to file the Bugzilla report as well; if the patch is only on the "
+"list and not in Bugzilla, it's likely to slip through the cracks."
+msgstr ""
+
+#: resources.sgml:68(title)
+msgid "Mailing lists"
+msgstr ""
+
+#: resources.sgml:70(para)
+msgid ""
+"There are several mailing lists dedicated to GTK+ and related libraries. "
+"Discussion of GLib generally takes place on these lists. You can subscribe "
+"or view the archives of these lists on <ulink url=\"http://mail.gnome.org"
+"\">http://mail.gnome.org</ulink>."
+msgstr ""
+
+#: resources.sgml:81(ulink)
+msgid "gtk-list@gnome.org"
+msgstr ""
+
+#: resources.sgml:82(para)
+msgid ""
+"gtk-list covers general GTK+ (and GLib) topics; questions about using GLib "
+"in programs, GLib from a user standpoint, announcements of GLib-related "
+"projects would all be on-topic. The bulk of the traffic consists of GTK+ "
+"programming questions."
+msgstr ""
+
+#: resources.sgml:91(ulink)
+msgid "gtk-devel-list@gnome.org"
+msgstr ""
+
+#: resources.sgml:92(para)
+msgid ""
+"gtk-devel-list is for discussion of work on GTK+ (and GLib) itself, it is "
+"<emphasis>not</emphasis> for asking questions about how to use GTK+ (or "
+"GLib) in applications. gtk-devel-list is appropriate for discussion of "
+"patches, bugs, proposed features, and so on."
+msgstr ""
+
+#: running.sgml:101(para)
+msgid ""
+"All modules loaded by GModule will be made resident. This can be useful for "
+"tracking memory leaks in modules which are later unloaded; but it can also "
+"hide bugs where code is accessed after the module would have normally been "
+"unloaded. This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+
+#: running.sgml:112(term)
+msgid "bind-now-modules"
+msgstr ""
+
+#: running.sgml:114(para)
+msgid ""
+"All modules loaded by GModule will bind their symbols at load time, even "
+"when the code uses %G_MODULE_BIND_LAZY. This option is special in that it "
+"doesn't require GLib to be configured with debugging support."
+msgstr ""
+
+#: running.sgml:129(envar)
+msgid "G_SLICE"
+msgstr ""
+
+#: running.sgml:13(refname) running.sgml:7(refentrytitle)
+msgid "Running GLib Applications"
+msgstr ""
+
+#: running.sgml:130(para)
+msgid ""
+"This environment variable allows reconfiguration of the GSlice memory "
+"allocator. <placeholder-1/> The special value all can be used to turn on all "
+"options. The special value help can be used to print all available options."
+msgstr ""
+
+#: running.sgml:135(term)
+msgid "always-malloc"
+msgstr ""
+
+#: running.sgml:137(para)
+msgid ""
+"This will cause all slices allocated through g_slice_alloc() and released by "
+"g_slice_free1() to be actually allocated via direct calls to g_malloc() and "
+"g_free(). This is most useful for memory checkers and similar programs that "
+"use Bohem GC alike algorithms to produce more accurate results. It can also "
+"be in conjunction with debugging features of the system's malloc "
+"implementation such as glibc's MALLOC_CHECK_=2 to debug erroneous slice "
+"allocation code, allthough <literal>debug-blocks</literal> usually is a "
+"better suited debugging tool."
+msgstr ""
+
+#: running.sgml:14(refpurpose)
+msgid "How to run and debug your GLib application"
+msgstr ""
+
+#: running.sgml:151(term)
+msgid "debug-blocks"
+msgstr ""
+
+#: running.sgml:153(para)
+msgid ""
+"Using this option (present since GLib-2.13) engages extra code which "
+"performs sanity checks on the released memory slices. Invalid slice adresses "
+"or slice sizes will be reported and lead to a program halt. This option is "
+"for debugging scenarios. In particular, client packages sporting their own "
+"test suite should <emphasis>always enable this option when running tests</"
+"emphasis>. Global slice validation is ensured by storing size and address "
+"information for each allocated chunk, and maintaining a global hash table of "
+"that data. That way, multi-thread scalability is given up, and memory "
+"consumption is increased. However, the resulting code usually performs "
+"acceptably well, possibly better than with comparable memory checking "
+"carried out using external tools. An example of a memory corruption scenario "
+"that cannot be reproduced with <literal>G_SLICE=always-malloc</literal>, but "
+"will be caught by <literal>G_SLICE=debug-blocks</literal> is as follows: "
+"<placeholder-1/>"
+msgstr ""
+
+#: running.sgml:169(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\t\t    void *slist = g_slist_alloc(); /* void* gives up type-safety */\n"
+"\t\t    g_list_free (slist);           /* corruption: sizeof (GSList) != sizeof (GList) */\n"
+"\t\t  "
+msgstr ""
+
+#: running.sgml:183(envar)
+msgid "G_RANDOM_VERSION"
+msgstr ""
+
+#: running.sgml:185(para)
+msgid ""
+"If this environment variable is set to '2.0', the outdated pseudo-random "
+"number seeding and generation algorithms from GLib-2.0 are used instead of "
+"the new better ones. Use the GLib-2.0 algorithms only if you have sequences "
+"of numbers generated with Glib-2.0 that you need to reproduce exactly."
+msgstr ""
+
+#: running.sgml:195(envar)
+msgid "LIBCHARSET_ALIAS_DIR"
+msgstr ""
+
+#: running.sgml:197(para)
+msgid ""
+"Allows to specify a nonstandard location for the <filename>charset.aliases</"
+"filename> file that is used by the character set conversion routines. The "
+"default location is the <replaceable>libdir</replaceable> specified at "
+"compilation time."
+msgstr ""
+
+#: running.sgml:20(title)
+msgid "Running and debugging GLib Applications"
+msgstr ""
+
+#: running.sgml:206(envar)
+msgid "TZDIR"
+msgstr ""
+
+#: running.sgml:208(para)
+msgid ""
+"Allows to specify a nonstandard location for the timezone data files that "
+"are used by the #GDateTime API. The default location is under <filename>/usr/"
+"share/zoneinfo</filename>. For more information, also look at the "
+"<command>tzset</command> manual page."
+msgstr ""
+
+#: running.sgml:219(title)
+msgid "Locale"
+msgstr ""
+
+#: running.sgml:221(para)
+msgid ""
+"A number of interfaces in GLib depend on the current locale in which an "
+"application is running. Therefore, most GLib-using applications should call "
+"<function>setlocale (LC_ALL, \"\")</function> to set up the current locale."
+msgstr ""
+
+#: running.sgml:228(para)
+msgid ""
+"On Windows, in a C program there are several locale concepts that not "
+"necessarily are synchronized. On one hand, there is the system default ANSI "
+"code-page, which determines what encoding is used for file names handled by "
+"the C library's functions and the Win32 API. (We are talking about the "
+"\"narrow\" functions here that take character pointers, not the \"wide\" "
+"ones.)"
+msgstr ""
+
+#: running.sgml:23(title)
+msgid "Environment variables"
+msgstr ""
+
+#: running.sgml:237(para)
+msgid ""
+"On the other hand, there is the C library's current locale. The character "
+"set (code-page) used by that is not necessarily the same as the system "
+"default ANSI code-page. Strings in this character set are returned by "
+"functions like <function>strftime()</function>."
+msgstr ""
+
+#: running.sgml:247(title)
+msgid "Traps and traces"
+msgstr ""
+
+#: running.sgml:249(para)
+msgid ""
+"<indexterm><primary>g_trap_free_size</primary></"
+"indexterm><indexterm><primary>g_trap_realloc_size</primary></"
+"indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> Some "
+"code portions contain trap variables that can be set during debugging time "
+"if GLib has been configured with <option>--enable-debug=yes</option>. Such "
+"traps lead to immediate code halts to examine the current program state and "
+"backtrace."
+msgstr ""
+
+#: running.sgml:25(para)
+msgid ""
+"GLib inspects a few of environment variables in addition to standard "
+"variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
+"envar>."
+msgstr ""
+
+#: running.sgml:259(para)
+msgid ""
+"Currently, the following trap variables exist: <placeholder-1/> If set to a "
+"size &gt; 0, <link linkend=\"g-free\">g_free</link>(), <link linkend=\"g-"
+"realloc\">g_realloc</link>() and <link linkend=\"g-malloc\">g_malloc</link>"
+"() will be intercepted if the size matches the size of the corresponding "
+"memory block. This will only work with <literal>g_mem_set_vtable "
+"(glib_mem_profiler_table)</literal> upon startup though, because memory "
+"profiling is required to match on the memory block sizes."
+msgstr ""
+
+#: running.sgml:261(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static volatile gulong g_trap_free_size;\n"
+"static volatile gulong g_trap_realloc_size;\n"
+"static volatile gulong g_trap_malloc_size;\n"
+msgstr ""
+
+#: running.sgml:273(para)
+msgid ""
+"Note that many modern debuggers support conditional breakpoints, which "
+"achieve pretty much the same. E.g. in gdb, you can do <placeholder-1/> to "
+"break only on g_malloc() calls where the size of the allocated memory block "
+"is 20."
+msgstr ""
+
+#: running.sgml:276(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"break g_malloc\n"
+"condition 1 n_bytes == 20\n"
+msgstr ""
+
+#: running.sgml:286(title)
+msgid "Gdb debugging macros"
+msgstr ""
+
+#: running.sgml:288(para)
+msgid ""
+"glib ships with a set of python macros for the gdb debugger. These includes "
+"pretty printers for lists, hashtables and gobject types. It also has a "
+"backtrace filter that makes backtraces with signal emissions easier to read."
+msgstr ""
+
+#: running.sgml:294(para)
+msgid ""
+"To use this you need a recent enough gdb that supports python scripting. Gdb "
+"7.0 should be recent enough, but branches of the \"archer\" gdb tree as used "
+"in Fedora 11 and Fedora 12 should work too. You then need to install glib in "
+"the same prefix as gdb so that the python gdb autoloaded files get installed "
+"in the right place for gdb to pick up."
+msgstr ""
+
+#: running.sgml:302(para)
+msgid ""
+"General pretty printing should just happen without having to do anything "
+"special. To get the signal emission filtered backtrace you must use the "
+"\"new-backtrace\" command instead of the standard one."
+msgstr ""
+
+#: running.sgml:308(para)
+msgid ""
+"There is also a new command called gforeach that can be used to apply a "
+"command on each item in a list. E.g. you can do <placeholder-1/> Which would "
+"print the contents of each widget in a list of widgets."
+msgstr ""
+
+#: running.sgml:31(envar)
+msgid "G_FILENAME_ENCODING"
+msgstr ""
+
+#: running.sgml:311(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"gforeach i in some_list_variable: print *(GtkWidget *)l\n"
+msgstr ""
+
+#: running.sgml:320(title)
+msgid "SystemTap"
+msgstr ""
+
+#: running.sgml:322(para)
+msgid ""
+"<ulink url=\"http://sourceware.org/systemtap/\">SystemTap</ulink> is a "
+"dynamic whole-system analysis toolkit. GLib ships with a file <filename>glib."
+"stp</filename> which defines a set of probe points, which you can hook into "
+"with custom SystemTap scripts. See the files <filename>glib.stp</filename> "
+"and <filename>gobject.stp</filename> which are in your shared SystemTap "
+"scripts directory."
+msgstr ""
+
+#: running.sgml:33(para)
+msgid ""
+"This environment variable can be set to a comma-separated list of character "
+"set names. GLib assumes that filenames are encoded in the first character "
+"set from that list rather than in UTF-8. The special token \"@locale\" can "
+"be used to specify the character set for the current locale."
+msgstr ""
+
+#: running.sgml:333(title)
+msgid "Memory statistics"
+msgstr ""
+
+#: running.sgml:335(para)
+msgid ""
+"g_mem_profile() will output a summary g_malloc() memory usage, if memory "
+"profiling has been enabled by calling <literal>g_mem_set_vtable "
+"(glib_mem_profiler_table)</literal> upon startup."
+msgstr ""
+
+#: running.sgml:341(para)
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, then "
+"g_slice_debug_tree_statistics() can be called in a debugger to output "
+"details about the memory usage of the slice allocator."
+msgstr ""
+
+#: running.sgml:42(envar)
+msgid "G_BROKEN_FILENAMES"
+msgstr ""
+
+#: running.sgml:44(para)
+msgid ""
+"If this environment variable is set, GLib assumes that filenames are in the "
+"locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes priority "
+"over G_BROKEN_FILENAMES."
+msgstr ""
+
+#: running.sgml:52(envar)
+msgid "G_MESSAGES_PREFIXED"
+msgstr ""
+
+#: running.sgml:54(para)
+msgid ""
+"A list of log levels for which messages should be prefixed by the program "
+"name and PID of the application. The default is to prefix everything except "
+"<literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</"
+"literal>."
+msgstr ""
+
+#: running.sgml:62(envar)
+msgid "G_DEBUG"
+msgstr ""
+
+#: running.sgml:63(para)
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, this "
+"variable can be set to a list of debug options, which cause GLib to print "
+"out different types of debugging information. <placeholder-1/> The special "
+"value all can be used to turn on all debug options. The special value help "
+"can be used to print all available options."
+msgstr ""
+
+#: running.sgml:69(term)
+msgid "fatal_warnings"
+msgstr ""
+
+#: running.sgml:70(para)
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"warning\">g_warning</link>() or <link linkend=\"g-critical\">g_critical</"
+"link>(). This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+
+#: running.sgml:78(term)
+msgid "fatal_criticals"
+msgstr ""
+
+#: running.sgml:79(para)
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"critical\">g_critical</link>(). This option is special in that it doesn't "
+"require GLib to be configured with debugging support."
+msgstr ""
+
+#: running.sgml:86(term)
+msgid "gc-friendly"
+msgstr ""
+
+#: running.sgml:88(para)
+msgid ""
+"Newly allocated memory that isn't directly initialized, as well as memory "
+"being freed will be reset to 0. The point here is to allow memory checkers "
+"and similar programs that use bohem GC alike algorithms to produce more "
+"accurate results. This option is special in that it doesn't require GLib to "
+"be configured with debugging support."
+msgstr ""
+
+#: running.sgml:99(term)
+msgid "resident-modules"
+msgstr ""
