@@ -1,0 +1,223 @@
+#! /usr/bin/env python2
+#-*- encoding:utf-8 -*-
+#文件名:gadt-docpo
+"""
+gtkdocpo is a tool to create a pot file from C source files that used gtkdoc to generate API documents, and to merge the l10n po file to the C source files.
+"""
+__version__  = "0.2"
+__date__     = "2011-04-13 20:25:37"
+__author__   = "yetist <yetist@gmail.com> "
+__license__  = "Licensed under the GPL v2, see the file LICENSE in this tarball."
+__copyright__= "Copyright (C) 2006-2011 by yetist <yetist@gmail.com>."
+#=================================================================================#
+import os, sys
+import re
+import time
+import shutil
+import commands
+from optparse import OptionParser, OptionGroup, HelpFormatter
+
+opts = {
+    "command":0,
+    "multi_files":True,
+    "pkg_name":"PACKAGE",
+    "include_code":False,
+    "po_file_dir":os.getcwd()+'/docspot',
+    "look":True,
+    "pkg_ver":"VERSION"
+    }
+
+
+class Merge:
+    def start (self, options, directory):
+        self.opts = options
+        self.doc_dir = directory
+
+        if os.path.isdir(self.opts.po_file_dir):
+            pofile = os.path.join(self.opts.po_file_dir, self.opts.pkg_name + "-" + self.opts.pkg_ver + "-docs.po")
+            print pofile
+            if os.path.isfile(pofile):
+                self.pofile = os.path.abspath(pofile)
+                self.do_merge()
+
+    def do_merge (self):
+        if os.path.isdir(self.doc_dir):
+            os.chdir(self.doc_dir)
+            for item in os.listdir("."):
+                if len(item) >2:
+                    if item.endswith(".xml") or item.endswith(".sgml"):
+                        #xfile = os.path.join(reldir, item)
+                        self._do_file(item)
+                if item == "tmpl":
+                    #tmpldir = os.path.join(reldir, item)
+                    for item in os.listdir("tmpl"):
+                        if len(item) >2:
+                            if item.endswith(".xml") or item.endswith(".sgml"):
+                                xfile = os.path.join("tmpl", item)
+                                self._do_file(xfile)
+
+    def _do_file (self, file_name):
+        tmpfile = file_name + "~"
+
+        cmd = "file --mime-type %s" % file_name
+        ret = commands.getoutput(cmd)
+        if not ret.split()[1] == "application/xml":
+            return
+        cmd = "xml2po -p %s -o %s %s" % (self.pofile, tmpfile, file_name)
+        os.system(cmd)
+        shutil.move(tmpfile, file_name)
+
+class Create:
+    def start (self, options, directory):
+        self.opts = options
+        if os.path.isfile(directory) and (directory.endswith(".xml")or directory.endswith(".sgml")):
+            self._do_file(directory)
+        elif os.path.isdir(directory):
+            os.chdir(directory)
+            reldir = os.path.relpath(directory)
+            for item in os.listdir(reldir):
+                if len(item) >2:
+                    if item.endswith(".xml") or item.endswith(".sgml"):
+                        file = os.path.join(reldir, item)
+                        self._do_file(file)
+                if item == "tmpl":
+                    tmpldir = os.path.join(reldir, item)
+                    for item in os.listdir(tmpldir):
+                        if len(item) >2:
+                            if item.endswith(".xml") or item.endswith(".sgml"):
+                                file = os.path.join(tmpldir, item)
+                                self._do_file(file)
+
+    def _do_file (self, file_name):
+        if not os.path.isdir(self.opts.po_file_dir):
+            os.mkdir(self.opts.po_file_dir)
+
+        base_name = os.path.splitext(os.path.basename(file_name))[0]
+
+        if os.path.basename(os.path.dirname(file_name)) == "tmpl":
+            pot_file = os.path.join (self.opts.po_file_dir, "tmpl-" + base_name + ".pot")
+        else:
+            pot_file = os.path.join (self.opts.po_file_dir, base_name + ".pot")
+
+        cmd = "file --mime-type %s" % file_name
+        ret = commands.getoutput(cmd)
+        if not ret.split()[1] == "application/xml":
+            return
+        cmd = "xml2po -o %s %s" % (pot_file, file_name)
+        os.system(cmd)
+        if os.path.isfile(pot_file):
+            self._po_uniq(pot_file)
+
+    def _po_uniq(self, file_name):
+        tempfile = os.tmpnam()
+        ret = os.system("msguniq -E -F %s -o %s" % (file_name, tempfile))
+        if ret == 0:
+            shutil.move(tempfile, file_name)
+            return True
+        else:
+            return False
+
+def get_opts():
+    MSG_USAGE = "%prog [OPTIONS] COMMAND SOURCE_DIR"
+    parser = OptionParser(MSG_USAGE)
+    parser.description="Create pot file from C source files that used gtkdoc, and merge po file to C source files."
+    parser.defaults=opts
+
+    parser.version="\n".join(["%prog " + __version__, __author__, __license__, __copyright__])
+    parser.add_option("-v", "--version",
+            dest = "version", action = "store_true",
+            help="show version info and exit")
+    parser.add_option("-e", "--example",
+            dest = "example", action = "store_true",
+            help="show example and exit")
+
+    group = OptionGroup(parser, "COMMANDS")
+    group.add_option("-c", "--create",
+            dest = "command", action = "store_const", const = 0,
+            help="Create pot file from C source file")
+    group.add_option("-m", "--merge", 
+            dest = "command", action = "store_const", const = 1,
+            help = "Merge po file to C source file")
+    parser.add_option_group(group)
+
+    group = OptionGroup(parser, "Command Options")
+    group.add_option("-1", "--single-file",
+            dest = "multi_files", action = "store_false",
+            help = "create a single pot file")
+    group.add_option("-2", "--multi-files",
+            dest = "multi_files", action = "store_true",
+            help = "create multi pot files.")
+    group.add_option("-n", "--package-name",
+            dest = "pkg_name", action = "store", type = "string",
+            help = "the package name used for pot file. default:PACKAGE.")
+    group.add_option("-V", "--package-version",
+            dest = "pkg_ver", action = "store", type = "string",
+            help = "the package version used for pot file. default:VERSION")
+    group.add_option("-i", "--include-code",
+            dest = "include_code", action = "store_true",
+            help = "if set, some code will show in msgid of pot file according gtkdoc format.")
+    group.add_option("-p", "--po-file-dir",
+            dest = "po_file_dir", action = "store", type="string",
+            help = "directory that placed the po(t) file(s). default is \"gtkdocpo\" in current directory.")
+    group.add_option("-l", "--look",
+            dest = "look", action = "store_true",
+            help = "if set, you can look that msgid and msgstr befort merge.")
+    parser.add_option_group(group)
+
+    return parser
+
+Commands=[Create(), Merge()]
+
+def main():
+    parser = get_opts()
+    opts, args = parser.parse_args()
+    
+    if opts.version:
+        parser.print_version()
+        sys.exit(0)
+
+    if opts.example:
+        parser.print_usage()
+        print ("Example:\n")
+        print ("1) create pot file(s) from \"/tmp/gtk+-2.10.6/docs/reference/gtk\", you can use:\n")
+        print ("\t%s /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\t-c is default command\n" % parser.get_prog_name())
+        print ("\t%s -c /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tdefault pot dir is: ./docspot\n" % parser.get_prog_name())
+        print ("\t%s -c -p pot /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tset pot dir\n" % parser.get_prog_name())
+        print ("\t%s -c -1 /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tif create only one pot file, use -1\n" % parser.get_prog_name())
+
+        print ("2) merge po file(s) to source file(s) in \"/tmp/gtk+-2.10.6/docs/reference/gtk\", you should use:\n")
+        print ("\t%s -m /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tuse default pot dir: ./docspot\n" % parser.get_prog_name())
+        print ("\t%s -m -p pot_dir /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tset pot dir\n" % parser.get_prog_name())
+        sys.exit(0)
+
+    if len(args) < 1:
+        parser.print_help()
+        sys.exit(1)
+    elif len(args) == 1:
+        argv = os.path.abspath(args[0])
+        if (not os.path.isdir(argv)) and (not directory.endswith(".xml")) and (not directory.endswith(".sgml")):
+            parser.print_help()
+            sys.exit(1)
+
+    for i in args:
+        args = os.path.abspath(i)
+        Commands[opts.command].start(opts, args)
+
+    # at last, check if make the single pot file.
+    if (opts.command == 0 ) and ( not opts.multi_files ):
+        os.system("msgcat -E %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+"-docs.pot")))
+        for i in os.listdir(opts.po_file_dir):
+            if i == opts.pkg_name+"-"+opts.pkg_ver+"-docs.pot":
+                continue
+            else:
+                os.system("rm %s/%s" % (opts.po_file_dir, i))
+
+if __name__=="__main__":
+    main()
+

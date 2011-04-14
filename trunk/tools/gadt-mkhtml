@@ -301,7 +301,41 @@ init_pot()
 				msg2 "正在调用google为您生成模糊翻译内容..."
 				gadt-autotrans $startdir/po/$mname.po
 				text=`msgfmt --statistics $startdir/po/$mname.po -o /dev/null 2>&1`
-				msg2 "文件:$mname.po ($text)"
+				msg2 "文件:po/$mname.po ($text)"
+			done
+		fi
+	fi
+}
+
+init_docpot()
+{
+	if [ -d $startdir/docpo ];
+	then
+		return
+	else
+		msg "正在初始化您的文档po文件..."
+		mkdir $startdir/docpo
+		gadt-docpo -c -p $tmpdir/docpot $docdir
+		if [ -f ~/.gtkdocpo ];then
+			username=$(source ~/.gtkdocpo; echo $username)
+		else
+			username=unknown
+		fi
+
+		if [ -f $startdir/AUTHORS ]; then
+			local docpos=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
+			#local olddocs=$startdir/docs-$pkgver
+			eval $docpos #这将会产生docpo_files变量
+			var=`echo $docpo_files |sed 's/,/ /g'`
+			echo $var
+			for i in $var;
+			do 
+				mname=${i%.po}
+				msgmerge "$modname-$pkgver-docs.po" $tmpdir/docpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/docpo/$mname.po
+				#msg2 "正在调用google为您生成模糊翻译内容..."
+				#gadt-autotrans $startdir/docpo/$mname.po
+				text=`msgfmt --statistics $startdir/docpo/$mname.po -o /dev/null 2>&1`
+				msg2 "文件:docpo/$mname.po ($text)"
 			done
 		fi
 	fi
@@ -336,6 +370,46 @@ merge_pot()
 					y*|Y*) 
 					cp "$tmpdir/$modname-$pkgver.po.new" "$modname-$pkgver.po"
 					rm -f "$tmpdir/$modname-$pkgver.po.new"
+					msg2 "$mname.po 成功合并"
+					;;
+					*)
+					error "合并失败"
+					;;
+				esac
+			done
+		fi
+	fi
+}
+
+merge_docpot()
+{
+	if [ ! -d $startdir/docpo ];
+	then
+		return
+	else
+		msg "正在合并您的po文件..."
+		if [ -f ~/.gtkdocpo ];then
+			username=$(source ~/.gtkdocpo; echo $username)
+		else
+			username=unknown
+		fi
+
+		if [ -f $startdir/AUTHORS ]; then
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $3}'`
+			eval $pos #这将会产生po_files变量
+			var=`echo $docpo_files |sed 's/,/ /g'`
+			for i in $var;
+			do 
+				mname=${i%.po}
+				msgmerge -N $startdir/docpo/$mname.po "$modname-$pkgver-docs.po" -o "$tmpdir/$modname-$pkgver-docs.po.new"
+				vim -d "$modname-$pkgver-docs.po" "$tmpdir/$modname-$pkgver-docs.po.new"
+				msg2 "$mname.po [确认合并吗(Yes/No)？]"
+				echo -n "请输入Yes或No:"
+				read answer
+				case "$answer" in
+					y*|Y*) 
+					cp "$tmpdir/$modname-$pkgver-docs.po.new" "$modname-$pkgver-docs.po"
+					rm -f "$tmpdir/$modname-$pkgver-docs.po.new"
 					msg2 "$mname.po 成功合并"
 					;;
 					*)
@@ -393,6 +467,7 @@ download_source()
 	popd >/dev/null
 
 	init_pot
+	init_docpot
 
 	# 合并已翻译po文件内容到源文件
 	if [ "$FUZZY" -eq 1 ]; then
@@ -401,6 +476,7 @@ download_source()
 	else
 		gadt-po -n $modname -V $pkgver -m -p . $moddir || return 1
 	fi
+	gadt-docpo -n $modname -V $pkgver -m -p . $docdir || return 1
 }
 
 compile_source()
@@ -422,8 +498,8 @@ compile_source()
 update_sgml()
 {
 	msg "正在更新sgml文件..."
-	if [ -d $startdir/docs-$pkgver ];then
-		cp -r $startdir/docs-$pkgver/* $docdir
+	if [ -f $startdir/docs-$pkgver ];then
+		cp -rf $startdir/docs-$pkgver/* $docdir
 	fi
 	cp $startdir/credits.xml $docdir
 	local now=`date +%Y年%m月%d日`
@@ -646,6 +722,7 @@ fi
 
 if [ "$MERGEPO" -eq 1 ]; then
 	run_function merge_pot
+	run_function merge_docpot
 	exit 0;
 fi
 
