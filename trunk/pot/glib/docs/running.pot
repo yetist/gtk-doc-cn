@@ -1,0 +1,401 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 21:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: running.sgml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: running.sgml:101(para)
+msgid ""
+"All modules loaded by GModule will be made resident. This can be useful for "
+"tracking memory leaks in modules which are later unloaded; but it can also "
+"hide bugs where code is accessed after the module would have normally been "
+"unloaded. This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+
+#: running.sgml:112(term)
+msgid "bind-now-modules"
+msgstr ""
+
+#: running.sgml:114(para)
+msgid ""
+"All modules loaded by GModule will bind their symbols at load time, even "
+"when the code uses %G_MODULE_BIND_LAZY. This option is special in that it "
+"doesn't require GLib to be configured with debugging support."
+msgstr ""
+
+#: running.sgml:129(envar)
+msgid "G_SLICE"
+msgstr ""
+
+#: running.sgml:13(refname) running.sgml:7(refentrytitle)
+msgid "Running GLib Applications"
+msgstr ""
+
+#: running.sgml:130(para)
+msgid ""
+"This environment variable allows reconfiguration of the GSlice memory "
+"allocator. <placeholder-1/> The special value all can be used to turn on all "
+"options. The special value help can be used to print all available options."
+msgstr ""
+
+#: running.sgml:135(term)
+msgid "always-malloc"
+msgstr ""
+
+#: running.sgml:137(para)
+msgid ""
+"This will cause all slices allocated through g_slice_alloc() and released by "
+"g_slice_free1() to be actually allocated via direct calls to g_malloc() and "
+"g_free(). This is most useful for memory checkers and similar programs that "
+"use Bohem GC alike algorithms to produce more accurate results. It can also "
+"be in conjunction with debugging features of the system's malloc "
+"implementation such as glibc's MALLOC_CHECK_=2 to debug erroneous slice "
+"allocation code, allthough <literal>debug-blocks</literal> usually is a "
+"better suited debugging tool."
+msgstr ""
+
+#: running.sgml:14(refpurpose)
+msgid "How to run and debug your GLib application"
+msgstr ""
+
+#: running.sgml:151(term)
+msgid "debug-blocks"
+msgstr ""
+
+#: running.sgml:153(para)
+msgid ""
+"Using this option (present since GLib-2.13) engages extra code which "
+"performs sanity checks on the released memory slices. Invalid slice adresses "
+"or slice sizes will be reported and lead to a program halt. This option is "
+"for debugging scenarios. In particular, client packages sporting their own "
+"test suite should <emphasis>always enable this option when running tests</"
+"emphasis>. Global slice validation is ensured by storing size and address "
+"information for each allocated chunk, and maintaining a global hash table of "
+"that data. That way, multi-thread scalability is given up, and memory "
+"consumption is increased. However, the resulting code usually performs "
+"acceptably well, possibly better than with comparable memory checking "
+"carried out using external tools. An example of a memory corruption scenario "
+"that cannot be reproduced with <literal>G_SLICE=always-malloc</literal>, but "
+"will be caught by <literal>G_SLICE=debug-blocks</literal> is as follows: "
+"<placeholder-1/>"
+msgstr ""
+
+#: running.sgml:169(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"\t\t    void *slist = g_slist_alloc(); /* void* gives up type-safety */\n"
+"\t\t    g_list_free (slist);           /* corruption: sizeof (GSList) != sizeof (GList) */\n"
+"\t\t  "
+msgstr ""
+
+#: running.sgml:183(envar)
+msgid "G_RANDOM_VERSION"
+msgstr ""
+
+#: running.sgml:185(para)
+msgid ""
+"If this environment variable is set to '2.0', the outdated pseudo-random "
+"number seeding and generation algorithms from GLib-2.0 are used instead of "
+"the new better ones. Use the GLib-2.0 algorithms only if you have sequences "
+"of numbers generated with Glib-2.0 that you need to reproduce exactly."
+msgstr ""
+
+#: running.sgml:195(envar)
+msgid "LIBCHARSET_ALIAS_DIR"
+msgstr ""
+
+#: running.sgml:197(para)
+msgid ""
+"Allows to specify a nonstandard location for the <filename>charset.aliases</"
+"filename> file that is used by the character set conversion routines. The "
+"default location is the <replaceable>libdir</replaceable> specified at "
+"compilation time."
+msgstr ""
+
+#: running.sgml:20(title)
+msgid "Running and debugging GLib Applications"
+msgstr ""
+
+#: running.sgml:206(envar)
+msgid "TZDIR"
+msgstr ""
+
+#: running.sgml:208(para)
+msgid ""
+"Allows to specify a nonstandard location for the timezone data files that "
+"are used by the #GDateTime API. The default location is under <filename>/usr/"
+"share/zoneinfo</filename>. For more information, also look at the "
+"<command>tzset</command> manual page."
+msgstr ""
+
+#: running.sgml:219(title)
+msgid "Locale"
+msgstr ""
+
+#: running.sgml:221(para)
+msgid ""
+"A number of interfaces in GLib depend on the current locale in which an "
+"application is running. Therefore, most GLib-using applications should call "
+"<function>setlocale (LC_ALL, \"\")</function> to set up the current locale."
+msgstr ""
+
+#: running.sgml:228(para)
+msgid ""
+"On Windows, in a C program there are several locale concepts that not "
+"necessarily are synchronized. On one hand, there is the system default ANSI "
+"code-page, which determines what encoding is used for file names handled by "
+"the C library's functions and the Win32 API. (We are talking about the "
+"\"narrow\" functions here that take character pointers, not the \"wide\" "
+"ones.)"
+msgstr ""
+
+#: running.sgml:23(title)
+msgid "Environment variables"
+msgstr ""
+
+#: running.sgml:237(para)
+msgid ""
+"On the other hand, there is the C library's current locale. The character "
+"set (code-page) used by that is not necessarily the same as the system "
+"default ANSI code-page. Strings in this character set are returned by "
+"functions like <function>strftime()</function>."
+msgstr ""
+
+#: running.sgml:247(title)
+msgid "Traps and traces"
+msgstr ""
+
+#: running.sgml:249(para)
+msgid ""
+"<indexterm><primary>g_trap_free_size</primary></"
+"indexterm><indexterm><primary>g_trap_realloc_size</primary></"
+"indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> Some "
+"code portions contain trap variables that can be set during debugging time "
+"if GLib has been configured with <option>--enable-debug=yes</option>. Such "
+"traps lead to immediate code halts to examine the current program state and "
+"backtrace."
+msgstr ""
+
+#: running.sgml:25(para)
+msgid ""
+"GLib inspects a few of environment variables in addition to standard "
+"variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
+"envar>."
+msgstr ""
+
+#: running.sgml:259(para)
+msgid ""
+"Currently, the following trap variables exist: <placeholder-1/> If set to a "
+"size &gt; 0, <link linkend=\"g-free\">g_free</link>(), <link linkend=\"g-"
+"realloc\">g_realloc</link>() and <link linkend=\"g-malloc\">g_malloc</link>"
+"() will be intercepted if the size matches the size of the corresponding "
+"memory block. This will only work with <literal>g_mem_set_vtable "
+"(glib_mem_profiler_table)</literal> upon startup though, because memory "
+"profiling is required to match on the memory block sizes."
+msgstr ""
+
+#: running.sgml:261(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static volatile gulong g_trap_free_size;\n"
+"static volatile gulong g_trap_realloc_size;\n"
+"static volatile gulong g_trap_malloc_size;\n"
+msgstr ""
+
+#: running.sgml:273(para)
+msgid ""
+"Note that many modern debuggers support conditional breakpoints, which "
+"achieve pretty much the same. E.g. in gdb, you can do <placeholder-1/> to "
+"break only on g_malloc() calls where the size of the allocated memory block "
+"is 20."
+msgstr ""
+
+#: running.sgml:276(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"break g_malloc\n"
+"condition 1 n_bytes == 20\n"
+msgstr ""
+
+#: running.sgml:286(title)
+msgid "Gdb debugging macros"
+msgstr ""
+
+#: running.sgml:288(para)
+msgid ""
+"glib ships with a set of python macros for the gdb debugger. These includes "
+"pretty printers for lists, hashtables and gobject types. It also has a "
+"backtrace filter that makes backtraces with signal emissions easier to read."
+msgstr ""
+
+#: running.sgml:294(para)
+msgid ""
+"To use this you need a recent enough gdb that supports python scripting. Gdb "
+"7.0 should be recent enough, but branches of the \"archer\" gdb tree as used "
+"in Fedora 11 and Fedora 12 should work too. You then need to install glib in "
+"the same prefix as gdb so that the python gdb autoloaded files get installed "
+"in the right place for gdb to pick up."
+msgstr ""
+
+#: running.sgml:302(para)
+msgid ""
+"General pretty printing should just happen without having to do anything "
+"special. To get the signal emission filtered backtrace you must use the "
+"\"new-backtrace\" command instead of the standard one."
+msgstr ""
+
+#: running.sgml:308(para)
+msgid ""
+"There is also a new command called gforeach that can be used to apply a "
+"command on each item in a list. E.g. you can do <placeholder-1/> Which would "
+"print the contents of each widget in a list of widgets."
+msgstr ""
+
+#: running.sgml:31(envar)
+msgid "G_FILENAME_ENCODING"
+msgstr ""
+
+#: running.sgml:311(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"gforeach i in some_list_variable: print *(GtkWidget *)l\n"
+msgstr ""
+
+#: running.sgml:320(title)
+msgid "SystemTap"
+msgstr ""
+
+#: running.sgml:322(para)
+msgid ""
+"<ulink url=\"http://sourceware.org/systemtap/\">SystemTap</ulink> is a "
+"dynamic whole-system analysis toolkit. GLib ships with a file <filename>glib."
+"stp</filename> which defines a set of probe points, which you can hook into "
+"with custom SystemTap scripts. See the files <filename>glib.stp</filename> "
+"and <filename>gobject.stp</filename> which are in your shared SystemTap "
+"scripts directory."
+msgstr ""
+
+#: running.sgml:33(para)
+msgid ""
+"This environment variable can be set to a comma-separated list of character "
+"set names. GLib assumes that filenames are encoded in the first character "
+"set from that list rather than in UTF-8. The special token \"@locale\" can "
+"be used to specify the character set for the current locale."
+msgstr ""
+
+#: running.sgml:333(title)
+msgid "Memory statistics"
+msgstr ""
+
+#: running.sgml:335(para)
+msgid ""
+"g_mem_profile() will output a summary g_malloc() memory usage, if memory "
+"profiling has been enabled by calling <literal>g_mem_set_vtable "
+"(glib_mem_profiler_table)</literal> upon startup."
+msgstr ""
+
+#: running.sgml:341(para)
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, then "
+"g_slice_debug_tree_statistics() can be called in a debugger to output "
+"details about the memory usage of the slice allocator."
+msgstr ""
+
+#: running.sgml:42(envar)
+msgid "G_BROKEN_FILENAMES"
+msgstr ""
+
+#: running.sgml:44(para)
+msgid ""
+"If this environment variable is set, GLib assumes that filenames are in the "
+"locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes priority "
+"over G_BROKEN_FILENAMES."
+msgstr ""
+
+#: running.sgml:52(envar)
+msgid "G_MESSAGES_PREFIXED"
+msgstr ""
+
+#: running.sgml:54(para)
+msgid ""
+"A list of log levels for which messages should be prefixed by the program "
+"name and PID of the application. The default is to prefix everything except "
+"<literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</"
+"literal>."
+msgstr ""
+
+#: running.sgml:62(envar)
+msgid "G_DEBUG"
+msgstr ""
+
+#: running.sgml:63(para)
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, this "
+"variable can be set to a list of debug options, which cause GLib to print "
+"out different types of debugging information. <placeholder-1/> The special "
+"value all can be used to turn on all debug options. The special value help "
+"can be used to print all available options."
+msgstr ""
+
+#: running.sgml:69(term)
+msgid "fatal_warnings"
+msgstr ""
+
+#: running.sgml:70(para)
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"warning\">g_warning</link>() or <link linkend=\"g-critical\">g_critical</"
+"link>(). This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+
+#: running.sgml:78(term)
+msgid "fatal_criticals"
+msgstr ""
+
+#: running.sgml:79(para)
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"critical\">g_critical</link>(). This option is special in that it doesn't "
+"require GLib to be configured with debugging support."
+msgstr ""
+
+#: running.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: running.sgml:86(term)
+msgid "gc-friendly"
+msgstr ""
+
+#: running.sgml:88(para)
+msgid ""
+"Newly allocated memory that isn't directly initialized, as well as memory "
+"being freed will be reset to 0. The point here is to allow memory checkers "
+"and similar programs that use bohem GC alike algorithms to produce more "
+"accurate results. This option is special in that it doesn't require GLib to "
+"be configured with debugging support."
+msgstr ""
+
+#: running.sgml:9(refmiscinfo)
+msgid "GLib Library"
+msgstr ""
+
+#: running.sgml:99(term)
+msgid "resident-modules"
+msgstr ""
