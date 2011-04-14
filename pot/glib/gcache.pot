@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-14 21:52-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+# used by: g_cache_new:
+#: gcache.c:110:3
+msgid ""
+"@value_new_func: a function to create a new object given a key. This is "
+"called by g_cache_insert() if an object with the given key does not already "
+"exist."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:113:4
+msgid ""
+"@value_destroy_func: a function to destroy an object. It is called by "
+"g_cache_remove() when the object is no longer needed (i.e. its reference "
+"count drops to 0)."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:117:3
+msgid ""
+"@key_dup_func: a function to copy a key. It is called by g_cache_insert() if "
+"the key does not already exist in the #GCache."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:120:3
+msgid ""
+"@key_destroy_func: a function to destroy a key. It is called by "
+"g_cache_remove() when the object is no longer needed (i.e. its reference "
+"count drops to 0)."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:123:1
+msgid "@hash_key_func: a function to create a hash value from a key."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:124:1
+msgid "@hash_value_func: a function to create a hash value from a value."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:125:2
+msgid ""
+"@key_equal_func: a function to compare two keys. It should return %TRUE if "
+"the two keys are equivalent."
+msgstr ""
+
+# used by: g_cache_new:
+#: gcache.c:127:1
+msgid "@Returns: a new #GCache."
+msgstr ""
+
+# #used by: g_cache_new:
+#: gcache.c:129:1
+msgid "Creates a new #GCache."
+msgstr ""
+
+# used by: GCacheNewFunc:
+#: gcache.c:133:1
+msgid "@key: a #GCache key."
+msgstr ""
+
+# used by: GCacheNewFunc:
+#: gcache.c:134:1
+msgid "@Returns: a new #GCache value corresponding to the key."
+msgstr ""
+
+# #used by: GCacheNewFunc:
+#: gcache.c:136:3
+msgid ""
+"Specifies the type of the @value_new_func function passed to g_cache_new(). "
+"It is passed a #GCache key and should create the value corresponding to the "
+"key."
+msgstr ""
+
+# used by: GCacheDestroyFunc:
+#: gcache.c:142:1
+msgid "@value: the #GCache value to destroy."
+msgstr ""
+
+# #used by: GCacheDestroyFunc:
+#: gcache.c:144:4
+msgid ""
+"Specifies the type of the @value_destroy_func and @key_destroy_func "
+"functions passed to g_cache_new(). The functions are passed a pointer to the "
+"#GCache key or #GCache value and should free any memory and other resources "
+"associated with it."
+msgstr ""
+
+# used by: GCacheDupFunc:
+#: gcache.c:151:2
+msgid ""
+"@value: the #GCache key to destroy (<emphasis>not</emphasis> a #GCache value "
+"as it seems)."
+msgstr ""
+
+# used by: GCacheDupFunc:
+#: gcache.c:153:1
+msgid "@Returns: a copy of the #GCache key."
+msgstr ""
+
+# #used by: GCacheDupFunc:
+#: gcache.c:155:4
+msgid ""
+"Specifies the type of the @key_dup_func function passed to g_cache_new(). "
+"The function is passed a key (<emphasis>not</emphasis> a value as the "
+"prototype implies) and should return a duplicate of the key."
+msgstr ""
+
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_destroy:
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_insert:
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_remove:
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_key_foreach:
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_value_foreach:
+#: gcache.c:192:1 gcache.c:211:1 gcache.c:252:1 gcache.c:287:1 gcache.c:311:1
+msgid "@cache: a #GCache."
+msgstr ""
+
+# #used by: g_cache_destroy:
+#: gcache.c:194:1
+msgid "Frees the memory allocated for the #GCache."
+msgstr ""
+
+# #used by: g_cache_destroy:
+#: gcache.c:196:2
+msgid ""
+"Note that it does not destroy the keys and values which were contained in "
+"the #GCache."
+msgstr ""
+
+# used by: g_cache_insert:
+#: gcache.c:212:1
+msgid "@key: a key describing a #GCache object."
+msgstr ""
+
+# used by: g_cache_insert:
+#: gcache.c:213:1
+msgid "@Returns: a pointer to a #GCache value."
+msgstr ""
+
+# #used by: g_cache_insert:
+#: gcache.c:215:8
+msgid ""
+"Gets the value corresponding to the given key, creating it if necessary. It "
+"first checks if the value already exists in the #GCache, by using the "
+"@key_equal_func function passed to g_cache_new(). If it does already exist "
+"it is returned, and its reference count is increased by one. If the value "
+"does not currently exist, if is created by calling the @value_new_func. The "
+"key is duplicated by calling @key_dup_func and the duplicated key and value "
+"are inserted into the #GCache."
+msgstr ""
+
+# used by: g_cache_remove:
+#: gcache.c:253:1
+msgid "@value: the value to remove."
+msgstr ""
+
+# #used by: g_cache_remove:
+#: gcache.c:255:3
+msgid ""
+"Decreases the reference count of the given value. If it drops to 0 then the "
+"value and its corresponding key are destroyed, using the @value_destroy_func "
+"and @key_destroy_func passed to g_cache_new()."
+msgstr ""
+
+# used by: g_cache_key_foreach:
+#: gcache.c:288:1
+msgid "@func: the function to call with each #GCache key."
+msgstr ""
+
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_key_foreach:
+# #-#-#-#-#  gcache.pot (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_cache_value_foreach:
+#: gcache.c:289:1 gcache.c:313:1
+msgid "@user_data: user data to pass to the function."
+msgstr ""
+
+# #used by: g_cache_key_foreach:
+#: gcache.c:291:1
+msgid "Calls the given function for each of the keys in the #GCache."
+msgstr ""
+
+# #used by: g_cache_key_foreach:
+#: gcache.c:293:4
+msgid ""
+"NOTE @func is passed three parameters, the value and key of a cache entry "
+"and the @user_data. The order of value and key is different from the order "
+"in which g_hash_table_foreach() passes key-value pairs to its callback "
+"function !"
+msgstr ""
+
+# used by: g_cache_value_foreach:
+#: gcache.c:312:1
+msgid "@func: the function to call with each #GCache value."
+msgstr ""
+
+# #used by: g_cache_value_foreach:
+#: gcache.c:315:1
+msgid "Calls the given function for each of the values in the #GCache."
+msgstr ""
+
+# #used by: g_cache_value_foreach:
+#: gcache.c:317:3
+msgid ""
+"Deprecated:2.10: The reason is that it passes pointers to internal data "
+"structures to @func; use g_cache_key_foreach() instead"
+msgstr ""
+
+# used by: SECTION: caches
+#: gcache.c:40:1
+msgid "@title: Caches"
+msgstr ""
+
+# used by: SECTION: caches
+#: gcache.c:41:2
+msgid ""
+"@short_description: caches allow sharing of complex data structures to save "
+"resources"
+msgstr ""
+
+# #used by: SECTION: caches
+#: gcache.c:44:2
+msgid ""
+"A #GCache allows sharing of complex data structures, in order to save system "
+"resources."
+msgstr ""
+
+# #used by: SECTION: caches
+#: gcache.c:47:4
+msgid ""
+"GTK+ uses caches for #GtkStyles and #GdkGCs. These consume a lot of "
+"resources, so a #GCache is used to see if a #GtkStyle or #GdkGC with the "
+"required properties already exists. If it does, then the existing object is "
+"used instead of creating a new one."
+msgstr ""
+
+# #used by: SECTION: caches
+#: gcache.c:52:2
+msgid ""
+"#GCache uses keys and values. A #GCache key describes the properties of a "
+"particular resource. A #GCache value is the actual resource."
+msgstr ""
+
+# #used by: GCache:
+#: gcache.c:68:3
+msgid ""
+"The #GCache struct is an opaque data structure containing information about "
+"a #GCache. It should only be accessed via the following functions."
+msgstr ""

@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-14 21:51-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+# used by: g_shell_quote:
+#: gshell.c:188:1
+msgid "@unquoted_string: a literal string"
+msgstr ""
+
+# #used by: g_shell_quote:
+#: gshell.c:190:6
+msgid ""
+"Quotes a string so that the shell (/bin/sh) will interpret the quoted string "
+"to mean @unquoted_string. If you pass a filename to the shell, for example, "
+"you should first quote it with this function.  The return value must be "
+"freed with g_free(). The quoting style used is undefined (single or double "
+"quotes may be used)."
+msgstr ""
+
+# #used by: g_shell_quote:
+#: gshell.c:197:1
+msgid "Return value: quoted string"
+msgstr ""
+
+# used by: g_shell_unquote:
+#: gshell.c:238:1
+msgid "@quoted_string: shell-quoted string"
+msgstr ""
+
+# used by: g_shell_unquote:
+#: gshell.c:239:1
+msgid "@error: error return location or NULL"
+msgstr ""
+
+# #used by: g_shell_unquote:
+#: gshell.c:241:14
+msgid ""
+"Unquotes a string as the shell (/bin/sh) would. Only handles quotes; if a "
+"string contains file globs, arithmetic operators, variables, backticks, "
+"redirections, or other special-to-the-shell features, the result will be "
+"different from the result a real shell would produce (the variables, "
+"backticks, etc. will be passed through literally instead of being expanded). "
+"This function is guaranteed to succeed if applied to the result of "
+"g_shell_quote(). If it fails, it returns %NULL and sets the error. The "
+"@quoted_string need not actually contain quoted or escaped text; "
+"g_shell_unquote() simply goes through the string and unquotes/unescapes "
+"anything that the shell would. Both single and double quotes are handled, as "
+"are escapes including escaped newlines. The return value must be freed with "
+"g_free(). Possible errors are in the #G_SHELL_ERROR domain."
+msgstr ""
+
+# #used by: g_shell_unquote:
+#: gshell.c:256:6
+msgid ""
+"Shell quoting rules are a bit strange. Single quotes preserve the literal "
+"string exactly. escape sequences are not allowed; not even |$_2_$|' - if you "
+"want a ' in the quoted text, you have to do something like 'foo'|$_2_"
+"$|''bar'.  Double quotes allow $, `, |$_1_$|, |$_2_$|, and newline to be "
+"escaped with backslash. Otherwise double quotes preserve things literally."
+msgstr ""
+
+# #used by: g_shell_unquote:
+#: gshell.c:263:1
+msgid "Return value: an unquoted string"
+msgstr ""
+
+# used by: SECTION: shell
+#: gshell.c:37:1
+msgid "@title: Shell-related Utilities"
+msgstr ""
+
+# used by: SECTION: shell
+#: gshell.c:38:1
+msgid "@short_description: shell-like commandline handling"
+msgstr ""
+
+# #used by: G_SHELL_ERROR:
+#: gshell.c:44:3
+msgid ""
+"Error domain for shell functions. Errors in this domain will be from the "
+"#GShellError enumeration. See #GError for information on error domains."
+msgstr ""
+
+# used by: GShellError:
+#: gshell.c:51:1
+msgid "@G_SHELL_ERROR_BAD_QUOTING: Mismatched or otherwise mangled quoting."
+msgstr ""
+
+# used by: GShellError:
+#: gshell.c:52:1
+msgid "@G_SHELL_ERROR_EMPTY_STRING: String to be parsed was empty."
+msgstr ""
+
+# used by: GShellError:
+#: gshell.c:53:1
+msgid "@G_SHELL_ERROR_FAILED: Some other error."
+msgstr ""
+
+# #used by: GShellError:
+#: gshell.c:55:1
+msgid "Error codes returned by shell functions."
+msgstr ""
+
+# used by: g_shell_parse_argv:
+#: gshell.c:602:1
+msgid "@command_line: command line to parse"
+msgstr ""
+
+# used by: g_shell_parse_argv:
+#: gshell.c:603:1
+msgid "@argcp: return location for number of args"
+msgstr ""
+
+# used by: g_shell_parse_argv:
+#: gshell.c:604:1
+msgid "@argvp: return location for array of args"
+msgstr ""
+
+# used by: g_shell_parse_argv:
+#: gshell.c:605:1
+msgid "@error: return location for error"
+msgstr ""
+
+# #used by: g_shell_parse_argv:
+#: gshell.c:607:9
+msgid ""
+"Parses a command line into an argument vector, in much the same way the "
+"shell would, but without many of the expansions the shell would perform "
+"(variable expansion, globs, operators, filename expansion, etc. are not "
+"supported). The results are defined to be the same as those you would get "
+"from a UNIX98 /bin/sh, as long as the input contains none of the unsupported "
+"shell expansions. If the input does contain such expansions, they are passed "
+"through literally. Possible errors are those from the #G_SHELL_ERROR domain. "
+"Free the returned vector with g_strfreev()."
+msgstr ""
+
+# #used by: g_shell_parse_argv:
+#: gshell.c:617:1
+msgid "Return value: %TRUE on success, %FALSE if error set"
+msgstr ""
