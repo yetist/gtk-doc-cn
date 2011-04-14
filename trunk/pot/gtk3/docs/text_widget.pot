@@ -1,0 +1,227 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 19:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: text_widget.sgml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: text_widget.sgml:104(para)
+msgid ""
+"Text buffers always contain at least one line, but may be empty (that is, "
+"buffers can contain zero characters). The last line in the text buffer never "
+"ends in a line separator (such as newline); the other lines in the buffer "
+"always end in a line separator. Line separators count as characters when "
+"computing character counts and character offsets. Note that some Unicode "
+"line separators are represented with multiple bytes in UTF-8, and the two-"
+"character sequence \"\\r\\n\" is also considered a line separator."
+msgstr ""
+
+#: text_widget.sgml:119(title)
+msgid "Simple Example"
+msgstr ""
+
+#: text_widget.sgml:121(para)
+msgid ""
+"The simplest usage of #GtkTextView might look like this: <placeholder-1/> In "
+"many cases it's also convenient to first create the buffer with "
+"gtk_text_buffer_new(), then create a widget for that buffer with "
+"gtk_text_view_new_with_buffer(). Or you can change the buffer the widget "
+"displays after the widget is created with gtk_text_view_set_buffer()."
+msgstr ""
+
+#: text_widget.sgml:123(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  GtkWidget *view;\n"
+"  GtkTextBuffer *buffer;\n"
+"\n"
+"  view = gtk_text_view_new ();\n"
+"\n"
+"  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));\n"
+"\n"
+"  gtk_text_buffer_set_text (buffer, \"Hello, this is some text\", -1);\n"
+"\n"
+"  /* Now you might put the view in a container and display it on the\n"
+"   * screen; when the user edits the text, signals on the buffer\n"
+"   * will be emitted, such as \"changed\", \"insert_text\", and so on.\n"
+"   */\n"
+msgstr ""
+
+#: text_widget.sgml:13(refname) text_widget.sgml:7(refentrytitle)
+msgid "Text Widget Overview"
+msgstr ""
+
+#: text_widget.sgml:14(refpurpose)
+msgid "Overview of GtkTextBuffer, GtkTextView, and friends"
+msgstr ""
+
+#: text_widget.sgml:147(title)
+msgid "Example of Changing Text Attributes"
+msgstr ""
+
+#: text_widget.sgml:149(para)
+msgid ""
+"There are two ways to affect text attributes in #GtkTextView. You can change "
+"the default attributes for a given #GtkTextView, and you can apply tags that "
+"change the attributes for a region of text. For text features that come from "
+"the theme &mdash; such as font and foreground color &mdash; use standard "
+"#GtkWidget functions such as gtk_widget_modify_font() or "
+"gtk_widget_modify_text(). For other attributes there are dedicated methods "
+"on #GtkTextView such as gtk_text_view_set_tabs(). <placeholder-1/>"
+msgstr ""
+
+#: text_widget.sgml:159(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  GtkWidget *view;\n"
+"  GtkTextBuffer *buffer;\n"
+"  GtkTextIter start, end;\n"
+"  PangoFontDescription *font_desc;\n"
+"  GdkColor color;\n"
+"  GtkTextTag *tag;\n"
+"\n"
+"  view = gtk_text_view_new ();\n"
+"\n"
+"  buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));\n"
+"\n"
+"  gtk_text_buffer_set_text (buffer, \"Hello, this is some text\", -1);\n"
+"\n"
+"  /* Change default font throughout the widget */\n"
+"  font_desc = pango_font_description_from_string (\"Serif 15\");\n"
+"  gtk_widget_modify_font (view, font_desc);\n"
+"  pango_font_description_free (font_desc);\n"
+"\n"
+"  /* Change default color throughout the widget */\n"
+"  gdk_color_parse (\"green\", &amp;color);\n"
+"  gtk_widget_modify_text (view, GTK_STATE_NORMAL, &amp;color);\n"
+"\n"
+"  /* Change left margin throughout the widget */\n"
+"  gtk_text_view_set_left_margin (GTK_TEXT_VIEW (view), 30);\n"
+"\n"
+"  /* Use a tag to change the color for just one part of the widget */\n"
+"  tag = gtk_text_buffer_create_tag (buffer, \"blue_foreground\",\n"
+"\t   \t\t            \"foreground\", \"blue\", NULL);  \n"
+"  gtk_text_buffer_get_iter_at_offset (buffer, &amp;start, 7);\n"
+"  gtk_text_buffer_get_iter_at_offset (buffer, &amp;end, 12);\n"
+"  gtk_text_buffer_apply_tag (buffer, tag, &amp;start, &amp;end);\n"
+msgstr ""
+
+#: text_widget.sgml:18(title)
+msgid "Conceptual Overview"
+msgstr ""
+
+#: text_widget.sgml:195(para)
+msgid ""
+"The <application>gtk-demo</application> application that comes with GTK+ "
+"contains more example code for #GtkTextView."
+msgstr ""
+
+#: text_widget.sgml:20(para)
+msgid ""
+"GTK+ has an extremely powerful framework for multiline text editing. The "
+"primary objects involved in the process are #GtkTextBuffer, which represents "
+"the text being edited, and #GtkTextView, a widget which can display a "
+"#GtkTextBuffer. Each buffer can be displayed by any number of views."
+msgstr ""
+
+#: text_widget.sgml:27(para)
+msgid ""
+"One of the important things to remember about text in GTK+ is that it's in "
+"the UTF-8 encoding. This means that one character can be encoded as multiple "
+"bytes. Character counts are usually referred to as <firstterm>offsets</"
+"firstterm>, while byte counts are called <firstterm>indexes</firstterm>. If "
+"you confuse these two, things will work fine with ASCII, but as soon as your "
+"buffer contains multibyte characters, bad things will happen."
+msgstr ""
+
+#: text_widget.sgml:37(para)
+msgid ""
+"Text in a buffer can be marked with <firstterm>tags</firstterm>. A tag is an "
+"attribute that can be applied to some range of text. For example, a tag "
+"might be called \"bold\" and make the text inside the tag bold. However, the "
+"tag concept is more general than that; tags don't have to affect appearance. "
+"They can instead affect the behavior of mouse and key presses, \"lock\" a "
+"range of text so the user can't edit it, or countless other things. A tag is "
+"represented by a #GtkTextTag object. One #GtkTextTag can be applied to any "
+"number of text ranges in any number of buffers."
+msgstr ""
+
+#: text_widget.sgml:48(para)
+msgid ""
+"Each tag is stored in a #GtkTextTagTable. A tag table defines a set of tags "
+"that can be used together. Each buffer has one tag table associated with it; "
+"only tags from that tag table can be used with the buffer. A single tag "
+"table can be shared between multiple buffers, however."
+msgstr ""
+
+#: text_widget.sgml:55(para)
+msgid ""
+"Tags can have names, which is convenient sometimes (for example, you can "
+"name your tag that makes things bold \"bold\"), but they can also be "
+"anonymous (which is convenient if you're creating tags on-the-fly)."
+msgstr ""
+
+#: text_widget.sgml:61(para)
+msgid ""
+"Most text manipulation is accomplished with <firstterm>iterators</"
+"firstterm>, represented by a #GtkTextIter. An iterator represents a position "
+"between two characters in the text buffer. #GtkTextIter is a struct designed "
+"to be allocated on the stack; it's guaranteed to be copiable by value and "
+"never contain any heap-allocated data. Iterators are not valid indefinitely; "
+"whenever the buffer is modified in a way that affects the number of "
+"characters in the buffer, all outstanding iterators become invalid. (Note "
+"that deleting 5 characters and then reinserting 5 still invalidates "
+"iterators, though you end up with the same number of characters you pass "
+"through a state with a different number)."
+msgstr ""
+
+#: text_widget.sgml:74(para)
+msgid ""
+"Because of this, iterators can't be used to preserve positions across buffer "
+"modifications. To preserve a position, the #GtkTextMark object is ideal. You "
+"can think of a mark as an invisible cursor or insertion point; it floats in "
+"the buffer, saving a position. If the text surrounding the mark is deleted, "
+"the mark remains in the position the text once occupied; if text is inserted "
+"at the mark, the mark ends up either to the left or to the right of the new "
+"text, depending on its <firstterm>gravity</firstterm>. The standard text "
+"cursor in left-to-right languages is a mark with right gravity, because it "
+"stays to the right of inserted text."
+msgstr ""
+
+#: text_widget.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: text_widget.sgml:86(para)
+msgid ""
+"Like tags, marks can be either named or anonymous. There are two marks built-"
+"in to #GtkTextBuffer; these are named <literal>\"insert\"</literal> and "
+"<literal>\"selection_bound\"</literal> and refer to the insertion point and "
+"the boundary of the selection which is not the insertion point, "
+"respectively. If no text is selected, these two marks will be in the same "
+"position. You can manipulate what is selected and where the cursor appears "
+"by moving these marks around. <placeholder-1/>"
+msgstr ""
+
+#: text_widget.sgml:9(refmiscinfo)
+msgid "GTK Library"
+msgstr ""
+
+#: text_widget.sgml:95(para)
+msgid ""
+"If you want to place the cursor in response to a user action, be sure to use "
+"gtk_text_buffer_place_cursor(), which moves both at once without causing a "
+"temporary selection (moving one then the other temporarily selects the range "
+"in between the old and new positions)."
+msgstr ""

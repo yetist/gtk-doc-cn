@@ -1,0 +1,1498 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 19:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: migrating-2to3.xml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: migrating-2to3.xml:1001(title)
+msgid "A simple ::draw function"
+msgstr ""
+
+#: migrating-2to3.xml:1002(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"gboolean\n"
+"gtk_arrow_draw (GtkWidget *widget,\n"
+"                cairo_t   *cr)\n"
+"{\n"
+"  GtkStyleContext *context;\n"
+"  gint x, y;\n"
+"  gint width, height;\n"
+"  gint extent;\n"
+"\n"
+"  context = gtk_widget_get_style_context (widget);\n"
+"\n"
+"  width = gtk_widget_get_allocated_width (widget);\n"
+"  height = gtk_widget_get_allocated_height (widget);\n"
+"\n"
+"  extent = MIN (width - 2 * PAD, height - 2 * PAD);\n"
+"  x = PAD;\n"
+"  y = PAD;\n"
+"\n"
+"  gtk_render_arrow (context, rc, G_PI / 2, x, y, extent);\n"
+"}\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:101(para)
+msgid ""
+"To ensure that your application does not have problems with this, you define "
+"the preprocessor symbol <literal>GSEAL_ENABLE</literal> while building your "
+"application against GTK+ 2.x. This will make the compiler catch all uses of "
+"direct access to struct fields so that you can go through them one by one "
+"and replace them with a call to an accessor function instead. <placeholder-1/"
+">"
+msgstr ""
+
+#: migrating-2to3.xml:1028(title)
+msgid "GtkProgressBar orientation"
+msgstr ""
+
+#: migrating-2to3.xml:1030(para)
+msgid ""
+"In GTK+ 2.x, #GtkProgressBar and #GtkCellRendererProgress were using the "
+"GtkProgressBarOrientation enumeration to specify their orientation and "
+"direction. In GTK+ 3, both the widget and the cell renderer implement "
+"#GtkOrientable, and have an additional 'inverted' property to determine "
+"their direction. Therefore, a call to gtk_progress_bar_set_orientation() "
+"needs to be replaced by a pair of calls to gtk_orientable_set_orientation() "
+"and gtk_progress_bar_set_inverted(). The following values correspond: "
+"<table><tgroup cols=\"3\"><colspec colname=\"1\"/><colspec colname=\"2\"/"
+"><colspec colname=\"3\"/><thead><row><entry>GTK+ 2.x</entry><entry namest="
+"\"2\" nameend=\"3\">GTK+ 3</entry></"
+"row><row><entry>GtkProgressBarOrientation</entry><entry>GtkOrientation</"
+"entry><entry>inverted</entry></row></"
+"thead><tbody><row><entry>GTK_PROGRESS_LEFT_TO_RIGHT</"
+"entry><entry>GTK_ORIENTATION_HORIZONTAL</entry><entry>FALSE</entry></"
+"row><row><entry>GTK_PROGRESS_RIGHT_TO_LEFT</"
+"entry><entry>GTK_ORIENTATION_HORIZONTAL</entry><entry>TRUE</entry></"
+"row><row><entry>GTK_PROGRESS_TOP_TO_BOTTOM</"
+"entry><entry>GTK_ORIENTATION_VERTICAL</entry><entry>FALSE</entry></"
+"row><row><entry>GTK_PROGRESS_BOTTOM_TO_TOP</"
+"entry><entry>GTK_ORIENTATION_VERTICAL</entry><entry>TRUE</entry></row></"
+"tbody></tgroup></table>"
+msgstr ""
+
+#: migrating-2to3.xml:1060(title)
+msgid "Check your expand and fill flags"
+msgstr ""
+
+#: migrating-2to3.xml:1062(para)
+msgid ""
+"The behaviour of expanding widgets has changed slightly in GTK+ 3, compared "
+"to GTK+ 2.x. It is now 'inherited', i.e. a container that has an expanding "
+"child is considered expanding itself. This is often the desired behaviour. "
+"In places where you don't want this to happen, setting the container "
+"explicity as not expanding will stop the expand flag of the child from being "
+"inherited. See gtk_widget_set_hexpand() and gtk_widget_set_vexpand()."
+msgstr ""
+
+#: migrating-2to3.xml:1071(para)
+msgid ""
+"If you experience sizing problems with widgets in ported code, carefully "
+"check the #GtkBox::expand and #GtkBox::fill flags of your boxes."
+msgstr ""
+
+#: migrating-2to3.xml:1079(title)
+msgid "Scrolling changes"
+msgstr ""
+
+#: migrating-2to3.xml:108(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"    make CFLAGS+=\"-DGSEAL_ENABLE\"\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:1081(para)
+msgid ""
+"The default values for the #GtkScrolledWindow:hscrollbar-policy and "
+"#GtkScrolledWindow:vscrollbar-policy properties have been changed from "
+"'never' to 'automatic'. If your application was relying on the default "
+"value, you will have explicitly set it explicitly."
+msgstr ""
+
+#: migrating-2to3.xml:1088(para)
+msgid ""
+"The ::set-scroll-adjustments signal on GtkWidget has been replaced by the "
+"#GtkScrollable interface which must be implemented by a widget that wants to "
+"be placed in a #GtkScrolledWindow. Instead of emitting ::set-scroll-"
+"adjustments, the scrolled window simply sets the #GtkScrollable::hadjustment "
+"and #GtkScrollable::vadjustment properties."
+msgstr ""
+
+#: migrating-2to3.xml:1098(title)
+msgid "GtkObject is gone"
+msgstr ""
+
+#: migrating-2to3.xml:1100(para)
+msgid ""
+"GtkObject has been removed in GTK+ 3. Its remaining functionality, the ::"
+"destroy signal, has been moved to GtkWidget. If you have non-widget classes "
+"that are directly derived from GtkObject, you have to make them derive from "
+"#GInitiallyUnowned (or, if you don't need the floating functionality, "
+"#GObject). If you have widgets that override the destroy class handler, you "
+"have to adjust your class_init function, since destroy is now a member of "
+"GtkWidgetClass: <placeholder-1/> becomes <placeholder-2/> In the unlikely "
+"case that you have a non-widget class that is derived from GtkObject and "
+"makes use of the destroy functionality, you have to implement ::destroy "
+"yourself."
+msgstr ""
+
+#: migrating-2to3.xml:1108(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"      GtkObjectClass *object_class = GTK_OBJECT_CLASS (class);\n"
+"\n"
+"      object_class-&gt;destroy = my_destroy;\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:1114(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"      GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);\n"
+"\n"
+"      widget_class-&gt;destroy = my_destroy;\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:1126(title)
+msgid "GtkEntryCompletion signal parameters"
+msgstr ""
+
+#: migrating-2to3.xml:1128(para)
+msgid ""
+"The #GtkEntryCompletion::match-selected and #GtkEntryCompletion::cursor-on-"
+"match signals were erroneously given the internal filter model instead of "
+"the users model. This oversight has been fixed in GTK+ 3; if you have "
+"handlers for these signals, they will likely need slight adjustments."
+msgstr ""
+
+#: migrating-2to3.xml:1138(title)
+msgid "Resize grips"
+msgstr ""
+
+#: migrating-2to3.xml:1140(para)
+msgid ""
+"The resize grip functionality has been moved from #GtkStatusbar to "
+"#GtkWindow. Any window can now have resize grips, regardless whether it has "
+"a statusbar or not. The functions gtk_statusbar_set_has_resize_grip() and "
+"gtk_statusbar_get_has_resize_grip() have disappeared, and instead there are "
+"now gtk_window_set_has_resize_grip() and gtk_window_get_has_resize_grip()."
+msgstr ""
+
+#: migrating-2to3.xml:115(title)
+msgid "Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;"
+msgstr ""
+
+#: migrating-2to3.xml:1151(title)
+msgid "Prevent mixed linkage"
+msgstr ""
+
+#: migrating-2to3.xml:1152(para)
+msgid ""
+"Linking against GTK+ 2.x and GTK+ 3 in the same process is problematic and "
+"can lead to hard-to-diagnose crashes. The gtk_init() function in both GTK+ "
+"2.22 and in GTK+ 3 tries to detect this situation and abort with a "
+"diagnostic message, but this check is not 100% reliable (e.g. if the "
+"problematic linking happens only in loadable modules)."
+msgstr ""
+
+#: migrating-2to3.xml:1159(para)
+msgid ""
+"Direct linking of your application against both versions of GTK+ is easy to "
+"avoid; the problem gets harder when your application is using libraries that "
+"are themselves linked against some version of GTK+. In that case, you have "
+"to verify that you are using a version of the library that is linked against "
+"GTK+ 3."
+msgstr ""
+
+#: migrating-2to3.xml:1166(para)
+msgid ""
+"If you are using packages provided by a distributor, it is likely that "
+"parallel installable versions of the library exist for GTK+ 2.x and GTK+ 3, "
+"e.g for vte, check for vte3; for webkitgtk look for webkitgtk3, and so on."
+msgstr ""
+
+#: migrating-2to3.xml:117(para)
+msgid ""
+"Key constants have gained a <literal>_KEY_</literal> infix. For example, "
+"<literal>GDK_a</literal> is now <literal>GDK_KEY_a</literal>. In GTK+ 2, the "
+"old names continue to be available. In GTK+ 3 however, the old names will "
+"require an explicit include of the <literal>gdkkeysyms-compat.h</literal> "
+"header."
+msgstr ""
+
+#: migrating-2to3.xml:1175(title)
+msgid "Install GTK+ modules in the right place"
+msgstr ""
+
+#: migrating-2to3.xml:1176(para)
+msgid ""
+"Some software packages install loadable GTK+ modules such as theme engines, "
+"gdk-pixbuf loaders or input methods. Since GTK+ 3 is parallel-installable "
+"with GTK+ 2.x, the two GTK+ versions have separate locations for their "
+"loadable modules. The location for GTK+ 2.x is "
+"<filename><replaceable>libdir</replaceable>/gtk-2.0</filename> (and its "
+"subdirectories), for GTK+ 3 the location is <filename><replaceable>libdir</"
+"replaceable>/gtk-3.0</filename> (and its subdirectories)."
+msgstr ""
+
+#: migrating-2to3.xml:1186(para)
+msgid ""
+"For some kinds of modules, namely input methods and pixbuf loaders, GTK+ "
+"keeps a cache file with extra information about the modules. For GTK+ 2.x, "
+"these cache files are located in <filename><replaceable>sysconfdir</"
+"replaceable>/gtk-2.0</filename>. For GTK+ 3, they have been moved to "
+"<filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/</filename>. The "
+"commands that create these cache files have been renamed with a -3 suffix to "
+"make them parallel-installable."
+msgstr ""
+
+#: migrating-2to3.xml:1196(para)
+msgid ""
+"Note that GTK+ modules often link against libgtk, libgdk-pixbuf, etc. If "
+"that is the case for your module, you have to be careful to link the GTK+ 2."
+"x version of your module against the 2.x version of the libraries, and the "
+"GTK+ 3 version against hte 3.x versions. Loading a module linked against "
+"libgtk 2.x into an application using GTK+ 3 will lead to unhappiness and "
+"must be avoided."
+msgstr ""
+
+#: migrating-2to3.xml:128(title)
+msgid "Use GIO for launching applications"
+msgstr ""
+
+#: migrating-2to3.xml:129(para)
+msgid ""
+"The <literal>gdk_spawn</literal> family of functions has been deprecated in "
+"GDK 2.24 and removed from GDK 3. Various replacements exist; the best "
+"replacement depends on the circumstances: <placeholder-1/>"
+msgstr ""
+
+#: migrating-2to3.xml:134(listitem)
+msgid ""
+"If you are opening a document or URI by launching a command like "
+"<placeholder-1/> or <placeholder-2/>, it is best to just use gtk_show_uri(); "
+"as an added benefit, your application will henceforth respect the users "
+"preference for what application to use."
+msgstr ""
+
+#: migrating-2to3.xml:135(literal)
+msgid "firefox http://my-favourite-website.com"
+msgstr ""
+
+#: migrating-2to3.xml:136(literal)
+msgid "gnome-open ghelp:epiphany"
+msgstr ""
+
+#: migrating-2to3.xml:139(listitem)
+msgid ""
+"If you are launching a regular, installed application that has a desktop "
+"file, it is best to use GIOs #GAppInfo with a suitable launch context. "
+"<placeholder-1/> Remember that you have to include <placeholder-2/> and use "
+"the <placeholder-3/> pkg-config file when using g_desktop_app_info_new()."
+msgstr ""
+
+#: migrating-2to3.xml:142(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"        GAppInfo *info;\n"
+"        GAppLaunchContext *context;\n"
+"        GError *error = NULL;\n"
+"\n"
+"        info = (GAppInfo*) g_desktop_app_info_new (\"epiphany.desktop\");\n"
+"        context = (GAppLaunchContext*) gdk_display_get_app_launch_context (display);\n"
+"        g_app_info_launch (info, NULL, context, &amp;error);\n"
+"\n"
+"        if (error)\n"
+"          {\n"
+"            g_warning (\"Failed to launch epiphany: %s\", error-&gt;message);\n"
+"            g_error_free (error);\n"
+"          }\n"
+"\n"
+"        g_object_unref (info);\n"
+"        g_object_unref (context);\n"
+"        "
+msgstr ""
+
+#: migrating-2to3.xml:161(filename)
+msgid "gio/gdesktopappinfo.h"
+msgstr ""
+
+#: migrating-2to3.xml:162(filename)
+msgid "gio-unix-2.0"
+msgstr ""
+
+#: migrating-2to3.xml:165(listitem)
+msgid ""
+"If you are launching a custom commandline, you can still use "
+"g_app_info_launch() with a GAppInfo that is constructed with "
+"g_app_info_create_from_commandline(), or you can use the more lowlevel "
+"<placeholder-1/> family of functions (e.g. g_spawn_command_line_async()), "
+"and pass <placeholder-2/> in the environment. gdk_screen_make_display_name() "
+"can be used to find the right value for the <placeholder-3/> environment "
+"variable."
+msgstr ""
+
+#: migrating-2to3.xml:168(literal)
+msgid "g_spawn"
+msgstr ""
+
+#: migrating-2to3.xml:169(envar) migrating-2to3.xml:171(envar)
+msgid "DISPLAY"
+msgstr ""
+
+#: migrating-2to3.xml:179(title)
+msgid "Use cairo for drawing"
+msgstr ""
+
+#: migrating-2to3.xml:180(para)
+msgid ""
+"In GTK+ 3, the GDK drawing API (which closely mimics the X drawing API, "
+"which is itself modeled after PostScript) has been removed. All drawing in "
+"GTK+ 3 is done via cairo."
+msgstr ""
+
+#: migrating-2to3.xml:185(para)
+msgid ""
+"The #GdkGC and #GdkImage objects, as well as all the functions using them, "
+"are gone. This includes the <literal>gdk_draw</literal> family of functions "
+"like gdk_draw_rectangle() and gdk_draw_drawable(). As #GdkGC is roughly "
+"equivalent to #cairo_t and #GdkImage was used for drawing images to "
+"GdkWindows, which cairo supports automatically, a transition is usually "
+"straightforward."
+msgstr ""
+
+#: migrating-2to3.xml:193(para)
+msgid ""
+"The following examples show a few common drawing idioms used by applications "
+"that have been ported to use cairo and how the code was replaced."
+msgstr ""
+
+#: migrating-2to3.xml:199(title)
+msgid "Drawing a GdkPixbuf onto a GdkWindow"
+msgstr ""
+
+#: migrating-2to3.xml:20(title)
+msgid "Preparation in GTK+ 2.x"
+msgstr ""
+
+#: migrating-2to3.xml:200(para)
+msgid ""
+"Drawing a pixbuf onto a drawable used to be done like this: <placeholder-1/> "
+"Doing the same thing with cairo: <placeholder-2/> Note that very similar "
+"code can be used when porting code using GdkPixmap to #cairo_surface_t by "
+"calling cairo_set_source_surface() instead of gdk_cairo_set_source_pixbuf()."
+msgstr ""
+
+#: migrating-2to3.xml:202(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"gdk_draw_pixbuf (window,\n"
+"                 gtk_widget_get_style (widget)-&gt;black_gc,\n"
+"                 pixbuf,\n"
+"                 0, 0\n"
+"                 x, y,\n"
+"                 gdk_pixbuf_get_width (pixbuf),\n"
+"                 gdk_pixbuf_get_height (pixbuf),\n"
+"                 GDK_RGB_DITHER_NORMAL,\n"
+"                 0, 0);\n"
+"           "
+msgstr ""
+
+#: migrating-2to3.xml:214(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"cairo_t *cr = gdk_cairo_create (window);\n"
+"gdk_cairo_set_source_pixbuf (cr, pixbuf, x, y);\n"
+"cairo_paint (cr);\n"
+"cairo_destroy (cr);\n"
+"           "
+msgstr ""
+
+#: migrating-2to3.xml:22(para)
+msgid ""
+"The steps outlined in the following sections assume that your application is "
+"working with GTK+ 2.24, which is the final stable release of GTK+ 2.x. It "
+"includes all the necessary APIs and tools to help you port your application "
+"to GTK+ 3. If you are still using an older version of GTK+ 2.x, you should "
+"first get your application to build and work with 2.24."
+msgstr ""
+
+#: migrating-2to3.xml:227(title)
+msgid "Drawing a tiled GdkPixmap to a GdkWindow"
+msgstr ""
+
+#: migrating-2to3.xml:228(para)
+msgid ""
+"Tiled pixmaps are often used for drawing backgrounds. Old code looked "
+"something like this: <placeholder-1/> The equivalent cairo code to draw a "
+"tiled surface looks like this: <placeholder-2/> The surface here can be "
+"either an image surface or a X surface, and can either be created on the "
+"spot or kept around for caching purposes. Another alternative is to use "
+"pixbufs instead of surfaces with gdk_cairo_set_source_pixbuf() instead of "
+"cairo_set_source_surface()."
+msgstr ""
+
+#: migrating-2to3.xml:231(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GdkGCValues gc_values;\n"
+"GdkGC *gc;\n"
+"\n"
+"/* setup */\n"
+"gc = gtk_widget_get_style (widget)-&gt;black_gc;\n"
+"gdk_gc_set_tile (gc, pixmap);\n"
+"gdk_gc_set_fill (gc, GDK_TILED);\n"
+"gdk_gc_set_ts_origin (gc, x_origin, y_origin);\n"
+"/* use */\n"
+"gdk_draw_rectangle (window, gc, TRUE, 0, 0, width, height);\n"
+"/* restore */\n"
+"gdk_gc_set_tile (gc, NULL);\n"
+"gdk_gc_set_fill (gc, GDK_SOLID);\n"
+"gdk_gc_set_ts_origin (gc, 0, 0);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:249(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"cairo_t *cr;\n"
+"cairo_surface_t *surface;\n"
+"\n"
+"surface = ...\n"
+"cr = gdk_cairo_create (window);\n"
+"cairo_set_source_surface (cr, surface, x_origin, y_origin);\n"
+"cairo_pattern_set_extend (cairo_get_source (cr), CAIRO_EXTEND_REPEAT);\n"
+"cairo_rectangle (cr, 0, 0, width, height);\n"
+"cairo_fill (cr);\n"
+"cairo_destroy (cr);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:268(title)
+msgid "Drawing a PangoLayout to a clipped area"
+msgstr ""
+
+#: migrating-2to3.xml:269(para)
+msgid ""
+"Drawing layouts clipped is often used to avoid overdraw or to allow drawing "
+"selections. Code would have looked like this: <placeholder-1/> With cairo, "
+"the same effect can be achieved using: <placeholder-2/> Clipping using "
+"cairo_clip() is of course not restricted to text rendering and can be used "
+"everywhere where GC clips were used. And using gdk_cairo_set_source_color() "
+"with style colors should be used in all the places where a style"
+"\342\200\231s GC was used to achieve a particular color."
+msgstr ""
+
+#: migrating-2to3.xml:272(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GdkGC *gc;\n"
+"\n"
+"/* setup */\n"
+"gc = gtk_widget_get_style (widget)-&gt;text_gc[state];\n"
+"gdk_gc_set_clip_rectangle (gc, &amp;area);\n"
+"/* use */\n"
+"gdk_draw_layout (drawable, gc, x, y, layout);\n"
+"/* restore */\n"
+"gdk_gc_set_clip_rectangle (gc, NULL);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:284(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GtkStyleContext *context;\n"
+"GtkStateFlags flags;\n"
+"GdkRGBA rgba;\n"
+"cairo_t *cr;\n"
+"\n"
+"cr = gdk_cairo_create (drawable);\n"
+"/* clip */\n"
+"gdk_cairo_rectangle (cr, &amp;area);\n"
+"cairo_clip (cr);\n"
+"/* set the correct source color */\n"
+"context = gtk_widget_get_style_context (widget));\n"
+"state = gtk_widget_get_state_flags (widget);\n"
+"gtk_style_context_get_color (context, state, &amp;rgba);\n"
+"gdk_cairo_set_source_rgba (cr, &amp;rgba);\n"
+"/* draw the text */\n"
+"cairo_move_to (cr, x, y);\n"
+"pango_cairo_show_layout (cr, layout);\n"
+"cairo_destroy (cr);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:312(title)
+msgid "What should you be aware of ?"
+msgstr ""
+
+#: migrating-2to3.xml:313(title)
+msgid "No more stippling"
+msgstr ""
+
+#: migrating-2to3.xml:314(para)
+msgid ""
+"Stippling is the usage of a bi-level mask, called a #GdkBitmap. It was often "
+"used to achieve a checkerboard effect. You can use cairo_mask() to achieve "
+"this effect. To get a checkerbox mask, you can use code like this: "
+"<placeholder-1/> Note that stippling looks very outdated in UIs, and is "
+"rarely used in modern applications. All properties that made use of "
+"stippling have been removed from GTK+ 3. Most prominently, stippling is "
+"absent from text rendering, in particular #GtkTextTag."
+msgstr ""
+
+#: migrating-2to3.xml:319(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static cairo_pattern_t *\n"
+"gtk_color_button_get_checkered (void)\n"
+"{\n"
+"    /* need to respect pixman's stride being a multiple of 4 */\n"
+"    static unsigned char data[8] = { 0xFF, 0x00, 0x00, 0x00,\n"
+"                                     0x00, 0xFF, 0x00, 0x00 };\n"
+"    cairo_surface_t *surface;\n"
+"    cairo_pattern_t *pattern;\n"
+"\n"
+"    surface = cairo_image_surface_create_for_data (data,\n"
+"                                                   CAIRO_FORMAT_A8,\n"
+"                                                   2, 2,\n"
+"                                                   4);\n"
+"    pattern = cairo_pattern_create_for_surface (surface);\n"
+"    cairo_surface_destroy (surface);\n"
+"    cairo_pattern_set_extend (pattern, CAIRO_EXTEND_REPEAT);\n"
+"    cairo_pattern_set_filter (pattern, CAIRO_FILTER_NEAREST);\n"
+"\n"
+"    return pattern;\n"
+"}\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:32(title)
+msgid "Do not include individual headers"
+msgstr ""
+
+#: migrating-2to3.xml:33(para)
+msgid ""
+"With GTK+ 2.x it was common to include just the header files for a few "
+"widgets that your application was using, which could lead to problems with "
+"missing definitions, etc. GTK+ 3 tightens the rules about which header files "
+"you are allowed to include directly. The allowed header files are are "
+"<placeholder-1/> (these relative paths are assuming that you are using the "
+"include paths that are specified in the gtk+-2.0.pc file, as returned by "
+"<literal>pkg-config --cflags gtk+-2.0.pc</literal>.)"
+msgstr ""
+
+#: migrating-2to3.xml:347(title)
+msgid "Using the target also as source or mask"
+msgstr ""
+
+#: migrating-2to3.xml:348(para)
+msgid ""
+"The gdk_draw_drawable() function allowed using the same drawable as source "
+"and target. This was often used to achieve a scrolling effect. Cairo does "
+"not allow this yet. You can however use cairo_push_group() to get a "
+"different intermediate target that you can copy to. So you can replace this "
+"code: <placeholder-1/> By using this code: <placeholder-2/> The surface here "
+"can be either an image surface or a X surface, and can either be created on "
+"the spot or kept around for caching purposes. Another alternative is to use "
+"pixbufs instead of surfaces with gdk_cairo_set_source_pixbuf() instead of "
+"cairo_set_source_surface()."
+msgstr ""
+
+#: migrating-2to3.xml:354(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"gdk_draw_drawable (pixmap,\n"
+"                   gc,\n"
+"                   pixmap,\n"
+"                   area.x + dx, area.y + dy,\n"
+"                   area.x, area.y,\n"
+"                   area.width, area.height);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:363(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"cairo_t *cr = cairo_create (surface);\n"
+"/* clipping restricts the intermediate surface's size, so it's a good idea\n"
+" * to use it. */\n"
+"gdk_cairo_rectangle (cr, &amp;area);\n"
+"cairo_clip (cr);\n"
+"/* Now push a group to change the target */\n"
+"cairo_push_group (cr);\n"
+"cairo_set_source_surface (cr, surface, dx, dy);\n"
+"cairo_paint (cr);\n"
+"/* Now copy the intermediate target back */\n"
+"cairo_pop_group_to_source (cr);\n"
+"cairo_paint (cr);\n"
+"cairo_destroy (cr);\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:383(para)
+msgid ""
+"The cairo developers plan to add self-copies in the future to allow exactly "
+"this effect, so you might want to keep up on cairo development to be able to "
+"change your code."
+msgstr ""
+
+#: migrating-2to3.xml:389(title)
+msgid ""
+"Using pango_cairo_show_layout() instead of gdk_draw_layout_with_colors()"
+msgstr ""
+
+#: migrating-2to3.xml:390(para)
+msgid ""
+"GDK provided a way to ignore the color attributes of text and use a "
+"hardcoded text color with the gdk_draw_layout_with_colors() function. This "
+"is often used to draw text shadows or selections. Pango\342\200\231s cairo "
+"support does not yet provide this functionality. If you use Pango layouts "
+"that change colors, the easiest way to achieve a similar effect is using "
+"pango_cairo_layout_path() and cairo_fill() instead of "
+"gdk_draw_layout_with_colors(). Note that this results in a slightly uglier-"
+"looking text, as subpixel anti-aliasing is not supported."
+msgstr ""
+
+#: migrating-2to3.xml:407(title)
+msgid "Changes that need to be done at the time of the switch"
+msgstr ""
+
+#: migrating-2to3.xml:409(para)
+msgid ""
+"This section outlines porting tasks that you need to tackle when you get to "
+"the point that you actually build your application against GTK+ 3. Making it "
+"possible to prepare for these in GTK+ 2.24 would have been either impossible "
+"or impractical."
+msgstr ""
+
+#: migrating-2to3.xml:41(filename)
+msgid "gtk/gtk.h"
+msgstr ""
+
+#: migrating-2to3.xml:417(title)
+msgid "Replace size_request by get_preferred_width/height"
+msgstr ""
+
+#: migrating-2to3.xml:419(para)
+msgid ""
+"The request-phase of the traditional GTK+ geometry management has been "
+"replaced by a more flexible height-for-width system, which is described in "
+"detail in the API documentation (see <xref linkend=\"geometry-management\"/"
+">). As a consequence, the ::size-request signal and vfunc has been removed "
+"from #GtkWidgetClass. The replacement for size_request() can take several "
+"levels of sophistication: <placeholder-1/>"
+msgstr ""
+
+#: migrating-2to3.xml:42(listitem)
+msgid "for GTK"
+msgstr ""
+
+#: migrating-2to3.xml:429(para)
+msgid ""
+"As a minimal replacement to keep current functionality, you can simply "
+"implement the #GtkWidgetClass.get_preferred_width() and #GtkWidgetClass."
+"get_preferred_height() vfuncs by calling your existing size_request() "
+"function. So you go from <placeholder-1/><placeholder-2/><placeholder-3/"
+"><placeholder-4/><placeholder-5/>"
+msgstr ""
+
+#: migrating-2to3.xml:434(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"my_widget_class_init (MyWidgetClass *class)\n"
+"{\n"
+"  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);\n"
+"\n"
+"  /* ... */\n"
+"\n"
+"  widget_class-&gt;size_request = my_widget_size_request;\n"
+"\n"
+"  /* ... */\n"
+"}\n"
+"        "
+msgstr ""
+
+#: migrating-2to3.xml:447(para)
+msgid "to something that looks more like this:"
+msgstr ""
+
+#: migrating-2to3.xml:45(filename)
+msgid "gtk/gtkunixprint.h"
+msgstr ""
+
+#: migrating-2to3.xml:450(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"my_widget_get_preferred_width (GtkWidget *widget,\n"
+"                               gint      *minimal_width,\n"
+"                               gint      *natural_width)\n"
+"{\n"
+"  GtkRequisition requisition;\n"
+"\n"
+"  my_widget_size_request (widget, &amp;requisition);\n"
+"\n"
+"  *minimal_width = *natural_width = requisition.width;\n"
+"}\n"
+"\n"
+"static void\n"
+"my_widget_get_preferred_height (GtkWidget *widget,\n"
+"                                gint      *minimal_height,\n"
+"                                gint      *natural_height)\n"
+"{\n"
+"  GtkRequisition requisition;\n"
+"\n"
+"  my_widget_size_request (widget, &amp;requisition);\n"
+"\n"
+"  *minimal_height = *natural_height = requisition.height;\n"
+"}\n"
+"\n"
+" /* ... */\n"
+"\n"
+"static void\n"
+"my_widget_class_init (MyWidgetClass *class)\n"
+"{\n"
+"  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);\n"
+"\n"
+"  /* ... */\n"
+"\n"
+"  widget_class-&gt;get_preferred_width = my_widget_get_preferred_width;\n"
+"  widget_class-&gt;get_preferred_height = my_widget_get_preferred_height;\n"
+"\n"
+"  /* ... */\n"
+"\n"
+"}\n"
+"        "
+msgstr ""
+
+#: migrating-2to3.xml:46(listitem)
+msgid "for low-level, UNIX-specific printing functions"
+msgstr ""
+
+#: migrating-2to3.xml:49(filename)
+msgid "gdk/gdk.h"
+msgstr ""
+
+#: migrating-2to3.xml:491(para)
+msgid ""
+"Sometimes you can make things a little more streamlined by replacing your "
+"existing size_request() implementation by one that takes an orientation "
+"parameter:"
+msgstr ""
+
+#: migrating-2to3.xml:496(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"my_widget_get_preferred_size (GtkWidget      *widget,\n"
+"                              GtkOrientation  orientation,\n"
+"                               gint          *minimal_size,\n"
+"                               gint          *natural_size)\n"
+"{\n"
+"\n"
+"  /* do things that are common for both orientations ... */\n"
+"\n"
+"  if (orientation == GTK_ORIENTATION_HORIZONTAL)\n"
+"    {\n"
+"      /* do stuff that only applies to width... */\n"
+"\n"
+"      *minimal_size = *natural_size = ...\n"
+"    }\n"
+"  else\n"
+"   {\n"
+"      /* do stuff that only applies to height... */\n"
+"\n"
+"      *minimal_size = *natural_size = ...\n"
+"   }\n"
+"}\n"
+"\n"
+"static void\n"
+"my_widget_get_preferred_width (GtkWidget *widget,\n"
+"                               gint      *minimal_width,\n"
+"                               gint      *natural_width)\n"
+"{\n"
+"  my_widget_get_preferred_size (widget,\n"
+"                                GTK_ORIENTATION_HORIZONTAL,\n"
+"                                minimal_width,\n"
+"                                natural_width);\n"
+"}\n"
+"\n"
+"static void\n"
+"my_widget_get_preferred_height (GtkWidget *widget,\n"
+"                                gint      *minimal_height,\n"
+"                                gint      *natural_height)\n"
+"{\n"
+"  my_widget_get_preferred_size (widget,\n"
+"                                GTK_ORIENTATION_VERTICAL,\n"
+"                                minimal_height,\n"
+"                                natural_height);\n"
+"}\n"
+"\n"
+" /* ... */\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:50(listitem)
+msgid "for GDK"
+msgstr ""
+
+#: migrating-2to3.xml:53(filename)
+msgid "gdk/gdkx.h"
+msgstr ""
+
+#: migrating-2to3.xml:54(listitem)
+msgid "for GDK functions that are X11-specific"
+msgstr ""
+
+#: migrating-2to3.xml:547(para)
+msgid ""
+"If your widget can cope with a small size, but would appreciate getting some "
+"more space (a common example would be that it contains ellipsizable labels), "
+"you can do that by making your #GtkWidgetClass.get_preferred_width() / "
+"#GtkWidgetClass.get_preferred_height() functions return a smaller value for "
+"@minimal than for @natural. For @minimal, you probably want to return the "
+"same value that your size_request() function returned before (since "
+"size_request() was defined as returning the minimal size a widget can work "
+"with). A simple way to obtain good values for @natural, in the case of "
+"containers, is to use gtk_widget_get_preferred_width() and "
+"gtk_widget_get_preferred_height() on the children of the container, as in "
+"the following example: <placeholder-1/>"
+msgstr ""
+
+#: migrating-2to3.xml:561(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"gtk_fixed_get_preferred_height (GtkWidget *widget,\n"
+"                                gint      *minimum,\n"
+"                                gint      *natural)\n"
+"{\n"
+"  GtkFixed *fixed = GTK_FIXED (widget);\n"
+"  GtkFixedPrivate *priv = fixed-&gt;priv;\n"
+"  GtkFixedChild *child;\n"
+"  GList *children;\n"
+"  gint child_min, child_nat;\n"
+"\n"
+"  *minimum = 0;\n"
+"  *natural = 0;\n"
+"\n"
+"  for (children = priv-&gt;children; children; children = children-&gt;next)\n"
+"    {\n"
+"      child = children-&gt;data;\n"
+"\n"
+"      if (!gtk_widget_get_visible (child-&gt;widget))\n"
+"        continue;\n"
+"\n"
+"      gtk_widget_get_preferred_height (child-&gt;widget, &amp;child_min, &amp;child_nat);\n"
+"\n"
+"      *minimum = MAX (*minimum, child-&gt;y + child_min);\n"
+"      *natural = MAX (*natural, child-&gt;y + child_nat);\n"
+"    }\n"
+"}\n"
+"          "
+msgstr ""
+
+#: migrating-2to3.xml:57(filename)
+msgid "gdk/gdkwin32.h"
+msgstr ""
+
+#: migrating-2to3.xml:58(listitem)
+msgid "for GDK functions that are Windows-specific"
+msgstr ""
+
+#: migrating-2to3.xml:593(para)
+msgid ""
+"Note that the #GtkWidgetClass.get_preferred_width() / #GtkWidgetClass."
+"get_preferred_height() functions only allow you to deal with one dimension "
+"at a time. If your size_request() handler is doing things that involve both "
+"width and height at the same time (e.g. limiting the aspect ratio), you will "
+"have to implement #GtkWidgetClass.get_preferred_height_for_width() and "
+"#GtkWidgetClass.get_preferred_width_for_height()."
+msgstr ""
+
+#: migrating-2to3.xml:605(para)
+msgid ""
+"To make full use of the new capabilities of the height-for-width geometry "
+"management, you need to additionally implement the #GtkWidgetClass."
+"get_preferred_height_for_width() and #GtkWidgetClass."
+"get_preferred_width_for_height(). For details on these functions, see <xref "
+"linkend=\"geometry-management\"/>."
+msgstr ""
+
+#: migrating-2to3.xml:618(title)
+msgid "Replace GdkRegion by cairo_region_t"
+msgstr ""
+
+#: migrating-2to3.xml:620(para)
+msgid ""
+"Starting with version 1.10, cairo provides a region API that is equivalent "
+"to the GDK region API (which was itself copied from the X server). "
+"Therefore, the region API has been removed in GTK+ 3."
+msgstr ""
+
+#: migrating-2to3.xml:625(para)
+msgid ""
+"Porting your application to the cairo region API should be a straight find-"
+"and-replace task. Please refer to the following table: <table><tgroup cols="
+"\"2\"><placeholder-1/><thead><row><entry>GDK</entry><entry>cairo</entry></"
+"row></thead><tbody><row><entry>#GdkRegion</entry><entry>#cairo_region_t</"
+"entry></row><row><entry>#GdkRectangle</entry><entry>#cairo_rectangle_int_t</"
+"entry></row><row><entry>gdk_rectangle_intersect()</entry><entry>this "
+"function is still there</entry></row><row><entry>gdk_rectangle_union()</"
+"entry><entry>this function is still there</entry></"
+"row><row><entry>gdk_region_new()</entry><entry>cairo_region_create()</"
+"entry></row><row><entry>gdk_region_copy()</entry><entry>cairo_region_copy()</"
+"entry></row><row><entry>gdk_region_destroy()</"
+"entry><entry>cairo_region_destroy()</entry></"
+"row><row><entry>gdk_region_rectangle()</"
+"entry><entry>cairo_region_create_rectangle()</entry></"
+"row><row><entry>gdk_region_get_clipbox()</"
+"entry><entry>cairo_region_get_extents()</entry></"
+"row><row><entry>gdk_region_get_rectangles()</"
+"entry><entry>cairo_region_num_rectangles() and cairo_region_get_rectangle()</"
+"entry></row><row><entry>gdk_region_empty()</"
+"entry><entry>cairo_region_is_empty()</entry></"
+"row><row><entry>gdk_region_equal()</entry><entry>cairo_region_equal()</"
+"entry></row><row><entry>gdk_region_point_in()</"
+"entry><entry>cairo_region_contains_point()</entry></"
+"row><row><entry>gdk_region_rect_in()</"
+"entry><entry>cairo_region_contains_rectangle()</entry></"
+"row><row><entry>gdk_region_offset()</entry><entry>cairo_region_translate()</"
+"entry></row><row><entry>gdk_region_union_with_rect()</"
+"entry><entry>cairo_region_union_rectangle()</entry></"
+"row><row><entry>gdk_region_intersect()</entry><entry>cairo_region_intersect()"
+"</entry></row><row><entry>gdk_region_union()</entry><entry>cairo_region_union"
+"()</entry></row><row><entry>gdk_region_subtract()</"
+"entry><entry>cairo_region_subtract()</entry></row><row><entry>gdk_region_xor"
+"()</entry><entry>cairo_region_xor()</entry></"
+"row><row><entry>gdk_region_shrink()</entry><entry>no replacement</entry></"
+"row><row><entry>gdk_region_polygon()</entry><entry>no replacement, use cairo "
+"paths instead</entry></row></tbody></tgroup></table>"
+msgstr ""
+
+#: migrating-2to3.xml:630(title)
+msgid "GdkRegion to cairo_region_t"
+msgstr ""
+
+#: migrating-2to3.xml:65(para)
+msgid ""
+"To check that your application only includes the allowed headers, you can "
+"use defines to disable inclusion of individual headers, as follows: "
+"<placeholder-1/>"
+msgstr ""
+
+#: migrating-2to3.xml:665(title)
+msgid "Replace GdkPixmap by cairo surfaces"
+msgstr ""
+
+#: migrating-2to3.xml:666(para)
+msgid ""
+"The #GdkPixmap object and related functions have been removed. In the cairo-"
+"centric world of GTK+ 3, cairo surfaces take over the role of pixmaps."
+msgstr ""
+
+#: migrating-2to3.xml:672(title)
+msgid "Creating custom cursors"
+msgstr ""
+
+#: migrating-2to3.xml:673(para)
+msgid ""
+"One place where pixmaps were commonly used is to create custom cursors: "
+"<placeholder-1/> The same can be achieved without pixmaps, by drawing onto "
+"an image surface: <placeholder-2/>"
+msgstr ""
+
+#: migrating-2to3.xml:676(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GdkCursor *cursor;\n"
+"GdkPixmap *pixmap;\n"
+"cairo_t *cr;\n"
+"GdkColor fg = { 0, 0, 0, 0 };\n"
+"\n"
+"pixmap = gdk_pixmap_new (NULL, 1, 1, 1);\n"
+"\n"
+"cr = gdk_cairo_create (pixmap);\n"
+"cairo_rectangle (cr, 0, 0, 1, 1);\n"
+"cairo_fill (cr);\n"
+"cairo_destroy (cr);\n"
+"\n"
+"cursor = gdk_cursor_new_from_pixmap (pixmap, pixmap, &amp;fg, &amp;fg, 0, 0);\n"
+"\n"
+"g_object_unref (pixmap);\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:69(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"    make CFLAGS+=\"-DGTK_DISABLE_SINGLE_INCLUDES\"\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:695(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GdkCursor *cursor;\n"
+"cairo_surface_t *s;\n"
+"cairo_t *cr;\n"
+"GdkPixbuf *pixbuf;\n"
+"\n"
+"s = cairo_image_surface_create (CAIRO_FORMAT_A1, 3, 3);\n"
+"cr = cairo_create (s);\n"
+"cairo_arc (cr, 1.5, 1.5, 1.5, 0, 2 * M_PI);\n"
+"cairo_fill (cr);\n"
+"cairo_destroy (cr);\n"
+"\n"
+"pixbuf = gdk_pixbuf_get_from_surface (NULL, s,\n"
+"                                      0, 0, 0, 0,\n"
+"                                      3, 3);\n"
+"\n"
+"cairo_surface_destroy (s);\n"
+"\n"
+"cursor = gdk_cursor_new_from_pixbuf (display, pixbuf, 0, 0);\n"
+"\n"
+"g_object_unref (pixbuf);\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:7(title)
+msgid "Migrating from GTK+ 2.x to GTK+ 3"
+msgstr ""
+
+#: migrating-2to3.xml:722(title)
+msgid "Replace GdkColormap by GdkVisual"
+msgstr ""
+
+#: migrating-2to3.xml:723(para)
+msgid ""
+"For drawing with cairo, it is not necessary to allocate colors, and a "
+"#GdkVisual provides enough information for cairo to handle colors in "
+"'native' surfaces. Therefore, #GdkColormap and related functions have been "
+"removed in GTK+ 3, and visuals are used instead. The colormap-handling "
+"functions of #GtkWidget (gtk_widget_set_colormap(), etc) have been removed "
+"and gtk_widget_set_visual() has been added."
+msgstr ""
+
+#: migrating-2to3.xml:731(title)
+msgid "Setting up a translucent window"
+msgstr ""
+
+#: migrating-2to3.xml:732(para)
+msgid ""
+"You might have a screen-changed handler like the following to set up a "
+"translucent window with an alpha-channel:"
+msgstr ""
+
+#: migrating-2to3.xml:735(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"on_alpha_screen_changed (GtkWidget *widget,\n"
+"                         GdkScreen *old_screen,\n"
+"                         GtkWidget *label)\n"
+"{\n"
+"  GdkScreen *screen = gtk_widget_get_screen (widget);\n"
+"  GdkColormap *colormap = gdk_screen_get_rgba_colormap (screen);\n"
+"\n"
+"  if (colormap == NULL)\n"
+"    colormap = gdk_screen_get_default_colormap (screen);\n"
+"\n"
+"  gtk_widget_set_colormap (widget, colormap);\n"
+"}\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:750(para)
+msgid "With visuals instead of colormaps, this will look as follows:"
+msgstr ""
+
+#: migrating-2to3.xml:753(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"on_alpha_screen_changed (GtkWindow *window,\n"
+"                         GdkScreen *old_screen,\n"
+"                         GtkWidget *label)\n"
+"{\n"
+"  GdkScreen *screen = gtk_widget_get_screen (GTK_WIDGET (window));\n"
+"  GdkVisual *visual = gdk_screen_get_rgba_visual (screen);\n"
+"\n"
+"  if (visual == NULL)\n"
+"    visual = gdk_screen_get_system_visual (screen);\n"
+"\n"
+"  gtk_widget_set_visual (window, visual);\n"
+"}\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:76(title)
+msgid "Do not use deprecated symbols"
+msgstr ""
+
+#: migrating-2to3.xml:77(para)
+msgid ""
+"Over the years, a number of functions, and in some cases, entire widgets "
+"have been deprecated. These deprecations are clearly spelled out in the API "
+"reference, with hints about the recommended replacements. The API reference "
+"also includes an <link linkend=\"api-index-deprecated\">index</link> of all "
+"deprecated symbols."
+msgstr ""
+
+#: migrating-2to3.xml:772(title)
+msgid "GdkDrawable is gone"
+msgstr ""
+
+#: migrating-2to3.xml:774(para)
+msgid ""
+"#GdkDrawable has been removed in GTK+ 3, together with #GdkPixmap and "
+"#GdkImage. The only remaining drawable class is #GdkWindow. For dealing with "
+"image data, you should use a #cairo_surface_t or a #GdkPixbuf."
+msgstr ""
+
+#: migrating-2to3.xml:781(para)
+msgid ""
+"GdkDrawable functions that are useful with windows have been replaced by "
+"corresponding GdkWindow functions: <table><placeholder-1/><tgroup cols="
+"\"2\"><thead><row><entry>GDK 2.x</entry><entry>GDK 3</entry></row></"
+"thead><tbody><row><entry>gdk_drawable_get_visual()</"
+"entry><entry>gdk_window_get_visual()</entry></"
+"row><row><entry>gdk_drawable_get_size()</entry><entry>gdk_window_get_width() "
+"gdk_window_get_height()</entry></row><row><entry>gdk_pixbuf_get_from_drawable"
+"()</entry><entry>gdk_pixbuf_get_from_window()</entry></"
+"row><row><entry>gdk_drawable_get_clip_region()</"
+"entry><entry>gdk_window_get_clip_region()</entry></"
+"row><row><entry>gdk_drawable_get_visible_region()</"
+"entry><entry>gdk_window_get_visible_region()</entry></row></tbody></tgroup></"
+"table>"
+msgstr ""
+
+#: migrating-2to3.xml:785(title)
+msgid "GdkDrawable to GdkWindow"
+msgstr ""
+
+#: migrating-2to3.xml:804(title)
+msgid "Event filtering"
+msgstr ""
+
+#: migrating-2to3.xml:806(para)
+msgid ""
+"If your application uses the low-level event filtering facilities in GDK, "
+"there are some changes you need to be aware of."
+msgstr ""
+
+#: migrating-2to3.xml:811(para)
+msgid ""
+"The special-purpose GdkEventClient events and the "
+"gdk_add_client_message_filter() and gdk_display_add_client_message_filter() "
+"functions have been removed. Receiving X11 ClientMessage events is still "
+"possible, using the general gdk_window_add_filter() API. A client message "
+"filter like <placeholder-1/> then looks like this: <placeholder-2/> One "
+"advantage of using an event filter is that you can actually remove the "
+"filter when you don't need it anymore, using gdk_window_remove_filter()."
+msgstr ""
+
+#: migrating-2to3.xml:815(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static GdkFilterReturn\n"
+"message_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)\n"
+"{\n"
+"  XClientMessageEvent *evt = (XClientMessageEvent *)xevent;\n"
+"\n"
+"  /* do something with evt ... */\n"
+"}\n"
+"\n"
+" ...\n"
+"\n"
+"message_type = gdk_atom_intern (\"MANAGER\", FALSE);\n"
+"gdk_display_add_client_message_filter (display, message_type, message_filter, NULL);\n"
+msgstr ""
+
+#: migrating-2to3.xml:830(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static GdkFilterReturn\n"
+"event_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)\n"
+"{\n"
+"  XClientMessageEvent *evt;\n"
+"  GdkAtom message_type;\n"
+"\n"
+"  if (((XEvent *)xevent)-&gt;type != ClientMessage)\n"
+"    return GDK_FILTER_CONTINUE;\n"
+"\n"
+"  evt = (XClientMessageEvent *)xevent;\n"
+"  message_type = XInternAtom (evt-&gt;display, \"MANAGER\", FALSE);\n"
+"\n"
+"  if (evt-&gt;message_type != message_type)\n"
+"    return GDK_FILTER_CONTINUE;\n"
+"\n"
+"  /* do something with evt ... */\n"
+"}\n"
+"\n"
+" ...\n"
+"\n"
+"gdk_window_add_filter (NULL, message_filter, NULL);\n"
+msgstr ""
+
+#: migrating-2to3.xml:85(para)
+msgid ""
+"To verify that your program does not use any deprecated symbols, you can use "
+"defines to remove deprecated symbols from the header files, as follows: "
+"<placeholder-1/>"
+msgstr ""
+
+#: migrating-2to3.xml:858(para)
+msgid ""
+"The other difference to be aware of when working with event filters in GTK+ "
+"3 is that GDK now uses XI2 by default when available. That means that your "
+"application does not receive core X11 key or button events. Instead, all "
+"input events are delivered as XIDeviceEvents. As a short-term workaround for "
+"this, you can force your application to not use XI2, with "
+"gdk_disable_multidevice(). In the long term, you probably want to rewrite "
+"your event filter to deal with XIDeviceEvents."
+msgstr ""
+
+#: migrating-2to3.xml:871(title)
+msgid "Backend-specific code"
+msgstr ""
+
+#: migrating-2to3.xml:872(para)
+msgid ""
+"In GTK+ 2.x, GDK could only be compiled for one backend at a time, and the "
+"%GDK_WINDOWING_X11 or %GDK_WINDOWING_WIN32 macros could be used to find out "
+"which one you are dealing with: <placeholder-1/> In GTK+ 3, GDK can be built "
+"with multiple backends, and currently used backend has to be determined at "
+"runtime, typically using type-check macros on a #GdkDisplay or #GdkWindow. "
+"You still need to use the #GDK_WINDOWING macros to only compile code "
+"referring to supported backends: <placeholder-2/>"
+msgstr ""
+
+#: migrating-2to3.xml:876(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"#ifdef GDK_WINDOWING_X11\n"
+"      if (timestamp != GDK_CURRENT_TIME)\n"
+"        gdk_x11_window_set_user_time (gdk_window, timestamp);\n"
+"#endif\n"
+"#ifdef GDK_WINDOWING_WIN32\n"
+"        /* ... win32 specific code ... */\n"
+"#endif\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:89(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"    make CFLAGS+=\"-DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED\"\n"
+"    "
+msgstr ""
+
+#: migrating-2to3.xml:890(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"#ifdef GDK_WINDOWING_X11\n"
+"      if (GDK_IS_X11_DISPLAY (display))\n"
+"        {\n"
+"          if (timestamp != GDK_CURRENT_TIME)\n"
+"            gdk_x11_window_set_user_time (gdk_window, timestamp);\n"
+"        }\n"
+"      else\n"
+"#endif\n"
+"#ifdef GDK_WINDOWING_WIN32\n"
+"      if (GDK_IS_WIN32_DISPLAY (display))\n"
+"        {\n"
+"          /* ... win32 specific code ... */\n"
+"        }\n"
+"      else\n"
+"#endif\n"
+"       {\n"
+"         g_warning (\"Unsupported GDK backend\");\n"
+"       }\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:9(para)
+msgid ""
+"GTK+ 3 is a major new version of GTK+ that breaks both API and ABI compared "
+"to GTK+ 2.x, which has remained API- and ABI-stable for a long time. "
+"Thankfully, most of the changes are not hard to adapt to and there are a "
+"number of steps that you can take to prepare your GTK+ 2.x application for "
+"the switch to GTK+ 3. After that, there's a small number of adjustments that "
+"you may have to do when you actually switch your application to build "
+"against GTK+ 3."
+msgstr ""
+
+#: migrating-2to3.xml:911(para)
+msgid ""
+"If you used the pkg-config variable <varname>target</varname> to "
+"conditionally build part of your project depending on the GDK backend, for "
+"instance like this: <placeholder-1/> then you should now use the M4 macro "
+"provided by GTK+ itself: <placeholder-2/>"
+msgstr ""
+
+#: migrating-2to3.xml:915(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"AM_CONDITIONAL(BUILD_X11, test `$PKG_CONFIG --variable=target gtk+-2.0` = \"x11\")\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:919(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GTK_CHECK_BACKEND([x11], [3.0.2], [have_x11=yes], [have_x11=no])\n"
+"AM_CONDITIONAL(BUILD_x11, [test \"x$have_x11\" = \"xyes\"])\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:927(title)
+msgid "GtkPlug and GtkSocket"
+msgstr ""
+
+#: migrating-2to3.xml:929(para)
+msgid ""
+"The #GtkPlug and #GtkSocket widgets are now X11-specific, and you have to "
+"include the <filename>&lt;gtk/gtkx.h&gt;</filename> header to use them. The "
+"previous section about proper handling of backend-specific code applies, if "
+"you care about other backends."
+msgstr ""
+
+#: migrating-2to3.xml:938(title)
+msgid "The GtkWidget::draw signal"
+msgstr ""
+
+#: migrating-2to3.xml:939(para)
+msgid ""
+"The GtkWidget #GtkWidget::expose-event signal has been replaced by a new "
+"#GtkWidget::draw signal, which takes a #cairo_t instead of an expose event. "
+"The cairo context is being set up so that the origin at (0, 0) coincides "
+"with the upper left corner of the widget, and is properly clipped."
+msgstr ""
+
+#: migrating-2to3.xml:946(para)
+msgid ""
+"In other words, the cairo context of the draw signal is set up in 'widget "
+"coordinates', which is different from traditional expose event handlers, "
+"which always assume 'window coordinates'."
+msgstr ""
+
+#: migrating-2to3.xml:950(para)
+msgid ""
+"The widget is expected to draw itself with its allocated size, which is "
+"available via the new gtk_widget_get_allocated_width() and "
+"gtk_widget_get_allocated_height() functions. It is not necessary to check "
+"for GTK_WIDGET_IS_DRAWABLE(), since GTK+ already does this check before "
+"emitting the #GtkWidget::draw signal."
+msgstr ""
+
+#: migrating-2to3.xml:957(para)
+msgid ""
+"There are some special considerations for widgets with multiple windows. "
+"Expose events are window-specific, and widgets with multiple windows could "
+"expect to get an expose event for each window that needs to be redrawn. "
+"Therefore, multi-window expose event handlers typically look like this: "
+"<placeholder-1/> In contrast, the #GtkWidget::draw signal handler may have "
+"to draw multiple windows in one call. GTK+ has a convenience function "
+"gtk_cairo_should_draw_window() that can be used to find out if a window "
+"needs to be drawn. With that, the example above would look like this (note "
+"that the 'else' is gone): <placeholder-2/> Another convenience function that "
+"can help when implementing ::draw for multi-window widgets is "
+"gtk_cairo_transform_to_window(), which transforms a cairo context from "
+"widget-relative coordinates to window-relative coordinates."
+msgstr ""
+
+#: migrating-2to3.xml:96(title)
+msgid "Use accessor functions instead of direct access"
+msgstr ""
+
+#: migrating-2to3.xml:963(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"      if (event-&gt;window == widget-&gt;window1)\n"
+"        {\n"
+"           /* ... draw window1 ... */\n"
+"        }\n"
+"      else if (event-&gt;window == widget-&gt;window2)\n"
+"        {\n"
+"           /* ... draw window2 ... */\n"
+"        }\n"
+"      ...\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:97(para)
+msgid ""
+"GTK+ 3 removes many implementation details and struct members from its "
+"public headers."
+msgstr ""
+
+#: migrating-2to3.xml:979(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"      if (gtk_cairo_should_draw_window (cr, widget-&gt;window1)\n"
+"        {\n"
+"           /* ... draw window1 ... */\n"
+"        }\n"
+"      if (gtk_cairo_should_draw_window (cr, widget-&gt;window2)\n"
+"        {\n"
+"           /* ... draw window2 ... */\n"
+"        }\n"
+"      ...\n"
+"      "
+msgstr ""
+
+#: migrating-2to3.xml:995(para)
+msgid ""
+"All GtkStyle drawing functions (gtk_paint_box(), etc) have been changed to "
+"take a #cairo_t instead of a window and a clip area. ::draw implementations "
+"will usually just use the cairo context that has been passed in for this."
+msgstr ""

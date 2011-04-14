@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 19:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: compiling.sgml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: compiling.sgml:13(refname) compiling.sgml:7(refentrytitle)
+msgid "Compiling GTK+ Applications"
+msgstr ""
+
+#: compiling.sgml:14(refpurpose)
+msgid "How to compile your GTK+ application"
+msgstr ""
+
+#: compiling.sgml:20(title)
+msgid "Compiling GTK+ Applications on UNIX"
+msgstr ""
+
+#: compiling.sgml:22(para)
+msgid ""
+"To compile a GTK+ application, you need to tell the compiler where to find "
+"the GTK+ header files and libraries. This is done with the <literal>pkg-"
+"config</literal> utility."
+msgstr ""
+
+#: compiling.sgml:27(para)
+msgid ""
+"The following interactive shell session demonstrates how <literal>pkg-"
+"config</literal> is used (the actual output on your system may be "
+"different): <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:31(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ pkg-config --cflags gtk+-3.0\n"
+" -pthread -I/usr/include/gtk-3.0 -I/usr/lib64/gtk-3.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12\n"
+"$ pkg-config --libs gtk+-3.0\n"
+" -pthread -lgtk-3 -lgdk-3 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0\n"
+msgstr ""
+
+#: compiling.sgml:38(para)
+msgid ""
+"The simplest way to compile a program is to use the \"backticks\" feature of "
+"the shell. If you enclose a command in backticks (<emphasis>not single "
+"quotes</emphasis>), then its output will be substituted into the command "
+"line before execution. So to compile a GTK+ Hello, World, you would type the "
+"following: <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:44(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ cc `pkg-config --cflags --libs gtk+-3.0` hello.c -o hello\n"
+msgstr ""
+
+#: compiling.sgml:49(para)
+msgid ""
+"If you want to make sure that your program doesn't use any deprecated "
+"functions, you can define the preprocessor symbol GTK_DISABLE_DEPRECATED by "
+"using the command line option <literal>-DGTK_DISABLE_DEPRECATED=1</literal>. "
+"There are similar symbols GDK_DISABLE_DEPRECATED, "
+"GDK_PIXBUF_DISABLE_DEPRECATED and G_DISABLE_DEPRECATED for GDK, GdkPixbuf "
+"and GLib."
+msgstr ""
+
+#: compiling.sgml:58(para)
+msgid ""
+"If you want to make sure that your program doesn't use any functions which "
+"may be problematic in a multihead setting, you can define the preprocessor "
+"symbol GDK_MULTIHEAD_SAFE by using the command line option <literal>-"
+"DGTK_MULTIHEAD_SAFE=1</literal>."
+msgstr ""
+
+#: compiling.sgml:65(para)
+msgid ""
+"Similarly, if you want to make sure that your program doesn't use any "
+"functions which may be problematic in a multidevice setting, you can define "
+"the preprocessor symbol GDK_MULTIDEVICE_SAFE by using the command line "
+"option <literal>-DGTK_MULTIDEVICE_SAFE=1</literal>."
+msgstr ""
+
+#: compiling.sgml:73(title)
+msgid "Useful autotools macros"
+msgstr ""
+
+#: compiling.sgml:75(para)
+msgid ""
+"GTK+ provides various macros for easily checking version and backends "
+"supported. The macros are <placeholder-1/>"
+msgstr ""
+
+#: compiling.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: compiling.sgml:80(term)
+msgid ""
+"AM_PATH_GTK_3_0([minimum-version], [if-found], [if-not-found], [modules])"
+msgstr ""
+
+#: compiling.sgml:81(listitem)
+msgid ""
+"This macro should be used to check that GTK+ is installed and available for "
+"compilation. The four arguments are optional, and they are: <placeholder-1/"
+">, the minimum version of GTK+ required for compilation; <placeholder-2/>, "
+"the action to perform if a valid version of GTK+ has been found; "
+"<placeholder-3/>, the action to perform if a valid version of GTK+ has not "
+"been found; <placeholder-4/>, a list of modules to be checked along with GTK"
+"+."
+msgstr ""
+
+#: compiling.sgml:83(emphasis) compiling.sgml:93(emphasis)
+msgid "minimum-version"
+msgstr ""
+
+#: compiling.sgml:84(emphasis) compiling.sgml:94(emphasis)
+msgid "if-found"
+msgstr ""
+
+#: compiling.sgml:86(emphasis) compiling.sgml:94(emphasis)
+msgid "if-not-found"
+msgstr ""
+
+#: compiling.sgml:87(emphasis)
+msgid "modules"
+msgstr ""
+
+#: compiling.sgml:9(refmiscinfo)
+msgid "GTK Library"
+msgstr ""
+
+#: compiling.sgml:91(term)
+msgid ""
+"GTK_CHECK_BACKEND([backend-name], [minimum-version], [if-found], [if-not-"
+"found])"
+msgstr ""
+
+#: compiling.sgml:92(listitem)
+msgid ""
+"This macro should be used to check if a specific backend is supported by GTK"
+"+. The <placeholder-1/>, <placeholder-2/> and <placeholder-3/> arguments are "
+"optional."
+msgstr ""

@@ -1,0 +1,577 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-14 19:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: running.sgml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: running.sgml:100(para)
+msgid ""
+"A list of <link linkend=\"GDK-Debug-Options\">debug options</link> to turn "
+"on in addition to those specified in the <envar>GDK_DEBUG</envar> "
+"environment variable. This option is only available if GTK+ has been "
+"configured with <option>--enable-debug=yes</option>."
+msgstr ""
+
+#: running.sgml:109(replaceable) running.sgml:56(replaceable)
+#: running.sgml:67(replaceable) running.sgml:98(replaceable)
+msgid "options"
+msgstr ""
+
+#: running.sgml:109(systemitem)
+msgid "--gdk-no-debug <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:111(para)
+msgid ""
+"A list of <link linkend=\"GDK-Debug-Options\">debug options</link> to turn "
+"off. This option is only available if GTK+ has been configured with "
+"<option>--enable-debug=yes</option>."
+msgstr ""
+
+#: running.sgml:121(title)
+msgid "Environment variables"
+msgstr ""
+
+#: running.sgml:123(para)
+msgid ""
+"GTK+ inspects a number of environment variables in addition to standard "
+"variables like <envar>LANG</envar>, <envar>PATH</envar>, <envar>HOME</envar> "
+"or <envar>DISPLAY</envar>; mostly to determine paths to look for certain "
+"files. The <link linkend=\"x11-envar\">X11</link>, <link linkend=\"win32-"
+"envar\">Windows</link> and <link linkend=\"fb-envar\">Framebuffer</link> GDK "
+"backends use some additional environment variables."
+msgstr ""
+
+#: running.sgml:13(refname) running.sgml:7(refentrytitle)
+msgid "Running GTK+ Applications"
+msgstr ""
+
+#: running.sgml:134(envar)
+msgid "GTK_DEBUG"
+msgstr ""
+
+#: running.sgml:136(para)
+msgid ""
+"If GTK+ has been configured with <option>--enable-debug=yes</option>, this "
+"variable can be set to a list of debug options, which cause GTK+ to print "
+"out different types of debugging information. <placeholder-1/> The special "
+"value <literal>all</literal> can be used to turn on all debug options."
+msgstr ""
+
+#: running.sgml:14(refpurpose)
+msgid "How to run and debug your GTK+ application"
+msgstr ""
+
+#: running.sgml:142(term) running.sgml:338(term)
+msgid "misc"
+msgstr ""
+
+#: running.sgml:143(para) running.sgml:339(para)
+msgid "Miscellaneous information"
+msgstr ""
+
+#: running.sgml:146(term)
+msgid "plugsocket"
+msgstr ""
+
+#: running.sgml:147(para)
+msgid "Cross-process embedding"
+msgstr ""
+
+#: running.sgml:150(term)
+msgid "text"
+msgstr ""
+
+#: running.sgml:151(para)
+msgid "Text widget internals"
+msgstr ""
+
+#: running.sgml:154(term)
+msgid "tree"
+msgstr ""
+
+#: running.sgml:155(para)
+msgid "Tree widget internals"
+msgstr ""
+
+#: running.sgml:158(term)
+msgid "updates"
+msgstr ""
+
+#: running.sgml:159(para)
+msgid "Visual feedback about window updates"
+msgstr ""
+
+#: running.sgml:162(term)
+msgid "keybindings"
+msgstr ""
+
+#: running.sgml:163(para)
+msgid "Keybindings"
+msgstr ""
+
+#: running.sgml:166(term) running.sgml:358(term)
+msgid "multihead"
+msgstr ""
+
+#: running.sgml:167(para)
+msgid "Working on multiple displays"
+msgstr ""
+
+#: running.sgml:170(term)
+msgid "modules"
+msgstr ""
+
+#: running.sgml:171(para)
+msgid "Loading of modules"
+msgstr ""
+
+#: running.sgml:174(term)
+msgid "geometry"
+msgstr ""
+
+#: running.sgml:175(para)
+msgid "Size allocation"
+msgstr ""
+
+#: running.sgml:178(term)
+msgid "icontheme"
+msgstr ""
+
+#: running.sgml:179(para)
+msgid "Icon themes"
+msgstr ""
+
+#: running.sgml:182(term)
+msgid "printing"
+msgstr ""
+
+#: running.sgml:183(para)
+msgid "Printing support"
+msgstr ""
+
+#: running.sgml:186(term)
+msgid "builder"
+msgstr ""
+
+#: running.sgml:187(para)
+msgid "GtkBuilder support"
+msgstr ""
+
+#: running.sgml:197(envar)
+msgid "GTK_MODULES"
+msgstr ""
+
+#: running.sgml:199(para)
+msgid ""
+"A list of modules to load. Note that GTK+ also allows to specify modules to "
+"load via a commandline option (<option>--gtk-module</option>) and with the "
+"<literal>gtk-modules</literal> setting."
+msgstr ""
+
+#: running.sgml:20(title)
+msgid "Running and debugging GTK+ Applications"
+msgstr ""
+
+#: running.sgml:202(warning)
+msgid ""
+"Note that this environment variable is read by GTK+ 2.x too, which may not "
+"have the same set of modules available for loading."
+msgstr ""
+
+#: running.sgml:209(envar)
+msgid "GTK_PATH"
+msgstr ""
+
+#: running.sgml:211(para)
+msgid ""
+"Specifies a list of directories to search when GTK+ is looking for "
+"dynamically loaded objects such as the modules specified by "
+"<envar>GTK_MODULES</envar>, theme engines, input method modules, file system "
+"backends and print backends. If the path to the dynamically loaded object is "
+"given as an absolute path name, then GTK+ loads it directly. Otherwise, GTK+ "
+"goes in turn through the directories in <envar>GTK_PATH</envar>, followed by "
+"the directory <filename>.gtk-3.0</filename> in the user's home directory, "
+"followed by the system default directory, which is "
+"<filename><replaceable>libdir</replaceable>/gtk-3.0/modules</filename>. (If "
+"<envar>GTK_EXE_PREFIX</envar> is defined, <replaceable>libdir</replaceable> "
+"is <filename>$GTK_EXE_PREFIX/lib</filename>. Otherwise it is the libdir "
+"specified when GTK+ was configured, usually <filename>/usr/lib</filename>, "
+"or <filename>/usr/local/lib</filename>.) For each directory in this list, GTK"
+"+ actually looks in a subdirectory <filename><replaceable>directory</"
+"replaceable>/<replaceable>version</replaceable>/<replaceable>host</"
+"replaceable>/<replaceable>type</replaceable></filename> Where "
+"<replaceable>version</replaceable> is derived from the version of GTK+ (use "
+"<literal>pkg-config --variable=gtk_binary_version gtk+-3.0</literal> to "
+"determine this from a script), <replaceable>host</replaceable> is the "
+"architecture on which GTK+ was built. (use <literal>pkg-config --"
+"variable=gtk_host gtk+-3.0</literal> to determine this from a script), and "
+"<replaceable>type</replaceable> is a directory specific to the type of "
+"modules; currently it can be <literal>modules</literal>, <literal>engines</"
+"literal>, <literal>immodules</literal>, <literal>filesystems</literal> or "
+"<literal>printbackends</literal>, corresponding to the types of modules "
+"mentioned above. Either <replaceable>version</replaceable>, "
+"<replaceable>host</replaceable>, or both may be omitted. GTK+ looks first in "
+"the most specific directory, then in directories with fewer components. The "
+"components of GTK_PATH are separated by the ':' character on Linux and Unix, "
+"and the ';' character on Windows."
+msgstr ""
+
+#: running.sgml:23(title)
+msgid "Common commandline options"
+msgstr ""
+
+#: running.sgml:248(warning)
+msgid ""
+"Note that this environment variable is read by GTK+ 2.x too, which makes it "
+"unsuitable for setting it system-wide (or session-wide), since doing so will "
+"cause either GTK+ 2.x applications or GTK+ 3 applications to see "
+"incompatible modules."
+msgstr ""
+
+#: running.sgml:25(para)
+msgid ""
+"All GTK+ applications support a number of standard commandline options. "
+"These are removed from <literal>argv</literal> by gtk_init(). Modules may "
+"parse and remove further options. The <link linkend=\"x11-cmdline\">X11</"
+"link> and <link linkend=\"win32-cmdline\">Windows</link> GDK backends parse "
+"some additional commandline options."
+msgstr ""
+
+#: running.sgml:257(envar)
+msgid "GTK_IM_MODULE"
+msgstr ""
+
+#: running.sgml:259(para)
+msgid ""
+"Specifies an IM module to use in preference to the one determined from the "
+"locale. If this isn't set and you are running on the system that enables "
+"<literal>XSETTINGS</literal> and has a value in <literal>Gtk/IMModule</"
+"literal>, that will be used for the default IM module."
+msgstr ""
+
+#: running.sgml:269(envar)
+msgid "GTK_IM_MODULE_FILE"
+msgstr ""
+
+#: running.sgml:271(para)
+msgid ""
+"Specifies the file listing the IM modules to load. This environment variable "
+"the default value <filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/"
+"immodules.cache</filename> (<replaceable>libdir</replaceable> has the same "
+"meaning here as explained for <envar>GTK_PATH</envar>)."
+msgstr ""
+
+#: running.sgml:277(para)
+msgid ""
+"The <filename>immodules.cache</filename> file is generated by the "
+"<command>gtk-query-immodules-3.0</command> utility."
+msgstr ""
+
+#: running.sgml:281(warning)
+msgid ""
+"Note that this environment variable is read by GTK+ 2.x too, which makes it "
+"unsuitable for setting it system-wide (or session-wide), since doing so will "
+"cause either GTK+ 2.x applications or GTK+ 3 applications to see the wrong "
+"list of IM modules."
+msgstr ""
+
+#: running.sgml:290(envar)
+msgid "GTK_EXE_PREFIX"
+msgstr ""
+
+#: running.sgml:292(para)
+msgid ""
+"If set, GTK+ uses <filename>$GTK_EXE_PREFIX/lib</filename> instead of the "
+"libdir configured when GTK+ was compiled."
+msgstr ""
+
+#: running.sgml:299(envar)
+msgid "GTK_DATA_PREFIX"
+msgstr ""
+
+#: running.sgml:301(para)
+msgid ""
+"If set, makes GTK+ use <filename>$GTK_DATA_PREFIX</filename> instead of the "
+"prefix configured when GTK+ was compiled."
+msgstr ""
+
+#: running.sgml:307(para)
+msgid ""
+"The following environment variables are used by GdkPixbuf, GDK or Pango, not "
+"by GTK+ itself, but we list them here for completeness nevertheless."
+msgstr ""
+
+#: running.sgml:314(envar)
+msgid "GDK_PIXBUF_MODULE_FILE"
+msgstr ""
+
+#: running.sgml:316(para)
+msgid ""
+"Specifies the file listing the GdkPixbuf loader modules to load. This "
+"environment variable overrides the default value "
+"<filename><replaceable>libdir</replaceable>/gtk-3.0/3.0.0/loaders.cache</"
+"filename> (<replaceable>libdir</replaceable> is the sysconfdir specified "
+"when GTK+ was configured, usually <filename>/usr/local/lib</filename>.)"
+msgstr ""
+
+#: running.sgml:323(para)
+msgid ""
+"The <filename>loaders.cache</filename> file is generated by the <command>gdk-"
+"pixbuf-query-loaders</command> utility."
+msgstr ""
+
+#: running.sgml:330(envar)
+msgid "GDK_DEBUG"
+msgstr ""
+
+#: running.sgml:332(para)
+msgid ""
+"If GTK+ has been configured with <option>--enable-debug=yes</option>, this "
+"variable can be set to a list of debug options, which cause GDK to print out "
+"different types of debugging information. <placeholder-1/> The special value "
+"<literal>all</literal> can be used to turn on all debug options."
+msgstr ""
+
+#: running.sgml:342(term)
+msgid "events"
+msgstr ""
+
+#: running.sgml:343(para)
+msgid "Show all events received by GDK"
+msgstr ""
+
+#: running.sgml:346(term)
+msgid "dnd"
+msgstr ""
+
+#: running.sgml:347(para)
+msgid "Information about drag-and-drop"
+msgstr ""
+
+#: running.sgml:35(replaceable)
+msgid "module"
+msgstr ""
+
+#: running.sgml:35(systemitem)
+msgid "--gtk-module <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:350(term)
+msgid "xim"
+msgstr ""
+
+#: running.sgml:351(para)
+msgid "Information about XIM support"
+msgstr ""
+
+#: running.sgml:354(term)
+msgid "nograbs"
+msgstr ""
+
+#: running.sgml:355(para)
+msgid "Turn off all pointer and keyboard grabs"
+msgstr ""
+
+#: running.sgml:359(para)
+msgid "Information related to multiple screens"
+msgstr ""
+
+#: running.sgml:362(term)
+msgid "xinerama"
+msgstr ""
+
+#: running.sgml:363(para)
+msgid "Simulate a multi-monitor setup"
+msgstr ""
+
+#: running.sgml:366(term)
+msgid "cursor"
+msgstr ""
+
+#: running.sgml:367(para)
+msgid "Information about cursor objects (only win32)"
+msgstr ""
+
+#: running.sgml:37(para)
+msgid ""
+"A list of modules to load in addition to those specified in the "
+"<envar>GTK_MODULES</envar> environment variable and the <literal>gtk-"
+"modules</literal> setting."
+msgstr ""
+
+#: running.sgml:370(term)
+msgid "draw"
+msgstr ""
+
+#: running.sgml:371(para)
+msgid "Information about drawing operations (only win32)"
+msgstr ""
+
+#: running.sgml:374(term)
+msgid "eventloop"
+msgstr ""
+
+#: running.sgml:375(para)
+msgid "Information about event loop operation (mostly Quartz)"
+msgstr ""
+
+#: running.sgml:385(envar)
+msgid "GDK_BACKEND"
+msgstr ""
+
+#: running.sgml:387(para)
+msgid ""
+"If set, selects the GDK backend to use. Selecting a backend requires that "
+"GTK is compiled with support for that backend. The following backends can be "
+"selected: <placeholder-1/> For more information about selecting backends, "
+"see the gdk_display_manager_get() function."
+msgstr ""
+
+#: running.sgml:393(term)
+msgid "quartz"
+msgstr ""
+
+#: running.sgml:394(para)
+msgid "Selects the native Quartz backend"
+msgstr ""
+
+#: running.sgml:398(term)
+msgid "win32"
+msgstr ""
+
+#: running.sgml:399(para)
+msgid "Selects the native backend for Microsoft Windows"
+msgstr ""
+
+#: running.sgml:403(term)
+msgid "x11"
+msgstr ""
+
+#: running.sgml:404(para)
+msgid "Selects the native backend for connecting to X11 servers."
+msgstr ""
+
+#: running.sgml:413(envar)
+msgid "GDK_SYNCHRONIZE"
+msgstr ""
+
+#: running.sgml:415(para)
+msgid ""
+"If set, GDK makes all X requests synchronously. This is a useful option for "
+"debugging, but it will slow down the performance considerably."
+msgstr ""
+
+#: running.sgml:422(title)
+msgid "<envar>XDG_DATA_HOME</envar>, <envar>XDG_DATA_DIRS</envar>"
+msgstr ""
+
+#: running.sgml:424(para)
+msgid ""
+"GTK+ uses these environment variables to locate icon themes and MIME "
+"information. For more information, see <ulink url=\"http://freedesktop.org/"
+"Standards/icon-theme-spec\">Icon Theme Specification</ulink>, the <ulink url="
+"\"http://freedesktop.org/Standards/shared-mime-info-spec\">Shared MIME-info "
+"Database</ulink> and the <ulink url=\"http://freedesktop.org/Standards/"
+"basedir-spec\">Base Directory Specification</ulink>."
+msgstr ""
+
+#: running.sgml:434(envar)
+msgid "DESKTOP_STARTUP_ID"
+msgstr ""
+
+#: running.sgml:436(para)
+msgid ""
+"GTK+ uses this environment variable to provide startup notification "
+"according to the <ulink url=\"http://standards.freedesktop.org/startup-"
+"notification-spec/startup-notification-latest.txt\">Startup Notification "
+"Spec</ulink>. Following the specification, GTK+ unsets this variable after "
+"reading it (to keep it from leaking to child processes). So, if you need its "
+"value for your own purposes, you have to read it before calling gtk_init()."
+msgstr ""
+
+#: running.sgml:45(systemitem)
+msgid "--g-fatal-warnings"
+msgstr ""
+
+#: running.sgml:47(para)
+msgid ""
+"Make GTK+ abort on all warnings. This is useful to stop on the first warning "
+"in a debugger, if your application is printing multiple warnings. It's "
+"almost always best to start debugging with the first warning that occurs."
+msgstr ""
+
+#: running.sgml:56(systemitem)
+msgid "--gtk-debug <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:58(para)
+msgid ""
+"A list of <link linkend=\"GTK-Debug-Options\">debug options</link> to turn "
+"on in addition to those specified in the <envar>GTK_DEBUG</envar> "
+"environment variable. This option is only available if GTK+ has been "
+"configured with <option>--enable-debug=yes</option>."
+msgstr ""
+
+#: running.sgml:67(systemitem)
+msgid "--gtk-no-debug <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:69(para)
+msgid ""
+"A list of <link linkend=\"GTK-Debug-Options\">debug options</link> to turn "
+"off. This option is only available if GTK+ has been configured with "
+"<option>--enable-debug=yes</option>."
+msgstr ""
+
+#: running.sgml:76(para)
+msgid ""
+"The following options are really used by GDK, not by GTK+, but we list them "
+"here for completeness nevertheless."
+msgstr ""
+
+#: running.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: running.sgml:82(replaceable)
+msgid "class"
+msgstr ""
+
+#: running.sgml:82(systemitem)
+msgid "--class <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:84(para)
+msgid "Sets the program class; see gdk_set_program_class()."
+msgstr ""
+
+#: running.sgml:9(refmiscinfo)
+msgid "GTK Library"
+msgstr ""
+
+#: running.sgml:90(replaceable)
+msgid "name"
+msgstr ""
+
+#: running.sgml:90(systemitem)
+msgid "--name <placeholder-1/>"
+msgstr ""
+
+#: running.sgml:92(para)
+msgid "Sets the program name."
+msgstr ""
+
+#: running.sgml:98(systemitem)
+msgid "--gdk-debug <placeholder-1/>"
+msgstr ""
