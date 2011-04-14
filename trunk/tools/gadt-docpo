@@ -35,7 +35,6 @@ class Merge:
 
         if os.path.isdir(self.opts.po_file_dir):
             pofile = os.path.join(self.opts.po_file_dir, self.opts.pkg_name + "-" + self.opts.pkg_ver + "-docs.po")
-            print pofile
             if os.path.isfile(pofile):
                 self.pofile = os.path.abspath(pofile)
                 self.do_merge()
@@ -70,22 +69,19 @@ class Merge:
 class Create:
     def start (self, options, directory):
         self.opts = options
-        if os.path.isfile(directory) and (directory.endswith(".xml")or directory.endswith(".sgml")):
+        if os.path.isfile(directory) and (directory.endswith(".xml") or directory.endswith(".sgml")):
             self._do_file(directory)
         elif os.path.isdir(directory):
             os.chdir(directory)
-            reldir = os.path.relpath(directory)
-            for item in os.listdir(reldir):
+            for item in os.listdir("."):
                 if len(item) >2:
                     if item.endswith(".xml") or item.endswith(".sgml"):
-                        file = os.path.join(reldir, item)
-                        self._do_file(file)
+                        self._do_file(item)
                 if item == "tmpl":
-                    tmpldir = os.path.join(reldir, item)
-                    for item in os.listdir(tmpldir):
+                    for item in os.listdir("tmpl"):
                         if len(item) >2:
                             if item.endswith(".xml") or item.endswith(".sgml"):
-                                file = os.path.join(tmpldir, item)
+                                file = os.path.join("tmpl", item)
                                 self._do_file(file)
 
     def _do_file (self, file_name):
