@@ -331,7 +331,7 @@ init_docpot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge "$modname-$pkgver-docs.po" $tmpdir/docpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/docpo/$mname.po
+				msgmerge "$modname-docs-$pkgver.po" $tmpdir/docpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/docpo/$mname.po
 				#msg2 "正在调用google为您生成模糊翻译内容..."
 				#gadt-autotrans $startdir/docpo/$mname.po
 				text=`msgfmt --statistics $startdir/docpo/$mname.po -o /dev/null 2>&1`
@@ -401,15 +401,15 @@ merge_docpot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge -N $startdir/docpo/$mname.po "$modname-$pkgver-docs.po" -o "$tmpdir/$modname-$pkgver-docs.po.new"
-				vim -d "$modname-$pkgver-docs.po" "$tmpdir/$modname-$pkgver-docs.po.new"
+				msgmerge -N $startdir/docpo/$mname.po "$modname-docs-$pkgver.po" -o "$tmpdir/$modname-docs-$pkgver.po.new"
+				vim -d "$modname-docs-$pkgver.po" "$tmpdir/$modname-docs-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
 				read answer
 				case "$answer" in
 					y*|Y*) 
-					cp "$tmpdir/$modname-$pkgver-docs.po.new" "$modname-$pkgver-docs.po"
-					rm -f "$tmpdir/$modname-$pkgver-docs.po.new"
+					cp "$tmpdir/$modname-docs-$pkgver.po.new" "$modname-docs-$pkgver.po"
+					rm -f "$tmpdir/$modname-docs-$pkgver.po.new"
 					msg2 "$mname.po 成功合并"
 					;;
 					*)
