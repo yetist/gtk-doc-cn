@@ -1,8 +1,8 @@
 #! /usr/bin/env python2
 #-*- encoding:utf-8 -*-
-#文件名:gadt-docpo
+#文件名:gadt-xmlpo
 """
-gtkdocpo is a tool to create a pot file from C source files that used gtkdoc to generate API documents, and to merge the l10n po file to the C source files.
+gtkxmlpo is a tool to create a pot file from C source files that used gtkdoc to generate API documents, and to merge the l10n po file to the C source files.
 """
 __version__  = "0.2"
 __date__     = "2011-04-13 20:25:37"
@@ -22,8 +22,9 @@ opts = {
     "multi_files":True,
     "pkg_name":"PACKAGE",
     "include_code":False,
-    "po_file_dir":os.getcwd()+'/docspot',
+    "po_file_dir":os.getcwd()+'/xmlpot',
     "look":True,
+    "language":"zh_CN",
     "pkg_ver":"VERSION"
     }
 
@@ -34,7 +35,7 @@ class Merge:
         self.doc_dir = directory
 
         if os.path.isdir(self.opts.po_file_dir):
-            pofile = os.path.join(self.opts.po_file_dir, self.opts.pkg_name + "-" + self.opts.pkg_ver + "-docs.po")
+            pofile = os.path.join(self.opts.po_file_dir, self.opts.pkg_name + "-docs-" + self.opts.pkg_ver + ".po")
             if os.path.isfile(pofile):
                 self.pofile = os.path.abspath(pofile)
                 self.do_merge()
@@ -62,7 +63,7 @@ class Merge:
         ret = commands.getoutput(cmd)
         if not ret.split()[1] == "application/xml":
             return
-        cmd = "xml2po -p %s -o %s %s" % (self.pofile, tmpfile, file_name)
+        cmd = "xml2po -l %s -p %s -o %s %s" % (self.opts.language, self.pofile, tmpfile, file_name)
         os.system(cmd)
         shutil.move(tmpfile, file_name)
 
@@ -149,12 +150,15 @@ def get_opts():
     group.add_option("-V", "--package-version",
             dest = "pkg_ver", action = "store", type = "string",
             help = "the package version used for pot file. default:VERSION")
+    group.add_option("-L", "--language",
+            dest = "language", action = "store", type = "string",
+            help = "Set language of the translation to LANG. default:zh_CN")
     group.add_option("-i", "--include-code",
             dest = "include_code", action = "store_true",
             help = "if set, some code will show in msgid of pot file according gtkdoc format.")
     group.add_option("-p", "--po-file-dir",
             dest = "po_file_dir", action = "store", type="string",
-            help = "directory that placed the po(t) file(s). default is \"gtkdocpo\" in current directory.")
+            help = "directory that placed the po(t) file(s). default is \"gtkxmlpo\" in current directory.")
     group.add_option("-l", "--look",
             dest = "look", action = "store_true",
             help = "if set, you can look that msgid and msgstr befort merge.")
@@ -188,6 +192,8 @@ def main():
         print ("2) merge po file(s) to source file(s) in \"/tmp/gtk+-2.10.6/docs/reference/gtk\", you should use:\n")
         print ("\t%s -m /tmp/gtk+-2.10.6/docs/reference/gtk\n"
                 "\t\tuse default pot dir: ./docspot\n" % parser.get_prog_name())
+        print ("\t%s -m -L zh_CN /tmp/gtk+-2.10.6/docs/reference/gtk\n"
+                "\t\tset language zh_CN, use default pot dir: ./docspot\n" % parser.get_prog_name())
         print ("\t%s -m -p pot_dir /tmp/gtk+-2.10.6/docs/reference/gtk\n"
                 "\t\tset pot dir\n" % parser.get_prog_name())
         sys.exit(0)
@@ -207,9 +213,9 @@ def main():
 
     # at last, check if make the single pot file.
     if (opts.command == 0 ) and ( not opts.multi_files ):
-        os.system("msgcat -E %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+"-docs.pot")))
+        os.system("msgcat -E %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-docs-"+opts.pkg_ver+".pot")))
         for i in os.listdir(opts.po_file_dir):
-            if i == opts.pkg_name+"-"+opts.pkg_ver+"-docs.pot":
+            if i == opts.pkg_name+"-docs-"+opts.pkg_ver+".pot":
                 continue
             else:
                 os.system("rm %s/%s" % (opts.po_file_dir, i))
