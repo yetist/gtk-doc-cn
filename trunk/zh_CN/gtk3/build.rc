@@ -20,9 +20,12 @@ make_release()
 		mkdir $tmpdir
 		svn checkout $svnroot $tmpdir/$modname
 	fi
-	cp tmp/html/* $tmpdir/$modname/
-	svn status $tmpdir/$modname |grep "?" |awk '{print $2}'|xargs svn add
-	find $tmpdir/$modname -maxdepth 1 -type f -name "*.htm*" -exec svn propset "svn:mime-type" "text/html" {} \;
-	svn commit -m "update $modname html docs" $tmpdir/$modname
-	#rm -rf $tmpdir
+	if [ -d tmp/html ];then
+		cp tmp/html/* $tmpdir/$modname/
+		svn status $tmpdir/$modname |grep "?" |awk '{print $2}'|xargs svn add
+		find $tmpdir/$modname -maxdepth 1 -type f -name "*.htm*" -exec svn propset "svn:mime-type" "text/html" {} \;
+		svn commit -m "update $modname html docs" $tmpdir/$modname
+	else
+		echo "please make docs first"
+	fi
 }
