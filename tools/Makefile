@@ -14,7 +14,7 @@ docs:
 	@gadt-mkhtml --log --browser
 
 merge:
-	@gadt-mkhtml --mergepo --mergexml
+	@gadt-mkhtml --mergepo
 
 commit:
 	@(if svn status |grep "^M";then \

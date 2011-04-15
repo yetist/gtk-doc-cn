@@ -326,7 +326,6 @@ init_xmlpot()
 			local xmlpos=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
 			eval $xmlpos #这将会产生xmlpo_files变量
 			var=`echo $xmlpo_files |sed 's/,/ /g'`
-			echo $var
 			for i in $var;
 			do 
 				mname=${i%.po}
@@ -433,7 +432,7 @@ update_xml()
 		cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
 		do 
 			author=`echo $line|awk '{print $1}'`
-			if [ "x$author" == "xunknown" -o "x$author" == "finished" ];then
+			if [ "x$author" == "xunknown" -o "x$author" == "xfinished" ];then
 				continue
 			fi
 			mail=`echo $line|awk '{print $2}'`
@@ -627,7 +626,7 @@ edit_sgml()
 
 review_all_sgml()
 {
-	local olddocs=$startdir/docs-$pkgver
+	local olddocs=$startdir/$modname-docs
 	if [ -d $olddocs ];then
 		for f in `find $olddocs -name "*.sgml"`;
 		do
@@ -635,7 +634,7 @@ review_all_sgml()
 			vim -d $docdir/$filename ${olddocs}/$filename 
 		done
 	else
-		warning "You have not the docs-$pkgver"
+		warning "You have not the $modname-docs"
 	fi
 }
 
