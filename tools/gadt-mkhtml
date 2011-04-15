@@ -423,11 +423,10 @@ merge_xmlpot()
 update_xml()
 {
 	msg "正在更新xml文件..."
-	if [ -d $startdir/docs-$pkgver ];then
-		echo cp -rf $startdir/docs-$pkgver/* $docdir
-		cp -rf $startdir/docs-$pkgver/* $docdir
+	if [ -d $startdir/$modname-docs ];then
+		cp -rfL $startdir/$modname-docs/* $docdir
 	fi
-	cp $startdir/credits.xml $docdir
+	#cp $startdir/credits.xml $docdir
 	local now=`date +%Y年%m月%d日`
 	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
 	if [ -f $startdir/AUTHORS ]; then
