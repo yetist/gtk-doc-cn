@@ -1,13 +1,15 @@
 pkgname=libgksu
 modname=libgksu
-pkgver=2.0.8
+pkgver=2.0.12
 url="http://www.nongnu.org/gksu/index.html"
 source="http://people.debian.org/~kov/gksu/${pkgname}-${pkgver}.tar.gz"
-configure="--enable-gtk-doc --prefix=/usr"
+configure="--enable-gtk-doc --prefix=/usr --disable-schemas-install"
 moddir="$srcdir/libgksu"
 docdir="$srcdir/docs"
 htmldir="$srcdir/docs/html"
 svnroot="https://gtk-doc-cn.googlecode.com/svn/docs/libgksu"
+xmls="docs-2.0.12/libgksu-docs.sgml"
+xml_lang="zh_CN"
 
 make_release()
 {
