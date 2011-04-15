@@ -30,7 +30,7 @@ NOBUILD=0
 NOCONFIGURE=0
 NOEXTRACT=0
 NOHTMLHELP=0
-NOSGML=0
+NOUPDATEXML=0
 NOBROWSER=1
 REVIEWALLSGML=0
 BUILDSCRIPT="build.rc"
@@ -101,22 +101,22 @@ usage() {
 	printf "Usage: %s [options]\n" "$0"
 	echo
 	echo "Options:"
-	echo "  -c, --clean      Clean up work files after build"
-	echo "  -b, --browser    Call browser to view the html file when exit"
-	echo "  -C, --cleancache Clean up source files from the cache"
-	echo "  -e, --noextract  Do not extract source files (use existing src/ dir)"
-	echo "  -f, --fuzzy      Use fuzzy item in po file (Unsafe)"
-	echo "  -h, --help       This help"
-	echo "  -i, --install    Install the html document to the system, so devhelp can show it"
-	echo "  -L, --log        Log package build process"
-	echo "  -l, --list       List all files"
-	echo "  -o, --nobuild    Download and extract files only"
-	echo "  -s, --nosgml     Do not update the sgml files"
-	echo "  -H, --nohtmlhelp Do not create htmlhelp file"
-	echo "  -r, --reviewsgml Review all sgml files"
-	echo "  -t, --editsgml   Edit your sgml file"
-	echo "  -T, --tarball    Create tarball for release"
-	echo "  -m, --mergepo    Merge youre po to master po file"
+	echo "  -c, --clean          Clean up work files after build"
+	echo "  -b, --browser        Call browser to view the html file when exit"
+	echo "  -C, --cleancache     Clean up source files from the cache"
+	echo "  -e, --noextract      Do not extract source files (use existing src/ dir)"
+	echo "  -f, --fuzzy          Use fuzzy item in po file (Unsafe)"
+	echo "  -h, --help           This help"
+	echo "  -i, --install        Install the html document to the system, so devhelp can show it"
+	echo "  -L, --log            Log package build process"
+	echo "  -l, --list           List all files"
+	echo "  -o, --nobuild        Download and extract files only"
+	echo "  -s, --noupdatexml    Do not update the xml files"
+	echo "  -H, --nohtmlhelp     Do not create htmlhelp file"
+	echo "  -r, --reviewsgml     Review all sgml files"
+	echo "  -t, --editsgml       Edit your sgml file"
+	echo "  -T, --tarball        Create tarball for release"
+	echo "  -m, --mergepo        Merge youre po to master po file"
 	echo "  -n, --noconfigure     Do not configure the source"
 	printf "  -p <buildscript> Use an alternate build script (instead of '%s')\n" "$BUILDSCRIPT"
 	echo
@@ -213,7 +213,7 @@ ARGLIST=$@
 
 # Parse Command Line Options.
 OPT_SHORT="bcCefhHilLmnop:rstT"
-OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,nosgml,nohtmlhelp,help,log,tarball,nobuild"
+OPT_LONG="browser,clean,cleancache,fuzzy,editsgml,reviewsgml,list,mergepo,install,nodeps,noextract,noconfigure,noupdatexml,nohtmlhelp,help,log,tarball,nobuild"
 # Options
 OPT_TEMP="$(parse_options $OPT_SHORT $OPT_LONG "$@" || echo 'PARSE_OPTIONS FAILED')"
 #OPT_TEMP="$(getopt -o "$OPT_SHORT" -l "$OPT_LONG" -n "$(basename "$0")" -- "$@" || echo 'PARSE_OPTIONS FAILED')"
@@ -247,7 +247,7 @@ while true; do
 		-o|--nobuild)     NOBUILD=1 ;;
 		-p)               shift; BUILDFILE=$1 ;;
 		-r|--reviewsgml)      REVIEWALLSGML=1 ;;
-		-s|--nosgml)      NOSGML=1 ;;
+		-s|--noupdatexml)     NOUPDATEXML=1 ;;
 		-t|--editsgml)      EDITSGML=1 ;;
 
 		--)               OPT_IND=0; shift; break;;
@@ -307,15 +307,15 @@ init_pot()
 	fi
 }
 
-init_docpot()
+init_xmlpot()
 {
-	if [ -d $startdir/docpo ];
+	if [ -d $startdir/xmlpo ];
 	then
 		return
 	else
 		msg "正在初始化您的文档po文件..."
-		mkdir $startdir/docpo
-		gadt-docpo -c -p $tmpdir/docpot $docdir
+		mkdir $startdir/xmlpo
+		gadt-xmlpo -c -p $tmpdir/xmlpot $docdir
 		if [ -f ~/.gtkdocpo ];then
 			username=$(source ~/.gtkdocpo; echo $username)
 		else
@@ -323,19 +323,18 @@ init_docpot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local docpos=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
-			#local olddocs=$startdir/docs-$pkgver
-			eval $docpos #这将会产生docpo_files变量
-			var=`echo $docpo_files |sed 's/,/ /g'`
+			local xmlpos=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
+			eval $xmlpos #这将会产生xmlpo_files变量
+			var=`echo $xmlpo_files |sed 's/,/ /g'`
 			echo $var
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge "$modname-docs-$pkgver.po" $tmpdir/docpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/docpo/$mname.po
+				msgmerge "$modname-docs-$pkgver.po" $tmpdir/xmlpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/xmlpo/$mname.po
 				#msg2 "正在调用google为您生成模糊翻译内容..."
-				#gadt-autotrans $startdir/docpo/$mname.po
-				text=`msgfmt --statistics $startdir/docpo/$mname.po -o /dev/null 2>&1`
-				msg2 "文件:docpo/$mname.po ($text)"
+				#gadt-autotrans $startdir/xmlpo/$mname.po
+				text=`msgfmt --statistics $startdir/xmlpo/$mname.po -o /dev/null 2>&1`
+				msg2 "文件:xmlpo/$mname.po ($text)"
 			done
 		fi
 	fi
@@ -381,9 +380,9 @@ merge_pot()
 	fi
 }
 
-merge_docpot()
+merge_xmlpot()
 {
-	if [ ! -d $startdir/docpo ];
+	if [ ! -d $startdir/xmlpo ];
 	then
 		return
 	else
@@ -397,11 +396,11 @@ merge_docpot()
 		if [ -f $startdir/AUTHORS ]; then
 			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $3}'`
 			eval $pos #这将会产生po_files变量
-			var=`echo $docpo_files |sed 's/,/ /g'`
+			var=`echo $xmlpo_files |sed 's/,/ /g'`
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge -N $startdir/docpo/$mname.po "$modname-docs-$pkgver.po" -o "$tmpdir/$modname-docs-$pkgver.po.new"
+				msgmerge -N $startdir/xmlpo/$mname.po "$modname-docs-$pkgver.po" -o "$tmpdir/$modname-docs-$pkgver.po.new"
 				vim -d "$modname-docs-$pkgver.po" "$tmpdir/$modname-docs-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
@@ -418,6 +417,30 @@ merge_docpot()
 				esac
 			done
 		fi
+	fi
+}
+
+update_xml()
+{
+	msg "正在更新xml文件..."
+	if [ -d $startdir/docs-$pkgver ];then
+		echo cp -rf $startdir/docs-$pkgver/* $docdir
+		cp -rf $startdir/docs-$pkgver/* $docdir
+	fi
+	cp $startdir/credits.xml $docdir
+	local now=`date +%Y年%m月%d日`
+	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
+	if [ -f $startdir/AUTHORS ]; then
+		cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
+		do 
+			author=`echo $line|awk '{print $1}'`
+			if [ "x$author" == "xunknown" -o "x$author" == "finished" ];then
+				continue
+			fi
+			mail=`echo $line|awk '{print $2}'`
+			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
+			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/credits.xml
+		done
 	fi
 }
 
@@ -467,7 +490,7 @@ download_source()
 	popd >/dev/null
 
 	init_pot
-	init_docpot
+	init_xmlpot
 
 	# 合并已翻译po文件内容到源文件
 	if [ "$FUZZY" -eq 1 ]; then
@@ -476,7 +499,12 @@ download_source()
 	else
 		gadt-po -n $modname -V $pkgver -m -p . $moddir || return 1
 	fi
-	gadt-docpo -n $modname -V $pkgver -m -p . $docdir || return 1
+
+	#更新 xml 模板文件及作者信息
+	if [ "$NOUPDATEXML" -eq 0 ]; then
+		update_xml
+	fi
+	gadt-xmlpo -L $xml_lang -n $modname -V $pkgver -m -p . $docdir || return 1
 }
 
 compile_source()
@@ -493,29 +521,6 @@ compile_source()
 	cd $startdir
 	cp -r $htmldir $tmpdir
 	msg "新文档位于 $tmpdir/html"
-}
-
-update_sgml()
-{
-	msg "正在更新sgml文件..."
-	if [ -f $startdir/docs-$pkgver ];then
-		cp -rf $startdir/docs-$pkgver/* $docdir
-	fi
-	cp $startdir/credits.xml $docdir
-	local now=`date +%Y年%m月%d日`
-	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
-	if [ -f $startdir/AUTHORS ]; then
-		cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
-		do 
-			author=`echo $line|awk '{print $1}'`
-			if [ "x$author" == "xunknown" -o "x$author" == "finished" ];then
-				continue
-			fi
-			mail=`echo $line|awk '{print $2}'`
-			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
-			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/credits.xml
-		done
-	fi
 }
 
 ##
@@ -707,7 +712,6 @@ if [ "$TARBALL" -eq 1 ]; then
 	fi
 fi
 
-
 if [ "$NOEXTRACT" -eq 1 ]; then
 	warning "Skipping source retrieval        -- using existing $srcdir tree"
 
@@ -722,7 +726,7 @@ fi
 
 if [ "$MERGEPO" -eq 1 ]; then
 	run_function merge_pot
-	run_function merge_docpot
+	run_function merge_xmlpot
 	exit 0;
 fi
 
@@ -731,13 +735,13 @@ if [ "$EDITSGML" -eq 1 ]; then
 	exit 0;
 fi
 
+#if [ "$UPDATEXML" -eq 1 ]; then
+#	run_function update_xml
+#fi
+
 if [ "$REVIEWALLSGML" -eq 1 ]; then
 	run_function review_all_sgml
 	exit 0;
-fi
-
-if [ "$NOSGML" -eq 0 ]; then
-	run_function update_sgml
 fi
 
 if [ "$NOBUILD" -eq 0 ]; then
