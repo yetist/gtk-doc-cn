@@ -1,6 +1,8 @@
+#!/bin/sh
 pkgname=gtk+
 modname=gdk
 pkgver=2.16.6
+xml_lang="zh_CN"
 url="http://www.gtk.org/"
 source="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.16/gtk+-${pkgver}.tar.bz2"
 configure="--enable-gtk-doc --prefix=/usr"
@@ -11,11 +13,19 @@ svnroot="https://gtk-doc-cn.googlecode.com/svn/docs/$modname"
 
 make_release()
 {
-	tmpdir=`mktemp -d`
-	svn checkout $svnroot $tmpdir/$modname
-	cp tmp/html/* $tmpdir/$modname/
-	svn status $tmpdir/$modname |grep "?" |awk '{print $2}'|xargs svn add
-	find $tmpdir/$modname -maxdepth 1 -type f -name "*.htm*" -exec svn propset "svn:mime-type" "text/html" {} \;
-	svn commit -m "update $modname docs" $tmpdir/$modname
-	rm -rf $tmpdir
+	tmpdir=tmp/svndocs
+	if [ -d $tmpdir ];then
+		svn update $tmpdir/$modname
+	else
+		mkdir $tmpdir
+		svn checkout $svnroot $tmpdir/$modname
+	fi
+	if [ -d tmp/html ];then
+		cp tmp/html/* $tmpdir/$modname/
+		svn status $tmpdir/$modname |grep "?" |awk '{print $2}'|xargs svn add
+		find $tmpdir/$modname -maxdepth 1 -type f -name "*.htm*" -exec svn propset "svn:mime-type" "text/html" {} \;
+		svn commit -m "update $modname html docs" $tmpdir/$modname
+	else
+		echo "please make docs first"
+	fi
 }
