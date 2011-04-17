@@ -49,6 +49,7 @@ class Merge:
                         #xfile = os.path.join(reldir, item)
                         self._do_file(item)
                 if item == "tmpl":
+                    continue
                     #tmpldir = os.path.join(reldir, item)
                     for item in os.listdir("tmpl"):
                         if len(item) >2:
@@ -61,10 +62,15 @@ class Merge:
 
         cmd = "file --mime-type %s" % file_name
         ret = commands.getoutput(cmd)
-        if not ret.split()[1] == "application/xml":
+        mtype = ret.split()[1]
+        mtypes = ["application/xml", "text/html"]
+        if not mtype in mtypes:
             return
-        cmd = "xml2po -l %s -p %s -o %s %s" % (self.opts.language, self.pofile, tmpfile, file_name)
-        os.system(cmd)
+        try:
+            cmd = "xml2po -l %s -p %s -o %s %s" % (self.opts.language, self.pofile, tmpfile, file_name)
+            os.system(cmd)
+        except:
+            shutil.remove(tmpfile)
         shutil.move(tmpfile, file_name)
 
 class Create:
@@ -79,6 +85,7 @@ class Create:
                     if item.endswith(".xml") or item.endswith(".sgml"):
                         self._do_file(item)
                 if item == "tmpl":
+                    continue
                     for item in os.listdir("tmpl"):
                         if len(item) >2:
                             if item.endswith(".xml") or item.endswith(".sgml"):
@@ -98,10 +105,16 @@ class Create:
 
         cmd = "file --mime-type %s" % file_name
         ret = commands.getoutput(cmd)
-        if not ret.split()[1] == "application/xml":
+        mtype = ret.split()[1]
+        mtypes = ["application/xml", "text/html"]
+        if not mtype in mtypes:
             return
-        cmd = "xml2po -o %s %s" % (pot_file, file_name)
-        os.system(cmd)
+        try:
+            cmd = "xml2po -o %s %s" % (pot_file, file_name)
+            os.system(cmd)
+        except:
+            shutils.remove(pot_file)
+            return
         if os.path.isfile(pot_file):
             self._po_uniq(pot_file)
 
