@@ -1,34 +1,31 @@
 #!/bin/sh
-#一、[目录]
-#1.  gdk-pixbuf.xml
-#二、[API Reference]
-#1.  tmpl/initialization_versions.sgml
-#2.  tmpl/gdk-pixbuf.sgml 		gdk-pixbuf.po
-#3.  tmpl/refcounting.sgml
-#4.  tmpl/file-loading.xml 		gdk-pixbuf-loader.po,gdk-pixbuf-io.po
-#5.  tmpl/file-saving.sgml
-#6.  tmpl/creating.sgml 		gdk-pixbuf-data.po
-#7.  tmpl/inline.sgml 			gdk-pixdata.po
-#8.  tmpl/scaling.sgml 			gdk-pixbuf-scale.po
-#9.  gdk-pixbuf-rendering.xml
-#10. gdk-pixbuf-from-drawables.xml
-#11. (unknown)tmpl/util.sgml 		gdk-pixbuf-util.po
-#12. tmpl/animation.sgml 		gdk-pixbuf-animation.po,gdk-pixbuf-simple-anim.po
-#13. tmpl/gdk-pixbuf-loader.sgml
-#14. tmpl/module_interface.sgml
-#15. tmpl/gdk-pixbuf-xlib-init.sgml
-#16. tmpl/gdk-pixbuf-xlib-rendering.sgml
-#17. tmpl/gdk-pixbuf-xlib-from-drawables.sgml
-#18. tmpl/gdk-pixbuf-xlib-rgb.sgml
-#三、[Tools]
-#1.  gdk-pixbuf-csource.xml
-#2.  gdk-pixbuf-query-loaders.xml
+#一、[xmlpo 文件列表]
+#1. gdk-pixbuf-csource.po
+#2. gdk-pixbuf-from-drawables.po
+#3. gdk-pixbuf.po
+#4. gdk-pixbuf-query-loaders.po
+#5. gdk-pixbuf-rendering.po
 #
+#二、[po 文件列表]
+#1. gdk-pixbuf-animation.po
+#2. gdk-pixbuf-data.po
+#3. gdk-pixbuf-io.po
+#4. gdk-pixbuf-loader.po
+#5. gdk-pixbuf.po
+#6. gdk-pixbuf-scale.po
+#7. gdk-pixbuf-simple-anim.po
+#8. gdk-pixbuf-util.po
+#9. gdk-pixdata.po
+#
+####################################################################################
 #此文件的格式如下
-#作者 邮箱 sgml文件数组 po文件数组
-#sgml_files和po_files数组内容以","分隔，中间不要使用空格，否则项目脚本将出错。
-#作者名为unknown表示无人认领，未开始翻译
-#作者名为finished表示已内容已经翻译完成。
-yetist yetist@gmail.com sgml_files=(gdk-pixbuf.xml,tmpl/scaling.sgml) po_files=(gdk-pixbuf-scale.po)
-lerosua lerosua@gmail.com sgml_files=(tmpl/gdk-pixbuf.sgml) po_files=(gdk-pixbuf.po)
-unknown unknown@nomail.com sgml_files=(tmpl/util.sgml) po_files=(gdk-pixbuf-util.po)
+#作者 邮箱 xmlpo文件数组 po文件数组
+#xmlpo_files和po_files数组内容以","分隔，中间不要使用空格，否则项目脚本将出错。
+#作者名为unknown表示计划翻译，但目前还无人认领
+#作者名为finished表示内容已经翻译完成。
+########已经和正在翻译的文档###############
+yetist yetist@gmail.com xmlpo_files=() po_files=(gdk-pixbuf-scale.po)
+lerosua lerosua@gmail.com xmlpo_files=() po_files=(gdk-pixbuf.po)
+########计划翻译的文档###############
+unknown unknown@nomail.com xmlpo_files=() po_files=()
+####################################################################################
