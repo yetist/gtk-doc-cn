@@ -18,6 +18,7 @@ from optparse import OptionParser, OptionGroup, HelpFormatter
 
 # Utility functions
 def escapePoString(text):
+    #return text.replace('\\','\\\\').replace('"', "\\\"").replace("\n","\\n").replace("\t","\\t")
     return text.replace('\\','\\\\').replace('"', "\\\"").replace("\t","\\t")
 
 def unEscapePoString(text):
@@ -68,12 +69,14 @@ class Merge:
                 else:
                     # if the next line is not empty, and
                     while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
-                        message += data[n+1].split('"')[1]+"\n"
+                        message += " * " + data[n+1].split('"')[1]+"\n"
                         n = n+1
+                if message.startswith(" * "):
+                    message = message[3:]
             return (message, line, n-line)
 
     def _do_po_file (self, file_name):
-        print ">>>", file_name
+        #print ">>>", file_name
         data = open (file_name).readlines()
         first_msgstr = True
         for i in range(5, len(data)):
@@ -92,7 +95,8 @@ class Merge:
                     if self.opts.fuzzy:
                         fuzzy_flag = False
                 if len(msgstr) > 0 and (not fuzzy_flag):
-                    msgstr = unEscapePoString(msgstr) + '\n'
+                    #msgstr = unEscapePoString(msgstr) + '\n'
+                    msgstr = unEscapePoString(msgstr)
 
                     n = i
                     while n-1 > 0 and  len(data[n-1].strip()) > 0:
@@ -175,8 +179,8 @@ msgstr ""
 
         data=open(file_name).readlines()
         for i in range(len(data)):
-            cont=[]
-            content=[]
+            cont=[] #content befort escape
+            content=[] #content after escape.
             if data[i].strip() == "/**":
                 if not has_gtkdoc:
                     has_gtkdoc = True
