@@ -16,12 +16,12 @@ import time
 import shutil
 from optparse import OptionParser, OptionGroup, HelpFormatter
 
-Replace_table={
-        '\"':"|$_1_$|",       #replace '"' with |$_1_$| in msgid
-        '\\':"|$_2_$|"        #replace '\' with |$_2_$| in msgid
-        }
-Replace_table_sort=['\"', '\\']
+# Utility functions
+def escapePoString(text):
+    return text.replace('\\','\\\\').replace('"', "\\\"").replace("\t","\\t")
 
+def unEscapePoString(text):
+    return text.replace('\\"', '"').replace('\\\\','\\')
 
 opts = {
     "command":0,
@@ -92,9 +92,7 @@ class Merge:
                     if self.opts.fuzzy:
                         fuzzy_flag = False
                 if len(msgstr) > 0 and (not fuzzy_flag):
-                    for rep in Replace_table_sort:
-                        if msgstr.find(Replace_table[rep]) >= 0:
-                            msgstr = msgstr.replace(Replace_table[rep], rep)+"\n"
+                    msgstr = unEscapePoString(msgstr) + '\n'
 
                     n = i
                     while n-1 > 0 and  len(data[n-1].strip()) > 0:
@@ -191,9 +189,7 @@ msgstr ""
 
                 function=data[start_line+1][data[start_line+1].find("*")+1:].strip()
                 for line in cont:
-                    for i in Replace_table_sort:
-                        if line.find(i) >= 0:
-                            line = line.replace(i, Replace_table[i])
+                    line = escapePoString(line)
                     content.append(line)
                 last_n=0
                 for n in range(1, len(content)):
@@ -210,7 +206,7 @@ msgstr ""
                         last_n = n+1
                         end = start_line+2+n
 
-                        pot_fd.writelines ("# used by: %s\n" % function)
+                        pot_fd.writelines ("#. used by: %s\n" % function)
                         pot_fd.writelines ("#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
                         pot_fd.writelines ("msgid \"%s\"\n" % args)
                         pot_fd.writelines ("msgstr \"\"\n")
@@ -226,7 +222,7 @@ msgstr ""
                             begin=start_line+2+n
                             while n+1 < len(content) and content[n+1].find("</programlisting>")<0:
                                 if self.opts.include_code:
-                                    pot_fd.writelines ( "##[It's code, but some need to translate]:used by: %s\n" % function)
+                                    pot_fd.writelines ( "#. ###[It's code, but some need to translate]:used by: %s\n" % function)
                                     pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, 1))
                                     pot_fd.writelines ( "msgid \"%s\"\n" % content[n+1][content[n+1].find("*")+1:].rstrip())
                                     pot_fd.writelines ( "msgstr \"\"\n")
@@ -246,7 +242,7 @@ msgstr ""
                             n=n+1
                         last_n = n+1
                         end = start_line+2+n
-                        pot_fd.writelines ( "##used by: %s\n" % function)
+                        pot_fd.writelines ( "#. used by: %s\n" % function)
                         pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
                         pot_fd.writelines ( "msgid \"%s\"\n" % description)
                         pot_fd.writelines ( "msgstr \"\"\n")
@@ -259,10 +255,10 @@ msgstr ""
             if os.path.exists(newpot_file):
                 self._po_uniq(pot_file)
                 cat_file = os.path.join(self.opts.po_file_dir, base_name + "-tmp.pot")
-                ret = os.system("msgcat -E %s %s -o %s >/dev/null 2>&1 " % (pot_file, newpot_file, cat_file)) 
+                ret = os.system("msgcat %s %s -o %s >/dev/null 2>&1 " % (pot_file, newpot_file, cat_file)) 
                 if ret == 0:
                     self._po_uniq(cat_file)
-                    os.system("msgmerge -E %s %s -o %s >/dev/null 2>&1" % (pot_file, cat_file, newpot_file))
+                    os.system("msgmerge %s %s -o %s >/dev/null 2>&1" % (pot_file, cat_file, newpot_file))
                     os.remove(pot_file)
                     os.remove(cat_file)
                     self._po_uniq(newpot_file)
@@ -272,7 +268,7 @@ msgstr ""
 
     def _po_uniq(self, file_name):
         tempfile = os.tmpnam()
-        ret = os.system("msguniq -E -F %s -o %s" % (file_name, tempfile))
+        ret = os.system("msguniq -F %s -o %s" % (file_name, tempfile))
         if ret == 0:
             shutil.move(tempfile, file_name)
             return True
@@ -380,7 +376,7 @@ def main():
 
     # at last, check if make the single pot file.
     if (opts.command == 0 ) and ( not opts.multi_files ):
-        os.system("msgcat -E %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
+        os.system("msgcat %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
         for i in os.listdir(opts.po_file_dir):
             if i == opts.pkg_name+"-"+opts.pkg_ver+".pot":
                 continue
