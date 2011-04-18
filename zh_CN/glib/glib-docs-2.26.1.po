@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 3.0.8\n"
 "POT-Creation-Date: 2011-04-14 14:21+0800\n"
-"PO-Revision-Date: 2011-04-17 23:39+0800\n"
+"PO-Revision-Date: 2011-04-18 15:50+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -806,15 +806,15 @@ msgstr ""
 
 #: compiling.sgml:13(refname) compiling.sgml:7(refentrytitle)
 msgid "Compiling GLib Applications"
-msgstr ""
+msgstr "编译GLib应用程序"
 
 #: compiling.sgml:14(refpurpose)
 msgid "How to compile your GLib application"
-msgstr ""
+msgstr "如何编译GLib应用程序"
 
 #: compiling.sgml:20(title)
 msgid "Compiling GLib Applications on UNIX"
-msgstr ""
+msgstr "在UNIX上编译GLib应用程序"
 
 #: compiling.sgml:22(para)
 msgid ""
@@ -822,6 +822,8 @@ msgid ""
 "the GLib header files and libraries. This is done with the <application>pkg-"
 "config</application> utility."
 msgstr ""
+"为了编译GLib应用程序，你需要告诉编译器在哪里找到GLib的头文件及库. "
+"<application>pkg-config</application> 工具会帮你."
 
 #: compiling.sgml:27(para)
 msgid ""
@@ -829,6 +831,8 @@ msgid ""
 "config</application> is used (the actual output on your system may be "
 "different): <placeholder-1/>"
 msgstr ""
+"下面的shell会话展示了 <application>pkg-config</application> 如何工作 (输出可"
+"能因不同的系统有所不同): <placeholder-1/>"
 
 #: compiling.sgml:31(programlisting)
 #, no-wrap
@@ -839,6 +843,11 @@ msgid ""
 "$ pkg-config --libs glib-2.0\n"
 " -L/usr/lib -lm -lglib-2.0  \n"
 msgstr ""
+"\n"
+"$ pkg-config --cflags glib-2.0\n"
+" -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
+"$ pkg-config --libs glib-2.0\n"
+" -L/usr/lib -lm -lglib-2.0  \n"
 
 #: compiling.sgml:38(para)
 msgid ""
@@ -846,6 +855,9 @@ msgid ""
 "features, it must be compiled and linked with the options returned by the "
 "following <application>pkg-config</application> invocations: <placeholder-1/>"
 msgstr ""
+"如果你的应用程序使用线程(threads)或者 <structname>GObject</structname> 特性, "
+"则必须用以下的 <application>pkg-config</application> 输出来编译及链接: "
+"<placeholder-1/>"
 
 #: compiling.sgml:42(programlisting)
 #, no-wrap
@@ -854,6 +866,9 @@ msgid ""
 "$ pkg-config --cflags --libs gthread-2.0\n"
 "$ pkg-config --cflags --libs gobject-2.0\n"
 msgstr ""
+"\n"
+"$ pkg-config --cflags --libs gthread-2.0\n"
+"$ pkg-config --cflags --libs gobject-2.0\n"
 
 #: compiling.sgml:47(para)
 msgid ""
@@ -863,6 +878,10 @@ msgid ""
 "that gmodule-2.0 adds <option>--export-dynamic</option> to the linker flags, "
 "which is often not needed."
 msgstr ""
+"如果你的应用程序使用模块(modules), 则必须用以下的 <application>pkg-config</"
+"application> 输出来编译及链接: <placeholder-1/> 两者的不同之处在于"
+"gmodule-2.0 为连接添加了<option>--export-dynamic</option> 标志, 但它并不经常"
+"用到."
 
 #: compiling.sgml:50(programlisting)
 #, no-wrap
@@ -871,6 +890,9 @@ msgid ""
 "$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
 "$ pkg-config --cflags --libs gmodule-2.0 \n"
 msgstr ""
+"\n"
+"$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
+"$ pkg-config --cflags --libs gmodule-2.0 \n"
 
 #: compiling.sgml:57(para)
 msgid ""
@@ -880,6 +902,9 @@ msgid ""
 "line before execution. So to compile a GLib Hello, World, you would type the "
 "following: <placeholder-1/>"
 msgstr ""
+"最简单的编译方式是使用shell的\"反引号\"特性. 如果你将命令放入反引号里 "
+"(<emphasis>不是单引号</emphasis>), 那么它的输出会在命令行执行前 取代命令.所以"
+"编译一个GLib的Hello,World,你输入以下命令: <placeholder-1/>"
 
 #: compiling.sgml:63(programlisting)
 #, no-wrap
@@ -887,6 +912,8 @@ msgid ""
 "\n"
 "$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
 msgstr ""
+"\n"
+"$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
 
 #: compiling.sgml:68(para)
 msgid ""
@@ -894,6 +921,9 @@ msgid ""
 "functions, you can define the preprocessor symbol G_DISABLE_DEPRECATED by "
 "using the command line option <literal>-DG_DISABLE_DEPRECATED=1</literal>."
 msgstr ""
+"如果你确定你的程序不使用任何过时的函数,你可以为预处理器定义 "
+"G_DISABLE_DEPRECATED 符号,使用命令选项 <literal>-DG_DISABLE_DEPRECATED=1</"
+"literal>."
 
 #: compiling.sgml:74(para)
 msgid ""
@@ -906,6 +936,13 @@ msgid ""
 "link>), <filename>glib/gprintf.h</filename> and <filename>glib/gstdio.h</"
 "filename> (we don't want to pull in all of stdio)."
 msgstr ""
+"使用GLib的推荐方式是只包含最顶层的头文件 <filename>glib.h</filename>, "
+"<filename>glib-object.h</filename>, <filename>gio.h</filename>. 从2.17开始,当"
+"直接包含单独的头文件时GLib会强制生成一个错误. 为了帮助大家过渡,执行器在默认的"
+"Glib头文件中未打开(但GObject和GIO是打开的) 为了打开它,使用命令行<literal> -"
+"DG_DISABLE_DEPRECATED</literal> 来定义预处理器符号 G_DISABLE_SINGLE_INCLUDES "
+"即可. <filename>glib/gprintf.h</filename> and <filename>glib/gstdio.h</"
+"filename> (we don't want to pull in all of stdio)."
 
 #: compiling.sgml:86(para)
 msgid ""
@@ -5186,7 +5223,7 @@ msgstr ""
 
 #: resources.sgml:101(ulink)
 msgid "gtk-doc-list@gnome.org"
-msgstr ""
+msgstr "gtk-doc-list@gnome.org"
 
 #: resources.sgml:102(para)
 msgid ""
@@ -5194,19 +5231,21 @@ msgid ""
 "documentation system (used to document GTK+ and Glib), and for work on the "
 "GTK+ (and GLib) documentation."
 msgstr ""
+"gtk-doc-list 是用来讨论<application>gtk-doc</application> 文档系统（使用GTK"
+"+与Glib文档），以及GTK+（和 GLib）文档工作相关。"
 
 #: resources.sgml:13(refname) resources.sgml:7(refentrytitle)
 #: resources.sgml:9(refmiscinfo)
 msgid "Mailing lists and bug reports"
-msgstr ""
+msgstr "邮件列表和Bug报告"
 
 #: resources.sgml:14(refpurpose)
 msgid "Getting help with GLib"
-msgstr ""
+msgstr "得到关于GLib的帮助"
 
 #: resources.sgml:20(title)
 msgid "Filing a bug report or feature request"
-msgstr ""
+msgstr "提交错误报告或功能要求"
 
 #: resources.sgml:22(para)
 msgid ""
@@ -5216,6 +5255,10 @@ msgid ""
 "information in the GLib documentation; file those against the \"docs\" "
 "component of the \"glib\" product in Bugzilla."
 msgstr ""
+"如果你在GLib中发现了bug，功能缺陷，或无效特性，请向 <ulink url=\"http://"
+"bugzilla.gnome.org\">http://bugzilla.gnome.org</ulink> 填写一个bug回馈单。 我"
+"们也建议并感谢您回馈Glib文档的错误之处； file those against the \"docs\" "
+"component of the \"glib\" product in Bugzilla.【此句如何翻译？QQQ】"
 
 #: resources.sgml:31(para)
 msgid ""
@@ -5224,6 +5267,9 @@ msgid ""
 "you have, and if it's already fixed or has already been discussed, we'll add "
 "a note to that effect in the report."
 msgstr ""
+"即使你认为我们可以知道或着已经在关注一些问题， 也不用犹豫，尽管发出你的bug报"
+"告，当你意识到问题的时候， 请告诉我们，如果问题已经确认或者正在讨论，我们将在"
+"此份报告中添加一条备注。"
 
 #: resources.sgml:38(para)
 msgid ""
@@ -5231,10 +5277,12 @@ msgid ""
 "only for bugs. We track all GLib development in Bugzilla, so it's the way to "
 "be sure the GLib developers won't forget about an issue."
 msgstr ""
+"这个bug跟踪是用于功能需求的，并不局限于bug。 我们在Bugzilla上跟踪GLib的进"
+"展， 这样就确保GLib的开发者不会忘掉某个问题。"
 
 #: resources.sgml:47(title)
 msgid "Submitting Patches"
-msgstr ""
+msgstr "提交补丁"
 
 #: resources.sgml:49(para)
 msgid ""
@@ -5245,6 +5293,10 @@ msgid ""
 "under the terms of the GNU LGPL license, so be sure you are authorized to "
 "give us the patch under those terms."
 msgstr ""
+"如果你为GLib做了缺陷修正或者增强了一些功能， 请一并整理到Bugzilla中。 "
+"Bugzilla允许您使用附件； 请使用<command>diff</command>工具生成补丁， 使用它的"
+"<option>-u</option>选项， 这样生成的补丁更具有可读性。 所有的补丁必须使用GNU "
+"LGPL 许可证，所以一定要确定你给我们的补丁遵守这些条款。"
 
 #: resources.sgml:58(para)
 msgid ""
@@ -5253,10 +5305,13 @@ msgid ""
 "But be sure to file the Bugzilla report as well; if the patch is only on the "
 "list and not in Bugzilla, it's likely to slip through the cracks."
 msgstr ""
+"如果你想讨论你的补丁开发之前或之后的发展， 请发邮件到<ulink url=\"mailto:gtk-"
+"devel-list@gnome.org\">gtk-devel-list@gnome.org</ulink>。 但是最好使用"
+"Bugzilla提交； 如果补丁仅仅是个名单，而非Bugzilla回馈，它很有可能被延后处理。"
 
 #: resources.sgml:68(title)
 msgid "Mailing lists"
-msgstr ""
+msgstr "邮件列表"
 
 #: resources.sgml:70(para)
 msgid ""
@@ -5265,10 +5320,13 @@ msgid ""
 "or view the archives of these lists on <ulink url=\"http://mail.gnome.org"
 "\">http://mail.gnome.org</ulink>."
 msgstr ""
+"有一些致力于GTK+的邮件列表及其相关资源。 经常在这里进行关于GTK+的讨论。 你可"
+"以订阅或查看这些列表<ulink url=\"http://mail.gnome.org\">http://mail.gnome."
+"org</ulink>。"
 
 #: resources.sgml:81(ulink)
 msgid "gtk-list@gnome.org"
-msgstr ""
+msgstr "gtk-list@gnome.org"
 
 #: resources.sgml:82(para)
 msgid ""
@@ -5277,10 +5335,12 @@ msgid ""
 "projects would all be on-topic. The bulk of the traffic consists of GTK+ "
 "programming questions."
 msgstr ""
+"Gtk列表涉及一般的GTK +（和GLib）话题。 关于使用GLib编程的话题中，GLib从用户角"
+"度出发， GLib相关项目的公告都将放在专题中。大部分的内容都是GTK+编程。"
 
 #: resources.sgml:91(ulink)
 msgid "gtk-devel-list@gnome.org"
-msgstr ""
+msgstr "gtk-devel-list@gnome.org"
 
 #: resources.sgml:92(para)
 msgid ""
@@ -5289,6 +5349,8 @@ msgid ""
 "GLib) in applications. gtk-devel-list is appropriate for discussion of "
 "patches, bugs, proposed features, and so on."
 msgstr ""
+"gtk-devel-list是供大家讨论GTK+（和GLib）本身， <emphasis>不是</emphasis>用来"
+"指导如何使用GTK+ (或 GLib)的。 gtk-devel-list适合讨论补丁、Bug、新特性等。"
 
 #: running.sgml:101(para)
 msgid ""
@@ -5298,6 +5360,9 @@ msgid ""
 "unloaded. This option is special in that it doesn't require GLib to be "
 "configured with debugging support."
 msgstr ""
+"所有由GModule加载的模块将长驻内存的. 这可用于在模块卸载后追踪模块的内存泄漏. "
+"但也可能在模块正常卸载后隐藏代码访问时的bugs. 此选项比较特殊,不需要将GLib配置"
+"成调试支持."
 
 #: running.sgml:112(term)
 msgid "bind-now-modules"
@@ -5309,14 +5374,16 @@ msgid ""
 "when the code uses %G_MODULE_BIND_LAZY. This option is special in that it "
 "doesn't require GLib to be configured with debugging support."
 msgstr ""
+"所有模块被GModule加载时就会绑定他们的符号,即使代码使用了 "
+"%G_MODULE_BIND_LAZY. 此选项比较特殊,不需要将GLib配置成调试支持."
 
 #: running.sgml:129(envar)
 msgid "G_SLICE"
-msgstr ""
+msgstr "G_SLICE"
 
 #: running.sgml:13(refname) running.sgml:7(refentrytitle)
 msgid "Running GLib Applications"
-msgstr ""
+msgstr "运行GLib应用程序"
 
 #: running.sgml:130(para)
 msgid ""
@@ -5324,6 +5391,8 @@ msgid ""
 "allocator. <placeholder-1/> The special value all can be used to turn on all "
 "options. The special value help can be used to print all available options."
 msgstr ""
+"该环境变量允许重新配置GSlice内存分配器. <placeholder-1/> 特殊值可以用来打开所"
+"有的调试选项. 特殊值可以用来打印所有可用的选项."
 
 #: running.sgml:135(term)
 msgid "always-malloc"
@@ -5340,10 +5409,15 @@ msgid ""
 "allocation code, allthough <literal>debug-blocks</literal> usually is a "
 "better suited debugging tool."
 msgstr ""
+"这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将直接调用"
+"g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC 算法的相关程序计"
+"算更精确的結果最有帮助。它还可以连接系统malloc实现中的调试特性，比如glibc中的"
+"MALLOC_CHECK_=2, 然后来调试错误的片分配代码,即使<literal>debug-blocks</"
+"literal>通常是更适合的调试工具。"
 
 #: running.sgml:14(refpurpose)
 msgid "How to run and debug your GLib application"
-msgstr ""
+msgstr "如何运行和调试GLib应用程序"
 
 #: running.sgml:151(term)
 msgid "debug-blocks"
@@ -5366,6 +5440,14 @@ msgid ""
 "will be caught by <literal>G_SLICE=debug-blocks</literal> is as follows: "
 "<placeholder-1/>"
 msgstr ""
+"使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整 性检查.无效"
+"的片地址或片大小将会被报告并导致程序停止。此选项用于调试 方案.特别地，客户端"
+"软件包在运行自有的测试套件时应该<emphasis>始终打开此选项</emphasis>. 全局片验"
+"证是为了确保存储每个分配块的大小和地址信息,并为此数据维护 一个全局的哈希表.因"
+"此,多线程的可扩展性被放弃,而且内存消耗增加.然而 生成的代码通常表现得更好,可能"
+"比同类使用外部工具检查内存的还要好. 在一个内存损坏的情况下,"
+"<literal>G_SLICE=always-malloc</literal>将不能进行复制, 但设置"
+"<literal>G_SLICE=debug-blocks</literal>将能如下面一样捕获: <placeholder-1/>"
 
 #: running.sgml:169(programlisting)
 #, no-wrap
@@ -5378,7 +5460,7 @@ msgstr ""
 
 #: running.sgml:183(envar)
 msgid "G_RANDOM_VERSION"
-msgstr ""
+msgstr "G_RANDOM_VERSION"
 
 #: running.sgml:185(para)
 msgid ""
@@ -5387,6 +5469,8 @@ msgid ""
 "the new better ones. Use the GLib-2.0 algorithms only if you have sequences "
 "of numbers generated with Glib-2.0 that you need to reproduce exactly."
 msgstr ""
+"如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成算法将会替"
+"代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才使用GLib-2.0的算法."
 
 #: running.sgml:195(envar)
 msgid "LIBCHARSET_ALIAS_DIR"
@@ -5399,6 +5483,9 @@ msgid ""
 "default location is the <replaceable>libdir</replaceable> specified at "
 "compilation time."
 msgstr ""
+"　允许为<filename>charset.aliases</filename>文件指定一个非标准的位置, 这文件"
+"通常用于字符集转换全程.默认位置是编译时指定的<replaceable>libdir</"
+"replaceable>."
 
 #: running.sgml:20(title)
 msgid "Running and debugging GLib Applications"
@@ -5418,7 +5505,7 @@ msgstr ""
 
 #: running.sgml:219(title)
 msgid "Locale"
-msgstr ""
+msgstr "区域设置"
 
 #: running.sgml:221(para)
 msgid ""
@@ -5426,6 +5513,8 @@ msgid ""
 "application is running. Therefore, most GLib-using applications should call "
 "<function>setlocale (LC_ALL, \"\")</function> to set up the current locale."
 msgstr ""
+"相当数量的GLib接口取决于应用程序在运行时的当前区域设置. 因此大多数使用GLib的"
+"程序应该调用<function>setlocale(LC_ALL,\"\")</function> 来设置当前区域."
 
 #: running.sgml:228(para)
 msgid ""
@@ -5436,10 +5525,13 @@ msgid ""
 "\"narrow\" functions here that take character pointers, not the \"wide\" "
 "ones.)"
 msgstr ""
+"在Windows中,C程序中有几个区域设置的概念并不是同步的. 一方面,有系统默认的ANSI"
+"代码页,由C库和Win32API来决定用什么 编码来处理文件名.(我们现在谈论的是\"窄\"函"
+"数处理字符指针,不是 \"宽\"的那种.)"
 
 #: running.sgml:23(title)
 msgid "Environment variables"
-msgstr ""
+msgstr "环境变量"
 
 #: running.sgml:237(para)
 msgid ""
@@ -5448,10 +5540,12 @@ msgid ""
 "default ANSI code-page. Strings in this character set are returned by "
 "functions like <function>strftime()</function>."
 msgstr ""
+"另一方面,有一个C函数库的当前区域.该字符集(代码页)并不一定像系统默认ANSI代码页"
+"一样使用.它返回的字符集类似<function>strftime()</function>."
 
 #: running.sgml:247(title)
 msgid "Traps and traces"
-msgstr ""
+msgstr "陷阱与追踪"
 
 #: running.sgml:249(para)
 msgid ""
@@ -5463,6 +5557,11 @@ msgid ""
 "traps lead to immediate code halts to examine the current program state and "
 "backtrace."
 msgstr ""
+"<indexterm><primary>g_trap_free_size</primary></"
+"indexterm><indexterm><primary>g_trap_realloc_size</primary></"
+"indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> 在GLib"
+"配置好<option>--enable-debugging=yes</option> 的调试中,有些包含陷阱变量的代码"
+"可被设置.这些陷阱导致代码停止检查 当前的程序状态并回溯."
 
 #: running.sgml:25(para)
 msgid ""
@@ -5470,6 +5569,8 @@ msgid ""
 "variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
 "envar>."
 msgstr ""
+"GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
+"envar> 一样的标准环境变量之外的一小部分环境变量."
 
 #: running.sgml:259(para)
 msgid ""
@@ -5481,6 +5582,11 @@ msgid ""
 "(glib_mem_profiler_table)</literal> upon startup though, because memory "
 "profiling is required to match on the memory block sizes."
 msgstr ""
+"当前,有下列陷阱变量存在: <placeholder-1/> 如果设置 size &gt; 0, 其大小匹配内"
+"存块的大小的话,<link linkend=\"g-free\">g_free</link>(), <link linkend=\"g-"
+"realloc\">g_realloc</link>()和 <link linkend=\"g-malloc\">g_malloc</link>() "
+"将被拦截. 这只会在<literal>g_mem_set_vtable(glib_mem_profiler_table)</"
+"literal>启动时才会生效, 因为内存分析需要匹配内存块的大小."
 
 #: running.sgml:261(programlisting)
 #, no-wrap
@@ -5490,6 +5596,10 @@ msgid ""
 "static volatile gulong g_trap_realloc_size;\n"
 "static volatile gulong g_trap_malloc_size;\n"
 msgstr ""
+"\n"
+"static volatile gulong g_trap_free_size;\n"
+"static volatile gulong g_trap_realloc_size;\n"
+"static volatile gulong g_trap_malloc_size;\n"
 
 #: running.sgml:273(para)
 msgid ""
@@ -5498,6 +5608,8 @@ msgid ""
 "break only on g_malloc() calls where the size of the allocated memory block "
 "is 20."
 msgstr ""
+"注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做 "
+"<placeholder-1/> 来在只有g_malloc()分配20字节的时候才中断它."
 
 #: running.sgml:276(programlisting)
 #, no-wrap
@@ -5506,6 +5618,9 @@ msgid ""
 "break g_malloc\n"
 "condition 1 n_bytes == 20\n"
 msgstr ""
+"\n"
+"break g_malloc\n"
+"condition 1 n_bytes == 20\n"
 
 #: running.sgml:286(title)
 msgid "Gdb debugging macros"
@@ -5543,7 +5658,7 @@ msgstr ""
 
 #: running.sgml:31(envar)
 msgid "G_FILENAME_ENCODING"
-msgstr ""
+msgstr "G_FILENAME_ENCODING"
 
 #: running.sgml:311(programlisting)
 #, no-wrap
@@ -5551,6 +5666,8 @@ msgid ""
 "\n"
 "gforeach i in some_list_variable: print *(GtkWidget *)l\n"
 msgstr ""
+"\n"
+"gforeach i in some_list_variable: print *(GtkWidget *)l\n"
 
 #: running.sgml:320(title)
 msgid "SystemTap"
@@ -5573,6 +5690,9 @@ msgid ""
 "set from that list rather than in UTF-8. The special token \"@locale\" can "
 "be used to specify the character set for the current locale."
 msgstr ""
+"这个环境变量可以被设置为逗号为分隔字符集名称的列表. GLib 假设文件名编码是以此"
+"列表第一个变量指定的编码方式而不是UTF-8. 特别标记 \"@locale\" 可用于指定当前"
+"语言环境的字符集编码."
 
 #: running.sgml:333(title)
 msgid "Memory statistics"
@@ -5591,10 +5711,12 @@ msgid ""
 "g_slice_debug_tree_statistics() can be called in a debugger to output "
 "details about the memory usage of the slice allocator."
 msgstr ""
+"如果GLib已经配置了选项<option>--enable-debug=yes</option>, 那么在调试器中则可"
+"以调用g_slice_debug_tree_statistics()来查看 内存片使用的细节."
 
 #: running.sgml:42(envar)
 msgid "G_BROKEN_FILENAMES"
-msgstr ""
+msgstr "G_BROKEN_FILENAMES"
 
 #: running.sgml:44(para)
 msgid ""
@@ -5602,10 +5724,12 @@ msgid ""
 "locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes priority "
 "over G_BROKEN_FILENAMES."
 msgstr ""
+"如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8. "
+"G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES."
 
 #: running.sgml:52(envar)
 msgid "G_MESSAGES_PREFIXED"
-msgstr ""
+msgstr "G_MESSAGES_PREFIXED"
 
 #: running.sgml:54(para)
 msgid ""
@@ -5614,10 +5738,13 @@ msgid ""
 "<literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</"
 "literal>."
 msgstr ""
+"日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了"
+"<literal>G_LOG_LEVEL_MESSAGE</literal> 和<literal>G_LOG_LEVEL_INFO</literal>"
+"的一切."
 
 #: running.sgml:62(envar)
 msgid "G_DEBUG"
-msgstr ""
+msgstr "G_DEBUG"
 
 #: running.sgml:63(para)
 msgid ""
@@ -5627,6 +5754,9 @@ msgid ""
 "value all can be used to turn on all debug options. The special value help "
 "can be used to print all available options."
 msgstr ""
+"如果 GLib 已经定义了 <option>--enable-debug=yes</option>, 这个变量可用于设置"
+"调试选, 将打印出调试信息中的各种类型. <placeholder-1/> 特殊值可以用来打开所有"
+"的调试选项. 特殊值可以用来打印所有可用的选项."
 
 #: running.sgml:69(term)
 msgid "fatal_warnings"
@@ -5639,6 +5769,9 @@ msgid ""
 "link>(). This option is special in that it doesn't require GLib to be "
 "configured with debugging support."
 msgstr ""
+"首次调用<link linkend=\"g-warning\">g_warning</link>()或 <link linkend=\"g-"
+"critical\">g_critical</link>()即中止程序的运行.特别地，此选项不需要GLib配置"
+"成 调试支持."
 
 #: running.sgml:78(term)
 msgid "fatal_criticals"
@@ -5650,6 +5783,8 @@ msgid ""
 "critical\">g_critical</link>(). This option is special in that it doesn't "
 "require GLib to be configured with debugging support."
 msgstr ""
+"首次调用<link linkend=\"g-critical\">g_critical</link>()即中止程序的运行. 此"
+"选项不需要GLib配置成 调试支持."
 
 #: running.sgml:86(term)
 msgid "gc-friendly"
@@ -5663,6 +5798,9 @@ msgid ""
 "accurate results. This option is special in that it doesn't require GLib to "
 "be configured with debugging support."
 msgstr ""
+"新分配的内存没有被直接初始化,内存释放后将被重置为0. 这里的要点是允许内存检查"
+"系统和使用bohem GC 类似算法 的程序来计算更多精确的結果.此选项比较特殊,不需要"
+"将 GLib配置成调试支持."
 
 #: running.sgml:99(term)
 msgid "resident-modules"
