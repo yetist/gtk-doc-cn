@@ -1,0 +1,2099 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_run_dispose:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_freeze_notify:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_notify:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_notify_by_pspec:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_thaw_notify:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_connect: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_disconnect: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_force_floating:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_add_toggle_ref: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_remove_toggle_ref: (skip)
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectGetPropertyFunc:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectSetPropertyFunc:
+#: gobject.c:1030:1 gobject.c:1089:1 gobject.c:1649:1 gobject.c:1725:1
+#: gobject.c:1801:1 gobject.c:1825:1 gobject.c:1876:1 gobject.c:1923:1
+#: gobject.c:2002:1 gobject.c:2154:1 gobject.c:2441:1 gobject.c:2490:1
+#: gobject.c:2571:1 gobject.c:930:1 gobject.c:952:1 gobject.c:988:1
+#: gobject.h:191:1 gobject.h:205:1
+msgid "@object: a #GObject"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1031:1
+msgid ""
+"@pspec: the #GParamSpec of a property installed on the class of @object."
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1033:1
+msgid ""
+"Emits a \"notify\" signal for the property specified by @pspec on @object."
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1035:2
+msgid ""
+"This function omits the property name lookup, hence it is faster than "
+"g_object_notify()."
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1038:4
+msgid ""
+"One way to avoid using g_object_notify() from within the class that "
+"registered the properties, and using g_object_notify_by_pspec() instead, is "
+"to store the GParamSpec used with g_object_class_install_property() inside a "
+"static array, e.g.:"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1043:7
+msgid "|[ enum { PROP_0, PROP_FOO, PROP_LAST };"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1051:1
+msgid "static GParamSpec *properties[PROP_LAST];"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1053:12
+msgid ""
+"static void my_object_class_init (MyObjectClass *klass) { properties"
+"[PROP_FOO] = g_param_spec_int (\"foo\", \"Foo\", \"The foo\", 0, 100, 50, "
+"G_PARAM_READWRITE); g_object_class_install_property (gobject_class, "
+"PROP_FOO, properties[PROP_FOO]); } ]|"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1066:1
+msgid "and then notify a change on the \"foo\" property with:"
+msgstr ""
+
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1068:3
+msgid "|[ g_object_notify_by_pspec (self, properties[PROP_FOO]); ]|"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_install_properties:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_notify_by_pspec:
+#: gobject.c:1072:1 gobject.c:527:1
+msgid "Since: 2.26"
+msgstr ""
+
+#. used by: g_object_thaw_notify:
+#: gobject.c:1091:3
+msgid ""
+"Reverts the effect of a previous call to g_object_freeze_notify(). The "
+"freeze count is decreased on @object and when it reaches zero, all queued "
+"\"notify\" signals are emitted."
+msgstr ""
+
+#. used by: g_object_thaw_notify:
+#: gobject.c:1095:1
+msgid "It is an error to call this function when the freeze count is zero."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_newv:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1284:1 gobject.c:1351:1 gobject.c:1529:1
+msgid "@object_type: the type id of the #GObject subtype to instantiate"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1285:1 gobject.c:1530:1
+msgid "@first_property_name: the name of the first property"
+msgstr ""
+
+#. used by: g_object_new: (skip)
+#: gobject.c:1286:2
+msgid ""
+"@...: the value of the first property, followed optionally by more name/"
+"value pairs, followed by %NULL"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_newv:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1289:1 gobject.c:1355:1 gobject.c:1534:1
+msgid "Creates a new instance of a #GObject subtype and sets its properties."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_newv:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1291:2 gobject.c:1357:2 gobject.c:1536:2
+msgid ""
+"Construction parameters (see #G_PARAM_CONSTRUCT, #G_PARAM_CONSTRUCT_ONLY) "
+"which are not explicitly specified are set to their default values."
+msgstr ""
+
+#. used by: g_object_new: (skip)
+#: gobject.c:1294:1
+msgid "Returns: (transfer full): a new instance of @object_type"
+msgstr ""
+
+#. used by: g_object_newv:
+#: gobject.c:1352:1
+msgid "@n_parameters: the length of the @parameters array"
+msgstr ""
+
+#. used by: g_object_newv:
+#: gobject.c:1353:1
+msgid "@parameters: (array length=n_parameters): an array of #GParameter"
+msgstr ""
+
+#. used by: g_object_newv:
+#: gobject.c:1360:3
+msgid ""
+"Rename to: g_object_new Returns: (type GObject.Object) (transfer full): a "
+"new instance of @object_type"
+msgstr ""
+
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1531:2
+msgid ""
+"@var_args: the value of the first property, followed optionally by more name/"
+"value pairs, followed by %NULL"
+msgstr ""
+
+#. used by: g_object_new_valist: (skip)
+#: gobject.c:1539:1
+msgid "Returns: a new instance of @object_type"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set: (skip)
+#: gobject.c:1650:1 gobject.c:1802:1
+msgid "@first_property_name: name of the first property to set"
+msgstr ""
+
+#. used by: g_object_set_valist: (skip)
+#: gobject.c:1651:2
+msgid ""
+"@var_args: value for the first property, followed optionally by more name/"
+"value pairs, followed by %NULL"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set: (skip)
+#: gobject.c:1654:1 gobject.c:1806:1
+msgid "Sets properties on an object."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get: (skip)
+#: gobject.c:1726:1 gobject.c:1826:1
+msgid "@first_property_name: name of the first property to get"
+msgstr ""
+
+#. used by: g_object_get_valist: (skip)
+#: gobject.c:1727:2
+msgid ""
+"@var_args: return location for the first property, followed optionally by "
+"more name/return location pairs, followed by %NULL"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get: (skip)
+#: gobject.c:1730:1 gobject.c:1830:1
+msgid "Gets properties of an object."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_valist: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get: (skip)
+#: gobject.c:1732:3 gobject.c:1832:3
+msgid ""
+"In general, a copy is made of the property contents and the caller is "
+"responsible for freeing the memory in the appropriate manner for the type, "
+"for instance by calling g_free() or g_object_unref()."
+msgstr ""
+
+#. used by: g_object_get_valist: (skip)
+#: gobject.c:1736:1
+msgid "See g_object_get()."
+msgstr ""
+
+#. used by: g_object_set: (skip)
+#: gobject.c:1803:2
+msgid ""
+"@...: value for the first property, followed optionally by more name/value "
+"pairs, followed by %NULL"
+msgstr ""
+
+#. used by: g_object_get: (skip)
+#: gobject.c:1827:2
+msgid ""
+"@...: return location for the first property, followed optionally by more "
+"name/return location pairs, followed by %NULL"
+msgstr ""
+
+#. used by: g_object_get: (skip)
+#: gobject.c:1836:5
+msgid ""
+"<example> <title>Using g_object_get(<!-- -->)</title> An example of using "
+"g_object_get() to get the contents of three properties - one of type "
+"#G_TYPE_INT, one of type #G_TYPE_STRING, and one of type #G_TYPE_OBJECT:"
+msgstr ""
+
+#. used by: g_object_get: (skip)
+#: gobject.c:1857:1
+msgid "</example>"
+msgstr ""
+
+#. used by: g_object_set_property:
+#: gobject.c:1877:1
+msgid "@property_name: the name of the property to set"
+msgstr ""
+
+#. used by: g_object_set_property:
+#: gobject.c:1878:1
+msgid "@value: the value"
+msgstr ""
+
+#. used by: g_object_set_property:
+#: gobject.c:1880:1
+msgid "Sets a property on an object."
+msgstr ""
+
+#. used by: g_object_get_property:
+#: gobject.c:1924:1
+msgid "@property_name: the name of the property to get"
+msgstr ""
+
+#. used by: g_object_get_property:
+#: gobject.c:1925:1
+msgid "@value: return location for the property value"
+msgstr ""
+
+#. used by: g_object_get_property:
+#: gobject.c:1927:3
+msgid ""
+"Gets a property of an object. @value must have been initialized to the "
+"expected type of the property (or a type to which the expected type can be "
+"transformed) using g_value_init()."
+msgstr ""
+
+#. used by: g_object_get_property:
+#: gobject.c:1931:2
+msgid ""
+"In general, a copy is made of the property contents and the caller is "
+"responsible for freeing the memory by calling g_value_unset()."
+msgstr ""
+
+#. used by: g_object_get_property:
+#: gobject.c:1934:2
+msgid ""
+"Note that g_object_get_property() is really intended for language bindings, "
+"g_object_get() is much more convenient for C programming."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_connect: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_disconnect: (skip)
+#: gobject.c:2003:1 gobject.c:2155:1
+msgid "@signal_spec: the spec for the first signal"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_connect: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_disconnect: (skip)
+#: gobject.c:2004:3 gobject.c:2156:3
+msgid ""
+"@...: #GCallback for the first signal, followed by data for the first "
+"signal, followed optionally by more signal spec/callback/data triples, "
+"followed by %NULL"
+msgstr ""
+
+#. used by: g_object_connect: (skip)
+#: gobject.c:2008:1
+msgid "A convenience function to connect multiple signals at once."
+msgstr ""
+
+#. used by: g_object_connect: (skip)
+#: gobject.c:2010:59
+msgid ""
+"The signal specs expected by this function have the form \"modifier::"
+"signal_name\", where modifier can be one of the following: <variablelist> "
+"<varlistentry> <term>signal</term> <listitem><para> equivalent to "
+"<literal>g_signal_connect_data (..., NULL, 0)</literal> </para></listitem> </"
+"varlistentry> <varlistentry> <term>object_signal</term> <term>object-signal</"
+"term> <listitem><para> equivalent to <literal>g_signal_connect_object (..., "
+"0)</literal> </para></listitem> </varlistentry> <varlistentry> "
+"<term>swapped_signal</term> <term>swapped-signal</term> <listitem><para> "
+"equivalent to <literal>g_signal_connect_data (..., NULL, G_CONNECT_SWAPPED)</"
+"literal> </para></listitem> </varlistentry> <varlistentry> "
+"<term>swapped_object_signal</term> <term>swapped-object-signal</term> "
+"<listitem><para> equivalent to <literal>g_signal_connect_object (..., "
+"G_CONNECT_SWAPPED)</literal> </para></listitem> </varlistentry> "
+"<varlistentry> <term>signal_after</term> <term>signal-after</term> "
+"<listitem><para> equivalent to <literal>g_signal_connect_data (..., NULL, "
+"G_CONNECT_AFTER)</literal> </para></listitem> </varlistentry> <varlistentry> "
+"<term>object_signal_after</term> <term>object-signal-after</term> "
+"<listitem><para> equivalent to <literal>g_signal_connect_object (..., "
+"G_CONNECT_AFTER)</literal> </para></listitem> </varlistentry> <varlistentry> "
+"<term>swapped_signal_after</term> <term>swapped-signal-after</term> "
+"<listitem><para> equivalent to <literal>g_signal_connect_data (..., NULL, "
+"G_CONNECT_SWAPPED | G_CONNECT_AFTER)</literal> </para></listitem> </"
+"varlistentry> <varlistentry> <term>swapped_object_signal_after</term> "
+"<term>swapped-object-signal-after</term> <listitem><para> equivalent to "
+"<literal>g_signal_connect_object (..., G_CONNECT_SWAPPED | G_CONNECT_AFTER)</"
+"literal> </para></listitem> </varlistentry> </variablelist>"
+msgstr ""
+
+#. used by: g_object_connect: (skip)
+#: gobject.c:2070:10
+msgid ""
+"|[ menu->toplevel = g_object_connect (g_object_new (GTK_TYPE_WINDOW, \t\t\t\t"
+"\t\t   \"type\", GTK_WINDOW_POPUP, \t\t\t\t\t\t   \"child\", menu, \t\t\t\t\t"
+"\t   NULL), \t\t\t\t     \"signal::event\", gtk_menu_window_event, menu, \t\t"
+"\t\t     \"signal::size_request\", gtk_menu_window_size_request, menu, \t\t\t"
+"\t     \"signal::destroy\", gtk_widget_destroyed, &amp;menu-&gt;toplevel, \t"
+"\t\t\t     NULL); ]|"
+msgstr ""
+
+#. used by: g_object_connect: (skip)
+#: gobject.c:2081:1
+msgid "Returns: (transfer none): @object"
+msgstr ""
+
+#. used by: g_object_disconnect: (skip)
+#: gobject.c:2160:1
+msgid "A convenience function to disconnect multiple signals at once."
+msgstr ""
+
+#. used by: g_object_disconnect: (skip)
+#: gobject.c:2162:4
+msgid ""
+"The signal specs expected by this function have the form \"any_signal\", "
+"which means to disconnect any signal with matching callback and data, or "
+"\"any_signal::signal_name\", which only disconnects the signal named "
+"\"signal_name\"."
+msgstr ""
+
+#. used by: g_object_weak_ref: (skip)
+#: gobject.c:2237:1
+msgid "@object: #GObject to reference weakly"
+msgstr ""
+
+#. used by: g_object_weak_ref: (skip)
+#: gobject.c:2238:1
+msgid "@notify: callback to invoke before the object is freed"
+msgstr ""
+
+#. used by: g_object_weak_ref: (skip)
+#: gobject.c:2239:1
+msgid "@data: extra data to pass to notify"
+msgstr ""
+
+#. used by: g_object_weak_ref: (skip)
+#: gobject.c:2241:5
+msgid ""
+"Adds a weak reference callback to an object. Weak references are used for "
+"notification when an object is finalized. They are called \"weak references"
+"\" because they allow you to safely hold a pointer to an object without "
+"calling g_object_ref() (g_object_ref() adds a strong reference, that is, "
+"forces the object to stay alive)."
+msgstr ""
+
+#. used by: g_object_weak_unref: (skip)
+#: gobject.c:2281:1
+msgid "@object: #GObject to remove a weak reference from"
+msgstr ""
+
+#. used by: g_object_weak_unref: (skip)
+#: gobject.c:2282:1
+msgid "@notify: callback to search for"
+msgstr ""
+
+#. used by: g_object_weak_unref: (skip)
+#: gobject.c:2283:1
+msgid "@data: data to search for"
+msgstr ""
+
+#. used by: g_object_weak_unref: (skip)
+#: gobject.c:2285:1
+msgid "Removes a weak reference callback to an object."
+msgstr ""
+
+#. used by: g_object_add_weak_pointer: (skip)
+#: gobject.c:2323:1
+msgid "@object: The object that should be weak referenced."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_add_weak_pointer: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_remove_weak_pointer: (skip)
+#: gobject.c:2324:1 gobject.c:2346:1
+msgid "@weak_pointer_location: (inout): The memory address of a pointer."
+msgstr ""
+
+#. used by: g_object_add_weak_pointer: (skip)
+#: gobject.c:2326:4
+msgid ""
+"Adds a weak reference from weak_pointer to @object to indicate that the "
+"pointer located at @weak_pointer_location is only valid during the lifetime "
+"of @object. When the @object is finalized, @weak_pointer will be set to "
+"%NULL."
+msgstr ""
+
+#. used by: g_object_remove_weak_pointer: (skip)
+#: gobject.c:2345:1
+msgid "@object: The object that is weak referenced."
+msgstr ""
+
+#. used by: g_object_remove_weak_pointer: (skip)
+#: gobject.c:2348:3
+msgid ""
+"Removes a weak reference from @object that was previously added using "
+"g_object_add_weak_pointer(). The @weak_pointer_location has to match the one "
+"used with g_object_add_weak_pointer()."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_is_floating:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_ref_sink:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_ref:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_unref:
+#: gobject.c:2390:1 gobject.c:2409:1 gobject.c:2624:1 gobject.c:2657:1
+msgid "@object: (type GObject.Object): a #GObject"
+msgstr ""
+
+#. used by: g_object_is_floating:
+#: gobject.c:2392:2
+msgid ""
+"Checks whether @object has a <link linkend=\"floating-ref\">floating</link> "
+"reference."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_is_floating:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_ref_sink:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_force_floating:
+#: gobject.c:2395:1 gobject.c:2421:1 gobject.c:2449:1
+msgid "Since: 2.10"
+msgstr ""
+
+#. used by: g_object_is_floating:
+#: gobject.c:2397:1
+msgid "Returns: %TRUE if @object has a floating reference"
+msgstr ""
+
+#. used by: g_object_ref_sink:
+#: gobject.c:2411:3
+msgid ""
+"Increase the reference count of @object, and possibly remove the <link "
+"linkend=\"floating-ref\">floating</link> reference, if @object has a "
+"floating reference."
+msgstr ""
+
+#. used by: g_object_ref_sink:
+#: gobject.c:2415:5
+msgid ""
+"In other words, if the object is floating, then this call \"assumes ownership"
+"\" of the floating reference, converting it to a normal reference by "
+"clearing the floating flag while leaving the reference count unchanged.  If "
+"the object is not floating, then this call adds a new normal reference "
+"increasing the reference count by one."
+msgstr ""
+
+#. used by: g_object_ref_sink:
+#: gobject.c:2423:1
+msgid "Returns: (type GObject.Object) (transfer none): @object"
+msgstr ""
+
+#. used by: g_object_force_floating:
+#: gobject.c:2443:5
+msgid ""
+"This function is intended for #GObject implementations to re-enforce a <link "
+"linkend=\"floating-ref\">floating</link> object reference. Doing this is "
+"seldomly required: all #GInitiallyUnowned<!-- -->s are created with a "
+"floating reference which usually just needs to be sunken by calling "
+"g_object_ref_sink()."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_add_toggle_ref: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_remove_toggle_ref: (skip)
+#: gobject.c:2491:3 gobject.c:2572:3
+msgid ""
+"@notify: a function to call when this reference is the last reference to the "
+"object, or is no longer the last reference."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_add_toggle_ref: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_remove_toggle_ref: (skip)
+#: gobject.c:2494:1 gobject.c:2575:1
+msgid "@data: data to pass to @notify"
+msgstr ""
+
+#. used by: g_object_add_toggle_ref: (skip)
+#: gobject.c:2496:4
+msgid ""
+"Increases the reference count of the object by one and sets a callback to be "
+"called when all other references to the object are dropped, or when this is "
+"already the last reference to the object and another reference is "
+"established."
+msgstr ""
+
+#. used by: g_object_add_toggle_ref: (skip)
+#: gobject.c:2501:5
+msgid ""
+"This functionality is intended for binding @object to a proxy object managed "
+"by another memory manager. This is done with two paired references: the "
+"strong reference added by g_object_add_toggle_ref() and a reverse reference "
+"to the proxy object which is either a strong reference or weak reference."
+msgstr ""
+
+#. used by: g_object_add_toggle_ref: (skip)
+#: gobject.c:2507:7
+msgid ""
+"The setup is that when there are no other references to @object, only a weak "
+"reference is held in the reverse direction from @object to the proxy object, "
+"but when there are other references held to @object, a strong reference is "
+"held. The @notify callback is called when the reference from @object to the "
+"proxy object should be <firstterm>toggled</firstterm> from strong to weak "
+"(@is_last_ref true) or weak to strong (@is_last_ref false)."
+msgstr ""
+
+#. used by: g_object_add_toggle_ref: (skip)
+#: gobject.c:2515:3
+msgid ""
+"Since a (normal) reference must be held to the object before calling "
+"g_object_toggle_ref(), the initial state of the reverse link is always "
+"strong."
+msgstr ""
+
+#. used by: g_object_add_toggle_ref: (skip)
+#: gobject.c:2519:5
+msgid ""
+"Multiple toggle references may be added to the same gobject, however if "
+"there are multiple toggle references to an object, none of them will ever be "
+"notified until all but one are removed.  For this reason, you should only "
+"ever use a toggle reference if there is important state in the proxy object."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_add_toggle_ref: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_remove_toggle_ref: (skip)
+#: gobject.c:2525:1 gobject.c:2580:1
+msgid "Since: 2.8"
+msgstr ""
+
+#. used by: g_object_remove_toggle_ref: (skip)
+#: gobject.c:2577:2
+msgid ""
+"Removes a reference added with g_object_add_toggle_ref(). The reference "
+"count of the object is decreased by one."
+msgstr ""
+
+#. used by: g_object_ref:
+#: gobject.c:2626:1
+msgid "Increases the reference count of @object."
+msgstr ""
+
+#. used by: g_object_ref:
+#: gobject.c:2628:1
+msgid "Returns: (type GObject.Object) (transfer none): the same @object"
+msgstr ""
+
+#. used by: g_object_unref:
+#: gobject.c:2659:2
+msgid ""
+"Decreases the reference count of @object. When its reference count drops to "
+"0, the object is finalized (i.e. its memory is freed)."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2754:1
+msgid "@object_ptr: a pointer to a #GObject reference"
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2756:1
+msgid "Clears a reference to a #GObject."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2758:1
+msgid "@object_ptr must not be %NULL."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2760:3
+msgid ""
+"If the reference is %NULL then this function does nothing. Otherwise, the "
+"reference count of the object is decreased and the pointer is set to %NULL."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2764:2
+msgid ""
+"This function is threadsafe and modifies the pointer atomically, using "
+"memory barriers where needed."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2767:2
+msgid ""
+"A macro is also included that allows this function to be used without "
+"pointer casts."
+msgstr ""
+
+#. used by: g_clear_object: (skip)
+#: gobject.c:2770:1
+msgid "Since: 2.28"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_qdata:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_steal_qdata:
+#: gobject.c:2792:1 gobject.c:2864:1
+msgid "@object: The GObject to get a stored user data pointer from"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_qdata:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata_full: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_steal_qdata:
+#: gobject.c:2793:1 gobject.c:2812:1 gobject.c:2838:1 gobject.c:2865:1
+msgid "@quark: A #GQuark, naming the user data pointer"
+msgstr ""
+
+#. used by: g_object_get_qdata:
+#: gobject.c:2795:2
+msgid ""
+"This function gets back user data pointers stored via g_object_set_qdata()."
+msgstr ""
+
+#. used by: g_object_get_qdata:
+#: gobject.c:2798:1
+msgid "Returns: (transfer none): The user data pointer set, or %NULL"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata_full: (skip)
+#: gobject.c:2811:1 gobject.c:2837:1
+msgid "@object: The GObject to set store a user data pointer"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_qdata_full: (skip)
+#: gobject.c:2813:1 gobject.c:2839:1
+msgid "@data: An opaque user data pointer"
+msgstr ""
+
+#. used by: g_object_set_qdata: (skip)
+#: gobject.c:2815:8
+msgid ""
+"This sets an opaque, named pointer on an object. The name is specified "
+"through a #GQuark (retrived e.g. via g_quark_from_static_string()), and the "
+"pointer can be gotten back from the @object with g_object_get_qdata() until "
+"the @object is finalized. Setting a previously set user data pointer, "
+"overrides (frees) the old pointer set, using #NULL as pointer essentially "
+"removes the data stored."
+msgstr ""
+
+#. used by: g_object_set_qdata_full: (skip)
+#: gobject.c:2840:2
+msgid ""
+"@destroy: Function to invoke with @data as argument, when @data needs to be "
+"freed"
+msgstr ""
+
+#. used by: g_object_set_qdata_full: (skip)
+#: gobject.c:2843:5
+msgid ""
+"This function works like g_object_set_qdata(), but in addition, a void "
+"(*destroy) (gpointer) function may be specified which is called with @data "
+"as argument when the @object is finalized, or the data is being overwritten "
+"by a call to g_object_set_qdata() with the same @quark."
+msgstr ""
+
+#. used by: g_object_steal_qdata:
+#: gobject.c:2867:15
+msgid ""
+"This function gets back user data pointers stored via g_object_set_qdata() "
+"and removes the @data from object without invoking its destroy() function "
+"(if any was set). Usually, calling this function is only required to update "
+"user data pointers with a destroy notifier, for example: |[ void "
+"object_add_to_user_list (GObject     *object, const gchar *new_string) { // "
+"the quark, naming the object data GQuark quark_string_list = "
+"g_quark_from_static_string (\"my-string-list\"); // retrive the old string "
+"list GList *list = g_object_steal_qdata (object, quark_string_list);"
+msgstr ""
+
+#. used by: g_object_steal_qdata:
+#: gobject.c:2883:9
+msgid ""
+"// prepend new string list = g_list_prepend (list, g_strdup "
+"(new_string)); // this changed 'list', so we need to set it again "
+"g_object_set_qdata_full (object, quark_string_list, list, "
+"free_string_list); } static void free_string_list (gpointer data) { GList "
+"*node, *list = data;"
+msgstr ""
+
+#. used by: g_object_steal_qdata:
+#: gobject.c:2893:9
+msgid ""
+"for (node = list; node; node = node->next) g_free (node->data); g_list_free "
+"(list); } ]| Using g_object_get_qdata() in the above example, instead of "
+"g_object_steal_qdata() would have left the destroy function set, and thus "
+"the partial string list would have been freed upon g_object_set_qdata_full()."
+msgstr ""
+
+#. used by: g_object_steal_qdata:
+#: gobject.c:2903:1
+msgid "Returns: (transfer full): The user data pointer set, or %NULL"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_get_data:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_data_full: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_steal_data:
+#: gobject.c:2917:1 gobject.c:2963:1 gobject.c:2989:1
+msgid "@object: #GObject containing the associations"
+msgstr ""
+
+#. used by: g_object_get_data:
+#: gobject.c:2918:1
+msgid "@key: name of the key for that association"
+msgstr ""
+
+#. used by: g_object_get_data:
+#: gobject.c:2920:1
+msgid ""
+"Gets a named field from the objects table of associations (see "
+"g_object_set_data())."
+msgstr ""
+
+#. used by: g_object_get_data:
+#: gobject.c:2922:1
+msgid ""
+"Returns: (transfer none): the data if found, or %NULL if no such data exists."
+msgstr ""
+
+#. used by: g_object_set_data:
+#: gobject.c:2940:1
+msgid "@object: #GObject containing the associations."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_data:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_data_full: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_steal_data:
+#: gobject.c:2941:1 gobject.c:2964:1 gobject.c:2990:1
+msgid "@key: name of the key"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_data:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_set_data_full: (skip)
+#: gobject.c:2942:1 gobject.c:2965:1
+msgid "@data: data to associate with that key"
+msgstr ""
+
+#. used by: g_object_set_data:
+#: gobject.c:2944:2
+msgid ""
+"Each object carries around a table of associations from strings to "
+"pointers.  This function lets you set an association."
+msgstr ""
+
+#. used by: g_object_set_data:
+#: gobject.c:2947:2
+msgid ""
+"If the object already had an association with that name, the old association "
+"will be destroyed."
+msgstr ""
+
+#. used by: g_object_set_data_full: (skip)
+#: gobject.c:2966:1
+msgid "@destroy: function to call when the association is destroyed"
+msgstr ""
+
+#. used by: g_object_set_data_full: (skip)
+#: gobject.c:2968:3
+msgid ""
+"Like g_object_set_data() except it adds notification for when the "
+"association is destroyed, either by setting it to a different value or when "
+"the object is destroyed."
+msgstr ""
+
+#. used by: g_object_set_data_full: (skip)
+#: gobject.c:2972:1
+msgid "Note that the @destroy callback is not called if @data is %NULL."
+msgstr ""
+
+#. used by: g_object_steal_data:
+#: gobject.c:2992:2
+msgid ""
+"Remove a specified datum from the object's data associations, without "
+"invoking the association's destroy handler."
+msgstr ""
+
+#. used by: g_object_steal_data:
+#: gobject.c:2995:1
+msgid ""
+"Returns: (transfer full): the data if found, or %NULL if no such data exists."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_set_object:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_set_object_take_ownership: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_take_object: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_get_object:
+#: gobject.c:3104:1 gobject.c:3146:1 gobject.c:3162:1 gobject.c:3198:1
+msgid "@value: a valid #GValue of %G_TYPE_OBJECT derived type"
+msgstr ""
+
+#. used by: g_value_set_object:
+#: gobject.c:3105:1
+msgid "@v_object: (type GObject.Object): object value to be set"
+msgstr ""
+
+#. used by: g_value_set_object:
+#: gobject.c:3107:1
+msgid "Set the contents of a %G_TYPE_OBJECT derived #GValue to @v_object."
+msgstr ""
+
+#. used by: g_value_set_object:
+#: gobject.c:3109:5
+msgid ""
+"g_value_set_object() increases the reference count of @v_object (the #GValue "
+"holds a reference to @v_object).  If you do not wish to increase the "
+"reference count of the object (i.e. you wish to pass your current reference "
+"to the #GValue because you no longer need it), use g_value_take_object() "
+"instead."
+msgstr ""
+
+#. used by: g_value_set_object:
+#: gobject.c:3115:3
+msgid ""
+"It is important that your #GValue holds a reference to @v_object (either its "
+"own, or one it has taken) to ensure that the object won't be destroyed while "
+"the #GValue still exists)."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_set_object_take_ownership: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_take_object: (skip)
+#: gobject.c:3147:1 gobject.c:3163:1
+msgid "@v_object: object value to be set"
+msgstr ""
+
+#. used by: g_value_set_object_take_ownership: (skip)
+#: gobject.c:3149:1
+msgid "This is an internal function introduced mainly for C marshallers."
+msgstr ""
+
+#. used by: g_value_set_object_take_ownership: (skip)
+#: gobject.c:3151:1
+msgid "Deprecated: 2.4: Use g_value_take_object() instead."
+msgstr ""
+
+#. used by: g_value_take_object: (skip)
+#: gobject.c:3165:4
+msgid ""
+"Sets the contents of a %G_TYPE_OBJECT derived #GValue to @v_object and takes "
+"over the ownership of the callers reference to @v_object; the caller doesn't "
+"have to unref it any more (i.e. the reference count of the object is not "
+"increased)."
+msgstr ""
+
+#. used by: g_value_take_object: (skip)
+#: gobject.c:3170:2
+msgid ""
+"If you want the #GValue to hold its own reference to @v_object, use "
+"g_value_set_object() instead."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_install_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_find_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_override_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_list_properties:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_value_take_object: (skip)
+#: gobject.c:3173:1 gobject.c:601:1 gobject.c:665:1 gobject.c:712:1
+#: gobject.c:804:1
+msgid "Since: 2.4"
+msgstr ""
+
+#. used by: g_value_get_object:
+#: gobject.c:3200:1
+msgid "Get the contents of a %G_TYPE_OBJECT derived #GValue."
+msgstr ""
+
+#. used by: g_value_get_object:
+#: gobject.c:3202:1
+msgid ""
+"Returns: (type GObject.Object) (transfer none): object contents of @value"
+msgstr ""
+
+#. used by: g_value_dup_object:
+#: gobject.c:3214:1
+msgid "@value: a valid #GValue whose type is derived from %G_TYPE_OBJECT"
+msgstr ""
+
+#. used by: g_value_dup_object:
+#: gobject.c:3216:3
+msgid ""
+"Get the contents of a %G_TYPE_OBJECT derived #GValue, increasing its "
+"reference count. If the contents of the #GValue are %NULL, then %NULL will "
+"be returned."
+msgstr ""
+
+#. used by: g_value_dup_object:
+#: gobject.c:3220:2
+msgid ""
+"Returns: (type GObject.Object) (transfer full): object content of @value, "
+"should be unreferenced when no longer needed."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3233:1
+msgid "@instance: the instance to connect to."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3234:1
+msgid "@detailed_signal: a string of the form \"signal-name::detail\"."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3235:1
+msgid "@c_handler: the #GCallback to connect."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3236:1
+msgid "@gobject: the object to pass as data to @c_handler."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3237:1
+msgid "@connect_flags: a combination of #GConnnectFlags."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3239:3
+msgid ""
+"This is similar to g_signal_connect_data(), but uses a closure which ensures "
+"that the @gobject stays alive during the call to @c_handler by temporarily "
+"adding a reference count to @gobject."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3243:10
+msgid ""
+"Note that there is a bug in GObject that makes this function much less "
+"useful than it might seem otherwise. Once @gobject is disposed, the callback "
+"will no longer be called, but, the signal handler is <emphasis>not</"
+"emphasis> currently disconnected. If the @instance is itself being freed at "
+"the same time than this doesn't matter, since the signal will automatically "
+"be removed, but if @instance persists, then the signal handler will leak. "
+"You should not remove the signal yourself because in a future versions of "
+"GObject, the handler <emphasis>will</emphasis> automatically be disconnected."
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3254:3
+msgid ""
+"It's possible to work around this problem in a way that will continue to "
+"work with future versions of GObject by checking that the signal handler is "
+"still connected before disconnected it:"
+msgstr ""
+
+#. used by: g_signal_connect_object: (skip)
+#: gobject.c:3262:1
+msgid "Returns: the handler id."
+msgstr ""
+
+#. used by: g_object_watch_closure:
+#: gobject.c:3358:1
+msgid "@object: GObject restricting lifetime of @closure"
+msgstr ""
+
+#. used by: g_object_watch_closure:
+#: gobject.c:3359:1
+msgid "@closure: GClosure to watch"
+msgstr ""
+
+#. used by: g_object_watch_closure:
+#: gobject.c:3361:9
+msgid ""
+"This function essentially limits the life time of the @closure to the life "
+"time of the object. That is, when the object is finalized, the @closure is "
+"invalidated by calling g_closure_invalidate() on it, in order to prevent "
+"invocations of the closure with a finalized (nonexisting) object. Also, "
+"g_object_ref() and g_object_unref() are added as marshal guards to the "
+"@closure, to ensure that an extra reference count is held on @object during "
+"invocation of the @closure.  Usually, this function will be called on "
+"closures that use this @object as closure data."
+msgstr ""
+
+#. used by: g_closure_new_object:
+#: gobject.c:3409:2
+msgid ""
+"@sizeof_closure: the size of the structure to allocate, must be at least "
+"<literal>sizeof (GClosure)</literal>"
+msgstr ""
+
+#. used by: g_closure_new_object:
+#: gobject.c:3411:2
+msgid ""
+"@object: a #GObject pointer to store in the @data field of the newly "
+"allocated #GClosure"
+msgstr ""
+
+#. used by: g_closure_new_object:
+#: gobject.c:3414:4
+msgid ""
+"A variant of g_closure_new_simple() which stores @object in the @data field "
+"of the closure and calls g_object_watch_closure() on @object and the created "
+"closure. This function is mainly useful when implementing new types of "
+"closures."
+msgstr ""
+
+#. used by: g_closure_new_object:
+#: gobject.c:3419:1
+msgid "Returns: (transfer full): a newly allocated #GClosure"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object_swap: (skip)
+#: gobject.c:3438:1 gobject.c:3467:1
+msgid "@callback_func: the function to invoke"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object_swap: (skip)
+#: gobject.c:3439:1 gobject.c:3468:1
+msgid "@object: a #GObject pointer to pass to @callback_func"
+msgstr ""
+
+#. used by: g_cclosure_new_object: (skip)
+#: gobject.c:3441:5
+msgid ""
+"A variant of g_cclosure_new() which uses @object as @user_data and calls "
+"g_object_watch_closure() on @object and the created closure. This function "
+"is useful when you have a callback closely associated with a #GObject, and "
+"want the callback to no longer run after the object is is freed."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object: (skip)
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_cclosure_new_object_swap: (skip)
+#: gobject.c:3447:1 gobject.c:3476:1
+msgid "Returns: a new #GCClosure"
+msgstr ""
+
+#. used by: g_cclosure_new_object_swap: (skip)
+#: gobject.c:3470:5
+msgid ""
+"A variant of g_cclosure_new_swap() which uses @object as @user_data and "
+"calls g_object_watch_closure() on @object and the created closure. This "
+"function is useful when you have a callback closely associated with a "
+"#GObject, and want the callback to no longer run after the object is is "
+"freed."
+msgstr ""
+
+#. used by: GObject::notify:
+#: gobject.c:356:1
+msgid "@gobject: the object which received the signal."
+msgstr ""
+
+#. used by: GObject::notify:
+#: gobject.c:357:1
+msgid "@pspec: the #GParamSpec of the property which changed."
+msgstr ""
+
+#. used by: GObject::notify:
+#: gobject.c:359:5
+msgid ""
+"The notify signal is emitted on an object when one of its properties has "
+"been changed. Note that getting this signal doesn't guarantee that the value "
+"of the property has actually changed, it may also be emitted when the setter "
+"for the property is called to reinstate the previous value."
+msgstr ""
+
+#. used by: GObject::notify:
+#: gobject.c:365:11
+msgid ""
+"This signal is typically used to obtain change notification for a single "
+"property, by specifying the property name as a detail in the g_signal_connect"
+"() call, like this: |[ g_signal_connect (text_view->buffer, \"notify::paste-"
+"target-list\", G_CALLBACK (gtk_text_view_target_list_notify), text_view) ]| "
+"It is important to note that you must use <link linkend=\"canonical-"
+"parameter-name\">canonical</link> parameter names as detail strings for the "
+"notify signal."
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:40:1
+msgid "@short_description: The base object type"
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:41:1
+msgid "@see_also: #GParamSpecObject, g_param_spec_object()"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_install_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_install_properties:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_find_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_override_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_list_properties:
+#: gobject.c:414:1 gobject.c:464:1 gobject.c:619:1 gobject.c:688:1
+#: gobject.c:767:1
+msgid "@oclass: a #GObjectClass"
+msgstr ""
+
+#. used by: g_object_class_install_property:
+#: gobject.c:415:1
+msgid "@property_id: the id for the new property"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_class_install_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_install_property:
+#: gobject.c:416:1 gobject.c:584:1
+msgid "@pspec: the #GParamSpec for the new property"
+msgstr ""
+
+#. used by: g_object_class_install_property:
+#: gobject.c:418:1
+msgid "Installs a new property. This is usually done in the class initializer."
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:42:1
+msgid "@title: The Base Object Type"
+msgstr ""
+
+#. used by: g_object_class_install_property:
+#: gobject.c:420:3
+msgid ""
+"Note that it is possible to redefine a property in a derived class, by "
+"installing a property with the same name. This can be useful at times, e.g. "
+"to change the range of allowed values or the default value."
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:44:6
+msgid ""
+"GObject is the fundamental type providing the common attributes and methods "
+"for all object types in GTK+, Pango and other libraries based on GObject.  "
+"The GObject class provides methods for object construction and destruction, "
+"property access methods, and signal support.  Signals are described in "
+"detail in <xref linkend=\"gobject-Signals\"/>."
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:465:1
+msgid "@n_pspecs: the length of the #GParamSpec<!-- -->s array"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:466:2
+msgid ""
+"@pspecs: (array length=n_pspecs): the #GParamSpec<!-- -->s array defining "
+"the new properties"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:469:2
+msgid ""
+"Installs new properties from an array of #GParamSpec<!-- -->s. This is "
+"usually done in the class initializer."
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:472:2
+msgid ""
+"The property id of each property is the index of each #GParamSpec in the "
+"@pspecs array."
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:475:2
+msgid ""
+"The property id of 0 is treated specially by #GObject and it should not be "
+"used to store a #GParamSpec."
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:478:3
+msgid ""
+"This function should be used if you plan to use a static array of "
+"#GParamSpec<!-- -->s and g_object_notify_by_pspec(). For instance, this "
+"class initialization:"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:482:4
+msgid "|[ enum { PROP_0, PROP_FOO, PROP_BAR, N_PROPERTIES };"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:487:1
+msgid "static GParamSpec *obj_properties[N_PROPERTIES] = { NULL, };"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:489:4
+msgid ""
+"static void my_object_class_init (MyObjectClass *klass) { GObjectClass "
+"*gobject_class = G_OBJECT_CLASS (klass);"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:494:5
+msgid ""
+"obj_properties[PROP_FOO] = g_param_spec_int (\"foo\", \"Foo\", \"Foo\", -1, "
+"G_MAXINT, 0, G_PARAM_READWRITE);"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:500:4
+msgid ""
+"obj_properties[PROP_BAR] = g_param_spec_string (\"bar\", \"Bar\", \"Bar\", "
+"NULL, G_PARAM_READWRITE);"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:505:7
+msgid ""
+"gobject_class->set_property = my_object_set_property; gobject_class-"
+">get_property = my_object_get_property; g_object_class_install_properties "
+"(gobject_class, N_PROPERTIES, obj_properties); } ]|"
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:51:33
+msgid ""
+"<para id=\"floating-ref\"> #GInitiallyUnowned is derived from #GObject. The "
+"only difference between the two is that the initial reference of a "
+"#GInitiallyUnowned is flagged as a <firstterm>floating</firstterm> "
+"reference. This means that it is not specifically claimed to be \"owned\" by "
+"any code portion. The main motivation for providing floating references is C "
+"convenience. In particular, it allows code to be written as: |[ container = "
+"create_container(); container_add_child (container, create_child()); ]| If "
+"<function>container_add_child()</function> will g_object_ref_sink() the "
+"passed in child, no reference of the newly created child is leaked. Without "
+"floating references, <function>container_add_child()</function> can only "
+"g_object_ref() the new child, so to implement this code without reference "
+"leaks, it would have to be written as: |[ Child *child; container = "
+"create_container(); child = create_child(); container_add_child (container, "
+"child); g_object_unref (child); ]| The floating reference can be converted "
+"into an ordinary reference by calling g_object_ref_sink(). For already "
+"sunken objects (objects that don't have a floating reference anymore), "
+"g_object_ref_sink() is equivalent to g_object_ref() and returns a new "
+"reference. Since floating references are useful almost exclusively for C "
+"convenience, language bindings that provide automated reference and memory "
+"ownership maintenance (such as smart pointers or garbage collection) "
+"therefore don't need to expose floating references in their API. </para>"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:513:1
+msgid ""
+"allows calling g_object_notify_by_pspec() to notify of property changes:"
+msgstr ""
+
+#. used by: g_object_class_install_properties:
+#: gobject.c:515:11
+msgid ""
+"|[ void my_object_set_foo (MyObject *self, gint foo) { if (self->foo != foo) "
+"{ self->foo = foo; g_object_notify_by_pspec (G_OBJECT (self), obj_properties"
+"[PROP_FOO]); } } ]|"
+msgstr ""
+
+#. used by: g_object_interface_install_property:
+#: gobject.c:582:2
+msgid ""
+"@g_iface: any interface vtable for the interface, or the default vtable for "
+"the interface."
+msgstr ""
+
+#. used by: g_object_interface_install_property:
+#: gobject.c:586:9
+msgid ""
+"Add a property to an interface; this is only useful for interfaces that are "
+"added to GObject-derived types. Adding a property to an interface forces all "
+"objects classes with that interface to have a compatible property. The "
+"compatible property could be a newly created #GParamSpec, but normally "
+"g_object_class_override_property() will be used so that the object class "
+"only needs to provide an implementation and inherits the property "
+"description, default value, bounds, and so forth from the interface property."
+msgstr ""
+
+#. used by: g_object_interface_install_property:
+#: gobject.c:596:4
+msgid ""
+"This function is meant to be called from the interface's default vtable "
+"initialization function (the @class_init member of #GTypeInfo.) It must not "
+"be called after after @class_init has been called for any object types "
+"implementing this interface."
+msgstr ""
+
+#. used by: g_object_class_find_property:
+#: gobject.c:620:1
+msgid "@property_name: the name of the property to look up"
+msgstr ""
+
+#. used by: g_object_class_find_property:
+#: gobject.c:622:1
+msgid "Looks up the #GParamSpec for a property of a class."
+msgstr ""
+
+#. used by: g_object_class_find_property:
+#: gobject.c:624:2
+msgid ""
+"Returns: (transfer none): the #GParamSpec for the property, or %NULL if the "
+"class doesn't have a property of that name"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_find_property:
+#. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_object_interface_list_properties:
+#: gobject.c:655:2 gobject.c:795:2
+msgid ""
+"@g_iface: any interface vtable for the interface, or the default vtable for "
+"the interface"
+msgstr ""
+
+#. used by: g_object_interface_find_property:
+#: gobject.c:657:1
+msgid "@property_name: name of a property to lookup."
+msgstr ""
+
+#. used by: g_object_interface_find_property:
+#: gobject.c:659:5
+msgid ""
+"Find the #GParamSpec with the given name for an interface. Generally, the "
+"interface vtable passed in as @g_iface will be the default vtable from "
+"g_type_default_interface_ref(), or, if you know the interface has already "
+"been loaded, g_type_default_interface_peek()."
+msgstr ""
+
+#. used by: g_object_interface_find_property:
+#: gobject.c:667:3
+msgid ""
+"Returns: (transfer none): the #GParamSpec for the property of the interface "
+"with the name @property_name, or %NULL if no such property exists."
+msgstr ""
+
+#. used by: g_object_class_override_property:
+#: gobject.c:689:1
+msgid "@property_id: the new property ID"
+msgstr ""
+
+#. used by: g_object_class_override_property:
+#: gobject.c:690:2
+msgid ""
+"@name: the name of a property registered in a parent class or in an "
+"interface of this class."
+msgstr ""
+
+#. used by: g_object_class_override_property:
+#: gobject.c:693:5
+msgid ""
+"Registers @property_id as referring to a property with the name @name in a "
+"parent class or in an interface implemented by @oclass. This allows this "
+"class to <firstterm>override</firstterm> a property implementation in a "
+"parent class or to provide the implementation of a property from an "
+"interface."
+msgstr ""
+
+#. used by: g_object_class_override_property:
+#: gobject.c:699:12
+msgid ""
+"<note> Internally, overriding is implemented by creating a property of type "
+"#GParamSpecOverride; generally operations that query the properties of the "
+"object class, such as g_object_class_find_property() or "
+"g_object_class_list_properties() will return the overridden property. "
+"However, in one case, the @construct_properties argument of the @constructor "
+"virtual function, the #GParamSpecOverride is passed instead, so that the "
+"@param_id field of the #GParamSpec will be correct.  For virtually all uses, "
+"this makes no difference. If you need to get the overridden property, you "
+"can call g_param_spec_get_redirect_target(). </note>"
+msgstr ""
+
+#. used by: g_object_class_list_properties:
+#: gobject.c:768:1
+msgid ""
+"@n_properties: (out): return location for the length of the returned array"
+msgstr ""
+
+#. used by: g_object_class_list_properties:
+#: gobject.c:770:1
+msgid "Get an array of #GParamSpec* for all properties of a class."
+msgstr ""
+
+#. used by: g_object_class_list_properties:
+#: gobject.c:772:2
+msgid ""
+"Returns: (array length=n_properties) (transfer container): an array of "
+"#GParamSpec* which should be freed after use"
+msgstr ""
+
+#. used by: g_object_interface_list_properties:
+#: gobject.c:797:1
+msgid ""
+"@n_properties_p: (out): location to store number of properties returned."
+msgstr ""
+
+#. used by: g_object_interface_list_properties:
+#: gobject.c:799:4
+msgid ""
+"Lists the properties of an interface.Generally, the interface vtable passed "
+"in as @g_iface will be the default vtable from g_type_default_interface_ref"
+"(), or, if you know the interface has already been loaded, "
+"g_type_default_interface_peek()."
+msgstr ""
+
+#. used by: g_object_interface_list_properties:
+#: gobject.c:806:5
+msgid ""
+"Returns: (array length=n_properties_p) (transfer container): a pointer to an "
+"array of pointers to #GParamSpec structures. The paramspecs are owned by "
+"GLib, but the array should be freed with g_free() when you are done with it."
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:85:3
+msgid ""
+"Some object implementations may need to save an objects floating state "
+"across certain code portions (an example is #GtkMenu), to achive this, the "
+"following sequence can be used:"
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:89:11
+msgid ""
+"|[ // save floating state gboolean was_floating = g_object_is_floating "
+"(object); g_object_ref_sink (object); // protected code portion ...; // "
+"restore floating state if (was_floating) g_object_force_floating (object); "
+"g_obejct_unref (object); // release previously acquired reference ]|"
+msgstr ""
+
+#. used by: g_object_run_dispose:
+#: gobject.c:932:2
+msgid ""
+"Releases all references to other objects. This can be used to break "
+"reference cycles."
+msgstr ""
+
+#. used by: g_object_run_dispose:
+#: gobject.c:935:1
+msgid ""
+"This functions should only be called from object system implementations."
+msgstr ""
+
+#. used by: g_object_freeze_notify:
+#: gobject.c:954:4
+msgid ""
+"Increases the freeze count on @object. If the freeze count is non-zero, the "
+"emission of \"notify\" signals on @object is stopped. The signals are queued "
+"until the freeze count is decreased to zero."
+msgstr ""
+
+#. used by: g_object_freeze_notify:
+#: gobject.c:959:2
+msgid ""
+"This is necessary for accessors that modify multiple properties to prevent "
+"premature notification while the object is still being modified."
+msgstr ""
+
+#. used by: g_object_notify:
+#: gobject.c:989:1
+msgid ""
+"@property_name: the name of a property installed on the class of @object."
+msgstr ""
+
+#. used by: g_object_notify:
+#: gobject.c:991:1
+msgid "Emits a \"notify\" signal for the property @property_name on @object."
+msgstr ""
+
+#. used by: g_object_notify:
+#: gobject.c:993:3
+msgid ""
+"When possible, eg. when signaling a property change from within the class "
+"that registered the property, you should use g_object_notify_by_pspec() "
+"instead."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_OBJECT_CLASS:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_OBJECT_CLASS_TYPE:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_OBJECT_CLASS_NAME:
+#: gobject.h:105:1 gobject.h:114:1 gobject.h:55:1
+msgid "@class: a valid #GObjectClass"
+msgstr ""
+
+#. used by: G_OBJECT_CLASS_TYPE:
+#: gobject.h:107:1
+msgid "Get the type id of a class structure."
+msgstr ""
+
+#. used by: G_OBJECT_CLASS_TYPE:
+#: gobject.h:109:1
+msgid "Returns: Type id of @class."
+msgstr ""
+
+#. used by: G_OBJECT_CLASS_NAME:
+#: gobject.h:116:1
+msgid "Return the name of a class structure's type."
+msgstr ""
+
+#. used by: G_OBJECT_CLASS_NAME:
+#: gobject.h:118:2
+msgid ""
+"Returns: Type name of @class. The string is owned by the type system and "
+"should not be freed."
+msgstr ""
+
+#. used by: G_VALUE_HOLDS_OBJECT:
+#: gobject.h:124:1
+msgid "@value: a valid #GValue structure"
+msgstr ""
+
+#. used by: G_VALUE_HOLDS_OBJECT:
+#: gobject.h:126:1
+msgid ""
+"Checks whether the given #GValue can hold values derived from type "
+"%G_TYPE_OBJECT."
+msgstr ""
+
+#. used by: G_VALUE_HOLDS_OBJECT:
+#: gobject.h:128:1
+msgid "Returns: %TRUE on success."
+msgstr ""
+
+#. used by: G_TYPE_INITIALLY_UNOWNED:
+#: gobject.h:136:1
+msgid "The type for #GInitiallyUnowned."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_OBJECT:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_INITIALLY_UNOWNED:
+#: gobject.h:141:1 gobject.h:46:1
+msgid "@object: Object which is subject to casting."
+msgstr ""
+
+#. used by: G_INITIALLY_UNOWNED:
+#: gobject.h:143:3
+msgid ""
+"Casts a #GInitiallyUnowned or derived pointer into a (GInitiallyUnowned*) "
+"pointer. Depending on the current debugging level, this function may invoke "
+"certain runtime checks to identify invalid casts."
+msgstr ""
+
+#. used by: G_INITIALLY_UNOWNED_CLASS:
+#: gobject.h:150:1
+msgid "@class: a valid #GInitiallyUnownedClass"
+msgstr ""
+
+#. used by: G_INITIALLY_UNOWNED_CLASS:
+#: gobject.h:152:2
+msgid ""
+"Casts a derived #GInitiallyUnownedClass structure into a "
+"#GInitiallyUnownedClass structure."
+msgstr ""
+
+#. used by: G_IS_INITIALLY_UNOWNED:
+#: gobject.h:158:1
+msgid "@object: Instance to check for being a %G_TYPE_INITIALLY_UNOWNED."
+msgstr ""
+
+#. used by: G_IS_INITIALLY_UNOWNED:
+#: gobject.h:160:1
+msgid ""
+"Checks whether a valid #GTypeInstance pointer is of type "
+"%G_TYPE_INITIALLY_UNOWNED."
+msgstr ""
+
+#. used by: G_IS_INITIALLY_UNOWNED_CLASS:
+#: gobject.h:165:1
+msgid "@class: a #GInitiallyUnownedClass"
+msgstr ""
+
+#. used by: G_IS_INITIALLY_UNOWNED_CLASS:
+#: gobject.h:167:2
+msgid ""
+"Checks whether @class \"is a\" valid #GInitiallyUnownedClass structure of "
+"type %G_TYPE_INITIALLY_UNOWNED or derived."
+msgstr ""
+
+#. used by: G_INITIALLY_UNOWNED_GET_CLASS:
+#: gobject.h:173:1
+msgid "@object: a #GInitiallyUnowned instance."
+msgstr ""
+
+#. used by: G_INITIALLY_UNOWNED_GET_CLASS:
+#: gobject.h:175:1
+msgid "Get the class structure associated to a #GInitiallyUnowned instance."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_OBJECT_GET_CLASS:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: G_INITIALLY_UNOWNED_GET_CLASS:
+#: gobject.h:177:1 gobject.h:81:1
+msgid "Returns: pointer to object class structure."
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectGetPropertyFunc:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectSetPropertyFunc:
+#: gobject.h:192:2 gobject.h:206:2
+msgid ""
+"@property_id: the numeric id under which the property was registered with "
+"g_object_class_install_property()."
+msgstr ""
+
+#. used by: GObjectGetPropertyFunc:
+#: gobject.h:194:1
+msgid "@value: a #GValue to return the property value in"
+msgstr ""
+
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectGetPropertyFunc:
+#. #-#-#-#-#  gobject.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: GObjectSetPropertyFunc:
+#: gobject.h:195:1 gobject.h:209:1
+msgid "@pspec: the #GParamSpec describing the property"
+msgstr ""
+
+#. used by: GObjectGetPropertyFunc:
+#: gobject.h:197:1
+msgid "The type of the @get_property function of #GObjectClass."
+msgstr ""
+
+#. used by: GObjectSetPropertyFunc:
+#: gobject.h:208:1
+msgid "@value: the new value for the property"
+msgstr ""
+
+#. used by: GObjectSetPropertyFunc:
+#: gobject.h:211:1
+msgid "The type of the @set_property function of #GObjectClass."
+msgstr ""
+
+#. used by: GObjectFinalizeFunc:
+#: gobject.h:219:1
+msgid "@object: the #GObject being finalized"
+msgstr ""
+
+#. used by: GObjectFinalizeFunc:
+#: gobject.h:221:1
+msgid "The type of the @finalize function of #GObjectClass."
+msgstr ""
+
+#. used by: GWeakNotify:
+#: gobject.h:226:1
+msgid "@data: data that was provided when the weak reference was established"
+msgstr ""
+
+#. used by: GWeakNotify:
+#: gobject.h:227:1
+msgid "@where_the_object_was: the object being finalized"
+msgstr ""
+
+#. used by: GWeakNotify:
+#: gobject.h:229:4
+msgid ""
+"A #GWeakNotify function can be added to an object as a callback that gets "
+"triggered when the object is finalized. Since the object is already being "
+"finalized when the #GWeakNotify is called, there's not much you could do "
+"with the object, apart from e.g. using its adress as hash-index or the like."
+msgstr ""
+
+#. used by: GObject:
+#: gobject.h:239:2
+msgid ""
+"All the fields in the <structname>GObject</structname> structure are private "
+"to the #GObject implementation and should never be accessed directly."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:252:1
+msgid "@g_type_class: the parent class"
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:253:5
+msgid ""
+"@constructor: the @constructor function is called by g_object_new () to "
+"complete the object initialization after all the construction properties are "
+"set. The first thing a @constructor implementation must do is chain up to "
+"the @constructor of the parent class. Overriding @constructor should be "
+"rarely needed, e.g. to handle construct properties, or to implement "
+"singletons."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:258:4
+msgid ""
+"@set_property: the generic setter for all properties of this type. Should be "
+"overridden for every type with properties. Implementations of @set_property "
+"don't need to emit property change notification explicitly, this is handled "
+"by the type system."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:262:2
+msgid ""
+"@get_property: the generic getter for all properties of this type. Should be "
+"overridden for every type with properties."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:264:5
+msgid ""
+"@dispose: the @dispose function is supposed to drop all references to other "
+"objects, but keep the instance otherwise intact, so that client method "
+"invocations still work. It may be run multiple times (due to reference "
+"loops). Before returning, @dispose should chain up to the @dispose method of "
+"the parent class."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:269:3
+msgid ""
+"@finalize: instance finalization function, should finish the finalization of "
+"the instance begun in @dispose and chain up to the @finalize method of the "
+"parent class."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:272:3
+msgid ""
+"@dispatch_properties_changed: emits property change notification for a bunch "
+"of properties. Overriding @dispatch_properties_changed should be rarely "
+"needed."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:275:1
+msgid "@notify: the class closure for the notify signal"
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:276:7
+msgid ""
+"@constructed: the @constructed function is called by g_object_new() as the "
+"final step of the object creation process.  At the point of the call, all "
+"construction properties have been set on the object.  The purpose of this "
+"call is to allow for object initialisation steps that can only be performed "
+"after construction properties have been set.  @constructed implementors "
+"should chain up to the @constructed call of their parent class to allow it "
+"to complete its initialisation."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:284:1
+msgid "The class structure for the <structname>GObject</structname> type."
+msgstr ""
+
+#. used by: GObjectClass:
+#: gobject.h:286:2
+msgid "<example> <title>Implementing singletons using a constructor</title>"
+msgstr ""
+
+#. used by: GObjectConstructParam:
+#: gobject.h:354:1
+msgid "@pspec: the #GParamSpec of the construct parameter"
+msgstr ""
+
+#. used by: GObjectConstructParam:
+#: gobject.h:355:1
+msgid "@value: the value to set the parameter to"
+msgstr ""
+
+#. used by: GObjectConstructParam:
+#: gobject.h:357:3
+msgid ""
+"The <structname>GObjectConstructParam</structname> struct is an auxiliary "
+"structure used to hand #GParamSpec/#GValue pairs to the @constructor of a "
+"#GObjectClass."
+msgstr ""
+
+#. used by: G_TYPE_IS_OBJECT:
+#: gobject.h:37:1
+msgid "@type: Type id to check"
+msgstr ""
+
+#. used by: GInitiallyUnowned:
+#: gobject.h:370:3
+msgid ""
+"All the fields in the <structname>GInitiallyUnowned</structname> structure "
+"are private to the #GInitiallyUnowned implementation and should never be "
+"accessed directly."
+msgstr ""
+
+#. used by: GInitiallyUnownedClass:
+#: gobject.h:377:1
+msgid ""
+"The class structure for the <structname>GInitiallyUnowned</structname> type."
+msgstr ""
+
+#. used by: G_TYPE_IS_OBJECT:
+#: gobject.h:39:1
+msgid "Check if the passed in type id is a %G_TYPE_OBJECT or derived from it."
+msgstr ""
+
+#. used by: G_TYPE_IS_OBJECT:
+#: gobject.h:41:1
+msgid "Returns: %FALSE or %TRUE, indicating whether @type is a %G_TYPE_OBJECT."
+msgstr ""
+
+#. used by: GToggleNotify:
+#: gobject.h:461:1
+msgid "@data: Callback data passed to g_object_add_toggle_ref()"
+msgstr ""
+
+#. used by: GToggleNotify:
+#: gobject.h:462:1
+msgid "@object: The object on which g_object_add_toggle_ref() was called."
+msgstr ""
+
+#. used by: GToggleNotify:
+#: gobject.h:463:4
+msgid ""
+"@is_last_ref: %TRUE if the toggle reference is now the last reference to the "
+"object. %FALSE if the toggle reference was the last reference and there are "
+"now other references."
+msgstr ""
+
+#. used by: GToggleNotify:
+#: gobject.h:468:2
+msgid ""
+"A callback function used for notification when the state of a toggle "
+"reference changes. See g_object_add_toggle_ref()."
+msgstr ""
+
+#. used by: G_OBJECT:
+#: gobject.h:48:3
+msgid ""
+"Casts a #GObject or derived pointer into a (GObject*) pointer. Depending on "
+"the current debugging level, this function may invoke certain runtime checks "
+"to identify invalid casts."
+msgstr ""
+
+#. used by: G_OBJECT_WARN_INVALID_PROPERTY_ID:
+#: gobject.h:555:1
+msgid ""
+"@object: the #GObject on which set_property() or get_property() was called"
+msgstr ""
+
+#. used by: G_OBJECT_WARN_INVALID_PROPERTY_ID:
+#: gobject.h:556:1
+msgid "@property_id: the numeric id of the property"
+msgstr ""
+
+#. used by: G_OBJECT_WARN_INVALID_PROPERTY_ID:
+#: gobject.h:557:1
+msgid "@pspec: the #GParamSpec of the property"
+msgstr ""
+
+#. used by: G_OBJECT_WARN_INVALID_PROPERTY_ID:
+#: gobject.h:559:2
+msgid ""
+"This macro should be used to emit a standard warning about unexpected "
+"properties in set_property() and get_property() implementations."
+msgstr ""
+
+#. used by: G_OBJECT_CLASS:
+#: gobject.h:57:1
+msgid "Casts a derived #GObjectClass structure into a #GObjectClass structure."
+msgstr ""
+
+#. used by: G_IS_OBJECT:
+#: gobject.h:62:1
+msgid "@object: Instance to check for being a %G_TYPE_OBJECT."
+msgstr ""
+
+#. used by: G_IS_OBJECT:
+#: gobject.h:64:1
+msgid ""
+"Checks whether a valid #GTypeInstance pointer is of type %G_TYPE_OBJECT."
+msgstr ""
+
+#. used by: G_IS_OBJECT_CLASS:
+#: gobject.h:69:1
+msgid "@class: a #GObjectClass"
+msgstr ""
+
+#. used by: G_IS_OBJECT_CLASS:
+#: gobject.h:71:2
+msgid ""
+"Checks whether @class \"is a\" valid #GObjectClass structure of type "
+"%G_TYPE_OBJECT or derived."
+msgstr ""
+
+#. used by: G_OBJECT_GET_CLASS:
+#: gobject.h:77:1
+msgid "@object: a #GObject instance."
+msgstr ""
+
+#. used by: G_OBJECT_GET_CLASS:
+#: gobject.h:79:1
+msgid "Get the class structure associated to a #GObject instance."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE:
+#: gobject.h:86:1
+msgid "@object: Object to return the type id for."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE:
+#: gobject.h:88:1
+msgid "Get the type id of an object."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE:
+#: gobject.h:90:1
+msgid "Returns: Type id of @object."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE_NAME:
+#: gobject.h:95:1
+msgid "@object: Object to return the type name for."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE_NAME:
+#: gobject.h:97:1
+msgid "Get the name of an object's type."
+msgstr ""
+
+#. used by: G_OBJECT_TYPE_NAME:
+#: gobject.h:99:2
+msgid ""
+"Returns: Type name of @object. The string is owned by the type system and "
+"should not be freed."
+msgstr ""

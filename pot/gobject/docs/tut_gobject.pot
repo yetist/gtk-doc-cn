@@ -1,0 +1,853 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-04-18 23:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: tut_gobject.xml:0(None)
+msgid "translator-credits"
+msgstr ""
+
+#: tut_gobject.xml:124(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"MamanBar *bar = g_object_new (MAMAN_TYPE_BAR, NULL);\n"
+msgstr ""
+
+#: tut_gobject.xml:138(para)
+msgid ""
+"Once <function><link linkend=\"g-object-new\">g_object_new</link></function> "
+"has obtained a reference to an initialized class structure, it invokes its "
+"constructor method to create an instance of the new object. Since it has "
+"just been overridden by <function>maman_bar_class_init</function> to "
+"<function>maman_bar_constructor</function>, the latter is called and, "
+"because it was implemented correctly, it chains up to its parent's "
+"constructor. In order to find the parent class and chain up to the parent "
+"class constructor, we can use the <literal>maman_bar_parent_class</literal> "
+"pointer that has been set up for us by the <literal>G_DEFINE_TYPE</literal> "
+"macro."
+msgstr ""
+
+#: tut_gobject.xml:14(para)
+msgid ""
+"<link linkend=\"GObject\"><type>GObject</type></link> is a fundamental "
+"classed instantiable type. It implements: <placeholder-1/> All the GNOME "
+"libraries which use the GLib type system (like GTK+ and GStreamer) inherit "
+"from <link linkend=\"GObject\"><type>GObject</type></link> which is why it "
+"is important to understand the details of how it works."
+msgstr ""
+
+#: tut_gobject.xml:150(para)
+msgid ""
+"Finally, at one point or another, <function>g_object_constructor</function> "
+"is invoked by the last constructor in the chain. This function allocates the "
+"object's instance' buffer through <function><link linkend=\"g-type-create-"
+"instance\">g_type_create_instance</link></function> which means that the "
+"instance_init function is invoked at this point if one was registered. After "
+"instance_init returns, the object is fully initialized and should be ready "
+"to answer any user-request. When <function><link linkend=\"g-type-create-"
+"instance\">g_type_create_instance</link></function> returns, "
+"<function>g_object_constructor</function> sets the construction properties "
+"(i.e. the properties which were given to <function><link linkend=\"g-object-"
+"new\">g_object_new</link></function>) and returns to the user's constructor "
+"which is then allowed to do useful instance initialization..."
+msgstr ""
+
+#: tut_gobject.xml:162(para)
+msgid ""
+"The process described above might seem a bit complicated, but it can be "
+"summarized easily by the table below which lists the functions invoked by "
+"<function><link linkend=\"g-object-new\">g_object_new</link></function> and "
+"their order of invocation:"
+msgstr ""
+
+#: tut_gobject.xml:17(para)
+msgid "Memory management with reference counting"
+msgstr ""
+
+#: tut_gobject.xml:171(link) tut_gobject.xml:187(link)
+#: tut_gobject.xml:219(link)
+msgid "g_object_new"
+msgstr ""
+
+#: tut_gobject.xml:179(entry)
+msgid "Invocation time"
+msgstr ""
+
+#: tut_gobject.xml:18(para)
+msgid "Construction/Destruction of instances"
+msgstr ""
+
+#: tut_gobject.xml:180(entry)
+msgid "Function Invoked"
+msgstr ""
+
+#: tut_gobject.xml:181(entry)
+msgid "Function's parameters"
+msgstr ""
+
+#: tut_gobject.xml:182(entry)
+msgid "Remark"
+msgstr ""
+
+#: tut_gobject.xml:187(entry)
+msgid "First call to <function><placeholder-1/></function> for target type"
+msgstr ""
+
+#: tut_gobject.xml:188(entry)
+msgid "target type's base_init function"
+msgstr ""
+
+#: tut_gobject.xml:189(entry)
+msgid ""
+"On the inheritance tree of classes from fundamental type to target type. "
+"base_init is invoked once for each class structure."
+msgstr ""
+
+#: tut_gobject.xml:19(para)
+msgid "Generic per-object properties with set/get function pairs"
+msgstr ""
+
+#: tut_gobject.xml:191(entry)
+msgid ""
+"I have no real idea on how this can be used. If you have a good real-life "
+"example of how a class' base_init can be used, please, let me know."
+msgstr ""
+
+#. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
+#: tut_gobject.xml:198(entry)
+msgid "target type's class_init function"
+msgstr ""
+
+#: tut_gobject.xml:199(entry)
+msgid "On target type's class structure"
+msgstr ""
+
+#: tut_gobject.xml:20(para)
+msgid "Easy use of signals"
+msgstr ""
+
+#: tut_gobject.xml:200(entry)
+msgid ""
+"Here, you should make sure to initialize or override class methods (that is, "
+"assign to each class' method its function pointer) and create the signals "
+"and the properties associated to your object."
+msgstr ""
+
+#. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
+#: tut_gobject.xml:208(entry)
+msgid "interface' base_init function"
+msgstr ""
+
+#: tut_gobject.xml:209(entry) tut_gobject.xml:215(entry)
+msgid "On interface' vtable"
+msgstr ""
+
+#. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
+#: tut_gobject.xml:214(entry)
+msgid "interface' interface_init function"
+msgstr ""
+
+#: tut_gobject.xml:219(entry)
+msgid "Each call to <function><placeholder-1/></function> for target type"
+msgstr ""
+
+#: tut_gobject.xml:220(entry)
+msgid "target type's class constructor method: GObjectClass-&gt;constructor"
+msgstr ""
+
+#: tut_gobject.xml:221(entry)
+msgid "On object's instance"
+msgstr ""
+
+#: tut_gobject.xml:222(entry)
+msgid ""
+"If you need to complete the object initialization after all the construction "
+"properties are set, override the constructor method and make sure to chain "
+"up to the object's parent class before doing your own initialization. In "
+"doubt, do not override the constructor method."
+msgstr ""
+
+#. entry>Each call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
+#: tut_gobject.xml:231(entry)
+msgid "type's instance_init function"
+msgstr ""
+
+#: tut_gobject.xml:232(entry)
+msgid ""
+"On the inheritance tree of classes from fundamental type to target type. the "
+"instance_init provided for each type is invoked once for each instance "
+"structure."
+msgstr ""
+
+#: tut_gobject.xml:235(entry)
+msgid ""
+"Provide an instance_init function to initialize your object before its "
+"construction properties are set. This is the preferred way to initialize a "
+"GObject instance. This function is equivalent to C++ constructors."
+msgstr ""
+
+#: tut_gobject.xml:246(para)
+msgid ""
+"Readers should feel concerned about one little twist in the order in which "
+"functions are invoked: while, technically, the class' constructor method is "
+"called <emphasis>before</emphasis> the GType's instance_init function (since "
+"<function><link linkend=\"g-type-create-instance\">g_type_create_instance</"
+"link></function> which calls instance_init is called by "
+"<function>g_object_constructor</function> which is the top-level class "
+"constructor method and to which users are expected to chain to), the user's "
+"code which runs in a user-provided constructor will always run "
+"<emphasis>after</emphasis> GType's instance_init function since the user-"
+"provided constructor <emphasis>must</emphasis> (you've been warned) chain up "
+"<emphasis>before</emphasis> doing anything useful."
+msgstr ""
+
+#: tut_gobject.xml:261(title)
+msgid "Object memory management"
+msgstr ""
+
+#: tut_gobject.xml:263(para)
+msgid ""
+"The memory-management API for GObjects is a bit complicated but the idea "
+"behind it is pretty simple: the goal is to provide a flexible model based on "
+"reference counting which can be integrated in applications which use or "
+"require different memory management models (such as garbage collection, "
+"aso...). The methods which are used to manipulate this reference count are "
+"described below. <placeholder-1/>"
+msgstr ""
+
+#: tut_gobject.xml:269(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/*\n"
+"  Refcounting\n"
+"*/\n"
+"gpointer    g_object_ref                      (gpointer        object);\n"
+"void        g_object_unref                    (gpointer        object);\n"
+"\n"
+"/*\n"
+" * Weak References\n"
+" */\n"
+"typedef void (*GWeakNotify) (gpointer  data,\n"
+"                             GObject  *where_the_object_was);\n"
+"\n"
+"void g_object_weak_ref            (GObject     *object,\n"
+"                                   GWeakNotify  notify,\n"
+"                                   gpointer     data);\n"
+"void g_object_weak_unref          (GObject     *object,\n"
+"                                   GWeakNotify  notify,\n"
+"                                   gpointer     data);\n"
+"void g_object_add_weak_pointer    (GObject     *object, \n"
+"                                   gpointer    *weak_pointer_location);\n"
+"void g_object_remove_weak_pointer (GObject     *object, \n"
+"                                   gpointer    *weak_pointer_location);\n"
+"/*\n"
+" * Cycle handling\n"
+" */\n"
+"void g_object_run_dispose         (GObject     *object);\n"
+msgstr ""
+
+#: tut_gobject.xml:28(title)
+msgid "Object instantiation"
+msgstr ""
+
+#: tut_gobject.xml:30(para)
+msgid ""
+"The <function><link linkend=\"g-object-new\">g_object_new</link></function> "
+"family of functions can be used to instantiate any GType which inherits from "
+"the GObject base type. All these functions make sure the class and instance "
+"structures have been correctly initialized by GLib's type system and then "
+"invoke at one point or another the constructor class method which is used "
+"to: <placeholder-1/> Although one can expect all class and instance members "
+"(except the fields pointing to the parents) to be set to zero, some consider "
+"it good practice to explicitly set them."
+msgstr ""
+
+#: tut_gobject.xml:300(title)
+msgid "Reference count"
+msgstr ""
+
+#: tut_gobject.xml:302(para)
+msgid ""
+"The functions <function><link linkend=\"g-object-ref\">g_object_ref</link></"
+"function>/<function><link linkend=\"g-object-unref\">g_object_unref</link></"
+"function> respectively increase and decrease the reference count.These "
+"functions are thread-safe as of GLib 2.8. The reference count is, "
+"unsurprisingly, initialized to one by <function><link linkend=\"g-object-new"
+"\">g_object_new</link></function> which means that the caller is currently "
+"the sole owner of the newly-created reference. When the reference count "
+"reaches zero, that is, when <function><link linkend=\"g-object-unref"
+"\">g_object_unref</link></function> is called by the last client holding a "
+"reference to the object, the <emphasis>dispose</emphasis> and the "
+"<emphasis>finalize</emphasis> class methods are invoked."
+msgstr ""
+
+#: tut_gobject.xml:313(para)
+msgid ""
+"Finally, after <emphasis>finalize</emphasis> is invoked, <function><link "
+"linkend=\"g-type-free-instance\">g_type_free_instance</link></function> is "
+"called to free the object instance. Depending on the memory allocation "
+"policy decided when the type was registered (through one of the "
+"<function>g_type_register_*</function> functions), the object's instance "
+"memory will be freed or returned to the object pool for this type. Once the "
+"object has been freed, if it was the last instance of the type, the type's "
+"class will be destroyed as described in <xref linkend=\"gtype-instantiable-"
+"classed\"/> and <xref linkend=\"gtype-non-instantiable-classed\"/>."
+msgstr ""
+
+#: tut_gobject.xml:324(para)
+msgid ""
+"The table below summarizes the destruction process of a GObject: <table id="
+"\"gobject-destruction-table\"><placeholder-1/><tgroup cols=\"3\"><colspec "
+"colwidth=\"*\" colnum=\"1\" align=\"left\"/><colspec colwidth=\"*\" colnum="
+"\"2\" align=\"left\"/><colspec colwidth=\"8*\" colnum=\"3\" align=\"left\"/"
+"><thead><row><entry>Invocation time</entry><entry>Function Invoked</"
+"entry><entry>Function's parameters</entry><entry>Remark</entry></row></"
+"thead><tbody><row><entry morerows=\"1\">Last call to <function><link linkend="
+"\"g-object-unref\">g_object_unref</link></function> for an instance of "
+"target type </entry><entry>target type's dispose class function</"
+"entry><entry>GObject instance</entry><entry> When dispose ends, the object "
+"should not hold any reference to any other member object. The object is also "
+"expected to be able to answer client method invocations (with possibly an "
+"error code but no memory violation) until finalize is executed. dispose can "
+"be executed more than once. dispose should chain up to its parent "
+"implementation just before returning to the caller. </entry></"
+"row><row><entry>target type's finalize class function</entry><entry>GObject "
+"instance</entry><entry> Finalize is expected to complete the destruction "
+"process initiated by dispose. It should complete the object's destruction. "
+"finalize will be executed only once. finalize should chain up to its parent "
+"implementation just before returning to the caller. The reason why the "
+"destruction process is split is two different phases is explained in <xref "
+"linkend=\"gobject-memory-cycles\"/>. </entry></row><row><entry morerows="
+"\"3\">Last call to <function><link linkend=\"g-object-unref"
+"\">g_object_unref</link></function> for the last instance of target type </"
+"entry><entry>interface' interface_finalize function</entry><entry>On "
+"interface' vtable</entry><entry>Never used in practice. Unlikely you will "
+"need it.</entry></row><row><entry>interface' base_finalize function</"
+"entry><entry>On interface' vtable</entry><entry>Never used in practice. "
+"Unlikely you will need it.</entry></row><row><entry>target type's "
+"class_finalize function</entry><entry>On target type's class structure</"
+"entry><entry>Never used in practice. Unlikely you will need it.</entry></"
+"row><row><entry>type's base_finalize function</entry><entry>On the "
+"inheritance tree of classes from fundamental type to target type. base_init "
+"is invoked once for each class structure.</entry><entry>Never used in "
+"practice. Unlikely you will need it.</entry></row></tbody></tgroup></table>"
+msgstr ""
+
+#: tut_gobject.xml:327(link)
+msgid "g_object_unref"
+msgstr ""
+
+#: tut_gobject.xml:38(para)
+msgid ""
+"Allocate and clear memory through <function><link linkend=\"g-type-create-"
+"instance\">g_type_create_instance</link></function>,"
+msgstr ""
+
+#: tut_gobject.xml:41(para)
+msgid "Initialize the object's instance with the construction properties."
+msgstr ""
+
+#: tut_gobject.xml:414(title)
+msgid "Weak References"
+msgstr ""
+
+#: tut_gobject.xml:416(para)
+msgid ""
+"Weak References are used to monitor object finalization: <function><link "
+"linkend=\"g-object-weak-ref\">g_object_weak_ref</link></function> adds a "
+"monitoring callback which does not hold a reference to the object but which "
+"is invoked when the object runs its dispose method. As such, each weak ref "
+"can be invoked more than once upon object finalization (since dispose can "
+"run more than once during object finalization)."
+msgstr ""
+
+#: tut_gobject.xml:425(para)
+msgid ""
+"<function><link linkend=\"g-object-weak-unref\">g_object_weak_unref</link></"
+"function> can be used to remove a monitoring callback from the object."
+msgstr ""
+
+#: tut_gobject.xml:430(para)
+msgid ""
+"Weak References are also used to implement <function><link linkend=\"g-"
+"object-add-weak-pointer\">g_object_add_weak_pointer</link></function> and "
+"<function><link linkend=\"g-object-remove-weak-pointer"
+"\">g_object_remove_weak_pointer</link></function>. These functions add a "
+"weak reference to the object they are applied to which makes sure to nullify "
+"the pointer given by the user when object is finalized."
+msgstr ""
+
+#: tut_gobject.xml:440(title)
+msgid "Reference counts and cycles"
+msgstr ""
+
+#: tut_gobject.xml:442(para)
+msgid ""
+"Note: the following section was inspired by James Henstridge. I guess this "
+"means that all praise and all curses will be directly forwarded to him."
+msgstr ""
+
+#: tut_gobject.xml:447(para)
+msgid ""
+"GObject's memory management model was designed to be easily integrated in "
+"existing code using garbage collection. This is why the destruction process "
+"is split in two phases: the first phase, executed in the dispose handler is "
+"supposed to release all references to other member objects. The second "
+"phase, executed by the finalize handler is supposed to complete the object's "
+"destruction process. Object methods should be able to run without program "
+"error (that is, without segfault :) in-between the two phases."
+msgstr ""
+
+#: tut_gobject.xml:456(para)
+msgid ""
+"This two-step destruction process is very useful to break reference counting "
+"cycles. While the detection of the cycles is up to the external code, once "
+"the cycles have been detected, the external code can invoke <function><link "
+"linkend=\"g-object-run-dispose\">g_object_run_dispose</link></function> "
+"which will indeed break any existing cycles since it will run the dispose "
+"handler associated to the object and thus release all references to other "
+"objects."
+msgstr ""
+
+#: tut_gobject.xml:464(para)
+msgid ""
+"Attentive readers might now have understood one of the rules about the "
+"dispose handler we stated a bit sooner: the dispose handler can be invoked "
+"multiple times. Let's say we have a reference count cycle: object A "
+"references B which itself references object A. Let's say we have detected "
+"the cycle and we want to destroy the two objects. One way to do this would "
+"be to invoke <function><link linkend=\"g-object-run-dispose"
+"\">g_object_run_dispose</link></function> on one of the objects."
+msgstr ""
+
+#: tut_gobject.xml:473(para)
+msgid ""
+"If object A releases all its references to all objects, this means it "
+"releases its reference to object B. If object B was not owned by anyone "
+"else, this is its last reference count which means this last unref runs B's "
+"dispose handler which, in turn, releases B's reference on object A. If this "
+"is A's last reference count, this last unref runs A's dispose handler which "
+"is running for the second time before A's finalize handler is invoked !"
+msgstr ""
+
+#: tut_gobject.xml:482(para)
+msgid ""
+"The above example, which might seem a bit contrived can really happen if "
+"your GObject's are being handled by language bindings. I would thus suggest "
+"the rules stated above for object destruction are closely followed. "
+"Otherwise, <emphasis>Bad Bad Things</emphasis> will happen."
+msgstr ""
+
+#: tut_gobject.xml:492(title)
+msgid "Object properties"
+msgstr ""
+
+#: tut_gobject.xml:494(para)
+msgid ""
+"One of GObject's nice features is its generic get/set mechanism for object "
+"properties. When an object is instantiated, the object's class_init handler "
+"should be used to register the object's properties with <function><link "
+"linkend=\"g-object-class-install-property\">g_object_class_install_property</"
+"link></function> (implemented in <filename>gobject.c</filename>)."
+msgstr ""
+
+#: tut_gobject.xml:50(para)
+msgid ""
+"Objects which inherit from GObject are allowed to override this constructor "
+"class method: they should however chain to their parent constructor method "
+"before doing so: <placeholder-1/>"
+msgstr ""
+
+#: tut_gobject.xml:502(para)
+msgid ""
+"The best way to understand how object properties work is by looking at a "
+"real example on how it is used: <placeholder-1/> The client code just above "
+"looks simple but a lot of things happen under the hood:"
+msgstr ""
+
+#: tut_gobject.xml:505(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"/************************************************/\n"
+"/* Implementation                               */\n"
+"/************************************************/\n"
+"\n"
+"enum\n"
+"{\n"
+"  PROP_0,\n"
+"\n"
+"  PROP_MAMAN_NAME,\n"
+"  PROP_PAPA_NUMBER\n"
+"};\n"
+"\n"
+"static void\n"
+"maman_bar_set_property (GObject      *object,\n"
+"                        guint         property_id,\n"
+"                        const GValue *value,\n"
+"                        GParamSpec   *pspec)\n"
+"{\n"
+"  MamanBar *self = MAMAN_BAR (object);\n"
+"\n"
+"  switch (property_id)\n"
+"    {\n"
+"    case PROP_MAMAN_NAME:\n"
+"      g_free (self-&gt;priv-&gt;name);\n"
+"      self-&gt;priv-&gt;name = g_value_dup_string (value);\n"
+"      g_print (\"maman: %s\\n\", self-&gt;priv-&gt;name);\n"
+"      break;\n"
+"\n"
+"    case PROP_PAPA_NUMBER:\n"
+"      self-&gt;priv-&gt;papa_number = g_value_get_uchar (value);\n"
+"      g_print (\"papa: &percnt;u\\n\", self-&gt;priv-&gt;papa_number);\n"
+"      break;\n"
+"\n"
+"    default:\n"
+"      /* We don't have any other property... */\n"
+"      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);\n"
+"      break;\n"
+"    }\n"
+"}\n"
+"\n"
+"static void\n"
+"maman_bar_get_property (GObject    *object,\n"
+"                        guint       property_id,\n"
+"                        GValue     *value,\n"
+"                        GParamSpec *pspec)\n"
+"{\n"
+"  MamanBar *self = MAMAN_BAR (object);\n"
+"\n"
+"  switch (property_id)\n"
+"    {\n"
+"    case PROP_MAMAN_NAME:\n"
+"      g_value_set_string (value, self-&gt;priv-&gt;name);\n"
+"      break;\n"
+"\n"
+"    case PROP_PAPA_NUMBER:\n"
+"      g_value_set_uchar (value, self-&gt;priv-&gt;papa_number);\n"
+"      break;\n"
+"\n"
+"    default:\n"
+"      /* We don't have any other property... */\n"
+"      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);\n"
+"      break;\n"
+"    }\n"
+"}\n"
+"\n"
+"static void\n"
+"maman_bar_class_init (MamanBarClass *klass)\n"
+"{\n"
+"  GObjectClass *gobject_class = G_OBJECT_CLASS (klass);\n"
+"  GParamSpec *pspec;\n"
+"\n"
+"  gobject_class-&gt;set_property = maman_bar_set_property;\n"
+"  gobject_class-&gt;get_property = maman_bar_get_property;\n"
+"\n"
+"  pspec = g_param_spec_string (\"maman-name\",\n"
+"                               \"Maman construct prop\",\n"
+"                               \"Set maman's name\",\n"
+"                               \"no-name-set\" /* default value */,\n"
+"                               G_PARAM_CONSTRUCT_ONLY | G_PARAM_READWRITE);\n"
+"  g_object_class_install_property (gobject_class,\n"
+"                                   PROP_MAMAN_NAME,\n"
+"                                   pspec);\n"
+"\n"
+"  pspec = g_param_spec_uchar (\"papa-number\",\n"
+"                              \"Number of current Papa\",\n"
+"                              \"Set/Get papa's number\",\n"
+"                              0  /* minimum value */,\n"
+"                              10 /* maximum value */,\n"
+"                              2  /* default value */,\n"
+"                              G_PARAM_READWRITE);\n"
+"  g_object_class_install_property (gobject_class,\n"
+"                                   PROP_PAPA_NUMBER,\n"
+"                                   pspec);\n"
+"}\n"
+"\n"
+"/************************************************/\n"
+"/* Use                                          */\n"
+"/************************************************/\n"
+"\n"
+"GObject *bar;\n"
+"GValue val = { 0, };\n"
+"\n"
+"bar = g_object_new (MAMAN_TYPE_SUBBAR, NULL);\n"
+"\n"
+"g_value_init (&amp;val, G_TYPE_CHAR);\n"
+"g_value_set_char (&amp;val, 11);\n"
+"\n"
+"g_object_set_property (G_OBJECT (bar), \"papa-number\", &amp;val);\n"
+"\n"
+"g_value_unset (&amp;val);\n"
+msgstr ""
+
+#: tut_gobject.xml:54(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  GObject *(* constructor) (GType                  gtype,\n"
+"                            guint                  n_properties,\n"
+"                            GObjectConstructParam *properties);\n"
+msgstr ""
+
+#: tut_gobject.xml:6(title)
+msgid "The GObject base class"
+msgstr ""
+
+#: tut_gobject.xml:61(para)
+msgid ""
+"The example below shows how <type>MamanBar</type> overrides the parent's "
+"constructor: <placeholder-1/> If the user instantiates an object "
+"<type>MamanBar</type> with: <placeholder-2/> If this is the first "
+"instantiation of such an object, the <function>maman_bar_class_init</"
+"function> function will be invoked after any "
+"<function>maman_bar_base_class_init</function> function. This will make sure "
+"the class structure of this new object is correctly initialized. Here, "
+"<function>maman_bar_class_init</function> is expected to override the "
+"object's class methods and setup the class' own methods. In the example "
+"above, the constructor method is the only overridden method: it is set to "
+"<function>maman_bar_constructor</function>."
+msgstr ""
+
+#: tut_gobject.xml:620(para)
+msgid ""
+"<function><link linkend=\"g-object-set-property\">g_object_set_property</"
+"link></function> first ensures a property with this name was registered in "
+"bar's class_init handler. If so, it calls <function><link linkend=\"object-"
+"set-property\">object_set_property</link></function> which first walks the "
+"class hierarchy, from bottom, most derived type, to top, fundamental type to "
+"find the class which registered that property. It then tries to convert the "
+"user-provided GValue into a GValue whose type is that of the associated "
+"property."
+msgstr ""
+
+#: tut_gobject.xml:629(para)
+msgid ""
+"If the user provides a signed char GValue, as is shown here, and if the "
+"object's property was registered as an unsigned int, <function><link linkend="
+"\"g-value-transform\">g_value_transform</link></function> will try to "
+"transform the input signed char into an unsigned int. Of course, the success "
+"of the transformation depends on the availability of the required transform "
+"function. In practice, there will almost always be a transformation "
+"<placeholder-1/> which matches and conversion will be carried out if needed."
+msgstr ""
+
+#: tut_gobject.xml:63(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"#define MAMAN_TYPE_BAR                  (maman_bar_get_type ())\n"
+"#define MAMAN_BAR(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), MAMAN_TYPE_BAR, MamanBar))\n"
+"#define MAMAN_IS_BAR(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MAMAN_TYPE_BAR))\n"
+"#define MAMAN_BAR_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST ((klass), MAMAN_TYPE_BAR, MamanBarClass))\n"
+"#define MAMAN_IS_BAR_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE ((klass), MAMAN_TYPE_BAR))\n"
+"#define MAMAN_BAR_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS ((obj), MAMAN_TYPE_BAR, MamanBarClass))\n"
+"\n"
+"typedef struct _MamanBar        MamanBar;\n"
+"typedef struct _MamanBarClass   MamanBarClass;\n"
+"\n"
+"struct _MamanBar\n"
+"{\n"
+"  GObject parent_instance;\n"
+"\n"
+"  /* instance members */\n"
+"};\n"
+"\n"
+"struct _MamanBarClass\n"
+"{\n"
+"  GObjectClass parent_class;\n"
+"\n"
+"  /* class members */\n"
+"};\n"
+"\n"
+"/* will create maman_bar_get_type and set maman_bar_parent_class */\n"
+"G_DEFINE_TYPE (MamanBar, maman_bar, G_TYPE_OBJECT);\n"
+"\n"
+"static GObject *\n"
+"maman_bar_constructor (GType                  gtype,\n"
+"                       guint                  n_properties,\n"
+"                       GObjectConstructParam *properties)\n"
+"{\n"
+"  GObject *obj;\n"
+"\n"
+"  {\n"
+"    /* Always chain up to the parent constructor */\n"
+"    obj = G_OBJECT_CLASS (maman_bar_parent_class)-&gt;constructor (gtype, n_properties, properties);\n"
+"  }\n"
+"  \n"
+"  /* update the object state depending on constructor properties */\n"
+"\n"
+"  return obj;\n"
+"}\n"
+"\n"
+"static void\n"
+"maman_bar_class_init (MamanBarClass *klass)\n"
+"{\n"
+"  GObjectClass *gobject_class = G_OBJECT_CLASS (klass);\n"
+"\n"
+"  gobject_class-&gt;constructor = maman_bar_constructor;\n"
+"}\n"
+"\n"
+"static void\n"
+"maman_bar_init (MamanBar *self)\n"
+"{\n"
+"  /* initialize the object */\n"
+"}\n"
+"\n"
+msgstr ""
+
+#: tut_gobject.xml:636(para)
+msgid ""
+"Its behaviour might not be what you expect but it is up to you to actually "
+"avoid relying on these transformations."
+msgstr ""
+
+#: tut_gobject.xml:643(para)
+msgid ""
+"After transformation, the <link linkend=\"GValue\"><type>GValue</type></"
+"link> is validated by <function><link linkend=\"g-param-value-validate"
+"\">g_param_value_validate</link></function> which makes sure the user's data "
+"stored in the <link linkend=\"GValue\"><type>GValue</type></link> matches "
+"the characteristics specified by the property's <link linkend=\"GParamSpec"
+"\"><type>GParamSpec</type></link>. Here, the <link linkend=\"GParamSpec"
+"\"><type>GParamSpec</type></link> we provided in class_init has a validation "
+"function which makes sure that the GValue contains a value which respects "
+"the minimum and maximum bounds of the <link linkend=\"GParamSpec"
+"\"><type>GParamSpec</type></link>. In the example above, the client's GValue "
+"does not respect these constraints (it is set to 11, while the maximum is "
+"10). As such, the <function><link linkend=\"g-object-set-property"
+"\">g_object_set_property</link></function> function will return with an "
+"error."
+msgstr ""
+
+#: tut_gobject.xml:656(para)
+msgid ""
+"If the user's GValue had been set to a valid value, <function><link linkend="
+"\"g-object-set-property\">g_object_set_property</link></function> would have "
+"proceeded with calling the object's set_property class method. Here, since "
+"our implementation of Foo did override this method, the code path would jump "
+"to <function>foo_set_property</function> after having retrieved from the "
+"<link linkend=\"GParamSpec\"><type>GParamSpec</type></link> the "
+"<emphasis>param_id</emphasis><placeholder-1/> which had been stored by "
+"<function><link linkend=\"g-object-class-install-property"
+"\">g_object_class_install_property</link></function>."
+msgstr ""
+
+#: tut_gobject.xml:663(para)
+msgid ""
+"It should be noted that the param_id used here need only to uniquely "
+"identify each <link linkend=\"GParamSpec\"><type>GParamSpec</type></link> "
+"within the <link linkend=\"FooClass\"><type>FooClass</type></link> such that "
+"the switch used in the set and get methods actually works. Of course, this "
+"locally-unique integer is purely an optimization: it would have been "
+"possible to use a set of <emphasis>if (strcmp (a, b) == 0) {} else if "
+"(strcmp (a, b) == 0) {}</emphasis> statements."
+msgstr ""
+
+#: tut_gobject.xml:675(para)
+msgid ""
+"Once the property has been set by the object's set_property class method, "
+"the code path returns to <function><link linkend=\"g-object-set-property"
+"\">g_object_set_property</link></function> which calls <function><link "
+"linkend=\"g-object-notify-queue-thaw\">g_object_notify_queue_thaw</link></"
+"function>. This function makes sure that the \"notify\" signal is emitted on "
+"the object's instance with the changed property as parameter unless "
+"notifications were frozen by <function><link linkend=\"g-object-freeze-notify"
+"\">g_object_freeze_notify</link></function>."
+msgstr ""
+
+#: tut_gobject.xml:683(para)
+msgid ""
+"<function><link linkend=\"g-object-thaw-notify\">g_object_thaw_notify</"
+"link></function> can be used to re-enable notification of property "
+"modifications through the \"notify\" signal. It is important to remember "
+"that even if properties are changed while property change notification is "
+"frozen, the \"notify\" signal will be emitted once for each of these changed "
+"properties as soon as the property change notification is thawed: no "
+"property change is lost for the \"notify\" signal. Signal can only be "
+"delayed by the notification freezing mechanism."
+msgstr ""
+
+#: tut_gobject.xml:692(para)
+msgid ""
+"It sounds like a tedious task to set up GValues every time when one wants to "
+"modify a property. In practice one will rarely do this. The functions "
+"<function><link linkend=\"g-object-set-property\">g_object_set_property</"
+"link></function> and <function><link linkend=\"g-object-get-property"
+"\">g_object_get_property</link></function> are meant to be used by language "
+"bindings. For application there is an easier way and that is described next."
+msgstr ""
+
+#: tut_gobject.xml:701(title)
+msgid "Accessing multiple properties at once"
+msgstr ""
+
+#: tut_gobject.xml:703(para)
+msgid ""
+"It is interesting to note that the <function><link linkend=\"g-object-set"
+"\">g_object_set</link></function> and <function><link linkend=\"g-object-set-"
+"valist\">g_object_set_valist</link></function> (vararg version) functions "
+"can be used to set multiple properties at once. The client code shown above "
+"can then be re-written as: <placeholder-1/> This saves us from managing the "
+"GValues that we were needing to handle when using <function><link linkend="
+"\"g-object-set-property\">g_object_set_property</link></function>. The code "
+"above will trigger one notify signal emission for each property modified."
+msgstr ""
+
+#: tut_gobject.xml:707(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"MamanBar *foo;\n"
+"foo = /* */;\n"
+"g_object_set (G_OBJECT (foo),\n"
+"              \"papa-number\", 2, \n"
+"              \"maman-name\", \"test\", \n"
+"              NULL);\n"
+msgstr ""
+
+#: tut_gobject.xml:720(para)
+msgid ""
+"Of course, the _get versions are also available: <function><link linkend=\"g-"
+"object-get\">g_object_get</link></function> and <function><link linkend=\"g-"
+"object-get-valist\">g_object_get_valist</link></function> (vararg version) "
+"can be used to get numerous properties at once."
+msgstr ""
+
+#: tut_gobject.xml:726(para)
+msgid ""
+"These high level functions have one drawback - they don't provide a return "
+"result. One should pay attention to the argument types and ranges when using "
+"them. A known source of errors is to e.g. pass a gfloat instead of a gdouble "
+"and thus shifting all subsequent parameters by four bytes. Also forgetting "
+"the terminating NULL will lead to unexpected behaviour."
+msgstr ""
+
+#: tut_gobject.xml:734(para)
+msgid ""
+"Really attentive readers now understand how <function><link linkend=\"g-"
+"object-new\">g_object_new</link></function>, <function><link linkend=\"g-"
+"object-newv\">g_object_newv</link></function> and <function><link linkend="
+"\"g-object-new-valist\">g_object_new_valist</link></function> work: they "
+"parse the user-provided variable number of parameters and invoke "
+"<function><link linkend=\"g-object-set\">g_object_set</link></function> on "
+"the parameters only after the object has been successfully constructed. Of "
+"course, the \"notify\" signal will be emitted for each property set."
+msgstr ""
+
+#: tut_gobject.xml:8(para)
+msgid ""
+"The two previous chapters discussed the details of GLib's Dynamic Type "
+"System and its signal control system. The GObject library also contains an "
+"implementation for a base fundamental type named <link linkend=\"GObject"
+"\"><type>GObject</type></link>."
+msgstr ""
