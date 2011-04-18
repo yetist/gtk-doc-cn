@@ -425,11 +425,16 @@ update_xml()
 	if [ -d $startdir/$modname-docs ];then
 		cp -rfL $startdir/$modname-docs/* $docdir
 	fi
-	#cp $startdir/credits.xml $docdir
 	local now=`date +%Y年%m月%d日`
-	sed -i 's/XXXX年XX月XX日/'$now'/g' $docdir/credits.xml
-	if [ -f $startdir/AUTHORS ]; then
-		cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
+	for xml in $xml_tmpl;
+	do
+		sed -i 's#XXXX年XX月XX日#'$now'#g' $docdir/$xml
+		sed -i 's#TRANS_URI#'$trans_uri'#g' $docdir/$xml
+		sed -i 's#TEAM_URI#'$team_uri'#g' $docdir/$xml
+		sed -i 's#TEAM_NAME#'$team_name'#g' $docdir/$xml
+		if [ -f $startdir/AUTHORS ];
+		then
+			cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
 		do 
 			author=`echo $line|awk '{print $1}'`
 			if [ "x$author" == "xunknown" -o "x$author" == "xfinished" ];then
@@ -437,9 +442,10 @@ update_xml()
 			fi
 			mail=`echo $line|awk '{print $2}'`
 			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
-			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/credits.xml
+			sed -i -e "/<\!-- AUTHORS -->/i$msgline" $docdir/$xml
 		done
-	fi
+	        fi
+        done
 }
 
 download_source()
