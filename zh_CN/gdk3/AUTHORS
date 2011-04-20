@@ -1,6 +1,7 @@
 #!/bin/sh
-#一、[sgml 文件列表]
-#1.  (yetist)gdk-docs.sgml
+#一、[xmlpo 文件列表]
+#1.  gdk-docs.pot
+#
 #二、[po 文件列表]
 #01. gdkapplaunchcontext.po
 #02. gdkcairo.po
@@ -30,10 +31,14 @@
 #26. gdkvisual.po
 #27. gdkwindow.po
 #
+####################################################################################
 #此文件的格式如下
-#作者 邮箱 sgml文件数组 po文件数组
-#sgml_files和po_files数组内容以","分隔，中间不要使用空格，否则项目脚本将出错。
-#作者名为unknown表示无人认领，未开始翻译
+#作者 邮箱 xmlpo文件数组 po文件数组
+#xmlpo_files和po_files数组内容以","分隔，中间不要使用空格，否则项目脚本将出错。
+#作者名为unknown表示计划翻译，但目前还无人认领
 #作者名为finished表示内容已经翻译完成。
-yetist yetist@gmail.com sgml_files=(gdk-docs.sgml) po_files=(gdk.po)
-unknown unknown@nomail.com sgml_files=(tmpl/pango_interaction.sgml) po_files=(gdkpango.po)
+########已经和正在翻译的文档###############
+yetist yetist@gmail.com xmlpo_files=(gdk-docs.sgml) po_files=(gdk.po)
+########计划翻译的文档###############
+unknown unknown@nomail.com xmlpo_files=() po_files=(gdkpango.po)
+####################################################################################
