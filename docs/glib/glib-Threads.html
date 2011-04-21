@@ -989,7 +989,7 @@ access. Take for example the following function:
 <p>
 </p>
 <div class="example">
-<a name="id3193595"></a><p class="title"><b>Example 2. A function which will not work in a threaded environment</b></p>
+<a name="id3023006"></a><p class="title"><b>Example 2. A function which will not work in a threaded environment</b></p>
 <div class="example-contents"><pre class="programlisting">
   int
   give_me_next_number (void)
@@ -1015,7 +1015,7 @@ access. A first naive implementation would be:
 <p>
 </p>
 <div class="example">
-<a name="id3193631"></a><p class="title"><b>Example 3. The wrong way to write a thread-safe function</b></p>
+<a name="id3023042"></a><p class="title"><b>Example 3. The wrong way to write a thread-safe function</b></p>
 <div class="example-contents"><pre class="programlisting">
   int
   give_me_next_number (void)
@@ -1045,7 +1045,7 @@ is:
 <p>
 </p>
 <div class="example">
-<a name="id3193665"></a><p class="title"><b>Example 4. A correct thread-safe function</b></p>
+<a name="id3023076"></a><p class="title"><b>Example 4. A correct thread-safe function</b></p>
 <div class="example-contents"><pre class="programlisting">
   static GMutex *give_me_next_number_mutex = NULL;
 
@@ -1254,7 +1254,7 @@ example:
 <p>
 </p>
 <div class="example">
-<a name="id3194622"></a><p class="title"><b>Example 5. 
+<a name="id3024033"></a><p class="title"><b>Example 5. 
   Using <span class="structname">GStaticMutex</span>
   to simplify thread-safe programming
  </b></p>
@@ -1470,7 +1470,7 @@ of the variable you intent to protect with the lock. Look at our
 <p>
 </p>
 <div class="example">
-<a name="id3195734"></a><p class="title"><b>Example 6. Using the <code class="literal">G_LOCK_</code>* convenience macros</b></p>
+<a name="id3025145"></a><p class="title"><b>Example 6. Using the <code class="literal">G_LOCK_</code>* convenience macros</b></p>
 <div class="example-contents"><pre class="programlisting">
   G_LOCK_DEFINE (current_number);
 
@@ -1804,7 +1804,7 @@ example:
 <p>
 </p>
 <div class="example">
-<a name="id3197440"></a><p class="title"><b>Example 7. An array with access functions</b></p>
+<a name="id3026851"></a><p class="title"><b>Example 7. An array with access functions</b></p>
 <div class="example-contents"><pre class="programlisting">
   GStaticRWLock rwlock = G_STATIC_RW_LOCK_INIT;
   GPtrArray *array;
@@ -2093,7 +2093,7 @@ threads to be woken up.
 <p>
 </p>
 <div class="example">
-<a name="id3198941"></a><p class="title"><b>Example 8. 
+<a name="id3028352"></a><p class="title"><b>Example 8. 
   Using GCond to block a thread until a condition is satisfied
  </b></p>
 <div class="example-contents"><pre class="programlisting">
@@ -2323,7 +2323,7 @@ This can be done as follows:
 <p>
 </p>
 <div class="example">
-<a name="id3200045"></a><p class="title"><b>Example 9. Using GPrivate for per-thread data</b></p>
+<a name="id3029456"></a><p class="title"><b>Example 9. Using GPrivate for per-thread data</b></p>
 <div class="example-contents"><pre class="programlisting">
   GPrivate* current_number_key = NULL; /* Must be initialized somewhere
                                           with g_private_new (g_free); */
@@ -2500,7 +2500,7 @@ look at our <code class="function"><code class="function">give_me_next_number()<
 <p>
 </p>
 <div class="example">
-<a name="id3200854"></a><p class="title"><b>Example 10. Using GStaticPrivate for per-thread data</b></p>
+<a name="id3030265"></a><p class="title"><b>Example 10. Using GStaticPrivate for per-thread data</b></p>
 <div class="example-contents"><pre class="programlisting">
   int
   give_me_next_number ()

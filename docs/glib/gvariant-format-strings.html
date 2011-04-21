@@ -22,7 +22,7 @@
 <div class="refentry">
 <a name="gvariant-format-strings"></a><div class="titlepage"></div>
 <div class="refsect1">
-<a name="id3131072"></a><h2>Variable Argument Conversions</h2>
+<a name="id2949324"></a><h2>Variable Argument Conversions</h2>
 <p>
    This page attempts to document how to perform variable argument conversions with GVariant.
   </p>
@@ -38,7 +38,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id3170410"></a><h2>Syntax</h2>
+<a name="id3182952"></a><h2>Syntax</h2>
 <p>
    This section exhaustively describes all possibilities for GVariant format strings.  There are no valid forms of
    format strings other than those described here.  Please note that the format string syntax is likely to expand in the
@@ -70,7 +70,7 @@
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id3096811"></a><h2>Symbols</h2>
+<a name="id2982018"></a><h2>Symbols</h2>
 <p>
     The following table describes the rough meaning of symbols that may appear inside a GVariant format string.  Each
     symbol is described in detail in its own section, including usage examples.
@@ -462,7 +462,7 @@
     it operates with pointers.  The pointers must always point to a memory region of exactly the correct size.
    </p>
 <div class="refsect3">
-<a name="id3103821"></a><h4>Examples</h4>
+<a name="id3044755"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4;
 
@@ -510,7 +510,7 @@ value4 = g_variant_new ("x", G_GINT64_CONSTANT (998877665544332211));
     string should be ignored (in which case no copy is made).
    </p>
 <div class="refsect3">
-<a name="id3385591"></a><h4>Examples</h4>
+<a name="id2945385"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3;
 
@@ -554,7 +554,7 @@ value3 = g_variant_new ("g", "iias");
     ignored (in which case no new reference is created).
    </p>
 <div class="refsect3">
-<a name="id3262286"></a><h4>Examples</h4>
+<a name="id3153379"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *x, *y;
 
@@ -596,7 +596,7 @@ y = g_variant_get_variant (x);</pre></div>
     should be ignored.
    </p>
 <div class="refsect3">
-<a name="id3339290"></a><h4>Examples</h4>
+<a name="id2933816"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *builder;
 GVariant *value;
@@ -672,7 +672,7 @@ g_variant_unref (value);</pre></div>
     but have their values set to binary zero.
    </p>
 <div class="refsect3">
-<a name="id3090715"></a><h4>Examples</h4>
+<a name="id3095539"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4, *value5, *value6;
 value1 = g_variant_new ("ms", "Hello world");
@@ -743,7 +743,7 @@ value5 = g_variant_new ("(m@(ii)s)", NULL, "Done");
     Tuples are handled by handling each item in the tuple, in sequence.  Each item is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id3155482"></a><h4>Examples</h4>
+<a name="id2937148"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -774,7 +774,7 @@ value2 = g_variant_new ("()");
     Dictionary entries are handled by handling first the key, then the value.  Each is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id3295289"></a><h4>Examples</h4>
+<a name="id3073725"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *b;
 GVariant *dict;
@@ -822,7 +822,7 @@ dict = g_variant_builder_end (b);</pre></div>
     improvements in type safety and code self-documentation.
    </p>
 <div class="refsect3">
-<a name="id3388575"></a><h4>Examples</h4>
+<a name="id2924775"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -871,7 +871,7 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
     always be properly nul-terminated.
    </p>
 <div class="refsect3">
-<a name="id3339856"></a><h4>Examples</h4>
+<a name="id3004313"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 {
   const gchar *str;
