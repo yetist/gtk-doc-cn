@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>运行 GTK+ 应用程序</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk.html" title="Part I. GTK+概述">
-<link rel="prev" href="gtk-compiling.html" title="编译GTK+应用程序">
+<link rel="prev" href="gtk-compiling.html" title="Compiling GTK+ Applications">
 <link rel="next" href="gtk-x11.html" title="Using GTK+ on the X Window System">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="gtk-compiling.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="gtk-x11.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -24,66 +24,30 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle">运行 GTK+ 应用程序</span></h2>
-<p>运行 GTK+ 应用程序 — 
-如何运行并调试您的 GTK+ 应用程序
-</p>
+<p>运行 GTK+ 应用程序 — 如何运行并调试您的 GTK+ 应用程序</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id3138873"></a><h2>运行并调试GTK+应用程序</h2>
+<a name="id2960340"></a><h2>运行并调试GTK+应用程序</h2>
 <div class="refsect2">
-<a name="id3083251"></a><h3>通用命令行选项</h3>
-<p>
-所有 GTK+ 应用程序支持一些标准命令行选项。
-它们被 gtk_init() 从 <code class="literal">argv</code>中移除。
-模块可以解析并进一步移除选项。
-<a class="link" href="gtk-x11.html#x11-cmdline" title="X11-specific commandline options">X11</a>和<a class="link" href="gtk-windows.html#win32-cmdline" title="Windows-specific commandline options">Windows</a> GDK后端解析一些附加命令行选项。
-</p>
-<p><b><code class="systemitem">--gtk-module <em class="replaceable"><code>模块</code></em></code>. </b>
-载入附加组件的列表，他们是在<code class="envar">GTK_MODULES</code> 环境变量中和<code class="literal">gtk-modules</code>设置中指定的。
-</p>
-<p><b><code class="systemitem">--g-fatal-warnings</code>. </b>
-有任何警告，就让 GTK+ 终止。
-在调试器里，让程序在第一次警告时停止，这很有用。
-如果您的应用程序输出了多个警告。这是在第一次警告发生时最好的启动调试的办法。
-</p>
-<p><b><code class="systemitem">--gtk-debug <em class="replaceable"><code>选项</code></em></code>. </b>
-附加开启<a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">调试选项</a>的一个列表，它们在 GTK_DEBUG 环境变量中指定。
-此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。
-</p>
-<p><b><code class="systemitem">--gtk-no-debug <em class="replaceable"><code>选项</code></em></code>. </b>
-关闭<a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">调试选项</a>的列表。
-此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。
-</p>
-<p>
-以下选项由 GDK 使用，不是 GTK+，但是兼顾完整我们在这里列出它们。
-</p>
-<p><b><code class="systemitem">--class <em class="replaceable"><code>类</code></em></code>. </b>
-置程序类；参见 gdk_set_program_class()。
-</p>
-<p><b><code class="systemitem">--name <em class="replaceable"><code>名称</code></em></code>. </b>
-置程序名称。
-</p>
-<p><b><code class="systemitem">--gdk-debug <em class="replaceable"><code>选项</code></em></code>. </b>
-要附加开启的<a class="link" href="gtk-running.html#GDK-Debug-Options" title="GDK_DEBUG">调试选项</a>的列表指定在 <code class="envar">GDK_DEBUG</code>环境变量中。
-此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。
-</p>
-<p><b><code class="systemitem">--gdk-no-debug <em class="replaceable"><code>选项</code></em></code>. </b>
-要关闭的<a class="link" href="gtk-running.html#GDK-Debug-Options" title="GDK_DEBUG">调试选项</a>的列表。此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。
-</p>
+<a name="id2963474"></a><h3>通用命令行选项</h3>
+<p>所有 GTK+ 应用程序支持一些标准命令行选项。它们被 gtk_init() 从 <code class="literal">argv</code>中移除。模块可以解析并进一步移除选项。<a class="link" href="gtk-x11.html#x11-cmdline" title="X11-specific commandline options">X11</a>和<a class="link" href="gtk-windows.html#win32-cmdline" title="Windows-specific commandline options">视窗</a> GDK后端解析一些附加命令行选项。</p>
+<p><b><code class="systemitem">--gtk-module <em class="replaceable"><code>module</code></em></code>. </b>载入附加组件的列表，他们是在<code class="envar">GTK_MODULES</code> 环境变量中和<code class="literal">gtk-modules</code>设置中指定的。</p>
+<p><b><code class="systemitem">--g-fatal-warnings</code>. </b>有任何警告，就让 GTK+ 终止。在调试器里，让程序在第一次警告时停止，这很有用。如果您的应用程序输出了多个警告。这是在第一次警告发生时最好的启动调试的办法。</p>
+<p><b><code class="systemitem">--gtk-debug <em class="replaceable"><code>选项</code></em></code>. </b>附加开启<a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">调试选项</a>的一个列表，它们在 GTK_DEBUG 环境变量中指定。此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。</p>
+<p><b><code class="systemitem">--gtk-no-debug <em class="replaceable"><code>选项</code></em></code>. </b>要附加开启的<a class="link" href="gtk-running.html#GDK-Debug-Options" title="GDK_DEBUG">调试选项</a>的列表指定在 <code class="envar">GDK_DEBUG</code>环境变量中。此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。</p>
+<p>以下选项由 GDK 使用，不是 GTK+，但是兼顾完整我们在这里列出它们。</p>
+<p><b><code class="systemitem">--class <em class="replaceable"><code>类</code></em></code>. </b>置程序类；参见 gdk_set_program_class()。</p>
+<p><b><code class="systemitem">--name <em class="replaceable"><code>名称</code></em></code>. </b>置程序名称。</p>
+<p><b><code class="systemitem">--gdk-debug <em class="replaceable"><code>选项</code></em></code>. </b>要附加开启的<a class="link" href="gtk-running.html#GDK-Debug-Options" title="GDK_DEBUG">调试选项</a>的列表指定在 <code class="envar">GDK_DEBUG</code>环境变量中。此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。</p>
+<p><b><code class="systemitem">--gdk-no-debug <em class="replaceable"><code>选项</code></em></code>. </b>关闭<a class="link" href="gtk-running.html#GTK-Debug-Options" title="GTK_DEBUG">调试选项</a>的列表。此选项仅在使用<code class="option">--enable-debug=yes</code>后可用。</p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="id3121655"></a><h3>环境变量</h3>
-<p>
-GTK+ 检查一些附加标准环境变量像<code class="envar">LANG</code>、<code class="envar">PATH</code>、<code class="envar">HOME</code>或<code class="envar">DISPLAY</code>。
-主要是为了确定路径查找某些文件。
-X11、<a class="link" href="gtk-windows.html#win32-envar" title="Windows-specific environment variables">视窗</a>和帧缓冲 GDK后端使用一些附加环境变量。
-</p>
-<p><a name="GTK-Debug-Options"></a><b><code class="envar">GTK_DEBUG</code>. </b>
-    如果GTK+ 用<code class="option">--enable-debug=yes</code>配置过，那这个变量可以设置为调试选项的列表，让GTK+输出不同类型的调试信息。
-  </p>
+<a name="id2952791"></a><h3>环境变量</h3>
+<p>GTK+ 检查一些附加标准环境变量像<code class="envar">LANG</code>、<code class="envar">PATH</code>、<code class="envar">HOME</code>或<code class="envar">DISPLAY</code>。主要是为了确定路径查找某些文件X11、<a class="link" href="gtk-windows.html#win32-envar" title="Windows-specific environment variables">视窗</a>和帧缓冲 GDK后端使用一些附加环境变量。</p>
+<p><a name="GTK-Debug-Options"></a><b><code class="envar">GTK_DEBUG</code>. </b>如果GTK+ 用<code class="option">--enable-debug=yes</code>配置过，那这个变量可以设置为调试选项的列表，让GTK+输出不同类型的调试信息。</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -101,7 +65,7 @@ X11、<a class="link" href="gtk-windows.html#win32-envar" title="Windows-specifi
 </tr>
 <tr>
 <td><p><span class="term">tree</span></p></td>
-<td><p>树空间内核</p></td>
+<td><p>树控件内部</p></td>
 </tr>
 <tr>
 <td><p><span class="term">updates</span></p></td>
@@ -137,71 +101,22 @@ X11、<a class="link" href="gtk-windows.html#win32-envar" title="Windows-specifi
 </tr>
 </tbody>
 </table></div>
-<p>
-    <code class="literal">all</code>指定的值可以用来开启所有调试选项。
-  </p>
-<p><b><code class="envar">GTK_MODULES</code>. </b>
-    要载入模块的列表。注意GTK+也允许通过一个命令行选项（<code class="option">--gtk-module</code>）和<code class="literal">gtk-modules</code>设置指定要载入的模块。
-  </p>
+<p><code class="literal">all</code>指定的值可以用来开启所有调试选项。</p>
+<p><b><code class="envar">GTK_MODULES</code>. </b>要载入模块的列表。注意GTK+也允许通过一个命令行选项（<code class="option">--gtk-module</code>）和<code class="literal">gtk-modules</code>设置指定要载入的模块。</p>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-    注意这个环境变量也被 GTK+ 2.X 读取，它可能没有用于载入的相同模块集可用。
-  </div>
-<p><a name="gtk-path"></a><b><code class="envar">GTK_PATH</code>. </b>
-        指定搜索目录列表，GTK+ 会在这里寻找如<code class="envar">GTK_MODULES</code>指定的模块、主题引擎、输入法模块、文件系统后端和打印后端等的动态载入模块。
-如果给予的是绝对路径名，GTK+ 会直接载入。
-否则 GTK+ 依次经过<code class="envar">GTK_PATH</code>中指定的、其次是用户主目录中<code class="filename">.gtk-3.0</code>中指定的、再次是系统默认目录<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/modules</code>。
-（如果已定义<code class="envar">GTK_EXE_PREFIX</code>，<em class="replaceable"><code>libdir</code></em>将为<code class="filename">$GTK_EXE_PREFIX/lib</code>。
-否则当 GTK+ 被配置，就是指定的 libdir ，通常是<code class="filename">/usr/lib</code>或<code class="filename">/usr/local/lib</code>。）
-遍历在此列表中的目录，GTK+ 实际在一个子目录 “<code class="filename"><em class="replaceable"><code>目录</code></em>/<em class="replaceable"><code>版本</code></em>/<em class="replaceable"><code>主机</code></em>/<em class="replaceable"><code>类型</code></em></code>” 中察看，
-<em class="replaceable"><code>版本</code></em>是 GTK+ 的版本（使用<code class="literal">pkg-config --variable=gtk_binary_version gtk+-3.0</code>可以看到），
-<em class="replaceable"><code>主机</code></em>是GTK+编译时的架构。
-（使用<code class="literal">pkg-config --variable=gtk_host gtk+-3.0</code>可以看到），<em class="replaceable"><code>类型</code></em>是一个具体到模块类型的目录。目前它可以是 <code class="literal">modules</code>、 <code class="literal">engines</code>、
-<code class="literal">immodules</code>、 <code class="literal">filesystems</code>或   <code class="literal">printbackends</code>，对应于上面提到的模块的类型。
-任何<em class="replaceable"><code>版本</code></em>、<em class="replaceable"><code>主机</code></em>或是两者都可以被省略。
-GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PATH 的组件在 UNIX/Linux 由 ‘:’ 分隔，在视窗上是 ‘;’。
-  </p>
+<h3 class="title">Warning</h3>注意这个环境变量也被 GTK+ 2.X 读取，它可能没有用于载入的相同模块集可用。</div>
+<p><a name="gtk-path"></a><b><code class="envar">GTK_PATH</code>. </b>指定搜索目录列表，GTK+ 会在这里寻找如<code class="envar">GTK_MODULES</code>指定的模块、主题引擎、输入法模块、文件系统后端和打印后端等的动态载入模块。如果给予的是绝对路径名，GTK+ 会直接载入。否则 GTK+ 依次经过<code class="envar">GTK_PATH</code>中指定的、其次是用户主目录中<code class="filename">.gtk-3.0</code>中指定的、再次是系统默认目录<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/modules</code>。（如果已定义<code class="envar">GTK_EXE_PREFIX</code>，<em class="replaceable"><code>libdir</code></em>将为<code class="filename">$GTK_EXE_PREFIX/lib</code>。 否则当 GTK+ 被配置，就是指定的 libdir ，通常是<code class="filename">/usr/lib</code>或<code class="filename">/usr/local/lib</code>。）遍历在此列表中的目录，GTK+ 实际在一个子目录 “<code class="filename"><em class="replaceable"><code>目录</code></em>/<em class="replaceable"><code>版本</code></em>/<em class="replaceable"><code>主机</code></em>/<em class="replaceable"><code>类型</code></em></code>” 中察看， <em class="replaceable"><code>版本</code></em>是 GTK+ 的版本（使用<code class="literal">pkg-config --variable=gtk_binary_version gtk+-3.0</code>可以看到），<em class="replaceable"><code>主机</code></em>是GTK+编译时的架构。 （使用<code class="literal">pkg-config --variable=gtk_host gtk+-3.0</code>可以看到），<em class="replaceable"><code>类型</code></em>是一个具体到模块类型的目录。目前它可以是 <code class="literal">modules</code>、 <code class="literal">engines</code>、 <code class="literal">immodules</code>、<code class="literal">filesystems</code>或 <code class="literal">printbackends</code>，对应于上面提到的模块的类型。 任何<em class="replaceable"><code>版本</code></em>、<em class="replaceable"><code>主机</code></em>或是两者都可以被省略。 GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PATH 的组件在 UNIX/Linux 由 ‘:’ 分隔，在视窗上是 ‘;’。</p>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-    注意此环境变量也被GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），
-这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看互不兼容的模块。
-  </div>
-<p><b><code class="envar">GTK_IM_MODULE</code>. </b>
-    使用从locale中确定的、在首选项中指定的一个输入法模块。
-如果它没有被设置而且你在一个应用了<code class="literal">XSETTINGS</code>并且有在<code class="literal">Gtk/IMModule</code>中的一个值的系统上运行，
-将使用默认输入法模块。
-  </p>
-<p><a name="gtk-im-module-file"></a><b><code class="envar">GTK_IM_MODULE_FILE</code>. </b>
-    指定要载入的输入法文件列表。
-该环境变量的默认值为<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/3.0.0/immodules.cache</code>
-（<em class="replaceable"><code>libdir</code></em>在这里有正如前面<code class="envar">GTK_PATH</code>解释的相同含义）。
-  
-    <code class="filename">immodules.cache</code>文件由<span class="command"><strong>gtk-query-immodules-3.0</strong></span>实用程序生成。
-  </p>
+<h3 class="title">Warning</h3>注意此环境变量也被GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看互不兼容的模块。</div>
+<p><b><code class="envar">GTK_IM_MODULE</code>. </b>使用从locale中确定的、在首选项中指定的一个输入法模块。如果它没有被设置而且你在一个应用了<code class="literal">XSETTINGS</code>并且有在<code class="literal">Gtk/IMModule</code>中的一个值的系统上运行，将使用默认输入法模块。</p>
+<p><a name="gtk-im-module-file"></a><b><code class="envar">GTK_IM_MODULE_FILE</code>. </b>指定要载入的输入法文件列表。该环境变量的默认值为<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/3.0.0/immodules.cache</code>（<em class="replaceable"><code>libdir</code></em>在这里有正如前面<code class="envar">GTK_PATH</code>解释的相同含义）。<code class="filename">immodules.cache</code>文件由<span class="command"><strong>gtk-query-immodules-3.0</strong></span>实用程序生成。</p>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-    注意这个环境变量也被 GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），
-这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看错误的输入法模块列表。
-  </div>
-<p><b><code class="envar">GTK_EXE_PREFIX</code>. </b>
-    如果设置，当 GTK+ 编译，GTK+ 使用<code class="filename">$GTK_EXE_PREFIX/lib</code>而不是配置的 libdir。
-  </p>
-<p><b><code class="envar">GTK_DATA_PREFIX</code>. </b>
-    	如果设置，当 GTK+ 编译，让 GTK+ 使用<code class="filename">$GTK_DATA_PREFIX</code>而不是配置的 prefix。
-  </p>
-<p>
-以下环境变量由 GdkPixbuf、 GDK 和 Pango 使用，并非 GTK+ 本身，但我们为兼顾完整性在这里列出它们。
-</p>
-<p><b><code class="envar">GDK_PIXBUF_MODULE_FILE</code>. </b>
-    指定 GdkPixbuf 载入器模块要载入的文件列表。
-该环境变量覆盖默认值<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/3.0.0/loaders.cache</code>
-（只要GTK+被配置，<em class="replaceable"><code>libdir</code></em>就是 sysconfdir指定的，通常是<code class="filename">/usr/local/lib</code>。）
-  
-    <code class="filename">loaders.cache</code>文件是由<span class="command"><strong>gdk-pixbuf-query-loaders</strong></span>实用程序生成的。
-  </p>
-<p><a name="GDK-Debug-Options"></a><b><code class="envar">GDK_DEBUG</code>. </b>
-  如果GTK+ 用<code class="option">--enable-debug=yes</code>配置过，这个变量可以设置调试选项的列表，让 GDK 输出不同类型的调试信息。
-  </p>
+<h3 class="title">Warning</h3>注意这个环境变量也被 GTK+ 2.X 读取，使它不适合用于设置它系统范围（或会话范围），这会造成 GTK+ 2.x 程序和 GTK+ 3 程序察看错误的输入法模块列表。</div>
+<p><b><code class="envar">GTK_EXE_PREFIX</code>. </b>如果设置，当 GTK+ 编译，GTK+ 使用<code class="filename">$GTK_EXE_PREFIX/lib</code>而不是配置的 libdir。</p>
+<p><b><code class="envar">GTK_DATA_PREFIX</code>. </b>如果设置，当 GTK+ 编译，让 GTK+ 使用<code class="filename">$GTK_DATA_PREFIX</code>而不是配置的 prefix。</p>
+<p>以下环境变量由 GdkPixbuf、 GDK 和 Pango 使用，并非 GTK+ 本身，但我们为兼顾完整性在这里列出它们。</p>
+<p><b><code class="envar">GDK_PIXBUF_MODULE_FILE</code>. </b>指定 GdkPixbuf 载入器模块要载入的文件列表。该环境变量覆盖默认值<code class="filename"><em class="replaceable"><code>libdir</code></em>/gtk-3.0/3.0.0/loaders.cache</code>（只要GTK+被配置，<em class="replaceable"><code>libdir</code></em>就是 sysconfdir指定的，通常是<code class="filename">/usr/local/lib</code>。）<code class="filename">loaders.cache</code>文件是由<span class="command"><strong>gdk-pixbuf-query-loaders</strong></span>实用程序生成的。</p>
+<p><a name="GDK-Debug-Options"></a><b><code class="envar">GDK_DEBUG</code>. </b>如果GTK+ 用<code class="option">--enable-debug=yes</code>配置过，这个变量可以设置调试选项的列表，让 GDK 输出不同类型的调试信息</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -235,7 +150,7 @@ GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PA
 </tr>
 <tr>
 <td><p><span class="term">cursor</span></p></td>
-<td><p>关于鼠标对象的信息（仅 win32）</p></td>
+<td><p>关于光标对象的信息（仅 win32）</p></td>
 </tr>
 <tr>
 <td><p><span class="term">draw</span></p></td>
@@ -247,12 +162,8 @@ GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PA
 </tr>
 </tbody>
 </table></div>
-<p>
-  <code class="literal">all</code>指定的值可以用来开启所有调试选项。
-  </p>
-<p><b><code class="envar">GDK_BACKEND</code>. </b>
-    如果设置，选择要使用的 GDK 后端。选择一个需要它的后端，GTK 支持这个后端。可以选择以下后端：
-    </p>
+<p>。<code class="literal">all</code>指定的值可以用来开启所有调试选项。</p>
+<p><b><code class="envar">GDK_BACKEND</code>. </b>如果设置，选择要使用的 GDK 后端。选择一个需要它的后端，GTK 支持这个后端。可以选择以下后端：</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -270,21 +181,10 @@ GTK+ 察看第一个最具体的目录而后是有较少组件的目录。GTK_PA
 </tr>
 </tbody>
 </table></div>
-<p>
-    关于选择后端的更多信息，参见 gdk_display_manager_get() 函数。
-  </p>
-<p><b><code class="envar">GDK_SYNCHRONIZE</code>. </b>
-    	如果设置，GDK 会让所有 X 请求成为交互式的（译注：非多线程的）。这对调试很有用，但会大大减慢执行速度。
-  </p>
-<p><b><code class="envar">XDG_DATA_HOME</code>, <code class="envar">XDG_DATA_DIRS</code>. </b>
-    GTK+ 使用这些环境变量找到图标主题和 MIME 信息。更多信息参见<a class="ulink" href="http://freedesktop.org/Standards/icon-theme-spec" target="_top">图标主题规范</a>、
-<a class="ulink" href="http://freedesktop.org/Standards/shared-mime-info-spec" target="_top">共享的MIME信息数据库</a> 和<a class="ulink" href="http://freedesktop.org/Standards/basedir-spec" target="_top">基本目录规范</a>。
-  </p>
-<p><b><code class="envar">DESKTOP_STARTUP_ID</code>. </b>
-    GTK+ 根据<a class="ulink" href="http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt" target="_top">启动通知规范</a>使用这些变量来提供启动通知。
-根据规范，GTK+ 在读取这个变量后反置（unset）它（防止泄漏到子进程）。
-所以，如果你需要它的值达到你的目的，你应该在调用 gtk_init() 前读取。
-  </p>
+<p>关于选择后端的更多信息，参见 gdk_display_manager_get() 函数。</p>
+<p><b><code class="envar">GDK_SYNCHRONIZE</code>. </b>如果设置，GDK 会让所有 X 请求成为交互式的（译注：非多线程的）。这对调试很有用，但会大大减慢执行速度。</p>
+<p><b><code class="envar">XDG_DATA_HOME</code>, <code class="envar">XDG_DATA_DIRS</code>. </b>GTK+ 使用这些环境变量找到图标主题和 MIME 信息。更多信息参见<a class="ulink" href="http://freedesktop.org/Standards/icon-theme-spec" target="_top">图标主题规范</a>、<a class="ulink" href="http://freedesktop.org/Standards/shared-mime-info-spec" target="_top">共享的MIME信息数据库</a> 和<a class="ulink" href="http://freedesktop.org/Standards/basedir-spec" target="_top">基本目录规范</a>。</p>
+<p><b><code class="envar">DESKTOP_STARTUP_ID</code>. </b>GTK+ 根据<a class="ulink" href="http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt" target="_top">启动通知规范</a>使用这些变量来提供启动通知。根据规范，GTK+ 在读取这个变量后反置（unset）它（防止泄漏到子进程）。所以，如果你需要它的值达到你的目的，你应该在调用 gtk_init() 前读取。</p>
 </div>
 </div>
 </div>

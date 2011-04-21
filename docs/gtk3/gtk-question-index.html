@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Common Questions</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk.html" title="Part I. GTK+概述">
 <link rel="prev" href="gtk-resources.html" title="Mailing lists and bug reports">
 <link rel="next" href="chap-drawing-model.html" title="The GTK+ Drawing Model">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="gtk-resources.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="chap-drawing-model.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -31,22 +31,22 @@ Find answers to common questions in the GTK+ manual
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id3137320"></a><h2>Questions and Answers</h2>
+<a name="id2934229"></a><h2>Questions and Answers</h2>
 <p>
 This is an "index" of the reference manual organized by common "How do
 I..." questions. If you aren't sure which documentation to read for
 the question you have, this list is a good place to start.
 </p>
 <div class="qandaset">
-<a name="id3127601"></a><table border="0" width="100%" summary="Q and A Set">
+<a name="id2971855"></a><table border="0" width="100%" summary="Q and A Set">
 <col align="left" width="1%">
 <col>
 <tbody>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3147705"></a>1. General</h5></td></tr>
+<a name="id2960169"></a>1. General</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3140987"></a><a name="id3139507"></a><p><b>1.1.</b></p>
+<a name="id2966816"></a><a name="id2955792"></a><p><b>1.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I get started with GTK+?
@@ -66,7 +66,7 @@ this reference manual for details.
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3121352"></a><a name="id3162109"></a><p><b>1.2.</b></p>
+<a name="id2931939"></a><a name="id2933474"></a><p><b>1.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 Where can I get help with GTK+, submit a bug report, or make a feature
@@ -81,7 +81,7 @@ See the <a class="link" href="gtk-resources.html" title="Mailing lists and bug r
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3146663"></a><a name="id3123108"></a><p><b>1.3.</b></p>
+<a name="id2940955"></a><a name="id2964084"></a><p><b>1.3.</b></p>
 </td>
 <td align="left" valign="top"><p>How do I port from one GTK+
 version to another?</p></td>
@@ -103,7 +103,7 @@ documentation.
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3161483"></a><a name="id3161485"></a><p><b>1.4.</b></p>
+<a name="id2950324"></a><a name="id2935447"></a><p><b>1.4.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How does memory management work in GTK+? Should I free data returned
@@ -114,22 +114,22 @@ from functions?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-See the documentation for <a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> and <a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a>. For <a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> note
-specifically <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a> and <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>. <a href="../gobject/gobject-The-Base-Object-Type.html#GInitiallyUnowned"><span class="type">GInitiallyUnowned</span></a> is a
-subclass of <a href="../gobject/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> so the same points apply, except that it has a "floating"
+See the documentation for #GObject and #GInitiallyUnowned. For #GObject note
+specifically g_object_ref() and g_object_unref(). #GInitiallyUnowned is a
+subclass of #GObject so the same points apply, except that it has a "floating"
 state (explained in its documentation).
 </p>
 <p>
 For strings returned from functions, they will be declared "const" (using
-<a href="../glib/glib-Standard-Macros.html#G-CONST-RETURN:CAPS"><span class="type">G_CONST_RETURN</span></a>) if they should not be freed. Non-const strings should be
-freed with <a href="../glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. Arrays follow the same rule. If you find an
+#G_CONST_RETURN) if they should not be freed. Non-const strings should be
+freed with g_free(). Arrays follow the same rule. If you find an
 undocumented exception to the rules, please report a bug to <a class="ulink" href="http://bugzilla.gnome.org" target="_top">http://bugzilla.gnome.org</a>.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3159738"></a><a name="id3159741"></a><p><b>1.5.</b></p>
+<a name="id2956107"></a><a name="id2956109"></a><p><b>1.5.</b></p>
 </td>
 <td align="left" valign="top"><p>
 Why does my program leak memory, if I destroy a widget immediately
@@ -162,7 +162,7 @@ creating it:
  g_object_ref_sink (foo);
 </pre></div>
 <p>
-When you want to get rid of the widget, you must call <a class="link" href="gtk3-GtkWidget.html#gtk-widget-destroy" title="gtk_widget_destroy ()"><code class="function">gtk_widget_destroy()</code></a>
+When you want to get rid of the widget, you must call gtk_widget_destroy()
 to break any external connections to the widget before dropping your
 reference:
 </p>
@@ -173,14 +173,14 @@ reference:
 <p>
 When you immediately add a widget to a container, it takes care of
 assuming the initial floating reference and you don't have to worry
-about reference counting at all ... just call <a class="link" href="gtk3-GtkWidget.html#gtk-widget-destroy" title="gtk_widget_destroy ()"><code class="function">gtk_widget_destroy()</code></a>
+about reference counting at all ... just call gtk_widget_destroy()
 to get rid of the widget.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3124130"></a><a name="id3124133"></a><p><b>1.6.</b></p>
+<a name="id2956172"></a><a name="id2956174"></a><p><b>1.6.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I use GTK+ with threads?
@@ -196,7 +196,7 @@ documentation for portable threading primitives.
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3124159"></a><a name="id3124162"></a><p><b>1.7.</b></p>
+<a name="id2942838"></a><a name="id2942840"></a><p><b>1.7.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I internationalize a GTK+ program?
@@ -212,11 +212,11 @@ or Linux system with gettext installed, type <code class="literal">info gettext<
 to read the documentation.
 </p>
 <p>
-The short checklist on how to use gettext is: call <code class="function">bindtextdomain()</code> so
-gettext can find the files containing your translations, call <code class="function">textdomain()</code>
-to set the default translation domain, call <code class="function">bind_textdomain_codeset()</code> to
+The short checklist on how to use gettext is: call bindtextdomain() so
+gettext can find the files containing your translations, call textdomain()
+to set the default translation domain, call bind_textdomain_codeset() to
 request that all translated strings are returned in UTF-8, then call
-<code class="function">gettext()</code> to look up each string to be translated in the default domain.
+gettext() to look up each string to be translated in the default domain.
 </p>
 <p>
 <code class="filename">gi18n.h</code> provides the following shorthand macros for
@@ -229,13 +229,13 @@ Conventionally, people define macros as follows for convenience:
   #define C_(ctx,x) pgettext (ctx, x)
 </pre></div>
 <p>
-You use <a href="../glib/glib-I18N.html#N-:CAPS"><code class="function">N_()</code></a> (N stands for no-op) to mark a string for translation in
-a location where a function call to <code class="function">gettext()</code> is not allowed, such as
+You use N_() (N stands for no-op) to mark a string for translation in
+a location where a function call to gettext() is not allowed, such as
 in an array initializer.
-You eventually have to call <code class="function">gettext()</code> on the string to actually fetch
-the translation. <a href="../glib/glib-I18N.html#gettext-macro"><code class="function">_()</code></a> both marks the string for translation and actually
+You eventually have to call gettext() on the string to actually fetch
+the translation. _() both marks the string for translation and actually
 translates it.
-The <a href="../glib/glib-I18N.html#C-:CAPS"><code class="function">C_()</code></a> macro (C stands for context) adds an additional context to
+The C_() macro (C stands for context) adds an additional context to
 the string that is marked for translation, which can help to disambiguate
 short strings that might need different translations in different
 parts of your program.
@@ -261,9 +261,9 @@ Code using these macros ends up looking like this:
 <p>
 </p>
 <p>
-Libraries using gettext should use <code class="function">dgettext()</code> instead of <code class="function">gettext()</code>, which
+Libraries using gettext should use dgettext() instead of gettext(), which
 allows them to specify the translation domain each time they ask for a
-translation. Libraries should also avoid calling <code class="function">textdomain()</code>, since
+translation. Libraries should also avoid calling textdomain(), since
 they will be specifying the domain instead of using the default.
 </p>
 <p>
@@ -281,7 +281,7 @@ the following convenience:
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3157330"></a><a name="id3157332"></a><p><b>1.8.</b></p>
+<a name="id2942964"></a><a name="id2942966"></a><p><b>1.8.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I use non-ASCII characters in GTK+ programs ?
@@ -314,7 +314,7 @@ More information about Unicode and UTF-8 can be found in the
 <a class="ulink" href="http://www.cl.cam.ac.uk/~mgk25/unicode.html" target="_top">UTF-8 and Unicode
 FAQ for Unix/Linux</a>.
 GLib provides functions for converting strings between UTF-8 and other
-encodings, see <a href="../glib/glib-Character-Set-Conversion.html#g-locale-to-utf8"><code class="function">g_locale_to_utf8()</code></a> and <a href="../glib/glib-Character-Set-Conversion.html#g-convert"><code class="function">g_convert()</code></a>.
+encodings, see g_locale_to_utf8() and g_convert().
 </p>
 <p>
 Text coming from external sources (e.g. files or user input), has to be
@@ -376,7 +376,7 @@ Be careful when mixing hexadecimal escapes with ordinary text;
 <td><p>
 If the string literals can be represented in an encoding which your
 toolchain can handle (e.g. IS0-8859-1), you can write your source files
-in that encoding and use <a href="../glib/glib-Character-Set-Conversion.html#g-convert"><code class="function">g_convert()</code></a> to convert the strings to UTF-8 at
+in that encoding and use g_convert() to convert the strings to UTF-8 at
 runtime. Note that this has some runtime overhead, so you may want to move
 the conversion out of inner loops.
 </p></td>
@@ -399,15 +399,15 @@ g_free (text);
 <p>
 </p>
 <p>
-If you are using <code class="function">gettext()</code> to localize your application, you need to
-call <code class="function">bind_textdomain_codeset()</code> to ensure that translated strings are
+If you are using gettext() to localize your application, you need to
+call bind_textdomain_codeset() to ensure that translated strings are
 returned in UTF-8 encoding.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164559"></a><a name="id3164561"></a><p><b>1.9.</b></p>
+<a name="id2895775"></a><a name="id2895777"></a><p><b>1.9.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I use GTK+ with C++?
@@ -452,7 +452,7 @@ There are very few functions that require this cast, however.
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164624"></a><a name="id3164626"></a><p><b>1.10.</b></p>
+<a name="id2895839"></a><a name="id2895842"></a><p><b>1.10.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I use GTK+ with other non-C languages?
@@ -467,7 +467,7 @@ bindings</a> on <a class="ulink" href="http://www.gtk.org" target="_top">http://
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164653"></a><a name="id3164655"></a><p><b>1.11.</b></p>
+<a name="id2895868"></a><a name="id2895871"></a><p><b>1.11.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I load an image or animation from a file?
@@ -478,22 +478,22 @@ How do I load an image or animation from a file?
 <td align="left" valign="top">
 <p>
 To load an image file straight into a display widget, use
-<a class="link" href="gtk3-GtkImage.html#gtk-image-new-from-file" title="gtk_image_new_from_file ()"><code class="function">gtk_image_new_from_file()</code></a> <sup>[<a name="id3164675" href="#ftn.id3164675" class="footnote">1</a>]</sup>.
-To load an image for another purpose, use <a href="../gdk-pixbuf/gdk-pixbuf-File-Loading.html#gdk-pixbuf-new-from-file"><code class="function">gdk_pixbuf_new_from_file()</code></a>. To i
-load an animation, use <a href="../gdk-pixbuf/gdk-pixbuf-Animations.html#gdk-pixbuf-animation-new-from-file"><code class="function">gdk_pixbuf_animation_new_from_file()</code></a>.
-<a href="../gdk-pixbuf/gdk-pixbuf-Animations.html#gdk-pixbuf-animation-new-from-file"><code class="function">gdk_pixbuf_animation_new_from_file()</code></a> can also load non-animated images, so
-use it in combination with <a href="../gdk-pixbuf/gdk-pixbuf-Animations.html#gdk-pixbuf-animation-is-static-image"><code class="function">gdk_pixbuf_animation_is_static_image()</code></a> to load a
+gtk_image_new_from_file() <sup>[<a name="id2895882" href="#ftn.id2895882" class="footnote">1</a>]</sup>.
+To load an image for another purpose, use gdk_pixbuf_new_from_file(). To i
+load an animation, use gdk_pixbuf_animation_new_from_file().
+gdk_pixbuf_animation_new_from_file() can also load non-animated images, so
+use it in combination with gdk_pixbuf_animation_is_static_image() to load a
 file of unknown type.
 </p>
 <p>
 To load an image or animation file asynchronously (without blocking), use
-<a href="../gdk-pixbuf/GdkPixbufLoader.html"><span class="type">GdkPixbufLoader</span></a>.
+#GdkPixbufLoader.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164762"></a><a name="id3164764"></a><p><b>1.12.</b></p>
+<a name="id2895904"></a><a name="id2895907"></a><p><b>1.12.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I draw text ?
@@ -503,7 +503,7 @@ How do I draw text ?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-To draw a piece of text, use a Pango layout and <a href="../pango/pango-Cairo-Rendering.html#pango-cairo-show-layout"><code class="function">pango_cairo_show_layout()</code></a>.
+To draw a piece of text, use a Pango layout and pango_cairo_show_layout().
 </p>
 <div class="informalexample"><pre class="programlisting">
  layout = gtk_widget_create_pango_layout (widget, text);
@@ -524,7 +524,7 @@ section of <a class="ulink" href="http://library.gnome.org/devel/pango/stable/" 
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164820"></a><a name="id3164822"></a><p><b>1.13.</b></p>
+<a name="id2895954"></a><a name="id2895956"></a><p><b>1.13.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I measure the size of a piece of text ?
@@ -535,7 +535,7 @@ How do I measure the size of a piece of text ?
 <td align="left" valign="top">
 <p>
 To obtain the size of a piece of text, use a Pango layout and
-<a href="../pango/pango-Layout-Objects.html#pango-layout-get-pixel-size"><code class="function">pango_layout_get_pixel_size()</code></a>, using code like the following:
+pango_layout_get_pixel_size(), using code like the following:
 </p>
 <div class="informalexample"><pre class="programlisting">
  layout = gtk_widget_create_pango_layout (widget, text);
@@ -556,7 +556,7 @@ section of <a class="ulink" href="http://library.gnome.org/devel/pango/stable/" 
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164883"></a><a name="id3164885"></a><p><b>1.14.</b></p>
+<a name="id2976942"></a><a name="id2976944"></a><p><b>1.14.</b></p>
 </td>
 <td align="left" valign="top"><p>
 Why are types not registered if I use their <code class="literal">GTK_TYPE_BLAH</code>
@@ -568,8 +568,8 @@ macro ?
 <td align="left" valign="top">
 <p>
 The <code class="literal">GTK_TYPE_BLAH</code> macros are defined as calls to
-<code class="literal"><code class="function">gtk_blah_get_type()</code></code>, and the <code class="literal"><code class="function">_get_type()</code></code> i
-functions are declared as <a href="../glib/glib-Miscellaneous-Macros.html#G-GNUC-CONST:CAPS"><code class="literal">G_GNUC_CONST</code></a> which allows the compiler to optimize
+<code class="literal">gtk_blah_get_type()</code>, and the <code class="literal">_get_type()</code> i
+functions are declared as %G_GNUC_CONST which allows the compiler to optimize
 the call away if it appears that the value is not being used.
 </p>
 <p>
@@ -585,7 +585,7 @@ volatile GType dummy = GTK_TYPE_BLAH;
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3164965"></a><a name="id3164967"></a><p><b>1.15.</b></p>
+<a name="id2977000"></a><a name="id2977003"></a><p><b>1.15.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I create a transparent toplevel window ?
@@ -597,10 +597,10 @@ How do I create a transparent toplevel window ?
 <p>
 To make a window transparent, it needs to use a visual which supports that.
 This is done by getting the RGBA visual of the screen with
-<a href="../gdk3/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> and setting it on the window. Note that
-<a href="../gdk3/GdkScreen.html#gdk-screen-get-rgba-visual"><code class="function">gdk_screen_get_rgba_visual()</code></a> will return <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if transparent windows
+gdk_screen_get_rgba_visual() and setting it on the window. Note that
+gdk_screen_get_rgba_visual() will return %NULL if transparent windows
 are not supported on the screen, you should fall back to
-<a href="../gdk3/GdkScreen.html#gdk-screen-get-system-visual"><code class="function">gdk_screen_get_system_visual()</code></a> in that case. Additionally, note that this
+gdk_screen_get_system_visual() in that case. Additionally, note that this
 will change from screen to screen, so it needs to be repeated whenever the
 window is moved to a different screen.
 </p>
@@ -621,16 +621,16 @@ RGBA drawing capabilities.
 Note that the presence of an RGBA visual is no guarantee that the
 window will actually appear transparent on screen. On X11, this
 requires a compositing manager to be running. See
-<a class="link" href="gtk3-GtkWidget.html#gtk-widget-is-composited" title="gtk_widget_is_composited ()"><code class="function">gtk_widget_is_composited()</code></a> for a way to find out if the alpha
+gtk_widget_is_composited() for a way to find out if the alpha
 channel will be respected.
 </p>
 </td>
 </tr>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3165058"></a>2. Which widget should I use...</h5></td></tr>
+<a name="id2977049"></a>2. Which widget should I use...</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165063"></a><a name="id3165065"></a><p><b>2.1.</b></p>
+<a name="id2977054"></a><a name="id2977057"></a><p><b>2.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 ...for lists and trees?
@@ -640,13 +640,13 @@ channel will be respected.
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
 See <a class="link" href="TreeWidget.html" title="Tree and List Widget Overview">tree widget overview</a> — you
-should use the <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a> widget. (A list is just a tree with no branches,
+should use the #GtkTreeView widget. (A list is just a tree with no branches,
 so the tree widget is used for lists as well).
 </p></td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165093"></a><a name="id3165095"></a><p><b>2.2.</b></p>
+<a name="id2977078"></a><a name="id2977080"></a><p><b>2.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 ...for multi-line text display or editing?
@@ -657,18 +657,18 @@ so the tree widget is used for lists as well).
 <td align="left" valign="top">
 <p>
 See <a class="link" href="TextWidget.html" title="Text Widget Overview">text widget overview</a> — you
-should use the <a class="link" href="gtk3-GtkTextView.html#GtkTextView" title="struct GtkTextView"><span class="type">GtkTextView</span></a> widget.
+should use the #GtkTextView widget.
 </p>
 <p>
-If you only have a small amount of text, <a class="link" href="gtk3-GtkLabel.html#GtkLabel" title="struct GtkLabel"><span class="type">GtkLabel</span></a> may also be appropriate
-of course. It can be made selectable with <a class="link" href="gtk3-GtkLabel.html#gtk-label-set-selectable" title="gtk_label_set_selectable ()"><code class="function">gtk_label_set_selectable()</code></a>. For a
-single-line text entry, see <a class="link" href="gtk3-GtkEntry.html#GtkEntry" title="struct GtkEntry"><span class="type">GtkEntry</span></a>.
+If you only have a small amount of text, #GtkLabel may also be appropriate
+of course. It can be made selectable with gtk_label_set_selectable(). For a
+single-line text entry, see #GtkEntry.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165149"></a><a name="id3165151"></a><p><b>2.3.</b></p>
+<a name="id2977108"></a><a name="id2977110"></a><p><b>2.3.</b></p>
 </td>
 <td align="left" valign="top"><p>
 ...to display an image or animation?
@@ -677,14 +677,14 @@ single-line text entry, see <a class="link" href="gtk3-GtkEntry.html#GtkEntry" t
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-<a class="link" href="gtk3-GtkImage.html#GtkImage" title="struct GtkImage"><span class="type">GtkImage</span></a> can display images in just about any format GTK+ understands.
-You can also use <a class="link" href="gtk3-GtkDrawingArea.html#GtkDrawingArea" title="struct GtkDrawingArea"><span class="type">GtkDrawingArea</span></a> if you need to do something more complex,
+#GtkImage can display images in just about any format GTK+ understands.
+You can also use #GtkDrawingArea if you need to do something more complex,
 such as draw text or graphics over the top of the image.
 </p></td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165183"></a><a name="id3165185"></a><p><b>2.4.</b></p>
+<a name="id2977127"></a><a name="id2977129"></a><p><b>2.4.</b></p>
 </td>
 <td align="left" valign="top"><p>
 ...for presenting a set of mutually-exclusive choices, where Windows
@@ -694,17 +694,17 @@ would use a combo box?
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-With GTK+, a <a class="link" href="gtk3-GtkComboBox.html#GtkComboBox" title="struct GtkComboBox"><span class="type">GtkComboBox</span></a> is the recommended widget to use for this use case.
+With GTK+, a #GtkComboBox is the recommended widget to use for this use case.
 This widget looks like either a combo box or the current option menu, depending
 on the current theme. If you need an editable text entry, use the
-<span class="type">"has-entry"</span> property.
+#GtkComboBox:has-entry property.
 </p></td>
 </tr>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3165219"></a>3. GtkWidget</h5></td></tr>
+<a name="id2977150"></a>3. GtkWidget</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165223"></a><a name="id3165226"></a><p><b>3.1.</b></p>
+<a name="id2977155"></a><a name="id2977157"></a><p><b>3.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I change the color of a widget?
@@ -714,19 +714,19 @@ How do I change the color of a widget?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-See <a class="link" href="gtk3-GtkWidget.html#gtk-widget-override-color" title="gtk_widget_override_color ()"><code class="function">gtk_widget_override_color()</code></a> and <a class="link" href="gtk3-GtkWidget.html#gtk-widget-override-background-color" title="gtk_widget_override_background_color ()"><code class="function">gtk_widget_override_background_color()</code></a>.
+See gtk_widget_override_color() and gtk_widget_override_background_color().
 You can also change the appearance of a widget by installing a
-custom style provider, see <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider" title="gtk_style_context_add_provider ()"><code class="function">gtk_style_context_add_provider()</code></a>.
+custom style provider, see gtk_style_context_add_provider().
 </p>
-<p>To change the background color for widgets such as <a class="link" href="gtk3-GtkLabel.html#GtkLabel" title="struct GtkLabel"><span class="type">GtkLabel</span></a> that
-have no background, place them in a <a class="link" href="gtk3-GtkEventBox.html#GtkEventBox" title="struct GtkEventBox"><span class="type">GtkEventBox</span></a> and set the background
+<p>To change the background color for widgets such as #GtkLabel that
+have no background, place them in a #GtkEventBox and set the background
 of the event box.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165288"></a><a name="id3165290"></a><p><b>3.2.</b></p>
+<a name="id2977177"></a><a name="id2977180"></a><p><b>3.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I change the font of a widget?
@@ -737,7 +737,7 @@ How do I change the font of a widget?
 <td align="left" valign="top">
 <p>
 This has several possible answers, depending on what exactly you want to
-achieve. One option is <a class="link" href="gtk3-GtkWidget.html#gtk-widget-override-font" title="gtk_widget_override_font ()"><code class="function">gtk_widget_override_font()</code></a>.
+achieve. One option is gtk_widget_override_font().
 </p>
 <div class="informalexample"><pre class="programlisting">
  PangoFontDesc *font_desc = pango_font_description_new ();
@@ -749,14 +749,14 @@ achieve. One option is <a class="link" href="gtk3-GtkWidget.html#gtk-widget-over
 </p>
 <p>
 If you want to make the text of a label larger, you can use
-<a class="link" href="gtk3-GtkLabel.html#gtk-label-set-markup" title="gtk_label_set_markup ()"><code class="function">gtk_label_set_markup()</code></a>:
+gtk_label_set_markup():
 </p>
 <div class="informalexample"><pre class="programlisting">
 gtk_label_set_markup (label, "&lt;big&gt;big text&lt;/big&gt;");
 </pre></div>
 <p>
 This is preferred for many apps because it's a relative size to the
-user's chosen font size. See <a href="../glib/glib-Simple-XML-Subset-Parser.html#g-markup-escape-text"><code class="function">g_markup_escape_text()</code></a> if you are
+user's chosen font size. See g_markup_escape_text() if you are
 constructing such strings on the fly.
 </p>
 <p>
@@ -768,18 +768,18 @@ You can also change the font of a widget by putting
  }
 </pre>
 <p>
-in a CSS file, loading it with <a class="link" href="gtk3-GtkCssProvider.html#gtk-css-provider-load-from-file" title="gtk_css_provider_load_from_file ()"><code class="function">gtk_css_provider_load_from_file()</code></a>, and
-adding the provider with <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider-for-screen" title="gtk_style_context_add_provider_for_screen ()"><code class="function">gtk_style_context_add_provider_for_screen()</code></a>.
+in a CSS file, loading it with gtk_css_provider_load_from_file(), and
+adding the provider with gtk_style_context_add_provider_for_screen().
 To associate this style information with your widget, set a style class
-on its <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> using <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-class" title="gtk_style_context_add_class ()"><code class="function">gtk_style_context_add_class()</code></a>.
+on its #GtkStyleContext using gtk_style_context_add_class().
 The advantage of this approach is that users can then override the font
-you have chosen. See the <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> documentation for more discussion.
+you have chosen. See the #GtkStyleContext documentation for more discussion.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165418"></a><a name="id3165421"></a><p><b>3.3.</b></p>
+<a name="id2977237"></a><a name="id2977239"></a><p><b>3.3.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I disable/ghost/desensitize a widget?
@@ -789,14 +789,14 @@ How do I disable/ghost/desensitize a widget?
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
 In GTK+ a disabled widget is termed "insensitive."
-See <a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-sensitive" title="gtk_widget_set_sensitive ()"><code class="function">gtk_widget_set_sensitive()</code></a>.
+See gtk_widget_set_sensitive().
 </p></td>
 </tr>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3165443"></a>4. GtkTextView</h5></td></tr>
+<a name="id2977254"></a>4. GtkTextView</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165448"></a><a name="id3165450"></a><p><b>4.1.</b></p>
+<a name="id2977258"></a><a name="id2977261"></a><p><b>4.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I get the contents of the entire text widget as a string?
@@ -806,8 +806,8 @@ How do I get the contents of the entire text widget as a string?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-See <a class="link" href="gtk3-GtkTextBuffer.html#gtk-text-buffer-get-bounds" title="gtk_text_buffer_get_bounds ()"><code class="function">gtk_text_buffer_get_bounds()</code></a> and <a class="link" href="gtk3-GtkTextBuffer.html#gtk-text-buffer-get-text" title="gtk_text_buffer_get_text ()"><code class="function">gtk_text_buffer_get_text()</code></a>
-or <a class="link" href="gtk3-GtkTextIter.html#gtk-text-iter-get-text" title="gtk_text_iter_get_text ()"><code class="function">gtk_text_iter_get_text()</code></a>.
+See gtk_text_buffer_get_bounds() and gtk_text_buffer_get_text()
+or gtk_text_iter_get_text().
 </p>
 <p>
 </p>
@@ -828,7 +828,7 @@ or <a class="link" href="gtk3-GtkTextIter.html#gtk-text-iter-get-text" title="gt
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165504"></a><a name="id3165507"></a><p><b>4.2.</b></p>
+<a name="id2977289"></a><a name="id2977292"></a><p><b>4.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I make a text widget display its complete contents in a specific font?
@@ -838,20 +838,20 @@ How do I make a text widget display its complete contents in a specific font?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-If you use <a class="link" href="gtk3-GtkTextBuffer.html#gtk-text-buffer-insert-with-tags" title="gtk_text_buffer_insert_with_tags ()"><code class="function">gtk_text_buffer_insert_with_tags()</code></a> with appropriate tags to
+If you use gtk_text_buffer_insert_with_tags() with appropriate tags to
 select the font, the inserted text will have the desired appearance, but
 text typed in by the user before or after the tagged block will appear in
 the default style.
 </p>
 <p>
 To ensure that all text has the desired appearance, use
-<a class="link" href="gtk3-GtkWidget.html#gtk-widget-override-font" title="gtk_widget_override_font ()"><code class="function">gtk_widget_override_font()</code></a> to change the default font for the widget.
+gtk_widget_override_font() to change the default font for the widget.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165546"></a><a name="id3165549"></a><p><b>4.3.</b></p>
+<a name="id2977314"></a><a name="id2977316"></a><p><b>4.3.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I make a text view scroll to the end of the buffer automatically ?
@@ -869,7 +869,7 @@ at the end.
 </p>
 <p>
 To ensure that the end of the buffer remains visible, use
-<a class="link" href="gtk3-GtkTextView.html#gtk-text-view-scroll-to-mark" title="gtk_text_view_scroll_to_mark ()"><code class="function">gtk_text_view_scroll_to_mark()</code></a> to scroll to the mark after
+gtk_text_view_scroll_to_mark() to scroll to the mark after
 inserting new text.
 </p>
 <p>
@@ -878,11 +878,10 @@ The gtk-demo application contains an example of this technique.
 </td>
 </tr>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3165601"></a>5. <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a>
-</h5></td></tr>
+<a name="id2977358"></a>5. #GtkTreeView</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165610"></a><a name="id3165612"></a><p><b>5.1.</b></p>
+<a name="id2977363"></a><a name="id2977366"></a><p><b>5.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I associate some data with a row in the tree?
@@ -891,15 +890,15 @@ How do I associate some data with a row in the tree?
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-Remember that the <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> columns don't necessarily have to be
+Remember that the #GtkTreeModel columns don't necessarily have to be
 displayed. So you can put non-user-visible data in your model just
-like any other data, and retrieve it with <a class="link" href="gtk3-GtkTreeModel.html#gtk-tree-model-get" title="gtk_tree_model_get ()"><code class="function">gtk_tree_model_get()</code></a>.
+like any other data, and retrieve it with gtk_tree_model_get().
 See the <a class="link" href="TreeWidget.html" title="Tree and List Widget Overview">tree widget overview</a>.
 </p></td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165651"></a><a name="id3165654"></a><p><b>5.2.</b></p>
+<a name="id2977389"></a><a name="id2977392"></a><p><b>5.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I put an image and some text in the same column?
@@ -908,45 +907,45 @@ How do I put an image and some text in the same column?
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-You can pack more than one <a class="link" href="gtk3-GtkCellRenderer.html#GtkCellRenderer" title="struct GtkCellRenderer"><span class="type">GtkCellRenderer</span></a> into a single <a class="link" href="gtk3-GtkTreeViewColumn.html#GtkTreeViewColumn" title="struct GtkTreeViewColumn"><span class="type">GtkTreeViewColumn</span></a>
-using <a class="link" href="gtk3-GtkTreeViewColumn.html#gtk-tree-view-column-pack-start" title="gtk_tree_view_column_pack_start ()"><code class="function">gtk_tree_view_column_pack_start()</code></a> or <a class="link" href="gtk3-GtkTreeViewColumn.html#gtk-tree-view-column-pack-end" title="gtk_tree_view_column_pack_end ()"><code class="function">gtk_tree_view_column_pack_end()</code></a>.
-So pack both a <a class="link" href="gtk3-GtkCellRendererPixbuf.html#GtkCellRendererPixbuf" title="struct GtkCellRendererPixbuf"><span class="type">GtkCellRendererPixbuf</span></a> and a <a class="link" href="gtk3-GtkCellRendererText.html#GtkCellRendererText" title="struct GtkCellRendererText"><span class="type">GtkCellRendererText</span></a> into the
+You can pack more than one #GtkCellRenderer into a single #GtkTreeViewColumn
+using gtk_tree_view_column_pack_start() or gtk_tree_view_column_pack_end().
+So pack both a #GtkCellRendererPixbuf and a #GtkCellRendererText into the
 column.
 </p></td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165718"></a><a name="id3165720"></a><p><b>5.3.</b></p>
+<a name="id2977410"></a><a name="id2977412"></a><p><b>5.3.</b></p>
 </td>
 <td align="left" valign="top"><p>
-I can set data easily on my <a class="link" href="gtk3-GtkTreeStore.html#GtkTreeStore" title="struct GtkTreeStore"><span class="type">GtkTreeStore</span></a>/<a class="link" href="gtk3-GtkListStore.html#GtkListStore" title="struct GtkListStore"><span class="type">GtkListStore</span></a> models using
-<a class="link" href="gtk3-GtkListStore.html#gtk-list-store-set" title="gtk_list_store_set ()"><code class="function">gtk_list_store_set()</code></a> and <a class="link" href="gtk3-GtkTreeStore.html#gtk-tree-store-set" title="gtk_tree_store_set ()"><code class="function">gtk_tree_store_set()</code></a>, but can't read it back?
+I can set data easily on my #GtkTreeStore/#GtkListStore models using
+gtk_list_store_set() and gtk_tree_store_set(), but can't read it back?
 </p></td>
 </tr>
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
-Both the <a class="link" href="gtk3-GtkTreeStore.html#GtkTreeStore" title="struct GtkTreeStore"><span class="type">GtkTreeStore</span></a> and the <a class="link" href="gtk3-GtkListStore.html#GtkListStore" title="struct GtkListStore"><span class="type">GtkListStore</span></a> implement the <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a>
+Both the #GtkTreeStore and the #GtkListStore implement the #GtkTreeModel
 interface. Consequentially, you can use any function this interface
 implements. The easiest way to read a set of data back is to use
-<a class="link" href="gtk3-GtkTreeModel.html#gtk-tree-model-get" title="gtk_tree_model_get ()"><code class="function">gtk_tree_model_get()</code></a>.
+gtk_tree_model_get().
 </p></td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165800"></a><a name="id3165803"></a><p><b>5.4.</b></p>
+<a name="id2977432"></a><a name="id2977434"></a><p><b>5.4.</b></p>
 </td>
 <td align="left" valign="top"><p>
-How do I change the way that numbers are formatted by <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a>?
+How do I change the way that numbers are formatted by #GtkTreeView?
 </p></td>
 </tr>
 <tr class="answer">
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-Use <a class="link" href="gtk3-GtkTreeView.html#gtk-tree-view-insert-column-with-data-func" title="gtk_tree_view_insert_column_with_data_func ()"><code class="function">gtk_tree_view_insert_column_with_data_func()</code></a>
-or <a class="link" href="gtk3-GtkTreeViewColumn.html#gtk-tree-view-column-set-cell-data-func" title="gtk_tree_view_column_set_cell_data_func ()"><code class="function">gtk_tree_view_column_set_cell_data_func()</code></a> and do the conversion
-from number to string yourself (with, say, <a href="../glib/glib-String-Utility-Functions.html#g-strdup-printf"><code class="function">g_strdup_printf()</code></a>).
+Use gtk_tree_view_insert_column_with_data_func()
+or gtk_tree_view_column_set_cell_data_func() and do the conversion
+from number to string yourself (with, say, g_strdup_printf()).
 </p>
 <p>
 The following example demonstrates this:
@@ -1023,7 +1022,7 @@ set_up_new_columns (GtkTreeView *myview)
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165908"></a><a name="id3165911"></a><p><b>5.5.</b></p>
+<a name="id2977496"></a><a name="id2977498"></a><p><b>5.5.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I hide the expander arrows in my tree view ?
@@ -1033,14 +1032,14 @@ How do I hide the expander arrows in my tree view ?
 <td align="left" valign="top"></td>
 <td align="left" valign="top"><p>
 Set the expander-column property of the tree view to a hidden column.
-See <a class="link" href="gtk3-GtkTreeView.html#gtk-tree-view-set-expander-column" title="gtk_tree_view_set_expander_column ()"><code class="function">gtk_tree_view_set_expander_column()</code></a> and <a class="link" href="gtk3-GtkTreeViewColumn.html#gtk-tree-view-column-set-visible" title="gtk_tree_view_column_set_visible ()"><code class="function">gtk_tree_view_column_set_visible()</code></a>.
+See gtk_tree_view_set_expander_column() and gtk_tree_view_column_set_visible().
 </p></td>
 </tr>
 <tr class="qandadiv"><td align="left" valign="top" colspan="2"><h5 class="title">
-<a name="id3165945"></a>6. Using cairo with GTK+</h5></td></tr>
+<a name="id2977514"></a>6. Using cairo with GTK+</h5></td></tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165950"></a><a name="id3165952"></a><p><b>6.1.</b></p>
+<a name="id2977518"></a><a name="id2977521"></a><p><b>6.1.</b></p>
 </td>
 <td align="left" valign="top"><p>
 How do I use cairo to draw in GTK+ applications ?
@@ -1050,21 +1049,21 @@ How do I use cairo to draw in GTK+ applications ?
 <td align="left" valign="top"></td>
 <td align="left" valign="top">
 <p>
-The <span class="type">"draw"</span> signal gets a ready-to-use cairo context
+The #GtkWidget::draw signal gets a ready-to-use cairo context
 as parameter that you should use.
 </p>
 <p>
 All drawing in GTK+ is normally done in a draw handler, and GTK+
 creates a temporary pixmap for double-buffering the drawing.
 It is possible to turn off double-buffering, with
-<a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-double-buffered" title="gtk_widget_set_double_buffered ()"><code class="function">gtk_widget_set_double_buffered()</code></a>, but this is not ideal,
+gtk_widget_set_double_buffered(), but this is not ideal,
 since it can cause some flickering.
 </p>
 </td>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3165991"></a><a name="id3165993"></a><p><b>6.2.</b></p>
+<a name="id2977543"></a><a name="id2977546"></a><p><b>6.2.</b></p>
 </td>
 <td align="left" valign="top"><p>
 Can I improve the performance of my application by using the
@@ -1084,10 +1083,10 @@ Render extension).
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="id3166011"></a><a name="id3166014"></a><p><b>6.3.</b></p>
+<a name="id2977564"></a><a name="id2977566"></a><p><b>6.3.</b></p>
 </td>
 <td align="left" valign="top"><p>
-Can I use cairo to draw on a <a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> ?
+Can I use cairo to draw on a #GdkPixbuf ?
 </p></td>
 </tr>
 <tr class="answer">
@@ -1103,10 +1102,10 @@ pixel format used by GdkPixbuf.
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3164675" href="#id3164675" class="para">1</a>] </sup> If the file load fails,
-<a class="link" href="gtk3-GtkImage.html#gtk-image-new-from-file" title="gtk_image_new_from_file ()"><code class="function">gtk_image_new_from_file()</code></a> will display no image graphic — to detect
-a failed load yourself, use <a href="../gdk-pixbuf/gdk-pixbuf-File-Loading.html#gdk-pixbuf-new-from-file"><code class="function">gdk_pixbuf_new_from_file()</code></a> directly, then
-<a class="link" href="gtk3-GtkImage.html#gtk-image-new-from-pixbuf" title="gtk_image_new_from_pixbuf ()"><code class="function">gtk_image_new_from_pixbuf()</code></a>.</p></div>
+<div class="footnote"><p><sup>[<a id="ftn.id2895882" href="#id2895882" class="para">1</a>] </sup> If the file load fails,
+gtk_image_new_from_file() will display no image graphic — to detect
+a failed load yourself, use gdk_pixbuf_new_from_file() directly, then
+gtk_image_new_from_pixbuf().</p></div>
 </div>
 </div>
 <div class="footer">

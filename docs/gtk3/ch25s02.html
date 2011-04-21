@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Changes that need to be done at the time of the switch</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="prev" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="next" href="gtk-migrating-GtkApplication.html" title="Migrating from libunique to GApplication or GtkApplication">
@@ -16,12 +16,12 @@
 <td><a accesskey="p" href="gtk-migrating-2-to-3.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk-migrating-2-to-3.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="gtk-migrating-GtkApplication.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id3827836"></a>Changes that need to be done at the time of the switch</h3></div></div></div>
+<a name="id3676964"></a>Changes that need to be done at the time of the switch</h3></div></div></div>
 <p>
     This section outlines porting tasks that you need to tackle when
     you get to the point that you actually build your application against
@@ -30,7 +30,7 @@
   </p>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3946540"></a>Replace size_request by get_preferred_width/height</h4></div></div></div>
+<a name="id3774221"></a>Replace size_request by get_preferred_width/height</h4></div></div></div>
 <p>
       The request-phase of the traditional GTK+ geometry management
       has been replaced by a more flexible height-for-width system,
@@ -240,7 +240,7 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3957727"></a>Replace GdkRegion by cairo_region_t</h4></div></div></div>
+<a name="id3760543"></a>Replace GdkRegion by cairo_region_t</h4></div></div></div>
 <p>
       Starting with version 1.10, cairo provides a region API that is
       equivalent to the GDK region API (which was itself copied from
@@ -251,7 +251,7 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
       find-and-replace task. Please refer to the following table:
       </p>
 <div class="table">
-<a name="id3841436"></a><p class="title"><b>Table 1. </b></p>
+<a name="id3760561"></a><p class="title"><b>Table 1. </b></p>
 <div class="table-contents"><table border="1">
 <colgroup>
 <col>
@@ -361,14 +361,14 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3957439"></a>Replace GdkPixmap by cairo surfaces</h4></div></div></div>
+<a name="id3771837"></a>Replace GdkPixmap by cairo surfaces</h4></div></div></div>
 <p>
       The <span class="type">GdkPixmap</span> object and related functions have been removed.
       In the cairo-centric world of GTK+ 3, cairo surfaces take over
       the role of pixmaps.
     </p>
 <div class="example">
-<a name="id3957481"></a><p class="title"><b>Example 95. Creating custom cursors</b></p>
+<a name="id3771857"></a><p class="title"><b>Example 95. Creating custom cursors</b></p>
 <div class="example-contents">
 <p>
         One place where pixmaps were commonly used is to create custom
@@ -425,7 +425,7 @@ g_object_unref (pixbuf);
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3989449"></a>Replace GdkColormap by GdkVisual</h4></div></div></div>
+<a name="id3771902"></a>Replace GdkColormap by GdkVisual</h4></div></div></div>
 <p>
       For drawing with cairo, it is not necessary to allocate colors, and
       a <a href="../gdk3/gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> provides enough information for cairo to handle colors
@@ -435,7 +435,7 @@ g_object_unref (pixbuf);
       etc) have been removed and <a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-visual" title="gtk_widget_set_visual ()"><code class="function">gtk_widget_set_visual()</code></a> has been added.
     </p>
 <div class="example">
-<a name="id4005420"></a><p class="title"><b>Example 96. Setting up a translucent window</b></p>
+<a name="id3771958"></a><p class="title"><b>Example 96. Setting up a translucent window</b></p>
 <div class="example-contents">
 <p>You might have a screen-changed handler like the following
      to set up a translucent window with an alpha-channel:
@@ -479,7 +479,7 @@ on_alpha_screen_changed (GtkWindow *window,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3975340"></a>GdkDrawable is gone</h4></div></div></div>
+<a name="id3772006"></a>GdkDrawable is gone</h4></div></div></div>
 <p>
       <span class="type">GdkDrawable</span> has been removed in GTK+ 3, together with <span class="type">GdkPixmap</span>
       and <span class="type">GdkImage</span>. The only remaining drawable class is <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>.
@@ -491,7 +491,7 @@ on_alpha_screen_changed (GtkWindow *window,
       by corresponding GdkWindow functions:
       </p>
 <div class="table">
-<a name="id4008844"></a><p class="title"><b>Table 2. GdkDrawable to GdkWindow</b></p>
+<a name="id3772063"></a><p class="title"><b>Table 2. GdkDrawable to GdkWindow</b></p>
 <div class="table-contents"><table summary="GdkDrawable to GdkWindow" border="1">
 <colgroup>
 <col>
@@ -533,7 +533,7 @@ on_alpha_screen_changed (GtkWindow *window,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3988157"></a>Event filtering</h4></div></div></div>
+<a name="id3772218"></a>Event filtering</h4></div></div></div>
 <p>
       If your application uses the low-level event filtering facilities in GDK,
       there are some changes you need to be aware of.
@@ -594,14 +594,14 @@ gdk_window_add_filter (NULL, message_filter, NULL);
       means that your application does not receive core X11 key or button
       events. Instead, all input events are delivered as XIDeviceEvents.
       As a short-term workaround for this, you can force your application
-      to not use XI2, with <a href="../gdk3/GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
+      to not use XI2, with <a href="../gdk3/gdk3-GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
       you probably want to rewrite your event filter to deal with
       XIDeviceEvents.
     </p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3990130"></a>Backend-specific code</h4></div></div></div>
+<a name="id3772333"></a>Backend-specific code</h4></div></div></div>
 <p>
       In GTK+ 2.x, GDK could only be compiled for one backend at a time,
       and the <a href="../gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> or <a href="../gdk3/gdk3-General.html#GDK-WINDOWING-WIN32:CAPS"><code class="literal">GDK_WINDOWING_WIN32</code></a> macros could
@@ -619,7 +619,7 @@ gdk_window_add_filter (NULL, message_filter, NULL);
 <p>
       In GTK+ 3, GDK can be built with multiple backends, and currently
       used backend has to be determined at runtime, typically using
-      type-check macros on a <a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> or <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. You still need
+      type-check macros on a <a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> or <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. You still need
       to use the <span class="type">GDK_WINDOWING</span> macros to only compile code referring
       to supported backends:
       </p>
@@ -665,7 +665,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3989932"></a>GtkPlug and GtkSocket</h4></div></div></div>
+<a name="id3772449"></a>GtkPlug and GtkSocket</h4></div></div></div>
 <p>
       The <a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> and <a class="link" href="gtk3-GtkSocket.html#GtkSocket" title="struct GtkSocket"><span class="type">GtkSocket</span></a> widgets are now X11-specific, and you
       have to include the <code class="filename">&lt;gtk/gtkx.h&gt;</code> header
@@ -675,7 +675,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id4000694"></a>The GtkWidget::draw signal</h4></div></div></div>
+<a name="id3772484"></a>The GtkWidget::draw signal</h4></div></div></div>
 <p>
       The GtkWidget <span class="type">"expose-event"</span> signal has been replaced by
       a new <span class="type">"draw"</span> signal, which takes a <a href="../cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> instead of
@@ -746,7 +746,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
       passed in for this.
     </p>
 <div class="example">
-<a name="id3957575"></a><p class="title"><b>Example 97. A simple ::draw function</b></p>
+<a name="id3772665"></a><p class="title"><b>Example 97. A simple ::draw function</b></p>
 <div class="example-contents"><pre class="programlisting">
 gboolean
 gtk_arrow_draw (GtkWidget *widget,
@@ -774,7 +774,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id4007908"></a>GtkProgressBar orientation</h4></div></div></div>
+<a name="id3772686"></a>GtkProgressBar orientation</h4></div></div></div>
 <p>
       In GTK+ 2.x, <a class="link" href="gtk3-GtkProgressBar.html#GtkProgressBar" title="struct GtkProgressBar"><span class="type">GtkProgressBar</span></a> and <a class="link" href="gtk3-GtkCellRendererProgress.html#GtkCellRendererProgress" title="struct GtkCellRendererProgress"><span class="type">GtkCellRendererProgress</span></a> were using the
       GtkProgressBarOrientation enumeration to specify their orientation and
@@ -786,7 +786,7 @@ gtk_arrow_draw (GtkWidget *widget,
       The following values correspond:
       </p>
 <div class="table">
-<a name="id4003683"></a><p class="title"><b>Table 3. </b></p>
+<a name="id3772755"></a><p class="title"><b>Table 3. </b></p>
 <div class="table-contents"><table border="1">
 <colgroup>
 <col class="1">
@@ -833,7 +833,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3975070"></a>Check your expand and fill flags</h4></div></div></div>
+<a name="id3772847"></a>Check your expand and fill flags</h4></div></div></div>
 <p>
       The behaviour of expanding widgets has changed slightly in GTK+ 3,
       compared to GTK+ 2.x. It is now 'inherited', i.e. a container that
@@ -851,7 +851,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3998151"></a>Scrolling changes</h4></div></div></div>
+<a name="id3772905"></a>Scrolling changes</h4></div></div></div>
 <p>
       The default values for the <span class="type">"hscrollbar-policy"</span> and
       <span class="type">"vscrollbar-policy"</span> properties have been changed from
@@ -868,7 +868,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3957855"></a>GtkObject is gone</h4></div></div></div>
+<a name="id3772970"></a>GtkObject is gone</h4></div></div></div>
 <p>
       GtkObject has been removed in GTK+ 3. Its remaining functionality,
       the ::destroy signal, has been moved to GtkWidget. If you have non-widget
@@ -899,7 +899,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id4000874"></a>GtkEntryCompletion signal parameters</h4></div></div></div>
+<a name="id3773026"></a>GtkEntryCompletion signal parameters</h4></div></div></div>
 <p>
       The <span class="type">"match-selected"</span> and
       <span class="type">"cursor-on-match"</span> signals were erroneously
@@ -910,7 +910,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3967143"></a>Resize grips</h4></div></div></div>
+<a name="id3773056"></a>Resize grips</h4></div></div></div>
 <p>
      The resize grip functionality has been moved from <a class="link" href="gtk3-GtkStatusbar.html#GtkStatusbar" title="struct GtkStatusbar"><span class="type">GtkStatusbar</span></a>
      to <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>. Any window can now have resize grips, regardless whether
@@ -922,7 +922,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3959259"></a>Prevent mixed linkage</h4></div></div></div>
+<a name="id3773129"></a>Prevent mixed linkage</h4></div></div></div>
 <p>
       Linking against GTK+ 2.x and GTK+ 3 in the same process is problematic
       and can lead to hard-to-diagnose crashes. The <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> function in
@@ -946,7 +946,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3993187"></a>Install GTK+ modules in the right place</h4></div></div></div>
+<a name="id3773173"></a>Install GTK+ modules in the right place</h4></div></div></div>
 <p>
     Some software packages install loadable GTK+ modules such as theme engines,
     gdk-pixbuf loaders or input methods. Since GTK+ 3 is parallel-installable
@@ -976,660 +976,7 @@ gtk_arrow_draw (GtkWidget *widget,
     unhappiness and must be avoided.
   </p>
 </div>
-<div class="section">
-<div class="titlepage"><div><div><h4 class="title">
-<a name="gtk-migrating-GtkStyleContext"></a>Theming changes</h4></div></div></div>
-<p>
-    In GTK+ 3.0, <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> was added to replace <a class="link" href="gtk3-GtkStyle.html#GtkStyle" title="struct GtkStyle"><span class="type">GtkStyle</span></a> and
-    the theming infrastructure available in 2.x. GtkStyleContext is an
-    object similar in spirit to GtkStyle, as it contains theming information,
-    although in a more complete and tokenized fashion. There are two aspects
-    to switching to GtkStyleContext: porting themes and theme engines, and
-    porting applications, libraries and widgets.
-  </p>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-themes"></a>Migrating themes</h5></div></div></div>
-<p>
-      From GTK+ 3.0 on, theme engines must implement <a class="link" href="gtk3-GtkThemingEngine.html#GtkThemingEngine" title="struct GtkThemingEngine"><span class="type">GtkThemingEngine</span></a> and be
-      installed in <code class="filename">$libdir/gtk+-3.0/$GTK_VERSION/theming-engines</code>,
-      and the files containing style information must be written in the CSS-like
-      format that is understood by <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>. For a theme named
-      "Clearlooks", the CSS file parsed by default is
-      <code class="filename">$datadir/themes/Clearlooks/gtk-3.0/gtk.css</code>,
-      with possible variants such as the dark theme being named
-      <code class="filename">gtk-dark.css</code> in the same directory.
-    </p>
-<p>
-      If your theme RC file was providing values for <a class="link" href="gtk3-GtkSettings.html#GtkSettings" title="GtkSettings"><span class="type">GtkSettings</span></a>, you
-      can install a <code class="filename">settings.ini</code> keyfile along with
-      the <code class="filename">gtk.css</code> to provide theme-specific defaults
-      for settings.
-    </p>
-<p>
-      Key themes have been converted to CSS syntax too. See the
-      <a class="link" href="gtk3-GtkCssProvider.html#css-binding-set">GtkCssProvider</a> documentation
-      information about the syntax. GTK+ looks for key themes in the file
-      <code class="filename">$datadir/themes/<em class="replaceable"><code>theme</code></em>/gtk-3.0/gtk-keys.css</code>, where <em class="replaceable"><code>theme</code></em> is the current
-      key theme name.
-    </p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-theme-GtkStyleContext-engines"></a>Migrating theme engines</h5></div></div></div>
-<p>
-      Migrating a <a class="link" href="gtk3-GtkStyle.html#GtkStyle" title="struct GtkStyle"><span class="type">GtkStyle</span></a> based engine to a <a class="link" href="gtk3-GtkThemingEngine.html#GtkThemingEngine" title="struct GtkThemingEngine"><span class="type">GtkThemingEngine</span></a> based one
-      should be straightforward for most of the vfuncs. Besides a cleanup
-      in the available paint methods and a simplification in the passed
-      arguments (in favor of <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> containing all the information),
-      the available render methods resemble those of <a class="link" href="gtk3-GtkStyle.html#GtkStyle" title="struct GtkStyle"><span class="type">GtkStyle</span></a> quite
-      evidently. Notable differences include:
-    </p>
-<div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem">
-        All variations of <a class="link" href="gtk3-GtkStyle.html#gtk-paint-box" title="gtk_paint_box ()"><code class="function">gtk_paint_box()</code></a>, <a class="link" href="gtk3-GtkStyle.html#gtk-paint-flat-box" title="gtk_paint_flat_box ()"><code class="function">gtk_paint_flat_box()</code></a>,
-        <a class="link" href="gtk3-GtkStyle.html#gtk-paint-shadow" title="gtk_paint_shadow ()"><code class="function">gtk_paint_shadow()</code></a>, <a class="link" href="gtk3-GtkStyle.html#gtk-paint-box-gap" title="gtk_paint_box_gap ()"><code class="function">gtk_paint_box_gap()</code></a> and <a class="link" href="gtk3-GtkStyle.html#gtk-paint-shadow-gap" title="gtk_paint_shadow_gap ()"><code class="function">gtk_paint_shadow_gap()</code></a>
-        are replaced by <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a>, <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a> and
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-frame-gap" title="gtk_render_frame_gap ()"><code class="function">gtk_render_frame_gap()</code></a>. The first function renders frameless
-        backgrounds and the last two render frames in various forms.
-      </li>
-<li class="listitem">
-<a class="link" href="gtk3-GtkStyle.html#gtk-paint-resize-grip" title="gtk_paint_resize_grip ()"><code class="function">gtk_paint_resize_grip()</code></a> has been subsumed by <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-handle" title="gtk_render_handle ()"><code class="function">gtk_render_handle()</code></a>
-        with a <a class="link" href="gtk3-GtkStyleContext.html#GTK-STYLE-CLASS-GRIP:CAPS" title="GTK_STYLE_CLASS_GRIP"><span class="type">GTK_STYLE_CLASS_GRIP</span></a> class set in the style context.
-      </li>
-<li class="listitem">
-<a class="link" href="gtk3-GtkStyle.html#gtk-paint-spinner" title="gtk_paint_spinner ()"><code class="function">gtk_paint_spinner()</code></a> disappears in favor of <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-activity" title="gtk_render_activity ()"><code class="function">gtk_render_activity()</code></a>
-        with a <a class="link" href="gtk3-GtkStyleContext.html#GTK-STYLE-CLASS-SPINNER:CAPS" title="GTK_STYLE_CLASS_SPINNER"><span class="type">GTK_STYLE_CLASS_SPINNER</span></a> class set in the style context.
-      </li>
-</ol></div>
-<p>
-      The list of available render methods is:
-    </p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-background" title="gtk_render_background ()"><code class="function">gtk_render_background()</code></a>: Renders a widget/area background.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-frame" title="gtk_render_frame ()"><code class="function">gtk_render_frame()</code></a>: Renders a frame border around the given rectangle.
-        Usually the detail of the border depends on the theme information,
-        plus the current widget state.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-frame-gap" title="gtk_render_frame_gap ()"><code class="function">gtk_render_frame_gap()</code></a>: Renders a frame border with a gap on one side.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-layout" title="gtk_render_layout ()"><code class="function">gtk_render_layout()</code></a>: Renders a <a href="../pango/pango-Layout-Objects.html#PangoLayout"><span class="type">PangoLayout</span></a>.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-handle" title="gtk_render_handle ()"><code class="function">gtk_render_handle()</code></a>: Renders all kind of handles and resize grips,
-        depending on the style class.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-check" title="gtk_render_check ()"><code class="function">gtk_render_check()</code></a>: Render checkboxes.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-option" title="gtk_render_option ()"><code class="function">gtk_render_option()</code></a>: Render radiobuttons.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-arrow" title="gtk_render_arrow ()"><code class="function">gtk_render_arrow()</code></a>: Renders an arrow pointing to a direction.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-expander" title="gtk_render_expander ()"><code class="function">gtk_render_expander()</code></a>: Renders an expander indicator, such as in
-        <a class="link" href="gtk3-GtkExpander.html#GtkExpander" title="struct GtkExpander"><span class="type">GtkExpander</span></a>.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-focus" title="gtk_render_focus ()"><code class="function">gtk_render_focus()</code></a>: Renders the indication that a widget has the
-        keyboard focus.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-line" title="gtk_render_line ()"><code class="function">gtk_render_line()</code></a>: Renders a line from one coordinate to another.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-slider" title="gtk_render_slider ()"><code class="function">gtk_render_slider()</code></a>: Renders a slider, such as in <a class="link" href="gtk3-GtkScale.html#GtkScale" title="struct GtkScale"><span class="type">GtkScale</span></a>.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-extension" title="gtk_render_extension ()"><code class="function">gtk_render_extension()</code></a>: Renders an extension that protrudes from
-        a UI element, such as a notebook tab.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-activity" title="gtk_render_activity ()"><code class="function">gtk_render_activity()</code></a>: Renders an area displaying activity, be it
-        a progressbar or a spinner.
-      </td></tr>
-<tr><td>
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-icon-pixbuf" title="gtk_render_icon_pixbuf ()"><code class="function">gtk_render_icon_pixbuf()</code></a>: Renders an icon into a <a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>.
-      </td></tr>
-</table>
-<p>
-      One of the main differences to <span class="type">GtkStyle-based</span> engines is that the
-      rendered widget is totally isolated from the theme engine, all style
-      information is meant to be retrieved from the <a class="link" href="gtk3-GtkThemingEngine.html#GtkThemingEngine" title="struct GtkThemingEngine"><span class="type">GtkThemingEngine</span></a> API,
-      or from the <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a> obtained from <a class="link" href="gtk3-GtkThemingEngine.html#gtk-theming-engine-get-path" title="gtk_theming_engine_get_path ()"><code class="function">gtk_theming_engine_get_path()</code></a>,
-      which fully represents the rendered widget's hierarchy from a styling
-      point of view.
-    </p>
-<p>
-      The detail string available in <span class="type">GtkStyle-based</span> engines has been
-      replaced by widget regions and style classes. Regions are a way for
-      complex widgets to associate different styles with different areas,
-      such as even and odd rows in a treeview. Style classes allow sharing
-      of style information between widgets, regardless of their type.
-      Regions and style classes can be used in style sheets to associate
-      styles, and them engines can also access them. There are several
-      predefined classes and regions such as <a class="link" href="gtk3-GtkStyleContext.html#GTK-STYLE-CLASS-BUTTON:CAPS" title="GTK_STYLE_CLASS_BUTTON"><code class="literal">GTK_STYLE_CLASS_BUTTON</code></a> or
-      <a class="link" href="gtk3-GtkStyleContext.html#GTK-STYLE-REGION-TAB:CAPS" title="GTK_STYLE_REGION_TAB"><code class="literal">GTK_STYLE_REGION_TAB</code></a> in <code class="filename">gtkstylecontext.h</code>,
-      although custom widgets may define their own, which themes may
-      attempt to handle.
-    </p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-parser-extensions"></a>Extending the CSS parser</h5></div></div></div>
-<p>
-      In <span class="type">GtkStyle-based</span> engines, <span class="type">GtkRCStyle</span> provided ways to extend the
-      gtkrc parser with engine-specific extensions. This has been replaced
-      by <a class="link" href="gtk3-GtkThemingEngine.html#gtk-theming-engine-register-property" title="gtk_theming_engine_register_property ()"><code class="function">gtk_theming_engine_register_property()</code></a>, which lets a theme engine
-      register new properties with an arbitrary type. While there is built-in
-      support for most basic types, it is possible to use a custom parser
-      for the property.
-    </p>
-<p>
-      The installed properties depend on the <span class="type">"name"</span> property,
-      so they should be added in the <code class="literal"><code class="function">constructed()</code></code> vfunc.
-      For example, if an engine with the name "Clearlooks" installs a
-      "focus-color" property with the type <a href="../gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a>, the property
-      <code class="literal">-Clearlooks-focus-color</code> will be registered and
-      accepted in CSS like this:
-      </p>
-<div class="informalexample"><pre class="programlisting">
-      GtkEntry {
-        -Clearlooks-focus-color: rgba(255, 0, 0, 1.0);
-      }
-      </pre></div>
-<p>
-    </p>
-<p>
-      Widget style properties also follow a similar syntax, with the widget
-      type name used as a prefix. For example, the <span class="type">"focus-line-width"</span>
-      style property can be modified in CSS as
-      <code class="literal">-GtkWidget-focus-line-width</code>.
-    </p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-css"></a>Using the CSS file format</h5></div></div></div>
-<p>
-      The syntax of RC and CSS files formats is obviously different.
-      The CSS-like syntax will hopefully be much more familiar to many
-      people, lowering the barrier for custom theming.
-    </p>
-<p>
-      Instead of going through the syntax differences one-by-one, we
-      will present a more or less comprehensive example and discuss
-      how it can be translated into CSS:
-    </p>
-<div class="example">
-<a name="id4007978"></a><p class="title"><b>Example 98. Sample RC code</b></p>
-<div class="example-contents"><pre class="programlisting">
-        style "default" {
-                xthickness = 1
-                ythickness = 1
-
-                GtkButton::child-displacement-x = 1
-                GtkButton::child-displacement-y = 1
-                GtkCheckButton::indicator-size = 14
-
-                bg[NORMAL]        = @bg_color
-                bg[PRELIGHT]      = shade (1.02, @bg_color)
-                bg[SELECTED]      = @selected_bg_color
-                bg[INSENSITIVE]   = @bg_color
-                bg[ACTIVE]        = shade (0.9, @bg_color)
-
-                fg[NORMAL]        = @fg_color
-                fg[PRELIGHT]      = @fg_color
-                fg[SELECTED]      = @selected_fg_color
-                fg[INSENSITIVE]   = darker (@bg_color)
-                fg[ACTIVE]        = @fg_color
-
-                text[NORMAL]      = @text_color
-                text[PRELIGHT]    = @text_color
-                text[SELECTED]    = @selected_fg_color
-                text[INSENSITIVE] = darker (@bg_color)
-                text[ACTIVE]      = @selected_fg_color
-
-                base[NORMAL]      = @base_color
-                base[PRELIGHT]    = shade (0.95, @bg_color)
-                base[SELECTED]    = @selected_bg_color
-                base[INSENSITIVE] = @bg_color
-                base[ACTIVE]      = shade (0.9, @selected_bg_color)
-
-                engine "clearlooks" {
-                        colorize_scrollbar = TRUE
-                        style = CLASSIC
-                }
-        }
-
-        style "tooltips" {
-                xthickness = 4
-                ythickness = 4
-
-                bg[NORMAL]        = @tooltip_bg_color
-                fg[NORMAL]        = @tooltip_fg_color
-        }
-
-        style "button" {
-                xthickness = 3
-                ythickness = 3
-
-                bg[NORMAL]        = shade (1.04, @bg_color)
-                bg[PRELIGHT]      = shade (1.06, @bg_color)
-                bg[ACTIVE]        = shade (0.85, @bg_color)
-        }
-
-        style "entry" {
-                xthickness = 3
-                ythickness = 3
-
-                bg[SELECTED] = mix (0.4, @selected_bg_color, @base_color)
-                fg[SELECTED] = @text_color
-
-                engine "clearlooks" {
-                        focus_color = shade (0.65, @selected_bg_color)
-                }
-        }
-
-        style "other" {
-                bg[NORMAL] = #fff;
-        }
-
-        class "GtkWidget" style "default"
-        class "GtkEntry" style "entry"
-        widget_class "*&lt;GtkButton&gt;" style "button"
-        widget "gtk-tooltip*" style "tooltips"
-        widget_class "window-name.*.GtkButton" style "other"
-      </pre></div>
-</div>
-<br class="example-break"><p>
-      would roughly translate to this CSS:
-    </p>
-<div class="example">
-<a name="id3969488"></a><p class="title"><b>Example 99. CSS translation</b></p>
-<div class="example-contents"><pre class="programlisting">
-        * {
-          padding: 1;
-          -GtkButton-child-displacement-x: 1;
-          -GtkButton-child-displacement-y: 1;
-          -GtkCheckButton-indicator-size: 14;
-
-          background-color: @bg_color;
-          color: @fg_color;
-
-          -Clearlooks-colorize-scrollbar: true;
-          -Clearlooks-style: classic;
-        }
-
-        *:hover {
-          background-color: shade (@bg_color, 1.02);
-        }
-
-        *:selected {
-          background-color: @selected_bg_color;
-          color: @selected_fg_color;
-        }
-
-        *:insensitive {
-          color: shade (@bg_color, 0.7);
-        }
-
-        *:active {
-          background-color: shade (@bg_color, 0.9);
-        }
-
-        .tooltip {
-          padding: 4;
-
-          background-color: @tooltip_bg_color;
-          color: @tooltip_fg_color;
-        }
-
-        .button {
-          padding: 3;
-          background-color: shade (@bg_color, 1.04);
-        }
-
-        .button:hover {
-          background-color: shade (@bg_color, 1.06);
-        }
-
-        .button:active {
-          background-color: shade (@bg_color, 0.85);
-        }
-
-        .entry {
-          padding: 3;
-
-          background-color: @base_color;
-          color: @text_color;
-        }
-
-        .entry:selected {
-          background-color: mix (@selected_bg_color, @base_color, 0.4);
-          -Clearlooks-focus-color: shade (0.65, @selected_bg_color)
-        }
-
-        /* The latter selector is an specification of the first,
-           since any widget may use the same classes or names */
-        #window-name .button,
-        GtkWindow#window-name GtkButton.button {
-          background-color: #fff;
-        }
-      </pre></div>
-</div>
-<br class="example-break"><p>
-      One notable difference is the reduction from fg/bg/text/base colors
-      to only foreground/background, in exchange the widget is able to render
-      its various elements with different CSS classes, which can be themed
-      independently.
-    </p>
-<p>
-      In the same vein, the light, dark and mid color variants that
-      were available in GtkStyle should be replaced by a combination of
-      symbolic colors and custom CSS, where necessary. text_aa should
-      really not be used anywhere, anyway, and the white and black colors
-      that were available in GtkStyle can just be replaced by literal
-      GdkRGBA structs.
-    </p>
-<p>
-      Access to colors has also changed a bit. With <a class="link" href="gtk3-GtkStyle.html#GtkStyle" title="struct GtkStyle"><span class="type">GtkStyle</span></a>, the common
-      way to access colors is:
-      </p>
-<div class="informalexample"><pre class="programlisting">
-      GdkColor *color1;
-      GdkColor color2;
-
-      color1 = &amp;style-&gt;bg[GTK_STATE_PRELIGHT];
-      gtk_style_lookup_color (style, "focus_color", &amp;color2);
-      </pre></div>
-<p>
-      With <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a>, you generally use <a href="../gdk3/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> instead of <a href="../gdk3/gdk3-Colors.html#GdkColor"><span class="type">GdkColor</span></a>
-      and the code looks like this:
-      </p>
-<div class="informalexample"><pre class="programlisting">
-      GdkRGBA *color1;
-      GdkRGBA  color2;
-
-      gtk_style_context_get (context, GTK_STATE_FLAG_PRELIGHT,
-                             "background-color", &amp;color1,
-                             NULL);
-      gtk_style_context_lookup_color (context, "focus_color", &amp;color2);
-
-      ...
-
-      gdk_rgba_free (color1);
-      </pre></div>
-<p>
-      Note that the memory handling here is different: <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-get" title="gtk_style_context_get ()"><code class="function">gtk_style_context_get()</code></a>
-      expects the address of a GdkRGBA* and returns a newly allocated struct,
-      <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-lookup-color" title="gtk_style_context_lookup_color ()"><code class="function">gtk_style_context_lookup_color()</code></a> expects the address of an existing
-      struct, and fills it.
-    </p>
-<p>
-      It is worth mentioning that the new file format does not support
-      custom keybindings nor stock icon mappings as the RC format did.
-    </p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-checklist"></a>A checklist for widgets</h5></div></div></div>
-<p>
-      When porting your widgets to use <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a>, this checklist
-      might be useful.
-    </p>
-<div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem">
-        Replace <span class="type">"style-set"</span> handlers with
-        <span class="type">"style-updated"</span> handlers.
-      </li>
-<li class="listitem">
-<p>
-          Try to identify the role of what you're rendering with any number
-          of classes. This will replace the detail string. There is a predefined
-          set of CSS classes which you can reuse where appropriate. Doing so
-          will give you theming 'for free', whereas custom classes will require
-          extra work in the theme. Note that complex widgets are likely to
-          need different styles when rendering different parts, and style
-          classes are one way to achieve this. This could result in code like
-          the following (simplified) examples:
-        </p>
-<div class="example">
-<a name="id3991698"></a><p class="title"><b>Example 100. Setting a permanent CSS class</b></p>
-<div class="example-contents"><pre class="programlisting">
-            static void
-            gtk_button_init (GtkButton *button)
-            {
-              GtkStyleContext *context;
-
-              ...
-
-              context = gtk_widget_get_style_context (GTK_WIDGET (button));
-
-              /* Set the "button" class */
-              gtk_style_context_add_class (context, GTK_STYLE_CLASS_BUTTON);
-            }
-          </pre></div>
-</div>
-<br class="example-break"><p>
-          Or
-        </p>
-<div class="example">
-<a name="id3969513"></a><p class="title"><b>Example 101. Using dynamic CSS classes for different elements</b></p>
-<div class="example-contents"><pre class="programlisting">
-            static gboolean
-            gtk_spin_button_draw (GtkSpinButton *spin,
-                                  cairo_t       *cr)
-            {
-              GtkStyleContext *context;
-
-              ...
-
-              context = gtk_widget_get_style_context (GTK_WIDGET (spin));
-
-              gtk_style_context_save (context);
-              gtk_style_context_add_class (context, GTK_STYLE_CLASS_ENTRY);
-
-              /* Call to entry draw impl with "entry" class */
-              parent_class-&gt;draw (spin, cr);
-
-              gtk_style_context_restore (context);
-              gtk_style_context_save (context);
-
-              /* Render up/down buttons with the "button" class */
-              gtk_style_context_add_class (context, GTK_STYLE_CLASS_BUTTON);
-              draw_up_button (spin, cr);
-              draw_down_button (spin, cr);
-
-              gtk_style_context_restore (context);
-
-              ...
-            }
-          </pre></div>
-</div>
-<br class="example-break"><p>
-          Note that <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> only provides fg/bg colors, so text/base
-          is done through distinctive theming of the different classes. For
-          example, an entry would usually be black on white while a button
-          would usually be black on light grey.
-        </p>
-</li>
-<li class="listitem">
-<p>
-          Replace all <code class="literal">gtk_paint_*()</code> calls with corresponding
-          <code class="literal">gtk_render_*()</code> calls.
-        </p>
-<p>
-          The most distinctive changes are the use of <a class="link" href="gtk3-Standard-Enumerations.html#GtkStateFlags" title="enum GtkStateFlags"><span class="type">GtkStateFlags</span></a> to
-          represent the widget state and the lack of <a class="link" href="gtk3-Standard-Enumerations.html#GtkShadowType" title="enum GtkShadowType"><span class="type">GtkShadowType</span></a>. Note
-          that widget state is now passed implicitly via the context, so
-          to render in a certain state, you have to temporarily set the
-          state on the context, as in the following example:
-        </p>
-<div class="example">
-<a name="id3993573"></a><p class="title"><b>Example 102. Rendering with a specific state</b></p>
-<div class="example-contents"><pre class="programlisting">
-            gtk_style_context_save (context);
-            gtk_style_context_set_state (context, GTK_STATE_FLAG_ACTIVE);
-            gtk_render_check (context, cr, x, y, width, height);
-            gtk_style_context_restore (context);
-          </pre></div>
-</div>
-<br class="example-break"><p>
-          For <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-check" title="gtk_render_check ()"><code class="function">gtk_render_check()</code></a> and <a class="link" href="gtk3-GtkStyleContext.html#gtk-render-option" title="gtk_render_option ()"><code class="function">gtk_render_option()</code></a>, the <em class="parameter"><code>shadow_type</code></em>
-          parameter is replaced by the <a class="link" href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-ACTIVE:CAPS"><span class="type">GTK_STATE_FLAG_ACTIVE</span></a> and
-          <a class="link" href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-INCONSISTENT:CAPS"><span class="type">GTK_STATE_FLAG_INCONSISTENT</span></a> state flags. For things such as
-          pressed/unpressed button states, <a class="link" href="gtk3-Standard-Enumerations.html#GTK-STATE-FLAG-ACTIVE:CAPS"><span class="type">GTK_STATE_FLAG_ACTIVE</span></a> is used,
-          and the CSS may style normal/active states differently to render
-          outset/inset borders, respectively.
-        </p>
-</li>
-<li class="listitem">
-        The various <code class="literal">gtk_widget_modify_*()</code> functions to
-        override colors or fonts for individual widgets have been replaced
-        by similar <code class="literal">gtk_widget_override_*()</code> functions.
-      </li>
-<li class="listitem">
-        It is no longer necessary to call <a class="link" href="gtk3-GtkWidget.html#gtk-widget-style-attach" title="gtk_widget_style_attach ()"><code class="function">gtk_widget_style_attach()</code></a>,
-        <a class="link" href="gtk3-GtkStyle.html#gtk-style-attach" title="gtk_style_attach ()"><code class="function">gtk_style_attach()</code></a>, <a class="link" href="gtk3-GtkStyle.html#gtk-style-detach" title="gtk_style_detach ()"><code class="function">gtk_style_detach()</code></a> or <a class="link" href="gtk3-GtkWidget.html#gtk-widget-ensure-style" title="gtk_widget_ensure_style ()"><code class="function">gtk_widget_ensure_style()</code></a>.
-      </li>
-<li class="listitem">
-        Replace all uses of xthickness/ythickness. <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> uses the
-        CSS box model, and there are border-width/padding/margin properties to
-        replace the different applications of X and Y thickness. Note that all
-        of this is merely a guideline. Widgets may choose to follow it or not.
-      </li>
-</ol></div>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-parsing"></a>Parsing of custom resources</h5></div></div></div>
-<p>
-      As a consequence of the RC format going away, calling <a class="link" href="gtk3-Resource-Files.html#gtk-rc-parse" title="gtk_rc_parse ()"><code class="function">gtk_rc_parse()</code></a> or
-      <a class="link" href="gtk3-Resource-Files.html#gtk-rc-parse-string" title="gtk_rc_parse_string ()"><code class="function">gtk_rc_parse_string()</code></a> won't have any effect on a widgets appearance.
-      The way to replace these calls is using a custom <a class="link" href="gtk3-GtkStyleProvider.html#GtkStyleProvider" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a>,
-      either for an individual widget through <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider" title="gtk_style_context_add_provider ()"><code class="function">gtk_style_context_add_provider()</code></a>
-      or for all widgets on a screen through <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-provider-for-screen" title="gtk_style_context_add_provider_for_screen ()"><code class="function">gtk_style_context_add_provider_for_screen()</code></a>.
-      Typically, the provider will be a <a class="link" href="gtk3-GtkCssProvider.html#GtkCssProvider" title="struct GtkCssProvider"><span class="type">GtkCssProvider</span></a>, which parse CSS
-      information from a file or from a string.
-    </p>
-<div class="example">
-<a name="id3991967"></a><p class="title"><b>Example 103. Using a custom GtkStyleProvider</b></p>
-<div class="example-contents"><pre class="programlisting">
-        GtkStyleContext *context;
-        GtkCssProvider *provider;
-
-        context = gtk_widget_get_style_context (widget);
-        provider = gtk_css_provider_new ();
-        gtk_css_provider_load_from_data (GTK_CSS_PROVIDER (provider),
-                                         ".frame1 {\n"
-                                         "   border-image: url('gradient1.png') 10 10 10 10 stretch;\n"
-                                         "}\n", -1, NULL);
-        gtk_style_context_add_provider (context,
-                                        GTK_STYLE_PROVIDER (provider),
-                                        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-        g_object_unref (provider);
-      </pre></div>
-</div>
-<br class="example-break"><p>
-      Notice that you can also get style information from custom resources
-      by implementing the <a class="link" href="gtk3-GtkStyleProvider.html#GtkStyleProvider" title="GtkStyleProvider"><span class="type">GtkStyleProvider</span></a> interface yourself. This is
-      an advanced feature that should be rarely used.
-    </p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h5 class="title">
-<a name="gtk-migrating-GtkStyleContext-bonus-points"></a>Bonus points</h5></div></div></div>
-<p>
-      There are some features in <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> that were not available in
-      <a class="link" href="gtk3-GtkStyle.html#GtkStyle" title="struct GtkStyle"><span class="type">GtkStyle</span></a>, or were made available over time for certain widgets through
-      extending the detail string in obscure ways. There is a lot more
-      information available when rendering UI elements, and it is accessible
-      in more uniform, less hacky ways. By going through this list you'll
-      ensure your widget is a good citizen in a fully themable user interface.
-    </p>
-<div class="orderedlist"><ol class="orderedlist" type="1">
-<li class="listitem">
-        If your widget renders a series of similar elements, such as tabs
-        in a <a class="link" href="gtk3-GtkNotebook.html#GtkNotebook" title="struct GtkNotebook"><span class="type">GtkNotebook</span></a> or rows/column in a <a class="link" href="gtk3-GtkTreeView.html#GtkTreeView" title="struct GtkTreeView"><span class="type">GtkTreeView</span></a>, consider adding
-        regions through <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-add-region" title="gtk_style_context_add_region ()"><code class="function">gtk_style_context_add_region()</code></a>. These regions can be
-        referenced in CSS and the :nth-child pseudo-class may be used to match
-        the elements depending on the flags passed.
-
-        <div class="example">
-<a name="id3991858"></a><p class="title"><b>Example 104. Theming widget regions</b></p>
-<div class="example-contents"><pre class="programlisting">
-            GtkNotebook tab {
-              background-color: #f3329d;
-            }
-
-            GtkTreeView row::nth-child (even) {
-              background-color: #dddddd;
-            }
-          </pre></div>
-</div>
-<br class="example-break">
-</li>
-<li class="listitem">
-<p>
-          If your container renders child widgets within different regions,
-          make it implement GtkContainer::<code class="function">get_path_for_child()</code>. This function
-          lets containers assign a special <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a> to child widgets
-          depending on their role/region. This is necessary to extend the
-          concept above throughout the widget hierarchy.
-        </p>
-<p>
-          For example, a <a class="link" href="gtk3-GtkNotebook.html#GtkNotebook" title="struct GtkNotebook"><span class="type">GtkNotebook</span></a> modifies the tab labels' <a class="link" href="gtk3-GtkWidgetPath.html#GtkWidgetPath" title="GtkWidgetPath"><span class="type">GtkWidgetPath</span></a>
-          so the "tab" region is added. This makes it possible to theme tab
-          labels through:
-        </p>
-<div class="example">
-<a name="id3994214"></a><p class="title"><b>Example 105. Theming a widget within a parent container region</b></p>
-<div class="example-contents"><pre class="programlisting">
-            GtkNotebook tab GtkLabel {
-              font: Sans 8;
-            }
-          </pre></div>
-</div>
-<br class="example-break">
-</li>
-<li class="listitem">
-        If you intend several visual elements to look interconnected,
-        make sure you specify rendered elements' connection areas with
-        <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-set-junction-sides" title="gtk_style_context_set_junction_sides ()"><code class="function">gtk_style_context_set_junction_sides()</code></a>. It is of course up to the
-        theme to make use of this information or not.
-      </li>
-<li class="listitem">
-<p>
-          <a class="link" href="gtk3-GtkStyleContext.html#GtkStyleContext" title="struct GtkStyleContext"><span class="type">GtkStyleContext</span></a> supports implicit animations on state changes for
-          the most simple case out-of-the-box: widgets with a single animatable
-          area, whose state is changed with <a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-state-flags" title="gtk_widget_set_state_flags ()"><code class="function">gtk_widget_set_state_flags()</code></a> or
-          <a class="link" href="gtk3-GtkWidget.html#gtk-widget-unset-state-flags" title="gtk_widget_unset_state_flags ()"><code class="function">gtk_widget_unset_state_flags()</code></a>. These functions trigger animated
-          transitions for the affected state flags. Examples of widgets for
-          which this kind of animation may be sufficient are <a class="link" href="gtk3-GtkButton.html#GtkButton" title="struct GtkButton"><span class="type">GtkButton</span></a> or
-          <a class="link" href="gtk3-GtkEntry.html#GtkEntry" title="struct GtkEntry"><span class="type">GtkEntry</span></a>.
-        </p>
-<p>
-          If your widget consists of more than a simple area, and these areas
-          may be rendered with different states, make sure to mark the rendered
-          areas with <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-push-animatable-region" title="gtk_style_context_push_animatable_region ()"><code class="function">gtk_style_context_push_animatable_region()</code></a> and
-          <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-pop-animatable-region" title="gtk_style_context_pop_animatable_region ()"><code class="function">gtk_style_context_pop_animatable_region()</code></a>.
-        </p>
-<p>
-          <a class="link" href="gtk3-GtkStyleContext.html#gtk-style-context-notify-state-change" title="gtk_style_context_notify_state_change ()"><code class="function">gtk_style_context_notify_state_change()</code></a> may be used to trigger a
-          transition for a given state. The region ID will determine the
-          animatable region that is affected by this transition.
-        </p>
-</li>
-</ol></div>
-</div>
-</div>
+<span style="color: red">&lt;include&gt;&lt;/include&gt;</span>
 </div>
 <div class="footer">
 <hr>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Test for modifier keys correctly</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk-migrating-checklist.html" title="Migration Checklist">
 <link rel="prev" href="checklist-gdkeventexpose-region.html" title="Use GdkEventExpose.region">
 <link rel="next" href="checklist-named-icons.html" title="Use named icons">
@@ -16,14 +16,14 @@
 <td><a accesskey="p" href="checklist-gdkeventexpose-region.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk-migrating-checklist.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="checklist-named-icons.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="checklist-modifiers"></a>Test for modifier keys correctly</h3></div></div></div>
 <p><b>Why. </b>
-        With <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-get-default-mod-mask" title="gtk_accelerator_get_default_mod_mask ()"><code class="function">gtk_accelerator_get_default_mod_mask()</code></a> you can test for
+        With gtk_accelerator_get_default_mod_mask() you can test for
         modifier keys reliably; this way your key event handlers will
         work correctly even if <span class="keycap"><strong>NumLock</strong></span> or
         <span class="keycap"><strong>CapsLock</strong></span> are activated.
@@ -34,8 +34,8 @@
       indicates the modifier state at the time the key was pressed.
       Modifiers are keys like <span class="keycap"><strong>Control</strong></span> and
       <span class="keycap"><strong>NumLock</strong></span>.  When implementing a
-      <span class="type">"key-press-event"</span> handler, you should use
-      <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-get-default-mod-mask" title="gtk_accelerator_get_default_mod_mask ()"><code class="function">gtk_accelerator_get_default_mod_mask()</code></a> to
+      #GtkWidget::key-press-event handler, you should use
+      gtk_accelerator_get_default_mod_mask() to
       test against modifier keys.  This function returns a bit mask
       which encompasses all the modifiers which the user may be
       actively pressing, such as <span class="keycap"><strong>Control</strong></span>,
@@ -54,7 +54,7 @@
       <code class="literal">GDK_CONTROL_MASK | GDK_LOCK_MASK</code>, and the
       simple test will fail.  By taking the logical-and of
       <em class="structfield"><code>event-&gt;state</code></em> and
-      <a class="link" href="gtk3-Keyboard-Accelerators.html#gtk-accelerator-get-default-mod-mask" title="gtk_accelerator_get_default_mod_mask ()"><code class="function">gtk_accelerator_get_default_mod_mask()</code></a>, you
+      gtk_accelerator_get_default_mod_mask(), you
       can ignore the modifiers which are not actively pressed by the
       user at the same time as the base key.
     </p>

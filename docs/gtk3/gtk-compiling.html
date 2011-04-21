@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>编译GTK+应用程序</title>
+<title>Compiling GTK+ Applications</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk.html" title="Part I. GTK+概述">
 <link rel="prev" href="gtk-building.html" title="Compiling the GTK+ libraries">
 <link rel="next" href="gtk-running.html" title="运行 GTK+ 应用程序">
@@ -16,29 +16,31 @@
 <td><a accesskey="p" href="gtk-building.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="gtk-running.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="gtk-compiling"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle">编译GTK+应用程序</span></h2>
-<p>编译GTK+应用程序 — 
-如何编译自己的GTK+应用程序
+<h2><span class="refentrytitle">Compiling GTK+ Applications</span></h2>
+<p>Compiling GTK+ Applications — 
+How to compile your GTK+ application
 </p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id3136747"></a><h2>在UNIX上编译GTK+ 应用程序</h2>
+<a name="id2933348"></a><h2>Compiling GTK+ Applications on UNIX</h2>
 <p>
-编译一个GTK+应用程序，你需要告诉编译器 GTK+ 头文件和库在哪里 。
-这也可以通过<code class="literal">pkg-config</code>工具完成。
+To compile a GTK+ application, you need to tell the compiler where to
+find the GTK+ header files and libraries. This is done with the
+<code class="literal">pkg-config</code> utility.
 </p>
 <p>
-下面的命令行展示了如果使用<code class="literal">pkg-config</code>
-(输出可能由于系统的不同而不同):
+The following interactive shell session demonstrates how
+<code class="literal">pkg-config</code> is used (the actual output on
+your system may be different):
 </p>
 <pre class="programlisting">
 $ pkg-config --cflags gtk+-3.0
@@ -49,10 +51,11 @@ $ pkg-config --libs gtk+-3.0
 <p>
 </p>
 <p>
-一个更简单的方法编译一个程序是使用"反引号" 特色的shell。 
-如果你选择了反引号命令（<span class="emphasis"><em>不是单引号</em></span>），
-那么它的输出将被替换到执行前的命令行,
-如编译一个GTK+ Hello，World，你可以输入以下信息:
+The simplest way to compile a program is to use the "backticks"
+feature of the shell. If you enclose a command in backticks
+(<span class="emphasis"><em>not single quotes</em></span>), then its output will be
+substituted into the command line before execution. So to compile
+a GTK+ Hello, World, you would type the following:
 </p>
 <pre class="programlisting">
 $ cc `pkg-config --cflags --libs gtk+-3.0` hello.c -o hello
@@ -60,41 +63,51 @@ $ cc `pkg-config --cflags --libs gtk+-3.0` hello.c -o hello
 <p>
 </p>
 <p>
-如果你需要确保你的程序不会使用到任何废弃的函数，
-你可以定义一个预处理宏，在命令行上定义<code class="literal">-DGTK_DISABLE_DEPRECATED=1</code>。
-（译者注:如果你是VS IDE 的使用者，在IDE定义的宏 在GCC中就是 -D宏名字=值）
-GDK，GdkPixbuf 和 GLib中类似的宏是GDK_DISABLE_DEPRECATED, GDK_PIXBUF_DISABLE_DEPRECATED 和G_DISABLE_DEPRECATED
+If you want to make sure that your program doesn't use any deprecated
+functions, you can define the preprocessor symbol GTK_DISABLE_DEPRECATED
+by using the command line option <code class="literal">-DGTK_DISABLE_DEPRECATED=1</code>.
+There are similar symbols GDK_DISABLE_DEPRECATED,
+GDK_PIXBUF_DISABLE_DEPRECATED and G_DISABLE_DEPRECATED for GDK, GdkPixbuf and
+GLib.
 </p>
 <p>
-如果你想要确保你的程序不会使用到任何在多头设置中会出现问题的函数，
-你可以定义预处理宏 GDK_MULTIHEAD_SAFE ，通过命令<code class="literal">-DGTK_MULTIHEAD_SAFE=1</code>。
+If you want to make sure that your program doesn't use any functions which
+may be problematic in a multihead setting, you can define the preprocessor
+symbol GDK_MULTIHEAD_SAFE by using the command line option
+<code class="literal">-DGTK_MULTIHEAD_SAFE=1</code>.
 </p>
 <p>
-同样的，如果你想确保你的程序中不会使用到任何在多设备设置中会出现问题的函数，
-你可以定义预处理宏 GDK_MULTIDEVICE_SAFE ，通过命令<code class="literal">-DGTK_MULTIDEVICE_SAFE=1</code>。
+Similarly, if you want to make sure that your program doesn't use any
+functions which may be problematic in a multidevice setting, you can
+define the preprocessor symbol GDK_MULTIDEVICE_SAFE by using the command
+line option <code class="literal">-DGTK_MULTIDEVICE_SAFE=1</code>.
 </p>
 <div class="refsect2">
-<a name="id3116678"></a><h3>有用的autotools 宏</h3>
+<a name="id2933529"></a><h3>Useful autotools macros</h3>
 <p>
-      GTK+ 中提供各式各样的宏，它们可以用于更简单检测版本和后端支持。这些宏是
+      GTK+ provides various macros for easily checking version and backends
+      supported. The macros are
       </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term">AM_PATH_GTK_3_0([minimum-version], [if-found], [if-not-found], [modules])</span></p></td>
-<td>这个宏在编译时可以检测GTK+是否安装及可用，有4个参数和选项: 
-	  <span class="emphasis"><em>minimum-version</em></span>, 编译时GTK+的最低版本;
-	  <span class="emphasis"><em>if-found</em></span>,如果找到可用版本时执行的;
-          <span class="emphasis"><em>if-not-found</em></span>, 没找到可用版本时执行的;
-          <span class="emphasis"><em>modules</em></span>, 需要执行的模块检测。</td>
+<td>This macro should be used to check that GTK+ is installed
+          and available for compilation. The four arguments are optional, and
+          they are: <span class="emphasis"><em>minimum-version</em></span>, the minimum version
+          of GTK+ required for compilation; <span class="emphasis"><em>if-found</em></span>, the
+          action to perform if a valid version of GTK+ has been found;
+          <span class="emphasis"><em>if-not-found</em></span>, the action to perform if a valid
+          version of GTK+ has not been found; <span class="emphasis"><em>modules</em></span>, a
+          list of modules to be checked along with GTK+.</td>
 </tr>
 <tr>
 <td><p><span class="term">GTK_CHECK_BACKEND([backend-name], [minimum-version], [if-found], [if-not-found])</span></p></td>
-<td>这个宏可用于检测GTK+的指定后端的支持。
-          <span class="emphasis"><em>minimum-version</em></span>、
-          <span class="emphasis"><em>if-found</em></span> 和 <span class="emphasis"><em>if-not-found</em></span>
-          参数均为可选。</td>
+<td>This macro should be used to check if a specific backend
+          is supported by GTK+. The <span class="emphasis"><em>minimum-version</em></span>,
+          <span class="emphasis"><em>if-found</em></span> and <span class="emphasis"><em>if-not-found</em></span>
+          arguments are optional.</td>
 </tr>
 </tbody>
 </table></div>

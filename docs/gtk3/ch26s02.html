@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Commands and Messages</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GTK3参考手册">
+<link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="gtk-migrating-GtkApplication.html" title="Migrating from libunique to GApplication or GtkApplication">
 <link rel="prev" href="gtk-migrating-GtkApplication.html" title="Migrating from libunique to GApplication or GtkApplication">
 <link rel="next" href="pt06.html" title="Part VI. GTK+ 工具">
@@ -16,29 +16,29 @@
 <td><a accesskey="p" href="gtk-migrating-GtkApplication.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="gtk-migrating-GtkApplication.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GTK3参考手册</th>
+<th width="100%" align="center">GTK+ 3 参考手册</th>
 <td><a accesskey="n" href="pt06.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id3988958"></a>Commands and Messages</h3></div></div></div>
+<a name="id3769188"></a>Commands and Messages</h3></div></div></div>
 <p>
       libunique lets you send messages with commands to a running
-      instance using <a href="../unique/UniqueApp.html#unique-app-send-message"><code class="function">unique_app_send_message()</code></a>. The commands can be either
+      instance using unique_app_send_message(). The commands can be either
       predefined or custom. Some of the predefined libunique commands have
-      equivalents in GApplication. Instead of sending the <a href="../unique/UniqueApp.html#UNIQUE-ACTIVATE:CAPS"><code class="literal">UNIQUE_ACTIVATE</code></a>
-      command, call <code class="function">g_application_activate()</code>, instead of sending the
-      <a href="../unique/UniqueApp.html#UNIQUE-OPEN:CAPS"><code class="literal">UNIQUE_OPEN</code></a> command, call <code class="function">g_application_open()</code>. The
-      <a href="../unique/UniqueApp.html#UNIQUE-NEW:CAPS"><code class="literal">UNIQUE_NEW</code></a> and <a href="../unique/UniqueApp.html#UNIQUE-CLOSE:CAPS"><code class="literal">UNIQUE_CLOSE</code></a> and user-defined commands don't
+      equivalents in GApplication. Instead of sending the %UNIQUE_ACTIVATE
+      command, call g_application_activate(), instead of sending the
+      %UNIQUE_OPEN command, call g_application_open(). The
+      %UNIQUE_NEW and %UNIQUE_CLOSE and user-defined commands don't
       have direct replacement at this time.
     </p>
 <p>
       As a replacement for custom commands, GApplication implements the
-      <span class="type">GActionGroup</span> interface and lets you add a group of actions with
-      <code class="function">g_application_set_action_group()</code>. The actions can then be invoked,
-      either by using the D-Bus interface for <span class="type">GAction</span> directly, or by
-      calling <code class="function">g_action_group_activate_action()</code> from another instance of
-      the GApplication. The <span class="type">GApplication</span> documentation contains an
+      #GActionGroup interface and lets you add a group of actions with
+      g_application_set_action_group(). The actions can then be invoked,
+      either by using the D-Bus interface for #GAction directly, or by
+      calling g_action_group_activate_action() from another instance of
+      the GApplication. The #GApplication documentation contains an
       example for using GApplication with actions.
     </p>
 <p>
