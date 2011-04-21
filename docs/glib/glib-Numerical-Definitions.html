@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>数值定义</title>
+<title>Numerical Definitions</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-fundamentals.html" title="GLib基础">
-<link rel="prev" href="glib-Byte-Order-Macros.html" title="字节顺序宏">
-<link rel="next" href="glib-Miscellaneous-Macros.html" title="特殊宏(Miscellaneous Macros)">
+<link rel="prev" href="glib-Byte-Order-Macros.html" title="Byte Order Macros">
+<link rel="next" href="glib-Miscellaneous-Macros.html" title="Miscellaneous Macros">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Byte-Order-Macros.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-fundamentals.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Miscellaneous-Macros.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -30,9 +30,8 @@
 <a name="glib-Numerical-Definitions"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Numerical-Definitions.top_of_page"></a>数值定义</span></h2>
-<p>数值定义 — mathematical constants, and floating point decomposition
-数学常数和浮点运算分解</p>
+<h2><span class="refentrytitle"><a name="glib-Numerical-Definitions.top_of_page"></a>Numerical Definitions</span></h2>
+<p>Numerical Definitions — mathematical constants, and floating point decomposition</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -60,13 +59,17 @@ union               <a class="link" href="glib-Numerical-Definitions.html#GDoubl
 <div class="refsect1">
 <a name="glib-Numerical-Definitions.description"></a><h2>Description</h2>
 <p>
-GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS" title="G_PI"><span class="type">G_PI</span></a> 之于 pi 的数学常数；
-许多平台都有这些 C 库，但有的平台也不提供，这个 GLib 版本总是有的。
+GLib offers mathematical constants such as <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS" title="G_PI"><span class="type">G_PI</span></a> for the value of pi;
+many platforms have these in the C library, but some don't, the GLib
+versions always exist.
 </p>
 <p>
-<a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> 和 <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> 联合被用于访问访问标识，IEEE floats 与 doubles的尾数和指数。
-这些联合的定义适合某一特定平台。IEEE floats 与 doubles 至少支持(用于存储) Intel，PPC 和 Sparc，参考：
-<a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+The <a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> and <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> unions are used to access the
+sign, mantissa and exponent of IEEE floats and doubles. These unions are
+defined as appropriate for a given platform. IEEE floats and doubles are
+supported (used for storage) by at least Intel, PPC and Sparc. See
+<a class="ulink" href="http://en.wikipedia.org/wiki/IEEE_float" target="_top">IEEE 754-2008</a>
+for more information about IEEE number formats.
 </p>
 </div>
 <div class="refsect1">
@@ -76,7 +79,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_IEEE754_FLOAT_BIAS (127)
 </pre>
 <p>
-见 <a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+The bias by which exponents in single-precision floats are offset.
 </p>
 </div>
 <hr>
@@ -85,7 +88,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_IEEE754_DOUBLE_BIAS (1023)
 </pre>
 <p>
-见 <a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+The bias by which exponents in double-precision floats are offset.
 </p>
 </div>
 <hr>
@@ -102,9 +105,10 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 };
 </pre>
 <p>
-<a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> 和 <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> 联合被用于访问访问标识，IEEE floats 与 doubles的尾数和指数。
-这些联合的定义适合某一特定平台。IEEE floats 与 doubles 至少支持(用于存储) Intel，PPC 和 Sparc，参考：
-<a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+The <a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> and <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> unions are used to access the sign,
+mantissa and exponent of IEEE floats and doubles. These unions are defined
+as appropriate for a given platform. IEEE floats and doubles are supported
+(used for storage) by at least Intel, PPC and Sparc.
 </p>
 </div>
 <hr>
@@ -122,9 +126,10 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 };
 </pre>
 <p>
-<a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> 和 <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> 联合被用于访问访问标识，IEEE floats 与 doubles的尾数和指数。
-这些联合的定义适合某一特定平台。IEEE floats 与 doubles 至少支持(用于存储) Intel，PPC 和 Sparc，参考：
-<a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+The <a class="link" href="glib-Numerical-Definitions.html#GFloatIEEE754" title="union GFloatIEEE754"><span class="type">GFloatIEEE754</span></a> and <a class="link" href="glib-Numerical-Definitions.html#GDoubleIEEE754" title="union GDoubleIEEE754"><span class="type">GDoubleIEEE754</span></a> unions are used to access the sign,
+mantissa and exponent of IEEE floats and doubles. These unions are defined
+as appropriate for a given platform. IEEE floats and doubles are supported
+(used for storage) by at least Intel, PPC and Sparc.
 </p>
 </div>
 <hr>
@@ -133,7 +138,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_E     2.7182818284590452353602874713526624977572470937000
 </pre>
 <p>
-自然对数的基数。
+The base of natural logarithms.
 </p>
 </div>
 <hr>
@@ -142,7 +147,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_LN2   0.69314718055994530941723212145817656807550013436026
 </pre>
 <p>
-2的自然对数。
+The natural logarithm of 2.
 </p>
 </div>
 <hr>
@@ -151,7 +156,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_LN10  2.3025850929940456840179914546843642076011014886288
 </pre>
 <p>
-10的自然对数。
+The natural logarithm of 10.
 </p>
 </div>
 <hr>
@@ -160,7 +165,7 @@ GLib提供例如 <a class="link" href="glib-Numerical-Definitions.html#G-PI:CAPS
 <pre class="programlisting">#define G_PI    3.1415926535897932384626433832795028841971693993751
 </pre>
 <p>
-PI 值(圆的周长与直径之比)。
+The value of pi (ratio of circle's circumference to its diameter).
 </p>
 </div>
 <hr>
@@ -169,7 +174,7 @@ PI 值(圆的周长与直径之比)。
 <pre class="programlisting">#define G_PI_2  1.5707963267948966192313216916397514420985846996876
 </pre>
 <p>
-Pi 除以 2。
+Pi divided by 2.
 </p>
 </div>
 <hr>
@@ -178,7 +183,7 @@ Pi 除以 2。
 <pre class="programlisting">#define G_PI_4  0.78539816339744830961566084581987572104929234984378
 </pre>
 <p>
-Pi 除以 4。
+Pi divided by 4.
 </p>
 </div>
 <hr>
@@ -187,7 +192,7 @@ Pi 除以 4。
 <pre class="programlisting">#define G_SQRT2 1.4142135623730950488016887242096980785696718753769
 </pre>
 <p>
-2的平方根。
+The square root of two.
 </p>
 </div>
 <hr>
@@ -196,8 +201,7 @@ Pi 除以 4。
 <pre class="programlisting">#define G_LOG_2_BASE_10		(0.30102999566398119521)
 </pre>
 <p>
-Used for fooling around with float formats【这里搞不定。。。。。】, 见
-<a class="ulink" href="http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html" target="_top">http://cch.loria.fr/documentation/IEEE754/numerical_comp_guide/ncg_math.doc.html</a>
+Multiplying the base 2 exponent by this number yields the base 10 exponent.
 </p>
 </div>
 </div>

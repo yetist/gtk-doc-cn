@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>特殊宏(Miscellaneous Macros)</title>
+<title>Miscellaneous Macros</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-fundamentals.html" title="GLib基础">
-<link rel="prev" href="glib-Numerical-Definitions.html" title="数值定义">
+<link rel="prev" href="glib-Numerical-Definitions.html" title="Numerical Definitions">
 <link rel="next" href="glib-Atomic-Operations.html" title="Atomic Operations">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Numerical-Definitions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-fundamentals.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Atomic-Operations.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -30,8 +30,8 @@
 <a name="glib-Miscellaneous-Macros"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Miscellaneous-Macros.top_of_page"></a>特殊宏(Miscellaneous Macros)</span></h2>
-<p>特殊宏(Miscellaneous Macros) — 不常使用的专用宏</p>
+<h2><span class="refentrytitle"><a name="glib-Miscellaneous-Macros.top_of_page"></a>Miscellaneous Macros</span></h2>
+<p>Miscellaneous Macros — specialized macros which are not used often</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -111,7 +111,8 @@
 <div class="refsect1">
 <a name="glib-Miscellaneous-Macros.description"></a><h2>Description</h2>
 <p>
-这些宏提供了额外特殊的功能，它们通常不被应用程序员使用
+These macros provide more specialized features which are not needed so often
+by application programmers.
 </p>
 </div>
 <div class="refsect1">
@@ -121,15 +122,17 @@
 <pre class="programlisting">#  define G_INLINE_FUNC
 </pre>
 <p>
-这个宏用于导出函数原型，这样当非内联模式时，它们就能被链接
-到一个非内联的扩展版本。执行函数的这个文件要在定义<code class="literal">G_IMPLEMENTS_INLINTS</code>
-之前包含有<a class="link" href="glib-Miscellaneous-Macros.html#G-INLINE-FUNC:CAPS" title="G_INLINE_FUNC"><code class="literal">G_INLINE_FUNC</code></a>声明的头文件。由于内联是非常依赖
-编译器的，所以正确的使用这些宏非常难。强烈建议不要使用这
-些宏。
+This macro is used to export function prototypes so they can be linked
+with an external version when no inlining is performed. The file which
+implements the functions should define <code class="literal">G_IMPLEMENTS_INLINES</code>
+before including the headers which contain <a class="link" href="glib-Miscellaneous-Macros.html#G-INLINE-FUNC:CAPS" title="G_INLINE_FUNC"><code class="literal">G_INLINE_FUNC</code></a> declarations.
+Since inlining is very compiler-dependent using these macros correctly
+is very difficult. Their use is strongly discouraged.
 </p>
 <p>
-此宏经常被误认为是inline关键字的替换；内联已经以一种可移
-植的方式在glib头文件里声明，并且它能够被正常的使用。
+This macro is often mistaken for a replacement for the inline keyword;
+inline is already declared in a portable manner in the glib headers
+and can be used normally.
 </p>
 </div>
 <hr>
@@ -138,8 +141,8 @@
 <pre class="programlisting">#  define G_STMT_START  do
 </pre>
 <p>
-在多语句宏内使用，以便它们能使用在编译器期望只有一条语句
-的地方。
+Used within multi-statement macros so that they can be used in places where
+only one statement is expected by the compiler.
 </p>
 </div>
 <hr>
@@ -148,8 +151,8 @@
 <pre class="programlisting">#  define G_STMT_END    while (0)
 </pre>
 <p>
-在多语句宏内使用，以便它们能使用在编译器期望只有一条语句
-的地方。
+Used within multi-statement macros so that they can be used in places where
+only one statement is expected by the compiler.
 </p>
 </div>
 <hr>
@@ -158,9 +161,9 @@
 <pre class="programlisting"># define G_BEGIN_DECLS  extern "C" {
 </pre>
 <p>
-用于把头文件放在括号{}里（和<a class="link" href="glib-Miscellaneous-Macros.html#G-END-DECLS:CAPS" title="G_END_DECLS"><span class="type">G_END_DECLS</span></a>一起使用）。如果
-使用的编译器是一个C++编译器，就在头文件外添加<code class="literal">
-extern "C"</code>。
+Used (along with <a class="link" href="glib-Miscellaneous-Macros.html#G-END-DECLS:CAPS" title="G_END_DECLS"><span class="type">G_END_DECLS</span></a>) to bracket header files. If the
+compiler in use is a C++ compiler, adds <code class="literal">extern "C"</code>
+around the header.
 </p>
 </div>
 <hr>
@@ -169,9 +172,9 @@ extern "C"</code>。
 <pre class="programlisting"># define G_END_DECLS    }
 </pre>
 <p>
-用于把头文件放在括号{}里（和<a class="link" href="glib-Miscellaneous-Macros.html#G-END-DECLS:CAPS" title="G_END_DECLS"><span class="type">G_END_DECLS</span></a>一起使用）。如果
-使用的编译器是一个C++编译器，就在头文件外添加<code class="literal">
-extern "C"</code>。
+Used (along with <a class="link" href="glib-Miscellaneous-Macros.html#G-BEGIN-DECLS:CAPS" title="G_BEGIN_DECLS"><span class="type">G_BEGIN_DECLS</span></a>) to bracket header files. If the
+compiler in use is a C++ compiler, adds <code class="literal">extern "C"</code>
+around the header.
 </p>
 </div>
 <hr>
@@ -180,15 +183,16 @@ extern "C"</code>。
 <pre class="programlisting">#define G_N_ELEMENTS(arr)		(sizeof (arr) / sizeof ((arr)[0]))
 </pre>
 <p>
-确定数组中元素的个数。这个数组必须被声明以便编译器在编译
-时知道它的大小；这个宏不能工作在堆上分配的数组上，只能应
-用在静态数组或者在栈上的数组。
+Determines the number of elements in an array. The array must be
+declared so the compiler knows its size at compile-time; this
+macro will not work on an array allocated on the heap, only static
+arrays or arrays on the stack.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>arr</code></em> :</span></p></td>
-<td>数组名</td>
+<td>the array</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -197,23 +201,23 @@ extern "C"</code>。
 <a name="G-VA-COPY:CAPS"></a><h3>G_VA_COPY()</h3>
 <pre class="programlisting">#define             G_VA_COPY(ap1,ap2)</pre>
 <p>
-以可移植的方式复制 <span class="type">va_list</span> 变量。
+Portable way to copy <span class="type">va_list</span> variables.
 </p>
 <p>
-为了使用这个功能，你必须包含<code class="filename">string.h</code>
-，因为这个宏可能使用 <code class="function"><code class="function">memmove()</code></code>，而
-GLib并没有包含<code class="function">string.h</code> 。
+In order to use this function, you must include <code class="filename">string.h</code>
+yourself, because this macro may use <code class="function"><code class="function">memmove()</code></code> and GLib
+does not include <code class="function">string.h</code> for you.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ap1</code></em> :</span></p></td>
-<td>这个 <span class="type">va_list</span> 变量用于存放ap2的一个副本。</td>
+<td>the <span class="type">va_list</span> variable to place a copy of <em class="parameter"><code>ap2</code></em> in.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ap2</code></em> :</span></p></td>
-<td>一个 <span class="type">va_list</span> 变量。</td>
+<td>a <span class="type">va_list</span>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -224,7 +228,7 @@ GLib并没有包含<code class="function">string.h</code> 。
 <pre class="programlisting">#define G_STRINGIFY(macro_or_string) G_STRINGIFY_ARG (macro_or_string)
 </pre>
 <p>
-接受一个宏或一个字符串转换成一个字符串后，并预处理参数扩展。
+Accepts a macro or a string and converts it into a string after
 preprocessor argument expansion. For example, the following code:
 </p>
 <div class="informalexample"><pre class="programlisting">
@@ -241,7 +245,7 @@ const gchar *greeting = "27 today!";
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>macro_or_string</code></em> :</span></p></td>
-<td>一个宏或者一个字符串。</td>
+<td>a macro or a string.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -251,8 +255,9 @@ const gchar *greeting = "27 today!";
 <pre class="programlisting">#define G_PASTE(identifier1,identifier2)      G_PASTE_ARGS (identifier1, identifier2)
 </pre>
 <p>
-生成一个新的预处理粘贴标识符'identifier1identifier2'
-从它的形参 'identifier1' 和 'identifier2'。
+Yields a new preprocessor pasted identifier <code class="code">identifier1identifier2</code>
+from its expanded arguments <em class="parameter"><code>identifier1</code></em> and <em class="parameter"><code>identifier2</code></em>. For example, the
+following code:
 </p>
 <div class="informalexample"><pre class="programlisting">
 #define GET(traveller,method) G_PASTE(traveller_get_, method) (traveller)
@@ -273,11 +278,11 @@ GdkColor *favourite = traveller_get_favourite_colour (traveller);
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>identifier1</code></em> :</span></p></td>
-<td>一个标识符</td>
+<td>an identifier</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>identifier2</code></em> :</span></p></td>
-<td>一个标识符</td>
+<td>an identifier</td>
 </tr>
 </tbody>
 </table></div>
@@ -289,16 +294,16 @@ GdkColor *favourite = traveller_get_favourite_colour (traveller);
 <pre class="programlisting">#define G_STATIC_ASSERT(expr) typedef struct { char Compile_Time_Assertion[(expr) ? 1 : -1]; } G_PASTE (_GStaticAssert_, __LINE__)
 </pre>
 <p>
-G_STATIC_ASSERT 宏让程序员可以在代码编译时进行条件检查，该
-条件必须在程序编译时是可计算的。
-这个宏可以使用在任何使用 <code class="literal">typedef</code>的地方。
-这个宏只能在每个源代码行使用一次。
+The G_STATIC_ASSERT macro lets the programmer check a condition at compile time,
+the condition needs to be compile time computable.
+The macro can be used in any place where a <code class="literal">typedef</code> is valid.
+The macro should only be used once per source code line.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
-<td>一个常量表达式。</td>
+<td>a constant expression.</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.20</p>
@@ -309,10 +314,10 @@ G_STATIC_ASSERT 宏让程序员可以在代码编译时进行条件检查，该
 <pre class="programlisting">#  define G_GNUC_EXTENSION __extension__
 </pre>
 <p>
-当使用 <span class="command"><strong>gcc</strong></span> 作为编译器时展开为
-<code class="literal">__extension__</code>。
-这简单的告诉 <span class="command"><strong>gcc</strong></span> 当使用 <code class="option">-pedantic</code>
-参数进行编译时，对于以下的非标准代码不用做出警告。
+Expands to <code class="literal">__extension__</code> when <span class="command"><strong>gcc</strong></span> is
+used as the compiler.
+This simply tells <span class="command"><strong>gcc</strong></span> not to warn about the following non-standard code
+when compiling with the <code class="option">-pedantic</code> option.
 </p>
 </div>
 <hr>
@@ -320,17 +325,18 @@ G_STATIC_ASSERT 宏让程序员可以在代码编译时进行条件检查，该
 <a name="G-GNUC-CONST:CAPS"></a><h3>G_GNUC_CONST</h3>
 <pre class="programlisting">#define             G_GNUC_CONST</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">const</code> 函数属性。将一个函数声明为const，
-可以更好地对函数调用进行优化。 一个const函数不检查其参数
-外的任何值，并且只影响到它的返回值。详见GNU C 文档。
+Expands to the GNU C <code class="literal">const</code> function attribute if the compiler is
+<span class="command"><strong>gcc</strong></span>. Declaring a function as const enables better optimization of calls
+to the function. A const function doesn't examine any values except its parameters, and has no
+effects except its return value. See the GNU C documentation for details.
 </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>
-一个函数的指针参数和此指针所指向的数据<span class="emphasis"><em>不能</em></span>
-被声明为const。同样的，一个调用非const函数的函数通常不能为const。
-为一个const函数返回void是没意义的。
+A function that has pointer arguments and examines the data pointed to
+must <span class="emphasis"><em>not</em></span> be declared const. Likewise, a function that
+calls a non-const function usually must not be const. It doesn't make sense
+for a const function to return void.
 </p>
 </div>
 </div>
@@ -339,11 +345,11 @@ GNU C <code class="literal">const</code> 函数属性。将一个函数声明为
 <a name="G-GNUC-PURE:CAPS"></a><h3>G_GNUC_PURE</h3>
 <pre class="programlisting">#define             G_GNUC_PURE</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">pure</code> 函数属性。将一个函数声明为pure，
-可以更好地对函数调用进行优化。一个pure函数只影响它的返回值，
-并且这个返回值只依赖于参数和/或全局变量。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">pure</code> function attribute if the compiler is
+<span class="command"><strong>gcc</strong></span>. Declaring a function as pure enables better optimization of
+calls to the function. A pure function has no effects except its return value and the
+return value depends only on the parameters and/or global variables.
+See the GNU C documentation for details.
 </p>
 </div>
 <hr>
@@ -351,12 +357,12 @@ GNU C <code class="literal">pure</code> 函数属性。将一个函数声明为p
 <a name="G-GNUC-MALLOC:CAPS"></a><h3>G_GNUC_MALLOC</h3>
 <pre class="programlisting">#define             G_GNUC_MALLOC</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">malloc</code> 函数属性。将一个函数声明为malloc，
-可以更好地对函数调用进行优化。一个函数可以拥有malloc属性，
-如果能确保在函数返回时，它返回的指针不是其他任意指针的别名的话
-（实际上，这意味著分配新的内存）。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">malloc</code> function attribute if the
+compiler is <span class="command"><strong>gcc</strong></span>. Declaring a function as malloc enables
+better optimization of the function. A function can have the malloc attribute
+if it returns a pointer which is guaranteed to not alias with any other pointer
+when the function returns (in practice, this means newly allocated memory).
+See the GNU C documentation for details.
 </p>
 <p class="since">Since 2.6</p>
 </div>
@@ -366,17 +372,17 @@ GNU C <code class="literal">malloc</code> 函数属性。将一个函数声明�
 <pre class="programlisting">#define G_GNUC_ALLOC_SIZE(x) __attribute__((__alloc_size__(x)))
 </pre>
 <p>
-如果使用的是比较新版的 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">alloc_size</code> 函数属性。这个属性告诉编译器
-此函数返回一个指针，该指针指向由函数参数<em class="parameter"><code>x</code></em>th指定大小的
-内存空间。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">alloc_size</code> function attribute if the
+compiler is a new enough <span class="command"><strong>gcc</strong></span>. This attribute tells the
+compiler that the function returns a pointer to memory of a size that is
+specified by the <em class="parameter"><code>x</code></em>th function parameter.
+See the GNU C documentation for details.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
-<td>分配指定大小内存的参数指数。</td>
+<td>the index of the argument specifying the allocation size</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.18</p>
@@ -387,22 +393,22 @@ GNU C <code class="literal">alloc_size</code> 函数属性。这个属性告诉�
 <pre class="programlisting">#define G_GNUC_ALLOC_SIZE2(x,y) __attribute__((__alloc_size__(x,y)))
 </pre>
 <p>
-如果使用的是比较新版的 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">alloc_size</code> 函数属性。 这个属性告诉编译器
-此函数返回一个指针，该指针指向由该函数的两个参数的乘积指定大小的
-内存空间。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">alloc_size</code> function attribute if the
+compiler is a new enough <span class="command"><strong>gcc</strong></span>. This attribute tells the
+compiler that the function returns a pointer to memory of a size that is
+specified by the product of two function parameters.
+See the GNU C documentation for details.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
-<td>分配指定大小内存的第一个参数指数。</td>
+<td>the index of the argument specifying one factor of the allocation size</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
-<td>分配指定大小内存的第二个参数指数。</td>
+<td>the index of the argument specifying the second factor of the allocation size</td>
 </tr>
 </tbody>
 </table></div>
@@ -413,13 +419,12 @@ GNU C <code class="literal">alloc_size</code> 函数属性。 这个属性告诉
 <a name="G-GNUC-DEPRECATED:CAPS"></a><h3>G_GNUC_DEPRECATED</h3>
 <pre class="programlisting">#define             G_GNUC_DEPRECATED</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">deprecated</code> 属性。
-它可以用来标记某些类型定义，变量和函数是不鼓励使用的。
-如果你使用了这些不鼓励使用的程序接口，当编译器使用
-<code class="option">-Wdeprecated-declarations</code>选项编译时将
-产生警告信息。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">deprecated</code> attribute if the compiler
+is <span class="command"><strong>gcc</strong></span>.
+It can be used to mark typedefs, variables and functions as deprecated.
+When called with the <code class="option">-Wdeprecated-declarations</code> option, the compiler will
+generate warnings when deprecated interfaces are used.
+See the GNU C documentation for details.
 </p>
 <p class="since">Since 2.2</p>
 </div>
@@ -448,11 +453,10 @@ function</td>
 <a name="G-GNUC-NORETURN:CAPS"></a><h3>G_GNUC_NORETURN</h3>
 <pre class="programlisting">#define             G_GNUC_NORETURN</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">noreturn</code> 函数属性。它用来声明
-该函数没有返回值。它能够使函数得到优化，同时避免了可能
-出现的编译警告。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">noreturn</code> function attribute if the
+compiler is <span class="command"><strong>gcc</strong></span>. It is used for declaring functions which never return.
+It enables optimization of the function, and avoids possible compiler
+warnings. See the GNU C documentation for details.
 </p>
 </div>
 <hr>
@@ -460,10 +464,9 @@ GNU C <code class="literal">noreturn</code> 函数属性。它用来声明
 <a name="G-GNUC-UNUSED:CAPS"></a><h3>G_GNUC_UNUSED</h3>
 <pre class="programlisting">#define             G_GNUC_UNUSED</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">unused</code> 函数属性。它用来声明
-该函数可能不会被使用。它避免了可能出现的编译警告。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">unused</code> function attribute if the compiler is
+<span class="command"><strong>gcc</strong></span>. It is used for declaring functions which may never be used.
+It avoids possible compiler warnings. See the GNU C documentation for details.
 </p>
 </div>
 <hr>
@@ -471,11 +474,11 @@ GNU C <code class="literal">unused</code> 函数属性。它用来声明
 <a name="G-GNUC-PRINTF:CAPS"></a><h3>G_GNUC_PRINTF()</h3>
 <pre class="programlisting">#define             G_GNUC_PRINTF( format_idx, arg_idx )</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">format</code> 函数属性。它用来声明
-使用了可变数目参数的函数，就像<code class="function"><code class="function">printf()</code></code>
-的语法一样。它允许编译器对传递给函数的参数进行类型检查。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">format</code> function attribute if the compiler is
+<span class="command"><strong>gcc</strong></span>. This is used for declaring functions which take a variable number of
+arguments, with the same syntax as <code class="function"><code class="function">printf()</code></code>.
+It allows the compiler to type-check the arguments passed to the function.
+See the GNU C documentation for details.
 </p>
 <div class="informalexample"><pre class="programlisting">
 gint g_snprintf (gchar  *string,
@@ -488,12 +491,12 @@ gint g_snprintf (gchar  *string,
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format_idx</code></em> :</span></p></td>
-<td>对应格式字符串参数的索引。
-（这个参数的取值从1开始）。</td>
+<td>the index of the argument corresponding to the format string.
+(The arguments are numbered from 1).</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg_idx</code></em> :</span></p></td>
-<td>第一个格式化参数的索引。</td>
+<td>the index of the first of the format arguments.</td>
 </tr>
 </tbody>
 </table></div>
@@ -503,23 +506,23 @@ gint g_snprintf (gchar  *string,
 <a name="G-GNUC-SCANF:CAPS"></a><h3>G_GNUC_SCANF()</h3>
 <pre class="programlisting">#define             G_GNUC_SCANF( format_idx, arg_idx )</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">format</code> 函数属性。它用来声明
-使用了可变数目参数的函数，就像<code class="function"><code class="function">scanf()</code></code>
-的语法一样。它允许编译器对传递给函数的参数进行类型检查。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">format</code> function attribute if the compiler is <span class="command"><strong>gcc</strong></span>.
+This is used for declaring functions which take a variable number of
+arguments, with the same syntax as <code class="function"><code class="function">scanf()</code></code>.
+It allows the compiler to type-check the arguments passed to the function.
+See the GNU C documentation for details.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format_idx</code></em> :</span></p></td>
-<td>对应格式字符串参数的索引。
-（这个参数的取值从1开始）。</td>
+<td>the index of the argument corresponding to the format string.
+(The arguments are numbered from 1).</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>arg_idx</code></em> :</span></p></td>
-<td>第一个格式化参数的索引。</td>
+<td>the index of the first of the format arguments.</td>
 </tr>
 </tbody>
 </table></div>
@@ -529,16 +532,16 @@ GNU C <code class="literal">format</code> 函数属性。它用来声明
 <a name="G-GNUC-FORMAT:CAPS"></a><h3>G_GNUC_FORMAT()</h3>
 <pre class="programlisting">#define             G_GNUC_FORMAT( arg_idx )</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">format_arg</code> 函数属性。
-这个函数属性为<code class="function"><code class="function">printf()</code></code>，
-<code class="function"><code class="function">scanf()</code></code>，<code class="function"><code class="function">strftime()</code></code>
-或者 <code class="function"><code class="function">strfmon()</code></code> 等类型的函数指定了
-函数的格式化字符串，并且修改它，以便结果能传递给
-<code class="function"><code class="function">printf()</code></code>， <code class="function"><code class="function">scanf()</code></code>，
-<code class="function"><code class="function">strftime()</code></code> 或者 <code class="function"><code class="function">strfmon()</code></code>
-等类型的函数（其他的参数则和它们未修改时一样，保持不变）。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">format_arg</code> function attribute if the compiler is <span class="command"><strong>gcc</strong></span>.
+This function attribute specifies that a function takes a format
+string for a <code class="function"><code class="function">printf()</code></code>, <code class="function"><code class="function">scanf()</code></code>,
+<code class="function"><code class="function">strftime()</code></code> or <code class="function"><code class="function">strfmon()</code></code> style
+function and modifies it, so that the result can be passed to a
+<code class="function"><code class="function">printf()</code></code>, <code class="function"><code class="function">scanf()</code></code>,
+<code class="function"><code class="function">strftime()</code></code> or <code class="function"><code class="function">strfmon()</code></code> style
+function (with the remaining arguments to the format function the same as
+they would have been for the unmodified string).
+See the GNU C documentation for details.
 </p>
 <div class="informalexample"><pre class="programlisting">
 gchar *g_dgettext (gchar *domain_name, gchar *msgid) G_GNUC_FORMAT (2);
@@ -547,7 +550,7 @@ gchar *g_dgettext (gchar *domain_name, gchar *msgid) G_GNUC_FORMAT (2);
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>arg_idx</code></em> :</span></p></td>
-<td>参数索引。</td>
+<td>the index of the argument.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -557,11 +560,11 @@ gchar *g_dgettext (gchar *domain_name, gchar *msgid) G_GNUC_FORMAT (2);
 <pre class="programlisting">#define G_GNUC_NULL_TERMINATED __attribute__((__sentinel__))
 </pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">sentinel</code> 函数属性，或者 ""
-如果不是如此的话。这个函数属性仅适用于可变参函数并且
-指示编译器检查以一个明确的<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>结束的参数列表。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">sentinel</code> function attribute if the
+compiler is <span class="command"><strong>gcc</strong></span>, or "" if it isn't. This function attribute
+only applies to variadic functions and instructs the compiler to check that
+the argument list is terminated with an explicit <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+See the GNU C documentation for details.
 </p>
 Since: 2.8</div>
 <hr>
@@ -569,11 +572,10 @@ Since: 2.8</div>
 <a name="G-GNUC-WARN-UNUSED-RESULT:CAPS"></a><h3>G_GNUC_WARN_UNUSED_RESULT</h3>
 <pre class="programlisting">#define             G_GNUC_WARN_UNUSED_RESULT</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">warn_unused_result</code> 函数属性，
-或者 "" 如果不是如此的话。如果一个函数的调用结果被忽
-略的话，这个函数属性将使编译器发出一个警告。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">warn_unused_result</code> function attribute
+if the compiler is <span class="command"><strong>gcc</strong></span>, or "" if it isn't. This function
+attribute makes the compiler emit a warning if the result of a function call
+is ignored. See the GNU C documentation for details.
 </p>
 <p class="since">Since 2.10</p>
 </div>
@@ -584,12 +586,11 @@ GNU C <code class="literal">warn_unused_result</code> 函数属性，
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">G_GNUC_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. 请使用 <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> 代替。</p>
+<p><code class="literal">G_GNUC_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. Use <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> instead.</p>
 </div>
 <p>
-在所有的现代编译器上展开为 "" ，并且在<span class="command"><strong>gcc</strong></span> 2.x 版本上
-展开为<code class="literal">__FUNCTION__</code> 。
-不要使用它。
+Expands to "" on all modern compilers, and to <code class="literal">__FUNCTION__</code>
+on <span class="command"><strong>gcc</strong></span> version 2.x. Don't use it.
 </p>
 </div>
 <hr>
@@ -599,12 +600,12 @@ GNU C <code class="literal">warn_unused_result</code> 函数属性，
 </pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">G_GNUC_PRETTY_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. 请使用 <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> 代替。</p>
+<p><code class="literal">G_GNUC_PRETTY_FUNCTION</code> has been deprecated since version 2.16 and should not be used in newly-written code. Use <a class="link" href="glib-Miscellaneous-Macros.html#G-STRFUNC:CAPS" title="G_STRFUNC"><span class="type">G_STRFUNC</span></a> instead.</p>
 </div>
 <p>
-在所有的现代编译器上展开为 "" ，并且在<span class="command"><strong>gcc</strong></span> 2.x 版本上
-展开为<code class="literal">__PRETTY_FUNCTION__</code> 。
-不要使用它。
+Expands to "" on all modern compilers, and to
+<code class="literal">__PRETTY_FUNCTION__</code> on <span class="command"><strong>gcc</strong></span> version 2.x.
+Don't use it.
 </p>
 </div>
 <hr>
@@ -612,13 +613,12 @@ GNU C <code class="literal">warn_unused_result</code> 函数属性，
 <a name="G-GNUC-NO-INSTRUMENT:CAPS"></a><h3>G_GNUC_NO_INSTRUMENT</h3>
 <pre class="programlisting">#define             G_GNUC_NO_INSTRUMENT</pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">no_instrument_function</code> 函数属性。
-当编译器使用<code class="option">-finstrument-functions</code>选项
-时，拥有这个属性的函数将不会被instrumented for profiling
-（译者：instrumented for profiling 为性能跟踪的工具、方法、
-程序等）。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">no_instrument_function</code> function
+attribute if the compiler is <span class="command"><strong>gcc</strong></span>. Functions with this
+attribute will not be
+instrumented for profiling, when the compiler is called with the
+<code class="option">-finstrument-functions</code> option.
+See the GNU C documentation for details.
 </p>
 </div>
 <hr>
@@ -635,19 +635,21 @@ GNU C <code class="literal">no_instrument_function</code> 函数属性。
 <pre class="programlisting">#define G_GNUC_INTERNAL __attribute__((visibility("hidden")))
 </pre>
 <p>
-这个属性能用来标记仅用于内部的库函数，它可以让编译器更加
-高效的调用句柄函数。
-请注意，静态函数不能使用这种方式来标记为内部函数。
-详见GNU C 文档。
+This attribute can be used for marking library functions as being used
+internally to the library only, which may allow the compiler to handle
+function calls more efficiently.
+Note that static functions do not need to be marked as internal in this way.
+See the GNU C documentation for details.
 </p>
 <p>
-当使用的编译器支持GNU C 隐藏可见性属性时，这个宏被展开为
-<code class="literal">__attribute__((visibility("hidden")))</code>。
-当使用 Sun Studio 编译器时，该宏被展开为<code class="literal">__hidden</code>。
+When using a compiler that supports the GNU C hidden visibility attribute,
+this macro expands to <code class="literal">__attribute__((visibility("hidden")))</code>.
+When using the Sun Studio compiler, it expands to <code class="literal">__hidden</code>.
 </p>
 <p>
-请注意，为了具备可移植性，这个属性应该放在函数声明的前面。
-虽然 GCC 允许这个宏放在函数声明的后面，但是Sun Studio 不允许。
+Note that for portability, the attribute should be placed before the
+function declaration. While GCC allows the macro after the declaration,
+Sun Studio does not.
 </p>
 <div class="informalexample"><pre class="programlisting">
 G_GNUC_INTERNAL
@@ -663,11 +665,11 @@ Since: 2.6</div>
 <pre class="programlisting">#  define G_GNUC_MAY_ALIAS __attribute__((may_alias))
 </pre>
 <p>
-如果使用的是 <span class="command"><strong>gcc</strong></span> 编译器，就展开为
-GNU C <code class="literal">may_alias</code> 函数属性。
-拥有这个属性的数据类型将不会被进行基于类型别名的分析，
-但将被假设为其他任意类型的别名，就像 char 类型。
-详见GNU C 文档。
+Expands to the GNU C <code class="literal">may_alias</code> type attribute
+if the compiler is <span class="command"><strong>gcc</strong></span>. Types with this attribute
+will not be subjected to type-based alias analysis, but are assumed
+to alias with any other type, just like char.
+See the GNU C documentation for details.
 </p>
 Since: 2.14</div>
 <hr>
@@ -676,8 +678,8 @@ Since: 2.14</div>
 <pre class="programlisting">#define G_LIKELY(expr) (__builtin_expect (_G_BOOLEAN_EXPR(expr), 1))
 </pre>
 <p>
-这个宏指示编译器，表达式可能为一个真值。编译器可能针对
-这个信息进行编译优化。
+Hints the compiler that the expression is likely to evaluate to a true
+value. The compiler may use this information for optimizations.
 </p>
 <div class="informalexample"><pre class="programlisting">
 if (G_LIKELY (random () != 1))
@@ -685,11 +687,17 @@ if (G_LIKELY (random () != 1))
 </pre></div>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
+<td>the expression</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>expr</code></em> 的值</td>
-</tr></tbody>
+<td>the value of <em class="parameter"><code>expr</code></em>
+</td>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.2</p>
 </div>
@@ -699,8 +707,8 @@ if (G_LIKELY (random () != 1))
 <pre class="programlisting">#define G_UNLIKELY(expr) (__builtin_expect (_G_BOOLEAN_EXPR(expr), 0))
 </pre>
 <p>
-这个宏指示编译器，表达式可能不是一个真值。编译器可能针对
-这个信息进行编译优化。
+Hints the compiler that the expression is unlikely to evaluate to a true
+value. The compiler may use this information for optimizations.
 </p>
 <div class="informalexample"><pre class="programlisting">
 if (G_UNLIKELY (random () == 1))
@@ -711,12 +719,12 @@ if (G_UNLIKELY (random () == 1))
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
-<td>表达式</td>
+<td>the expression</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>expr</code></em> 的值</td>
+<td>the value of <em class="parameter"><code>expr</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -728,7 +736,7 @@ if (G_UNLIKELY (random () == 1))
 <pre class="programlisting">#  define G_STRLOC __FILE__ ":" G_STRINGIFY (__LINE__) ":" __PRETTY_FUNCTION__ "()"
 </pre>
 <p>
-展开为一个用于确定当前代码位置的字符串。
+Expands to a string identifying the current code position.
 </p>
 </div>
 <hr>
@@ -737,7 +745,7 @@ if (G_UNLIKELY (random () == 1))
 <pre class="programlisting">#  define G_STRFUNC     ((const char*) (__PRETTY_FUNCTION__))
 </pre>
 <p>
-展开为一个用于确定当前函数位置的字符串。
+Expands to a string identifying the current function.
 </p>
 <p class="since">Since 2.4</p>
 </div>
@@ -747,13 +755,14 @@ if (G_UNLIKELY (random () == 1))
 <pre class="programlisting">#define G_GINT16_MODIFIER "h"
 </pre>
 <p>
-平台依赖长度修改量的转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint16" title="gint16"><span class="type">gint16</span></a> 或者
-<a class="link" href="glib-Basic-Types.html#guint16" title="guint16"><span class="type">guint16</span></a> 类型的值。这是一个串字面值，但不包括百分比符号，
-这样的话你就可以在百分比符号和转换符之间添加精度和长度修改量，
-并且追加一个转换符。
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#gint16" title="gint16"><span class="type">gint16</span></a> or <a class="link" href="glib-Basic-Types.html#guint16" title="guint16"><span class="type">guint16</span></a>. It is a string literal,
+but doesn't include the percent-sign, such that you can add precision and
+length modifiers between percent-sign and conversion specifier and append a
+conversion specifier.
 </p>
 <p>
-下例打印为 "0x7b";
+The following example prints "0x7b";
 </p>
 <div class="informalexample"><pre class="programlisting">
 gint16 value = 123;
@@ -769,9 +778,10 @@ g_print ("%#" G_GINT16_MODIFIER "x", value);
 <pre class="programlisting">#define G_GINT16_FORMAT "hi"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint16" title="gint16"><span class="type">gint16</span></a> 类型的值。
-这是一个串字面值，但不包括百分比符号，这样的话你就可以在
-百分比符号和转换符之间添加精度和长度修改量。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gint16" title="gint16"><span class="type">gint16</span></a>. It is a string literal, but doesn't
+include the percent-sign, such that you can add precision and length
+modifiers between percent-sign and conversion specifier.
 </p>
 <p>
 </p>
@@ -791,8 +801,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GUINT16_FORMAT "hu"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#guint16" title="guint16"><span class="type">guint16</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#guint16" title="guint16"><span class="type">guint16</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 </div>
 <hr>
@@ -801,9 +811,9 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GINT32_MODIFIER ""
 </pre>
 <p>
-平台依赖长度修改量的转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a> 或者
-<a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a> 类型的值。
-这是一个串字面值，见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-MODIFIER:CAPS" title="G_GINT16_MODIFIER"><span class="type">G_GINT16_MODIFIER</span></a>。
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a> or <a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a>. It is a string literal,
+See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-MODIFIER:CAPS" title="G_GINT16_MODIFIER"><span class="type">G_GINT16_MODIFIER</span></a>.
 </p>
 <p class="since">Since 2.4</p>
 </div>
@@ -813,8 +823,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GINT32_FORMAT "i"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gint32" title="gint32"><span class="type">gint32</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 </div>
 <hr>
@@ -823,8 +833,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GUINT32_FORMAT "u"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#guint32" title="guint32"><span class="type">guint32</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 </div>
 <hr>
@@ -833,14 +843,15 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GINT64_MODIFIER "ll"
 </pre>
 <p>
-平台依赖长度修改量的转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> 或者
-<a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> 类型的值。这是一个串字面。
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> or <a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a>. It is a string literal.
 </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>
-一些平台不支持打印64位整数，尽管支持这个数据类型。
-在这样的平台 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-MODIFIER:CAPS" title="G_GINT64_MODIFIER"><span class="type">G_GINT64_MODIFIER</span></a> 是未定义的。
+Some platforms do not support printing 64 bit integers,
+even though the types are supported. On such platforms <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-MODIFIER:CAPS" title="G_GINT64_MODIFIER"><span class="type">G_GINT64_MODIFIER</span></a>
+is not defined.
 </p>
 </div>
 <p class="since">Since 2.4</p>
@@ -851,17 +862,18 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GINT64_FORMAT "lli"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>
-一些平台不支持读入和打印64位整数，尽管支持这个数据类型。
-在这样的平台 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a> 是未定义的。
-请注意，<code class="function">scanf()</code> 可能不支持64位整数，尽管定义了 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a>。
-因为它薄弱的错误处理，无论如何 <code class="function">scanf()</code> 是不推荐解析的；
-请考虑使用 <code class="function">g_strtoull()</code> 代替它。
+Some platforms do not support scanning and printing 64 bit integers,
+even though the types are supported. On such platforms <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a>
+is not defined. Note that <code class="function">scanf()</code> may not support 64 bit integers, even
+if <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a> is defined. Due to its weak error handling, <code class="function">scanf()</code>
+is not recommended for parsing anyway; consider using <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strtoull" title="g_ascii_strtoull ()"><code class="function">g_ascii_strtoull()</code></a>
+instead.
 </p>
 </div>
 </div>
@@ -871,17 +883,17 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GUINT64_FORMAT "llu"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>
-一些平台不支持读入和打印64位整数，尽管支持这个数据类型。
-在这样的平台 <a class="link" href="glib-Miscellaneous-Macros.html#G-GUINT64-FORMAT:CAPS" title="G_GUINT64_FORMAT"><span class="type">G_GUINT64_FORMAT</span></a> 是未定义的。
-请注意，<code class="function">scanf()</code> 可能不支持64位整数，尽管定义了 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a>。
-因为它薄弱的错误处理，无论如何 <code class="function">scanf()</code> 是不推荐解析的；
-请考虑使用 <code class="function">g_strtoull()</code> 代替它。
+Some platforms do not support scanning and printing 64 bit integers,
+even though the types are supported. On such platforms <a class="link" href="glib-Miscellaneous-Macros.html#G-GUINT64-FORMAT:CAPS" title="G_GUINT64_FORMAT"><span class="type">G_GUINT64_FORMAT</span></a>
+is not defined.  Note that <code class="function">scanf()</code> may not support 64 bit integers, even
+if <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a> is defined. Due to its weak error handling, <code class="function">scanf()</code> is not
+recommended for parsing anyway; consider using <code class="function">g_strtoull()</code> instead.
 </p>
 </div>
 </div>
@@ -891,8 +903,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GSIZE_MODIFIER ""
 </pre>
 <p>
-平台依赖长度修改量的转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> 或者
-<a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> 类型的值。这是一个串字面。
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> or <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a>. It is a string literal,
 </p>
 <p class="since">Since 2.6</p>
 </div>
@@ -902,8 +914,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GSIZE_FORMAT "u"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 <p class="since">Since 2.6</p>
 </div>
@@ -913,8 +925,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GSSIZE_FORMAT "i"
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT16-FORMAT:CAPS" title="G_GINT16_FORMAT"><span class="type">G_GINT16_FORMAT</span></a>.
 </p>
 <p class="since">Since 2.6</p>
 </div>
@@ -924,8 +936,9 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GOFFSET_MODIFIER      G_GINT64_MODIFIER
 </pre>
 <p>
-平台依赖长度修改量的转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#goffset" title="goffset"><span class="type">goffset</span></a> 类型的值。
-这是一个串字面。 见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-MODIFIER:CAPS" title="G_GINT64_MODIFIER"><span class="type">G_GINT64_MODIFIER</span></a> 。
+The platform dependent length modifier for conversion specifiers for scanning
+and printing values of type <a class="link" href="glib-Basic-Types.html#goffset" title="goffset"><span class="type">goffset</span></a>. It is a string literal. See also
+<a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-MODIFIER:CAPS" title="G_GINT64_MODIFIER"><span class="type">G_GINT64_MODIFIER</span></a>.
 </p>
 <p class="since">Since 2.20</p>
 </div>
@@ -935,8 +948,8 @@ g_print ("%" G_GINT32_FORMAT, out);
 <pre class="programlisting">#define G_GOFFSET_FORMAT        G_GINT64_FORMAT
 </pre>
 <p>
-这是一个平台依赖转换符，用于读入和打印 <a class="link" href="glib-Basic-Types.html#goffset" title="goffset"><span class="type">goffset</span></a> 类型的值。
-见 <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a> 。
+This is the platform dependent conversion specifier for scanning and
+printing values of type <a class="link" href="glib-Basic-Types.html#goffset" title="goffset"><span class="type">goffset</span></a>. See also <a class="link" href="glib-Miscellaneous-Macros.html#G-GINT64-FORMAT:CAPS" title="G_GINT64_FORMAT"><span class="type">G_GINT64_FORMAT</span></a>.
 </p>
 Since: 2.20</div>
 <hr>

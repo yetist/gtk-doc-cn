@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>动态加载的模块</title>
+<title>Dynamic Loading of Modules</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
 <link rel="prev" href="glib-Asynchronous-Queues.html" title="Asynchronous Queues">
 <link rel="next" href="glib-Memory-Allocation.html" title="Memory Allocation">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Asynchronous-Queues.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-core.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Memory-Allocation.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -30,8 +30,8 @@
 <a name="glib-Dynamic-Loading-of-Modules"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Dynamic-Loading-of-Modules.top_of_page"></a>动态加载的模块</span></h2>
-<p>动态加载的模块 — portable method for dynamically loading 'plug-ins'</p>
+<h2><span class="refentrytitle"><a name="glib-Dynamic-Loading-of-Modules.top_of_page"></a>Dynamic Loading of Modules</span></h2>
+<p>Dynamic Loading of Modules — portable method for dynamically loading 'plug-ins'</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -99,7 +99,7 @@ it must ensure that it is never unloaded, by calling <a class="link" href="glib-
 <p>
 </p>
 <div class="example">
-<a name="id2857368"></a><p class="title"><b>Example 11. Calling a function defined in a <span class="structname">GModule</span></b></p>
+<a name="id3074546"></a><p class="title"><b>Example 11. Calling a function defined in a <span class="structname">GModule</span></b></p>
 <div class="example-contents"><pre class="programlisting">
 /* the function signature for 'say_hello' */
 typedef void (* SayHelloFunc) (const char *message);
@@ -148,7 +148,7 @@ just_say_hello (const char *filename, GError **error)
 <pre class="programlisting">typedef struct _GModule GModule;</pre>
 <p>
 The <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> struct is an opaque data structure to represent a
-<a class="link" href="glib-Dynamic-Loading-of-Modules.html" title="动态加载的模块">Dynamically-Loaded Module</a>.
+<a class="link" href="glib-Dynamic-Loading-of-Modules.html" title="Dynamic Loading of Modules">Dynamically-Loaded Module</a>.
 It should only be accessed via the following functions.
 </p>
 </div>
@@ -232,10 +232,22 @@ eventually that fails as well, <a class="link" href="glib-Standard-Macros.html#N
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_name</code></em> :</span></p></td>
+<td>the name of the file containing the module, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to obtain
+a <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> representing the main program itself.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>the flags used for opening the module. This can be the logical
+OR of any of the <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModuleFlags" title="enum GModuleFlags"><span class="type">GModuleFlags</span></a>.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a> on success, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> on failure.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -321,11 +333,17 @@ Gets the filename from a <a class="link" href="glib-Dynamic-Loading-of-Modules.h
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>module</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Dynamic-Loading-of-Modules.html#GModule" title="GModule"><span class="type">GModule</span></a>.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the filename of the module, or "main" if the module is the main
 program itself.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>

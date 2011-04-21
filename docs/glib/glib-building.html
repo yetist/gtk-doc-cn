@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>编译GLib包</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib.html" title="GLib概述">
 <link rel="prev" href="glib.html" title="GLib概述">
 <link rel="next" href="glib-cross-compiling.html" title="交叉编译GLib软件包">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="glib.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-cross-compiling.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -24,51 +24,31 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle">编译GLib包</span></h2>
-<p>编译GLib包 — 
-如何自行编译GLib
-</p>
+<p>编译GLib包 — 如何自行编译GLib</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="building"></a><h2>怎样在UNIX环境中建立库</h2>
-<p>
-      	在UNIX上，GLib使用标准的GNU编译系统，
-	使用<span class="application">autoconf</span>
-	来配置并解决可移植性问题，
-        使用<span class="application">automake</span>来建立
-	符合GNU编译标准(GNU Coding Standards)的makefiles文件，
-        并使用<span class="application">libtool</span>来建立多平台上的共享库。
-	通常，编译GLib函数库的顺序如下所示：
-
-        </p>
+<p>在UNIX上，GLib使用标准的GNU编译系统， 使用<span class="application">autoconf</span>来配置并解决可移植性问题， 使用<span class="application">automake</span>来建立 符合GNU编译标准(GNU Coding Standards)的makefiles文件， 并使用<span class="application">libtool</span>来建立多平台上的共享库。 通常，编译GLib函数库的顺序如下所示：</p>
 <div class="literallayout"><p><br>
           <strong class="userinput"><code>./configure</code></strong><br>
           <strong class="userinput"><code>make</code></strong><br>
           <strong class="userinput"><code>make install</code></strong><br>
         </p></div>
-<p>
-      </p>
-<p>
-        提供给<span class="application">autoconf</span>的标准选项
-	可能会传递给<span class="command"><strong>configure</strong></span>脚本。
-        请查看<span class="application">autoconf</span>文档或者
-	运行<span class="command"><strong>./configure --help</strong></span>命令来
-	查看标准选项。
-      </p>
-<p>
-       GTK+的文档包含关于构建过程以及如何影响它的一些
-       更多的
-       <a class="ulink" href="../gtk/gtk-building.html" target="_top">细节</a>
-      </p>
+<p> </p>
+<p>提供给<span class="application">GNU autoconf</span>的标准选项可能会传递给<span class="command"><strong>configure</strong></span>脚本。 请查看<span class="application">autoconf</span>文档或者运行<span class="command"><strong>./configure --help</strong></span>命令来 查看标准选项。</p>
+<p>GTK+的文档包含关于构建过程以及如何影响它的一些 更多的<a class="ulink" href="../gtk/gtk-building.html" target="_top"> 细节</a>。</p>
 </div>
 <div class="refsect1">
 <a name="dependencies"></a><h2>依赖</h2>
 <p>
-      在编译GLib库之前，你还需要一些其它的工具和库。有两个工具在整个
-      编译期间都需要，它们是<span class="command"><strong>pkg-config</strong></span>和GNU make。
-      这两个工具和之前讲到的<span class="application">autoconf</span>之类的工具
-      是不同的。
+        Before you can compile the GLib library, you need to have
+        various other tools and libraries installed on your
+        system. The two tools needed during the build process (as
+        differentiated from the tools used in when creating GLib
+        mentioned above such as <span class="application">autoconf</span>)
+        are <span class="command"><strong>pkg-config</strong></span> and GNU make.
       </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem"><p>
@@ -167,8 +147,8 @@
           configure option.
         </p></li>
 <li class="listitem"><p>
-          The optional SELinux support in GIO requires libselinux.
-          To build GLib without SELinux support, use the
+          The optional SELinux support in GIO requires libselinux. To build
+          GLib without SELinux support, use the
           <code class="option">--disable-selinux</code> configure option.
         </p></li>
 <li class="listitem"><p>
@@ -227,8 +207,7 @@
 	  </p></li>
 <li class="listitem"><p>
 	    When growing a GArray, Glib will clear the new chunk of memory.
-	    Grow an array from 7 bytes to 10 bytes, and the last 3 bytes will
-	    be cleared.
+	    Grow an array from 7 bytes to 10 bytes, and the last 3 bytes will be cleared.
 	  </p></li>
 <li class="listitem"><p>
 	    The above applies to GPtrArray as well.
@@ -385,8 +364,8 @@
           <code class="systemitem">--enable-gtk-doc</code>. </b>
           By default the <span class="command"><strong>configure</strong></span> script will try
           to auto-detect whether the
-          <span class="application">gtk-doc</span> package is installed.
-          If it is, then it will use it to extract and build the
+          <span class="application">gtk-doc</span> package is installed.  If
+          it is, then it will use it to extract and build the
           documentation for the GLib library.  These options
           can be used to explicitly control whether
           <span class="application">gtk-doc</span> should be

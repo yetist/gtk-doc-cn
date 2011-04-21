@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>运行GLib应用程序</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib.html" title="GLib概述">
 <link rel="prev" href="glib-compiling.html" title="编译GLib应用程序">
 <link rel="next" href="glib-changes.html" title="GLib 的更改">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="glib-compiling.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-changes.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -24,136 +24,68 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle">运行GLib应用程序</span></h2>
-<p>运行GLib应用程序 — 
-如何运行和调试GLib应用程序
-</p>
+<p>运行GLib应用程序 — 如何运行和调试GLib应用程序</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id2871987"></a><h2>运行和调试GLib应用程序</h2>
+<a name="id3118864"></a><h2>Running and debugging GLib Applications</h2>
 <div class="refsect2">
-<a name="id2870910"></a><h3>环境变量</h3>
-<p> 
-GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PATH</code> or <code class="envar">HOME</code> 
-一样的标准环境变量之外的一小部分环境变量.
-</p>
-<p><a name="G_FILENAME_ENCODING"></a><b><code class="envar">G_FILENAME_ENCODING</code>. </b>
-    这个环境变量可以被设置为逗号为分隔字符集名称的列表. 
-    GLib 假设文件名编码是以此列表第一个变量指定的编码方式而不是UTF-8.
-    特别标记 "@locale" 可用于指定当前语言环境的字符集编码.
-  </p>
-<p><a name="G_BROKEN_FILENAMES"></a><b><code class="envar">G_BROKEN_FILENAMES</code>. </b>
-    如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8.  
-    G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES. 
-  </p>
-<p><a name="G_MESSAGES_PREFIXED"></a><b><code class="envar">G_MESSAGES_PREFIXED</code>. </b>
-    日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了<code class="literal">G_LOG_LEVEL_MESSAGE</code>
-    和<code class="literal">G_LOG_LEVEL_INFO</code>的一切.
-  </p>
-<p><a name="G_DEBUG"></a><b><code class="envar">G_DEBUG</code>. </b>
-    如果 GLib 已经定义了 <code class="option">--enable-debug=yes</code>,
-    这个变量可用于设置调试选, 将打印出调试信息中的各种类型.
-    </p>
+<a name="id3133787"></a><h3>环境变量</h3>
+<p>GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PATH</code> or <code class="envar">HOME</code> 一样的标准环境变量之外的一小部分环境变量.</p>
+<p><a name="G_FILENAME_ENCODING"></a><b><code class="envar">G_FILENAME_ENCODING</code>. </b>这个环境变量可以被设置为逗号为分隔字符集名称的列表. GLib 假设文件名编码是以此列表第一个变量指定的编码方式而不是UTF-8. 特别标记 "@locale" 可用于指定当前语言环境的字符集编码.</p>
+<p><a name="G_BROKEN_FILENAMES"></a><b><code class="envar">G_BROKEN_FILENAMES</code>. </b>如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8. G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES.</p>
+<p><a name="G_MESSAGES_PREFIXED"></a><b><code class="envar">G_MESSAGES_PREFIXED</code>. </b>日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了<code class="literal">G_LOG_LEVEL_MESSAGE</code> 和<code class="literal">G_LOG_LEVEL_INFO</code>的一切.</p>
+<p><a name="G_DEBUG"></a><b><code class="envar">G_DEBUG</code>. </b>如果 GLib 已经定义了 <code class="option">--enable-debug=yes</code>, 这个变量可用于设置调试选, 将打印出调试信息中的各种类型. </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term">fatal_warnings</span></p></td>
-<td><p>首次调用<a class="link" href="glib-Message-Logging.html#g-warning" title="g_warning()">g_warning</a>()或 
-	   <a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()">g_critical</a>()即中止程序的运行.特别地，此选项不需要GLib配置成
-	   调试支持.</p></td>
+<td><p>首次调用<a class="link" href="glib-Message-Logging.html#g-warning" title="g_warning()">g_warning</a>()或 <a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()">g_critical</a>()即中止程序的运行.特别地，此选项不需要GLib配置成 调试支持.</p></td>
 </tr>
 <tr>
 <td><p><span class="term">fatal_criticals</span></p></td>
-<td><p>首次调用<a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()">g_critical</a>()即中止程序的运行. 此选项不需要GLib配置成
-	   调试支持.</p></td>
+<td><p>首次调用<a class="link" href="glib-Message-Logging.html#g-critical" title="g_critical()">g_critical</a>()即中止程序的运行. 此选项不需要GLib配置成 调试支持.</p></td>
 </tr>
 <tr>
 <td><p><span class="term">gc-friendly</span></p></td>
-<td><p>
-		  新分配的内存没有被直接初始化,内存释放后将被重置为0.
-		  这里的要点是允许内存检查系统和使用bohem GC 类似算法
-		  的程序来计算更多精确的結果.此选项比较特殊,不需要将
-		  GLib配置成调试支持.
-		</p></td>
+<td><p>新分配的内存没有被直接初始化,内存释放后将被重置为0. 这里的要点是允许内存检查系统和使用bohem GC 类似算法 的程序来计算更多精确的結果.此选项比较特殊,不需要将 GLib配置成调试支持.</p></td>
 </tr>
 <tr>
 <td><p><span class="term">resident-modules</span></p></td>
-<td><p>
-	    所有由GModule加载的模块将长驻内存的.
-	    这可用于在模块卸载后追踪模块的内存泄漏.
-	    但也可能在模块正常卸载后隐藏代码访问时的bugs.
-	    此选项比较特殊,不需要将GLib配置成调试支持.
-	  </p></td>
+<td><p>所有由GModule加载的模块将长驻内存的. 这可用于在模块卸载后追踪模块的内存泄漏. 但也可能在模块正常卸载后隐藏代码访问时的bugs. 此选项比较特殊,不需要将GLib配置成调试支持.</p></td>
 </tr>
 <tr>
 <td><p><span class="term">bind-now-modules</span></p></td>
-<td><p>
-	    所有模块被GModule加载时就会绑定他们的符号,即使代码使用了
-	    %G_MODULE_BIND_LAZY.
-	    此选项比较特殊,不需要将GLib配置成调试支持.
-	  </p></td>
+<td><p>所有模块被GModule加载时就会绑定他们的符号,即使代码使用了 %G_MODULE_BIND_LAZY. 此选项比较特殊,不需要将GLib配置成调试支持.</p></td>
 </tr>
 </tbody>
 </table></div>
-<p>
-    特殊值可以用来打开所有的调试选项.
-    特殊值可以用来打印所有可用的选项.
-  </p>
-<p><a name="G_SLICE"></a><b><code class="envar">G_SLICE</code>. </b>
-	　该环境变量允许重新配置GSlice内存分配器.
-	  </p>
+<p> 特殊值可以用来打开所有的调试选项. 特殊值可以用来打印所有可用的选项.</p>
+<p><a name="G_SLICE"></a><b><code class="envar">G_SLICE</code>. </b>该环境变量允许重新配置GSlice内存分配器. </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term">always-malloc</span></p></td>
-<td><p>
-		　这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将
-		　直接调用g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC
-		　算法的相关程序计算更精确的結果最有帮助.　
-		  它还可以连接系统malloc实现中的调试特性，比如glibc中的MALLOC_CHECK_=2,
-		  然后来调试错误的片分配代码,即使<code class="literal">debug-blocks</code>通常是
-		  更适合的调试工具.
-		</p></td>
+<td><p>这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将直接调用g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC 算法的相关程序计算更精确的結果最有帮助。它还可以连接系统malloc实现中的调试特性，比如glibc中的MALLOC_CHECK_=2, 然后来调试错误的片分配代码,即使<code class="literal">debug-blocks</code>通常是更适合的调试工具。</p></td>
 </tr>
 <tr>
 <td><p><span class="term">debug-blocks</span></p></td>
 <td>
-<p>
-		  使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整
-		  性检查.无效的片地址或片大小将会被报告并导致程序停止。此选项用于调试
-		  方案.特别地，客户端软件包在运行自有的测试套件时应该<span class="emphasis"><em>始终打开此选项</em></span>.
-		  全局片验证是为了确保存储每个分配块的大小和地址信息,并为此数据维护
-		  一个全局的哈希表.因此,多线程的可扩展性被放弃,而且内存消耗增加.然而
-		  生成的代码通常表现得更好,可能比同类使用外部工具检查内存的还要好.
-		  在一个内存损坏的情况下,<code class="literal">G_SLICE=always-malloc</code>将不能进行复制,
-		  但设置<code class="literal">G_SLICE=debug-blocks</code>将能如下面一样捕获:
-		  </p>
+<p>使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整 性检查.无效的片地址或片大小将会被报告并导致程序停止。此选项用于调试 方案.特别地，客户端软件包在运行自有的测试套件时应该<span class="emphasis"><em>始终打开此选项</em></span>. 全局片验证是为了确保存储每个分配块的大小和地址信息,并为此数据维护 一个全局的哈希表.因此,多线程的可扩展性被放弃,而且内存消耗增加.然而 生成的代码通常表现得更好,可能比同类使用外部工具检查内存的还要好. 在一个内存损坏的情况下,<code class="literal">G_SLICE=always-malloc</code>将不能进行复制, 但设置<code class="literal">G_SLICE=debug-blocks</code>将能如下面一样捕获: </p>
 <pre class="programlisting">
 		    void *slist = g_slist_alloc(); /* void* gives up type-safety */
 		    g_list_free (slist);           /* corruption: sizeof (GSList) != sizeof (GList) */
 		  </pre>
-<p>
-		</p>
 </td>
 </tr>
 </tbody>
 </table></div>
-<p>
-	    特殊值可以用来打开所有的调试选项.
-	    特殊值可以用来打印所有可用的选项.
-	</p>
-<p><a name="G_RANDOM_VERSION"></a><b><code class="envar">G_RANDOM_VERSION</code>. </b>
-  　如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成
-  　算法将会替代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才
-  　使用GLib-2.0的算法.
-  </p>
-<p><a name="LIBCHARSET_ALIAS_DIR"></a><b><code class="envar">LIBCHARSET_ALIAS_DIR</code>. </b>
-  　允许为<code class="filename">charset.aliases</code>文件指定一个非标准的位置,
-    这文件通常用于字符集转换全程.默认位置是编译时指定的<em class="replaceable"><code>libdir</code></em>.
-  </p>
+<p> 特殊值可以用来打开所有的调试选项. 特殊值可以用来打印所有可用的选项.</p>
+<p><a name="G_RANDOM_VERSION"></a><b><code class="envar">G_RANDOM_VERSION</code>. </b>如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成算法将会替代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才使用GLib-2.0的算法.</p>
+<p><a name="LIBCHARSET_ALIAS_DIR"></a><b><code class="envar">LIBCHARSET_ALIAS_DIR</code>. </b>　允许为<code class="filename">charset.aliases</code>文件指定一个非标准的位置, 这文件通常用于字符集转换全程.默认位置是编译时指定的<em class="replaceable"><code>libdir</code></em>.</p>
 <p><a name="TZDIR"></a><b><code class="envar">TZDIR</code>. </b>
     Allows to specify a nonstandard location for the timezone data files
     that are used by the #GDateTime API. The default location is under
@@ -164,62 +96,31 @@ GLib 会检查除了像 <code class="envar">LANG</code>, <code class="envar">PAT
 <hr>
 <div class="refsect2">
 <a name="setlocale"></a><h3>区域设置</h3>
-<p>
-相当数量的GLib接口取决于应用程序在运行时的当前区域设置.
-因此大多数使用GLib的程序应该调用<code class="function">setlocale(LC_ALL,"")</code>
-来设置当前区域.
-</p>
-<p>
-在Windows中,C程序中有几个区域设置的概念并不是同步的.
-一方面,有系统默认的ANSI代码页,由C库和Win32API来决定用什么
-编码来处理文件名.(我们现在谈论的是"窄"函数处理字符指针,不是
-"宽"的那种.)
-</p>
-<p>
-另一方面,有一个C函数库的 当前区域.该字符集(代码页)并不一定像
-系统默认ANSI代码页一样使用.它返回的字符集类似<code class="function">strftime()</code>.
-</p>
+<p>相当数量的GLib接口取决于应用程序在运行时的当前区域设置. 因此大多数使用GLib的程序应该调用<code class="function">setlocale(LC_ALL,"")</code> 来设置当前区域.</p>
+<p>在Windows中,C程序中有几个区域设置的概念并不是同步的. 一方面,有系统默认的ANSI代码页,由C库和Win32API来决定用什么 编码来处理文件名.(我们现在谈论的是"窄"函数处理字符指针,不是 "宽"的那种.)</p>
+<p>另一方面,有一个C函数库的当前区域.该字符集(代码页)并不一定像系统默认ANSI代码页一样使用.它返回的字符集类似<code class="function">strftime()</code>.</p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="id2874619"></a><h3>陷阱与追踪</h3>
-<p>
-
-
-
-在GLib配置好<code class="option">--enable-debugging=yes</code>
-的调试中,有些包含陷阱变量的代码可被设置.这些陷阱导致代码停止检查
-当前的程序状态并回溯.
-</p>
-<p>
-当前,有下列陷阱变量存在:
-</p>
+<a name="id3121568"></a><h3>陷阱与追踪</h3>
+<p> 在GLib配置好<code class="option">--enable-debugging=yes</code> 的调试中,有些包含陷阱变量的代码可被设置.这些陷阱导致代码停止检查 当前的程序状态并回溯.</p>
+<p>当前,有下列陷阱变量存在: </p>
 <pre class="programlisting">
 static volatile gulong g_trap_free_size;
 static volatile gulong g_trap_realloc_size;
 static volatile gulong g_trap_malloc_size;
 </pre>
-<p>
-如果设置 size &gt; 0, 其大小匹配内存块的大小的话,<a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()">g_free</a>(),
-<a class="link" href="glib-Memory-Allocation.html#g-realloc" title="g_realloc ()">g_realloc</a>()和 
-<a class="link" href="glib-Memory-Allocation.html#g-malloc" title="g_malloc ()">g_malloc</a>() 将被拦截.
-这只会在<code class="literal">g_mem_set_vtable(glib_mem_profiler_table)</code>启动时才会生效,
-因为内存分析需要匹配内存块的大小.
-</p>
-<p>
-注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做
-</p>
+<p> 如果设置 size &gt; 0, 其大小匹配内存块的大小的话,<a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()">g_free</a>(), <a class="link" href="glib-Memory-Allocation.html#g-realloc" title="g_realloc ()">g_realloc</a>()和 <a class="link" href="glib-Memory-Allocation.html#g-malloc" title="g_malloc ()">g_malloc</a>() 将被拦截. 这只会在<code class="literal">g_mem_set_vtable(glib_mem_profiler_table)</code>启动时才会生效, 因为内存分析需要匹配内存块的大小.</p>
+<p>注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做 </p>
 <pre class="programlisting">
 break g_malloc
 condition 1 n_bytes == 20
 </pre>
-<p>
-来在只有g_malloc()分配20字节的时候才中断它.
-</p>
+<p> 来在只有g_malloc()分配20字节的时候才中断它.</p>
 </div>
 <hr>
 <div class="refsect2">
-<a name="id2885083"></a><h3>Gdb debugging macros</h3>
+<a name="id3060548"></a><h3>Gdb debugging macros</h3>
 <p>
 glib ships with a set of python macros for the gdb debugger. These includes pretty
 printers for lists, hashtables and gobject types. It also has a backtrace filter
@@ -250,7 +151,7 @@ Which would print the contents of each widget in a list of widgets.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id2885128"></a><h3>SystemTap</h3>
+<a name="id3060593"></a><h3>SystemTap</h3>
 <p>
 <a class="ulink" href="http://sourceware.org/systemtap/" target="_top">SystemTap</a> is a dynamic whole-system
 analysis toolkit.  GLib ships with a file <code class="filename">glib.stp</code> which defines a
@@ -261,16 +162,13 @@ are in your shared SystemTap scripts directory.
 </div>
 <hr>
 <div class="refsect2">
-<a name="id2885166"></a><h3>静态内存</h3>
+<a name="id3060631"></a><h3>Memory statistics</h3>
 <p>
-如果内存分析已在启动时通过 <code class="literal">g_mem_set_vtable(glib_mem_profiler_table)</code> 启动,g_mem_profile()
-将输出g_malloc()的内存使用摘要.
+g_mem_profile() will output a summary g_malloc() memory usage, if memory
+profiling has been enabled by calling 
+<code class="literal">g_mem_set_vtable (glib_mem_profiler_table)</code> upon startup.
 </p>
-<p>
-如果GLib已经配置了选项<code class="option">--enable-debug=yes</code>,
-那么在调试器中则可以调用g_slice_debug_tree_statistics()来查看
-内存片使用的细节.
-</p>
+<p>如果GLib已经配置了选项<code class="option">--enable-debug=yes</code>, 那么在调试器中则可以调用g_slice_debug_tree_statistics()来查看 内存片使用的细节.</p>
 </div>
 </div>
 </div>

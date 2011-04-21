@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Key-value file parser</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-utilities.html" title="GLib实用函数集">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Simple-XML-Subset-Parser.html" title="Simple XML Subset Parser">
 <link rel="next" href="glib-Bookmark-file-parser.html" title="Bookmark file parser">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Simple-XML-Subset-Parser.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Bookmark-file-parser.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -461,16 +461,15 @@ Flags which influence the parsing.
 <a name="g-key-file-new"></a><h3>g_key_file_new ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="returnvalue">GKeyFile</span></a> *          g_key_file_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Creates a new empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> object. Use
-<a class="link" href="glib-Key-value-file-parser.html#g-key-file-load-from-file" title="g_key_file_load_from_file ()"><code class="function">g_key_file_load_from_file()</code></a>, <a class="link" href="glib-Key-value-file-parser.html#g-key-file-load-from-data" title="g_key_file_load_from_data ()"><code class="function">g_key_file_load_from_data()</code></a>,
-<a class="link" href="glib-Key-value-file-parser.html#g-key-file-load-from-dirs" title="g_key_file_load_from_dirs ()"><code class="function">g_key_file_load_from_dirs()</code></a> or <a class="link" href="glib-Key-value-file-parser.html#g-key-file-load-from-data-dirs" title="g_key_file_load_from_data_dirs ()"><code class="function">g_key_file_load_from_data_dirs()</code></a> to
-read an existing key file.
+创建一个新的空<a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>对象。使用g_key_file_load_from_file（）、
+g_key_file_load_from_data（）、g_key_file_load_from_dirs（）或
+g_key_file_load_from_data_dirs（）来读取一个存在的key文件。
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>.</td>
+<td>一个空的 <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> 对象。</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
@@ -482,14 +481,6 @@ read an existing key file.
 <p>
 Frees a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr></tbody>
-</table></div>
 <p class="since">Since 2.6</p>
 </div>
 <hr>
@@ -498,23 +489,15 @@ Frees a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="G
 <pre class="programlisting"><span class="returnvalue">void</span>                g_key_file_set_list_separator       (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> separator</code></em>);</pre>
 <p>
-Sets the character which is used to separate
-values in lists. Typically ';' or ',' are used
-as separators. The default list separator is ';'.
+设置使用什么字符来分隔列表中的值。通常';'或','被用作分隔符。默认列表分隔符
+是';'。
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
-<td>the separator</td>
-</tr>
-</tbody>
+<td>分隔符</td>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -534,27 +517,22 @@ either a <a class="link" href="glib-File-Utilities.html#GFileError" title="enum 
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> struct</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
 <td>the path of a filename to load, in the GLib filename encoding</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>flags from <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a>
-</td>
+<td>来自 <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a> 的标志</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a key file could be loaded, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise</td>
+<td>如果key文件可以被加载返回<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>，否则返回<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -576,10 +554,6 @@ If the object cannot be created then <code class="literal">error</code> is set t
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> struct</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
 <td>key file loaded in memory</td>
 </tr>
@@ -589,18 +563,17 @@ If the object cannot be created then <code class="literal">error</code> is set t
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>flags from <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a>
-</td>
+<td>来自 <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a> 的标志</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a key file could be loaded, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise</td>
+<td>如果key文件可以被加载返回<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>，否则返回<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -625,10 +598,6 @@ set to either a <a class="link" href="glib-File-Utilities.html#GFileError" title
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> struct</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
 <td>a relative path to a filename to open and parse</td>
 </tr>
@@ -640,12 +609,11 @@ of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>flags from <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a>
-</td>
+<td>来自 <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a> 的标志</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -677,10 +645,6 @@ be loaded then an <code class="literal">error</code> is set to either a <a class
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> struct</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
 <td>a relative path to a filename to open and parse</td>
 </tr>
@@ -697,18 +661,17 @@ of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
-<td>flags from <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a>
-</td>
+<td>来自 <a class="link" href="glib-Key-value-file-parser.html#GKeyFileFlags" title="enum GKeyFileFlags"><span class="type">GKeyFileFlags</span></a> 的标志</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if a key file could be loaded, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> otherwise</td>
+<td>如果key文件可以被加载返回<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>，否则返回<a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -731,11 +694,6 @@ so it is safe to pass <a class="link" href="glib-Standard-Macros.html#NULL:CAPS"
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
 <td>return location for the length of the
 returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -743,7 +701,7 @@ returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" t
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -765,17 +723,10 @@ Returns the name of the start group of the file.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
+<tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The start group of the key file.</td>
-</tr>
-</tbody>
+</tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -792,11 +743,6 @@ The array of returned groups will be <a class="link" href="glib-Standard-Macros.
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
 <td>return location for the number of returned groups, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -829,11 +775,6 @@ be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -844,7 +785,7 @@ be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -867,11 +808,6 @@ Looks whether the key file has the group <em class="parameter"><code>group_name<
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -900,11 +836,6 @@ Looks whether the key file has the key <em class="parameter"><code>key</code></e
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -949,11 +880,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -963,7 +889,7 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -997,11 +923,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1011,7 +932,7 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -1046,11 +967,6 @@ be found then the untranslated value is returned.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1065,7 +981,7 @@ be found then the untranslated value is returned.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -1097,11 +1013,6 @@ is returned and <em class="parameter"><code>error</code></em> is set to <a class
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1144,11 +1055,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1276,11 +1182,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1323,11 +1224,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1342,7 +1238,7 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -1379,11 +1275,6 @@ be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1439,11 +1330,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1490,11 +1376,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1543,11 +1424,6 @@ and <em class="parameter"><code>error</code></em> is set to <a class="link" href
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1589,11 +1465,6 @@ If <em class="parameter"><code>key</code></em> is <a class="link" href="glib-Sta
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -1637,11 +1508,6 @@ characters that need escaping (such as newlines or spaces), use
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1675,11 +1541,6 @@ that need escaping, such as newlines.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1710,11 +1571,6 @@ If the translation for <em class="parameter"><code>key</code></em> cannot be fou
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1750,11 +1606,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1787,11 +1638,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1821,11 +1667,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1857,11 +1698,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -1891,11 +1727,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1928,11 +1759,6 @@ If <em class="parameter"><code>group_name</code></em> cannot be found then it is
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -1971,11 +1797,6 @@ it is created.
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -2018,11 +1839,6 @@ If <em class="parameter"><code>group_name</code></em> is <a class="link" href="g
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -2059,11 +1875,6 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -2099,11 +1910,6 @@ Associates a list of double values with <em class="parameter"><code>key</code></
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -2142,11 +1948,6 @@ written above the first group in the file.
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
@@ -2188,11 +1989,6 @@ from the key file.
 <col align="left" valign="top">
 <tbody>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
 </tr>
@@ -2223,11 +2019,6 @@ Removes <em class="parameter"><code>key</code></em> in <em class="parameter"><co
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name</td>
@@ -2266,11 +2057,6 @@ be removed above the first group in the file.
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>key_file</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>
-</td>
-</tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
 <td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>

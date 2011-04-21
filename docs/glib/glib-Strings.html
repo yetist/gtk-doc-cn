@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>字符串</title>
+<title>Strings</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-data-types.html" title="GLib数据类型">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-Hash-Tables.html" title="Hash Tables">
 <link rel="next" href="glib-String-Chunks.html" title="String Chunks">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Hash-Tables.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-String-Chunks.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -30,8 +30,8 @@
 <a name="glib-Strings"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Strings.top_of_page"></a>字符串</span></h2>
-<p>字符串 — text buffers which grow automatically as text is added</p>
+<h2><span class="refentrytitle"><a name="glib-Strings.top_of_page"></a>Strings</span></h2>
+<p>Strings — text buffers which grow automatically as text is added</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -124,10 +124,11 @@ struct              <a class="link" href="glib-Strings.html#GString" title="stru
 <div class="refsect1">
 <a name="glib-Strings.description"></a><h2>Description</h2>
 <p>
-A <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> is similar to a standard C string, except that it grows
-automatically as text is appended or inserted. Also, it stores the
-length of the string, so can be used for binary data with embedded
-nul bytes.
+A <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> is an object that handles the memory management of a C string
+for you. You can think of it as similar to a Java StringBuffer.
+In addition to the string itself, GString stores the length of the string,
+so can be used for binary data with embedded nul bytes. To access the C
+string managed by the GString <em class="parameter"><code>string</code></em>, simply use <em class="parameter"><code>string-&gt;str</code></em>.
 </p>
 </div>
 <div class="refsect1">

@@ -4,10 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GVariant Format Strings</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-data-types.html" title="GLib数据类型">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-GVariant.html" title="GVariant">
-<link rel="next" href="tools.html" title="GLib工具程序">
+<link rel="next" href="tools.html" title="GLib 工具">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -16,13 +16,13 @@
 <td><a accesskey="p" href="glib-GVariant.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="tools.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="gvariant-format-strings"></a><div class="titlepage"></div>
 <div class="refsect1">
-<a name="id3086464"></a><h2>Variable Argument Conversions</h2>
+<a name="id3131072"></a><h2>Variable Argument Conversions</h2>
 <p>
    This page attempts to document how to perform variable argument conversions with GVariant.
   </p>
@@ -38,7 +38,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id2994145"></a><h2>Syntax</h2>
+<a name="id3170410"></a><h2>Syntax</h2>
 <p>
    This section exhaustively describes all possibilities for GVariant format strings.  There are no valid forms of
    format strings other than those described here.  Please note that the format string syntax is likely to expand in the
@@ -70,7 +70,7 @@
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id2846903"></a><h2>Symbols</h2>
+<a name="id3096811"></a><h2>Symbols</h2>
 <p>
     The following table describes the rough meaning of symbols that may appear inside a GVariant format string.  Each
     symbol is described in detail in its own section, including usage examples.
@@ -462,7 +462,7 @@
     it operates with pointers.  The pointers must always point to a memory region of exactly the correct size.
    </p>
 <div class="refsect3">
-<a name="id2868470"></a><h4>Examples</h4>
+<a name="id3103821"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4;
 
@@ -510,7 +510,7 @@ value4 = g_variant_new ("x", G_GINT64_CONSTANT (998877665544332211));
     string should be ignored (in which case no copy is made).
    </p>
 <div class="refsect3">
-<a name="id3080448"></a><h4>Examples</h4>
+<a name="id3385591"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3;
 
@@ -554,7 +554,7 @@ value3 = g_variant_new ("g", "iias");
     ignored (in which case no new reference is created).
    </p>
 <div class="refsect3">
-<a name="id2866615"></a><h4>Examples</h4>
+<a name="id3262286"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *x, *y;
 
@@ -596,7 +596,7 @@ y = g_variant_get_variant (x);</pre></div>
     should be ignored.
    </p>
 <div class="refsect3">
-<a name="id3055487"></a><h4>Examples</h4>
+<a name="id3339290"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *builder;
 GVariant *value;
@@ -672,7 +672,7 @@ g_variant_unref (value);</pre></div>
     but have their values set to binary zero.
    </p>
 <div class="refsect3">
-<a name="id3073782"></a><h4>Examples</h4>
+<a name="id3090715"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4, *value5, *value6;
 value1 = g_variant_new ("ms", "Hello world");
@@ -743,7 +743,7 @@ value5 = g_variant_new ("(m@(ii)s)", NULL, "Done");
     Tuples are handled by handling each item in the tuple, in sequence.  Each item is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2912366"></a><h4>Examples</h4>
+<a name="id3155482"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -774,7 +774,7 @@ value2 = g_variant_new ("()");
     Dictionary entries are handled by handling first the key, then the value.  Each is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2912730"></a><h4>Examples</h4>
+<a name="id3295289"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *b;
 GVariant *dict;
@@ -822,7 +822,7 @@ dict = g_variant_builder_end (b);</pre></div>
     improvements in type safety and code self-documentation.
    </p>
 <div class="refsect3">
-<a name="id2856678"></a><h4>Examples</h4>
+<a name="id3388575"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -871,7 +871,7 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
     always be properly nul-terminated.
    </p>
 <div class="refsect3">
-<a name="id2873060"></a><h4>Examples</h4>
+<a name="id3339856"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 {
   const gchar *str;

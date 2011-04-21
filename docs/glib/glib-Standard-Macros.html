@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>标准宏</title>
+<title>Standard Macros</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
+<link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-fundamentals.html" title="GLib基础">
 <link rel="prev" href="glib-Limits-of-Basic-Types.html" title="基本类型的限制">
-<link rel="next" href="glib-Type-Conversion-Macros.html" title="类型转换宏">
+<link rel="next" href="glib-Type-Conversion-Macros.html" title="Type Conversion Macros">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Limits-of-Basic-Types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-fundamentals.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Type-Conversion-Macros.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -30,8 +30,8 @@
 <a name="glib-Standard-Macros"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-Standard-Macros.top_of_page"></a>标准宏</span></h2>
-<p>标准宏 — 常见宏。</p>
+<h2><span class="refentrytitle"><a name="glib-Standard-Macros.top_of_page"></a>Standard Macros</span></h2>
+<p>Standard Macros — commonly-used macros.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -81,7 +81,7 @@
 <div class="refsect1">
 <a name="glib-Standard-Macros.description"></a><h2>Description</h2>
 <p>
-这些宏提供一些常用的功能。
+These macros provide a few commonly-used features.
 </p>
 </div>
 <div class="refsect1">
@@ -91,7 +91,8 @@
 <pre class="programlisting">#define G_OS_WIN32
 </pre>
 <p>
-这些宏只在Windows上定义。所以你要使用针对于Windows的特定代码 "#ifdef G_OS_WIN32"。
+This macro is defined only on Windows. So you can bracket
+Windows-specific code in "#ifdef G_OS_WIN32".
 </p>
 </div>
 <hr>
@@ -100,7 +101,8 @@
 <pre class="programlisting">#define G_OS_BEOS
 </pre>
 <p>
-这些宏只在BeOS上定义。所以你要使用针对于BeOS的特定代码 "#ifdef G_OS_BEOS"。
+This macro is defined only on BeOS. So you can bracket
+BeOS-specific code in "#ifdef G_OS_BEOS".
 </p>
 </div>
 <hr>
@@ -109,7 +111,8 @@
 <pre class="programlisting">#define G_OS_UNIX
 </pre>
 <p>
-这些宏只在UNIX上定义。所以你要使用针对于UNIX的特定代码  "#ifdef G_OS_UNIX"。
+This macro is defined only on UNIX. So you can bracket
+UNIX-specific code in "#ifdef G_OS_UNIX".
 </p>
 </div>
 <hr>
@@ -118,7 +121,8 @@
 <pre class="programlisting">#define G_DIR_SEPARATOR '\\'
 </pre>
 <p>
-目录分隔符。’/’是UNIX机器上的，’\’是Windows环境下的。
+The directory separator character.
+This is '/' on UNIX machines and '\' under Windows.
 </p>
 </div>
 <hr>
@@ -127,7 +131,8 @@
 <pre class="programlisting">#define G_DIR_SEPARATOR_S "\\"
 </pre>
 <p>
-目录分隔字符串。”/”是UNIX机器上的，”\”是Windows环境下的。
+The directory separator as a string.
+This is "/" on UNIX machines and "\" under Windows.
 </p>
 </div>
 <hr>
@@ -136,13 +141,15 @@
 <pre class="programlisting">#define G_IS_DIR_SEPARATOR(c) ((c) == G_DIR_SEPARATOR || (c) == '/')
 </pre>
 <p>
-检查一个字符是否是目录分隔符。'/'在UNIX机器上，以及'\' 和 '/' 在Windows下，会返回一个<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>。
+Checks whether a character is a directory
+separator. It returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> for '/' on UNIX
+machines and for '\' or '/' under Windows.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
-<td>一个字符</td>
+<td>a character</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
@@ -153,7 +160,8 @@
 <pre class="programlisting">#define G_SEARCHPATH_SEPARATOR ';'
 </pre>
 <p>
-搜索路径分隔符。':'是UNIX机器上的，';'则是Windows下的。
+The search path separator character.
+This is ':' on UNIX machines and ';' under Windows.
 </p>
 </div>
 <hr>
@@ -162,7 +170,8 @@
 <pre class="programlisting">#define G_SEARCHPATH_SEPARATOR_S ";"
 </pre>
 <p>
-搜索路径分隔字符串。':'是UNIX机器上的，';'则是Windows下的。
+The search path separator as a string.
+This is ":" on UNIX machines and ";" under Windows.
 </p>
 </div>
 <hr>
@@ -171,7 +180,7 @@
 <pre class="programlisting">#define TRUE (!FALSE)
 </pre>
 <p>
-定义<a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a>类型的<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>。
+Defines the <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> value for the <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> type.
 </p>
 </div>
 <hr>
@@ -180,7 +189,7 @@
 <pre class="programlisting">#define FALSE (0)
 </pre>
 <p>
-定义<a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a>类型的% FALSE。
+Defines the <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> value for the <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> type.
 </p>
 </div>
 <hr>
@@ -189,7 +198,7 @@
 <pre class="programlisting">#    define NULL        (0L)
 </pre>
 <p>
-定义标准的<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 指针。
+Defines the standard <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer.
 </p>
 </div>
 <hr>
@@ -198,23 +207,22 @@
 <pre class="programlisting">#define MIN(a, b)  (((a) &lt; (b)) ? (a) : (b))
 </pre>
 <p>
-计算<em class="parameter"><code>a</code></em> 和 <em class="parameter"><code>b</code></em>哪个小。
+Calculates the minimum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>一个数值变量。</td>
+<td>a numeric value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>一个数值变量。</td>
+<td>a numeric value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>a</code></em> 和 <em class="parameter"><code>b</code></em>之中更小的</td>
+<td>the minimum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -225,23 +233,22 @@
 <pre class="programlisting">#define MAX(a, b)  (((a) &gt; (b)) ? (a) : (b))
 </pre>
 <p>
-计算<em class="parameter"><code>a</code></em> 和 <em class="parameter"><code>b</code></em>哪个大。
+Calculates the maximum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>一个数值变量。</td>
+<td>a numeric value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>一个数值变量。</td>
+<td>a numeric value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>a</code></em> 和 <em class="parameter"><code>b</code></em>之中更大的</td>
+<td>the maximum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -252,17 +259,18 @@
 <pre class="programlisting">#define ABS(a)	   (((a) &lt; 0) ? -(a) : (a))
 </pre>
 <p>
-计算<em class="parameter"><code>a</code></em>的绝对值。绝对值仅仅是对任何数去掉负号。
+Calculates the absolute value of <em class="parameter"><code>a</code></em>.
+The absolute value is simply the number with any negative sign taken away.
 </p>
 <p>
-例如：
+For example,
 </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem"><p>
-ABS(-10) 绝对值为10.
+ABS(-10) is 10.
 </p></li>
 <li class="listitem"><p>
-ABS(10)  还是 10.
+ABS(10) is also 10.
 </p></li>
 </ul></div>
 <p>
@@ -272,12 +280,11 @@ ABS(10)  还是 10.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>一个数值变量。</td>
+<td>a numeric value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>a</code></em>的绝对值。</td>
+<td>the absolute value of <em class="parameter"><code>a</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -288,20 +295,21 @@ ABS(10)  还是 10.
 <pre class="programlisting">#define CLAMP(x, low, high)  (((x) &gt; (high)) ? (high) : (((x) &lt; (low)) ? (low) : (x)))
 </pre>
 <p>
-确保<em class="parameter"><code>x</code></em>在<em class="parameter"><code>low</code></em> 和 <em class="parameter"><code>high</code></em>之间。如果<em class="parameter"><code>low</code></em>大于<em class="parameter"><code>high</code></em>，结果是未知的。
+Ensures that <em class="parameter"><code>x</code></em> is between the limits set by <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>. If <em class="parameter"><code>low</code></em> is
+greater than <em class="parameter"><code>high</code></em> the result is undefined.
 </p>
 <p>
-例如：
+For example,
 </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem"><p>
-CLAMP(5, 10, 15) 结果是 10。
+CLAMP(5, 10, 15) is 10.
 </p></li>
 <li class="listitem"><p>
-CLAMP(15, 5, 10) 结果是10.
+CLAMP(15, 5, 10) is 10.
 </p></li>
 <li class="listitem"><p>
-CLAMP(20, 15, 25) 结果是20.
+CLAMP(20, 15, 25) is 20.
 </p></li>
 </ul></div>
 <p>
@@ -311,19 +319,19 @@ CLAMP(20, 15, 25) 结果是20.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
-<td>the value to clamp.【不清楚这里如何理解】</td>
+<td>the value to clamp.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>low</code></em> :</span></p></td>
-<td>允许的最小值。</td>
+<td>the minimum value allowed.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>high</code></em> :</span></p></td>
-<td>允许的最大值。</td>
+<td>the maximum value allowed.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the value of <em class="parameter"><code>x</code></em> clamped to the range between <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>. 【不清楚这里如何理解】</td>
+<td>the value of <em class="parameter"><code>x</code></em> clamped to the range between <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -333,26 +341,26 @@ CLAMP(20, 15, 25) 结果是20.
 <a name="G-STRUCT-MEMBER:CAPS"></a><h3>G_STRUCT_MEMBER()</h3>
 <pre class="programlisting">#define             G_STRUCT_MEMBER(member_type, struct_p, struct_offset)</pre>
 <p>
-返回一个结构体指定偏移量的成员，使用指定类型
+Returns a member of a structure at a given offset, using the given type.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>member_type</code></em> :</span></p></td>
-<td>结构体类型。</td>
+<td>the type of the struct field.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>指向结构体的指针</td>
+<td>a pointer to a struct.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>自结构体起始的偏移，字节类型。</td>
+<td>the offset of the field from the start of the struct, in bytes.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>结构体成员。</td>
+<td>the struct member.</td>
 </tr>
 </tbody>
 </table></div>
@@ -362,22 +370,22 @@ CLAMP(20, 15, 25) 结果是20.
 <a name="G-STRUCT-MEMBER-P:CAPS"></a><h3>G_STRUCT_MEMBER_P()</h3>
 <pre class="programlisting">#define             G_STRUCT_MEMBER_P(struct_p, struct_offset)</pre>
 <p>
-返回一个结构体的既定偏移量的无类型指针。
+Returns an untyped pointer to a given offset of a struct.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>指向结构体的指针。</td>
+<td>a pointer to a struct.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>自结构体起始的偏移，字节类型。</td>
+<td>the offset from the start of the struct, in bytes.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>指向<em class="parameter"><code>struct_p</code></em> 加 <em class="parameter"><code>struct_offset</code></em> 个字节数的无类型指针。</td>
+<td>an untyped pointer to <em class="parameter"><code>struct_p</code></em> plus <em class="parameter"><code>struct_offset</code></em> bytes.</td>
 </tr>
 </tbody>
 </table></div>
@@ -387,23 +395,22 @@ CLAMP(20, 15, 25) 结果是20.
 <a name="G-STRUCT-OFFSET:CAPS"></a><h3>G_STRUCT_OFFSET()</h3>
 <pre class="programlisting">#define             G_STRUCT_OFFSET(struct_type, member)</pre>
 <p>
-返回偏移量，字节类型，结构体的成员。
+Returns the offset, in bytes, of a member of a struct.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_type</code></em> :</span></p></td>
-<td>结构体类型, e.g. <span class="structname">GtkWidget</span>.</td>
+<td>a structure type, e.g. <span class="structname">GtkWidget</span>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>member</code></em> :</span></p></td>
-<td>结构体的域。e.g. <em class="structfield"><code>window</code></em>。</td>
+<td>a field in the structure, e.g. <em class="structfield"><code>window</code></em>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>
-<em class="parameter"><code>struct_type</code></em>的<em class="parameter"><code>member</code></em>的偏移量</td>
+<td>the offset of <em class="parameter"><code>member</code></em> from the start of <em class="parameter"><code>struct_type</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -418,7 +425,8 @@ Indicates the number of bytes to which memory will be aligned on the
 current platform.
 </p>
 <p>
-指明当前平台内存对齐的字节数。
+Indicates the number of bytes to which memory will be aligned on the
+current platform.
 </p>
 </div>
 <hr>
@@ -427,15 +435,15 @@ current platform.
 <pre class="programlisting">#define G_CONST_RETURN
 </pre>
 <p>
-如果 <code class="literal">G_DISABLE_CONST_RETURNS</code> 定义了, this macro expands to nothing.
-默认情况下，, the macro expands to <code class="literal">const</code>. The macro
+If <code class="literal">G_DISABLE_CONST_RETURNS</code> is defined, this macro expands to nothing.
+By default, the macro expands to <code class="literal">const</code>. The macro
 should be used in place of <code class="literal">const</code> for functions that
 return a value that should not be modified. The purpose of this macro is
 to allow us to turn on <code class="literal">const</code> for returned constant
 strings by default, while allowing programmers who find that annoying to
 turn it off. This macro should only be used for return values and for
 <span class="emphasis"><em>out</em></span> parameters, it doesn't make sense for
-<span class="emphasis"><em>in</em></span> parameters. 【不清楚这里如何理解】
+<span class="emphasis"><em>in</em></span> parameters.
 </p>
 </div>
 </div>

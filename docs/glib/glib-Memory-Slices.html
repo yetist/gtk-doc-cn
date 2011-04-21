@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Memory Slices</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-data-types.html" title="GLib数据类型">
-<link rel="prev" href="glib-data-types.html" title="GLib数据类型">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-data-types.html" title="GLib 数据类型">
+<link rel="prev" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="next" href="glib-Memory-Chunks.html" title="Memory Chunks">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-data-types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-Memory-Chunks.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -72,7 +72,7 @@ memory-waste, scalability and performance problems.
 <p>
 To achieve these goals, the slice allocator uses a sophisticated,
 layered design that has been inspired by Bonwick's slab allocator
-<sup>[<a name="id2860259" href="#ftn.id2860259" class="footnote">6</a>]</sup>.
+<sup>[<a name="id3353659" href="#ftn.id3353659" class="footnote">6</a>]</sup>.
 It uses <code class="function">posix_memalign()</code> to optimize allocations of many equally-sized
 chunks, and has per-thread free lists (the so-called magazine layer)
 to quickly satisfy allocation requests of already known structure sizes.
@@ -93,7 +93,7 @@ friends, as long as objects are not resized during their lifetime and the
 object size used at allocation time is still available when freeing.
 </p>
 <div class="example">
-<a name="id3123815"></a><p class="title"><b>Example 15. Using the slice allocator</b></p>
+<a name="id3239948"></a><p class="title"><b>Example 15. Using the slice allocator</b></p>
 <div class="example-contents"><pre class="programlisting">
   gchar *mem[10000];
   gint i;
@@ -113,7 +113,7 @@ object size used at allocation time is still available when freeing.
 </pre></div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3019649"></a><p class="title"><b>Example 16. Using the slice allocator with data structures</b></p>
+<a name="id3258910"></a><p class="title"><b>Example 16. Using the slice allocator with data structures</b></p>
 <div class="example-contents"><pre class="programlisting">
   GRealArray *array;
   /* Allocate one block, using the g_slice_new() macro. */
@@ -431,7 +431,7 @@ also see <a class="link" href="glib-running.html#G_SLICE" title="G_SLICE">G_SLIC
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id2860259" href="#id2860259" class="para">6</a>] </sup>
+<div class="footnote"><p><sup>[<a id="ftn.id3353659" href="#id3353659" class="para">6</a>] </sup>
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick94slab.html" target="_top">[Bonwick94]</a> Jeff Bonwick, The slab allocator: An object-caching kernel
 memory allocator. USENIX 1994, and
 <a class="ulink" href="http://citeseer.ist.psu.edu/bonwick01magazines.html" target="_top">[Bonwick01]</a> Bonwick and Jonathan Adams, Magazines and vmem: Extending the

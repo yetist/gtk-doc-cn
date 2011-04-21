@@ -4,10 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>File Utilities</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-utilities.html" title="GLib实用函数集">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Spawning-Processes.html" title="Spawning Processes">
-<link rel="next" href="glib-URI-Functions.html" title="URI 函数">
+<link rel="next" href="glib-URI-Functions.html" title="URI Functions">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Spawning-Processes.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-URI-Functions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -461,11 +461,32 @@ codes are those in the <a class="link" href="glib-File-Utilities.html#GFileError
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>name of a file to read contents from, in the GLib file name encoding</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>contents</code></em> :</span></p></td>
+<td>location to store an allocated string, use <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> to free
+the returned string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>location to store length in bytes of the contents, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
 <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> on success, <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> if an error occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -530,7 +551,7 @@ encoding</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -598,11 +619,21 @@ extensions and those listed in the <code class="literal">PATHEXT</code> environm
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a filename to test in the GLib file name encoding</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>test</code></em> :</span></p></td>
+<td>bitfield of <a class="link" href="glib-File-Utilities.html#GFileTest" title="enum GFileTest"><span class="type">GFileTest</span></a> flags</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>whether a test was <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>
 </td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -625,13 +656,19 @@ on Windows it should be in UTF-8.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tmpl</code></em> :</span></p></td>
+<td>template filename</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A file handle (as from <code class="function">open()</code>) to the file
 opened for reading and writing. The file is opened in binary mode
 on platforms where there is a difference. The file handle should be
 closed with <code class="function">close()</code>. In case of errors, -1 is returned.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -706,14 +743,31 @@ The returned name is in the GLib file name encoding.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tmpl</code></em> :</span></p></td>
+<td>Template for file name, as in <a class="link" href="glib-File-Utilities.html#g-mkstemp" title="g_mkstemp"><code class="function">g_mkstemp()</code></a>, basename only,
+or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, to a default template</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name_used</code></em> :</span></p></td>
+<td>location to store actual name used, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A file handle (as from <code class="function">open()</code>) to
 the file opened for reading and writing. The file is opened in binary
 mode on platforms where there is a difference. The file handle should be
 closed with <code class="function">close()</code>. In case of errors, -1 is returned
 and <em class="parameter"><code>error</code></em> will be set.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -795,12 +849,29 @@ that the ordering is not defined.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>the path to the directory you are interested in. On Unix
+in the on-disk encoding. On Windows in UTF-8</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Currently must be set to 0. Reserved for future use.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+If non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, an error will be set if and only if
+<a class="link" href="glib-File-Utilities.html#g-dir-open" title="g_dir_open"><code class="function">g_dir_open()</code></a> fails.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly allocated <a class="link" href="glib-File-Utilities.html#GDir" title="GDir"><span class="type">GDir</span></a> on success, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> on failure.
 If non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, you must free the result with <a class="link" href="glib-File-Utilities.html#g-dir-close" title="g_dir_close ()"><code class="function">g_dir_close()</code></a>
 when you are finished with it.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -823,12 +894,19 @@ filenames, the returned name is in UTF-8.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-File-Utilities.html#GDir" title="GDir"><span class="type">GDir</span></a>* created by <a class="link" href="glib-File-Utilities.html#g-dir-open" title="g_dir_open"><code class="function">g_dir_open()</code></a>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>The entry's name or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if there are no
 more entries. The return value is owned by GLib and
 must not be modified or freed.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -908,7 +986,7 @@ atomically (e.g. using <a class="link" href="glib-File-Utilities.html#g-file-set
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>return location for a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>返回<a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>的位置，或<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
 </td>
 </tr>
 <tr>
@@ -1071,11 +1149,25 @@ See your C library manual for more details about <code class="function">open()</
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>和 <code class="function">open()</code> 函数中的相同</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>和 <code class="function">open()</code> 函数中的相同</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new file descriptor, or -1 if an error occurred. The
 return value can be used exactly like the return value from <code class="function">open()</code>.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1094,10 +1186,20 @@ a file that is open to some process.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oldfilename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>newfilename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>重命名成功返回 0, 如果发生错误返回 -1.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1115,11 +1217,21 @@ See your C library manual for more details about <code class="function">mkdir()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>permissions to use for the newly created directory</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the directory was successfully created, -1 if an error
 occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1168,11 +1280,22 @@ See your C library manual for more details about <code class="function">stat()</
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>a pointer to a <span class="structname">stat</span> struct, which
+will be filled with the file information</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the information was successfully retrieved, -1 if an error
 occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1192,11 +1315,22 @@ See your C library manual for more details about <code class="function">lstat()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>a pointer to a <span class="structname">stat</span> struct, which
+will be filled with the file information</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the information was successfully retrieved, -1 if an error
 occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1257,11 +1391,17 @@ set by <code class="function">rmdir()</code>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the file was successfully removed, -1 if an error
 occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1315,11 +1455,22 @@ See your C library manual for more details about <code class="function">fopen()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>a string describing the mode in which the file should be
+opened</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <span class="type">FILE</span> pointer if the file was successfully
 opened, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if an error occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1336,11 +1487,27 @@ See your C library manual for more details about <code class="function">freopen(
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>a string describing the mode in which the file should be
+opened</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td>an existing stream which will be reused, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>A <span class="type">FILE</span> pointer if the file was successfully
 opened, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if an error occurred.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
@@ -1364,10 +1531,21 @@ See your C library manual for more details about <code class="function">chmod()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>as in <code class="function">chmod()</code>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>zero if the operation succeeded, -1 on error.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.8</p>
 </div>
@@ -1444,11 +1622,21 @@ See your C library manual for more details about <code class="function">creat()<
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>和 <code class="function">creat()</code> 函数中的相同</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new file descriptor, or -1 if an error occurred. The
 return value can be used exactly like the return value from <code class="function">creat()</code>.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.8</p>
 </div>
@@ -1492,11 +1680,21 @@ on your system.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>a pathname in the GLib file name encoding (UTF-8 on Windows)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>utb</code></em> :</span></p></td>
+<td>a pointer to a struct utimbuf.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>0 if the operation was successful, -1 if an error
 occurred</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.18</p>
 </div>

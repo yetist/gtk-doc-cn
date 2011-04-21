@@ -4,10 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Windows Compatibility Functions</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GLib参考手册">
-<link rel="up" href="glib-utilities.html" title="GLib实用函数集">
+<link rel="home" href="index.html" title="GLib 参考手册">
+<link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Testing.html" title="Testing">
-<link rel="next" href="glib-data-types.html" title="GLib数据类型">
+<link rel="next" href="glib-data-types.html" title="GLib 数据类型">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="glib-Testing.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GLib参考手册</th>
+<th width="100%" align="center">GLib 参考手册</th>
 <td><a accesskey="n" href="glib-data-types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -183,13 +183,23 @@ the same way as above.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
+<td>你应该传递<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 给它。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dll_name</code></em> :</span></p></td>
+<td>The name of a DLL that a package provides in UTF-8, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string containing the installation directory for
 <em class="parameter"><code>package</code></em>. The string is in the GLib file name encoding,
 i.e. UTF-8. The return value should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when not
 needed any longer. If the function fails <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
@@ -270,14 +280,28 @@ as <em class="parameter"><code>package</code></em>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>package</code></em> :</span></p></td>
+<td>你应该传递<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> 给它。</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dll_name</code></em> :</span></p></td>
+<td>安装包提供的DLL的名字(UTF-8编码),或者 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>subdir</code></em> :</span></p></td>
+<td>A subdirectory of the package installation directory, also in UTF-8</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a string containing the complete path to <em class="parameter"><code>subdir</code></em> inside
 the installation directory of <em class="parameter"><code>package</code></em>. The returned string is in
 the GLib file name encoding, i.e. UTF-8. The return value should be
 freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed. If something goes wrong,
 <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
