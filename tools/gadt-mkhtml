@@ -297,7 +297,7 @@ init_pot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge "$modname-$pkgver.po" $tmpdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
+				msgmerge -N -F "$modname-$pkgver.po" $tmpdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
 				msg2 "正在调用google为您生成模糊翻译内容..."
 				gadt-autotrans $startdir/po/$mname.po
 				text=`msgfmt --statistics $startdir/po/$mname.po -o /dev/null 2>&1`
@@ -329,7 +329,7 @@ init_xmlpot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge "$modname-docs-$pkgver.po" $tmpdir/xmlpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/xmlpo/$mname.po
+				msgmerge -N -F "$modname-docs-$pkgver.po" $tmpdir/xmlpot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/xmlpo/$mname.po
 				#msg2 "正在调用google为您生成模糊翻译内容..."
 				#gadt-autotrans $startdir/xmlpo/$mname.po
 				text=`msgfmt --statistics $startdir/xmlpo/$mname.po -o /dev/null 2>&1`
@@ -359,7 +359,7 @@ merge_pot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge -N $startdir/po/$mname.po "$modname-$pkgver.po" -o "$tmpdir/$modname-$pkgver.po.new"
+				msgmerge -N -F $startdir/po/$mname.po "$modname-$pkgver.po" -o "$tmpdir/$modname-$pkgver.po.new"
 				vim -d "$modname-$pkgver.po" "$tmpdir/$modname-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
@@ -399,7 +399,7 @@ merge_xmlpot()
 			for i in $var;
 			do 
 				mname=${i%.po}
-				msgmerge -N $startdir/xmlpo/$mname.po "$modname-docs-$pkgver.po" -o "$tmpdir/$modname-docs-$pkgver.po.new"
+				msgmerge -N -F $startdir/xmlpo/$mname.po "$modname-docs-$pkgver.po" -o "$tmpdir/$modname-docs-$pkgver.po.new"
 				vim -d "$modname-docs-$pkgver.po" "$tmpdir/$modname-docs-$pkgver.po.new"
 				msg2 "$mname.po [确认合并吗(Yes/No)？]"
 				echo -n "请输入Yes或No:"
