@@ -2582,8 +2582,8 @@ msgstr "对于@函数的例子可见g_async_queue_sort（）。"
 #: gasyncqueue.c:690:1 gatomic.c:1034:1 gatomic.c:1076:1 gdataset.c:1176:1
 #: gdataset.c:1206:1 gdate.c:887:1 gdate.c:961:1 ghash.c:822:1 ghash.c:843:1
 #: glist.c:1011:1 gmain.c:3417:1 gslist.c:181:1 gslist.c:950:1
-#: gthreadpool.c:909:1 gthreadpool.c:952:1 gthreadpool.c:990:1
-#: gthread.c:2494:1
+#: gthread.c:2494:1 gthreadpool.c:909:1 gthreadpool.c:952:1
+#: gthreadpool.c:990:1
 msgid "Since: 2.10"
 msgstr "Since: 2.10"
 
@@ -37141,564 +37141,6 @@ msgstr "返回值：对输出的字节数写"
 msgid "Return value: %TRUE if the program should abort, %FALSE otherwise"
 msgstr "返回值：％TRUE，如果私人标志设置，％，否则返回FALSE。"
 
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_push:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_set_max_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_get_max_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_get_num_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_unprocessed:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_free:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_set_sort_function:
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:38:1
-#, fuzzy
-msgid "@title: Thread Pools"
-msgstr "@pool: 一个 #GThreadPool"
-
-# used by: SECTION: thread_pools
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:39:1
-msgid "@short_description: pools of threads to execute work concurrently"
-msgstr ""
-
-# used by: SECTION: thread_pools
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:40:4
-msgid ""
-"@see_also: <para> <variablelist> <varlistentry> <term>#GThread</term> "
-"<listitem><para>GLib thread system.</para></listitem> </varlistentry> </"
-"variablelist> </para>"
-msgstr ""
-
-# used by: g_thread_pool_new:
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:437:1
-msgid "@func: a function to execute in the threads of the new thread pool"
-msgstr "@func: 在新线程池的线程里执行的函数"
-
-# #-#-#-#-#  gasyncqueue.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort:
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort_unlocked:
-# #-#-#-#-#  gsequence.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_sequence_foreach_range:
-# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_sequence_foreach:
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:438:2
-msgid ""
-"@user_data: user data that is handed over to @func every time it is called"
-msgstr "@user_data: 每次@func被调用时，@user_data将被作为其参数传递过去"
-
-# used by: g_thread_pool_new:
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:440:2
-msgid ""
-"@max_threads: the maximal number of threads to execute concurrently in the "
-"new thread pool, -1 means no limit"
-msgstr "@max_threads: 新线程池中并行线程的最大数目，-1代表无限制"
-
-# used by: g_thread_pool_new:
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:442:1
-msgid "@exclusive: should this thread pool be exclusive?"
-msgstr "@exclusive: 让该线程池使用独占模式？"
-
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:445:1
-msgid "This function creates a new thread pool."
-msgstr "这个函数创建一个新的线程池。"
-
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:447:7
-msgid ""
-"Whenever you call g_thread_pool_push(), either a new thread is created or an "
-"unused one is reused. At most @max_threads threads are running concurrently "
-"for this thread pool. @max_threads = -1 allows unlimited threads to be "
-"created for this thread pool. The newly created or reused thread now "
-"executes the function @func with the two arguments. The first one is the "
-"parameter to g_thread_pool_push() and the second one is @user_data."
-msgstr ""
-"每当你调用 g_thread_pool_push() 时，要么创建一个新的线程，要么复用线程池里一"
-"个还未被使用的线程。至多 @max_threads 个线程在线程池里并行运行。若 "
-"@max_threads = -1 则表示允许该线程池创建无数个线程。新创建的或者复用的线程将"
-"执行 @func 函数，并且传递两个参数。第一个参数是 g_thread_pool_push() 里面的数"
-"据，也即要执行的任务，第二个参数则是 @user_data 。"
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:45:6
-msgid ""
-"Sometimes you wish to asynchronously fork out the execution of work and "
-"continue working in your own thread. If that will happen often, the overhead "
-"of starting and destroying a thread each time might be too high. In such "
-"cases reusing already started threads seems like a good idea. And it indeed "
-"is, but implementing this can be tedious and error-prone."
-msgstr ""
-
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:455:8
-msgid ""
-"The parameter @exclusive determines, whether the thread pool owns all "
-"threads exclusive or whether the threads are shared globally. If @exclusive "
-"is %TRUE, @max_threads threads are started immediately and they will run "
-"exclusively for this thread pool until it is destroyed by g_thread_pool_free"
-"(). If @exclusive is %FALSE, threads are created, when needed and shared "
-"between all non-exclusive thread pools. This implies that @max_threads may "
-"not be -1 for exclusive thread pools."
-msgstr ""
-"参数 @exclusive 确定线程池里的线程是否为全局共享线程。如果 @exclusive "
-"为%TRUE， @max_threads 个线程将立即开始并且一直独占的运行在这个线程池，直到通"
-"过 g_thread_pool_free() 销毁它；如果 @exclusive 为%FALSE，则线程被创建，并且"
-"当需要时和其他非独占性线程池共享。这也就意味着，在独占性线程池里 "
-"@max_threads may 不能为 -1 。"
-
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:464:3
-msgid ""
-"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
-"error can only occur when @exclusive is set to %TRUE and not all "
-"@max_threads threads could be created."
-msgstr ""
-"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在 "
-"@exclusive 设置为 %TRUE 和并非所有 @max_threads 个线程都能被创建时。"
-
-# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
-# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
-#. used by: g_thread_pool_new:
-#: gthreadpool.c:468:1
-msgid "Return value: the new #GThreadPool"
-msgstr "Return value: 新的 #GAsyncQueue "
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:52:3
-msgid ""
-"Therefore GLib provides thread pools for your convenience. An added "
-"advantage is, that the threads can be shared between the different "
-"subsystems of your program, when they are using GLib."
-msgstr ""
-
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_push:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_set_max_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_get_max_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_get_num_threads:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_unprocessed:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_free:
-# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
-# used by: g_thread_pool_set_sort_function:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_push:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_set_max_threads:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_max_threads:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_num_threads:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_unprocessed:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_free:
-#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_set_sort_function:
-#: gthreadpool.c:526:1 gthreadpool.c:566:1 gthreadpool.c:628:1
-#: gthreadpool.c:654:1 gthreadpool.c:680:1 gthreadpool.c:704:1
-#: gthreadpool.c:890:1
-msgid "@pool: a #GThreadPool"
-msgstr "@pool: 一个 #GThreadPool"
-
-# used by: g_thread_pool_push:
-#. used by: g_thread_pool_push:
-#: gthreadpool.c:527:1
-msgid "@data: a new task for @pool"
-msgstr "@data: @pool 的一个新任务"
-
-#. used by: g_thread_pool_push:
-#: gthreadpool.c:530:6
-msgid ""
-"Inserts @data into the list of tasks to be executed by @pool. When the "
-"number of currently running threads is lower than the maximal allowed number "
-"of threads, a new thread is started (or reused) with the properties given to "
-"g_thread_pool_new (). Otherwise @data stays in the queue until a thread in "
-"this pool finishes its previous task and processes @data."
-msgstr ""
-"将 @data 插入任务列表，让 @pool 来执行。当正在运行线程的数量低于允许线程的最"
-"大值，一个新的线程将被启动（或者复用），并根据其属性提交给 g_thread_pool_new "
-"() 。除此之外， @data 将一直保存在任务队列之中，直到线程池里的线程完成了其先"
-"前的任务然后处理 @data 。"
-
-#. used by: g_thread_pool_push:
-#: gthreadpool.c:537:4
-msgid ""
-"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
-"error can only occur when a new thread couldn't be created. In that case "
-"@data is simply appended to the queue of work to do."
-msgstr ""
-"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在"
-"一个新的线程不能被创建时。在这样的情况下， @data 只是简单的追加到任务队列里。"
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:56:2
-msgid ""
-"To create a new thread pool, you use g_thread_pool_new(). It is destroyed by "
-"g_thread_pool_free()."
-msgstr ""
-
-# used by: g_thread_pool_set_max_threads:
-#. used by: g_thread_pool_set_max_threads:
-#: gthreadpool.c:567:1
-msgid "@max_threads: a new maximal number of threads for @pool"
-msgstr "@max_threads:  @pool 中线程的最大值"
-
-#. used by: g_thread_pool_set_max_threads:
-#: gthreadpool.c:570:2
-msgid ""
-"Sets the maximal allowed number of threads for @pool. A value of -1 means, "
-"that the maximal number of threads is unlimited."
-msgstr "为 @pool 设置其允许线程数目的最大值。值为 -1 的话，则代表无限制。"
-
-#. used by: g_thread_pool_set_max_threads:
-#: gthreadpool.c:573:3
-msgid ""
-"Setting @max_threads to 0 means stopping all work for @pool. It is "
-"effectively frozen until @max_threads is set to a non-zero value again."
-msgstr ""
-"设置 @max_threads 为 0 则以为着停止 @pool 所有的任务。这样的冻结将一直有效，"
-"直到 @max_threads 被设置为一个非0值。"
-
-#. used by: g_thread_pool_set_max_threads:
-#: gthreadpool.c:577:5
-msgid ""
-"A thread is never terminated while calling @func, as supplied by "
-"g_thread_pool_new (). Instead the maximal number of threads only has effect "
-"for the allocation of new threads in g_thread_pool_push(). A new thread is "
-"allocated, whenever the number of currently running threads in @pool is "
-"smaller than the maximal number."
-msgstr ""
-"一个线程是永远不会终止的，而是循环调用 @func ，例如 g_thread_pool_new () 所提"
-"供的。反而，线程最大值仅影响 g_thread_pool_push() 里新线程的分配。如果一个新"
-"的线程被分配，无论如何当前 @pool 里运行的线程数目要小于最大值。"
-
-#. used by: g_thread_pool_set_max_threads:
-#: gthreadpool.c:583:3
-msgid ""
-"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
-"error can only occur when a new thread couldn't be created."
-msgstr ""
-"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在"
-"一个新的线程不能被创建时。"
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:59:2
-msgid ""
-"If you want to execute a certain task within a thread pool, you call "
-"g_thread_pool_push()."
-msgstr ""
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:62:5
-msgid ""
-"To get the current number of running threads you call "
-"g_thread_pool_get_num_threads(). To get the number of still unprocessed "
-"tasks you call g_thread_pool_unprocessed(). To control the maximal number of "
-"threads for a thread pool, you use g_thread_pool_get_max_threads() and "
-"g_thread_pool_set_max_threads()."
-msgstr ""
-
-#. used by: g_thread_pool_get_max_threads:
-#: gthreadpool.c:630:1
-msgid "Returns the maximal number of threads for @pool."
-msgstr "返回 @pool 线程数目的最大值。"
-
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_max_threads:
-#: gthreadpool.c:632:1
-msgid "Return value: the maximal number of threads"
-msgstr "Return value: 线程数目的最大值"
-
-#. used by: g_thread_pool_get_num_threads:
-#: gthreadpool.c:656:1
-msgid "Returns the number of threads currently running in @pool."
-msgstr "返回 @pool 里当前正在运行线程的数目。"
-
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_num_threads:
-#: gthreadpool.c:658:1
-msgid "Return value: the number of threads currently running"
-msgstr "Return value: 当前正在运行线程的数目"
-
-#. used by: SECTION: thread_pools
-#: gthreadpool.c:68:6
-msgid ""
-"Finally you can control the number of unused threads, that are kept alive by "
-"GLib for future use. The current number can be fetched with "
-"g_thread_pool_get_num_unused_threads(). The maximal number can be controlled "
-"by g_thread_pool_get_max_unused_threads() and "
-"g_thread_pool_set_max_unused_threads(). All currently unused threads can be "
-"stopped by calling g_thread_pool_stop_unused_threads()."
-msgstr ""
-
-#. used by: g_thread_pool_unprocessed:
-#: gthreadpool.c:682:1
-msgid "Returns the number of tasks still unprocessed in @pool."
-msgstr "返回 @pool 里仍未处理的任务的数目。"
-
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_unprocessed:
-#: gthreadpool.c:684:1
-msgid "Return value: the number of unprocessed tasks"
-msgstr "Return value: 未处理任务的数目"
-
-# used by: g_thread_pool_free:
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:705:1
-msgid "@immediate: should @pool shut down immediately?"
-msgstr "@immediate: 让 @pool 立即关闭 ？"
-
-# used by: g_thread_pool_free:
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:706:1
-msgid "@wait_: should the function wait for all tasks to be finished?"
-msgstr "@wait_: 让函数等待所有任务完成 ？"
-
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:708:1
-msgid "Frees all resources allocated for @pool."
-msgstr "释放所有为 @pool 分配的资源。"
-
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:710:5
-msgid ""
-"If @immediate is %TRUE, no new task is processed for @pool. Otherwise @pool "
-"is not freed before the last task is processed. Note however, that no thread "
-"of this pool is interrupted, while processing a task. Instead at least all "
-"still running threads can finish their tasks before the @pool is freed."
-msgstr ""
-"如果 @immediate 为 %TRUE ，则停止 @pool 处理新的任务。反之，在最后一个任务处"
-"理完之前， @pool 是不会被销毁的。请注意，无论如何，在线程池处理一个任务的过程"
-"中，线程池中的线程是不会被中断的。相反，在 @pool 被销毁之前，所有仍在运行的线"
-"程将完成它们的任务。"
-
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:716:3
-msgid ""
-"If @wait_ is %TRUE, the functions does not return before all tasks to be "
-"processed (dependent on @immediate, whether all or only the currently "
-"running) are ready. Otherwise the function returns immediately."
-msgstr ""
-"如果 @wait_ 为 %TRUE，则在所有已经准备或者正在执行的任务完成之前，是不会返回"
-"的（这依赖于 @immediate ，是所有的任务，还是当前正在运行的任务）。否则，函数"
-"立即返回。"
-
-#. used by: g_thread_pool_free:
-#: gthreadpool.c:720:1
-msgid "After calling this function @pool must not be used anymore."
-msgstr "在调用这个函数之后， @pool 将不能被使用。"
-
-# used by: g_thread_pool_set_max_unused_threads:
-#. used by: g_thread_pool_set_max_unused_threads:
-#: gthreadpool.c:809:1
-msgid "@max_threads: maximal number of unused threads"
-msgstr "@max_threads: 未使用的最大线程数"
-
-#. used by: g_thread_pool_set_max_unused_threads:
-#: gthreadpool.c:811:3
-msgid ""
-"Sets the maximal number of unused threads to @max_threads. If @max_threads "
-"is -1, no limit is imposed on the number of unused threads."
-msgstr ""
-"设置未使用的最大线程数为 @max_threads。如果 @max_threads 为-1，则强制未使用的"
-"线程数为无限制。"
-
-# used by: g_thread_pool_new:
-#. used by: GThreadPool:
-#: gthreadpool.c:83:1
-#, fuzzy
-msgid "@func: the function to execute in the threads of this pool"
-msgstr "@func: 在新线程池的线程里执行的函数"
-
-# #-#-#-#-#  gasyncqueue.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort:
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort_unlocked:
-# #-#-#-#-#  gsequence.pot (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_sequence_foreach_range:
-# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_sequence_foreach:
-#. used by: GThreadPool:
-#: gthreadpool.c:84:1
-#, fuzzy
-msgid "@user_data: the user data for the threads of this pool"
-msgstr "@ USER_DATA将：@函数传递给用户数据"
-
-#. used by: g_thread_pool_get_max_unused_threads:
-#: gthreadpool.c:847:1
-msgid "Returns the maximal allowed number of unused threads."
-msgstr "返回允许未使用线程数目的最大值。"
-
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_max_unused_threads:
-#: gthreadpool.c:849:1
-msgid "Return value: the maximal number of unused threads"
-msgstr "Return value: 未使用线程数目的最大值"
-
-# used by: g_thread_pool_new:
-#. used by: GThreadPool:
-#: gthreadpool.c:85:1
-#, fuzzy
-msgid "@exclusive: are all threads exclusive to this pool"
-msgstr "@exclusive: 让该线程池使用独占模式？"
-
-#. used by: g_thread_pool_get_num_unused_threads:
-#: gthreadpool.c:860:1
-msgid "Returns the number of currently unused threads."
-msgstr "返回当前未使用线程的数目。"
-
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_thread_pool_get_num_unused_threads:
-#: gthreadpool.c:862:1
-msgid "Return value: the number of currently unused threads"
-msgstr "Return value: 当前未使用线程的数目"
-
-#. used by: GThreadPool:
-#: gthreadpool.c:87:3
-msgid ""
-"The #GThreadPool struct represents a thread pool. It has three public read-"
-"only members, but the underlying struct is bigger, so you must not copy this "
-"struct."
-msgstr ""
-
-#. used by: g_thread_pool_stop_unused_threads:
-#: gthreadpool.c:873:3
-msgid ""
-"Stops all currently unused threads. This does not change the maximal number "
-"of unused threads. This function can be used to regularly stop all unused "
-"threads e.g. from g_timeout_add()."
-msgstr ""
-"停止所有当前未使用的线程。这不会改变未使用线程数目的最大值。此函数可用于正常"
-"的停止所有未使用的线程。例如：从 g_timeout_add() 中使用。"
-
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_push_sorted:
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_push_sorted_unlocked:
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort:
-# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: g_async_queue_sort_unlocked:
-#. used by: g_thread_pool_set_sort_function:
-#: gthreadpool.c:891:6
-msgid ""
-"@func: the #GCompareDataFunc used to sort the list of tasks. This function "
-"is passed two tasks. It should return 0 if the order in which they are "
-"handled does not matter, a negative value if the first task should be "
-"processed before the second or a positive value if the second task should be "
-"processed first."
-msgstr ""
-"@func:  #GCompareDataFunc 用于将任务队列排序。这个函数需要传递两个任务。如果"
-"两个任务的处理顺序无关紧要，就返回0；如果第一个任务应该优先处理，就返回一个负"
-"值；如果第二个任务应该被优先处理，就返回一个正值。"
-
-#. used by: g_thread_pool_set_sort_function:
-#: gthreadpool.c:899:3
-msgid ""
-"Sets the function used to sort the list of tasks. This allows the tasks to "
-"be processed by a priority determined by @func, and not just in the order in "
-"which they were added to the pool."
-msgstr ""
-"设置用来排序任务列表的函数。这使得可以通过 @func 决定的优先级来处理任务，而不"
-"仅仅只是为了把它们添加到线程池中。"
-
-#. used by: g_thread_pool_set_sort_function:
-#: gthreadpool.c:903:5
-msgid ""
-"Note, if the maximum number of threads is more than 1, the order that "
-"threads are executed can not be guranteed 100%. Threads are scheduled by the "
-"operating system and are executed at random. It cannot be assumed that "
-"threads are executed in the order they are created."
-msgstr ""
-"请注意，如果最大线程数大于1，则不能100%的保证线程的执行顺序。线程由操作系统调"
-"度，并随机执行。并且不能假定为线程按照创建它们时的顺序来执行。"
-
-# used by: g_thread_pool_set_max_idle_time:
-#. used by: g_thread_pool_set_max_idle_time:
-#: gthreadpool.c:938:2
-msgid ""
-"@interval: the maximum @interval (1/1000ths of a second) a thread can be "
-"idle."
-msgstr "@interval: 一个线程能被闲置的最大值， @interval (1/1000 分之一秒)。"
-
-#. used by: g_thread_pool_set_max_idle_time:
-#: gthreadpool.c:941:5
-msgid ""
-"This function will set the maximum @interval that a thread waiting in the "
-"pool for new tasks can be idle for before being stopped. This function is "
-"similar to calling g_thread_pool_stop_unused_threads() on a regular timeout, "
-"except, this is done on a per thread basis."
-msgstr ""
-"这个函数用于设置最大值 @interval ，也就是线程池中一个线程等待新任务的最大空闲"
-"时间。这个函数类似于在常规的超时时调用 g_thread_pool_stop_unused_threads() ，"
-"不同的是，这个函数是以一个线程作为基本单位。"
-
-#. used by: g_thread_pool_set_max_idle_time:
-#: gthreadpool.c:947:1
-msgid "By setting @interval to 0, idle threads will not be stopped."
-msgstr "通过把 @interval 设置为0，来使空闲的线程不会停止。"
-
-#. used by: g_thread_pool_set_max_idle_time:
-#: gthreadpool.c:949:2
-msgid "This function makes use of g_async_queue_timed_pop () using @interval."
-msgstr "这个函数让 g_async_queue_timed_pop () 的使用，使用了 @interval 。"
-
-#. used by: g_thread_pool_get_max_idle_time:
-#: gthreadpool.c:981:2
-msgid ""
-"This function will return the maximum @interval that a thread will wait in "
-"the thread pool for new tasks before being stopped."
-msgstr ""
-"这个函数将返回最大值 @interval ，也就是线程池中一个线程等待新任务的最大空闲时"
-"间。"
-
-#. used by: g_thread_pool_get_max_idle_time:
-#: gthreadpool.c:984:2
-msgid ""
-"If this function returns 0, threads waiting in the thread pool for new work "
-"are not stopped."
-msgstr "如果该函数返回0，线程池中的线程在对新任务的等待是没有停止过的。"
-
-#. used by: g_thread_pool_get_max_idle_time:
-#: gthreadpool.c:987:2
-msgid ""
-"Return value: the maximum @interval to wait for new tasks in the thread pool "
-"before stopping the thread (1/1000ths of a second)."
-msgstr ""
-"Return value: 最大值 @interval ，在线程池中等待新任务前停止线程的最大空闲时间"
-"（1/1000分之一秒）。"
-
 # used by: g_once:
 #. used by: g_once:
 #: gthread.c:1000:3
@@ -39980,6 +39422,564 @@ msgstr ""
 #: gthread.c:999:1
 msgid "@once: a #GOnce structure"
 msgstr ""
+
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_push:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_set_max_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_get_max_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_get_num_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_unprocessed:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_free:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_set_sort_function:
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:38:1
+#, fuzzy
+msgid "@title: Thread Pools"
+msgstr "@pool: 一个 #GThreadPool"
+
+# used by: SECTION: thread_pools
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:39:1
+msgid "@short_description: pools of threads to execute work concurrently"
+msgstr ""
+
+# used by: SECTION: thread_pools
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:40:4
+msgid ""
+"@see_also: <para> <variablelist> <varlistentry> <term>#GThread</term> "
+"<listitem><para>GLib thread system.</para></listitem> </varlistentry> </"
+"variablelist> </para>"
+msgstr ""
+
+# used by: g_thread_pool_new:
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:437:1
+msgid "@func: a function to execute in the threads of the new thread pool"
+msgstr "@func: 在新线程池的线程里执行的函数"
+
+# #-#-#-#-#  gasyncqueue.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort:
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort_unlocked:
+# #-#-#-#-#  gsequence.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_sequence_foreach_range:
+# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_sequence_foreach:
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:438:2
+msgid ""
+"@user_data: user data that is handed over to @func every time it is called"
+msgstr "@user_data: 每次@func被调用时，@user_data将被作为其参数传递过去"
+
+# used by: g_thread_pool_new:
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:440:2
+msgid ""
+"@max_threads: the maximal number of threads to execute concurrently in the "
+"new thread pool, -1 means no limit"
+msgstr "@max_threads: 新线程池中并行线程的最大数目，-1代表无限制"
+
+# used by: g_thread_pool_new:
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:442:1
+msgid "@exclusive: should this thread pool be exclusive?"
+msgstr "@exclusive: 让该线程池使用独占模式？"
+
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:445:1
+msgid "This function creates a new thread pool."
+msgstr "这个函数创建一个新的线程池。"
+
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:447:7
+msgid ""
+"Whenever you call g_thread_pool_push(), either a new thread is created or an "
+"unused one is reused. At most @max_threads threads are running concurrently "
+"for this thread pool. @max_threads = -1 allows unlimited threads to be "
+"created for this thread pool. The newly created or reused thread now "
+"executes the function @func with the two arguments. The first one is the "
+"parameter to g_thread_pool_push() and the second one is @user_data."
+msgstr ""
+"每当你调用 g_thread_pool_push() 时，要么创建一个新的线程，要么复用线程池里一"
+"个还未被使用的线程。至多 @max_threads 个线程在线程池里并行运行。若 "
+"@max_threads = -1 则表示允许该线程池创建无数个线程。新创建的或者复用的线程将"
+"执行 @func 函数，并且传递两个参数。第一个参数是 g_thread_pool_push() 里面的数"
+"据，也即要执行的任务，第二个参数则是 @user_data 。"
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:45:6
+msgid ""
+"Sometimes you wish to asynchronously fork out the execution of work and "
+"continue working in your own thread. If that will happen often, the overhead "
+"of starting and destroying a thread each time might be too high. In such "
+"cases reusing already started threads seems like a good idea. And it indeed "
+"is, but implementing this can be tedious and error-prone."
+msgstr ""
+
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:455:8
+msgid ""
+"The parameter @exclusive determines, whether the thread pool owns all "
+"threads exclusive or whether the threads are shared globally. If @exclusive "
+"is %TRUE, @max_threads threads are started immediately and they will run "
+"exclusively for this thread pool until it is destroyed by g_thread_pool_free"
+"(). If @exclusive is %FALSE, threads are created, when needed and shared "
+"between all non-exclusive thread pools. This implies that @max_threads may "
+"not be -1 for exclusive thread pools."
+msgstr ""
+"参数 @exclusive 确定线程池里的线程是否为全局共享线程。如果 @exclusive "
+"为%TRUE， @max_threads 个线程将立即开始并且一直独占的运行在这个线程池，直到通"
+"过 g_thread_pool_free() 销毁它；如果 @exclusive 为%FALSE，则线程被创建，并且"
+"当需要时和其他非独占性线程池共享。这也就意味着，在独占性线程池里 "
+"@max_threads may 不能为 -1 。"
+
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:464:3
+msgid ""
+"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
+"error can only occur when @exclusive is set to %TRUE and not all "
+"@max_threads threads could be created."
+msgstr ""
+"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在 "
+"@exclusive 设置为 %TRUE 和并非所有 @max_threads 个线程都能被创建时。"
+
+# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
+# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
+#. used by: g_thread_pool_new:
+#: gthreadpool.c:468:1
+msgid "Return value: the new #GThreadPool"
+msgstr "Return value: 新的 #GAsyncQueue "
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:52:3
+msgid ""
+"Therefore GLib provides thread pools for your convenience. An added "
+"advantage is, that the threads can be shared between the different "
+"subsystems of your program, when they are using GLib."
+msgstr ""
+
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_push:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_set_max_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_get_max_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_get_num_threads:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_unprocessed:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_free:
+# #-#-#-#-#  gthreadpool.pot~ (glib 2.12.7)  #-#-#-#-#
+# used by: g_thread_pool_set_sort_function:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_push:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_set_max_threads:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_max_threads:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_num_threads:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_unprocessed:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_free:
+#. #-#-#-#-#  gthreadpool.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_set_sort_function:
+#: gthreadpool.c:526:1 gthreadpool.c:566:1 gthreadpool.c:628:1
+#: gthreadpool.c:654:1 gthreadpool.c:680:1 gthreadpool.c:704:1
+#: gthreadpool.c:890:1
+msgid "@pool: a #GThreadPool"
+msgstr "@pool: 一个 #GThreadPool"
+
+# used by: g_thread_pool_push:
+#. used by: g_thread_pool_push:
+#: gthreadpool.c:527:1
+msgid "@data: a new task for @pool"
+msgstr "@data: @pool 的一个新任务"
+
+#. used by: g_thread_pool_push:
+#: gthreadpool.c:530:6
+msgid ""
+"Inserts @data into the list of tasks to be executed by @pool. When the "
+"number of currently running threads is lower than the maximal allowed number "
+"of threads, a new thread is started (or reused) with the properties given to "
+"g_thread_pool_new (). Otherwise @data stays in the queue until a thread in "
+"this pool finishes its previous task and processes @data."
+msgstr ""
+"将 @data 插入任务列表，让 @pool 来执行。当正在运行线程的数量低于允许线程的最"
+"大值，一个新的线程将被启动（或者复用），并根据其属性提交给 g_thread_pool_new "
+"() 。除此之外， @data 将一直保存在任务队列之中，直到线程池里的线程完成了其先"
+"前的任务然后处理 @data 。"
+
+#. used by: g_thread_pool_push:
+#: gthreadpool.c:537:4
+msgid ""
+"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
+"error can only occur when a new thread couldn't be created. In that case "
+"@data is simply appended to the queue of work to do."
+msgstr ""
+"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在"
+"一个新的线程不能被创建时。在这样的情况下， @data 只是简单的追加到任务队列里。"
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:56:2
+msgid ""
+"To create a new thread pool, you use g_thread_pool_new(). It is destroyed by "
+"g_thread_pool_free()."
+msgstr ""
+
+# used by: g_thread_pool_set_max_threads:
+#. used by: g_thread_pool_set_max_threads:
+#: gthreadpool.c:567:1
+msgid "@max_threads: a new maximal number of threads for @pool"
+msgstr "@max_threads:  @pool 中线程的最大值"
+
+#. used by: g_thread_pool_set_max_threads:
+#: gthreadpool.c:570:2
+msgid ""
+"Sets the maximal allowed number of threads for @pool. A value of -1 means, "
+"that the maximal number of threads is unlimited."
+msgstr "为 @pool 设置其允许线程数目的最大值。值为 -1 的话，则代表无限制。"
+
+#. used by: g_thread_pool_set_max_threads:
+#: gthreadpool.c:573:3
+msgid ""
+"Setting @max_threads to 0 means stopping all work for @pool. It is "
+"effectively frozen until @max_threads is set to a non-zero value again."
+msgstr ""
+"设置 @max_threads 为 0 则以为着停止 @pool 所有的任务。这样的冻结将一直有效，"
+"直到 @max_threads 被设置为一个非0值。"
+
+#. used by: g_thread_pool_set_max_threads:
+#: gthreadpool.c:577:5
+msgid ""
+"A thread is never terminated while calling @func, as supplied by "
+"g_thread_pool_new (). Instead the maximal number of threads only has effect "
+"for the allocation of new threads in g_thread_pool_push(). A new thread is "
+"allocated, whenever the number of currently running threads in @pool is "
+"smaller than the maximal number."
+msgstr ""
+"一个线程是永远不会终止的，而是循环调用 @func ，例如 g_thread_pool_new () 所提"
+"供的。反而，线程最大值仅影响 g_thread_pool_push() 里新线程的分配。如果一个新"
+"的线程被分配，无论如何当前 @pool 里运行的线程数目要小于最大值。"
+
+#. used by: g_thread_pool_set_max_threads:
+#: gthreadpool.c:583:3
+msgid ""
+"@error can be %NULL to ignore errors, or non-%NULL to report errors. An "
+"error can only occur when a new thread couldn't be created."
+msgstr ""
+"@error 能通过设置 %NULL 来忽略，或者用非%NULL 来报告错误。一个错误仅会发生在"
+"一个新的线程不能被创建时。"
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:59:2
+msgid ""
+"If you want to execute a certain task within a thread pool, you call "
+"g_thread_pool_push()."
+msgstr ""
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:62:5
+msgid ""
+"To get the current number of running threads you call "
+"g_thread_pool_get_num_threads(). To get the number of still unprocessed "
+"tasks you call g_thread_pool_unprocessed(). To control the maximal number of "
+"threads for a thread pool, you use g_thread_pool_get_max_threads() and "
+"g_thread_pool_set_max_threads()."
+msgstr ""
+
+#. used by: g_thread_pool_get_max_threads:
+#: gthreadpool.c:630:1
+msgid "Returns the maximal number of threads for @pool."
+msgstr "返回 @pool 线程数目的最大值。"
+
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_max_threads:
+#: gthreadpool.c:632:1
+msgid "Return value: the maximal number of threads"
+msgstr "Return value: 线程数目的最大值"
+
+#. used by: g_thread_pool_get_num_threads:
+#: gthreadpool.c:656:1
+msgid "Returns the number of threads currently running in @pool."
+msgstr "返回 @pool 里当前正在运行线程的数目。"
+
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_num_threads:
+#: gthreadpool.c:658:1
+msgid "Return value: the number of threads currently running"
+msgstr "Return value: 当前正在运行线程的数目"
+
+#. used by: SECTION: thread_pools
+#: gthreadpool.c:68:6
+msgid ""
+"Finally you can control the number of unused threads, that are kept alive by "
+"GLib for future use. The current number can be fetched with "
+"g_thread_pool_get_num_unused_threads(). The maximal number can be controlled "
+"by g_thread_pool_get_max_unused_threads() and "
+"g_thread_pool_set_max_unused_threads(). All currently unused threads can be "
+"stopped by calling g_thread_pool_stop_unused_threads()."
+msgstr ""
+
+#. used by: g_thread_pool_unprocessed:
+#: gthreadpool.c:682:1
+msgid "Returns the number of tasks still unprocessed in @pool."
+msgstr "返回 @pool 里仍未处理的任务的数目。"
+
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_unprocessed:
+#: gthreadpool.c:684:1
+msgid "Return value: the number of unprocessed tasks"
+msgstr "Return value: 未处理任务的数目"
+
+# used by: g_thread_pool_free:
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:705:1
+msgid "@immediate: should @pool shut down immediately?"
+msgstr "@immediate: 让 @pool 立即关闭 ？"
+
+# used by: g_thread_pool_free:
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:706:1
+msgid "@wait_: should the function wait for all tasks to be finished?"
+msgstr "@wait_: 让函数等待所有任务完成 ？"
+
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:708:1
+msgid "Frees all resources allocated for @pool."
+msgstr "释放所有为 @pool 分配的资源。"
+
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:710:5
+msgid ""
+"If @immediate is %TRUE, no new task is processed for @pool. Otherwise @pool "
+"is not freed before the last task is processed. Note however, that no thread "
+"of this pool is interrupted, while processing a task. Instead at least all "
+"still running threads can finish their tasks before the @pool is freed."
+msgstr ""
+"如果 @immediate 为 %TRUE ，则停止 @pool 处理新的任务。反之，在最后一个任务处"
+"理完之前， @pool 是不会被销毁的。请注意，无论如何，在线程池处理一个任务的过程"
+"中，线程池中的线程是不会被中断的。相反，在 @pool 被销毁之前，所有仍在运行的线"
+"程将完成它们的任务。"
+
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:716:3
+msgid ""
+"If @wait_ is %TRUE, the functions does not return before all tasks to be "
+"processed (dependent on @immediate, whether all or only the currently "
+"running) are ready. Otherwise the function returns immediately."
+msgstr ""
+"如果 @wait_ 为 %TRUE，则在所有已经准备或者正在执行的任务完成之前，是不会返回"
+"的（这依赖于 @immediate ，是所有的任务，还是当前正在运行的任务）。否则，函数"
+"立即返回。"
+
+#. used by: g_thread_pool_free:
+#: gthreadpool.c:720:1
+msgid "After calling this function @pool must not be used anymore."
+msgstr "在调用这个函数之后， @pool 将不能被使用。"
+
+# used by: g_thread_pool_set_max_unused_threads:
+#. used by: g_thread_pool_set_max_unused_threads:
+#: gthreadpool.c:809:1
+msgid "@max_threads: maximal number of unused threads"
+msgstr "@max_threads: 未使用的最大线程数"
+
+#. used by: g_thread_pool_set_max_unused_threads:
+#: gthreadpool.c:811:3
+msgid ""
+"Sets the maximal number of unused threads to @max_threads. If @max_threads "
+"is -1, no limit is imposed on the number of unused threads."
+msgstr ""
+"设置未使用的最大线程数为 @max_threads。如果 @max_threads 为-1，则强制未使用的"
+"线程数为无限制。"
+
+# used by: g_thread_pool_new:
+#. used by: GThreadPool:
+#: gthreadpool.c:83:1
+#, fuzzy
+msgid "@func: the function to execute in the threads of this pool"
+msgstr "@func: 在新线程池的线程里执行的函数"
+
+# #-#-#-#-#  gasyncqueue.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort:
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort_unlocked:
+# #-#-#-#-#  gsequence.pot (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_sequence_foreach_range:
+# #-#-#-#-#  gsequence.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_sequence_foreach:
+#. used by: GThreadPool:
+#: gthreadpool.c:84:1
+#, fuzzy
+msgid "@user_data: the user data for the threads of this pool"
+msgstr "@ USER_DATA将：@函数传递给用户数据"
+
+#. used by: g_thread_pool_get_max_unused_threads:
+#: gthreadpool.c:847:1
+msgid "Returns the maximal allowed number of unused threads."
+msgstr "返回允许未使用线程数目的最大值。"
+
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_max_unused_threads:
+#: gthreadpool.c:849:1
+msgid "Return value: the maximal number of unused threads"
+msgstr "Return value: 未使用线程数目的最大值"
+
+# used by: g_thread_pool_new:
+#. used by: GThreadPool:
+#: gthreadpool.c:85:1
+#, fuzzy
+msgid "@exclusive: are all threads exclusive to this pool"
+msgstr "@exclusive: 让该线程池使用独占模式？"
+
+#. used by: g_thread_pool_get_num_unused_threads:
+#: gthreadpool.c:860:1
+msgid "Returns the number of currently unused threads."
+msgstr "返回当前未使用线程的数目。"
+
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  gbase64.pot~ (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_thread_pool_get_num_unused_threads:
+#: gthreadpool.c:862:1
+msgid "Return value: the number of currently unused threads"
+msgstr "Return value: 当前未使用线程的数目"
+
+#. used by: GThreadPool:
+#: gthreadpool.c:87:3
+msgid ""
+"The #GThreadPool struct represents a thread pool. It has three public read-"
+"only members, but the underlying struct is bigger, so you must not copy this "
+"struct."
+msgstr ""
+
+#. used by: g_thread_pool_stop_unused_threads:
+#: gthreadpool.c:873:3
+msgid ""
+"Stops all currently unused threads. This does not change the maximal number "
+"of unused threads. This function can be used to regularly stop all unused "
+"threads e.g. from g_timeout_add()."
+msgstr ""
+"停止所有当前未使用的线程。这不会改变未使用线程数目的最大值。此函数可用于正常"
+"的停止所有未使用的线程。例如：从 g_timeout_add() 中使用。"
+
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_push_sorted:
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_push_sorted_unlocked:
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort:
+# #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
+# used by: g_async_queue_sort_unlocked:
+#. used by: g_thread_pool_set_sort_function:
+#: gthreadpool.c:891:6
+msgid ""
+"@func: the #GCompareDataFunc used to sort the list of tasks. This function "
+"is passed two tasks. It should return 0 if the order in which they are "
+"handled does not matter, a negative value if the first task should be "
+"processed before the second or a positive value if the second task should be "
+"processed first."
+msgstr ""
+"@func:  #GCompareDataFunc 用于将任务队列排序。这个函数需要传递两个任务。如果"
+"两个任务的处理顺序无关紧要，就返回0；如果第一个任务应该优先处理，就返回一个负"
+"值；如果第二个任务应该被优先处理，就返回一个正值。"
+
+#. used by: g_thread_pool_set_sort_function:
+#: gthreadpool.c:899:3
+msgid ""
+"Sets the function used to sort the list of tasks. This allows the tasks to "
+"be processed by a priority determined by @func, and not just in the order in "
+"which they were added to the pool."
+msgstr ""
+"设置用来排序任务列表的函数。这使得可以通过 @func 决定的优先级来处理任务，而不"
+"仅仅只是为了把它们添加到线程池中。"
+
+#. used by: g_thread_pool_set_sort_function:
+#: gthreadpool.c:903:5
+msgid ""
+"Note, if the maximum number of threads is more than 1, the order that "
+"threads are executed can not be guranteed 100%. Threads are scheduled by the "
+"operating system and are executed at random. It cannot be assumed that "
+"threads are executed in the order they are created."
+msgstr ""
+"请注意，如果最大线程数大于1，则不能100%的保证线程的执行顺序。线程由操作系统调"
+"度，并随机执行。并且不能假定为线程按照创建它们时的顺序来执行。"
+
+# used by: g_thread_pool_set_max_idle_time:
+#. used by: g_thread_pool_set_max_idle_time:
+#: gthreadpool.c:938:2
+msgid ""
+"@interval: the maximum @interval (1/1000ths of a second) a thread can be "
+"idle."
+msgstr "@interval: 一个线程能被闲置的最大值， @interval (1/1000 分之一秒)。"
+
+#. used by: g_thread_pool_set_max_idle_time:
+#: gthreadpool.c:941:5
+msgid ""
+"This function will set the maximum @interval that a thread waiting in the "
+"pool for new tasks can be idle for before being stopped. This function is "
+"similar to calling g_thread_pool_stop_unused_threads() on a regular timeout, "
+"except, this is done on a per thread basis."
+msgstr ""
+"这个函数用于设置最大值 @interval ，也就是线程池中一个线程等待新任务的最大空闲"
+"时间。这个函数类似于在常规的超时时调用 g_thread_pool_stop_unused_threads() ，"
+"不同的是，这个函数是以一个线程作为基本单位。"
+
+#. used by: g_thread_pool_set_max_idle_time:
+#: gthreadpool.c:947:1
+msgid "By setting @interval to 0, idle threads will not be stopped."
+msgstr "通过把 @interval 设置为0，来使空闲的线程不会停止。"
+
+#. used by: g_thread_pool_set_max_idle_time:
+#: gthreadpool.c:949:2
+msgid "This function makes use of g_async_queue_timed_pop () using @interval."
+msgstr "这个函数让 g_async_queue_timed_pop () 的使用，使用了 @interval 。"
+
+#. used by: g_thread_pool_get_max_idle_time:
+#: gthreadpool.c:981:2
+msgid ""
+"This function will return the maximum @interval that a thread will wait in "
+"the thread pool for new tasks before being stopped."
+msgstr ""
+"这个函数将返回最大值 @interval ，也就是线程池中一个线程等待新任务的最大空闲时"
+"间。"
+
+#. used by: g_thread_pool_get_max_idle_time:
+#: gthreadpool.c:984:2
+msgid ""
+"If this function returns 0, threads waiting in the thread pool for new work "
+"are not stopped."
+msgstr "如果该函数返回0，线程池中的线程在对新任务的等待是没有停止过的。"
+
+#. used by: g_thread_pool_get_max_idle_time:
+#: gthreadpool.c:987:2
+msgid ""
+"Return value: the maximum @interval to wait for new tasks in the thread pool "
+"before stopping the thread (1/1000ths of a second)."
+msgstr ""
+"Return value: 最大值 @interval ，在线程池中等待新任务前停止线程的最大空闲时间"
+"（1/1000分之一秒）。"
 
 # used by: g_date_set_time:
 #. used by: g_timer_destroy:
@@ -49396,17 +49396,6 @@ msgstr ""
 msgid "Returns: newly-allocated locale name."
 msgstr ""
 
-# used by: g_strsplit:
-#, fuzzy
-#~ msgid "@string: string to perform matches against"
-#~ msgstr "@string: 要分割的字符串."
-
-# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
-# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
-#, fuzzy
-#~ msgid "Returns the length of the string in characters."
-#~ msgstr "Return value: 这个字符串"
-
 #~ msgid ""
 #~ "If there is an environment variable <envar>G_WIN32_PRETEND_WIN9X</envar> "
 #~ "defined (with any value), this function always returns a version code for "
@@ -49416,3 +49405,14 @@ msgstr ""
 #~ "如果定义了环境变量 <envar>G_WIN32_PRETEND_WIN9X</envar> (值任意), 这个函数"
 #~ "将返回Windows 9x的版本代码.  这在大多数情况下可以帮助GTK+和Glib的开发者进"
 #~ "行内部调试, 以便检查Windows 9x中的代码路径."
+
+# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
+# #-#-#-#-#  gstrfuncs.pot~ (glib 2.12.7)  #-#-#-#-#
+#, fuzzy
+#~ msgid "Returns the length of the string in characters."
+#~ msgstr "Return value: 这个字符串"
+
+# used by: g_strsplit:
+#, fuzzy
+#~ msgid "@string: string to perform matches against"
+#~ msgstr "@string: 要分割的字符串."
