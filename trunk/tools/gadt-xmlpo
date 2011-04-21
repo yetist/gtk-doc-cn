@@ -226,7 +226,7 @@ def main():
 
     # at last, check if make the single pot file.
     if (opts.command == 0 ) and ( not opts.multi_files ):
-        os.system("msgcat %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-docs-"+opts.pkg_ver+".pot")))
+        os.system("msgcat -F %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-docs-"+opts.pkg_ver+".pot")))
         for i in os.listdir(opts.po_file_dir):
             if i == opts.pkg_name+"-docs-"+opts.pkg_ver+".pot":
                 continue

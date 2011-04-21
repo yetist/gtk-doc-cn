@@ -259,10 +259,10 @@ msgstr ""
             if os.path.exists(newpot_file):
                 self._po_uniq(pot_file)
                 cat_file = os.path.join(self.opts.po_file_dir, base_name + "-tmp.pot")
-                ret = os.system("msgcat %s %s -o %s >/dev/null 2>&1 " % (pot_file, newpot_file, cat_file)) 
+                ret = os.system("msgcat -F %s %s -o %s >/dev/null 2>&1 " % (pot_file, newpot_file, cat_file)) 
                 if ret == 0:
                     self._po_uniq(cat_file)
-                    os.system("msgmerge %s %s -o %s >/dev/null 2>&1" % (pot_file, cat_file, newpot_file))
+                    os.system("msgmerge -N -F %s %s -o %s >/dev/null 2>&1" % (pot_file, cat_file, newpot_file))
                     os.remove(pot_file)
                     os.remove(cat_file)
                     self._po_uniq(newpot_file)
@@ -380,7 +380,7 @@ def main():
 
     # at last, check if make the single pot file.
     if (opts.command == 0 ) and ( not opts.multi_files ):
-        os.system("msgcat %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
+        os.system("msgcat -F %s/*.pot -o %s" % (opts.po_file_dir, os.path.join(opts.po_file_dir, opts.pkg_name+"-"+opts.pkg_ver+".pot")))
         for i in os.listdir(opts.po_file_dir):
             if i == opts.pkg_name+"-"+opts.pkg_ver+".pot":
                 continue
