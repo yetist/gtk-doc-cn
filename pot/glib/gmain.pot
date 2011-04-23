@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-23 10:05-0800\n"
+"POT-Creation-Date: 2011-04-23 20:50-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -778,37 +778,6 @@ msgid ""
 msgstr ""
 
 #. used by: g_main_depth:
-#: gmain.c:2142:2
-msgid "|[ static GList *free_list;"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2145:7
-msgid ""
-"gpointer allocate_memory (gsize size) { gpointer result = g_malloc (size); "
-"free_list = g_list_prepend (free_list, result); return result; }"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2153:9
-msgid ""
-"void free_allocated_memory (void) { GList *l; for (l = free_list; l; l = l-"
-">next); g_free (l->data); g_list_free (free_list); free_list = NULL; }"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2163:1
-msgid "[...]"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2165:6
-msgid ""
-"while (TRUE); { g_main_context_iteration (NULL, TRUE); free_allocated_memory"
-"(); } ]|"
-msgstr ""
-
-#. used by: g_main_depth:
 #: gmain.c:2172:6
 msgid ""
 "This works from an application, however, if you want to do the same thing "
@@ -817,34 +786,6 @@ msgid ""
 "to free_allocated_memory(), but that doesn't work, since the idle function "
 "could be called from a recursive callback. This can be fixed by using "
 "g_main_depth()"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2179:10
-msgid ""
-"|[ gpointer allocate_memory (gsize size) { FreeListBlock *block = g_new "
-"(FreeListBlock, 1); block->mem = g_malloc (size); block->depth = "
-"g_main_depth (); free_list = g_list_prepend (free_list, block); return block-"
-">mem; }"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2190:4
-msgid "void free_allocated_memory (void) { GList *l;"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2195:11
-msgid ""
-"int depth = g_main_depth (); for (l = free_list; l; ); { GList *next = l-"
-">next; FreeListBlock *block = l->data; if (block->depth > depth) { g_free "
-"(block->mem); g_free (block); free_list = g_list_delete_link (free_list, "
-"l); }"
-msgstr ""
-
-#. used by: g_main_depth:
-#: gmain.c:2207:4
-msgid "l = next; } } ]|"
 msgstr ""
 
 #. used by: g_main_depth:
@@ -902,66 +843,12 @@ msgid ""
 msgstr ""
 
 #. used by: g_source_is_destroyed:
-#: gmain.c:2277:5 gmain.c:2315:5
-msgid ""
-"|[ static gboolean idle_callback (gpointer data) { SomeWidget *self = data;"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2283:4
-msgid ""
-"GDK_THREADS_ENTER (<!-- -->); /<!-- -->* do stuff with self *<!-- -->/ self-"
-">idle_id = 0; GDK_THREADS_LEAVE (<!-- -->);"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2288:2
-msgid "return FALSE; }"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2291:5
-msgid ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->idle_id = "
-"g_idle_add (idle_callback, self); }"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2297:4
-msgid ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object);"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2302:2
-msgid "if (self->idle_id) g_source_remove (self->idle_id);"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2305:3
-msgid "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
 #: gmain.c:2309:5
 msgid ""
 "This will fail in a multi-threaded application if the widget is destroyed "
 "before the idle handler fires due to the use after free in the callback. A "
 "solution, to this particular problem, is to check to if the source has "
 "already been destroy within the callback."
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2321:6
-msgid ""
-"GDK_THREADS_ENTER (); if (!g_source_is_destroyed (g_main_current_source ())) "
-"{ /<!-- -->* do stuff with self *<!-- -->/ } GDK_THREADS_LEAVE ();"
-msgstr ""
-
-#. used by: g_source_is_destroyed:
-#: gmain.c:2328:3
-msgid "return FALSE; } ]|"
 msgstr ""
 
 #. used by: g_source_is_destroyed:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"POT-Creation-Date: 2011-04-23 21:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -307,54 +307,6 @@ msgstr ""
 msgid ""
 "A more general version of G_DEFINE_DYNAMIC_TYPE() which allows to specify "
 "#GTypeFlags and custom code."
-msgstr ""
-
-#. used by: G_DEFINE_DYNAMIC_TYPE_EXTENDED:
-#: gtypemodule.h:117:13
-msgid ""
-"|[ G_DEFINE_DYNAMIC_TYPE_EXTENDED (GtkGadget, gtk_gadget, GTK_TYPE_THING, 0, "
-"G_IMPLEMENT_INTERFACE_DYNAMIC (TYPE_GIZMO, gtk_gadget_gizmo_init)); ]| "
-"expands to |[ static void     gtk_gadget_init              (GtkGadget      "
-"*self); static void     gtk_gadget_class_init        (GtkGadgetClass "
-"*klass); static void     gtk_gadget_class_finalize    (GtkGadgetClass "
-"*klass);"
-msgstr ""
-
-#. used by: G_DEFINE_DYNAMIC_TYPE_EXTENDED:
-#: gtypemodule.h:131:2
-msgid ""
-"static gpointer gtk_gadget_parent_class = NULL; static GType    "
-"gtk_gadget_type_id = 0;"
-msgstr ""
-
-#. used by: G_DEFINE_DYNAMIC_TYPE_EXTENDED:
-#: gtypemodule.h:134:5
-msgid ""
-"static void     gtk_gadget_class_intern_init (gpointer klass) "
-"{ gtk_gadget_parent_class = g_type_class_peek_parent (klass); "
-"gtk_gadget_class_init ((GtkGadgetClass*) klass); }"
-msgstr ""
-
-#. used by: G_DEFINE_DYNAMIC_TYPE_EXTENDED:
-#: gtypemodule.h:140:5
-msgid "GType gtk_gadget_get_type (void) { return gtk_gadget_type_id; }"
-msgstr ""
-
-#. used by: G_DEFINE_DYNAMIC_TYPE_EXTENDED:
-#: gtypemodule.h:146:28
-msgid ""
-"static void gtk_gadget_register_type (GTypeModule *type_module) { const "
-"GTypeInfo g_define_type_info = { sizeof (GtkGadgetClass), (GBaseInitFunc) "
-"NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) "
-"gtk_gadget_class_intern_init, (GClassFinalizeFunc) "
-"gtk_gadget_class_finalize, NULL,   // class_data sizeof (GtkGadget), "
-"0,      // n_preallocs (GInstanceInitFunc) gtk_gadget_init, NULL    // "
-"value_table }; gtk_gadget_type_id = g_type_module_register_type "
-"(type_module, GTK_TYPE_THING, GtkGadget, &g_define_type_info, (GTypeFlags) "
-"flags); { const GInterfaceInfo g_implement_interface_info = "
-"{ (GInterfaceInitFunc) gtk_gadget_gizmo_init }; g_type_module_add_interface "
-"(type_module, g_define_type_id, TYPE_GIZMO, "
-"&g_implement_interface_info); } } ]|"
 msgstr ""
 
 #. used by: G_IMPLEMENT_INTERFACE_DYNAMIC:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"POT-Creation-Date: 2011-04-23 21:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,29 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#. used by: SECTION:generic_values
-#: gvalue.c:102:2
-msgid ""
-"/&ast; An INT is transformable to a STRING &ast;/ g_assert "
-"(g_value_type_transformable (G_TYPE_INT, G_TYPE_STRING));"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:105:2
-msgid ""
-"g_value_transform (&amp;a, &amp;b); g_printf (\"%s\\n\", g_value_get_string "
-"(&amp;b));"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:108:7
-msgid ""
-"/&ast; Attempt to transform it again using a custom transform function "
-"&ast;/ g_value_register_transform_func (G_TYPE_INT, G_TYPE_STRING, "
-"int2string); g_value_transform (&amp;a, &amp;b); g_printf (\"%s\\n\", "
-"g_value_get_string (&amp;b)); return 0; } ]|"
-msgstr ""
 
 #. used by: g_value_init:
 #: gvalue.c:157:1
@@ -281,66 +258,6 @@ msgstr ""
 #. used by: SECTION:generic_values
 #: gvalue.c:56:2
 msgid "The code in the example program below demonstrates #GValue's features."
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:59:2
-msgid "|[ #include &lt;glib-object.h&gt;"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:62:9
-msgid ""
-"static void int2string (const GValue *src_value, GValue       *dest_value) "
-"{ if (g_value_get_int (src_value) == 42) g_value_set_static_string "
-"(dest_value, \"An important number\"); else g_value_set_static_string "
-"(dest_value, \"What's that?\"); }"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:72:8
-msgid ""
-"int main (int   argc, char *argv[]) { /&ast; GValues must start zero-filled "
-"&ast;/ GValue a = {0}; GValue b = {0}; const gchar *message;"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:81:1
-msgid "g_type_init ();"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:83:2
-msgid ""
-"/&ast; The GValue starts empty &ast;/ g_assert (!G_VALUE_HOLDS_STRING (&amp;"
-"a));"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:86:5
-msgid ""
-"/&ast; Put a string in it &ast;/ g_value_init (&amp;a, G_TYPE_STRING); "
-"g_assert (G_VALUE_HOLDS_STRING (&amp;a)); g_value_set_static_string (&amp;a, "
-"\"Hello, world!\"); g_printf (\"%s\\n\", g_value_get_string (&amp;a));"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:92:2
-msgid "/&ast; Reset it to its pristine state &ast;/ g_value_unset (&amp;a);"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:95:3
-msgid ""
-"/&ast; It can then be reused for another type &ast;/ g_value_init (&amp;a, "
-"G_TYPE_INT); g_value_set_int (&amp;a, 42);"
-msgstr ""
-
-#. used by: SECTION:generic_values
-#: gvalue.c:99:2
-msgid ""
-"/&ast; Attempt to transform it into a GValue of type STRING &ast;/ "
-"g_value_init (&amp;b, G_TYPE_STRING);"
 msgstr ""
 
 #. used by: G_VALUE_NOCOPY_CONTENTS:

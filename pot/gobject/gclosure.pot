@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"POT-Creation-Date: 2011-04-23 21:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -575,51 +575,6 @@ msgid ""
 msgstr ""
 
 #. used by: g_closure_new_simple:
-#: gclosure.c:156:7
-msgid ""
-"|[ typedef struct _MyClosure MyClosure; struct _MyClosure { GClosure "
-"closure; // extra data goes here };"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:164:5
-msgid ""
-"static void my_closure_finalize (gpointer  notify_data, GClosure *closure) "
-"{ MyClosure *my_closure = (MyClosure *)closure;"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:170:2
-msgid "// free extra data here }"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:173:4
-msgid ""
-"MyClosure *my_closure_new (gpointer data) { GClosure *closure; MyClosure "
-"*my_closure;"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:178:2
-msgid ""
-"closure = g_closure_new_simple (sizeof (MyClosure), data); my_closure = "
-"(MyClosure *) closure;"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:181:1
-msgid "// initialize extra data here"
-msgstr ""
-
-#. used by: g_closure_new_simple:
-#: gclosure.c:183:5
-msgid ""
-"g_closure_add_finalize_notifier (closure, notify_data, my_closure_finalize); "
-"return my_closure; } ]|"
-msgstr ""
-
-#. used by: g_closure_new_simple:
 #: gclosure.c:189:1
 msgid "Returns: (transfer full): a newly allocated #GClosure"
 msgstr ""
@@ -856,7 +811,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_closure_sink:
-#: gclosure.c:605:18
+#: gclosure.c:605:8
 msgid ""
 "Takes over the initial ownership of a closure.  Each closure is initially "
 "created in a <firstterm>floating</firstterm> state, which means that the "
@@ -864,23 +819,19 @@ msgid ""
 "to see if the object is still floating, and if so, unsets the floating state "
 "and decreases the reference count. If the closure is not floating, "
 "g_closure_sink() does nothing. The reason for the existance of the floating "
-"state is to prevent cumbersome code sequences like: |[ closure = "
-"g_cclosure_new (cb_func, cb_data); g_source_set_closure (source, closure); "
-"g_closure_unref (closure); // XXX GObject doesn't really need this ]| "
-"Because g_source_set_closure() (and similar functions) take ownership of the "
-"initial reference count, if it is unowned, we instead can write: |"
-"[ g_source_set_closure (source, g_cclosure_new (cb_func, cb_data)); ]|"
+"state is to prevent cumbersome code sequences like:"
 msgstr ""
 
 #. used by: g_closure_sink:
-#: gclosure.c:624:17
+#: gclosure.c:619:1
+msgid "initial reference count, if it is unowned, we instead can write:"
+msgstr ""
+
+#. used by: g_closure_sink:
+#: gclosure.c:624:2
 msgid ""
 "Generally, this function is used together with g_closure_ref(). Ane example "
-"of storing a closure for later notification looks like: |[ static GClosure "
-"*notify_closure = NULL; void foo_notify_set_closure (GClosure *closure) { if "
-"(notify_closure) g_closure_unref (notify_closure); notify_closure = closure; "
-"if (notify_closure) { g_closure_ref (notify_closure); g_closure_sink "
-"(notify_closure); } } ]|"
+"of storing a closure for later notification looks like:"
 msgstr ""
 
 #. used by: g_closure_sink:

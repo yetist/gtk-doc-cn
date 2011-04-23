@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-21 22:45-0800\n"
+"POT-Creation-Date: 2011-04-23 20:26-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -760,46 +760,6 @@ msgid ""
 msgstr ""
 
 #. used by: gdk_threads_add_idle_full:
-#: gdk.c:778:5
-msgid ""
-"|[ static gboolean idle_callback (gpointer data) { /&ast; gdk_threads_enter"
-"(); would be needed for g_idle_add() &ast;/"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:784:2
-msgid "SomeWidget *self = data; /&ast; do stuff with self &ast;/"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:787:1
-msgid "self->idle_id = 0;"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:789:3
-msgid ""
-"/&ast; gdk_threads_leave(); would be needed for g_idle_add() &ast;/ return "
-"FALSE; }"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:793:6
-msgid ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->idle_id = "
-"gdk_threads_add_idle (idle_callback, self) /&ast; using g_idle_add() here "
-"would require thread protection in the callback &ast;/ }"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:800:9
-msgid ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object); if (self->idle_id) g_source_remove (self->idle_id); "
-"G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
-msgstr ""
-
-#. used by: gdk_threads_add_idle_full:
 #: gdk.c:812:2
 msgid "Since: 2.12 Rename to: gdk_threads_add_idle"
 msgstr ""
@@ -877,52 +837,6 @@ msgstr ""
 msgid ""
 "This variant of g_timeout_add_full() can be thought of a MT-safe version for "
 "GTK+ widgets for the following use case:"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:885:4
-msgid ""
-"|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
-"data;"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:890:1
-msgid "/&ast; do stuff with self &ast;/"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:892:1
-msgid "self->timeout_id = 0;"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:894:2
-msgid "return FALSE; }"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:897:4
-msgid ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->timeout_id "
-"= g_timeout_add (timeout_callback, self) }"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:902:3
-msgid ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object);"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:906:2
-msgid "if (self->timeout_id) g_source_remove (self->timeout_id);"
-msgstr ""
-
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:909:3
-msgid "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
 msgstr ""
 
 #. used by: gdk_threads_add_timeout_full:

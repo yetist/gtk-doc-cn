@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"POT-Creation-Date: 2011-04-23 21:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1135,54 +1135,6 @@ msgid ""
 "function."
 msgstr ""
 
-#. used by: g_type_class_add_private:
-#: gtype.c:4415:3
-msgid ""
-"|[ typedef struct _MyObject        MyObject; typedef struct _MyObjectPrivate "
-"MyObjectPrivate;"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4419:2
-msgid "struct _MyObject { GObject parent;"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4422:2
-msgid "MyObjectPrivate *priv; };"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4425:3
-msgid "struct _MyObjectPrivate { int some_field; };"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4429:5
-msgid ""
-"static void my_object_class_init (MyObjectClass *klass) "
-"{ g_type_class_add_private (klass, sizeof (MyObjectPrivate)); }"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4435:7
-msgid ""
-"static void my_object_init (MyObject *my_object) { my_object->priv = "
-"G_TYPE_INSTANCE_GET_PRIVATE (my_object, MY_TYPE_OBJECT, MyObjectPrivate); }"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4443:4
-msgid ""
-"static int my_object_get_some_field (MyObject *my_object) { MyObjectPrivate "
-"*priv = my_object->priv;"
-msgstr ""
-
-#. used by: g_type_class_add_private:
-#: gtype.c:4448:3
-msgid "return priv->some_field; } ]|"
-msgstr ""
-
 #. used by: g_type_add_class_private:
 #: gtype.c:4556:1
 msgid "@class_type: GType of an classed type."
@@ -1584,40 +1536,16 @@ msgid ""
 "G_DEFINE_TYPE(), etc are based."
 msgstr ""
 
-#. used by: G_DEFINE_TYPE_EXTENDED:
-#: gtype.h:1334:18
-msgid ""
-"|[ G_DEFINE_TYPE_EXTENDED (GtkGadget, gtk_gadget, GTK_TYPE_WIDGET, 0, "
-"G_IMPLEMENT_INTERFACE (TYPE_GIZMO, gtk_gadget_gizmo_init)); ]| expands to |"
-"[ static void     gtk_gadget_init       (GtkGadget      *self); static "
-"void     gtk_gadget_class_init (GtkGadgetClass *klass); static gpointer "
-"gtk_gadget_parent_class = NULL; static void     gtk_gadget_class_intern_init "
-"(gpointer klass) { gtk_gadget_parent_class = g_type_class_peek_parent "
-"(klass); gtk_gadget_class_init ((GtkGadgetClass*) klass); }"
-msgstr ""
-
-#. used by: G_DEFINE_TYPE_EXTENDED:
-#: gtype.h:1353:28
-msgid ""
-"GType gtk_gadget_get_type (void) { static volatile gsize "
-"g_define_type_id__volatile = 0; if (g_once_init_enter "
-"(&g_define_type_id__volatile)) { GType g_define_type_id = "
-"g_type_register_static_simple (GTK_TYPE_WIDGET, g_intern_static_string "
-"(\"GtkGadget\"), sizeof (GtkGadgetClass), (GClassInitFunc) "
-"gtk_gadget_class_intern_init, sizeof (GtkGadget), (GInstanceInitFunc) "
-"gtk_gadget_init, (GTypeFlags) flags); { static const GInterfaceInfo "
-"g_implement_interface_info = { (GInterfaceInitFunc) gtk_gadget_gizmo_init }; "
-"g_type_add_interface_static (g_define_type_id, TYPE_GIZMO, "
-"&g_implement_interface_info); } g_once_init_leave "
-"(&g_define_type_id__volatile, g_define_type_id); } return "
-"g_define_type_id__volatile; } ]| The only pieces which have to be manually "
-"provided are the definitions of the instance and class structure and the "
-"definitions of the instance and class init functions."
-msgstr ""
-
 #. used by: G_TYPE_FLAGS:
 #: gtype.h:137:1
 msgid "The fundamental type from which all flags types are derived."
+msgstr ""
+
+#. used by: G_DEFINE_TYPE_EXTENDED:
+#: gtype.h:1379:2
+msgid ""
+"the instance and class structure and the definitions of the instance and "
+"class init functions."
 msgstr ""
 
 #. #-#-#-#-#  gtype.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -2480,44 +2408,25 @@ msgid ""
 msgstr ""
 
 #. used by: GClassInitFunc:
-#: gtype.h:772:21
+#: gtype.h:816:20
 msgid ""
-"|[ typedef struct { GObjectClass parent_class; gint         static_integer; "
-"gchar       *dynamic_string; } TypeAClass; static void "
-"type_a_base_class_init (TypeAClass *class) { class->dynamic_string = "
-"g_strdup (\"some string\"); } static void type_a_base_class_finalize "
-"(TypeAClass *class) { g_free (class->dynamic_string); } static void "
-"type_a_class_init (TypeAClass *class) { class->static_integer = 42; }"
-msgstr ""
-
-#. used by: GClassInitFunc:
-#: gtype.h:794:42
-msgid ""
-"typedef struct { TypeAClass   parent_class; gfloat       static_float; "
-"GString     *dynamic_gstring; } TypeBClass; static void "
-"type_b_base_class_init (TypeBClass *class) { class->dynamic_gstring = "
-"g_string_new (\"some other string\"); } static void "
-"type_b_base_class_finalize (TypeBClass *class) { g_string_free (class-"
-">dynamic_gstring); } static void type_b_class_init (TypeBClass *class) "
-"{ class->static_float = 3.14159265358979323846; } ]| Initialization of "
-"TypeBClass will first cause initialization of TypeAClass (derived classes "
-"reference their parent classes, see g_type_class_ref() on this). "
-"Initialization of TypeAClass roughly involves zero-initializing its fields, "
-"then calling its GBaseInitFunc() type_a_base_class_init() to allocate its "
-"dynamic members (dynamic_string), and finally calling its GClassInitFunc() "
-"type_a_class_init() to initialize its static members (static_integer). The "
-"first step in the initialization process of TypeBClass is then a plain "
-"memory copy of the contents of TypeAClass into TypeBClass and zero-"
-"initialization of the remaining fields in TypeBClass. The dynamic members of "
-"TypeAClass within TypeBClass now need reinitialization which is performed by "
-"calling type_a_base_class_init() with an argument of TypeBClass. After that, "
-"the GBaseInitFunc() of TypeBClass, type_b_base_class_init() is called to "
-"allocate the dynamic members of TypeBClass (dynamic_gstring), and finally "
-"the GClassInitFunc() of TypeBClass, type_b_class_init(), is called to "
-"complete the initialization process with the static members (static_float). "
-"Corresponding finalization counter parts to the GBaseInitFunc() functions "
-"have to be provided to release allocated resources at class finalization "
-"time."
+"TypeAClass (derived classes reference their parent classes, see "
+"g_type_class_ref() on this). Initialization of TypeAClass roughly involves "
+"zero-initializing its fields, then calling its GBaseInitFunc() "
+"type_a_base_class_init() to allocate its dynamic members (dynamic_string), "
+"and finally calling its GClassInitFunc() type_a_class_init() to initialize "
+"its static members (static_integer). The first step in the initialization "
+"process of TypeBClass is then a plain memory copy of the contents of "
+"TypeAClass into TypeBClass and zero-initialization of the remaining fields "
+"in TypeBClass. The dynamic members of TypeAClass within TypeBClass now need "
+"reinitialization which is performed by calling type_a_base_class_init() with "
+"an argument of TypeBClass. After that, the GBaseInitFunc() of TypeBClass, "
+"type_b_base_class_init() is called to allocate the dynamic members of "
+"TypeBClass (dynamic_gstring), and finally the GClassInitFunc() of "
+"TypeBClass, type_b_class_init(), is called to complete the initialization "
+"process with the static members (static_float). Corresponding finalization "
+"counter parts to the GBaseInitFunc() functions have to be provided to "
+"release allocated resources at class finalization time."
 msgstr ""
 
 #. used by: G_TYPE_UCHAR:
