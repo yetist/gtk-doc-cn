@@ -67,6 +67,8 @@ struct              <a class="link" href="glib-Singly-Linked-Lists.html#GSList" 
 <a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="returnvalue">GSList</span></a> *            <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-remove-all" title="g_slist_remove_all ()">g_slist_remove_all</a>                  (<em class="parameter"><code><a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a> *list</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-free" title="g_slist_free ()">g_slist_free</a>                        (<em class="parameter"><code><a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-free-full" title="g_slist_free_full ()">g_slist_free_full</a>                   (<em class="parameter"><code><a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-free-1" title="g_slist_free_1 ()">g_slist_free_1</a>                      (<em class="parameter"><code><a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a> *list</code></em>);
 #define             <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-free1" title="g_slist_free1">g_slist_free1</a>
 
@@ -561,6 +563,18 @@ matching the given data.
 Frees all of the memory used by a <a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a>.
 The freed elements are returned to the slice allocator.
 </p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+If list elements contain dynamically-allocated memory,
+you should either use <a class="link" href="glib-Singly-Linked-Lists.html#g-slist-free-full" title="g_slist_free_full ()"><code class="function">g_slist_free_full()</code></a> or free them manually
+first.
+</p>
+</div>
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
@@ -569,6 +583,31 @@ The freed elements are returned to the slice allocator.
 </td>
 </tr></tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-slist-free-full"></a><h3>g_slist_free_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_slist_free_full                   (<em class="parameter"><code><a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);</pre>
+<p>
+Convenience method, which frees all the memory used by a <a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a>, and
+calls the specified destroy function on every element's data.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Singly-Linked-Lists.html#GSList" title="struct GSList"><span class="type">GSList</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>the function to be called to free each element's data</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">

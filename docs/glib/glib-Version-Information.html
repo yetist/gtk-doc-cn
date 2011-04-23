@@ -69,30 +69,40 @@ GLib提供了版本信息，主要在编译脚本中用来做配置检查。通�
 <a name="glib-major-version"></a><h3>glib_major_version</h3>
 <pre class="programlisting">extern const guint glib_major_version;
 </pre>
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="glib-minor-version"></a><h3>glib_minor_version</h3>
 <pre class="programlisting">extern const guint glib_minor_version;
 </pre>
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="glib-micro-version"></a><h3>glib_micro_version</h3>
 <pre class="programlisting">extern const guint glib_micro_version;
 </pre>
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="glib-binary-age"></a><h3>glib_binary_age</h3>
 <pre class="programlisting">extern const guint glib_binary_age;
 </pre>
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="glib-interface-age"></a><h3>glib_interface_age</h3>
 <pre class="programlisting">extern const guint glib_interface_age;
 </pre>
+<p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -100,6 +110,41 @@ GLib提供了版本信息，主要在编译脚本中用来做配置检查。通�
 <pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       glib_check_version                  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> required_major</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> required_minor</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> required_micro</code></em>);</pre>
+<p>
+检查当前使用的GLib库的版本和指定的版本是否兼容。通常把<a class="link" href="glib-Version-Information.html#GLIB-MAJOR-VERSION:CAPS" title="GLIB_MAJOR_VERSION"><span class="type">GLIB_MAJOR_VERSION</span></a>, 
+<a class="link" href="glib-Version-Information.html#GLIB-MINOR-VERSION:CAPS" title="GLIB_MINOR_VERSION"><span class="type">GLIB_MINOR_VERSION</span></a>, <a class="link" href="glib-Version-Information.html#GLIB-MICRO-VERSION:CAPS" title="GLIB_MICRO_VERSION"><span class="type">GLIB_MICRO_VERSION</span></a>这三个宏作为传入参数，用来检查当前编
+译的应用程序或者模块和链接的GLib库是否兼容。
+</p>
+<p>
+Compatibility is defined by two things: first the version
+of the running library is newer than the version
+<em class="parameter"><code>required_major.required_minor</code></em>.<em class="parameter"><code>required_micro</code></em>. Second
+the running library must be binary compatible with the
+version <em class="parameter"><code>required_major.required_minor</code></em>.<em class="parameter"><code>required_micro</code></em>
+(same major version.)
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>required_major</code></em> :</span></p></td>
+<td>要求的主版本号</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>required_minor</code></em> :</span></p></td>
+<td>要求的次版本号</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>required_micro</code></em> :</span></p></td>
+<td>要求的小版本号</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>如果版本可以兼容，返回<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>。如果版本不兼容，返回一个版本不匹配
+的字符串。返回的是GLib的字符串，应用程序不要去修改或者释放。</td>
+</tr>
+</tbody>
+</table></div>
 <p class="since">Since 2.6</p>
 </div>
 <hr>
@@ -114,7 +159,7 @@ GLib头文件的主版本号。来自于应用程序编译时使用的头文件�
 <hr>
 <div class="refsect2">
 <a name="GLIB-MINOR-VERSION:CAPS"></a><h3>GLIB_MINOR_VERSION</h3>
-<pre class="programlisting">#define GLIB_MINOR_VERSION 26
+<pre class="programlisting">#define GLIB_MINOR_VERSION 28
 </pre>
 <p>
 GLib头文件的次版本号。来自于应用程序编译时使用的头文件的次版本号，而不是来自链接的库文件的次版本号。
@@ -123,7 +168,7 @@ GLib头文件的次版本号。来自于应用程序编译时使用的头文件�
 <hr>
 <div class="refsect2">
 <a name="GLIB-MICRO-VERSION:CAPS"></a><h3>GLIB_MICRO_VERSION</h3>
-<pre class="programlisting">#define GLIB_MICRO_VERSION 1
+<pre class="programlisting">#define GLIB_MICRO_VERSION 5
 </pre>
 <p>
 GLib头文件的小版本号。来自于应用程序编译时使用的头文件的小版本号，而不是来自链接的库文件的小版本号。
@@ -138,7 +183,7 @@ GLib头文件的小版本号。来自于应用程序编译时使用的头文件�
 如果引用的GLib头文件的版本与传入的版本号相同，或者比传入的版本号更新，则返回<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>。
 </p>
 <div class="example">
-<a name="id2701758"></a><p class="title"><b>Example 1. 检查GLib的版本号</b></p>
+<a name="id2627456"></a><p class="title"><b>Example 1. 检查GLib的版本号</b></p>
 <div class="example-contents"><pre class="programlisting">
   if (!GLIB_CHECK_VERSION (1, 2, 0))
     g_error ("GLib version 1.2.0 or above is needed");

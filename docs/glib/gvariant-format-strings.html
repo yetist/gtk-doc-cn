@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-GVariant.html" title="GVariant">
-<link rel="next" href="tools.html" title="GLib 工具">
+<link rel="next" href="gvariant-text.html" title="GVariant Text Format">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,12 +17,12 @@
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="tools.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="gvariant-text.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="gvariant-format-strings"></a><div class="titlepage"></div>
 <div class="refsect1">
-<a name="id2710118"></a><h2>Variable Argument Conversions</h2>
+<a name="id2589499"></a><h2>Variable Argument Conversions</h2>
 <p>
    This page attempts to document how to perform variable argument conversions with GVariant.
   </p>
@@ -38,7 +38,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id2943745"></a><h2>Syntax</h2>
+<a name="id2874222"></a><h2>Syntax</h2>
 <p>
    This section exhaustively describes all possibilities for GVariant format strings.  There are no valid forms of
    format strings other than those described here.  Please note that the format string syntax is likely to expand in the
@@ -70,7 +70,7 @@
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id2742811"></a><h2>Symbols</h2>
+<a name="id2663296"></a><h2>Symbols</h2>
 <p>
     The following table describes the rough meaning of symbols that may appear inside a GVariant format string.  Each
     symbol is described in detail in its own section, including usage examples.
@@ -133,7 +133,7 @@
 <td>
        <p>
         Used for building or deconstructing variant types.  See
-        Variants below.
+        <a href="gvariant-format-strings.html#gvariant-format-strings-variants">Variants</a> below.
        </p>
       </td>
 </tr>
@@ -210,12 +210,12 @@
         Used as a prefix on a GVariant type string (not format string).  Denotes that a pointer to a
         <a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a> should be used in place of the normal C type or types.  For
         <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> this means that you must pass a
-        non-<code class="literal">NULL</code> <code class="code">(<a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a>
+        non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> <code class="code">(<a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a>
         *)</code>; if it is a floating reference, ownership will be taken, as
         if by using <a class="link" href="glib-GVariant.html#g-variant-ref-sink" title="g_variant_ref_sink ()"><code class="function">g_variant_ref_sink()</code></a>.
         For <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> this means that you
         must pass a pointer to a <code class="code">(<a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a> *)</code> for the value to be returned
-        by reference or <code class="literal">NULL</code> to ignore the value.  See
+        by reference or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore the value.  See
         <a href="gvariant-format-strings.html#gvariant-format-strings-gvariant"><code class="code">GVariant *</code></a> below.
        </p>
       </td>
@@ -277,7 +277,7 @@
     Variable argument conversions from numeric types work in the most obvious way possible.  Upon encountering one of
     these characters, <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes the equivalent C
     type as an argument.  <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> takes a pointer to
-    the equivalent C type (or <code class="literal">NULL</code> to ignore the value).
+    the equivalent C type (or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore the value).
    </p>
 <p>
     The equivalent C types are as follows:
@@ -454,15 +454,15 @@
 <p>
     When using the '<code class="literal">x</code>' and '<code class="literal">t</code>' characters, you must ensure that the value that you
     provide is 64 bit.  This means that you should use a cast or make use of the
-    <code class="literal">G_GINT64_CONSTANT</code> or
-    <code class="literal">G_GUINT64_CONSTANT</code> macros.
+    <a class="link" href="glib-Basic-Types.html#G-GINT64-CONSTANT:CAPS" title="G_GINT64_CONSTANT()"><code class="literal">G_GINT64_CONSTANT</code></a> or
+    <a class="link" href="glib-Basic-Types.html#G-GUINT64-CONSTANT:CAPS" title="G_GUINT64_CONSTANT()"><code class="literal">G_GUINT64_CONSTANT</code></a> macros.
    </p>
 <p>
     No type promotion occurs when using <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> since
     it operates with pointers.  The pointers must always point to a memory region of exactly the correct size.
    </p>
 <div class="refsect3">
-<a name="id2805548"></a><h4>Examples</h4>
+<a name="id2632325"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4;
 
@@ -497,7 +497,7 @@ value4 = g_variant_new ("x", G_GINT64_CONSTANT (998877665544332211));
     '<code class="literal">s</code>', '<code class="literal">o</code>' or '<code class="literal">g</code>' in a format string,
     <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes a <code class="code">(const
     <a class="link" href="glib-Basic-Types.html#gchar" title="gchar">gchar</a> *)</code> and makes a copy of it.
-    <code class="literal">NULL</code> is not a valid string.  If the '<code class="literal">o</code>' or
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is not a valid string.  If the '<code class="literal">o</code>' or
     '<code class="literal">g</code>' characters are used, care must be taken to ensure that the passed string is a valid DBus
     object path or DBus type signature, respectively.
    </p>
@@ -506,11 +506,11 @@ value4 = g_variant_new ("x", G_GINT64_CONSTANT (998877665544332211));
     <code class="code">(<a class="link" href="glib-Basic-Types.html#gchar" title="gchar">gchar</a> *)</code> (ie: <code class="code">(<a class="link" href="glib-Basic-Types.html#gchar" title="gchar">gchar</a> **)</code>) and
     sets it to a newly-allocated copy of the string.  It is appropriate to free this copy using
     <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
-    <code class="literal">NULL</code> may also be passed to indicate that the value of the
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> may also be passed to indicate that the value of the
     string should be ignored (in which case no copy is made).
    </p>
 <div class="refsect3">
-<a name="id2706178"></a><h4>Examples</h4>
+<a name="id2603247"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3;
 
@@ -550,11 +550,11 @@ value3 = g_variant_new ("g", "iias");
     </code>).  It is set to a new reference to a <a class="link" href="glib-GVariant.html#GVariant" title="GVariant"><span class="type">GVariant</span></a> instance
     containing the contents of the variant value.  It is appropriate to free this reference using
     <a class="link" href="glib-GVariant.html#g-variant-unref" title="g_variant_unref ()"><code class="function">g_variant_unref()</code></a>.
-    <code class="literal">NULL</code> may also be passed to indicate that the value should be
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> may also be passed to indicate that the value should be
     ignored (in which case no new reference is created).
    </p>
 <div class="refsect3">
-<a name="id2914173"></a><h4>Examples</h4>
+<a name="id2825541"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *x, *y;
 
@@ -582,7 +582,7 @@ y = g_variant_get_variant (x);</pre></div>
     for an array of the type given in the type string.  The builder will have
     <a class="link" href="glib-GVariant.html#g-variant-builder-end" title="g_variant_builder_end ()"><code class="function">g_variant_builder_end()</code></a> called on it and the
     result will be used as the value.  As a special exception, if the given type string is a definite type, then
-    <code class="literal">NULL</code> may be given to mean an empty array of that type.
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> may be given to mean an empty array of that type.
    </p>
 <p>
     Upon encountering an '<code class="literal">a</code>' character followed by a type string,
@@ -592,11 +592,11 @@ y = g_variant_get_variant (x);</pre></div>
     A new heap-allocated iterator is created and returned, initialised for iterating over the elements of the array.
     This iterator should be freed when you are done with it, using
     <a class="link" href="glib-GVariant.html#g-variant-iter-free" title="g_variant_iter_free ()"><code class="function">g_variant_iter_free()</code></a>.
-    <code class="literal">NULL</code> may also be given to indicate that the value of the array
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> may also be given to indicate that the value of the array
     should be ignored.
    </p>
 <div class="refsect3">
-<a name="id2694610"></a><h4>Examples</h4>
+<a name="id2627035"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *builder;
 GVariant *value;
@@ -640,11 +640,16 @@ g_variant_unref (value);</pre></div>
     '<code class="literal">g</code>', '<code class="literal">v</code>', '<code class="literal">@</code>', '<code class="literal">*</code>',
     '<code class="literal">?</code>', '<code class="literal">r</code>', '<code class="literal">&amp;</code>', or '<code class="literal">^</code>'.  In all of
     these cases, for non-maybe types, <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes
-    a pointer to a non-<code class="literal">NULL</code> value and
+    a pointer to a non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> value and
     <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> returns (by reference) a
-    non-<code class="literal">NULL</code> pointer.  When any of these format strings are
+    non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer.  When any of these format strings are
     prefixed with an '<code class="literal">m</code>', the type of arguments that are collected does not change in any way, but
-    <code class="literal">NULL</code> becomes a permissable value, to indicate the Nothing case.
+    <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> becomes a permissable value, to indicate the Nothing case.
+   </p>
+<p>
+    Note that the "special exception" introduced in the array section for constructing empty arrays is ignored
+    here.  Using a <code class="literal">NULL</code> pointer with the format string '<code class="literal">mas</code>' constructs
+    the Nothing value -- not an empty array.
    </p>
 <p>
     The second way is used with all other format strings.  For
@@ -655,24 +660,24 @@ g_variant_unref (value);</pre></div>
     collected for the equivalent non-maybe type will be collected.
    </p>
 <p>
-    If <code class="literal">FALSE</code> is given to
+    If <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is given to
     <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> then the Nothing value is constructed and
-    the collected arguments are ignored.  Otherwise (if <code class="literal">TRUE</code> was
+    the collected arguments are ignored.  Otherwise (if <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> was
     given), the arguments are used in the normal way to create the Just value.
    </p>
 <p>
-    If <code class="literal">NULL</code> is given to
+    If <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is given to
     <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> then the value is ignored.  If a
-    non-<code class="literal">NULL</code> pointer is given then it is used to return by reference
+    non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer is given then it is used to return by reference
     whether the value was Just.  In the case that the value was Just, the
     <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> will be set to
-    <code class="literal">TRUE</code> and the value will be stored in the arguments in the usual
+    <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> and the value will be stored in the arguments in the usual
     way.  In the case that the value was Nothing, the <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> will be set to
-    <code class="literal">FALSE</code> and the arguments will be collected in the normal way
+    <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> and the arguments will be collected in the normal way
     but have their values set to binary zero.
    </p>
 <div class="refsect3">
-<a name="id2856333"></a><h4>Examples</h4>
+<a name="id2670222"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4, *value5, *value6;
 value1 = g_variant_new ("ms", "Hello world");
@@ -743,7 +748,7 @@ value5 = g_variant_new ("(m@(ii)s)", NULL, "Done");
     Tuples are handled by handling each item in the tuple, in sequence.  Each item is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2697941"></a><h4>Examples</h4>
+<a name="id2622323"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -774,7 +779,7 @@ value2 = g_variant_new ("()");
     Dictionary entries are handled by handling first the key, then the value.  Each is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2834519"></a><h4>Examples</h4>
+<a name="id2917573"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *b;
 GVariant *dict;
@@ -797,7 +802,7 @@ dict = g_variant_builder_end (b);</pre></div>
 <p>
     Upon encountering a '<code class="literal">@</code>' in front of a type string,
     <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes a
-    non-<code class="literal">NULL</code> pointer to a
+    non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer to a
     <a class="link" href="glib-GVariant.html#GVariant" title="GVariant"><span class="type">GVariant</span></a> and uses its value directly instead of collecting arguments to
     create the value.  The provided <a class="link" href="glib-GVariant.html#GVariant" title="GVariant"><span class="type">GVariant</span></a> must have a type that matches the
     type string following the '<code class="literal">@</code>'.  '<code class="literal">*</code>' is
@@ -812,7 +817,7 @@ dict = g_variant_builder_end (b);</pre></div>
     takes a pointer to a <code class="code">(<a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a> *)</code> (ie: a
     <code class="code">(<a class="link" href="glib-GVariant.html#GVariant" title="GVariant">GVariant</a> **)</code>) and sets it to a new reference to a
     <a class="link" href="glib-GVariant.html#GVariant" title="GVariant"><span class="type">GVariant</span></a> containing the value (instead of deconstructing the value into
-    C types in the usual way).  <code class="literal">NULL</code> can be given to ignore the
+    C types in the usual way).  <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> can be given to ignore the
     value.  '<code class="literal">*</code>', '<code class="literal">?</code>' and '<code class="literal">r</code>' are handled in a way analogous to
     what is stated above.
    </p>
@@ -822,7 +827,7 @@ dict = g_variant_builder_end (b);</pre></div>
     improvements in type safety and code self-documentation.
    </p>
 <div class="refsect3">
-<a name="id2685568"></a><h4>Examples</h4>
+<a name="id2644595"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -871,7 +876,7 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
     always be properly nul-terminated.
    </p>
 <div class="refsect3">
-<a name="id2765106"></a><h4>Examples</h4>
+<a name="id2641692"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 {
   const gchar *str;

@@ -166,11 +166,12 @@ abstract type in other type systems.  No value can exist that has an
 indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
 <a class="link" href="glib-GVariant.html#g-variant-get-type" title="g_variant_get_type ()"><code class="function">g_variant_get_type()</code></a> will never return an indefinite type, but
-calling <code class="function">g_variant_is_a()</code> with an indefinite type may return <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.
-For example, you can not have a value that represents "an array of no
-particular type", but you can have an "array of integers" which
-certainly matches the type of "an array of no particular type", since
-"array of integers" is a subtype of "array of no particular type".
+calling <a class="link" href="glib-GVariant.html#g-variant-is-of-type" title="g_variant_is_of_type ()"><code class="function">g_variant_is_of_type()</code></a> with an indefinite type may return
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>.  For example, you can not have a value that represents "an
+array of no particular type", but you can have an "array of integers"
+which certainly matches the type of "an array of no particular type",
+since "array of integers" is a subtype of "array of no particular
+type".
 </p>
 <p>
 This is similar to how instances of abstract classes may not
@@ -575,7 +576,7 @@ A type in the GVariant type system.
 </p>
 <p>
 Two types may not be compared by value; use <a class="link" href="glib-GVariantType.html#g-variant-type-equal" title="g_variant_type_equal ()"><code class="function">g_variant_type_equal()</code></a> or
-<code class="function">g_variant_type_is_subtype()</code>.  May be copied using
+<a class="link" href="glib-GVariantType.html#g-variant-type-is-subtype-of" title="g_variant_type_is_subtype_of ()"><code class="function">g_variant_type_is_subtype_of()</code></a>.  May be copied using
 <a class="link" href="glib-GVariantType.html#g-variant-type-copy" title="g_variant_type_copy ()"><code class="function">g_variant_type_copy()</code></a> and freed using <a class="link" href="glib-GVariantType.html#g-variant-type-free" title="g_variant_type_free ()"><code class="function">g_variant_type_free()</code></a>.
 </p>
 </div>

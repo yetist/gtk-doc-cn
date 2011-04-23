@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Standard-Macros.top_of_page"></a>Standard Macros</span></h2>
-<p>Standard Macros — commonly-used macros.</p>
+<p>Standard Macros</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -81,7 +81,6 @@
 <div class="refsect1">
 <a name="glib-Standard-Macros.description"></a><h2>Description</h2>
 <p>
-These macros provide a few commonly-used features.
 </p>
 </div>
 <div class="refsect1">
@@ -91,8 +90,6 @@ These macros provide a few commonly-used features.
 <pre class="programlisting">#define G_OS_WIN32
 </pre>
 <p>
-This macro is defined only on Windows. So you can bracket
-Windows-specific code in "#ifdef G_OS_WIN32".
 </p>
 </div>
 <hr>
@@ -101,8 +98,6 @@ Windows-specific code in "#ifdef G_OS_WIN32".
 <pre class="programlisting">#define G_OS_BEOS
 </pre>
 <p>
-This macro is defined only on BeOS. So you can bracket
-BeOS-specific code in "#ifdef G_OS_BEOS".
 </p>
 </div>
 <hr>
@@ -111,8 +106,6 @@ BeOS-specific code in "#ifdef G_OS_BEOS".
 <pre class="programlisting">#define G_OS_UNIX
 </pre>
 <p>
-This macro is defined only on UNIX. So you can bracket
-UNIX-specific code in "#ifdef G_OS_UNIX".
 </p>
 </div>
 <hr>
@@ -121,8 +114,6 @@ UNIX-specific code in "#ifdef G_OS_UNIX".
 <pre class="programlisting">#define G_DIR_SEPARATOR '\\'
 </pre>
 <p>
-The directory separator character.
-This is '/' on UNIX machines and '\' under Windows.
 </p>
 </div>
 <hr>
@@ -131,8 +122,6 @@ This is '/' on UNIX machines and '\' under Windows.
 <pre class="programlisting">#define G_DIR_SEPARATOR_S "\\"
 </pre>
 <p>
-The directory separator as a string.
-This is "/" on UNIX machines and "\" under Windows.
 </p>
 </div>
 <hr>
@@ -141,18 +130,7 @@ This is "/" on UNIX machines and "\" under Windows.
 <pre class="programlisting">#define G_IS_DIR_SEPARATOR(c) ((c) == G_DIR_SEPARATOR || (c) == '/')
 </pre>
 <p>
-Checks whether a character is a directory
-separator. It returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> for '/' on UNIX
-machines and for '\' or '/' under Windows.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
-<td>a character</td>
-</tr></tbody>
-</table></div>
-<p class="since">Since 2.6</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -160,8 +138,6 @@ machines and for '\' or '/' under Windows.
 <pre class="programlisting">#define G_SEARCHPATH_SEPARATOR ';'
 </pre>
 <p>
-The search path separator character.
-This is ':' on UNIX machines and ';' under Windows.
 </p>
 </div>
 <hr>
@@ -170,8 +146,6 @@ This is ':' on UNIX machines and ';' under Windows.
 <pre class="programlisting">#define G_SEARCHPATH_SEPARATOR_S ";"
 </pre>
 <p>
-The search path separator as a string.
-This is ":" on UNIX machines and ";" under Windows.
 </p>
 </div>
 <hr>
@@ -180,7 +154,6 @@ This is ":" on UNIX machines and ";" under Windows.
 <pre class="programlisting">#define TRUE (!FALSE)
 </pre>
 <p>
-Defines the <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> value for the <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> type.
 </p>
 </div>
 <hr>
@@ -189,7 +162,6 @@ Defines the <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TR
 <pre class="programlisting">#define FALSE (0)
 </pre>
 <p>
-Defines the <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> value for the <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> type.
 </p>
 </div>
 <hr>
@@ -198,7 +170,6 @@ Defines the <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="F
 <pre class="programlisting">#    define NULL        (0L)
 </pre>
 <p>
-Defines the standard <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer.
 </p>
 </div>
 <hr>
@@ -207,25 +178,7 @@ Defines the standard <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" 
 <pre class="programlisting">#define MIN(a, b)  (((a) &lt; (b)) ? (a) : (b))
 </pre>
 <p>
-Calculates the minimum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>a numeric value.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the minimum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -233,25 +186,7 @@ Calculates the minimum of <em class="parameter"><code>a</code></em> and <em clas
 <pre class="programlisting">#define MAX(a, b)  (((a) &gt; (b)) ? (a) : (b))
 </pre>
 <p>
-Calculates the maximum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
-<td>a numeric value.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the maximum of <em class="parameter"><code>a</code></em> and <em class="parameter"><code>b</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -259,35 +194,7 @@ Calculates the maximum of <em class="parameter"><code>a</code></em> and <em clas
 <pre class="programlisting">#define ABS(a)	   (((a) &lt; 0) ? -(a) : (a))
 </pre>
 <p>
-Calculates the absolute value of <em class="parameter"><code>a</code></em>.
-The absolute value is simply the number with any negative sign taken away.
 </p>
-<p>
-For example,
-</p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-ABS(-10) is 10.
-</p></li>
-<li class="listitem"><p>
-ABS(10) is also 10.
-</p></li>
-</ul></div>
-<p>
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
-<td>a numeric value.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the absolute value of <em class="parameter"><code>a</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -295,135 +202,34 @@ ABS(10) is also 10.
 <pre class="programlisting">#define CLAMP(x, low, high)  (((x) &gt; (high)) ? (high) : (((x) &lt; (low)) ? (low) : (x)))
 </pre>
 <p>
-Ensures that <em class="parameter"><code>x</code></em> is between the limits set by <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>. If <em class="parameter"><code>low</code></em> is
-greater than <em class="parameter"><code>high</code></em> the result is undefined.
 </p>
-<p>
-For example,
-</p>
-<div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-CLAMP(5, 10, 15) is 10.
-</p></li>
-<li class="listitem"><p>
-CLAMP(15, 5, 10) is 10.
-</p></li>
-<li class="listitem"><p>
-CLAMP(20, 15, 25) is 20.
-</p></li>
-</ul></div>
-<p>
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
-<td>the value to clamp.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>low</code></em> :</span></p></td>
-<td>the minimum value allowed.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>high</code></em> :</span></p></td>
-<td>the maximum value allowed.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the value of <em class="parameter"><code>x</code></em> clamped to the range between <em class="parameter"><code>low</code></em> and <em class="parameter"><code>high</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="G-STRUCT-MEMBER:CAPS"></a><h3>G_STRUCT_MEMBER()</h3>
 <pre class="programlisting">#define             G_STRUCT_MEMBER(member_type, struct_p, struct_offset)</pre>
 <p>
-Returns a member of a structure at a given offset, using the given type.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>member_type</code></em> :</span></p></td>
-<td>the type of the struct field.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>a pointer to a struct.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>the offset of the field from the start of the struct, in bytes.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the struct member.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="G-STRUCT-MEMBER-P:CAPS"></a><h3>G_STRUCT_MEMBER_P()</h3>
 <pre class="programlisting">#define             G_STRUCT_MEMBER_P(struct_p, struct_offset)</pre>
 <p>
-Returns an untyped pointer to a given offset of a struct.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>struct_p</code></em> :</span></p></td>
-<td>a pointer to a struct.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>struct_offset</code></em> :</span></p></td>
-<td>the offset from the start of the struct, in bytes.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an untyped pointer to <em class="parameter"><code>struct_p</code></em> plus <em class="parameter"><code>struct_offset</code></em> bytes.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="G-STRUCT-OFFSET:CAPS"></a><h3>G_STRUCT_OFFSET()</h3>
 <pre class="programlisting">#define             G_STRUCT_OFFSET(struct_type, member)</pre>
 <p>
-Returns the offset, in bytes, of a member of a struct.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>struct_type</code></em> :</span></p></td>
-<td>a structure type, e.g. <span class="structname">GtkWidget</span>.</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>member</code></em> :</span></p></td>
-<td>a field in the structure, e.g. <em class="structfield"><code>window</code></em>.</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the offset of <em class="parameter"><code>member</code></em> from the start of <em class="parameter"><code>struct_type</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="G-MEM-ALIGN:CAPS"></a><h3>G_MEM_ALIGN</h3>
 <pre class="programlisting">#  define G_MEM_ALIGN GLIB_SIZEOF_VOID_P
 </pre>
-<p>
-Indicates the number of bytes to which memory will be aligned on the
-current platform.
-</p>
 <p>
 Indicates the number of bytes to which memory will be aligned on the
 current platform.
@@ -435,15 +241,6 @@ current platform.
 <pre class="programlisting">#define G_CONST_RETURN
 </pre>
 <p>
-If <code class="literal">G_DISABLE_CONST_RETURNS</code> is defined, this macro expands to nothing.
-By default, the macro expands to <code class="literal">const</code>. The macro
-should be used in place of <code class="literal">const</code> for functions that
-return a value that should not be modified. The purpose of this macro is
-to allow us to turn on <code class="literal">const</code> for returned constant
-strings by default, while allowing programmers who find that annoying to
-turn it off. This macro should only be used for return values and for
-<span class="emphasis"><em>out</em></span> parameters, it doesn't make sense for
-<span class="emphasis"><em>in</em></span> parameters.
 </p>
 </div>
 </div>

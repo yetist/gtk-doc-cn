@@ -470,17 +470,17 @@ Replacement for <a class="link" href="glib-IO-Channels.html#g-io-channel-read" t
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>count</code></em> :</span></p></td>
-<td>the size of the buffer. Note that the buffer may
-not be complelely filled even if there is data
-in the buffer if the remaining data is not a
-complete character.</td>
+<td>the size of the buffer. Note that the buffer may not be
+complelely filled even if there is data in the buffer if the
+remaining data is not a complete character.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>bytes_read</code></em> :</span></p></td>
-<td>The number of bytes read. This may be zero even on
-success if count &lt; 6 and the channel's encoding is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
-This indicates that the next UTF-8 character is too wide for
-the buffer.</td>
+<td>The number of bytes read. This may be
+zero even on success if count &lt; 6 and the channel's encoding
+is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. This indicates that the next UTF-8 character is
+too wide for the buffer. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -1221,7 +1221,7 @@ You can do these steps manually if you need greater control.
 <hr>
 <div class="refsect2">
 <a name="GIOCondition"></a><h3>enum GIOCondition</h3>
-<pre class="programlisting">typedef enum
+<pre class="programlisting">typedef enum /*&lt; flags &gt;*/
 {
   G_IO_IN GLIB_SYSDEF_POLLIN,
   G_IO_OUT GLIB_SYSDEF_POLLOUT,

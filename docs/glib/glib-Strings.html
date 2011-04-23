@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Strings.top_of_page"></a>Strings</span></h2>
-<p>Strings — text buffers which grow automatically as text is added</p>
+<p>Strings</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -124,11 +124,6 @@ struct              <a class="link" href="glib-Strings.html#GString" title="stru
 <div class="refsect1">
 <a name="glib-Strings.description"></a><h2>Description</h2>
 <p>
-A <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> is an object that handles the memory management of a C string
-for you. You can think of it as similar to a Java StringBuffer.
-In addition to the string itself, GString stores the length of the string,
-so can be used for binary data with embedded nul bytes. To access the C
-string managed by the GString <em class="parameter"><code>string</code></em>, simply use <em class="parameter"><code>string-&gt;str</code></em>.
 </p>
 </div>
 <div class="refsect1">
@@ -142,29 +137,7 @@ string managed by the GString <em class="parameter"><code>string</code></em>, si
 };
 </pre>
 <p>
-The <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> struct contains the public fields of a <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a>.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *<em class="structfield"><code><a name="GString.str"></a>str</code></em>;</span></p></td>
-<td>points to the character data. It may move as text is added.
-The <em class="structfield"><code>str</code></em> field is nul-terminated and so
-can be used as an ordinary C string.</td>
-</tr>
-<tr>
-<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> <em class="structfield"><code><a name="GString.len"></a>len</code></em>;</span></p></td>
-<td>contains the length of the string, not including the
-terminating nul byte.</td>
-</tr>
-<tr>
-<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> <em class="structfield"><code><a name="GString.allocated-len"></a>allocated_len</code></em>;</span></p></td>
-<td>the number of bytes that can be stored in the
-string before it needs to be reallocated. May be larger than <em class="parameter"><code>len</code></em>.</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -1080,7 +1053,9 @@ always, string-&gt;str[string-&gt;len] will be a nul byte.)
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> free_segment</code></em>);</pre>
 <p>
 Frees the memory allocated for the <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a>.
-If <em class="parameter"><code>free_segment</code></em> is <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> it also frees the character data.
+If <em class="parameter"><code>free_segment</code></em> is <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> it also frees the character data.  If 
+it's <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>, the caller gains ownership of the buffer and must
+free it after use with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">

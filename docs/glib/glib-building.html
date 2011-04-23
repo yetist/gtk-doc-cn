@@ -170,7 +170,7 @@
         library supports these additional arguments:
 
         </p>
-<div class="cmdsynopsis"><p><code class="command">configure</code>  [[--enable-debug=[no|minimum|yes]]] [[--disable-gc-friendly] |  [--enable-gc-friendly]] [[--disable-mem-pools] |  [--enable-mem-pools]] [[--disable-threads] |  [--enable-threads]] [[--with-threads=[none|posix|dce|win32]]] [[--disable-regex] |  [--enable-regex]] [[--with-pcre=[internal|system]]] [[--disable-included-printf] |  [--enable-included-printf]] [[--disable-visibility] |  [--enable-visibility]] [[--disable-gtk-doc] |  [--enable-gtk-doc]] [[--disable-man] |  [--enable-man]] [[--disable-xattr] |  [--enable-xattr]] [[--disable-selinux] |  [--enable-selinux]] [[--disable-dtrace] |  [--enable-dtrace]] [[--disable-systemtap] |  [--enable-systemtap]] [[--enable-gcov] |  [--disable-gcov]] [[--with-runtime-libdir=RELPATH]]</p></div>
+<div class="cmdsynopsis"><p><code class="command">configure</code>  [[--enable-debug=[no|minimum|yes]]] [[--disable-gc-friendly] |  [--enable-gc-friendly]] [[--disable-mem-pools] |  [--enable-mem-pools]] [[--disable-threads] |  [--enable-threads]] [[--with-threads=[none|posix|dce|win32]]] [[--disable-regex] |  [--enable-regex]] [[--with-pcre=[internal|system]]] [[--disable-included-printf] |  [--enable-included-printf]] [[--disable-Bsymbolic] |  [--enable-Bsymbolic]] [[--disable-gtk-doc] |  [--enable-gtk-doc]] [[--disable-man] |  [--enable-man]] [[--disable-xattr] |  [--enable-xattr]] [[--disable-selinux] |  [--enable-selinux]] [[--disable-dtrace] |  [--enable-dtrace]] [[--disable-systemtap] |  [--enable-systemtap]] [[--enable-gcov] |  [--disable-gcov]] [[--with-runtime-libdir=RELPATH]]</p></div>
 <p>
       </p>
 <p><b><code class="systemitem">--enable-debug</code>. </b>
@@ -348,17 +348,16 @@
           an implementation fo the <code class="function">printf()</code> family
           should be included or not.
         </p>
-<p><b><code class="systemitem">--disable-visibility</code> and
-           <code class="systemitem">--enable-visibility</code>. </b>
-          By default, GLib uses ELF visibility attributes to optimize
-          PLT table entries if the compiler supports ELF visibility
-          attributes. A side-effect of the way in which this is currently
-          implemented is that any  header change forces a full
-          recompilation, and missing includes may go unnoticed.
-          Therefore, it makes sense to turn this feature off while
-          doing GLib development, even if the compiler supports ELF
-          visibility attributes. The <code class="option">--disable-visibility</code>
-          option allows to do that.
+<p><b><code class="systemitem">--disable-Bsymbolic</code> and
+           <code class="systemitem">--enable-Bsymbolic</code>. </b>
+          By default, GLib uses the -Bsymbolic-functions linker
+          flag to avoid intra-library PLT jumps. A side-effect
+          of this is that it is no longer possible to override
+          internal uses of GLib functions with
+          <span style="color: red">&lt;envvar&gt;LD_PRELOAD&lt;/envvar&gt;</span>. Therefore, it may make
+          sense to turn this feature off in some situations.
+          The <code class="option">--disable-Bsymbolic</code> option allows
+          to do that.
         </p>
 <p><b><code class="systemitem">--disable-gtk-doc</code> and
           <code class="systemitem">--enable-gtk-doc</code>. </b>

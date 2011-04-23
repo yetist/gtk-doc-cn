@@ -66,6 +66,8 @@ struct              <a class="link" href="glib-Doubly-Linked-Lists.html#GList" t
 <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-remove-all" title="g_list_remove_all ()">g_list_remove_all</a>                   (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-free" title="g_list_free ()">g_list_free</a>                         (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-free-full" title="g_list_free_full ()">g_list_free_full</a>                    (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);
 
 <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-alloc" title="g_list_alloc ()">g_list_alloc</a>                        (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-free-1" title="g_list_free_1 ()">g_list_free_1</a>                       (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>);
@@ -566,7 +568,8 @@ The freed elements are returned to the slice allocator.
 <h3 class="title">Note</h3>
 <p>
 If list elements contain dynamically-allocated memory, 
-they should be freed first.
+you should either use <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-free-full" title="g_list_free_full ()"><code class="function">g_list_free_full()</code></a> or free them manually
+first.
 </p>
 </div>
 <p>
@@ -579,6 +582,31 @@ they should be freed first.
 </td>
 </tr></tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-list-free-full"></a><h3>g_list_free_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_list_free_full                    (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);</pre>
+<p>
+Convenience method, which frees all the memory used by a <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a>, and
+calls the specified destroy function on every element's data.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>the function to be called to free each element's data</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">

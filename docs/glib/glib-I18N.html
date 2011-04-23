@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Internationalization</title>
+<title>I18N</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib工具">
@@ -30,8 +30,8 @@
 <a name="glib-I18N"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="glib-I18N.top_of_page"></a>Internationalization</span></h2>
-<p>Internationalization — gettext support macros</p>
+<h2><span class="refentrytitle"><a name="glib-I18N.top_of_page"></a>I18N</span></h2>
+<p>I18N</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -67,29 +67,12 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *msgval</code></em>);
 
 const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> * const * <a class="link" href="glib-I18N.html#g-get-language-names" title="g_get_language_names ()">g_get_language_names</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="glib-I18N.html#g-get-locale-variants" title="g_get_locale_variants ()">g_get_locale_variants</a>               (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *locale</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="glib-I18N.description"></a><h2>Description</h2>
 <p>
-GLib doesn't force any particular localization method upon its users.
-But since GLib itself is localized using the <code class="function">gettext()</code> mechanism, it seems
-natural to offer the de-facto standard <code class="function">gettext()</code> support macros in an
-easy-to-use form.
-</p>
-<p>
-In order to use these macros in an application, you must include
-<code class="filename">glib/gi18n.h</code>. For use in a library, must include
-<code class="filename">glib/gi18n-lib.h</code> <span class="emphasis"><em>after</em></span> defining
-the GETTEXT_PACKAGE macro suitably for your library:
-</p>
-<div class="informalexample"><pre class="programlisting">
-#define GETTEXT_PACKAGE "gtk20"
-#include &lt;glib/gi18n-lib.h&gt;
-</pre></div>
-<p>
-The gettext manual covers details of how to set up message extraction
-with xgettext.
 </p>
 </div>
 <div class="refsect1">
@@ -98,190 +81,35 @@ with xgettext.
 <a name="gettext-macro"></a><h3>_()</h3>
 <pre class="programlisting">#define             _(String)</pre>
 <p>
-Marks a string for translation, gets replaced with the translated string
-at runtime.
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>the string to be translated</td>
-</tr></tbody>
-</table></div>
-<p class="since">Since 2.4</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="Q-:CAPS"></a><h3>Q_()</h3>
 <pre class="programlisting">#define             Q_(String)</pre>
 <p>
-Like <a class="link" href="glib-I18N.html#gettext-macro" title="_()"><code class="function">_()</code></a>, but handles context in message ids. This has the advantage that
-the string can be adorned with a prefix to guarantee uniqueness and provide
-context to the translator.
 </p>
-<p>
-One use case given in the gettext manual is GUI translation, where one could
-e.g. disambiguate two "Open" menu entries as "File|Open" and "Printer|Open".
-Another use case is the string "Russian" which may have to be translated
-differently depending on whether it's the name of a character set or a
-language. This could be solved by using "charset|Russian" and
-"language|Russian".
-</p>
-<p>
-See the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro for a different way to mark up translatable strings
-with context.
-</p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#Q-:CAPS" title="Q_()"><code class="function">Q_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=Q_</code> to xgettext when extracting messages.
-If you are using GNU gettext &gt;= 0.15, you can also use
-<code class="option">--keyword=Q_:1g</code> to let xgettext split the context
-string off into a msgctxt line in the po file.
-</p>
-</div>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>the string to be translated, with a '|'-separated prefix which
-must not be translated</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the translated message</td>
-</tr>
-</tbody>
-</table></div>
-<p class="since">Since 2.4</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="C-:CAPS"></a><h3>C_()</h3>
 <pre class="programlisting">#define             C_(Context,String)</pre>
 <p>
-Uses gettext to get the translation for <em class="parameter"><code>msgid</code></em>. <em class="parameter"><code>msgctxt</code></em> is
-used as a context. This is mainly useful for short strings which
-may need different translations, depending on the context in which
-they are used.
 </p>
-<div class="informalexample"><pre class="programlisting">
-label1 = C_("Navigation", "Back");
-label2 = C_("Body part", "Back");
-</pre></div>
-<p>
-</p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#C-:CAPS" title="C_()"><code class="function">C_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=C_:1c,2</code> to xgettext when extracting
-messages. Note that this only works with GNU gettext &gt;= 0.15.
-</p>
-</div>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>Context</code></em> :</span></p></td>
-<td>a message context, must be a string literal</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>a message id, must be a string literal</td>
-</tr>
-<tr>
-<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the translated message</td>
-</tr>
-</tbody>
-</table></div>
-<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="N-:CAPS"></a><h3>N_()</h3>
 <pre class="programlisting">#define             N_(String)</pre>
 <p>
-Only marks a string for translation.
-This is useful in situations where the translated strings can't
-be directly used, e.g. in string array initializers.
-To get the translated string, call <code class="function">gettext()</code> at runtime.
 </p>
-<div class="informalexample"><pre class="programlisting">
-     {
-       static const char *messages[] = {
-         N_("some very meaningful message"),
-         N_("and another one")
-       };
-       const char *string;
-       ...
-       string
-         = index &gt; 1 ? _("a default message") : gettext (messages[index]);
-
-       fputs (string);
-       ...
-     }
-</pre></div>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>the string to be translated</td>
-</tr></tbody>
-</table></div>
-<p class="since">Since 2.4</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="NC-:CAPS"></a><h3>NC_()</h3>
 <pre class="programlisting">#define             NC_(Context, String)</pre>
 <p>
-Only marks a string for translation, with context.
-This is useful in situations where the translated strings can't
-be directly used, e.g. in string array initializers.
-To get the translated string, you should call <a class="link" href="glib-I18N.html#g-dpgettext2" title="g_dpgettext2 ()"><code class="function">g_dpgettext2()</code></a> at runtime.
 </p>
-<div class="informalexample"><pre class="programlisting">
-     {
-       static const char *messages[] = {
-         NC_("some context", "some very meaningful message"),
-         NC_("some context", "and another one")
-       };
-       const char *string;
-       ...
-       string
-         = index &gt; 1 ? g_dpgettext2 (NULL, "some context", "a default message") : g_dpgettext2 (NULL, "some context", messages[index]);
-
-       fputs (string);
-       ...
-     }
-</pre></div>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p>
-If you are using the <a class="link" href="glib-I18N.html#NC-:CAPS" title="NC_()"><code class="function">NC_()</code></a> macro, you need to make sure that you
-pass <code class="option">--keyword=NC_:1c,2</code> to xgettext when extracting
-messages. Note that this only works with GNU gettext &gt;= 0.15.
-Intltool has support for the <a class="link" href="glib-I18N.html#NC-:CAPS" title="NC_()"><code class="function">NC_()</code></a> macro since version 0.40.1.
-</p>
-</div>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>Context</code></em> :</span></p></td>
-<td>a message context, must be a string literal</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>String</code></em> :</span></p></td>
-<td>a message id, must be a string literal</td>
-</tr>
-</tbody>
-</table></div>
-<p class="since">Since 2.18</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -586,12 +414,42 @@ that must not be modified or freed.</td>
 </table></div>
 <p class="since">Since 2.6</p>
 </div>
-</div>
-<div class="refsect1">
-<a name="glib-I18N.see-also"></a><h2>See Also</h2>
+<hr>
+<div class="refsect2">
+<a name="g-get-locale-variants"></a><h3>g_get_locale_variants ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            g_get_locale_variants               (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *locale</code></em>);</pre>
 <p>
-The gettext manual.
+Returns a list of derived variants of <em class="parameter"><code>locale</code></em>, which can be used to
+e.g. construct locale-dependent filenames or search paths. The returned
+list is sorted from most desirable to least desirable.
+This function handles territory, charset and extra locale modifiers.
 </p>
+<p>
+For example, if <em class="parameter"><code>locale</code></em> is "fr_BE", then the returned list
+is "fr_BE", "fr".
+</p>
+<p>
+If you need the list of variants for the <span class="emphasis"><em>current locale</em></span>,
+use <a class="link" href="glib-I18N.html#g-get-language-names" title="g_get_language_names ()"><code class="function">g_get_language_names()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
+<td>a locale identifier</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly
+allocated array of newly allocated strings with the locale variants. Free with
+<a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated="1"][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
+</div>
 </div>
 </div>
 <div class="footer">

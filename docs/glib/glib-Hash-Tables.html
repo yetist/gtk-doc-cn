@@ -451,7 +451,8 @@ for example before calling <a class="link" href="glib-Hash-Tables.html#g-hash-ta
 </p>
 <p>
 You can actually pass <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for <em class="parameter"><code>lookup_key</code></em> to test
-whether the <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> key exists.
+whether the <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> key exists, provided the hash and equal functions
+of <em class="parameter"><code>hash_table</code></em> are <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-safe.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1375,8 +1376,17 @@ see <a class="link" href="glib-String-Utility-Functions.html#g-strcmp0" title="g
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_str_hash                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> v</code></em>);</pre>
 <p>
 Converts a string to a hash value.
-It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new" title="g_hash_table_new ()"><code class="function">g_hash_table_new()</code></a> as the <em class="parameter"><code>hash_func</code></em> 
-parameter, when using strings as keys in a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
+</p>
+<p>
+This function implements the widely used "djb" hash apparently posted
+by Daniel Bernstein to comp.lang.c some time ago.  The 32 bit
+unsigned hash value starts at 5381 and for each byte 'c' in the
+string, is updated: <code class="literal">hash = hash * 33 + c</code>.  This
+function uses the signed value of each byte.
+</p>
+<p>
+It can be passed to <a class="link" href="glib-Hash-Tables.html#g-hash-table-new" title="g_hash_table_new ()"><code class="function">g_hash_table_new()</code></a> as the <em class="parameter"><code>hash_func</code></em> parameter,
+when using strings as keys in a <a class="link" href="glib-Hash-Tables.html#GHashTable" title="GHashTable"><span class="type">GHashTable</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">

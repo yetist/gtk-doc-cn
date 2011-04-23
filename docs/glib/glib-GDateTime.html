@@ -1041,8 +1041,8 @@ time in <em class="parameter"><code>datetime</code></em>.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>0 for equal, less than zero if dt1 is less than dt2, greater
-than zero if dt2 is greator than dt1.</td>
+<td>-1, 0 or 1 if <em class="parameter"><code>dt1</code></em> is less than, equal to or greater
+than <em class="parameter"><code>dt2</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1161,7 +1161,7 @@ Retrieves the Gregorian day, month, and year of a given <a class="link" href="gl
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
-<td>the return location for the monty of the year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>the return location for the month of the year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1292,11 +1292,18 @@ Monday, so this function never returns 0.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>datetime</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the ISO 8601 week-numbering year for <em class="parameter"><code>datetime</code></em>
 </td>
-</tr></tbody>
+</tr>
+</tbody>
 </table></div>
 <p class="since">Since 2.26</p>
 </div>
