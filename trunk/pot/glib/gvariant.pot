@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-17 15:16-0800\n"
+"POT-Creation-Date: 2011-04-23 10:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#. used by: g_variant_new_object_path:
-#: gvariant.c:1000:3
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1047:1
+msgid "@value: a #GVariant array with fixed-sized elements"
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1048:1
+msgid "@n_elements: a pointer to the location to store the number of items"
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1049:1
+msgid "@element_size: the size of each element"
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1050:1
+msgid "@returns: (array length=n_elements): a pointer to the fixed array"
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1052:2
 msgid ""
-"Creates a DBus object path #GVariant with the contents of @string. @string "
-"must be a valid DBus object path.  Use g_variant_is_object_path() if you're "
-"not sure."
+"Provides access to the serialised data for an array of fixed-sized items."
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1055:2
+msgid ""
+"@value must be an array with fixed-sized elements.  Numeric types are fixed-"
+"size as are tuples containing only other fixed-sized types."
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1058:5
+msgid ""
+"@element_size must be the size of a single element in the array.  For "
+"example, if calling this function for an array of 32 bit integers, you might "
+"say <code>sizeof (gint32)</code>.  This value isn't used except for the "
+"purpose of a double-check that the form of the seralised data matches the "
+"caller's expectation."
+msgstr ""
+
+#. used by: g_variant_get_fixed_array:
+#: gvariant.c:1064:2
+msgid ""
+"@n_elements, which must be non-%NULL is set equal to the number of items in "
+"the array."
 msgstr ""
 
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -169,42 +211,80 @@ msgstr ""
 #. used by: g_variant_byteswap:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_new_from_data:
-#: gvariant.c:1004:1 gvariant.c:1029:1 gvariant.c:1048:1 gvariant.c:1071:1
-#: gvariant.c:1103:1 gvariant.c:1173:1 gvariant.c:1193:1 gvariant.c:1233:1
-#: gvariant.c:1282:1 gvariant.c:1552:1 gvariant.c:1575:1 gvariant.c:1597:1
-#: gvariant.c:1627:1 gvariant.c:1654:1 gvariant.c:1678:1 gvariant.c:2120:1
-#: gvariant.c:2202:1 gvariant.c:2412:1 gvariant.c:2441:1 gvariant.c:2472:1
-#: gvariant.c:2498:1 gvariant.c:2516:1 gvariant.c:2564:1 gvariant.c:2668:1
-#: gvariant.c:2695:1 gvariant.c:2721:1 gvariant.c:2752:1 gvariant.c:2816:1
-#: gvariant.c:2917:1 gvariant.c:2966:1 gvariant.c:3013:1 gvariant.c:3076:1
-#: gvariant.c:323:1 gvariant.c:343:1 gvariant.c:381:1 gvariant.c:393:1
-#: gvariant.c:4008:1 gvariant.c:404:1 gvariant.c:4070:1 gvariant.c:4109:1
-#: gvariant.c:4157:1 gvariant.c:416:1 gvariant.c:4214:1 gvariant.c:4243:1
-#: gvariant.c:427:1 gvariant.c:4313:1 gvariant.c:439:1 gvariant.c:4398:1
-#: gvariant.c:450:1 gvariant.c:4531:1 gvariant.c:4564:1 gvariant.c:462:1
-#: gvariant.c:4635:1 gvariant.c:473:1 gvariant.c:485:1 gvariant.c:496:1
-#: gvariant.c:508:1 gvariant.c:519:1 gvariant.c:531:1 gvariant.c:546:1
-#: gvariant.c:562:1 gvariant.c:573:1 gvariant.c:585:1 gvariant.c:607:1
-#: gvariant.c:655:1 gvariant.c:679:1 gvariant.c:701:1 gvariant.c:735:1
-#: gvariant.c:815:1 gvariant.c:876:1 gvariant.c:923:1 gvariant.c:983:1
+#: gvariant.c:1067:1 gvariant.c:1127:1 gvariant.c:1148:1 gvariant.c:1173:1
+#: gvariant.c:1192:1 gvariant.c:1215:1 gvariant.c:1247:1 gvariant.c:1317:1
+#: gvariant.c:1337:1 gvariant.c:1377:1 gvariant.c:1426:1 gvariant.c:1696:1
+#: gvariant.c:1719:1 gvariant.c:1741:1 gvariant.c:1771:1 gvariant.c:1798:1
+#: gvariant.c:1822:1 gvariant.c:2266:1 gvariant.c:2348:1 gvariant.c:2558:1
+#: gvariant.c:2587:1 gvariant.c:2618:1 gvariant.c:2644:1 gvariant.c:2662:1
+#: gvariant.c:2710:1 gvariant.c:2814:1 gvariant.c:2841:1 gvariant.c:2867:1
+#: gvariant.c:2898:1 gvariant.c:2962:1 gvariant.c:3066:1 gvariant.c:3115:1
+#: gvariant.c:3162:1 gvariant.c:3225:1 gvariant.c:323:1 gvariant.c:343:1
+#: gvariant.c:381:1 gvariant.c:393:1 gvariant.c:404:1 gvariant.c:416:1
+#: gvariant.c:4173:1 gvariant.c:4235:1 gvariant.c:427:1 gvariant.c:4274:1
+#: gvariant.c:4322:1 gvariant.c:4379:1 gvariant.c:439:1 gvariant.c:4408:1
+#: gvariant.c:4478:1 gvariant.c:450:1 gvariant.c:4563:1 gvariant.c:462:1
+#: gvariant.c:4696:1 gvariant.c:4729:1 gvariant.c:473:1 gvariant.c:4800:1
+#: gvariant.c:485:1 gvariant.c:496:1 gvariant.c:508:1 gvariant.c:519:1
+#: gvariant.c:531:1 gvariant.c:546:1 gvariant.c:562:1 gvariant.c:573:1
+#: gvariant.c:585:1 gvariant.c:607:1 gvariant.c:655:1 gvariant.c:679:1
+#: gvariant.c:701:1 gvariant.c:735:1 gvariant.c:815:1 gvariant.c:876:1
 msgid "Since: 2.24"
+msgstr ""
+
+#. used by: g_variant_new_string:
+#: gvariant.c:1120:1
+msgid "@string: a normal utf8 nul-terminated string"
+msgstr ""
+
+#. used by: g_variant_new_string:
+#: gvariant.c:1121:1
+msgid "@returns: a floating reference to a new string #GVariant instance"
+msgstr ""
+
+#. used by: g_variant_new_string:
+#: gvariant.c:1123:1
+msgid "Creates a string #GVariant with the contents of @string."
+msgstr ""
+
+#. used by: g_variant_new_string:
+#: gvariant.c:1125:1
+msgid "@string must be valid utf8."
+msgstr ""
+
+#. used by: g_variant_new_object_path:
+#: gvariant.c:1141:1
+msgid "@object_path: a normal C nul-terminated string"
+msgstr ""
+
+#. used by: g_variant_new_object_path:
+#: gvariant.c:1142:1
+msgid "@returns: a floating reference to a new object path #GVariant instance"
+msgstr ""
+
+#. used by: g_variant_new_object_path:
+#: gvariant.c:1144:3
+msgid ""
+"Creates a DBus object path #GVariant with the contents of @string. @string "
+"must be a valid DBus object path.  Use g_variant_is_object_path() if you're "
+"not sure."
 msgstr ""
 
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_is_object_path:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_is_signature:
-#: gvariant.c:1017:1 gvariant.c:1061:1
+#: gvariant.c:1161:1 gvariant.c:1205:1
 msgid "@string: a normal C nul-terminated string"
 msgstr ""
 
 #. used by: g_variant_is_object_path:
-#: gvariant.c:1018:1
+#: gvariant.c:1162:1
 msgid "@returns: %TRUE if @string is a DBus object path"
 msgstr ""
 
 #. used by: g_variant_is_object_path:
-#: gvariant.c:1020:3
+#: gvariant.c:1164:3
 msgid ""
 "Determines if a given string is a valid DBus object path.  You should ensure "
 "that a string is a valid DBus object path before passing it to "
@@ -212,7 +292,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_is_object_path:
-#: gvariant.c:1024:4
+#: gvariant.c:1168:4
 msgid ""
 "A valid object path starts with '/' followed by zero or more sequences of "
 "characters separated by '/' characters.  Each sequence must contain only the "
@@ -221,17 +301,17 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_signature:
-#: gvariant.c:1041:1
+#: gvariant.c:1185:1
 msgid "@signature: a normal C nul-terminated string"
 msgstr ""
 
 #. used by: g_variant_new_signature:
-#: gvariant.c:1042:1
+#: gvariant.c:1186:1
 msgid "@returns: a floating reference to a new signature #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_signature:
-#: gvariant.c:1044:3
+#: gvariant.c:1188:3
 msgid ""
 "Creates a DBus type signature #GVariant with the contents of @string.  "
 "@string must be a valid DBus type signature.  Use g_variant_is_signature() "
@@ -239,12 +319,12 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_is_signature:
-#: gvariant.c:1062:1
+#: gvariant.c:1206:1
 msgid "@returns: %TRUE if @string is a DBus type signature"
 msgstr ""
 
 #. used by: g_variant_is_signature:
-#: gvariant.c:1064:3
+#: gvariant.c:1208:3
 msgid ""
 "Determines if a given string is a valid DBus type signature.  You should "
 "ensure that a string is a valid DBus type signature before passing it to "
@@ -252,7 +332,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_is_signature:
-#: gvariant.c:1068:2
+#: gvariant.c:1212:2
 msgid ""
 "DBus type signatures consist of zero or more definite #GVariantType strings "
 "in sequence."
@@ -262,24 +342,24 @@ msgstr ""
 #. used by: g_variant_get_string:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_string:
-#: gvariant.c:1083:1 gvariant.c:1162:1
+#: gvariant.c:1227:1 gvariant.c:1306:1
 msgid "@value: a string #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_get_string:
-#: gvariant.c:1084:2
+#: gvariant.c:1228:2
 msgid ""
 "@length: (allow-none) (default NULL) (out): a pointer to a #gsize, to store "
 "the length"
 msgstr ""
 
 #. used by: g_variant_get_string:
-#: gvariant.c:1086:1
+#: gvariant.c:1230:1
 msgid "@returns: the constant string, utf8 encoded"
 msgstr ""
 
 #. used by: g_variant_get_string:
-#: gvariant.c:1088:3
+#: gvariant.c:1232:3
 msgid ""
 "Returns the string value of a #GVariant instance with a string type.  This "
 "includes the types %G_VARIANT_TYPE_STRING, %G_VARIANT_TYPE_OBJECT_PATH and "
@@ -290,12 +370,12 @@ msgstr ""
 #. used by: g_variant_get_string:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_string:
-#: gvariant.c:1092:1 gvariant.c:1169:1
+#: gvariant.c:1236:1 gvariant.c:1313:1
 msgid "The string will always be utf8 encoded."
 msgstr ""
 
 #. used by: g_variant_get_string:
-#: gvariant.c:1094:3
+#: gvariant.c:1238:3
 msgid ""
 "If @length is non-%NULL then the length of the string (in bytes) is returned "
 "there.  For trusted values, this information is already known.  For "
@@ -303,7 +383,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_get_string:
-#: gvariant.c:1098:2
+#: gvariant.c:1242:2
 msgid ""
 "It is an error to call this function with a @value of any type other than "
 "those three."
@@ -313,22 +393,22 @@ msgstr ""
 #. used by: g_variant_get_string:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1101:1 gvariant.c:1355:1
+#: gvariant.c:1245:1 gvariant.c:1499:1
 msgid "The return value remains valid as long as @value exists."
 msgstr ""
 
 #. used by: g_variant_dup_string:
-#: gvariant.c:1163:1
+#: gvariant.c:1307:1
 msgid "@length: a pointer to a #gsize, to store the length"
 msgstr ""
 
 #. used by: g_variant_dup_string:
-#: gvariant.c:1164:1
+#: gvariant.c:1308:1
 msgid "@returns: a newly allocated string, utf8 encoded"
 msgstr ""
 
 #. used by: g_variant_dup_string:
-#: gvariant.c:1166:2
+#: gvariant.c:1310:2
 msgid ""
 "Similar to g_variant_get_string() except that instead of returning a "
 "constant string, the string is duplicated."
@@ -338,12 +418,12 @@ msgstr ""
 #. used by: g_variant_dup_string:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring:
-#: gvariant.c:1171:1 gvariant.c:1387:1
+#: gvariant.c:1315:1 gvariant.c:1531:1
 msgid "The return value must be freed using g_free()."
 msgstr ""
 
 #. used by: g_variant_new_strv:
-#: gvariant.c:1184:1
+#: gvariant.c:1328:1
 msgid "@strv: (array length=length) (element-type utf8): an array of strings"
 msgstr ""
 
@@ -351,7 +431,7 @@ msgstr ""
 #. used by: g_variant_new_strv:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_new_bytestring_array:
-#: gvariant.c:1185:1 gvariant.c:1413:1
+#: gvariant.c:1329:1 gvariant.c:1557:1
 msgid "@length: the length of @strv, or -1"
 msgstr ""
 
@@ -361,12 +441,12 @@ msgstr ""
 #. used by: g_variant_new_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_new:
-#: gvariant.c:1186:1 gvariant.c:1414:1 gvariant.c:3992:1
+#: gvariant.c:1330:1 gvariant.c:1558:1 gvariant.c:4157:1
 msgid "@returns: a new floating #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_strv:
-#: gvariant.c:1188:2
+#: gvariant.c:1332:2
 msgid ""
 "Constructs an array of strings #GVariant from the given array of strings."
 msgstr ""
@@ -375,7 +455,7 @@ msgstr ""
 #. used by: g_variant_new_strv:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_new_bytestring_array:
-#: gvariant.c:1191:1 gvariant.c:1419:1
+#: gvariant.c:1335:1 gvariant.c:1563:1
 msgid "If @length is -1 then @strv is %NULL-terminated."
 msgstr ""
 
@@ -383,7 +463,7 @@ msgstr ""
 #. used by: g_variant_get_strv:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_strv:
-#: gvariant.c:1217:1 gvariant.c:1267:1
+#: gvariant.c:1361:1 gvariant.c:1411:1
 msgid "@value: an array of strings #GVariant"
 msgstr ""
 
@@ -395,19 +475,19 @@ msgstr ""
 #. used by: g_variant_get_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1218:1 gvariant.c:1268:1 gvariant.c:1446:1 gvariant.c:1495:1
+#: gvariant.c:1362:1 gvariant.c:1412:1 gvariant.c:1590:1 gvariant.c:1639:1
 msgid "@length: (allow-none): the length of the result, or %NULL"
 msgstr ""
 
 #. used by: g_variant_get_strv:
-#: gvariant.c:1219:2
+#: gvariant.c:1363:2
 msgid ""
 "@returns: (array length=length) (transfer container): an array of constant "
 "strings"
 msgstr ""
 
 #. used by: g_variant_get_strv:
-#: gvariant.c:1222:3
+#: gvariant.c:1366:3
 msgid ""
 "Gets the contents of an array of strings #GVariant.  This call makes a "
 "shallow copy; the return result should be released with g_free(), but the "
@@ -422,7 +502,7 @@ msgstr ""
 #. used by: g_variant_get_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1226:3 gvariant.c:1275:3 gvariant.c:1453:3 gvariant.c:1502:3
+#: gvariant.c:1370:3 gvariant.c:1419:3 gvariant.c:1597:3 gvariant.c:1646:3
 msgid ""
 "If @length is non-%NULL then the number of elements in the result is stored "
 "there.  In any case, the resulting array will be %NULL-terminated."
@@ -436,7 +516,7 @@ msgstr ""
 #. used by: g_variant_get_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1230:2 gvariant.c:1279:2 gvariant.c:1457:2 gvariant.c:1506:2
+#: gvariant.c:1374:2 gvariant.c:1423:2 gvariant.c:1601:2 gvariant.c:1650:2
 msgid ""
 "For an empty array, @length will be set to 0 and a pointer to a %NULL "
 "pointer will be returned."
@@ -446,29 +526,29 @@ msgstr ""
 #. used by: g_variant_dup_strv:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1269:1 gvariant.c:1496:1
+#: gvariant.c:1413:1 gvariant.c:1640:1
 msgid "@returns: (array length=length): an array of strings"
 msgstr ""
 
 #. used by: g_variant_dup_strv:
-#: gvariant.c:1271:3
+#: gvariant.c:1415:3
 msgid ""
 "Gets the contents of an array of strings #GVariant.  This call makes a deep "
 "copy; the return result should be released with g_strfreev()."
 msgstr ""
 
 #. used by: g_variant_new_bytestring:
-#: gvariant.c:1315:1
+#: gvariant.c:1459:1
 msgid "@string: a normal nul-terminated string in no particular encoding"
 msgstr ""
 
 #. used by: g_variant_new_bytestring:
-#: gvariant.c:1316:1
+#: gvariant.c:1460:1
 msgid "@returns: a floating reference to a new bytestring #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_bytestring:
-#: gvariant.c:1318:3
+#: gvariant.c:1462:3
 msgid ""
 "Creates an array-of-bytes #GVariant with the contents of @string. This "
 "function is just like g_variant_new_string() except that the string need not "
@@ -476,7 +556,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_bytestring:
-#: gvariant.c:1322:2
+#: gvariant.c:1466:2
 msgid ""
 "The nul terminator character at the end of the string is stored in the array."
 msgstr ""
@@ -495,8 +575,8 @@ msgstr ""
 #. used by: g_variant_dup_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_compare:
-#: gvariant.c:1325:1 gvariant.c:1357:1 gvariant.c:1389:1 gvariant.c:1421:1
-#: gvariant.c:1460:1 gvariant.c:1509:1 gvariant.c:2284:1
+#: gvariant.c:1469:1 gvariant.c:1501:1 gvariant.c:1533:1 gvariant.c:1565:1
+#: gvariant.c:1604:1 gvariant.c:1653:1 gvariant.c:2430:1
 msgid "Since: 2.26"
 msgstr ""
 
@@ -504,24 +584,24 @@ msgstr ""
 #. used by: g_variant_get_bytestring:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring:
-#: gvariant.c:1338:1 gvariant.c:1379:1
+#: gvariant.c:1482:1 gvariant.c:1523:1
 msgid "@value: an array-of-bytes #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1339:1
+#: gvariant.c:1483:1
 msgid "@returns: the constant string"
 msgstr ""
 
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1341:2
+#: gvariant.c:1485:2
 msgid ""
 "Returns the string value of a #GVariant instance with an array-of-bytes "
 "type.  The string has no particular encoding."
 msgstr ""
 
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1344:3
+#: gvariant.c:1488:3
 msgid ""
 "If the array does not end with a nul terminator character, the empty string "
 "is returned.  For this reason, you can always trust that a non-%NULL nul-"
@@ -529,7 +609,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1348:3
+#: gvariant.c:1492:3
 msgid ""
 "If the array contains a nul terminator character somewhere other than the "
 "last byte then the returned string is the string, up to the first such nul "
@@ -537,38 +617,38 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_get_bytestring:
-#: gvariant.c:1352:2
+#: gvariant.c:1496:2
 msgid ""
 "It is an error to call this function with a @value that is not an array of "
 "bytes."
 msgstr ""
 
 #. used by: g_variant_dup_bytestring:
-#: gvariant.c:1380:2
+#: gvariant.c:1524:2
 msgid ""
 "@length: (allow-none) (default NULL): a pointer to a #gsize, to store the "
 "length (not including the nul terminator)"
 msgstr ""
 
 #. used by: g_variant_dup_bytestring:
-#: gvariant.c:1382:1
+#: gvariant.c:1526:1
 msgid "@returns: a newly allocated string"
 msgstr ""
 
 #. used by: g_variant_dup_bytestring:
-#: gvariant.c:1384:2
+#: gvariant.c:1528:2
 msgid ""
 "Similar to g_variant_get_bytestring() except that instead of returning a "
 "constant string, the string is duplicated."
 msgstr ""
 
 #. used by: g_variant_new_bytestring_array:
-#: gvariant.c:1412:1
+#: gvariant.c:1556:1
 msgid "@strv: (array length=length): an array of strings"
 msgstr ""
 
 #. used by: g_variant_new_bytestring_array:
-#: gvariant.c:1416:2
+#: gvariant.c:1560:2
 msgid ""
 "Constructs an array of bytestring #GVariant from the given array of strings."
 msgstr ""
@@ -577,17 +657,17 @@ msgstr ""
 #. used by: g_variant_get_bytestring_array:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1445:1 gvariant.c:1494:1
+#: gvariant.c:1589:1 gvariant.c:1638:1
 msgid "@value: an array of array of bytes #GVariant ('aay')"
 msgstr ""
 
 #. used by: g_variant_get_bytestring_array:
-#: gvariant.c:1447:1
+#: gvariant.c:1591:1
 msgid "@returns: (array length=length): an array of constant strings"
 msgstr ""
 
 #. used by: g_variant_get_bytestring_array:
-#: gvariant.c:1449:3
+#: gvariant.c:1593:3
 msgid ""
 "Gets the contents of an array of array of bytes #GVariant.  This call makes "
 "a shallow copy; the return result should be released with g_free(), but the "
@@ -595,7 +675,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_dup_bytestring_array:
-#: gvariant.c:1498:3
+#: gvariant.c:1642:3
 msgid ""
 "Gets the contents of an array of array of bytes #GVariant.  This call makes "
 "a deep copy; the return result should be released with g_strfreev()."
@@ -619,35 +699,35 @@ msgstr ""
 #. used by: g_variant_get_normal_form:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_byteswap:
-#: gvariant.c:1544:1 gvariant.c:1568:1 gvariant.c:1622:1 gvariant.c:1667:1
-#: gvariant.c:2086:1 gvariant.c:2907:1 gvariant.c:4131:1 gvariant.c:4511:1
-#: gvariant.c:4549:1
+#: gvariant.c:1688:1 gvariant.c:1712:1 gvariant.c:1766:1 gvariant.c:1811:1
+#: gvariant.c:2230:1 gvariant.c:3053:1 gvariant.c:4296:1 gvariant.c:4676:1
+#: gvariant.c:4714:1
 msgid "@value: a #GVariant"
 msgstr ""
 
 #. used by: g_variant_get_type:
-#: gvariant.c:1545:1
+#: gvariant.c:1689:1
 msgid "@returns: a #GVariantType"
 msgstr ""
 
 #. used by: g_variant_get_type:
-#: gvariant.c:1547:1
+#: gvariant.c:1691:1
 msgid "Determines the type of @value."
 msgstr ""
 
 #. used by: g_variant_get_type:
-#: gvariant.c:1549:2
+#: gvariant.c:1693:2
 msgid ""
 "The return value is valid for the lifetime of @value and must not be freed."
 msgstr ""
 
 #. used by: g_variant_get_type_string:
-#: gvariant.c:1569:1
+#: gvariant.c:1713:1
 msgid "@returns: the type string for the type of @value"
 msgstr ""
 
 #. used by: g_variant_get_type_string:
-#: gvariant.c:1571:3
+#: gvariant.c:1715:3
 msgid ""
 "Returns the type string of @value.  Unlike the result of calling "
 "g_variant_type_peek_string(), this string is nul-terminated.  This string "
@@ -655,12 +735,14 @@ msgid ""
 msgstr ""
 
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_variant:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_is_of_type:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_is_container:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get:
-#: gvariant.c:1591:1 gvariant.c:1608:1 gvariant.c:4093:1
+#: gvariant.c:1735:1 gvariant.c:1752:1 gvariant.c:4258:1 gvariant.c:670:1
 msgid "@value: a #GVariant instance"
 msgstr ""
 
@@ -668,47 +750,47 @@ msgstr ""
 #. used by: g_variant_is_of_type:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_builder_open:
-#: gvariant.c:1592:1 gvariant.c:2957:1
+#: gvariant.c:1736:1 gvariant.c:3106:1
 msgid "@type: a #GVariantType"
 msgstr ""
 
 #. used by: g_variant_is_of_type:
-#: gvariant.c:1593:1
+#: gvariant.c:1737:1
 msgid "@returns: %TRUE if the type of @value matches @type"
 msgstr ""
 
 #. used by: g_variant_is_of_type:
-#: gvariant.c:1595:1
+#: gvariant.c:1739:1
 msgid "Checks if a value has a type matching the provided type."
 msgstr ""
 
 #. used by: g_variant_is_container:
-#: gvariant.c:1609:1
+#: gvariant.c:1753:1
 msgid "@returns: %TRUE if @value is a container"
 msgstr ""
 
 #. used by: g_variant_is_container:
-#: gvariant.c:1611:1
+#: gvariant.c:1755:1
 msgid "Checks if @value is a container."
 msgstr ""
 
 #. used by: g_variant_classify:
-#: gvariant.c:1623:1
+#: gvariant.c:1767:1
 msgid "@returns: the #GVariantClass of @value"
 msgstr ""
 
 #. used by: g_variant_classify:
-#: gvariant.c:1625:1
+#: gvariant.c:1769:1
 msgid "Classifies @value according to its top-level type."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1631:1
+#: gvariant.c:1775:1
 msgid "@G_VARIANT_CLASS_BOOLEAN: The #GVariant is a boolean."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1632:7
+#: gvariant.c:1776:7
 msgid ""
 "@G_VARIANT_CLASS_BYTE: The #GVariant is a byte. @G_VARIANT_CLASS_INT16: The "
 "#GVariant is a signed 16 bit integer. @G_VARIANT_CLASS_UINT16: The #GVariant "
@@ -720,65 +802,65 @@ msgid ""
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1639:1
+#: gvariant.c:1783:1
 msgid "@G_VARIANT_CLASS_HANDLE: The #GVariant is a file handle index."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1640:2
+#: gvariant.c:1784:2
 msgid ""
 "@G_VARIANT_CLASS_DOUBLE: The #GVariant is a double precision floating point "
 "value."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1642:1
+#: gvariant.c:1786:1
 msgid "@G_VARIANT_CLASS_STRING: The #GVariant is a normal string."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1643:2
+#: gvariant.c:1787:2
 msgid ""
 "@G_VARIANT_CLASS_OBJECT_PATH: The #GVariant is a DBus object path string."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1645:1
+#: gvariant.c:1789:1
 msgid "@G_VARIANT_CLASS_SIGNATURE: The #GVariant is a DBus signature string."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1646:1
+#: gvariant.c:1790:1
 msgid "@G_VARIANT_CLASS_VARIANT: The #GVariant is a variant."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1647:1
+#: gvariant.c:1791:1
 msgid "@G_VARIANT_CLASS_MAYBE: The #GVariant is a maybe-typed value."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1648:1
+#: gvariant.c:1792:1
 msgid "@G_VARIANT_CLASS_ARRAY: The #GVariant is an array."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1649:1
+#: gvariant.c:1793:1
 msgid "@G_VARIANT_CLASS_TUPLE: The #GVariant is a tuple."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1650:1
+#: gvariant.c:1794:1
 msgid "@G_VARIANT_CLASS_DICT_ENTRY: The #GVariant is a dictionary entry."
 msgstr ""
 
 #. used by: GVariantClass:
-#: gvariant.c:1652:1
+#: gvariant.c:1796:1
 msgid "The range of possible top-level types of #GVariant instances."
 msgstr ""
 
 #. used by: g_variant_print_string:
-#: gvariant.c:1668:1
+#: gvariant.c:1812:1
 msgid "@string: (allow-none) (default NULL): a #GString, or %NULL"
 msgstr ""
 
@@ -786,61 +868,66 @@ msgstr ""
 #. used by: g_variant_print_string:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_print:
-#: gvariant.c:1669:2 gvariant.c:2087:2
+#: gvariant.c:1813:2 gvariant.c:2231:2
 msgid ""
 "@type_annotate: %TRUE if type information should be included in the output"
 msgstr ""
 
 #. used by: g_variant_print_string:
-#: gvariant.c:1671:1
+#: gvariant.c:1815:1
 msgid "@returns: a #GString containing the string"
 msgstr ""
 
 #. used by: g_variant_print_string:
-#: gvariant.c:1673:1
+#: gvariant.c:1817:1
 msgid "Behaves as g_variant_print(), but operates on a #GString."
 msgstr ""
 
 #. used by: g_variant_print_string:
-#: gvariant.c:1675:2
+#: gvariant.c:1819:2
 msgid ""
 "If @string is non-%NULL then it is appended to and returned.  Else, a new "
 "empty #GString is allocated and it is returned."
 msgstr ""
 
 #. used by: g_variant_print:
-#: gvariant.c:2089:1
+#: gvariant.c:2233:1
 msgid "@returns: a newly-allocated string holding the result."
 msgstr ""
 
 #. used by: g_variant_print:
-#: gvariant.c:2091:1
+#: gvariant.c:2235:1
 msgid "Pretty-prints @value in the format understood by g_variant_parse()."
 msgstr ""
 
 #. used by: g_variant_print:
-#: gvariant.c:2093:2
+#: gvariant.c:2237:1
+msgid "The format is described <link linkend='gvariant-text'>here</link>."
+msgstr ""
+
+#. used by: g_variant_print:
+#: gvariant.c:2239:2
 msgid ""
 "If @type_annotate is %TRUE, then type information is included in the output."
 msgstr ""
 
 #. used by: g_variant_hash:
-#: gvariant.c:2107:1
+#: gvariant.c:2253:1
 msgid "@value: (type GVariant): a basic #GVariant value as a #gconstpointer"
 msgstr ""
 
 #. used by: g_variant_hash:
-#: gvariant.c:2108:1
+#: gvariant.c:2254:1
 msgid "@returns: a hash value corresponding to @value"
 msgstr ""
 
 #. used by: g_variant_hash:
-#: gvariant.c:2110:1
+#: gvariant.c:2256:1
 msgid "Generates a hash value for a #GVariant instance."
 msgstr ""
 
 #. used by: g_variant_hash:
-#: gvariant.c:2112:4
+#: gvariant.c:2258:4
 msgid ""
 "The output of this function is guaranteed to be the same for a given value "
 "only per-process.  It may change between different processor architectures "
@@ -849,70 +936,70 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_hash:
-#: gvariant.c:2117:2
+#: gvariant.c:2263:2
 msgid ""
 "The type of @value is #gconstpointer only to allow use of this function with "
 "#GHashTable.  @value must be a #GVariant."
 msgstr ""
 
 #. used by: g_variant_equal:
-#: gvariant.c:2193:1
+#: gvariant.c:2339:1
 msgid "@one: (type GVariant): a #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_equal:
-#: gvariant.c:2194:1
+#: gvariant.c:2340:1
 msgid "@two: (type GVariant): a #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_equal:
-#: gvariant.c:2195:1
+#: gvariant.c:2341:1
 msgid "@returns: %TRUE if @one and @two are equal"
 msgstr ""
 
 #. used by: g_variant_equal:
-#: gvariant.c:2197:1
+#: gvariant.c:2343:1
 msgid "Checks if @one and @two have the same type and value."
 msgstr ""
 
 #. used by: g_variant_equal:
-#: gvariant.c:2199:2
+#: gvariant.c:2345:2
 msgid ""
 "The types of @one and @two are #gconstpointer only to allow use of this "
 "function with #GHashTable.  They must each be a #GVariant."
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2258:1
+#: gvariant.c:2404:1
 msgid "@one: (type GVariant): a basic-typed #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2259:1
+#: gvariant.c:2405:1
 msgid "@two: (type GVariant): a #GVariant instance of the same type"
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2260:3
+#: gvariant.c:2406:3
 msgid ""
 "@returns: negative value if a &lt; b; zero if a = b; positive value if a "
 "&gt; b."
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2264:1
+#: gvariant.c:2410:1
 msgid "Compares @one and @two."
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2266:3
+#: gvariant.c:2412:3
 msgid ""
 "The types of @one and @two are #gconstpointer only to allow use of this "
 "function with #GTree, #GPtrArray, etc.  They must each be a #GVariant."
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2270:3
+#: gvariant.c:2416:3
 msgid ""
 "Comparison is only defined for basic types (ie: booleans, numbers, "
 "strings).  For booleans, %FALSE is less than %TRUE.  Numbers are ordered in "
@@ -920,7 +1007,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2274:6
+#: gvariant.c:2420:6
 msgid ""
 "It is a programmer error to attempt to compare container values or two "
 "values that have types that are not exactly equal.  For example, you can not "
@@ -931,14 +1018,14 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_compare:
-#: gvariant.c:2281:2
+#: gvariant.c:2427:2
 msgid ""
 "If you only require an equality comparison, g_variant_equal() is more "
 "general."
 msgstr ""
 
 #. used by: GVariantIter:
-#: gvariant.c:2365:2
+#: gvariant.c:2511:2
 msgid ""
 "#GVariantIter is an opaque data structure and can only be accessed using the "
 "following functions."
@@ -950,7 +1037,7 @@ msgstr ""
 #. used by: g_variant_iter_init:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get_child:
-#: gvariant.c:2400:1 gvariant.c:2431:1 gvariant.c:4233:1
+#: gvariant.c:2546:1 gvariant.c:2577:1 gvariant.c:4398:1
 msgid "@value: a container #GVariant"
 msgstr ""
 
@@ -958,12 +1045,12 @@ msgstr ""
 #. used by: g_variant_iter_new:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_iter_copy:
-#: gvariant.c:2401:1 gvariant.c:2459:1
+#: gvariant.c:2547:1 gvariant.c:2605:1
 msgid "@returns: a new heap-allocated #GVariantIter"
 msgstr ""
 
 #. used by: g_variant_iter_new:
-#: gvariant.c:2403:2
+#: gvariant.c:2549:2
 msgid ""
 "Creates a heap-allocated #GVariantIter for iterating over the items in "
 "@value."
@@ -973,38 +1060,38 @@ msgstr ""
 #. used by: g_variant_iter_new:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_iter_copy:
-#: gvariant.c:2406:2 gvariant.c:2466:2
+#: gvariant.c:2552:2 gvariant.c:2612:2
 msgid ""
 "Use g_variant_iter_free() to free the return value when you no longer need "
 "it."
 msgstr ""
 
 #. used by: g_variant_iter_new:
-#: gvariant.c:2409:2
+#: gvariant.c:2555:2
 msgid ""
 "A reference is taken to @value and will be released only when "
 "g_variant_iter_free() is called."
 msgstr ""
 
 #. used by: g_variant_iter_init:
-#: gvariant.c:2430:1
+#: gvariant.c:2576:1
 msgid "@iter: a pointer to a #GVariantIter"
 msgstr ""
 
 #. used by: g_variant_iter_init:
-#: gvariant.c:2432:1
+#: gvariant.c:2578:1
 msgid "@returns: the number of items in @value"
 msgstr ""
 
 #. used by: g_variant_iter_init:
-#: gvariant.c:2434:3
+#: gvariant.c:2580:3
 msgid ""
 "Initialises (without allocating) a #GVariantIter.  @iter may be completely "
 "uninitialised prior to this call; its old value is ignored."
 msgstr ""
 
 #. used by: g_variant_iter_init:
-#: gvariant.c:2438:2
+#: gvariant.c:2584:2
 msgid ""
 "The iterator remains valid for as long as @value exists, and need not be "
 "freed in any way."
@@ -1020,13 +1107,13 @@ msgstr ""
 #. used by: g_variant_iter_next:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_iter_loop:
-#: gvariant.c:2458:1 gvariant.c:2489:1 gvariant.c:2531:1 gvariant.c:4266:1
-#: gvariant.c:4343:1
+#: gvariant.c:2604:1 gvariant.c:2635:1 gvariant.c:2677:1 gvariant.c:4431:1
+#: gvariant.c:4508:1
 msgid "@iter: a #GVariantIter"
 msgstr ""
 
 #. used by: g_variant_iter_copy:
-#: gvariant.c:2461:4
+#: gvariant.c:2607:4
 msgid ""
 "Creates a new heap-allocated #GVariantIter to iterate over the container "
 "that was being iterated over by @iter.  Iteration begins on the new iterator "
@@ -1035,19 +1122,19 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_iter_copy:
-#: gvariant.c:2469:2
+#: gvariant.c:2615:2
 msgid ""
 "A reference is taken to the container that @iter is iterating over and will "
 "be releated only when g_variant_iter_free() is called."
 msgstr ""
 
 #. used by: g_variant_iter_n_children:
-#: gvariant.c:2490:1
+#: gvariant.c:2636:1
 msgid "@returns: the number of children in the container"
 msgstr ""
 
 #. used by: g_variant_iter_n_children:
-#: gvariant.c:2492:3
+#: gvariant.c:2638:3
 msgid ""
 "Queries the number of child items in the container that we are iterating "
 "over.  This is the total number of items -- not the number of items "
@@ -1055,43 +1142,43 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_iter_n_children:
-#: gvariant.c:2496:1
+#: gvariant.c:2642:1
 msgid "This function might be useful for preallocation of arrays."
 msgstr ""
 
 #. used by: g_variant_iter_free:
-#: gvariant.c:2510:1
+#: gvariant.c:2656:1
 msgid "@iter: a heap-allocated #GVariantIter"
 msgstr ""
 
 #. used by: g_variant_iter_free:
-#: gvariant.c:2512:3
+#: gvariant.c:2658:3
 msgid ""
 "Frees a heap-allocated #GVariantIter.  Only call this function on iterators "
 "that were returned by g_variant_iter_new() or g_variant_iter_copy()."
 msgstr ""
 
 #. used by: g_variant_iter_next_value:
-#: gvariant.c:2532:1
+#: gvariant.c:2678:1
 msgid "@returns: (allow-none): a #GVariant, or %NULL"
 msgstr ""
 
 #. used by: g_variant_iter_next_value:
-#: gvariant.c:2534:2
+#: gvariant.c:2680:2
 msgid ""
 "Gets the next item in the container.  If no more items remain then %NULL is "
 "returned."
 msgstr ""
 
 #. used by: g_variant_iter_next_value:
-#: gvariant.c:2537:2
+#: gvariant.c:2683:2
 msgid ""
 "Use g_variant_unref() to drop your reference on the return value when you no "
 "longer need it."
 msgstr ""
 
 #. used by: g_variant_iter_next_value:
-#: gvariant.c:2540:2
+#: gvariant.c:2686:2
 msgid "<example> <title>Iterating with g_variant_iter_next_value()</title>"
 msgstr ""
 
@@ -1101,24 +1188,24 @@ msgstr ""
 #. used by: g_variant_iter_next:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_iter_loop:
-#: gvariant.c:2562:1 gvariant.c:4308:1 gvariant.c:4393:1
+#: gvariant.c:2708:1 gvariant.c:4473:1 gvariant.c:4558:1
 msgid "</example>"
 msgstr ""
 
 #. used by: GVariantBuilder:
-#: gvariant.c:2590:1
+#: gvariant.c:2736:1
 msgid "A utility type for constructing container-type #GVariant instances."
 msgstr ""
 
 #. used by: GVariantBuilder:
-#: gvariant.c:2592:2
+#: gvariant.c:2738:2
 msgid ""
 "This is an opaque structure and may only be accessed using the following "
 "functions."
 msgstr ""
 
 #. used by: GVariantBuilder:
-#: gvariant.c:2595:2
+#: gvariant.c:2741:2
 msgid ""
 "#GVariantBuilder is not threadsafe in any way.  Do not attempt to access it "
 "from more than one thread."
@@ -1128,29 +1215,29 @@ msgstr ""
 #. used by: g_variant_builder_new:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_builder_init:
-#: gvariant.c:2655:1 gvariant.c:2784:1
+#: gvariant.c:2801:1 gvariant.c:2930:1
 msgid "@type: a container type"
 msgstr ""
 
 #. used by: g_variant_builder_new:
-#: gvariant.c:2656:1
+#: gvariant.c:2802:1
 msgid "@returns: a #GVariantBuilder"
 msgstr ""
 
 #. used by: g_variant_builder_new:
-#: gvariant.c:2658:1
+#: gvariant.c:2804:1
 msgid "Allocates and initialises a new #GVariantBuilder."
 msgstr ""
 
 #. used by: g_variant_builder_new:
-#: gvariant.c:2660:3
+#: gvariant.c:2806:3
 msgid ""
 "You should call g_variant_builder_unref() on the return value when it is no "
 "longer needed.  The memory will not be automatically freed by any other call."
 msgstr ""
 
 #. used by: g_variant_builder_new:
-#: gvariant.c:2664:3
+#: gvariant.c:2810:3
 msgid ""
 "In most cases it is easier to place a #GVariantBuilder directly on the stack "
 "of the calling function and initialise it with g_variant_builder_init()."
@@ -1160,17 +1247,17 @@ msgstr ""
 #. used by: g_variant_builder_unref:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_builder_ref:
-#: gvariant.c:2685:1 gvariant.c:2713:1
+#: gvariant.c:2831:1 gvariant.c:2859:1
 msgid "@builder: a #GVariantBuilder allocated by g_variant_builder_new()"
 msgstr ""
 
 #. used by: g_variant_builder_unref:
-#: gvariant.c:2687:1
+#: gvariant.c:2833:1
 msgid "Decreases the reference count on @builder."
 msgstr ""
 
 #. used by: g_variant_builder_unref:
-#: gvariant.c:2689:2
+#: gvariant.c:2835:2
 msgid ""
 "In the event that there are no more references, releases all memory "
 "associated with the #GVariantBuilder."
@@ -1180,19 +1267,19 @@ msgstr ""
 #. used by: g_variant_builder_unref:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_builder_ref:
-#: gvariant.c:2692:2 gvariant.c:2718:2
+#: gvariant.c:2838:2 gvariant.c:2864:2
 msgid ""
 "Don't call this on stack-allocated #GVariantBuilder instances or bad things "
 "will happen."
 msgstr ""
 
 #. used by: g_variant_builder_ref:
-#: gvariant.c:2714:1
+#: gvariant.c:2860:1
 msgid "@returns: a new reference to @builder"
 msgstr ""
 
 #. used by: g_variant_builder_ref:
-#: gvariant.c:2716:1
+#: gvariant.c:2862:1
 msgid "Increases the reference count on @builder."
 msgstr ""
 
@@ -1210,30 +1297,30 @@ msgstr ""
 #. used by: g_variant_builder_end:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_builder_add:
-#: gvariant.c:2735:1 gvariant.c:2783:1 gvariant.c:2906:1 gvariant.c:2956:1
-#: gvariant.c:3004:1 gvariant.c:3058:1 gvariant.c:4183:1
+#: gvariant.c:2881:1 gvariant.c:2929:1 gvariant.c:3052:1 gvariant.c:3105:1
+#: gvariant.c:3153:1 gvariant.c:3207:1 gvariant.c:4348:1
 msgid "@builder: a #GVariantBuilder"
 msgstr ""
 
 #. used by: g_variant_builder_clear:
-#: gvariant.c:2737:2
+#: gvariant.c:2883:2
 msgid ""
 "Releases all memory associated with a #GVariantBuilder without freeing the "
 "#GVariantBuilder structure itself."
 msgstr ""
 
 #. used by: g_variant_builder_clear:
-#: gvariant.c:2740:6
+#: gvariant.c:2886:6
 msgid ""
 "It typically only makes sense to do this on a stack-allocated "
 "#GVariantBuilder if you want to abort building the value part-way through.  "
 "This function need not be called if you call g_variant_builder_end() and it "
 "also doesn't need to be called on builders allocated with "
-"g_variant_builder_new (see g_variant_builder_free() for that)."
+"g_variant_builder_new (see g_variant_builder_unref() for that)."
 msgstr ""
 
 #. used by: g_variant_builder_clear:
-#: gvariant.c:2747:4
+#: gvariant.c:2893:4
 msgid ""
 "This function leaves the #GVariantBuilder structure set to all-zeros. It is "
 "valid to call this function on either an initialised #GVariantBuilder or one "
@@ -1242,12 +1329,12 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2786:1
+#: gvariant.c:2932:1
 msgid "Initialises a #GVariantBuilder structure."
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2788:5
+#: gvariant.c:2934:5
 msgid ""
 "@type must be non-%NULL.  It specifies the type of container to construct.  "
 "It can be an indefinite type such as %G_VARIANT_TYPE_ARRAY or a definite "
@@ -1256,14 +1343,14 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2794:2
+#: gvariant.c:2940:2
 msgid ""
 "After the builder is initialised, values are added using "
 "g_variant_builder_add_value() or g_variant_builder_add()."
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2797:3
+#: gvariant.c:2943:3
 msgid ""
 "After all the child values are added, g_variant_builder_end() frees the "
 "memory associated with the builder and returns the #GVariant that was "
@@ -1271,7 +1358,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2801:6
+#: gvariant.c:2947:6
 msgid ""
 "This function completely ignores the previous contents of @builder. On one "
 "hand this means that it is valid to pass in completely uninitialised "
@@ -1281,7 +1368,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_init:
-#: gvariant.c:2808:7
+#: gvariant.c:2954:7
 msgid ""
 "You must not call g_variant_builder_ref() or g_variant_builder_unref() on a "
 "#GVariantBuilder that was initialised with this function.  If you ever pass "
@@ -1292,12 +1379,12 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_add_value:
-#: gvariant.c:2909:1
+#: gvariant.c:3055:1
 msgid "Adds @value to @builder."
 msgstr ""
 
 #. used by: g_variant_builder_add_value:
-#: gvariant.c:2911:5
+#: gvariant.c:3057:5
 msgid ""
 "It is an error to call this function in any way that would create an "
 "inconsistent value to be constructed.  Some examples of this are putting "
@@ -1305,15 +1392,22 @@ msgid ""
 "items in a tuple, putting more than one value into a variant, etc."
 msgstr ""
 
+#. used by: g_variant_builder_add_value:
+#: gvariant.c:3063:2
+msgid ""
+"If @value is a floating reference (see g_variant_ref_sink()), the @builder "
+"instance takes ownership of @value."
+msgstr ""
+
 #. used by: g_variant_builder_open:
-#: gvariant.c:2959:2
+#: gvariant.c:3108:2
 msgid ""
 "Opens a subcontainer inside the given @builder.  When done adding items to "
 "the subcontainer, g_variant_builder_close() must be called."
 msgstr ""
 
 #. used by: g_variant_builder_open:
-#: gvariant.c:2962:3
+#: gvariant.c:3111:3
 msgid ""
 "It is an error to call this function in any way that would cause an "
 "inconsistent value to be constructed (ie: adding too many values or a value "
@@ -1321,32 +1415,47 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_close:
-#: gvariant.c:3006:2
+#: gvariant.c:3155:2
 msgid ""
 "Closes the subcontainer inside the given @builder that was opened by the "
 "most recent call to g_variant_builder_open()."
 msgstr ""
 
 #. used by: g_variant_builder_close:
-#: gvariant.c:3009:3
+#: gvariant.c:3158:3
 msgid ""
 "It is an error to call this function in any way that would create an "
 "inconsistent value to be constructed (ie: too few values added to the "
 "subcontainer)."
 msgstr ""
 
-#. used by: g_variant_builder_end:
-#: gvariant.c:3059:1
-msgid "@returns: (transfer none): a new, floating, #GVariant"
+#. used by: g_variant_new_boolean:
+#: gvariant.c:318:1
+msgid "@value: a #gboolean value"
+msgstr ""
+
+#. used by: g_variant_new_boolean:
+#: gvariant.c:319:1
+msgid "@returns: a floating reference to a new boolean #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_builder_end:
-#: gvariant.c:3061:1
+#: gvariant.c:3208:1
+msgid "@returns: (transfer none): a new, floating, #GVariant"
+msgstr ""
+
+#. used by: g_variant_new_boolean:
+#: gvariant.c:321:1
+msgid "Creates a new boolean #GVariant instance -- either %TRUE or %FALSE."
+msgstr ""
+
+#. used by: g_variant_builder_end:
+#: gvariant.c:3210:1
 msgid "Ends the builder process and returns the constructed value."
 msgstr ""
 
 #. used by: g_variant_builder_end:
-#: gvariant.c:3063:4
+#: gvariant.c:3212:4
 msgid ""
 "It is not permissible to use @builder in any way after this call except for "
 "reference counting operations (in the case of a heap-allocated "
@@ -1355,7 +1464,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_builder_end:
-#: gvariant.c:3068:7
+#: gvariant.c:3217:7
 msgid ""
 "It is an error to call this function in any way that would create an "
 "inconsistent value to be constructed (ie: insufficient number of items added "
@@ -1363,21 +1472,6 @@ msgid ""
 "error to call this function if the builder was created with an indefinite "
 "array or maybe type and no children have been added; in this case it is "
 "impossible to infer the type of the empty array."
-msgstr ""
-
-#. used by: g_variant_new_boolean:
-#: gvariant.c:318:1
-msgid "@boolean: a #gboolean value"
-msgstr ""
-
-#. used by: g_variant_new_boolean:
-#: gvariant.c:319:1
-msgid "@returns: a floating reference to a new boolean #GVariant instance"
-msgstr ""
-
-#. used by: g_variant_new_boolean:
-#: gvariant.c:321:1
-msgid "Creates a new boolean #GVariant instance -- either %TRUE or %FALSE."
 msgstr ""
 
 #. used by: g_variant_get_boolean:
@@ -1404,7 +1498,7 @@ msgstr ""
 
 #. used by: g_variant_new_byte:
 #: gvariant.c:376:1
-msgid "@byte: a #guint8 value"
+msgid "@value: a #guint8 value"
 msgstr ""
 
 #. used by: g_variant_new_byte:
@@ -1440,165 +1534,23 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_int16:
-#: gvariant.c:399:2
-msgid ""
-"@int16: a #gint16 value @returns: a floating reference to a new int16 "
-"#GVariant instance"
+#: gvariant.c:399:1
+msgid "@value: a #gint16 value"
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_child:
-#: gvariant.c:3990:1 gvariant.c:4094:1 gvariant.c:4235:1
-msgid "@format_string: a #GVariant format string"
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_builder_add:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_child:
-#: gvariant.c:3991:1 gvariant.c:4095:1 gvariant.c:4185:1 gvariant.c:4236:1
-msgid "@...: arguments, as per @format_string"
-msgstr ""
-
-#. used by: g_variant_new:
-#: gvariant.c:3994:1
-msgid "Creates a new #GVariant instance."
-msgstr ""
-
-#. used by: g_variant_new:
-#: gvariant.c:3996:1
-msgid "Think of this function as an analogue to g_strdup_printf()."
-msgstr ""
-
-#. used by: g_variant_new:
-#: gvariant.c:3998:5
-msgid ""
-"The type of the created instance and the arguments that are expected by this "
-"function are determined by @format_string.  See the section on <link "
-"linkend='gvariant-format-strings'>GVariant Format Strings</link>.  Please "
-"note that the syntax of the format string is very likely to be extended in "
-"the future."
-msgstr ""
-
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:40:1
 msgid "@title: GVariant"
 msgstr ""
 
-#. used by: g_variant_new:
-#: gvariant.c:4004:3
-msgid ""
-"The first character of the format string must not be '*' '?' '@' or 'r'; in "
-"essence, a new #GVariant must always be constructed by this function (and "
-"not merely passed through it unmodified)."
+#. used by: g_variant_new_int16:
+#: gvariant.c:400:1
+msgid "@returns: a floating reference to a new int16 #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_int16:
 #: gvariant.c:402:1
 msgid "Creates a new int16 #GVariant instance."
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new_va:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_va:
-#: gvariant.c:4031:1 gvariant.c:4132:1
-msgid "@format_string: a string that is prefixed with a format string"
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new_va:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_va:
-#: gvariant.c:4032:2 gvariant.c:4133:2
-msgid ""
-"@endptr: (allow-none) (default NULL): location to store the end pointer, or "
-"%NULL"
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new_va:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_va:
-#: gvariant.c:4034:1 gvariant.c:4135:1
-msgid "@app: a pointer to a #va_list"
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4035:1
-msgid "@returns: a new, usually floating, #GVariant"
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4037:3
-msgid ""
-"This function is intended to be used by libraries based on #GVariant that "
-"want to provide g_variant_new()-like functionality to their users."
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4041:2
-msgid ""
-"The API is more general than g_variant_new() to allow a wider range of "
-"possible uses."
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4044:4
-msgid ""
-"@format_string must still point to a valid format string, but it only needs "
-"to be nul-terminated if @endptr is %NULL.  If @endptr is non-%NULL then it "
-"is updated to point to the first character past the end of the format string."
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new_va:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_va:
-#: gvariant.c:4049:3 gvariant.c:4149:3
-msgid ""
-"@app is a pointer to a #va_list.  The arguments, according to "
-"@format_string, are collected from this #va_list and the list is left "
-"pointing to the argument following the last."
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_new_va:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_get_va:
-#: gvariant.c:4053:3 gvariant.c:4153:3
-msgid ""
-"These two generalisations allow mixing of multiple calls to g_variant_new_va"
-"() and g_variant_get_va() within a single actual varargs call by the user."
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4057:5
-msgid ""
-"The return value will be floating if it was a newly created GVariant "
-"instance (for example, if the format string was \"(ii)\").  In the case that "
-"the format_string was '*', '?', 'r', or a format starting with '@' then the "
-"collected #GVariant pointer will be returned unmodified, without adding any "
-"additional references."
-msgstr ""
-
-#. used by: g_variant_new_va:
-#: gvariant.c:4063:6
-msgid ""
-"In order to behave correctly in all cases it is necessary for the calling "
-"function to g_variant_ref_sink() the return result before returning control "
-"to the user that originally provided the pointer. At this point, the caller "
-"will have their own full reference to the result.  This can also be done by "
-"adding the result to a container, or by passing it to another g_variant_new"
-"() call."
 msgstr ""
 
 #. used by: g_variant_get_int16:
@@ -1611,30 +1563,9 @@ msgstr ""
 msgid "@returns: a #gint16"
 msgstr ""
 
-#. used by: g_variant_get:
-#: gvariant.c:4097:1
-msgid "Deconstructs a #GVariant instance."
-msgstr ""
-
-#. used by: g_variant_get:
-#: gvariant.c:4099:1
-msgid "Think of this function as an analogue to scanf()."
-msgstr ""
-
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:41:1
 msgid "@short_description: strongly typed value datatype"
-msgstr ""
-
-#. used by: g_variant_get:
-#: gvariant.c:4101:7
-msgid ""
-"The arguments that are expected by this function are entirely determined by "
-"@format_string.  @format_string also restricts the permissible types of "
-"@value.  It is an error to give a value with an incompatible type.  See the "
-"section on <link linkend='gvariant-format-strings'>GVariant Format Strings</"
-"link>. Please note that the syntax of the format string is very likely to be "
-"extended in the future."
 msgstr ""
 
 #. used by: g_variant_get_int16:
@@ -1649,73 +1580,164 @@ msgid ""
 "%G_VARIANT_TYPE_INT16."
 msgstr ""
 
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get_child:
+#: gvariant.c:4155:1 gvariant.c:4259:1 gvariant.c:4400:1
+msgid "@format_string: a #GVariant format string"
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_builder_add:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get_child:
+#: gvariant.c:4156:1 gvariant.c:4260:1 gvariant.c:4350:1 gvariant.c:4401:1
+msgid "@...: arguments, as per @format_string"
+msgstr ""
+
+#. used by: g_variant_new:
+#: gvariant.c:4159:1
+msgid "Creates a new #GVariant instance."
+msgstr ""
+
+#. used by: g_variant_new:
+#: gvariant.c:4161:1
+msgid "Think of this function as an analogue to g_strdup_printf()."
+msgstr ""
+
+#. used by: g_variant_new:
+#: gvariant.c:4163:5
+msgid ""
+"The type of the created instance and the arguments that are expected by this "
+"function are determined by @format_string.  See the section on <link "
+"linkend='gvariant-format-strings'>GVariant Format Strings</link>.  Please "
+"note that the syntax of the format string is very likely to be extended in "
+"the future."
+msgstr ""
+
+#. used by: g_variant_new:
+#: gvariant.c:4169:3
+msgid ""
+"The first character of the format string must not be '*' '?' '@' or 'r'; in "
+"essence, a new #GVariant must always be constructed by this function (and "
+"not merely passed through it unmodified)."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_va:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get_va:
-#: gvariant.c:4137:3
-msgid ""
-"This function is intended to be used by libraries based on #GVariant that "
-"want to provide g_variant_get()-like functionality to their users."
+#: gvariant.c:4196:1 gvariant.c:4297:1
+msgid "@format_string: a string that is prefixed with a format string"
 msgstr ""
 
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_va:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get_va:
-#: gvariant.c:4141:2
+#: gvariant.c:4197:2 gvariant.c:4298:2
 msgid ""
-"The API is more general than g_variant_get() to allow a wider range of "
-"possible uses."
+"@endptr: (allow-none) (default NULL): location to store the end pointer, or "
+"%NULL"
 msgstr ""
 
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_va:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_get_va:
-#: gvariant.c:4144:4
-msgid ""
-"@format_string must still point to a valid format string, but it only need "
-"to be nul-terminated if @endptr is %NULL.  If @endptr is non-%NULL then it "
-"is updated to point to the first character past the end of the format string."
+#: gvariant.c:4199:1 gvariant.c:4300:1
+msgid "@app: a pointer to a #va_list"
 msgstr ""
 
-#. used by: g_variant_builder_add:
-#: gvariant.c:4184:1
-msgid "@format_string: a #GVariant varargs format string"
-msgstr ""
-
-#. used by: g_variant_builder_add:
-#: gvariant.c:4187:1
-msgid "Adds to a #GVariantBuilder."
-msgstr ""
-
-#. used by: g_variant_builder_add:
-#: gvariant.c:4189:2
-msgid ""
-"This call is a convenience wrapper that is exactly equivalent to calling "
-"g_variant_new() followed by g_variant_builder_add_value()."
-msgstr ""
-
-#. used by: g_variant_builder_add:
-#: gvariant.c:4192:1
-msgid "This function might be used as follows:"
-msgstr ""
-
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:42:1
 msgid "@see_also: GVariantType"
 msgstr ""
 
+#. used by: g_variant_new_va:
+#: gvariant.c:4200:1
+msgid "@returns: a new, usually floating, #GVariant"
+msgstr ""
+
+#. used by: g_variant_new_va:
+#: gvariant.c:4202:3
+msgid ""
+"This function is intended to be used by libraries based on #GVariant that "
+"want to provide g_variant_new()-like functionality to their users."
+msgstr ""
+
+#. used by: g_variant_new_va:
+#: gvariant.c:4206:2
+msgid ""
+"The API is more general than g_variant_new() to allow a wider range of "
+"possible uses."
+msgstr ""
+
+#. used by: g_variant_new_va:
+#: gvariant.c:4209:4
+msgid ""
+"@format_string must still point to a valid format string, but it only needs "
+"to be nul-terminated if @endptr is %NULL.  If @endptr is non-%NULL then it "
+"is updated to point to the first character past the end of the format string."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_va:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get_va:
+#: gvariant.c:4214:3 gvariant.c:4314:3
+msgid ""
+"@app is a pointer to a #va_list.  The arguments, according to "
+"@format_string, are collected from this #va_list and the list is left "
+"pointing to the argument following the last."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_va:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_get_va:
+#: gvariant.c:4218:3 gvariant.c:4318:3
+msgid ""
+"These two generalisations allow mixing of multiple calls to g_variant_new_va"
+"() and g_variant_get_va() within a single actual varargs call by the user."
+msgstr ""
+
 #. used by: g_variant_new_uint16:
-#: gvariant.c:422:2
-msgid ""
-"@uint16: a #guint16 value @returns: a floating reference to a new uint16 "
-"#GVariant instance"
+#: gvariant.c:422:1
+msgid "@value: a #guint16 value"
 msgstr ""
 
-#. used by: g_variant_get_child:
-#: gvariant.c:4234:1
-msgid "@index_: the index of the child to deconstruct"
+#. used by: g_variant_new_va:
+#: gvariant.c:4222:5
+msgid ""
+"The return value will be floating if it was a newly created GVariant "
+"instance (for example, if the format string was \"(ii)\").  In the case that "
+"the format_string was '*', '?', 'r', or a format starting with '@' then the "
+"collected #GVariant pointer will be returned unmodified, without adding any "
+"additional references."
 msgstr ""
 
-#. used by: g_variant_get_child:
-#: gvariant.c:4238:4
+#. used by: g_variant_new_va:
+#: gvariant.c:4228:6
 msgid ""
-"Reads a child item out of a container #GVariant instance and deconstructs it "
-"according to @format_string.  This call is essentially a combination of "
-"g_variant_get_child_value() and g_variant_get()."
+"In order to behave correctly in all cases it is necessary for the calling "
+"function to g_variant_ref_sink() the return result before returning control "
+"to the user that originally provided the pointer. At this point, the caller "
+"will have their own full reference to the result.  This can also be done by "
+"adding the result to a container, or by passing it to another g_variant_new"
+"() call."
+msgstr ""
+
+#. used by: g_variant_new_uint16:
+#: gvariant.c:423:1
+msgid "@returns: a floating reference to a new uint16 #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_uint16:
@@ -1723,81 +1745,52 @@ msgstr ""
 msgid "Creates a new uint16 #GVariant instance."
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4267:1 gvariant.c:4344:1
-msgid "@format_string: a GVariant format string"
+#. used by: g_variant_get:
+#: gvariant.c:4262:1
+msgid "Deconstructs a #GVariant instance."
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4268:1 gvariant.c:4345:1
-msgid "@...: the arguments to unpack the value into"
+#. used by: g_variant_get:
+#: gvariant.c:4264:1
+msgid "Think of this function as an analogue to scanf()."
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4269:2 gvariant.c:4346:2
-msgid "@returns: %TRUE if a value was unpacked, or %FALSE if there as no value"
-msgstr ""
-
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4272:2 gvariant.c:4349:2
+#. used by: g_variant_get:
+#: gvariant.c:4266:7
 msgid ""
-"Gets the next item in the container and unpacks it into the variable "
-"argument list according to @format_string, returning %TRUE."
+"The arguments that are expected by this function are entirely determined by "
+"@format_string.  @format_string also restricts the permissible types of "
+"@value.  It is an error to give a value with an incompatible type.  See the "
+"section on <link linkend='gvariant-format-strings'>GVariant Format Strings</"
+"link>. Please note that the syntax of the format string is very likely to be "
+"extended in the future."
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4275:1 gvariant.c:4352:1
-msgid "If no more items remain then %FALSE is returned."
-msgstr ""
-
-#. used by: g_variant_iter_next:
-#: gvariant.c:4277:4
+#. used by: g_variant_get_va:
+#: gvariant.c:4302:3
 msgid ""
-"All of the pointers given on the variable arguments list of this function "
-"are assumed to point at uninitialised memory.  It is the responsibility of "
-"the caller to free all of the values returned by the unpacking process."
+"This function is intended to be used by libraries based on #GVariant that "
+"want to provide g_variant_get()-like functionality to their users."
 msgstr ""
 
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_next:
-#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4282:2 gvariant.c:4369:2
+#. used by: g_variant_get_va:
+#: gvariant.c:4306:2
 msgid ""
-"See the section on <link linkend='gvariant-format-strings'>GVariant Format "
-"Strings</link>."
+"The API is more general than g_variant_get() to allow a wider range of "
+"possible uses."
 msgstr ""
 
-#. used by: g_variant_iter_next:
-#: gvariant.c:4285:2
-msgid "<example> <title>Memory management with g_variant_iter_next()</title>"
+#. used by: g_variant_get_va:
+#: gvariant.c:4309:4
+msgid ""
+"@format_string must still point to a valid format string, but it only need "
+"to be nul-terminated if @endptr is %NULL.  If @endptr is non-%NULL then it "
+"is updated to point to the first character past the end of the format string."
 msgstr ""
 
 #. used by: g_variant_get_uint16:
 #: gvariant.c:431:1
 msgid "@value: a uint16 #GVariant instance"
-msgstr ""
-
-#. used by: g_variant_iter_next:
-#: gvariant.c:4310:2
-msgid ""
-"For a solution that is likely to be more convenient to C programmers when "
-"dealing with loops, see g_variant_iter_loop()."
 msgstr ""
 
 #. used by: g_variant_get_uint16:
@@ -1810,14 +1803,26 @@ msgstr ""
 msgid "Returns the 16-bit unsigned integer value of @value."
 msgstr ""
 
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4354:6
+#. used by: g_variant_builder_add:
+#: gvariant.c:4349:1
+msgid "@format_string: a #GVariant varargs format string"
+msgstr ""
+
+#. used by: g_variant_builder_add:
+#: gvariant.c:4352:1
+msgid "Adds to a #GVariantBuilder."
+msgstr ""
+
+#. used by: g_variant_builder_add:
+#: gvariant.c:4354:2
 msgid ""
-"On the first call to this function, the pointers appearing on the variable "
-"argument list are assumed to point at uninitialised memory. On the second "
-"and later calls, it is assumed that the same pointers will be given and that "
-"they will point to the memory as set by the previous call to this function.  "
-"This allows the previous values to be freed, as appropriate."
+"This call is a convenience wrapper that is exactly equivalent to calling "
+"g_variant_new() followed by g_variant_builder_add_value()."
+msgstr ""
+
+#. used by: g_variant_builder_add:
+#: gvariant.c:4357:1
+msgid "This function might be used as follows:"
 msgstr ""
 
 #. used by: g_variant_get_uint16:
@@ -1827,8 +1832,133 @@ msgid ""
 "%G_VARIANT_TYPE_UINT16."
 msgstr ""
 
+#. used by: g_variant_get_child:
+#: gvariant.c:4399:1
+msgid "@index_: the index of the child to deconstruct"
+msgstr ""
+
+#. used by: SECTION:gvariant
+#: gvariant.c:44:4
+msgid ""
+"#GVariant is a variant datatype; it stores a value along with information "
+"about the type of that value.  The range of possible values is determined by "
+"the type.  The type system used by #GVariant is #GVariantType."
+msgstr ""
+
+#. used by: g_variant_get_child:
+#: gvariant.c:4403:4
+msgid ""
+"Reads a child item out of a container #GVariant instance and deconstructs it "
+"according to @format_string.  This call is essentially a combination of "
+"g_variant_get_child_value() and g_variant_get()."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_iter_loop:
-#: gvariant.c:4361:7
+#: gvariant.c:4432:1 gvariant.c:4509:1 gvariant.c:905:1
+msgid "@format_string: a GVariant format string"
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4433:1 gvariant.c:4510:1 gvariant.c:906:1
+msgid "@...: the arguments to unpack the value into"
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4434:2 gvariant.c:4511:2
+msgid "@returns: %TRUE if a value was unpacked, or %FALSE if there as no value"
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4437:2 gvariant.c:4514:2
+msgid ""
+"Gets the next item in the container and unpacks it into the variable "
+"argument list according to @format_string, returning %TRUE."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4440:1 gvariant.c:4517:1
+msgid "If no more items remain then %FALSE is returned."
+msgstr ""
+
+#. used by: g_variant_iter_next:
+#: gvariant.c:4442:4
+msgid ""
+"All of the pointers given on the variable arguments list of this function "
+"are assumed to point at uninitialised memory.  It is the responsibility of "
+"the caller to free all of the values returned by the unpacking process."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_next:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4447:2 gvariant.c:4534:2
+msgid ""
+"See the section on <link linkend='gvariant-format-strings'>GVariant Format "
+"Strings</link>."
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_int32:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_new_handle:
+#: gvariant.c:445:1 gvariant.c:537:1
+msgid "@value: a #gint32 value"
+msgstr ""
+
+#. used by: g_variant_iter_next:
+#: gvariant.c:4450:2
+msgid "<example> <title>Memory management with g_variant_iter_next()</title>"
+msgstr ""
+
+#. used by: g_variant_new_int32:
+#: gvariant.c:446:1
+msgid "@returns: a floating reference to a new int32 #GVariant instance"
+msgstr ""
+
+#. used by: g_variant_iter_next:
+#: gvariant.c:4475:2
+msgid ""
+"For a solution that is likely to be more convenient to C programmers when "
+"dealing with loops, see g_variant_iter_loop()."
+msgstr ""
+
+#. used by: g_variant_new_int32:
+#: gvariant.c:448:1
+msgid "Creates a new int32 #GVariant instance."
+msgstr ""
+
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4519:6
+msgid ""
+"On the first call to this function, the pointers appearing on the variable "
+"argument list are assumed to point at uninitialised memory. On the second "
+"and later calls, it is assumed that the same pointers will be given and that "
+"they will point to the memory as set by the previous call to this function.  "
+"This allows the previous values to be freed, as appropriate."
+msgstr ""
+
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4526:7
 msgid ""
 "This function is intended to be used with a while loop as demonstrated in "
 "the following example.  This function can only be used when iterating over "
@@ -1839,77 +1969,8 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_iter_loop:
-#: gvariant.c:4372:2
+#: gvariant.c:4537:2
 msgid "<example> <title>Memory management with g_variant_iter_loop()</title>"
-msgstr ""
-
-#. used by: g_variant_iter_loop:
-#: gvariant.c:4395:2
-msgid ""
-"If you want a slightly less magical alternative that requires more typing, "
-"see g_variant_iter_next()."
-msgstr ""
-
-#. used by: SECTION: gvariant
-#: gvariant.c:44:4
-msgid ""
-"#GVariant is a variant datatype; it stores a value along with information "
-"about the type of that value.  The range of possible values is determined by "
-"the type.  The type system used by #GVariant is #GVariantType."
-msgstr ""
-
-#. used by: g_variant_new_int32:
-#: gvariant.c:445:2
-msgid ""
-"@int32: a #gint32 value @returns: a floating reference to a new int32 "
-"#GVariant instance"
-msgstr ""
-
-#. used by: g_variant_new_int32:
-#: gvariant.c:448:1
-msgid "Creates a new int32 #GVariant instance."
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4512:1
-msgid "@returns: a trusted #GVariant"
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4514:2
-msgid ""
-"Gets a #GVariant instance that has the same value as @value and is trusted "
-"to be in normal form."
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4517:2
-msgid ""
-"If @value is already trusted to be in normal form then a new reference to "
-"@value is returned."
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4520:3
-msgid ""
-"If @value is not already trusted, then it is scanned to check if it is in "
-"normal form.  If it is found to be in normal form then it is marked as "
-"trusted and a new reference to it is returned."
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4524:2
-msgid ""
-"If @value is found not to be in normal form then a new trusted #GVariant is "
-"created with the same value as @value."
-msgstr ""
-
-#. used by: g_variant_get_normal_form:
-#: gvariant.c:4527:3
-msgid ""
-"It makes sense to call this function if you've received #GVariant data from "
-"untrusted sources and you want to ensure your serialised output is "
-"definitely in normal form."
 msgstr ""
 
 #. used by: g_variant_get_int32:
@@ -1925,31 +1986,11 @@ msgstr ""
 msgid "@returns: a #gint32"
 msgstr ""
 
-#. used by: g_variant_byteswap:
-#: gvariant.c:4550:1
-msgid "@returns: the byteswapped form of @value"
-msgstr ""
-
-#. used by: g_variant_byteswap:
-#: gvariant.c:4552:5
+#. used by: g_variant_iter_loop:
+#: gvariant.c:4560:2
 msgid ""
-"Performs a byteswapping operation on the contents of @value.  The result is "
-"that all multi-byte numeric data contained in @value is byteswapped.  That "
-"includes 16, 32, and 64bit signed and unsigned integers as well as file "
-"handles and double precision floating point values."
-msgstr ""
-
-#. used by: g_variant_byteswap:
-#: gvariant.c:4558:3
-msgid ""
-"This function is an identity mapping on any value that does not contain "
-"multi-byte numeric data.  That include strings, booleans, bytes and "
-"containers containing only these things (recursively)."
-msgstr ""
-
-#. used by: g_variant_byteswap:
-#: gvariant.c:4562:1
-msgid "The returned value is always in normal form and is marked as trusted."
+"If you want a slightly less magical alternative that requires more typing, "
+"see g_variant_iter_next()."
 msgstr ""
 
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -1967,55 +2008,149 @@ msgid ""
 "%G_VARIANT_TYPE_INT32."
 msgstr ""
 
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4677:1
+msgid "@returns: a trusted #GVariant"
+msgstr ""
+
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4679:2
+msgid ""
+"Gets a #GVariant instance that has the same value as @value and is trusted "
+"to be in normal form."
+msgstr ""
+
+#. used by: g_variant_new_uint32:
+#: gvariant.c:468:1
+msgid "@value: a #guint32 value"
+msgstr ""
+
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4682:2
+msgid ""
+"If @value is already trusted to be in normal form then a new reference to "
+"@value is returned."
+msgstr ""
+
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4685:3
+msgid ""
+"If @value is not already trusted, then it is scanned to check if it is in "
+"normal form.  If it is found to be in normal form then it is marked as "
+"trusted and a new reference to it is returned."
+msgstr ""
+
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4689:2
+msgid ""
+"If @value is found not to be in normal form then a new trusted #GVariant is "
+"created with the same value as @value."
+msgstr ""
+
+#. used by: g_variant_new_uint32:
+#: gvariant.c:469:1
+msgid "@returns: a floating reference to a new uint32 #GVariant instance"
+msgstr ""
+
+#. used by: g_variant_get_normal_form:
+#: gvariant.c:4692:3
+msgid ""
+"It makes sense to call this function if you've received #GVariant data from "
+"untrusted sources and you want to ensure your serialised output is "
+"definitely in normal form."
+msgstr ""
+
+#. used by: g_variant_new_uint32:
+#: gvariant.c:471:1
+msgid "Creates a new uint32 #GVariant instance."
+msgstr ""
+
+#. used by: g_variant_byteswap:
+#: gvariant.c:4715:1
+msgid "@returns: the byteswapped form of @value"
+msgstr ""
+
+#. used by: g_variant_byteswap:
+#: gvariant.c:4717:5
+msgid ""
+"Performs a byteswapping operation on the contents of @value.  The result is "
+"that all multi-byte numeric data contained in @value is byteswapped.  That "
+"includes 16, 32, and 64bit signed and unsigned integers as well as file "
+"handles and double precision floating point values."
+msgstr ""
+
+#. used by: g_variant_byteswap:
+#: gvariant.c:4723:3
+msgid ""
+"This function is an identity mapping on any value that does not contain "
+"multi-byte numeric data.  That include strings, booleans, bytes and "
+"containers containing only these things (recursively)."
+msgstr ""
+
+#. used by: g_variant_byteswap:
+#: gvariant.c:4727:1
+msgid "The returned value is always in normal form and is marked as trusted."
+msgstr ""
+
+#. used by: g_variant_get_uint32:
+#: gvariant.c:477:1
+msgid "@value: a uint32 #GVariant instance"
+msgstr ""
+
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4606:1
+#: gvariant.c:4771:1
 msgid "@type: a definite #GVariantType"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4607:1
+#: gvariant.c:4772:1
 msgid "@data: the serialised data"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4608:1
+#: gvariant.c:4773:1
 msgid "@size: the size of @data"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4609:1
+#: gvariant.c:4774:1
 msgid "@trusted: %TRUE if @data is definitely in normal form"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4610:1
+#: gvariant.c:4775:1
 msgid "@notify: function to call when @data is no longer needed"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4611:1
+#: gvariant.c:4776:1
 msgid "@user_data: data for @notify"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4612:1
+#: gvariant.c:4777:1
 msgid "@returns: a new floating #GVariant of type @type"
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4614:1
+#: gvariant.c:4779:1
 msgid "Creates a new #GVariant instance from serialised data."
 msgstr ""
 
+#. used by: g_variant_get_uint32:
+#: gvariant.c:478:1
+msgid "@returns: a #guint32"
+msgstr ""
+
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4616:2
+#: gvariant.c:4781:2
 msgid ""
 "@type is the type of #GVariant instance that will be constructed. The "
 "interpretation of @data depends on knowing the type."
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4619:4
+#: gvariant.c:4784:4
 msgid ""
 "@data is not modified by this function and must remain valid with an "
 "unchanging value until such a time as @notify is called with @user_data.  If "
@@ -2023,7 +2158,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4624:6
+#: gvariant.c:4789:6
 msgid ""
 "If @data is trusted to be serialised data in normal form then @trusted "
 "should be %TRUE.  This applies to serialised data created within this "
@@ -2034,33 +2169,11 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_from_data:
-#: gvariant.c:4631:3
+#: gvariant.c:4796:3
 msgid ""
 "@notify will be called with @user_data when @data is no longer needed.  The "
 "exact time of this call is unspecified and might even be before this "
 "function returns."
-msgstr ""
-
-#. used by: g_variant_new_uint32:
-#: gvariant.c:468:2
-msgid ""
-"@uint32: a #guint32 value @returns: a floating reference to a new uint32 "
-"#GVariant instance"
-msgstr ""
-
-#. used by: g_variant_new_uint32:
-#: gvariant.c:471:1
-msgid "Creates a new uint32 #GVariant instance."
-msgstr ""
-
-#. used by: g_variant_get_uint32:
-#: gvariant.c:477:1
-msgid "@value: a uint32 #GVariant instance"
-msgstr ""
-
-#. used by: g_variant_get_uint32:
-#: gvariant.c:478:1
-msgid "@returns: a #guint32"
 msgstr ""
 
 #. used by: g_variant_get_uint32:
@@ -2075,7 +2188,7 @@ msgid ""
 "%G_VARIANT_TYPE_UINT32."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:49:4
 msgid ""
 "#GVariant instances always have a type and a value (which are given at "
@@ -2085,10 +2198,13 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_int64:
-#: gvariant.c:491:2
-msgid ""
-"@int64: a #gint64 value @returns: a floating reference to a new int64 "
-"#GVariant instance"
+#: gvariant.c:491:1
+msgid "@value: a #gint64 value"
+msgstr ""
+
+#. used by: g_variant_new_int64:
+#: gvariant.c:492:1
+msgid "@returns: a floating reference to a new int64 #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_int64:
@@ -2119,10 +2235,13 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_uint64:
-#: gvariant.c:514:2
-msgid ""
-"@uint64: a #guint64 value @returns: a floating reference to a new uint64 "
-"#GVariant instance"
+#: gvariant.c:514:1
+msgid "@value: a #guint64 value"
+msgstr ""
+
+#. used by: g_variant_new_uint64:
+#: gvariant.c:515:1
+msgid "@returns: a floating reference to a new uint64 #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_new_uint64:
@@ -2153,16 +2272,11 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_handle:
-#: gvariant.c:537:1
-msgid "@handle: a #gint32 value"
-msgstr ""
-
-#. used by: g_variant_new_handle:
 #: gvariant.c:538:1
 msgid "@returns: a floating reference to a new handle #GVariant instance"
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:54:3
 msgid ""
 "#GVariant is reference counted using g_variant_ref() and g_variant_unref().  "
@@ -2199,7 +2313,7 @@ msgstr ""
 
 #. used by: g_variant_new_double:
 #: gvariant.c:568:1
-msgid "@floating: a #gdouble floating point value"
+msgid "@value: a #gdouble floating point value"
 msgstr ""
 
 #. used by: g_variant_new_double:
@@ -2222,7 +2336,7 @@ msgstr ""
 msgid "@returns: a #gdouble"
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:58:3
 msgid ""
 "#GVariant is completely threadsafe.  A #GVariant instance can be "
@@ -2281,7 +2395,7 @@ msgid ""
 "instance takes ownership of @child."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:62:5
 msgid ""
 "#GVariant is heavily optimised for dealing with data in serialised form.  It "
@@ -2309,11 +2423,6 @@ msgid ""
 msgstr ""
 
 #. used by: g_variant_new_variant:
-#: gvariant.c:670:1
-msgid "@value: a #GVariance instance"
-msgstr ""
-
-#. used by: g_variant_new_variant:
 #: gvariant.c:671:1
 msgid "@returns: a floating reference to a new variant #GVariant instance"
 msgstr ""
@@ -2325,7 +2434,7 @@ msgid ""
 "containing the original value."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:68:3
 msgid ""
 "#GVariant is largely compatible with DBus.  Almost all types of #GVariant "
@@ -2334,7 +2443,7 @@ msgstr ""
 
 #. used by: g_variant_get_variant:
 #: gvariant.c:695:1
-msgid "@value: a variant #GVariance instance"
+msgid "@value: a variant #GVariant instance"
 msgstr ""
 
 #. used by: g_variant_get_variant:
@@ -2379,7 +2488,7 @@ msgstr ""
 msgid "Creates a new #GVariant array from @children."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:72:3
 msgid ""
 "For convenience to C programmers, #GVariant features powerful varargs-based "
@@ -2419,7 +2528,7 @@ msgid ""
 "instance takes ownership of them as if via g_variant_ref_sink()."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:76:3
 msgid ""
 "There is a Python-inspired text language for describing #GVariant values.  "
@@ -2427,7 +2536,7 @@ msgid ""
 "inferencing."
 msgstr ""
 
-#. used by: SECTION: gvariant
+#. used by: SECTION:gvariant
 #: gvariant.c:80:195
 msgid ""
 "<refsect2> <title>Memory Use</title> <para> #GVariant tries to be quite "
@@ -2599,82 +2708,94 @@ msgid ""
 "the new instance takes ownership of them as if via g_variant_ref_sink()."
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:903:1
-msgid "@value: a #GVariant array with fixed-sized elements"
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup_value:
+#: gvariant.c:903:1 gvariant.c:955:1
+msgid "@dictionary: a dictionary #GVariant"
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:904:1
-msgid "@n_elements: a pointer to the location to store the number of items"
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup_value:
+#: gvariant.c:904:1 gvariant.c:956:1
+msgid "@key: the key to lookup in the dictionary"
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:905:1
-msgid "@element_size: the size of each element"
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup_value:
+#: gvariant.c:908:1 gvariant.c:959:1
+msgid "Looks up a value in a dictionary #GVariant."
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:906:1
-msgid "@returns: (array length=n_elements): a pointer to the fixed array"
-msgstr ""
-
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:908:2
+#. used by: g_variant_lookup:
+#: gvariant.c:910:4
 msgid ""
-"Provides access to the serialised data for an array of fixed-sized items."
+"This function is a wrapper around g_variant_lookup_value() and g_variant_get"
+"().  In the case that %NULL would have been returned, this function returns "
+"%FALSE.  Otherwise, it unpacks the returned value and returns %TRUE."
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:911:2
+#. used by: g_variant_lookup:
+#: gvariant.c:915:1
+msgid "See g_variant_get() for information about @format_string."
+msgstr ""
+
+#. used by: g_variant_lookup:
+#: gvariant.c:917:1
+msgid "Returns: %TRUE if a value was unpacked"
+msgstr ""
+
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup:
+#. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
+#. used by: g_variant_lookup_value:
+#: gvariant.c:919:1 gvariant.c:983:1
+msgid "Since: 2.28"
+msgstr ""
+
+#. used by: g_variant_lookup_value:
+#: gvariant.c:957:1
+msgid "@expected_type: a #GVariantType, or %NULL"
+msgstr ""
+
+#. used by: g_variant_lookup_value:
+#: gvariant.c:961:4
 msgid ""
-"@value must be an array with fixed-sized elements.  Numeric types are fixed-"
-"size as are tuples containing only other fixed-sized types."
+"This function works with dictionaries of the type <literal>a{s*}</literal> "
+"(and equally well with type <literal>a{o*}</literal>, but we only further "
+"discuss the string case for sake of clarity)."
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:914:5
+#. used by: g_variant_lookup_value:
+#: gvariant.c:966:7
 msgid ""
-"@element_size must be the size of a single element in the array.  For "
-"example, if calling this function for an array of 32 bit integers, you might "
-"say <code>sizeof (gint32)</code>.  This value isn't used except for the "
-"purpose of a double-check that the form of the seralised data matches the "
-"caller's expectation."
+"In the event that @dictionary has the type <literal>a{sv}</literal>, the "
+"@expected_type string specifies what type of value is expected to be inside "
+"of the variant.  If the value inside the variant has a different type then "
+"%NULL is returned.  In the event that @dictionary has a value type other "
+"than <literal>v</literal> then @expected_type must directly match the key "
+"type and it is used to unpack the value directly or an error occurs."
 msgstr ""
 
-#. used by: g_variant_get_fixed_array:
-#: gvariant.c:920:2
+#. used by: g_variant_lookup_value:
+#: gvariant.c:974:2
+msgid "In either case, if @key is not found in @dictionary, %NULL is returned."
+msgstr ""
+
+#. used by: g_variant_lookup_value:
+#: gvariant.c:977:3
 msgid ""
-"@n_elements, which must be non-%NULL is set equal to the number of items in "
-"the array."
+"If the key is found and the value has the correct type, it is returned.  If "
+"@expected_type was specified then any non-%NULL return value will have this "
+"type."
 msgstr ""
 
-#. used by: g_variant_new_string:
-#: gvariant.c:976:1
-msgid "@string: a normal utf8 nul-terminated string"
-msgstr ""
-
-#. used by: g_variant_new_string:
-#: gvariant.c:977:1
-msgid "@returns: a floating reference to a new string #GVariant instance"
-msgstr ""
-
-#. used by: g_variant_new_string:
-#: gvariant.c:979:1
-msgid "Creates a string #GVariant with the contents of @string."
-msgstr ""
-
-#. used by: g_variant_new_string:
+#. used by: g_variant_lookup_value:
 #: gvariant.c:981:1
-msgid "@string must be valid utf8."
-msgstr ""
-
-#. used by: g_variant_new_object_path:
-#: gvariant.c:997:1
-msgid "@object_path: a normal C nul-terminated string"
-msgstr ""
-
-#. used by: g_variant_new_object_path:
-#: gvariant.c:998:1
-msgid "@returns: a floating reference to a new object path #GVariant instance"
+msgid "Returns: the value of the dictionary key, or %NULL"
 msgstr ""

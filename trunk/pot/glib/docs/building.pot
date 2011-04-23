@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-04-17 15:16+0800\n"
+"POT-Creation-Date: 2011-04-23 10:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,7 +124,7 @@ msgid ""
 "</arg></group><group><arg>--disable-regex</arg><arg>--enable-regex</arg></"
 "group><group><arg>--with-pcre=[internal|system]</arg></group><group><arg>--"
 "disable-included-printf</arg><arg>--enable-included-printf</arg></"
-"group><group><arg>--disable-visibility</arg><arg>--enable-visibility</arg></"
+"group><group><arg>--disable-Bsymbolic</arg><arg>--enable-Bsymbolic</arg></"
 "group><group><arg>--disable-gtk-doc</arg><arg>--enable-gtk-doc</arg></"
 "group><group><arg>--disable-man</arg><arg>--enable-man</arg></"
 "group><group><arg>--disable-xattr</arg><arg>--enable-xattr</arg></"
@@ -396,32 +396,30 @@ msgstr ""
 
 #: building.sgml:513(title)
 msgid ""
-"<systemitem>--disable-visibility</systemitem> and <systemitem>--enable-"
-"visibility</systemitem>"
+"<systemitem>--disable-Bsymbolic</systemitem> and <systemitem>--enable-"
+"Bsymbolic</systemitem>"
 msgstr ""
 
 #: building.sgml:516(para)
 msgid ""
-"By default, GLib uses ELF visibility attributes to optimize PLT table "
-"entries if the compiler supports ELF visibility attributes. A side-effect of "
-"the way in which this is currently implemented is that any header change "
-"forces a full recompilation, and missing includes may go unnoticed. "
-"Therefore, it makes sense to turn this feature off while doing GLib "
-"development, even if the compiler supports ELF visibility attributes. The "
-"<option>--disable-visibility</option> option allows to do that."
+"By default, GLib uses the -Bsymbolic-functions linker flag to avoid intra-"
+"library PLT jumps. A side-effect of this is that it is no longer possible to "
+"override internal uses of GLib functions with <envvar>LD_PRELOAD</envvar>. "
+"Therefore, it may make sense to turn this feature off in some situations. "
+"The <option>--disable-Bsymbolic</option> option allows to do that."
+msgstr ""
+
+#: building.sgml:529(title)
+msgid ""
+"<systemitem>--disable-gtk-doc</systemitem> and <systemitem>--enable-gtk-doc</"
+"systemitem>"
 msgstr ""
 
 #: building.sgml:53(title)
 msgid "Dependencies"
 msgstr ""
 
-#: building.sgml:530(title)
-msgid ""
-"<systemitem>--disable-gtk-doc</systemitem> and <systemitem>--enable-gtk-doc</"
-"systemitem>"
-msgstr ""
-
-#: building.sgml:533(para)
+#: building.sgml:532(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether the <application>gtk-doc</application> package is installed. If it "
@@ -441,13 +439,13 @@ msgid ""
 "<command>pkg-config</command> and GNU make."
 msgstr ""
 
-#: building.sgml:548(title)
+#: building.sgml:547(title)
 msgid ""
 "<systemitem>--disable-man</systemitem> and <systemitem>--enable-man</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:551(para)
+#: building.sgml:550(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether <application>xsltproc</application> and the necessary Docbook "
@@ -457,13 +455,13 @@ msgid ""
 "distribution includes pre-generated man pages."
 msgstr ""
 
-#: building.sgml:564(title)
+#: building.sgml:563(title)
 msgid ""
 "<systemitem>--disable-xattr</systemitem> and <systemitem>--enable-xattr</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:567(para)
+#: building.sgml:566(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether the getxattr() family of functions is available. If it is, then "
@@ -473,13 +471,13 @@ msgid ""
 "standalone libattr library."
 msgstr ""
 
-#: building.sgml:579(title)
+#: building.sgml:578(title)
 msgid ""
 "<systemitem>--disable-selinux</systemitem> and <systemitem>--enable-selinux</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:582(para)
+#: building.sgml:581(para)
 msgid ""
 "By default the <command>configure</command> script will auto-detect if "
 "libselinux is available and include SELinux support in GIO if it is. These "
@@ -487,38 +485,38 @@ msgid ""
 "included."
 msgstr ""
 
-#: building.sgml:592(title)
+#: building.sgml:591(title)
 msgid ""
 "<systemitem>--disable-dtrace</systemitem> and <systemitem>--enable-dtrace</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:595(para)
+#: building.sgml:594(para)
 msgid ""
 "By default the <command>configure</command> script will detect if DTrace "
 "support is available, and use it."
 msgstr ""
 
-#: building.sgml:602(title)
+#: building.sgml:601(title)
 msgid ""
 "<systemitem>--disable-systemtap</systemitem> and <systemitem>--enable-"
 "systemtap</systemitem>"
 msgstr ""
 
-#: building.sgml:605(para)
+#: building.sgml:604(para)
 msgid ""
 "This option requires DTrace support. If it is available, then the "
 "<command>configure</command> script will also check for the presence of "
 "SystemTap."
 msgstr ""
 
-#: building.sgml:613(title)
+#: building.sgml:612(title)
 msgid ""
 "<systemitem>--enable-gcov</systemitem> and <systemitem>--disable-gcov</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:616(para)
+#: building.sgml:615(para)
 msgid ""
 "Enable the generation of coverage reports for the GLib tests. This requires "
 "the lcov frontend to gcov from the <ulink url=\"http://ltp.sourceforge.net"
@@ -527,11 +525,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: building.sgml:626(systemitem)
+#: building.sgml:625(systemitem)
 msgid "--with-runtime-libdir=RELPATH"
 msgstr ""
 
-#: building.sgml:628(para)
+#: building.sgml:627(para)
 msgid ""
 "Allows specifying a relative path to where to install the runtime libraries "
 "(meaning library files used for running, not developing, GLib applications). "

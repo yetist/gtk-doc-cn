@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-04-17 15:16+0800\n"
+"POT-Creation-Date: 2011-04-23 10:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +14,23 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: changes.sgml:105(para)
-msgid ""
-"Sources are first created, then later added to a specific "
-"<structname>GMainContext</structname>."
-msgstr ""
-
-#: changes.sgml:112(para)
+#: changes.sgml:104(para)
 msgid ""
 "Dispatching has been modified so both the callback and data are passed in to "
 "the <function>dispatch()</function> virtual function."
 msgstr ""
 
-#: changes.sgml:127(para)
+#: changes.sgml:119(para)
 msgid ""
 "<function>g_list_foreach()</function> and <function>g_slist_foreach()</"
 "function> have been changed so they are now safe against removal of the "
 "current item, not the next item."
+msgstr ""
+
+#: changes.sgml:125(para)
+msgid ""
+"It's not recommended to mutate the list in the callback to these functions "
+"in any case."
 msgstr ""
 
 #: changes.sgml:13(refname) changes.sgml:7(refentrytitle)
@@ -38,10 +38,11 @@ msgstr ""
 msgid "Changes to GLib"
 msgstr ""
 
-#: changes.sgml:133(para)
+#: changes.sgml:132(para)
 msgid ""
-"It's not recommended to mutate the list in the callback to these functions "
-"in any case."
+"<structname>GDate</structname> now works in UTF-8, not in the current "
+"locale. If you want to use it with the encoding of the locale, you need to "
+"convert strings using <function>g_locale_to_utf8()</function> first."
 msgstr ""
 
 #: changes.sgml:14(refpurpose)
@@ -50,28 +51,21 @@ msgstr ""
 
 #: changes.sgml:140(para)
 msgid ""
-"<structname>GDate</structname> now works in UTF-8, not in the current "
-"locale. If you want to use it with the encoding of the locale, you need to "
-"convert strings using <function>g_locale_to_utf8()</function> first."
-msgstr ""
-
-#: changes.sgml:148(para)
-msgid ""
 "<function>g_strsplit()</function> has been fixed to: <placeholder-1/> Code "
 "depending on either of these bugs will need to be fixed."
 msgstr ""
 
-#: changes.sgml:153(para)
+#: changes.sgml:145(para)
 msgid "include trailing empty tokens, rather than stripping them"
 msgstr ""
 
-#: changes.sgml:158(para)
+#: changes.sgml:150(para)
 msgid ""
 "split into a maximum of <literal>max_tokens</literal> tokens, rather than "
 "<literal>max_tokens + 1</literal>"
 msgstr ""
 
-#: changes.sgml:170(para)
+#: changes.sgml:162(para)
 msgid ""
 "Deprecated functions that got removed: <function>g_set_error_handler()</"
 "function>, <function>g_set_warning_handler()</function>, "
@@ -113,15 +107,7 @@ msgstr ""
 msgid "Incompatible changes from 1.2 to 2.0"
 msgstr ""
 
-#: changes.sgml:59(para)
-msgid ""
-"The <ulink url=\"http://developer.gnome.org/dotplan/porting/\">GNOME 2.0 "
-"porting guide</ulink> on <ulink url=\"http://developer.gnome.org\">http://"
-"developer.gnome.org</ulink> has some more detailed discussion of porting "
-"from 1.2 to 2.0. See the section on GLib."
-msgstr ""
-
-#: changes.sgml:70(para)
+#: changes.sgml:62(para)
 msgid ""
 "The event loop functionality <structname>GMain</structname> has extensively "
 "been revised to support multiple separate main loops in separate threads. "
@@ -129,18 +115,14 @@ msgid ""
 "<structname>GMainContext</structname>."
 msgstr ""
 
-#: changes.sgml:77(para)
+#: changes.sgml:69(para)
 msgid ""
 "Compatibility functions exist so that most application code dealing with the "
 "main loop will continue to work. However, code that creates new custom types "
 "of sources will require modification."
 msgstr ""
 
-#: changes.sgml:8(manvolnum)
-msgid "3"
-msgstr ""
-
-#: changes.sgml:83(para)
+#: changes.sgml:75(para)
 msgid ""
 "The main changes here are: <placeholder-1/> To go along with this change, "
 "the vtable for <structname>GIOChannel</structname> has changed and "
@@ -148,16 +130,26 @@ msgid ""
 "()</function>."
 msgstr ""
 
-#: changes.sgml:89(para)
+#: changes.sgml:8(manvolnum)
+msgid "3"
+msgstr ""
+
+#: changes.sgml:81(para)
 msgid ""
 "Sources are now exposed as <type>GSource *</type>, rather than simply as "
 "numeric ids."
 msgstr ""
 
-#: changes.sgml:96(para)
+#: changes.sgml:88(para)
 msgid ""
 "New types of sources are created by structure \"derivation\" from "
 "<structname>GSource</structname>, so the <literal>source_data</literal> "
 "parameter to the <structname>GSource</structname> virtual functions has been "
 "replaced with a <type>GSource *</type>."
+msgstr ""
+
+#: changes.sgml:97(para)
+msgid ""
+"Sources are first created, then later added to a specific "
+"<structname>GMainContext</structname>."
 msgstr ""
