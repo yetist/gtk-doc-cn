@@ -68,7 +68,7 @@ GType g_type_register_fundamental (GType                       type_id,
                                    const GTypeFundamentalInfo *finfo,
                                    GTypeFlags                  flags);
         </pre>
-<p><code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code> 和 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> 这两个C函数定义在<code class="filename">gtype.h</code> 中，并在<code class="filename">gtype.c</code> 中具体实现。 你可以用来在程序的类型系统中注册一个新的 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a>。 一般情况下你永远也不需要使用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> （除非你是Tim Janik才会这样做），但是这次你要做，在最后一章会向你解释如何创建一个基本类型。 <sup>[<a name="id3126556" href="#ftn.id3126556" class="footnote">2</a>]</sup></p>
+<p><code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code> 和 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> 这两个C函数定义在<code class="filename">gtype.h</code> 中，并在<code class="filename">gtype.c</code> 中具体实现。 你可以用来在程序的类型系统中注册一个新的 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a>。 一般情况下你永远也不需要使用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> （除非你是Tim Janik才会这样做），但是这次你要做，在最后一章会向你解释如何创建一个基本类型。 <sup>[<a name="id2910901" href="#ftn.id2910901" class="footnote">2</a>]</sup></p>
 <p>基本类型是不需要从任何其他类型取得的最顶级的类型，相对的， 其他非基本类型是继承于其他类型的。 在由 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-init" title="g_type_init ()">g_type_init</a></code>初始化时，类型系统不仅仅初始化它的内部数据结构， 同时也注册一些核心类型：其中一些是基本类型，其他则是从基本类型继承的。</p>
 <p>不论是基本还是非基本类型，均由下面的定义步骤： </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -162,7 +162,7 @@ struct _GTypeValueTable
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3126556" href="#id3126556" class="para">2</a>] </sup>请注意，另外一个注册函数是 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code>。 我们将不讨论这个函数，因为它与 <code class="function">_static</code> 版本非常相似。</p></div>
+<div class="footnote"><p><sup>[<a id="ftn.id2910901" href="#id2910901" class="para">2</a>] </sup>请注意，另外一个注册函数是 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code>。 我们将不讨论这个函数，因为它与 <code class="function">_static</code> 版本非常相似。</p></div>
 </div>
 </div>
 <div class="footer">
