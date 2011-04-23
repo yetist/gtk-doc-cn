@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>约定</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GObject参考手册">
+<link rel="home" href="index.html" title="GObject 参考手册">
 <link rel="up" href="chapter-gtype.html" title="GLib动态类型系统">
 <link rel="prev" href="chapter-gtype.html" title="GLib动态类型系统">
 <link rel="next" href="gtype-non-instantiable.html" title="不可实例化和不可类化的基础类型">
@@ -16,62 +16,24 @@
 <td><a accesskey="p" href="chapter-gtype.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="chapter-gtype.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GObject参考手册</th>
+<th width="100%" align="center">GObject 参考手册</th>
 <td><a accesskey="n" href="gtype-non-instantiable.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="sect1">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="gtype-conventions"></a>约定</h2></div></div></div>
-<p>
-	当用户在头文件中创建新类型时，有一些规范用户需要注意：
-        </p>
+<p>当用户在头文件中创建新类型时，有一些规范用户需要注意： </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-	    使用 <code class="function">object_method</code>的形式来定义函数名称：
-	    例如在一个 bar 类中定义一个名为 foo 的函数，则用 <code class="function">bar_foo</code> 。
-
-          </p></li>
-<li class="listitem"><p>使用前缀来避免与其他工程的命名空间冲突。
-	    如果你的库（或应用程序）名为 <span class="emphasis"><em>Maman</em></span>，
-            <sup>[<a name="id3059696" href="#ftn.id3059696" class="footnote">3</a>]</sup>
-	    那么所有的函数名称前缀为<span class="emphasis"><em>maman_</em></span>。
-	    举例: <code class="function">maman_object_method</code>.
-
-          </p></li>
-<li class="listitem"><p>创建一个宏命为 <code class="function">PREFIX_TYPE_OBJECT</code>用来返回 GType 关联的对象类型。
-	    比如，<span class="emphasis"><em>Bar</em></span>这个类在一个以 <span class="emphasis"><em>maman</em></span>前缀的库中，则使用 <code class="function">MAMAN_TYPE_BAR</code>。
-	    另有一个不成文的规定是，定义一个使用全局静态变或一个名为<code class="function">prefix_object_get_type</code>
-	    的函数来实现这个宏。我们将在后面的章节中讨论这个函数。
-          </p></li>
-<li class="listitem"><p>创建一个宏命名为 <code class="function">PREFIX_OBJECT (obj)</code> 
-	   来返回一个指向<span class="type">PrefixObject</span> 类型的指针。
-	   这个宏用于必要时安全地强制转换一个静态类型。
-	   运行环境检查时，同样也是安全地执行动态类型。
-	   在编译glib时是可以禁止动态类型检查的（参见：<a href="./../glib/glib/glib-building.html">编译glib</a>）。
-	   在处理过程中禁用动态类型检查是可行的。
-	   例如，我们可以创建 MAMAN_BAR(obj) 来保持先前的例子。
-          </p></li>
-<li class="listitem"><p>如果类型是类化的，那么创建一个命令为 <code class="function">PREFIX_OBJECT_CLASS (klass)</code>的宏。
-	  这个宏与前面那个是非常相似的：
-	  它以类结构的动态类型检查来进行静态转换，并返回一个指向 <span class="type">PrefixObjectClass</span>
-	  这个类型的类结构的指针。
-	  同样，例子为：<code class="function">MAMAN_BAR_CLASS</code>。
-          </p></li>
-<li class="listitem"><p>创建一个宏命名为<code class="function">PREFIX_IS_BAR (obj)</code>：
-	  这个宏的返回值是 <span class="type">gboolean</span> 类型的，用于判断输入的对象实例是否是 BAR类型的。
-          </p></li>
-<li class="listitem"><p>如果类型是类化的，创建一个名为 <code class="function">PREFIX_IS_OBJECT_CLASS (klass)</code>
-	  的宏，与上面的类似，返回输入的类型指针是否是 OBJECT 类型。
-          </p></li>
-<li class="listitem"><p>如果类型是类化的，创建一个名为<code class="function">PREFIX_OBJECT_GET_CLASS (obj)</code>，返回一个实例所属的类的类型指针。
-			  这个宏因为安全的原因，被静态和动态类型所使用，就像上面的转换宏一样。
-          </p></li>
+<li class="listitem"><p>使用 <code class="function">object_method</code>的形式来定义函数名称： 例如在一个 bar 类中定义一个名为 foo 的函数，则用 <code class="function">bar_foo</code> 。</p></li>
+<li class="listitem"><p>使用前缀来避免与其他工程的命名空间冲突。 如果你的库（或应用程序）名为 <span class="emphasis"><em>Maman</em></span>， <sup>[<a name="id3085891" href="#ftn.id3085891" class="footnote">3</a>]</sup> 那么所有的函数名称前缀为<span class="emphasis"><em>maman_</em></span>。 举例: <code class="function">maman_object_method</code>.</p></li>
+<li class="listitem"><p>创建一个宏命为 <code class="function">PREFIX_TYPE_OBJECT</code>用来返回 GType 关联的对象类型。 比如，<span class="emphasis"><em>Bar</em></span>这个类在一个以 <span class="emphasis"><em>maman</em></span>前缀的库中，则使用 <code class="function">MAMAN_TYPE_BAR</code>。 另有一个不成文的规定是，定义一个使用全局静态变或一个名为<code class="function">prefix_object_get_type</code> 的函数来实现这个宏。我们将在后面的章节中讨论这个函数。</p></li>
+<li class="listitem"><p>创建一个宏命名为 <code class="function">PREFIX_OBJECT (obj)</code> 来返回一个指向<span class="type">PrefixObject</span> 类型的指针。 这个宏用于必要时安全地强制转换一个静态类型。 运行环境检查时，同样也是安全地执行动态类型。 在编译glib时是可以禁止动态类型检查的（参见：<a href="./../glib/glib/glib-building.html">编译glib</a>）。 在处理过程中禁用动态类型检查是可行的。 例如，我们可以创建 MAMAN_BAR(obj) 来保持先前的例子。</p></li>
+<li class="listitem"><p>如果类型是类化的，那么创建一个命令为 <code class="function">PREFIX_OBJECT_CLASS (klass)</code>的宏。 这个宏与前面那个是非常相似的： 它以类结构的动态类型检查来进行静态转换，并返回一个指向 <span class="type">PrefixObjectClass</span> 这个类型的类结构的指针。 同样，例子为：<code class="function">MAMAN_BAR_CLASS</code>。</p></li>
+<li class="listitem"><p>创建一个宏命名为<code class="function">PREFIX_IS_BAR (obj)</code>： 这个宏的返回值是 <span class="type">gboolean</span> 类型的，用于判断输入的对象实例是否是 BAR类型的。</p></li>
+<li class="listitem"><p>如果类型是类化的，创建一个名为 <code class="function">PREFIX_IS_OBJECT_CLASS (klass)</code> 的宏，与上面的类似，返回输入的类型指针是否是 OBJECT 类型。</p></li>
+<li class="listitem"><p>如果类型是类化的，创建一个名为<code class="function">PREFIX_OBJECT_GET_CLASS (obj)</code>，返回一个实例所属的类的类型指针。 这个宏因为安全的原因，被静态和动态类型所使用，就像上面的转换宏一样。</p></li>
 </ul></div>
-<p>
-	至于这些宏的实现是非常直观的：
-	一些数量的简单使用的宏由<code class="filename">gtype.h</code>提供。
-	针对上面我们兴趣的例子，我们写了下面的代码来声明这些宏：
-</p>
+<p> 至于这些宏的实现是非常直观的： 一些数量的简单使用的宏由<code class="filename">gtype.h</code>提供。 针对上面我们兴趣的例子，我们写了下面的代码来声明这些宏： </p>
 <pre class="programlisting">
 #define MAMAN_TYPE_BAR                  (maman_bar_get_type ())
 #define MAMAN_BAR(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), MAMAN_TYPE_BAR, MamanBar))
@@ -80,17 +42,11 @@
 #define MAMAN_IS_BAR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), MAMAN_TYPE_BAR))
 #define MAMAN_BAR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), MAMAN_TYPE_BAR, MamanBarClass))
 </pre>
-<p>
-        </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>这里使用<code class="varname">klass</code>这个名字，是因为 <code class="varname">class</code>已经被注册为 c++ 的关键字了。</p>
 </div>
-<p>
-      </p>
-<p>
-	下面的代码实现了<code class="function">maman_bar_get_type</code>这个函数：
-</p>
+<p>下面的代码实现了<code class="function">maman_bar_get_type</code>这个函数： </p>
 <pre class="programlisting">
 GType maman_bar_get_type (void)
 {
@@ -106,22 +62,13 @@ GType maman_bar_get_type (void)
   return type;
 }
 </pre>
-<p>
-      </p>
-<p>
-	如果没有特别需要，你也可以使用<code class="function">G_DEFINE_TYPE</code> 宏：
-</p>
+<p>如果没有特别需要，你也可以使用<code class="function">G_DEFINE_TYPE</code> 宏： </p>
 <pre class="programlisting">
 G_DEFINE_TYPE (MamanBar, maman_bar, G_TYPE_OBJECT)
 </pre>
-<p>
-      </p>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3059696" href="#id3059696" class="para">3</a>] </sup>
-                <span class="emphasis"><em>Maman</em></span>在法语中是<span class="emphasis"><em>妈妈</em></span>
-                或<span class="emphasis"><em>母亲</em></span>的意思 - 仅此而已。
-              </p></div>
+<div class="footnote"><p><sup>[<a id="ftn.id3085891" href="#id3085891" class="para">3</a>] </sup><span class="emphasis"><em>Maman</em></span>在法语中是<span class="emphasis"><em>妈妈</em></span> 或<span class="emphasis"><em>母亲</em></span>的意思 - 仅此而已。</p></div>
 </div>
 </div>
 <div class="footer">

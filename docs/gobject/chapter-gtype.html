@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GLib动态类型系统</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GObject参考手册">
+<link rel="home" href="index.html" title="GObject 参考手册">
 <link rel="up" href="pt01.html" title="Part I. Concepts">
 <link rel="prev" href="ch01s02.html" title="Exporting a C API">
 <link rel="next" href="gtype-conventions.html" title="约定">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="ch01s02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="pt01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GObject参考手册</th>
+<th width="100%" align="center">GObject 参考手册</th>
 <td><a accesskey="n" href="gtype-conventions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="chapter">
@@ -34,10 +34,7 @@
 <dt><span class="sect2"><a href="gtype-non-instantiable-classed.html#gtype-non-instantiable-classed-dest">Interface Destruction</a></span></dt>
 </dl></dd>
 </dl></div>
-<p>
-	由 Glib 类型系统操作的一个类型，比传统上所讲的 Object 类型更具一般化。
-	下面查看类型系统中有关类结构和注册新类型的函数，是会对此最好的解释。
-        </p>
+<p>由 Glib 类型系统操作的一个类型，比传统上所讲的 Object 类型更具一般化。 下面查看类型系统中有关类结构和注册新类型的函数，是会对此最好的解释。 </p>
 <pre class="programlisting">
 typedef struct _GTypeInfo               GTypeInfo;
 struct _GTypeInfo
@@ -71,74 +68,25 @@ GType g_type_register_fundamental (GType                       type_id,
                                    const GTypeFundamentalInfo *finfo,
                                    GTypeFlags                  flags);
         </pre>
-<p>
-      </p>
-<p>
-        <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code> 和
-        <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code>
-        这两个C函数定义在<code class="filename">gtype.h</code> 中，并在<code class="filename">gtype.c</code>
-	中具体实现。
-	你可以用来在程序的类型系统中注册一个新的 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a>。
-	一般情况下你永远也不需要使用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code>
-	（除非你是Tim Janik才会这样做），但是这次你要做，在最后一章会向你解释如何创建一个基本类型。
-        <sup>[<a name="id3077384" href="#ftn.id3077384" class="footnote">2</a>]</sup>
-      </p>
-<p>
-	基本类型是不需要从任何其他类型取得的最顶级的类型，相对的， 其他非基本类型是继承于其他类型的。
-	在由 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-init" title="g_type_init ()">g_type_init</a></code>初始化时，类型系统不仅仅初始化它的内部数据结构，
-	同时也注册一些核心类型：其中一些是基本类型，其他则是从基本类型继承的。
-      </p>
-<p>
-	不论是基本还是非基本类型，均由下面的定义步骤：
-        </p>
+<p><code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code> 和 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> 这两个C函数定义在<code class="filename">gtype.h</code> 中，并在<code class="filename">gtype.c</code> 中具体实现。 你可以用来在程序的类型系统中注册一个新的 <a class="link" href="gobject-Type-Information.html#GType" title="GType"><span class="type">GType</span></a>。 一般情况下你永远也不需要使用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-fundamental" title="g_type_register_fundamental ()">g_type_register_fundamental</a></code> （除非你是Tim Janik才会这样做），但是这次你要做，在最后一章会向你解释如何创建一个基本类型。 <sup>[<a name="id3126556" href="#ftn.id3126556" class="footnote">2</a>]</sup></p>
+<p>基本类型是不需要从任何其他类型取得的最顶级的类型，相对的， 其他非基本类型是继承于其他类型的。 在由 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-init" title="g_type_init ()">g_type_init</a></code>初始化时，类型系统不仅仅初始化它的内部数据结构， 同时也注册一些核心类型：其中一些是基本类型，其他则是从基本类型继承的。</p>
+<p>不论是基本还是非基本类型，均由下面的定义步骤： </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
-<li class="listitem"><p>
-	    类的大小：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 class_size。
-          </p></li>
-<li class="listitem"><p>
-	    类的初始化函数（C++ 构造函数）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 base_init 和 class_init。
-          </p></li>
-<li class="listitem"><p>
-	    类的销毁函数（C++析构函数）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 base_finalize 和 class_finalize。
-          </p></li>
-<li class="listitem"><p>
-	    实例的大小（C++参数new）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>中 的 instance_size。
-          </p></li>
-<li class="listitem"><p>
-	    实例化策略（C++ 类的new operator）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的n_preallocs。
-          </p></li>
-<li class="listitem"><p>
-	    复制函数（C++的复制操作）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 value_table。
-          </p></li>
-<li class="listitem"><p>
-	    类的字符标志：<a class="link" href="gobject-Type-Information.html#GTypeFlags" title="enum GTypeFlags"><span class="type">GTypeFlags</span></a>。
-          </p></li>
+<li class="listitem"><p>类的大小：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 class_size。</p></li>
+<li class="listitem"><p>类的初始化函数（C++ 构造函数）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 base_init 和 class_init。</p></li>
+<li class="listitem"><p>类的销毁函数（C++析构函数）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 base_finalize 和 class_finalize。</p></li>
+<li class="listitem"><p>实例的大小（C++参数new）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>中 的 instance_size。</p></li>
+<li class="listitem"><p>实例化策略（C++ 类的new operator）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的n_preallocs。</p></li>
+<li class="listitem"><p>复制函数（C++的复制操作）：<a class="link" href="gobject-Type-Information.html#GTypeInfo" title="struct GTypeInfo"><span class="type">GTypeInfo</span></a>的 value_table。</p></li>
+<li class="listitem"><p>类的字符标志：<a class="link" href="gobject-Type-Information.html#GTypeFlags" title="enum GTypeFlags"><span class="type">GTypeFlags</span></a>。</p></li>
 </ul></div>
-<p>
-	基本类型同样可以由 <a class="link" href="gobject-Type-Information.html#GTypeFundamentalFlags" title="enum GTypeFundamentalFlags"><span class="type">GTypeFundamentalFlags</span></a>
-	来定义，并保存在 <a class="link" href="gobject-Type-Information.html#GTypeFundamentalInfo" title="struct GTypeFundamentalInfo"><span class="type">GTypeFundamentalInfo</span></a>
-	中。非基本类型一般传递一个 parent_type 至<code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code>
-	和 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code> 中，然后交给父类来定义。
-      </p>
+<p> 基本类型同样可以由 <a class="link" href="gobject-Type-Information.html#GTypeFundamentalFlags" title="enum GTypeFundamentalFlags"><span class="type">GTypeFundamentalFlags</span></a> 来定义，并保存在 <a class="link" href="gobject-Type-Information.html#GTypeFundamentalInfo" title="struct GTypeFundamentalInfo"><span class="type">GTypeFundamentalInfo</span></a> 中。非基本类型一般传递一个 parent_type 至<code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-static" title="g_type_register_static ()">g_type_register_static</a></code> 和 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code> 中，然后交给父类来定义。</p>
 <div class="sect1">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="gtype-copy"></a>复制函数</h2></div></div></div>
-<p>
-	  所有的 Glib 类型（基本和非基本，类化和非类化，
-	  可实例化和不可实例化）的最大共同点是都可以通过单一的 
-	  API 来复制或指定它们。
-        </p>
-<p>
-	  <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>结构被用作所有类型的抽象的容器，
-	  它的极度简化的 API（定义在 <code class="filename">gobject/gvalue.h</code>）可以被使用请求
-	  value_table 函数被注册当类型注册中：
-	  举个例子，<code class="function"><a class="link" href="gobject-Generic-values.html#g-value-copy" title="g_value_copy ()">g_value_copy</a></code> 复制了  <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>的内容至另一个<a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>。
-	  这与 C++ 指派它的复制操作来修改默认的按位复制 C++/C 结构是类似的。
-        </p>
-<p>
-		下面的代码向你展示了你是如何复制一个64位的整型，同样 <a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a>
-		的实例指针也是这样（代码在<code class="filename">sample/gtype/test.c</code>中）：
-</p>
+<p>所有的 Glib 类型（基本和非基本，类化和非类化， 可实例化和不可实例化）的最大共同点是都可以通过单一的 API 来复制或指定它们。</p>
+<p><a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>结构被用作所有类型的抽象的容器， 它的极度简化的 API（定义在 <code class="filename">gobject/gvalue.h</code>）可以被使用请求 value_table 函数被注册当类型注册中： 举个例子，<code class="function"><a class="link" href="gobject-Generic-values.html#g-value-copy" title="g_value_copy ()">g_value_copy</a></code> 复制了 <a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>的内容至另一个<a class="link" href="gobject-Generic-values.html#GValue" title="GValue"><span class="type">GValue</span></a>。 这与 C++ 指派它的复制操作来修改默认的按位复制 C++/C 结构是类似的。</p>
+<p>下面的代码向你展示了你是如何复制一个64位的整型，同样 <a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a> 的实例指针也是这样（代码在<code class="filename">sample/gtype/test.c</code>中）： </p>
 <pre class="programlisting">
 static void test_int (void)
 {
@@ -186,15 +134,8 @@ static void test_object (void)
   g_object_unref (G_OBJECT (obj));
 }
 </pre>
-<p>
-	  上面代码的重点是关于复制指令的确切语义，并没有详细的定义复制是如何实现的。
-	  复制函数的实现可能是决定请求一新块的内存，并把数据从源复制到目的。
-	  或者可能是简单的增加实例的引用数和复制引用至新的 GValue。
-        </p>
-<p>
-	  value_table 用于详细说明这些定义在 <code class="filename">gtype.h</code> 
-	  的函数的使用并彻底地描述在由 GObject 提供的API文档中，这是为什么我们不追究细节的原因。
-          </p>
+<p> 上面代码的重点是关于复制指令的确切语义，并没有详细的定义复制是如何实现的。 复制函数的实现可能是决定请求一新块的内存，并把数据从源复制到目的。 或者可能是简单的增加实例的引用数和复制引用至新的 GValue。</p>
+<p>value_table 用于详细说明这些定义在 <code class="filename">gtype.h</code> 的函数的使用并彻底地描述在由 GObject 提供的API文档中，这是为什么我们不追究细节的原因。 </p>
 <pre class="programlisting">
 typedef struct _GTypeValueTable         GTypeValueTable;
 struct _GTypeValueTable
@@ -217,18 +158,11 @@ struct _GTypeValueTable
                                   guint                collect_flags);
 };
           </pre>
-<p>
-	  有趣的是，你同样不需要详细指定一个 value_table 在注册过程中，
-	  因为 value_tables 一般从非基本类型的父类中继承，这意味着除非你想写一个基本类型，
-	  否则你将不需要提供一个新的 value_table 因为它可以从父类继承 value_table。
-        </p>
+<p> 有趣的是，你同样不需要详细指定一个 value_table 在注册过程中， 因为 value_tables 一般从非基本类型的父类中继承，这意味着除非你想写一个基本类型， 否则你将不需要提供一个新的 value_table 因为它可以从父类继承 value_table。</p>
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3077384" href="#id3077384" class="para">2</a>] </sup>
-	    请注意，另外一个注册函数是 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code>。
-	    我们将不讨论这个函数，因为它与 <code class="function">_static</code> 版本非常相似。
-          </p></div>
+<div class="footnote"><p><sup>[<a id="ftn.id3126556" href="#id3126556" class="para">2</a>] </sup>请注意，另外一个注册函数是 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-register-dynamic" title="g_type_register_dynamic ()">g_type_register_dynamic</a></code>。 我们将不讨论这个函数，因为它与 <code class="function">_static</code> 版本非常相似。</p></div>
 </div>
 </div>
 <div class="footer">

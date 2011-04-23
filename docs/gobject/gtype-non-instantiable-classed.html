@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>不可实例的类型：接口</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GObject参考手册">
+<link rel="home" href="index.html" title="GObject 参考手册">
 <link rel="up" href="chapter-gtype.html" title="GLib动态类型系统">
 <link rel="prev" href="gtype-instantiable-classed.html" title="可实例化的类型：object">
 <link rel="next" href="chapter-gobject.html" title="The GObject base class">
@@ -16,22 +16,13 @@
 <td><a accesskey="p" href="gtype-instantiable-classed.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="chapter-gtype.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GObject参考手册</th>
+<th width="100%" align="center">GObject 参考手册</th>
 <td><a accesskey="n" href="chapter-gobject.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="sect1">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="gtype-non-instantiable-classed"></a>不可实例的类型：接口</h2></div></div></div>
-<p>
-          GType's interfaces are very similar to Java's interfaces. They allow
-	  GType的接口（Interface）与Java的接口非常类似。
-	  它允许描述一个通用的API，使得多个类可以粘合在一起。
-	  想像一下，Hi-Fi音响设备中的暂停和播放按钮──这可以被视做一个回放接口。
-	  如果你知道你要做什么，你可以用来这个接口来控制你的CD机，MP3或其他使用相同符号的东西。
-	  要声明一个接口，你需要注册一个从<a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a>
-	  继承的不可实例的类型。
-	  下面的代码声明了这样的一个接口：
-</p>
+<p>GType's interfaces are very similar to Java's interfaces. They allow GType的接口（Interface）与Java的接口非常类似。 它允许描述一个通用的API，使得多个类可以粘合在一起。 想像一下，Hi-Fi音响设备中的暂停和播放按钮──这可以被视做一个回放接口。 如果你知道你要做什么，你可以用来这个接口来控制你的CD机，MP3或其他使用相同符号的东西。 要声明一个接口，你需要注册一个从<a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a> 继承的不可实例的类型。 下面的代码声明了这样的一个接口： </p>
 <pre class="programlisting">
 #define MAMAN_TYPE_IBAZ                (maman_ibaz_get_type ())
 #define MAMAN_IBAZ(obj)                (G_TYPE_CHECK_INSTANCE_CAST ((obj), MAMAN_TYPE_IBAZ, MamanIbaz))
@@ -51,31 +42,16 @@ GType maman_ibaz_get_type (void);
 
 void maman_ibaz_do_action (MamanIbaz *self);
 </pre>
-<p>
-这里用非常简单的方法来实现<code class="function">maman_ibaz_do_action</code>这个接口函数：
-</p>
+<p> 这里用非常简单的方法来实现<code class="function">maman_ibaz_do_action</code>这个接口函数： </p>
 <pre class="programlisting">
 void maman_ibaz_do_action (MamanIbaz *self)
 {
   MAMAN_IBAZ_GET_INTERFACE (self)-&gt;do_action (self);
 }
 </pre>
-<p>
-	 <code class="function">maman_ibaz_get_type</code> 注册了一个从G_TYPE_INTERFACE继承的名为<span class="emphasis"><em>MamanIBaz</em></span>的类型。
-	 在继承树中，所有的接口必须是G_TYPE_INTERFACE的子类。
-        </p>
-<p>
-	  一个接口只有一个包含<a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a>的结构来定义。
-	  接口的结构应该要包含一个函数指针指向这个接口的方法。
-	  用类似于<code class="function">maman_ibaz_do_action</code>的方法在每个接口方法中定义帮助函数，
-	  可以使得我们直接调用接口方法，这是一个良好的风格。
-        </p>
-<p>
-	  一旦一个接口的类型被注册后，你必须来实现这个接口。
-	  其中，命名为<code class="function">maman_baz_get_type</code>
-	  注册一个名为<span class="type">MamanIBaz</span>的由<a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a>继承来的新的GType，
-	  并在接口Interface中实现。
-</p>
+<p><code class="function">maman_ibaz_get_type</code> 注册了一个从G_TYPE_INTERFACE继承的名为<span class="emphasis"><em>MamanIBaz</em></span>的类型。 在继承树中，所有的接口必须是G_TYPE_INTERFACE的子类。</p>
+<p>一个接口只有一个包含<a class="link" href="gobject-Type-Information.html#GTypeInterface" title="struct GTypeInterface"><span class="type">GTypeInterface</span></a>的结构来定义。 接口的结构应该要包含一个函数指针指向这个接口的方法。 用类似于<code class="function">maman_ibaz_do_action</code>的方法在每个接口方法中定义帮助函数， 可以使得我们直接调用接口方法，这是一个良好的风格。</p>
+<p>一旦一个接口的类型被注册后，你必须来实现这个接口。 其中，命名为<code class="function">maman_baz_get_type</code> 注册一个名为<span class="type">MamanIBaz</span>的由<a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a>继承来的新的GType， 并在接口Interface中实现。 </p>
 <pre class="programlisting">
 static void maman_baz_do_action (MamanIbaz *self)
 {
@@ -122,13 +98,7 @@ maman_baz_get_type (void)
   return type;
 }
 </pre>
-<p>
-        </p>
-<p>
-	  <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-add-interface-static" title="g_type_add_interface_static ()">g_type_add_interface_static</a></code> 记录了在类型系统中如
-	  <span class="type">FooInterface</span>来实现的接口（<code class="function">foo_interface_get_type</code>返回<span class="type">FooInterface</span>的类型），
-	  <a class="link" href="gobject-Type-Information.html#GInterfaceInfo" title="struct GInterfaceInfo"><span class="type">GInterfaceInfo</span></a>保存着关于接口实现的信息：
-</p>
+<p><code class="function"><a class="link" href="gobject-Type-Information.html#g-type-add-interface-static" title="g_type_add_interface_static ()">g_type_add_interface_static</a></code> 记录了在类型系统中如 <span class="type">FooInterface</span>来实现的接口（<code class="function">foo_interface_get_type</code>返回<span class="type">FooInterface</span>的类型）， <a class="link" href="gobject-Type-Information.html#GInterfaceInfo" title="struct GInterfaceInfo"><span class="type">GInterfaceInfo</span></a>保存着关于接口实现的信息： </p>
 <pre class="programlisting">
 struct _GInterfaceInfo
 {
@@ -137,16 +107,10 @@ struct _GInterfaceInfo
   gpointer               interface_data;
 };
 </pre>
-<p>
-        </p>
-<p>
-        如果没有特殊的需求，你可以直接使用<code class="function">G_DEFINE_INTERFACE</code>这个宏：
-</p>
+<p>如果没有特殊的需求，你可以直接使用<code class="function">G_DEFINE_INTERFACE</code>这个宏： </p>
 <pre class="programlisting">
 G_DEFINE_INTERFACE (MamanBaz, maman_baz, G_TYPE_OBJECT)
 </pre>
-<p>
-        </p>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="gtype-non-instantiable-classed-init"></a>接口初始化</h3></div></div></div>
@@ -203,8 +167,8 @@ maman_ibaz_base_init (gpointer g_iface)
             The above process can be summarized as follows:
           </p>
 <div class="table">
-<a name="ginterface-init-table"></a><p class="title"><b>Table 2. Interface Initialization</b></p>
-<div class="table-contents"><table summary="Interface Initialization" border="1">
+<a name="ginterface-init-table"></a><p class="title"><b>Table 2. 接口初始化</b></p>
+<div class="table-contents"><table summary="接口初始化" border="1">
 <colgroup>
 <col align="left">
 <col align="left">

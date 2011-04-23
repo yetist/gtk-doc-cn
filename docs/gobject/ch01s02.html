@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Exporting a C API</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GObject参考手册">
+<link rel="home" href="index.html" title="GObject 参考手册">
 <link rel="up" href="chapter-intro.html" title="Background">
 <link rel="prev" href="chapter-intro.html" title="Background">
 <link rel="next" href="chapter-gtype.html" title="GLib动态类型系统">
@@ -16,12 +16,12 @@
 <td><a accesskey="p" href="chapter-intro.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="chapter-intro.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GObject参考手册</th>
+<th width="100%" align="center">GObject 参考手册</th>
 <td><a accesskey="n" href="chapter-gtype.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="sect1">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id3086553"></a>Exporting a C API</h2></div></div></div>
+<a name="id3105089"></a>Exporting a C API</h2></div></div></div>
 <p>
       C APIs are defined by a set of functions and global variables which are usually exported from a 
       binary. C functions have an arbitrary number of arguments and one return value. Each function is thus
@@ -91,7 +91,7 @@ call   0x80482f4 &lt;function_foo&gt;
         reads the original function signature.</p></li>
 <li class="listitem"><p>The solution used by GLib is to use the GType library which holds at runtime a description of
         all the objects manipulated by the programmer. This so-called <span class="emphasis"><em>dynamic type</em></span>
-        <sup>[<a name="id3010055" href="#ftn.id3010055" class="footnote">1</a>]</sup>
+        <sup>[<a name="id3111307" href="#ftn.id3111307" class="footnote">1</a>]</sup>
         library is then used by special generic glue code to automatically convert function parameters and
         function calling conventions between different runtime domains.</p></li>
 </ul></div>
@@ -100,7 +100,7 @@ call   0x80482f4 &lt;function_foo&gt;
       boundaries is written once: the figure below states this more clearly.
       </p>
 <div class="figure">
-<a name="id3010081"></a><p class="title"><b>Figure 1. </b></p>
+<a name="id3111334"></a><p class="title"><b>Figure 1. </b></p>
 <div class="figure-contents"><div class="mediaobject" align="center"><img src="glue.png" align="middle"></div></div>
 </div>
 <p><br class="figure-break">
@@ -118,7 +118,7 @@ call   0x80482f4 &lt;function_foo&gt;
     </p>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id3010055" href="#id3010055" class="para">1</a>] </sup>
+<div class="footnote"><p><sup>[<a id="ftn.id3111307" href="#id3111307" class="para">1</a>] </sup>
             There are numerous different implementations of dynamic type systems: all C++ 
             compilers have one, Java and .NET have one too. A dynamic type system allows you
             to get information about every instantiated object at runtime. It can be implemented

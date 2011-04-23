@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>可实例化的类型：object</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GObject参考手册">
+<link rel="home" href="index.html" title="GObject 参考手册">
 <link rel="up" href="chapter-gtype.html" title="GLib动态类型系统">
 <link rel="prev" href="gtype-non-instantiable.html" title="不可实例化和不可类化的基础类型">
 <link rel="next" href="gtype-non-instantiable-classed.html" title="不可实例的类型：接口">
@@ -16,20 +16,14 @@
 <td><a accesskey="p" href="gtype-non-instantiable.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="chapter-gtype.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GObject参考手册</th>
+<th width="100%" align="center">GObject 参考手册</th>
 <td><a accesskey="n" href="gtype-non-instantiable-classed.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="sect1">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="gtype-instantiable-classed"></a>可实例化的类型：object</h2></div></div></div>
-<p>
-	  一个以类来注册，并声明为可实例化的类型常常称作<span class="emphasis"><em>object</em></span>。
-	  <a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a>（详见：<a class="xref" href="chapter-gobject.html" title="The GObject base class"><i>The GObject base class</i></a> 中）是最有名的一个可实例化的类了，
-	  其他相似的类都继承于这个基本类来进行开发，他们都基于下面所述的基本特征。
-        </p>
-<p>
-	  下面的例子告诉你怎样才可以在类型系统中注册这样一个基本的类:
-</p>
+<p>一个以类来注册，并声明为可实例化的类型常常称作<span class="emphasis"><em>object</em></span>。 <a class="link" href="gobject-The-Base-Object-Type.html#GObject" title="struct GObject"><span class="type">GObject</span></a>（详见：<a class="xref" href="chapter-gobject.html" title="The GObject base class"><i>The GObject base class</i></a> 中）是最有名的一个可实例化的类了， 其他相似的类都继承于这个基本类来进行开发，他们都基于下面所述的基本特征。</p>
+<p>下面的例子告诉你怎样才可以在类型系统中注册这样一个基本的类: </p>
 <pre class="programlisting">
 typedef struct {
   GObject parent;
@@ -70,16 +64,8 @@ maman_bar_get_type (void)
   return type;
 }
 </pre>
-<p>
-	  在调用<code class="function">maman_bar_get_type</code>之前，
-	  名为<span class="emphasis"><em>BarType</em></span>的继承于<span class="emphasis"><em>G_TYPE_OBJECT</em></span>的类将在类型系统中被注册。
-        </p>
-<p>
-	  每个对象必须定义为两个结构：它的类结构和它的实例结构。
-	  所有的类结构的第一个成员必须是一个<a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> 结构。
-	  所有的实例结构的第一个成员必须是 <a class="link" href="gobject-Type-Information.html#GTypeInstance" title="struct GTypeInstance"><span class="type">GTypeInstance</span></a>结构。
-	  下面显示了这些来自<code class="filename">gtype.h</code> 的 C 类型的声明：
-</p>
+<p> 在调用<code class="function">maman_bar_get_type</code>之前， 名为<span class="emphasis"><em>BarType</em></span>的继承于<span class="emphasis"><em>G_TYPE_OBJECT</em></span>的类将在类型系统中被注册。</p>
+<p>每个对象必须定义为两个结构：它的类结构和它的实例结构。 所有的类结构的第一个成员必须是一个<a class="link" href="gobject-Type-Information.html#GTypeClass" title="struct GTypeClass"><span class="type">GTypeClass</span></a> 结构。 所有的实例结构的第一个成员必须是 <a class="link" href="gobject-Type-Information.html#GTypeInstance" title="struct GTypeInstance"><span class="type">GTypeInstance</span></a>结构。 下面显示了这些来自<code class="filename">gtype.h</code> 的 C 类型的声明： </p>
 <pre class="programlisting">
 struct _GTypeClass
 {
@@ -90,11 +76,10 @@ struct _GTypeInstance
   GTypeClass *g_class;
 };
 </pre>
+<p> 这些约束使得类型系统可以确保每个对象的实例(由指向该对象的实例结构的指针所标识) 的首字节指向该对象的类结构。</p>
 <p>
-	  这些约束使得类型系统可以确保每个对象的实例(由指向该对象的实例结构的指针所标识) 的首字节指向该对象的类结构。
-        </p>
-<p>
-	  这个关系可以由下面的例子来很好的解释：让我们来看看这个继承于对象A的对象B：
+          This relationship is best explained by an example: let's take object B which
+          inherits from object A:
 </p>
 <pre class="programlisting">
 /* A definitions */
@@ -122,80 +107,38 @@ typedef struct {
 } BClass;
 </pre>
 <p>          
-	  上述标准的C结构定义指示了这个C结构的第一个领域存储着类的结构。
+          The C standard mandates that the first field of a C structure is stored starting
+          in the first byte of the buffer used to hold the structure's fields in memory.
+          This means that the first field of an instance of an object B is A's first field
+          which in turn is GTypeInstance's first field which in turn is g_class, a pointer
+          to B's class structure.
         </p>
-<p>
-	  多亏了这些简单的条件，所以按下面的方法来就可能取得每个对象实例的类型：
-</p>
+<p>多亏了这些简单的条件，所以按下面的方法来就可能取得每个对象实例的类型： </p>
 <pre class="programlisting">
 B *b;
 b-&gt;parent.parent.g_class-&gt;g_type
 </pre>
-<p>
-	  或者，更快的：
-</p>
+<p> 或者，更快的： </p>
 <pre class="programlisting">
 B *b;
 ((GTypeInstance*)b)-&gt;g_class-&gt;g_type
 </pre>
-<p>
-        </p>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="gtype-instantiable-classed-init-done"></a>初始化和销毁</h3></div></div></div>
-<p>
-	实例化这些类型可以用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-create-instance" title="g_type_create_instance ()">g_type_create_instance</a></code>来完成：
-</p>
+<p>实例化这些类型可以用 <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-create-instance" title="g_type_create_instance ()">g_type_create_instance</a></code>来完成： </p>
 <pre class="programlisting">
 GTypeInstance* g_type_create_instance (GType          type);
 void           g_type_free_instance   (GTypeInstance *instance);
 </pre>
+<p><code class="function"><a class="link" href="gobject-Type-Information.html#g-type-create-instance" title="g_type_create_instance ()">g_type_create_instance</a></code> 将查找请求的类型所关联的类型信息结构。 然后由用户声明的实例的大小和实例化策略（如果 n_preallocs 设置为一个非零值， 类型系统将会把对象的实例结构分配在内存块上，而不将依次分配每个实例） 将得到一个缓存来保存对象实例的结构。</p>
+<p>If this is the first instance of the object ever created, the type system must create 如果实例是这个对象第一次创建的，那么类型系统必须创建一个类结构： 它为其分配一个缓冲来保存这个对象的类结构并初始化它。 它先用父类的类结构覆盖（如果没有父类，它将初始化为零）， 然后从最顶层的基本对象至最底层的对象调用 base_class_initialization 函数（<a class="link" href="gobject-Type-Information.html#GBaseInitFunc" title="GBaseInitFunc ()"><span class="type">GBaseInitFunc</span></a>）。 对象的类初始化函数（<a class="link" href="gobject-Type-Information.html#GClassInitFunc" title="GClassInitFunc ()"><span class="type">GClassInitFunc</span></a>）被调用来完成类结构的初始化。 最终，这个类的接口被初始化了（我们将在后面讨论接口初始化）。</p>
+<p>一旦类型系统有一个指向初始化的类结构的指针， 它设置对象的实例类指针指向对象的类结构并调用实例的初始化函数（<a class="link" href="gobject-Type-Information.html#GInstanceInitFunc" title="GInstanceInitFunc ()"><span class="type">GInstanceInitFunc</span></a>）， 同样是从顶到底的顺序。</p>
+<p>对象的实例的销毁非常简单，通过<code class="function"><a class="link" href="gobject-Type-Information.html#g-type-free-instance" title="g_type_free_instance ()">g_type_free_instance</a></code>即可： 实例结构被返回到实例池中，如果这是对象的还有一个而且是最后一个存活的实例，那么这个类即被摧毁。</p>
+<p>类的销毁（关于这个销毁的另一概念是 GType 的终结）的过程与初始化的刚好对称： 接口先被销毁。 然后，调用类终结函数 class_finalize（<span class="type">ClassFinalizeFunc</span>）。 最终，将 base_class_finalize（<a class="link" href="gobject-Type-Information.html#GBaseFinalizeFunc" title="GBaseFinalizeFunc ()"><span class="type">GBaseFinalizeFunc</span></a>） 从底至顶的调用，直到类结构被销毁。</p>
+<p>很多读者已经明白了，基本的初始化/终结化过程与C++的构造/析构函数非常相似。 实际上细节是非常不同的，千万不要被表现的相似所迷惑。 特别是，大多数用户开始认识到GType中并不存在类似于C++的构造器（这实际上是一个方法列表， 由对象实例来调用所有有继承关系的方法），它必须建立在由GType 提供的特定的设施里。 同样的，GType没有实例销毁机制。 这是用户的职责，在现存的GType代码的顶端来实现正确的销毁（见：<a class="xref" href="chapter-gobject.html" title="The GObject base class"><i>The GObject base class</i></a>）。 举个例子，如果从A继承的对象B被实例化了，GType将只调用对象B的instance_init回调函数， 而C++运行环境将先调用对象A的构造器，接着再是对象B。 事实上，C++代码与GType的base_init和class_init回调是等同的， 不过C++常常是不需要这些的，因为它并不能真的在运行时创建类型。</p>
 <p>
-            <code class="function"><a class="link" href="gobject-Type-Information.html#g-type-create-instance" title="g_type_create_instance ()">g_type_create_instance</a></code> 
-	    将查找请求的类型所关联的类型信息结构。
-	    然后由用户声明的实例的大小和实例化策略（如果 n_preallocs 设置为一个非零值，
-	    类型系统将会把对象的实例结构分配在内存块上，而不将依次分配每个实例）
-	    将得到一个缓存来保存对象实例的结构。
-          </p>
-<p>
-            If this is the first instance of the object ever created, the type system must create
-	    如果实例是这个对象第一次创建的，那么类型系统必须创建一个类结构：
-	    它为其分配一个缓冲来保存这个对象的类结构并初始化它。
-	    它先用父类的类结构覆盖（如果没有父类，它将初始化为零），
-	    然后从最顶层的基本对象至最底层的对象调用 base_class_initialization 函数（<a class="link" href="gobject-Type-Information.html#GBaseInitFunc" title="GBaseInitFunc ()"><span class="type">GBaseInitFunc</span></a>）。
-	    对象的类初始化函数（<a class="link" href="gobject-Type-Information.html#GClassInitFunc" title="GClassInitFunc ()"><span class="type">GClassInitFunc</span></a>）被调用来完成类结构的初始化。
-	    最终，这个类的接口被初始化了（我们将在后面讨论接口初始化）。
-          </p>
-<p>
-	    一旦类型系统有一个指向初始化的类结构的指针，
-	    它设置对象的实例类指针指向对象的类结构并调用实例的初始化函数（<a class="link" href="gobject-Type-Information.html#GInstanceInitFunc" title="GInstanceInitFunc ()"><span class="type">GInstanceInitFunc</span></a>），
-	    同样是从顶到底的顺序。
-          </p>
-<p>
-	    对象的实例的销毁非常简单，通过<code class="function"><a class="link" href="gobject-Type-Information.html#g-type-free-instance" title="g_type_free_instance ()">g_type_free_instance</a></code>即可：
-	    实例结构被返回到实例池中，如果这是对象的还有一个而且是最后一个存活的实例，那么这个类即被摧毁。
-          </p>
-<p>
-	    类的销毁（关于这个销毁的另一概念是 GType 的终结）的过程与初始化的刚好对称：
-	    接口先被销毁。
-	    然后，调用类终结函数 class_finalize（<span class="type">ClassFinalizeFunc</span>）。
-	    最终，将 base_class_finalize（<a class="link" href="gobject-Type-Information.html#GBaseFinalizeFunc" title="GBaseFinalizeFunc ()"><span class="type">GBaseFinalizeFunc</span></a>）
-	    从底至顶的调用，直到类结构被销毁。
-          </p>
-<p>
-	   很多读者已经明白了，基本的初始化/终结化过程与C++的构造/析构函数非常相似。
-	   实际上细节是非常不同的，千万不要被表现的相似所迷惑。
-	   特别是，大多数用户开始认识到GType中并不存在类似于C++的构造器（这实际上是一个方法列表，
-	   由对象实例来调用所有有继承关系的方法），它必须建立在由GType 提供的特定的设施里。
-	   同样的，GType没有实例销毁机制。
-	   这是用户的职责，在现存的GType代码的顶端来实现正确的销毁（见：<a class="xref" href="chapter-gobject.html" title="The GObject base class"><i>The GObject base class</i></a>）。
-	   举个例子，如果从A继承的对象B被实例化了，GType将只调用对象B的instance_init回调函数，
-	   而C++运行环境将先调用对象A的构造器，接着再是对象B。
-	   事实上，C++代码与GType的base_init和class_init回调是等同的，
-	   不过C++常常是不需要这些的，因为它并不能真的在运行时创建类型。
-          </p>
-<p>
-	    关于实例化和终结化的处理过程可以归纳如下：
+            The instantiation/finalization process can be summarized as follows:
             </p>
 <div class="table">
 <a name="gtype-init-fini-table"></a><p class="title"><b>Table 1. GType Instantiation/Finalization</b></p>
