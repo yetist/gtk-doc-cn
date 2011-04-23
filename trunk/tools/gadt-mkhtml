@@ -339,6 +339,47 @@ init_xmlpot()
 	fi
 }
 
+init_tx_xmlpot()
+{
+	find $startdir/tmp/xmlpot/ -type f -exec basename {} \;|grep -v zh_CN|grep -v fdl|while read line;do
+	sec=`echo $line|tr -d "\."`
+	name=${line%*t}
+	echo "[$modname-reference-manual.docs-$sec]"
+	echo "host = https://www.transifex.net"
+	echo "source_file = tmp/xmlpot/$line"
+	echo "source_lang = en"
+	echo "trans.zh_CN = xmlpo/$name"
+	echo
+done
+}
+
+init_tx_pot()
+{
+	find $startdir/tmp/pot/ -type f -exec basename {} \;|while read line;do
+	sec=`echo $line|tr -d "\."`
+	name=${line%*t}
+	echo "[$modname-reference-manual.$sec]"
+	echo "host = https://www.transifex.net"
+	echo "source_file = tmp/pot/$line"
+	echo "source_lang = en"
+	echo "trans.zh_CN = po/$name"
+	echo
+done
+}
+
+init_transifex()
+{
+	if [ ! -f $startdir/.tx/config ]
+	then
+		mkdir -p $startdir/.tx
+		echo "[main]" > $startdir/.tx/config
+		echo "host = http://www.transifex.net" >> $startdir/.tx/config
+		echo  >> $startdir/.tx/config
+		init_tx_xmlpot >> $startdir/.tx/config
+		init_tx_pot >> $startdir/.tx/config
+	fi
+}
+
 merge_pot()
 {
 	if [ ! -d $startdir/po ];
@@ -499,6 +540,7 @@ download_source()
 
 	init_pot
 	init_xmlpot
+	init_transifex
 
 	# 合并已翻译po文件内容到源文件
 	if [ "$FUZZY" -eq 1 ]; then
@@ -543,7 +585,7 @@ clean_up() {
 		rm -rf "$srcdir"
 	fi
 	if [ $NOBROWSER -eq 0 ];then
-		gnome-open file://$tmpdir/html/index.html
+		gvfs-open file://$tmpdir/html/index.html
 	fi
 }
 
