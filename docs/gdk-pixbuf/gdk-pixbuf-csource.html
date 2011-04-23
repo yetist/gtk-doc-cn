@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>gdk-pixbuf-csource</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
 <link rel="up" href="rn02.html" title="工具(Tools)参考">
 <link rel="prev" href="rn02.html" title="工具(Tools)参考">
 <link rel="next" href="gdk-pixbuf-query-loaders.html" title="gdk-pixbuf-query-loaders">
@@ -16,7 +16,7 @@
 <td><a accesskey="p" href="rn02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<th width="100%" align="center">GDK-PixBuf参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-query-loaders.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -37,120 +37,79 @@
 ...]</p></div>
 </div>
 <div class="refsect1">
-<a name="id2812515"></a><h2>描述</h2>
-<p>
-<span class="command"><strong>gdk-pixbuf-csource</strong></span> 是一个可以生成包含图像的 C 代码的小工具
-, 可以用来将图像直接编译进程序。
-</p>
+<a name="id2712154"></a><h2>描述</h2>
+<p><span class="command"><strong>gdk-pixbuf-csource</strong></span> 是一个可以生成包含图像的 C 代码的小工具 , 可以用来将图像直接编译进程序。</p>
 </div>
 <div class="refsect1">
-<a name="id2812980"></a><h2>Invocation</h2>
-<p>
-<span class="command"><strong>gdk-pixbuf-csource</strong></span> 带一个作为输入的单个图像文件名，或者，使用 <code class="option">--build-list</code> 
-选项， 一个由 (<em class="replaceable"><code>name</code></em>, <em class="replaceable"><code>image</code></em>) 对
-组成的列表来为指定为 name 参数的一列图像生成代码。
-</p>
+<a name="id2727648"></a><h2>Invocation</h2>
+<p><span class="command"><strong>gdk-pixbuf-csource</strong></span> 带一个作为输入的单个图像文件名，或者，使用 <code class="option">--build-list</code> 选项， 一个由 (<em class="replaceable"><code>name</code></em>, <em class="replaceable"><code>image</code></em>) 对 组成的列表来为指定为 name 参数的一列图像生成代码。</p>
 <div class="refsect2">
-<a name="id2812597"></a><h3>选项</h3>
+<a name="id2725270"></a><h3>选项</h3>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><code class="option">--stream</code></span></p></td>
-<td><p>
-生成的 pixbuf 数据流 (一个按网络字节序(network byte order)包含被序列化(serialized)的
- <span class="structname">GdkPixdata</span> 结构的字符串)。
-</p></td>
+<td><p>生成的 pixbuf 数据流 (一个按网络字节序(network byte order)包含被序列化(serialized)的 <span class="structname">GdkPixdata</span> 结构的字符串)。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--struct</code></span></p></td>
-<td><p>
-生成 GdkPixdata 结构(需要 <code class="filename">gdk-pixdata.h</code> 文件的
- <span class="structname">GdkPixdata</span> 结构定义)。
-</p></td>
+<td><p>生成 GdkPixdata 结构(需要 <code class="filename">gdk-pixdata.h</code> 文件的 <span class="structname">GdkPixdata</span> 结构定义)。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--macros</code></span></p></td>
-<td><p>
-为这个图像生成 *_ROWSTRIDE, *_WIDTH, *_HEIGHT, *_BYTES_PER_PIXEL 和
-*_RLE_PIXEL_DATA 或 *_PIXEL_DATA 宏定义。
-</p></td>
+<td><p>为这个图像生成 *_ROWSTRIDE, *_WIDTH, *_HEIGHT, *_BYTES_PER_PIXEL 和 *_RLE_PIXEL_DATA 或 *_PIXEL_DATA 宏定义。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--rle</code></span></p></td>
-<td><p>
-为生成 pixel 数据启用 run-length 编码(默认)。
-</p></td>
+<td><p>为生成 pixel 数据启用 run-length 编码(默认)。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--raw</code></span></p></td>
-<td><p>
-为生成 pixel 数据禁用 run-length 编码。
-</p></td>
+<td><p>为生成 pixel 数据禁用 run-length 编码。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--extern</code></span></p></td>
-<td><p>
-生成 extern 符。
-</p></td>
+<td><p>生成 extern 符。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--static</code></span></p></td>
-<td><p>
-生成 static 符(默认)。
-</p></td>
+<td><p>生成 static 符(默认)。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--decoder</code></span></p></td>
-<td><p>
-提供一个 *_RUN_LENGTH_DECODE(image_buf, rle_data, size, bpp) 宏定义来解码 run-length 编码。
-</p></td>
+<td><p>提供一个 *_RUN_LENGTH_DECODE(image_buf, rle_data, size, bpp) 宏定义来解码 run-length 编码。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--name=identifier</code></span></p></td>
-<td><p>
-为生成的变量或宏(只当未指定 <code class="option">--build-list</code> 有效)指定
- identifier name(前缀)。
-</p></td>
+<td><p>为生成的变量或宏(只当未指定 <code class="option">--build-list</code> 有效)指定 identifier name(前缀)。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--build-list</code></span></p></td>
-<td><p>
-启用 (<em class="replaceable"><code>name</code></em>, <em class="replaceable"><code>image</code></em>)
-对解析模式。
-</p></td>
+<td><p>启用 (<em class="replaceable"><code>name</code></em>, <em class="replaceable"><code>image</code></em>) 对解析模式。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">-h</code>, <code class="option">--help</code></span></p></td>
-<td><p>
-打印简要帮助并退出。
-</p></td>
+<td><p>打印简要帮助并退出。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">-v</code>, <code class="option">--version</code></span></p></td>
-<td><p>
-打印版本号并退出。
-</p></td>
+<td><p>打印版本号并退出。</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">--g-fatal-warnings</code></span></p></td>
-<td><p>
-将警告(warning)设置成致命错误(使程序终止)。
-</p></td>
+<td><p>将警告(warning)设置成致命错误(使程序终止)。</p></td>
 </tr>
 </tbody>
 </table></div>
 </div>
 </div>
 <div class="refsect1">
-<a name="id2731607"></a><h2>See also</h2>
-<p>
-<span class="structname">GdkPixbuf</span> 文档，随 Gtk+ 一同发布，在
- <a class="ulink" href="http://www.gtk.org" target="_top">www.gtk.org</a> 可以找到。
-</p>
+<a name="id2723852"></a><h2>See also</h2>
+<p><span class="structname">GdkPixbuf</span> 文档，随 Gtk+ 一同发布，在 <a class="ulink" href="http://www.gtk.org" target="_top">www.gtk.org</a> 可以找到。</p>
 </div>
 <div class="refsect1">
-<a name="id2807240"></a><h2>Bugs</h2>
+<a name="id2723869"></a><h2>Bugs</h2>
 <p>
 The runlength encoder gets out of sync with the pixel boundaries, since
 it includes the rowstride padding in the encoded stream. Furthermore, it
@@ -158,14 +117,9 @@ generates pixbufs with suboptimal rowstride in some cases.
 </p>
 </div>
 <div class="refsect1">
-<a name="id2832589"></a><h2>作者</h2>
-<p>
-<span class="command"><strong>gdk-pixbuf-csource</strong></span> 是由 Tim Janik
-<code class="email">&lt;<a class="email" href="mailto:timj@gtk.org">timj@gtk.org</a>&gt;</code>开发的。 
-</p>
-<p>
-该手册页是由 Tim Janik <code class="email">&lt;<a class="email" href="mailto:timj@gtk.org">timj@gtk.org</a>&gt;</code>提供的。 
-</p>
+<a name="id2729276"></a><h2>作者</h2>
+<p><span class="command"><strong>gdk-pixbuf-csource</strong></span> 是由 Tim Janik <code class="email">&lt;<a class="email" href="mailto:timj@gtk.org">timj@gtk.org</a>&gt;</code>开发的。</p>
+<p>该手册页是由 Tim Janik <code class="email">&lt;<a class="email" href="mailto:timj@gtk.org">timj@gtk.org</a>&gt;</code>提供的。</p>
 </div>
 </div>
 <div class="footer">

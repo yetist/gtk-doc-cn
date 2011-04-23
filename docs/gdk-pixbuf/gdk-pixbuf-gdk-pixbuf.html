@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GdkPixbuf 结构(The GdkPixbuf Structure)</title>
+<title>gdk-pixbuf</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
-<link rel="home" href="index.html" title="GDK-PixBuf 库参考手册">
+<link rel="home" href="index.html" title="GDK-PixBuf参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
-<link rel="prev" href="gdk-pixbuf-Versioning.html" title="初始化和版本 (Initialization and Versions)">
-<link rel="next" href="gdk-pixbuf-refcounting.html" title="引用计数和内存管理 (Reference Counting and Memory Mangement)">
+<link rel="prev" href="gdk-pixbuf-Versioning.html" title="Versioning">
+<link rel="next" href="gdk-pixbuf-refcounting.html" title="refcounting">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -17,7 +17,7 @@
 <td><a accesskey="p" href="gdk-pixbuf-Versioning.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">GDK-PixBuf 库参考手册</th>
+<th width="100%" align="center">GDK-PixBuf参考手册</th>
 <td><a accesskey="n" href="gdk-pixbuf-refcounting.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
@@ -36,8 +36,8 @@
 <a name="gdk-pixbuf-gdk-pixbuf"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle"><a name="gdk-pixbuf-gdk-pixbuf.top_of_page"></a>GdkPixbuf 结构(The GdkPixbuf Structure)</span></h2>
-<p>GdkPixbuf 结构(The GdkPixbuf Structure) — 描述一个图像的信息。</p>
+<h2><span class="refentrytitle"><a name="gdk-pixbuf-gdk-pixbuf.top_of_page"></a>gdk-pixbuf</span></h2>
+<p>gdk-pixbuf</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -92,70 +92,7 @@ GdkPixbuf implements
 <div class="refsect1">
 <a name="gdk-pixbuf-gdk-pixbuf.description"></a><h2>Description</h2>
 <p>
-    <span class="structname">GdkPixbuf</span> 结构包含用来在内存中描述一个
-    图像的信息。
-  </p>
-<div class="section">
-<div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="image-data"></a>图像数据</h2></div></div></div>
-<p>
-      在内存中是以一种不压缩的填充格式保存图像数据的。图像是从顶部到底部一行一行
-      的存储的，且每一行的像素又是按从左到右的顺序储存的。在每行的末尾可能会有
-      一些补白(padding)。一个 pixbuf 的 "rowstride" 值表示了每行的字节数，
-      该值可以通过 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#gdk-pixbuf-get-rowstride" title="gdk_pixbuf_get_rowstride ()"><code class="function">gdk_pixbuf_get_rowstride()</code></a> 函数获得。
-    </p>
-<div class="example">
-<a name="put-pixel"></a><p class="title"><b>Example 1. put_pixel() example</b></p>
-<div class="example-contents">
-<p>
-        下面的代码举了一个适用于每通道8位带一个alpha通道的RGB pixbuf 简单的
-	put_pixel()函数的例子。由于性能原因，该函数没有被包含在
-	<span class="application">gdk-pixbuf</span> 库；与其为每个像素调用几个函数，你自己的代码可能更便捷。
-      </p>
-<pre class="programlisting">
-static void
-put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blue, guchar alpha)
-{
-  int width, height, rowstride, n_channels;
-  guchar *pixels, *p;
-  n_channels = gdk_pixbuf_get_n_channels (pixbuf);
-  g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
-  g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
-  g_assert (gdk_pixbuf_get_has_alpha (pixbuf));
-  g_assert (n_channels == 4);
-  width = gdk_pixbuf_get_width (pixbuf);
-  height = gdk_pixbuf_get_height (pixbuf);
-  g_assert (x &gt;= 0 &amp;&amp; x &lt; width);
-  g_assert (y &gt;= 0 &amp;&amp; y &lt; height);
-  rowstride = gdk_pixbuf_get_rowstride (pixbuf);
-  pixels = gdk_pixbuf_get_pixels (pixbuf);
-  p = pixels + y * rowstride + x * n_channels;
-  p[0] = red;
-  p[1] = green;
-  p[2] = blue;
-  p[3] = alpha;
-}
-      </pre>
-<p>
-        这个函数不适用于非 8bits/sample 或 8位每通道的图像，但他适用于 GTK+
-	使用的大多数 pixbuf。
-      </p>
-</div>
-</div>
-<br class="example-break"><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>
-<p>
-        如果使用 <code class="function">memcpy()</code> 处理原始 pixbuf 数据，注意 pixbuf 的最后一行可能
-	和行跨度(rowstride)不一样宽，而只是图像数据需要的宽度。也就是说，使用
-	<code class="literal">memcpy (dest, pixels, rowstride * height)</code>
-	来拷贝整个 pixbuf 是不安全的。用 <a class="link" href="gdk-pixbuf-creating.html#gdk-pixbuf-copy" title="gdk_pixbuf_copy ()"><code class="function">gdk_pixbuf_copy()</code></a> 来取代，或者使用
-	<code class="literal">width * ((n_channels * bits_per_sample + 7) / 8)</code>
-	计算最后一行以字节为单位的宽度(compute the width in bytes
-	of the last row as <code class="literal">width * ((n_channels *
-	bits_per_sample + 7) / 8)</code>)。
-      </p>
-</div>
-</div>
+</p>
 </div>
 <div class="refsect1">
 <a name="gdk-pixbuf-gdk-pixbuf.details"></a><h2>Details</h2>
@@ -176,44 +113,7 @@ put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blu
 } GdkPixbufError;
 </pre>
 <p>
-在 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ERROR:CAPS" title="GDK_PIXBUF_ERROR"><span class="type">GDK_PIXBUF_ERROR</span></a> 域内的一个错误代码。许多 <span class="application">gdk-pixbuf</span> 的操作都会
-引起这个域的错误，或者是 <a href="../glib/glib-File-Utilities.html#G-FILE-ERROR:CAPS"><span class="type">G_FILE_ERROR</span></a> 域的错误。
 </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-CORRUPT-IMAGE:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_CORRUPT_IMAGE</code></span></p></td>
-<td>图像文件不明原因的损坏。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-INSUFFICIENT-MEMORY:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY</code></span></p></td>
-<td>内存不足。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-BAD-OPTION:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_BAD_OPTION</code></span></p></td>
-<td>向 pixbuf 保存模块传递了一个非法的选项。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-UNKNOWN-TYPE:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_UNKNOWN_TYPE</code></span></p></td>
-<td>未知的图像类型。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-UNSUPPORTED-OPERATION:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION</code></span></p></td>
-<td>不知道怎么在这种类型的图像上处理给定的操作。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ERROR-FAILED:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ERROR_FAILED</code></span></p></td>
-<td>通用错误代码，发生了一些错误。
-</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -221,8 +121,6 @@ put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blu
 <pre class="programlisting">#define GDK_PIXBUF_ERROR gdk_pixbuf_error_quark ()
 </pre>
 <p>
-pixbuf 操作所使用的错误域。表明这个错误代码将出现在 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GdkPixbufError" title="enum GdkPixbufError"><span class="type">GdkPixbufError</span></a> 枚举类型中。参见
-<a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> 来获取更多的关于错误域与错误代码的信息。
 </p>
 </div>
 <hr>
@@ -233,16 +131,7 @@ pixbuf 操作所使用的错误域。表明这个错误代码将出现在 <a cla
 } GdkColorspace;
 </pre>
 <p>
-    该枚举类型定义了 <span class="application">gdk-pixbuf</span> 库支持的颜色空间(color space)。当前只有 RGB 被支持。
-  </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><a name="GDK-COLORSPACE-RGB:CAPS"></a><span class="term"><code class="literal">GDK_COLORSPACE_RGB</code></span></p></td>
-<td>表示一个 红/绿/蓝 组成的颜色空间。
-</td>
-</tr></tbody>
-</table></div>
+</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -254,38 +143,14 @@ pixbuf 操作所使用的错误域。表明这个错误代码将出现在 <a cla
 } GdkPixbufAlphaMode;
 </pre>
 <p>
-    这些值可以用来传递给 <code class="function">gdk_pixbuf_render_to_drawable_alpha()</code> 来控制怎么处理
-    图像的 alpha 通道。这个函数可以创建一个两层的快速蒙板(mask)(黑的和白的)并在绘制
-    图像的时候使用。将来，当 X 窗口系统有了 alpha 通道扩展后，它将能将完全alpha
-    (full alpha)合成到任何 drawable。当前只能退回到双层快速蒙板上。
-  </p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody>
-<tr>
-<td><p><a name="GDK-PIXBUF-ALPHA-BILEVEL:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ALPHA_BILEVEL</code></span></p></td>
-<td>将创建一个双层快速蒙板(黑的和白的)并在绘制图像的时候使用
-。不透明度在0.5一下的将被认为是完全透明的，而其他的将被认为是完全透明的。
-</td>
-</tr>
-<tr>
-<td><p><a name="GDK-PIXBUF-ALPHA-FULL:CAPS"></a><span class="term"><code class="literal">GDK_PIXBUF_ALPHA_FULL</code></span></p></td>
-<td>当前将退回到 <a class="link" href="gdk-pixbuf-gdk-pixbuf.html#GDK-PIXBUF-ALPHA-BILEVEL:CAPS"><span class="type">GDK_PIXBUF_ALPHA_BILEVEL</span></a> 。在将来将做完全
-alpha 合成。
-</td>
-</tr>
-</tbody>
-</table></div>
+</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GdkPixbuf-struct"></a><h3>GdkPixbuf</h3>
 <pre class="programlisting">typedef struct _GdkPixbuf GdkPixbuf;</pre>
 <p>
-    这个是 <span class="application">gdk-pixbuf</span> 库的主要数据结构。它用来表示图像。它包含图像的像素数据的信息，
-    它的颜色空间(color space)，每样本位数(bits per sample)，宽度和长度，还有行跨度
-    (一行的开始与下一行开始之间的字节数)。
-  </p>
+</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -387,8 +252,9 @@ alpha 合成。
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个指向这个 pixbuf 的像素数据的指针。
-参见 <a class="xref" href="gdk-pixbuf-gdk-pixbuf.html#image-data" title="图像数据">the section called “图像数据”</a> 了解像素数据在内存中储存的详细信息。</td>
+<td>A pointer to the pixbuf's pixel data.  Please see <a class="xref" href="">???</a>
+for information about how the pixel data is stored in
+memory.</td>
 </tr>
 </tbody>
 </table></div>
