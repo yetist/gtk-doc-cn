@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-20 21:44-0800\n"
-"PO-Revision-Date: 2011-04-13 17:53+0800\n"
+"POT-Creation-Date: 2011-04-23 20:26-0800\n"
+"PO-Revision-Date: 2011-04-23 21:18+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1450,56 +1450,6 @@ msgid ""
 "accessing @self after it has been finalized in thread B:"
 msgstr ""
 
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:778:5
-msgid ""
-"|[ static gboolean idle_callback (gpointer data) { /&ast; gdk_threads_enter"
-"(); would be needed for g_idle_add() &ast;/"
-msgstr ""
-"|[ static gboolean idle_callback (gpointer data) { /&ast; gdk_threads_enter"
-"(); would be needed for g_idle_add() &ast;/"
-
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:784:2
-msgid "SomeWidget *self = data; /&ast; do stuff with self &ast;/"
-msgstr "SomeWidget *self = data; /&ast; 你在这里做点啥吧 &ast;/"
-
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:787:1
-msgid "self->idle_id = 0;"
-msgstr "self->idle_id = 0;"
-
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:789:3
-msgid ""
-"/&ast; gdk_threads_leave(); would be needed for g_idle_add() &ast;/ return "
-"FALSE; }"
-msgstr ""
-"/&ast; gdk_threads_leave(); would be needed for g_idle_add() &ast;/ return "
-"FALSE; }"
-
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:793:6
-msgid ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->idle_id = "
-"gdk_threads_add_idle (idle_callback, self) /&ast; using g_idle_add() here "
-"would require thread protection in the callback &ast;/ }"
-msgstr ""
-
-# #used by: gdk_threads_add_idle_full:
-#. used by: gdk_threads_add_idle_full:
-#: gdk.c:800:9
-msgid ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object); if (self->idle_id) g_source_remove (self->idle_id); "
-"G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
-msgstr ""
-
 # #used by: gdk_threads_add_idle:
 #. used by: gdk_threads_add_idle_full:
 #: gdk.c:812:2
@@ -1639,66 +1589,6 @@ msgid ""
 "This variant of g_timeout_add_full() can be thought of a MT-safe version for "
 "GTK+ widgets for the following use case:"
 msgstr ""
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:885:4
-msgid ""
-"|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
-"data;"
-msgstr ""
-"|[ static gboolean timeout_callback (gpointer data) { SomeWidget *self = "
-"data;"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:890:1
-msgid "/&ast; do stuff with self &ast;/"
-msgstr "/&ast; 在这里做点啥事吧 &ast;/"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:892:1
-msgid "self->timeout_id = 0;"
-msgstr "self->timeout_id = 0;"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:894:2
-msgid "return FALSE; }"
-msgstr "return FALSE; }"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:897:4
-msgid ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->timeout_id "
-"= g_timeout_add (timeout_callback, self) }"
-msgstr ""
-"static void some_widget_do_stuff_later (SomeWidget *self) { self->timeout_id "
-"= g_timeout_add (timeout_callback, self) }"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:902:3
-msgid ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object);"
-msgstr ""
-"static void some_widget_finalize (GObject *object) { SomeWidget *self = "
-"SOME_WIDGET (object);"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:906:2
-msgid "if (self->timeout_id) g_source_remove (self->timeout_id);"
-msgstr "if (self->timeout_id) g_source_remove (self->timeout_id);"
-
-# #used by: gdk_threads_add_timeout_full:
-#. used by: gdk_threads_add_timeout_full:
-#: gdk.c:909:3
-msgid "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
-msgstr "G_OBJECT_CLASS (parent_class)->finalize (object); } ]|"
 
 # #used by: gdk_threads_add_timeout:
 #. used by: gdk_threads_add_timeout_full:
@@ -2898,13 +2788,12 @@ msgstr ""
 # #used by: SECTION:cairo_interaction
 #. used by: SECTION:cairo_interaction
 #: gdkcairo.c:33:3
-#, fuzzy
 msgid ""
 "<link href=\"http://cairographics.org\">Cairo</link> is a graphics library "
 "that supports vector graphics and image compositing that can be used with "
 "GDK. GTK+ does all of its drawing using cairo."
 msgstr ""
-"<link href=|$_1_$|http://cairographics.org|$_1_$|>Cairo</link>是GDK使用的支持"
+"<link href=\"http://cairographics.org\">Cairo</link>是GDK使用的支持"
 "矢量和点阵的图形库。GTK+ 所有的绘画使用了开罗(Cairo)。"
 
 # #used by: SECTION:cairo_interaction
@@ -7924,15 +7813,6 @@ msgid ""
 "motion notifies are provided for devices other than the core pointer. "
 "Coordinate extraction, processing and requesting more motion events from a "
 "%GDK_MOTION_NOTIFY event usually works like this:"
-msgstr ""
-
-# #used by: gdk_event_request_motions:
-#. used by: gdk_event_request_motions:
-#: gdkevents.c:1233:9
-msgid ""
-"|[ { /&ast; motion_event handler &ast;/ x = motion_event->x; y = "
-"motion_event->y; /&ast; handle (x,y) motion &ast;/ gdk_event_request_motions "
-"(motion_event); /&ast; handles is_hint events &ast;/ } ]|"
 msgstr ""
 
 # used by: _gdk_event_queue_append:
@@ -19115,52 +18995,3 @@ msgid ""
 "example, the @width/@height, @wclass, and @window_type fields are required, "
 "they have no corresponding flag in #GdkWindowAttributesType."
 msgstr ""
-
-# used by: gdk_window_redirect_to_drawable:
-#~ msgid "@dest_x: x position in @drawable"
-#~ msgstr "@dest_x: 在@drawable中的x 坐标位置"
-
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds:
-#~ msgid "@data: data to pass to @function"
-#~ msgstr "@data: 传递给@function的数据"
-
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds:
-#~ msgid "@function: the #GdkFunction to use"
-#~ msgstr "@function: 将使用的 #GdkFunction 函数"
-
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_idle:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds_full:
-# #-#-#-#-#  gdk.pot~ (PACKAGE VERSION)  #-#-#-#-#
-# used by: gdk_threads_add_timeout_seconds:
-#~ msgid "@data: callback data passed to @function."
-#~ msgstr "@data: 传递给@function的回调数据"
