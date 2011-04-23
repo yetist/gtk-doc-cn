@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-23 10:05-0800\n"
+"POT-Creation-Date: 2011-04-23 20:50-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,44 +275,6 @@ msgid ""
 msgstr ""
 
 #. used by: g_markup_parse_context_push:
-#: gmarkup.c:1943:5
-msgid "|[ typedef struct { gint tag_count; } CounterData;"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1949:9
-msgid ""
-"static void counter_start_element (GMarkupParseContext  *context, const "
-"gchar          *element_name, const gchar         **attribute_names, const "
-"gchar         **attribute_values, gpointer              user_data, "
-"GError              **error) { CounterData *data = user_data;"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1959:2
-msgid "data->tag_count++; }"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1962:6
-msgid ""
-"static void counter_error (GMarkupParseContext *context, GError              "
-"*error, gpointer             user_data) { CounterData *data = user_data;"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1969:2
-msgid "g_slice_free (CounterData, data); }"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1972:9
-msgid ""
-"static GMarkupParser counter_subparser = { counter_start_element, NULL, "
-"NULL, NULL, counter_error }; ]|"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
 #: gmarkup.c:1982:2
 msgid ""
 "In order to allow this parser to be easily used as a subparser, the "
@@ -320,64 +282,8 @@ msgid ""
 msgstr ""
 
 #. used by: g_markup_parse_context_push:
-#: gmarkup.c:1985:5
-msgid ""
-"|[ void start_counting (GMarkupParseContext *context) { CounterData *data = "
-"g_slice_new (CounterData);"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1991:3
-msgid ""
-"data->tag_count = 0; g_markup_parse_context_push (context, "
-"&counter_subparser, data); }"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:1995:5
-msgid ""
-"gint end_counting (GMarkupParseContext *context) { CounterData *data = "
-"g_markup_parse_context_pop (context); int result;"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2001:2
-msgid "result = data->tag_count; g_slice_free (CounterData, data);"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2004:3
-msgid "return result; } ]|"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
 #: gmarkup.c:2008:1
 msgid "The subparser would then be used as follows:"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2010:5
-msgid ""
-"|[ static void start_element (context, element_name, ...) { if (strcmp "
-"(element_name, \"count-these\") == 0) start_counting (context);"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2016:2
-msgid "/&ast; else, handle other tags... &ast;/ }"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2019:4
-msgid ""
-"static void end_element (context, element_name, ...) { if (strcmp "
-"(element_name, \"count-these\") == 0) g_print (\"Counted %d tags\\n\", "
-"end_counting (context));"
-msgstr ""
-
-#. used by: g_markup_parse_context_push:
-#: gmarkup.c:2024:3
-msgid "/&ast; else, handle other tags... &ast;/ } ]|"
 msgstr ""
 
 #. used by: g_markup_parse_context_new:
@@ -520,15 +426,6 @@ msgid ""
 "arguments in the fashion of g_markup_escape_text(). This is useful when you "
 "want to insert literal strings into XML-style markup output, without having "
 "to worry that the strings might themselves contain markup."
-msgstr ""
-
-#. used by: g_markup_printf_escaped:
-#: gmarkup.c:2465:11
-msgid ""
-"|[ const char *store = \"Fortnum &amp; Mason\"; const char *item = \"Tea\"; "
-"char *output; &nbsp; output = g_markup_printf_escaped (\"&lt;purchase&gt;\" "
-"\"&lt;store&gt;&percnt;s&lt;/store&gt;\" \"&lt;item&gt;&percnt;s&lt;/item&gt;"
-"\" \"&lt;/purchase&gt;\", store, item); ]|"
 msgstr ""
 
 #. used by: GMarkupCollectType:

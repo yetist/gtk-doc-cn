@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-23 10:05-0800\n"
+"POT-Creation-Date: 2011-04-23 20:50-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -445,18 +445,6 @@ msgid ""
 "use g_match_info_next()."
 msgstr ""
 
-#. used by: g_regex_match:
-#: gregex.c:1441:21
-msgid ""
-"|[ static void print_uppercase_words (const gchar *string) { /&ast; Print "
-"all uppercase-only words. &ast;/ GRegex *regex; GMatchInfo *match_info; "
-"&nbsp; regex = g_regex_new (\"[A-Z]+\", 0, 0, NULL); g_regex_match (regex, "
-"string, 0, &amp;match_info); while (g_match_info_matches (match_info)) "
-"{ gchar *word = g_match_info_fetch (match_info, 0); g_print (\"Found: %s\\n"
-"\", word); g_free (word); g_match_info_next (match_info, NULL); } "
-"g_match_info_free (match_info); g_regex_unref (regex); } ]|"
-msgstr ""
-
 #. #-#-#-#-#  gregex.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_regex_match:
 #. #-#-#-#-#  gregex.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -566,21 +554,6 @@ msgid ""
 "Setting @start_position differs from just passing over a shortened string "
 "and setting #G_REGEX_MATCH_NOTBOL in the case of a pattern that begins with "
 "any kind of lookbehind assertion, such as \"\\b\"."
-msgstr ""
-
-#. used by: g_regex_match_full:
-#: gregex.c:1514:27
-msgid ""
-"|[ static void print_uppercase_words (const gchar *string) { /&ast; Print "
-"all uppercase-only words. &ast;/ GRegex *regex; GMatchInfo *match_info; "
-"GError *error = NULL; &nbsp; regex = g_regex_new (\"[A-Z]+\", 0, 0, NULL); "
-"g_regex_match_full (regex, string, -1, 0, 0, &amp;match_info, &amp;error); "
-"while (g_match_info_matches (match_info)) { gchar *word = g_match_info_fetch "
-"(match_info, 0); g_print (\"Found: %s\\n\", word); g_free (word); "
-"g_match_info_next (match_info, &amp;error); } g_match_info_free "
-"(match_info); g_regex_unref (regex); if (error != NULL) { g_printerr "
-"(\"Error while matching: %s\\n\", error->message); g_error_free "
-"(error); } } ]|"
 msgstr ""
 
 #. used by: g_regex_match_all:
@@ -864,58 +837,10 @@ msgid ""
 msgstr ""
 
 #. used by: g_regex_replace_eval:
-#: gregex.c:2656:10
+#: gregex.c:2656:2
 msgid ""
 "The following example uses g_regex_replace_eval() to replace multiple "
-"strings at once: |[ static gboolean eval_cb (const GMatchInfo *info, "
-"GString          *res, gpointer          data) { gchar *match; gchar *r;"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2667:4
-msgid ""
-"match = g_match_info_fetch (info, 0); r = g_hash_table_lookup ((GHashTable *)"
-"data, match); g_string_append (res, r); g_free (match);"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2672:2
-msgid "return FALSE; }"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2675:1
-msgid "/&ast; ... &ast;/"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2677:3
-msgid "GRegex *reg; GHashTable *h; gchar *res;"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2681:1
-msgid "h = g_hash_table_new (g_str_hash, g_str_equal);"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2683:4
-msgid ""
-"g_hash_table_insert (h, \"1\", \"ONE\"); g_hash_table_insert (h, \"2\", \"TWO"
-"\"); g_hash_table_insert (h, \"3\", \"THREE\"); g_hash_table_insert (h, "
-"\"4\", \"FOUR\");"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2688:3
-msgid ""
-"reg = g_regex_new (\"1|2|3|4\", 0, 0, NULL); res = g_regex_replace_eval "
-"(reg, text, -1, 0, 0, eval_cb, h, NULL); g_hash_table_destroy (h);"
-msgstr ""
-
-#. used by: g_regex_replace_eval:
-#: gregex.c:2692:2
-msgid "/&ast; ... &ast;/ ]|"
+"strings at once:"
 msgstr ""
 
 #. used by: g_regex_check_replacement:

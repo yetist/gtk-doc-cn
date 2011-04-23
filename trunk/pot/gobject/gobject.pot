@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-18 23:24-0800\n"
+"POT-Creation-Date: 2011-04-23 21:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,32 +93,8 @@ msgid ""
 msgstr ""
 
 #. used by: g_object_notify_by_pspec:
-#: gobject.c:1043:7
-msgid "|[ enum { PROP_0, PROP_FOO, PROP_LAST };"
-msgstr ""
-
-#. used by: g_object_notify_by_pspec:
-#: gobject.c:1051:1
-msgid "static GParamSpec *properties[PROP_LAST];"
-msgstr ""
-
-#. used by: g_object_notify_by_pspec:
-#: gobject.c:1053:12
-msgid ""
-"static void my_object_class_init (MyObjectClass *klass) { properties"
-"[PROP_FOO] = g_param_spec_int (\"foo\", \"Foo\", \"The foo\", 0, 100, 50, "
-"G_PARAM_READWRITE); g_object_class_install_property (gobject_class, "
-"PROP_FOO, properties[PROP_FOO]); } ]|"
-msgstr ""
-
-#. used by: g_object_notify_by_pspec:
 #: gobject.c:1066:1
 msgid "and then notify a change on the \"foo\" property with:"
-msgstr ""
-
-#. used by: g_object_notify_by_pspec:
-#: gobject.c:1068:3
-msgid "|[ g_object_notify_by_pspec (self, properties[PROP_FOO]); ]|"
 msgstr ""
 
 #. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -412,17 +388,6 @@ msgid ""
 "<term>swapped-object-signal-after</term> <listitem><para> equivalent to "
 "<literal>g_signal_connect_object (..., G_CONNECT_SWAPPED | G_CONNECT_AFTER)</"
 "literal> </para></listitem> </varlistentry> </variablelist>"
-msgstr ""
-
-#. used by: g_object_connect: (skip)
-#: gobject.c:2070:10
-msgid ""
-"|[ menu->toplevel = g_object_connect (g_object_new (GTK_TYPE_WINDOW, \t\t\t\t"
-"\t\t   \"type\", GTK_WINDOW_POPUP, \t\t\t\t\t\t   \"child\", menu, \t\t\t\t\t"
-"\t   NULL), \t\t\t\t     \"signal::event\", gtk_menu_window_event, menu, \t\t"
-"\t\t     \"signal::size_request\", gtk_menu_window_size_request, menu, \t\t\t"
-"\t     \"signal::destroy\", gtk_widget_destroyed, &amp;menu-&gt;toplevel, \t"
-"\t\t\t     NULL); ]|"
 msgstr ""
 
 #. used by: g_object_connect: (skip)
@@ -803,33 +768,17 @@ msgid ""
 msgstr ""
 
 #. used by: g_object_steal_qdata:
-#: gobject.c:2867:15
+#: gobject.c:2867:6
 msgid ""
 "This function gets back user data pointers stored via g_object_set_qdata() "
 "and removes the @data from object without invoking its destroy() function "
 "(if any was set). Usually, calling this function is only required to update "
-"user data pointers with a destroy notifier, for example: |[ void "
-"object_add_to_user_list (GObject     *object, const gchar *new_string) { // "
-"the quark, naming the object data GQuark quark_string_list = "
-"g_quark_from_static_string (\"my-string-list\"); // retrive the old string "
-"list GList *list = g_object_steal_qdata (object, quark_string_list);"
+"user data pointers with a destroy notifier, for example:"
 msgstr ""
 
 #. used by: g_object_steal_qdata:
-#: gobject.c:2883:9
+#: gobject.c:2899:3
 msgid ""
-"// prepend new string list = g_list_prepend (list, g_strdup "
-"(new_string)); // this changed 'list', so we need to set it again "
-"g_object_set_qdata_full (object, quark_string_list, list, "
-"free_string_list); } static void free_string_list (gpointer data) { GList "
-"*node, *list = data;"
-msgstr ""
-
-#. used by: g_object_steal_qdata:
-#: gobject.c:2893:9
-msgid ""
-"for (node = list; node; node = node->next) g_free (node->data); g_list_free "
-"(list); } ]| Using g_object_get_qdata() in the above example, instead of "
 "g_object_steal_qdata() would have left the destroy function set, and thus "
 "the partial string list would have been freed upon g_object_set_qdata_full()."
 msgstr ""
@@ -1228,15 +1177,18 @@ msgid ""
 msgstr ""
 
 #. used by: GObject::notify:
-#: gobject.c:365:11
+#: gobject.c:365:3
 msgid ""
 "This signal is typically used to obtain change notification for a single "
 "property, by specifying the property name as a detail in the g_signal_connect"
-"() call, like this: |[ g_signal_connect (text_view->buffer, \"notify::paste-"
-"target-list\", G_CALLBACK (gtk_text_view_target_list_notify), text_view) ]| "
-"It is important to note that you must use <link linkend=\"canonical-"
-"parameter-name\">canonical</link> parameter names as detail strings for the "
-"notify signal."
+"() call, like this:"
+msgstr ""
+
+#. used by: GObject::notify:
+#: gobject.c:374:2
+msgid ""
+"<link linkend=\"canonical-parameter-name\">canonical</link> parameter names "
+"as detail strings for the notify signal."
 msgstr ""
 
 #. used by: SECTION:objects
@@ -1346,83 +1298,21 @@ msgid ""
 "class initialization:"
 msgstr ""
 
-#. used by: g_object_class_install_properties:
-#: gobject.c:482:4
-msgid "|[ enum { PROP_0, PROP_FOO, PROP_BAR, N_PROPERTIES };"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:487:1
-msgid "static GParamSpec *obj_properties[N_PROPERTIES] = { NULL, };"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:489:4
-msgid ""
-"static void my_object_class_init (MyObjectClass *klass) { GObjectClass "
-"*gobject_class = G_OBJECT_CLASS (klass);"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:494:5
-msgid ""
-"obj_properties[PROP_FOO] = g_param_spec_int (\"foo\", \"Foo\", \"Foo\", -1, "
-"G_MAXINT, 0, G_PARAM_READWRITE);"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:500:4
-msgid ""
-"obj_properties[PROP_BAR] = g_param_spec_string (\"bar\", \"Bar\", \"Bar\", "
-"NULL, G_PARAM_READWRITE);"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:505:7
-msgid ""
-"gobject_class->set_property = my_object_set_property; gobject_class-"
-">get_property = my_object_get_property; g_object_class_install_properties "
-"(gobject_class, N_PROPERTIES, obj_properties); } ]|"
-msgstr ""
-
 #. used by: SECTION:objects
-#: gobject.c:51:33
+#: gobject.c:51:7
 msgid ""
 "<para id=\"floating-ref\"> #GInitiallyUnowned is derived from #GObject. The "
 "only difference between the two is that the initial reference of a "
 "#GInitiallyUnowned is flagged as a <firstterm>floating</firstterm> "
 "reference. This means that it is not specifically claimed to be \"owned\" by "
 "any code portion. The main motivation for providing floating references is C "
-"convenience. In particular, it allows code to be written as: |[ container = "
-"create_container(); container_add_child (container, create_child()); ]| If "
-"<function>container_add_child()</function> will g_object_ref_sink() the "
-"passed in child, no reference of the newly created child is leaked. Without "
-"floating references, <function>container_add_child()</function> can only "
-"g_object_ref() the new child, so to implement this code without reference "
-"leaks, it would have to be written as: |[ Child *child; container = "
-"create_container(); child = create_child(); container_add_child (container, "
-"child); g_object_unref (child); ]| The floating reference can be converted "
-"into an ordinary reference by calling g_object_ref_sink(). For already "
-"sunken objects (objects that don't have a floating reference anymore), "
-"g_object_ref_sink() is equivalent to g_object_ref() and returns a new "
-"reference. Since floating references are useful almost exclusively for C "
-"convenience, language bindings that provide automated reference and memory "
-"ownership maintenance (such as smart pointers or garbage collection) "
-"therefore don't need to expose floating references in their API. </para>"
+"convenience. In particular, it allows code to be written as:"
 msgstr ""
 
 #. used by: g_object_class_install_properties:
 #: gobject.c:513:1
 msgid ""
 "allows calling g_object_notify_by_pspec() to notify of property changes:"
-msgstr ""
-
-#. used by: g_object_class_install_properties:
-#: gobject.c:515:11
-msgid ""
-"|[ void my_object_set_foo (MyObject *self, gint foo) { if (self->foo != foo) "
-"{ self->foo = foo; g_object_notify_by_pspec (G_OBJECT (self), obj_properties"
-"[PROP_FOO]); } } ]|"
 msgstr ""
 
 #. used by: g_object_interface_install_property:
@@ -1468,6 +1358,15 @@ msgstr ""
 msgid ""
 "Returns: (transfer none): the #GParamSpec for the property, or %NULL if the "
 "class doesn't have a property of that name"
+msgstr ""
+
+#. used by: SECTION:objects
+#: gobject.c:63:4
+msgid ""
+"passed in child, no reference of the newly created child is leaked. Without "
+"floating references, <function>container_add_child()</function> can only "
+"g_object_ref() the new child, so to implement this code without reference "
+"leaks, it would have to be written as:"
 msgstr ""
 
 #. #-#-#-#-#  gobject.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -1537,6 +1436,18 @@ msgid ""
 "can call g_param_spec_get_redirect_target(). </note>"
 msgstr ""
 
+#. used by: SECTION:objects
+#: gobject.c:75:9
+msgid ""
+"an ordinary reference by calling g_object_ref_sink(). For already sunken "
+"objects (objects that don't have a floating reference anymore), "
+"g_object_ref_sink() is equivalent to g_object_ref() and returns a new "
+"reference. Since floating references are useful almost exclusively for C "
+"convenience, language bindings that provide automated reference and memory "
+"ownership maintenance (such as smart pointers or garbage collection) "
+"therefore don't need to expose floating references in their API. </para>"
+msgstr ""
+
 #. used by: g_object_class_list_properties:
 #: gobject.c:768:1
 msgid ""
@@ -1584,15 +1495,6 @@ msgid ""
 "Some object implementations may need to save an objects floating state "
 "across certain code portions (an example is #GtkMenu), to achive this, the "
 "following sequence can be used:"
-msgstr ""
-
-#. used by: SECTION:objects
-#: gobject.c:89:11
-msgid ""
-"|[ // save floating state gboolean was_floating = g_object_is_floating "
-"(object); g_object_ref_sink (object); // protected code portion ...; // "
-"restore floating state if (was_floating) g_object_force_floating (object); "
-"g_obejct_unref (object); // release previously acquired reference ]|"
 msgstr ""
 
 #. used by: g_object_run_dispose:
