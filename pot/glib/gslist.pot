@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-17 15:16-0800\n"
+"POT-Creation-Date: 2011-04-23 10:05-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,11 @@ msgstr ""
 #. used by: g_slist_next:
 #: gslist.c:101:1
 msgid "@Returns: the next element, or %NULL if there are no more elements."
+msgstr ""
+
+#. used by: g_slist_next:
+#: gslist.c:103:1
+msgid "A convenience macro to get the next element in a #GSList."
 msgstr ""
 
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -73,16 +78,16 @@ msgstr ""
 #. used by: g_slist_sort:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1024:1 gslist.c:1044:1 gslist.c:158:1 gslist.c:191:1
-#: gslist.c:248:1 gslist.c:282:1 gslist.c:416:1 gslist.c:453:1 gslist.c:526:1
-#: gslist.c:545:1 gslist.c:566:1 gslist.c:606:1 gslist.c:632:1 gslist.c:652:1
-#: gslist.c:672:1 gslist.c:698:1 gslist.c:731:1 gslist.c:760:1 gslist.c:789:1
-#: gslist.c:814:1 gslist.c:842:1 gslist.c:917:1 gslist.c:938:1
+#: gslist.c:1048:1 gslist.c:1068:1 gslist.c:158:1 gslist.c:215:1
+#: gslist.c:272:1 gslist.c:306:1 gslist.c:440:1 gslist.c:477:1 gslist.c:550:1
+#: gslist.c:569:1 gslist.c:590:1 gslist.c:630:1 gslist.c:656:1 gslist.c:676:1
+#: gslist.c:696:1 gslist.c:722:1 gslist.c:755:1 gslist.c:784:1 gslist.c:813:1
+#: gslist.c:838:1 gslist.c:866:1 gslist.c:941:1 gslist.c:962:1
 msgid "@list: a #GSList"
 msgstr ""
 
 #. used by: g_slist_sort:
-#: gslist.c:1025:5
+#: gslist.c:1049:5
 msgid ""
 "@compare_func: the comparison function used to sort the #GSList. This "
 "function is passed the data from 2 elements of the #GSList and should return "
@@ -90,23 +95,18 @@ msgid ""
 "second, or a positive value if the first element comes after the second."
 msgstr ""
 
-#. used by: g_slist_next:
-#: gslist.c:103:1
-msgid "A convenience macro to get the next element in a #GSList."
-msgstr ""
-
 #. used by: g_slist_sort:
-#: gslist.c:1031:1
+#: gslist.c:1055:1
 msgid "Sorts a #GSList using the given comparison function."
 msgstr ""
 
 #. used by: g_slist_sort:
-#: gslist.c:1033:1
+#: gslist.c:1057:1
 msgid "Returns: the start of the sorted #GSList"
 msgstr ""
 
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1045:1
+#: gslist.c:1069:1
 msgid "@compare_func: comparison function"
 msgstr ""
 
@@ -114,18 +114,18 @@ msgstr ""
 #. used by: g_slist_insert_sorted_with_data:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1046:1 gslist.c:943:1
+#: gslist.c:1070:1 gslist.c:967:1
 msgid "@user_data: data to pass to comparison function"
 msgstr ""
 
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1048:1
+#: gslist.c:1072:1
 msgid ""
 "Like g_slist_sort(), but the sort function accepts a user data argument."
 msgstr ""
 
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1050:1
+#: gslist.c:1074:1
 msgid "Returns: new head of the list"
 msgstr ""
 
@@ -187,19 +187,27 @@ msgid ""
 "to the slice allocator."
 msgstr ""
 
+#. used by: g_slist_free:
+#: gslist.c:163:5
+msgid ""
+"<note><para> If list elements contain dynamically-allocated memory, you "
+"should either use g_slist_free_full() or free them manually first. </para></"
+"note>"
+msgstr ""
+
 #. used by: g_slist_free_1:
-#: gslist.c:171:1
+#: gslist.c:177:1
 msgid "@list: a #GSList element"
 msgstr ""
 
 #. used by: g_slist_free_1:
-#: gslist.c:173:2
+#: gslist.c:179:2
 msgid ""
 "Frees one #GSList element. It is usually used after g_slist_remove_link()."
 msgstr ""
 
 #. used by: g_slist_free1:
-#: gslist.c:179:1
+#: gslist.c:185:1
 msgid "A macro which does the same as g_slist_free_1()."
 msgstr ""
 
@@ -207,8 +215,30 @@ msgstr ""
 #. used by: g_slist_free1:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted_with_data:
-#: gslist.c:181:1 gslist.c:950:1
+#: gslist.c:187:1 gslist.c:974:1
 msgid "Since: 2.10"
+msgstr ""
+
+#. used by: g_slist_free_full:
+#: gslist.c:197:1
+msgid "@list: a pointer to a #GSList"
+msgstr ""
+
+#. used by: g_slist_free_full:
+#: gslist.c:198:1
+msgid "@free_func: the function to be called to free each element's data"
+msgstr ""
+
+#. used by: g_slist_free_full:
+#: gslist.c:200:2
+msgid ""
+"Convenience method, which frees all the memory used by a #GSList, and calls "
+"the specified destroy function on every element's data."
+msgstr ""
+
+#. used by: g_slist_free_full:
+#: gslist.c:203:1
+msgid "Since: 2.28"
 msgstr ""
 
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -221,12 +251,12 @@ msgstr ""
 #. used by: g_slist_insert_sorted:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted_with_data:
-#: gslist.c:192:1 gslist.c:249:1 gslist.c:283:1 gslist.c:918:1 gslist.c:939:1
+#: gslist.c:216:1 gslist.c:273:1 gslist.c:307:1 gslist.c:942:1 gslist.c:963:1
 msgid "@data: the data for the new element"
 msgstr ""
 
 #. used by: g_slist_append:
-#: gslist.c:194:1
+#: gslist.c:218:1
 msgid "Adds a new element on to the end of the list."
 msgstr ""
 
@@ -234,14 +264,14 @@ msgstr ""
 #. used by: g_slist_append:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_prepend:
-#: gslist.c:196:4 gslist.c:253:4
+#: gslist.c:220:4 gslist.c:277:4
 msgid ""
 "<note><para> The return value is the new start of the list, which may have "
 "changed, so make sure you store the new value. </para></note>"
 msgstr ""
 
 #. used by: g_slist_append:
-#: gslist.c:201:6
+#: gslist.c:225:6
 msgid ""
 "<note><para> Note that g_slist_append() has to traverse the entire list to "
 "find the end, which is inefficient when adding multiple elements. A common "
@@ -250,21 +280,21 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_append:
-#: gslist.c:208:3
+#: gslist.c:232:3
 msgid ""
 "|[ /&ast; Notice that these are initialized to the empty list. &ast;/ GSList "
 "*list = NULL, *number_list = NULL;"
 msgstr ""
 
 #. used by: g_slist_append:
-#: gslist.c:212:3
+#: gslist.c:236:3
 msgid ""
 "/&ast; This is a list of strings. &ast;/ list = g_slist_append (list, \"first"
 "\"); list = g_slist_append (list, \"second\");"
 msgstr ""
 
 #. used by: g_slist_append:
-#: gslist.c:216:4
+#: gslist.c:240:4
 msgid ""
 "/&ast; This is a list of integers. &ast;/ number_list = g_slist_append "
 "(number_list, GINT_TO_POINTER (27)); number_list = g_slist_append "
@@ -283,18 +313,18 @@ msgstr ""
 #. used by: g_slist_insert_sorted:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted_with_data:
-#: gslist.c:221:1 gslist.c:265:1 gslist.c:291:1 gslist.c:423:1 gslist.c:926:1
-#: gslist.c:948:1
+#: gslist.c:245:1 gslist.c:289:1 gslist.c:315:1 gslist.c:447:1 gslist.c:950:1
+#: gslist.c:972:1
 msgid "Returns: the new start of the #GSList"
 msgstr ""
 
 #. used by: g_slist_prepend:
-#: gslist.c:251:1
+#: gslist.c:275:1
 msgid "Adds a new element on to the start of the list."
 msgstr ""
 
 #. used by: g_slist_prepend:
-#: gslist.c:258:6
+#: gslist.c:282:6
 msgid ""
 "|[ /&ast; Notice that it is initialized to the empty list. &ast;/ GSList "
 "*list = NULL; list = g_slist_prepend (list, \"last\"); list = "
@@ -302,7 +332,7 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_insert:
-#: gslist.c:284:4
+#: gslist.c:308:4
 msgid ""
 "@position: the position to insert the element. If this is negative, or is "
 "larger than the number of elements in the list, the new element is added on "
@@ -310,41 +340,41 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_insert:
-#: gslist.c:289:1
+#: gslist.c:313:1
 msgid "Inserts a new element into the list at the given position."
 msgstr ""
 
 #. used by: g_slist_insert_before:
-#: gslist.c:341:1
+#: gslist.c:365:1
 msgid "@slist: a #GSList"
 msgstr ""
 
 #. used by: g_slist_insert_before:
-#: gslist.c:342:1
+#: gslist.c:366:1
 msgid "@sibling: node to insert @data before"
 msgstr ""
 
 #. used by: g_slist_insert_before:
-#: gslist.c:343:1
+#: gslist.c:367:1
 msgid "@data: data to put in the newly-inserted node"
 msgstr ""
 
 #. used by: g_slist_insert_before:
-#: gslist.c:345:1
+#: gslist.c:369:1
 msgid "Inserts a node before @sibling containing @data."
 msgstr ""
 
 #. used by: g_slist_insert_before:
-#: gslist.c:347:1
+#: gslist.c:371:1
 msgid "Returns: the new head of the list."
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:38:1
 msgid "@title: Singly-Linked Lists"
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:39:3
 msgid ""
 "@short_description: linked lists containing integer values or pointers to "
@@ -352,57 +382,44 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_concat:
-#: gslist.c:391:2
+#: gslist.c:415:2
 msgid ""
 "@list1: a #GSList @list2: the #GSList to add to the end of the first #GSList"
 msgstr ""
 
 #. used by: g_slist_concat:
-#: gslist.c:394:3
+#: gslist.c:418:3
 msgid ""
 "Adds the second #GSList onto the end of the first #GSList. Note that the "
 "elements of the second #GSList are not copied. They are used directly."
 msgstr ""
 
 #. used by: g_slist_concat:
-#: gslist.c:398:1
+#: gslist.c:422:1
 msgid "Returns: the start of the new #GSList"
 msgstr ""
 
-#. used by: g_slist_remove:
-#: gslist.c:417:1
-msgid "@data: the data of the element to remove"
-msgstr ""
-
-#. used by: g_slist_remove:
-#: gslist.c:419:3
-msgid ""
-"Removes an element from a #GSList. If two elements contain the same data, "
-"only the first is removed. If none of the elements contain the data, the "
-"#GSList is unchanged."
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:43:2
 msgid ""
 "The #GSList structure and its associated functions provide a standard singly-"
 "linked list data structure."
 msgstr ""
 
-#. used by: g_slist_remove_all:
-#: gslist.c:454:1
-msgid "@data: data to remove"
+#. used by: g_slist_remove:
+#: gslist.c:441:1
+msgid "@data: the data of the element to remove"
 msgstr ""
 
-#. used by: g_slist_remove_all:
-#: gslist.c:456:4
+#. used by: g_slist_remove:
+#: gslist.c:443:3
 msgid ""
-"Removes all list nodes with data equal to @data. Returns the new head of the "
-"list. Contrast with g_slist_remove() which removes only the first node "
-"matching the given data."
+"Removes an element from a #GSList. If two elements contain the same data, "
+"only the first is removed. If none of the elements contain the data, the "
+"#GSList is unchanged."
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:46:6
 msgid ""
 "Each element in the list contains a piece of data, together with a pointer "
@@ -413,24 +430,24 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_remove_all:
-#: gslist.c:461:1
+#: gslist.c:478:1
+msgid "@data: data to remove"
+msgstr ""
+
+#. used by: g_slist_remove_all:
+#: gslist.c:480:4
+msgid ""
+"Removes all list nodes with data equal to @data. Returns the new head of the "
+"list. Contrast with g_slist_remove() which removes only the first node "
+"matching the given data."
+msgstr ""
+
+#. used by: g_slist_remove_all:
+#: gslist.c:485:1
 msgid "Returns: new head of @list"
 msgstr ""
 
-#. used by: g_slist_remove_link:
-#: gslist.c:527:1
-msgid "@link_: an element in the #GSList"
-msgstr ""
-
-#. used by: g_slist_remove_link:
-#: gslist.c:529:4
-msgid ""
-"Removes an element from a #GSList, without freeing the element. The removed "
-"element's next link is set to %NULL, so that it becomes a self-contained "
-"list with one element."
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:53:3
 msgid ""
 "The data contained in each element can be either integer values, by using "
@@ -439,33 +456,24 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_remove_link:
-#: gslist.c:534:1
+#: gslist.c:551:1
+msgid "@link_: an element in the #GSList"
+msgstr ""
+
+#. used by: g_slist_remove_link:
+#: gslist.c:553:4
+msgid ""
+"Removes an element from a #GSList, without freeing the element. The removed "
+"element's next link is set to %NULL, so that it becomes a self-contained "
+"list with one element."
+msgstr ""
+
+#. used by: g_slist_remove_link:
+#: gslist.c:558:1
 msgid "Returns: the new start of the #GSList, without the element"
 msgstr ""
 
-#. used by: g_slist_delete_link:
-#: gslist.c:546:1
-msgid "@link_: node to delete"
-msgstr ""
-
-#. used by: g_slist_delete_link:
-#: gslist.c:548:3
-msgid ""
-"Removes the node link_ from the list and frees it. Compare this to "
-"g_slist_remove_link() which removes the node without freeing it."
-msgstr ""
-
-#. used by: g_slist_delete_link:
-#: gslist.c:552:1
-msgid "Returns: the new head of @list"
-msgstr ""
-
-#. used by: g_slist_copy:
-#: gslist.c:568:1
-msgid "Copies a #GSList."
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:57:3
 msgid ""
 "List elements are allocated from the <link linkend=\"glib-Memory-Slices"
@@ -473,8 +481,30 @@ msgid ""
 "individually."
 msgstr ""
 
+#. used by: g_slist_delete_link:
+#: gslist.c:570:1
+msgid "@link_: node to delete"
+msgstr ""
+
+#. used by: g_slist_delete_link:
+#: gslist.c:572:3
+msgid ""
+"Removes the node link_ from the list and frees it. Compare this to "
+"g_slist_remove_link() which removes the node without freeing it."
+msgstr ""
+
+#. used by: g_slist_delete_link:
+#: gslist.c:576:1
+msgid "Returns: the new head of @list"
+msgstr ""
+
 #. used by: g_slist_copy:
-#: gslist.c:570:5
+#: gslist.c:592:1
+msgid "Copies a #GSList."
+msgstr ""
+
+#. used by: g_slist_copy:
+#: gslist.c:594:5
 msgid ""
 "<note><para> Note that this is a \"shallow\" copy. If the list elements "
 "consist of pointers to data, the pointers are copied but the actual data "
@@ -482,16 +512,11 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_copy:
-#: gslist.c:576:1
+#: gslist.c:600:1
 msgid "Returns: a copy of @list"
 msgstr ""
 
-#. used by: g_slist_reverse:
-#: gslist.c:608:1
-msgid "Reverses a #GSList."
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:61:3
 msgid ""
 "Note that most of the #GSList functions expect to be passed a pointer to the "
@@ -500,57 +525,69 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_reverse:
-#: gslist.c:610:1
+#: gslist.c:632:1
+msgid "Reverses a #GSList."
+msgstr ""
+
+#. used by: g_slist_reverse:
+#: gslist.c:634:1
 msgid "Returns: the start of the reversed #GSList"
 msgstr ""
 
-#. used by: g_slist_nth:
-#: gslist.c:633:1
-msgid "@n: the position of the element, counting from 0"
-msgstr ""
-
-#. used by: g_slist_nth:
-#: gslist.c:635:1
-msgid "Gets the element at the given position in a #GSList."
-msgstr ""
-
-#. used by: g_slist_nth:
-#: gslist.c:637:2
-msgid ""
-"Returns: the element, or %NULL if the position is off the end of the #GSList"
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:65:2
 msgid ""
 "There is no function to create a #GSList. %NULL is considered to be the "
 "empty list so you simply set a #GSList* to %NULL."
 msgstr ""
 
+#. used by: g_slist_nth:
+#: gslist.c:657:1
+msgid "@n: the position of the element, counting from 0"
+msgstr ""
+
+#. used by: g_slist_nth:
+#: gslist.c:659:1
+msgid "Gets the element at the given position in a #GSList."
+msgstr ""
+
+#. used by: g_slist_nth:
+#: gslist.c:661:2
+msgid ""
+"Returns: the element, or %NULL if the position is off the end of the #GSList"
+msgstr ""
+
 #. used by: g_slist_nth_data:
-#: gslist.c:653:1
+#: gslist.c:677:1
 msgid "@n: the position of the element"
 msgstr ""
 
 #. used by: g_slist_nth_data:
-#: gslist.c:655:1
+#: gslist.c:679:1
 msgid "Gets the data of the element at the given position."
 msgstr ""
 
+#. used by: SECTION:linked_lists_single
+#: gslist.c:68:2
+msgid ""
+"To add elements, use g_slist_append(), g_slist_prepend(), g_slist_insert() "
+"and g_slist_insert_sorted()."
+msgstr ""
+
 #. used by: g_slist_nth_data:
-#: gslist.c:657:2
+#: gslist.c:681:2
 msgid ""
 "Returns: the element's data, or %NULL if the position is off the end of the "
 "#GSList"
 msgstr ""
 
 #. used by: g_slist_find:
-#: gslist.c:673:1
+#: gslist.c:697:1
 msgid "@data: the element data to find"
 msgstr ""
 
 #. used by: g_slist_find:
-#: gslist.c:675:2
+#: gslist.c:699:2
 msgid "Finds the element in a #GSList which contains the given data."
 msgstr ""
 
@@ -558,31 +595,29 @@ msgstr ""
 #. used by: g_slist_find:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_find_custom:
-#: gslist.c:678:2 gslist.c:710:1
+#: gslist.c:702:2 gslist.c:734:1
 msgid "Returns: the found #GSList element, or %NULL if it is not found"
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
-#: gslist.c:68:2
-msgid ""
-"To add elements, use g_slist_append(), g_slist_prepend(), g_slist_insert() "
-"and g_slist_insert_sorted()."
+#. used by: SECTION:linked_lists_single
+#: gslist.c:71:1
+msgid "To remove elements, use g_slist_remove()."
 msgstr ""
 
 #. used by: g_slist_find_custom:
-#: gslist.c:699:1
+#: gslist.c:723:1
 msgid "@data: user data passed to the function"
 msgstr ""
 
 #. used by: g_slist_find_custom:
-#: gslist.c:700:2
+#: gslist.c:724:2
 msgid ""
 "@func: the function to call for each element. It should return 0 when the "
 "desired element is found"
 msgstr ""
 
 #. used by: g_slist_find_custom:
-#: gslist.c:703:6
+#: gslist.c:727:6
 msgid ""
 "Finds an element in a #GSList, using a supplied function to find the desired "
 "element. It iterates over the list, calling the given function which should "
@@ -591,12 +626,7 @@ msgid ""
 "and the given user data."
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
-#: gslist.c:71:1
-msgid "To remove elements, use g_slist_remove()."
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:73:3
 msgid ""
 "To find elements in the list use g_slist_last(), g_slist_next(), g_slist_nth"
@@ -604,103 +634,103 @@ msgid ""
 msgstr ""
 
 #. used by: g_slist_position:
-#: gslist.c:732:1
+#: gslist.c:756:1
 msgid "@llink: an element in the #GSList"
 msgstr ""
 
 #. used by: g_slist_position:
-#: gslist.c:734:2
+#: gslist.c:758:2
 msgid ""
 "Gets the position of the given element in the #GSList (starting from 0)."
 msgstr ""
 
 #. used by: g_slist_position:
-#: gslist.c:737:2
+#: gslist.c:761:2
 msgid ""
 "Returns: the position of the element in the #GSList, or -1 if the element is "
 "not found"
 msgstr ""
 
-#. used by: g_slist_index:
-#: gslist.c:761:1
-msgid "@data: the data to find"
-msgstr ""
-
-#. used by: g_slist_index:
-#: gslist.c:763:2
-msgid ""
-"Gets the position of the element containing the given data (starting from 0)."
-msgstr ""
-
-#. used by: g_slist_index:
-#: gslist.c:766:2
-msgid ""
-"Returns: the index of the element containing the data, or -1 if the data is "
-"not found"
-msgstr ""
-
-#. used by: SECTION: linked_lists_single
+#. used by: SECTION:linked_lists_single
 #: gslist.c:77:2
 msgid ""
 "To find the index of an element use g_slist_position() and g_slist_index()."
 msgstr ""
 
+#. used by: g_slist_index:
+#: gslist.c:785:1
+msgid "@data: the data to find"
+msgstr ""
+
+#. used by: g_slist_index:
+#: gslist.c:787:2
+msgid ""
+"Gets the position of the element containing the given data (starting from 0)."
+msgstr ""
+
+#. used by: g_slist_index:
+#: gslist.c:790:2
+msgid ""
+"Returns: the index of the element containing the data, or -1 if the data is "
+"not found"
+msgstr ""
+
+#. used by: SECTION:linked_lists_single
+#: gslist.c:80:2
+msgid "To call a function for each element in the list use g_slist_foreach()."
+msgstr ""
+
 #. used by: g_slist_last:
-#: gslist.c:791:1
+#: gslist.c:815:1
 msgid "Gets the last element in a #GSList."
 msgstr ""
 
 #. used by: g_slist_last:
-#: gslist.c:793:3
+#: gslist.c:817:3
 msgid "<note><para> This function iterates over the whole list. </para></note>"
 msgstr ""
 
 #. used by: g_slist_last:
-#: gslist.c:797:2
+#: gslist.c:821:2
 msgid ""
 "Returns: the last element in the #GSList, or %NULL if the #GSList has no "
 "elements"
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
-#: gslist.c:80:2
-msgid "To call a function for each element in the list use g_slist_foreach()."
+#. used by: SECTION:linked_lists_single
+#: gslist.c:83:1
+msgid "To free the entire list, use g_slist_free()."
 msgstr ""
 
 #. used by: g_slist_length:
-#: gslist.c:816:1
+#: gslist.c:840:1
 msgid "Gets the number of elements in a #GSList."
 msgstr ""
 
 #. used by: g_slist_length:
-#: gslist.c:818:4
+#: gslist.c:842:4
 msgid ""
 "<note><para> This function iterates over the whole list to count its "
 "elements. </para></note>"
 msgstr ""
 
 #. used by: g_slist_length:
-#: gslist.c:823:1
+#: gslist.c:847:1
 msgid "Returns: the number of elements in the #GSList"
 msgstr ""
 
-#. used by: SECTION: linked_lists_single
-#: gslist.c:83:1
-msgid "To free the entire list, use g_slist_free()."
-msgstr ""
-
 #. used by: g_slist_foreach:
-#: gslist.c:843:1
+#: gslist.c:867:1
 msgid "@func: the function to call with each element's data"
 msgstr ""
 
 #. used by: g_slist_foreach:
-#: gslist.c:844:1
+#: gslist.c:868:1
 msgid "@user_data: user data to pass to the function"
 msgstr ""
 
 #. used by: g_slist_foreach:
-#: gslist.c:846:1
+#: gslist.c:870:1
 msgid "Calls a function for each element of a #GSList."
 msgstr ""
 
@@ -712,33 +742,33 @@ msgid ""
 "\">Type Conversion Macros</link>."
 msgstr ""
 
+#. used by: GSList:
+#: gslist.c:92:1
+msgid "@next: contains the link to the next element in the list."
+msgstr ""
+
+#. used by: GSList:
+#: gslist.c:94:2
+msgid "The #GSList struct is used for each element in the singly-linked list."
+msgstr ""
+
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted_with_data:
-#: gslist.c:919:3 gslist.c:940:3
+#: gslist.c:943:3 gslist.c:964:3
 msgid ""
 "@func: the function to compare elements in the list. It should return a "
 "number > 0 if the first parameter comes after the second parameter in the "
 "sort order."
 msgstr ""
 
-#. used by: GSList:
-#: gslist.c:92:1
-msgid "@next: contains the link to the next element in the list."
-msgstr ""
-
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_insert_sorted_with_data:
-#: gslist.c:923:2 gslist.c:945:2
+#: gslist.c:947:2 gslist.c:969:2
 msgid ""
 "Inserts a new element into the list, using the given comparison function to "
 "determine its position."
-msgstr ""
-
-#. used by: GSList:
-#: gslist.c:94:2
-msgid "The #GSList struct is used for each element in the singly-linked list."
 msgstr ""
