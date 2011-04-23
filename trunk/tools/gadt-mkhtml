@@ -503,9 +503,9 @@ download_source()
 	# 合并已翻译po文件内容到源文件
 	if [ "$FUZZY" -eq 1 ]; then
 		warning "Use fuzzy item -- Unsafe"
-		gadt-po -f -n $modname -V $pkgver -m -p . $moddir || return 1
+		gadt-po -m -f -n $modname -V $pkgver -p . $moddir || return 1
 	else
-		gadt-po -n $modname -V $pkgver -m -p . $moddir || return 1
+		gadt-po -m -n $modname -V $pkgver -p . $moddir || return 1
 	fi
 
 	#更新 xml 模板文件及作者信息
