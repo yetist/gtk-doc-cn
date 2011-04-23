@@ -428,10 +428,14 @@ update_xml()
 	local now=`date +%Y年%m月%d日`
 	for xml in $xml_tmpl;
 	do
+		online_uri="http://gtk-doc-cn.googlecode.com/svn/docs/$modname/index.html"
+		tarball_uri="http://gtk-doc-cn.googlecode.com/files/$modname-$pkgver-docs.tar.gz"
 		sed -i 's#XXXX年XX月XX日#'$now'#g' $docdir/$xml
 		sed -i 's#TRANS_URI#'$trans_uri'#g' $docdir/$xml
 		sed -i 's#TEAM_URI#'$team_uri'#g' $docdir/$xml
 		sed -i 's#TEAM_NAME#'$team_name'#g' $docdir/$xml
+		sed -i 's#ONLINE_URI#'$online_uri'#g' $docdir/$xml
+		sed -i 's#TARBALL_URI#'$tarball_uri'#g' $docdir/$xml
 		if [ -f $startdir/AUTHORS ];
 		then
 			cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
