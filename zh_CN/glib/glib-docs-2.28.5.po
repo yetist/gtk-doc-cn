@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 3.0.8\n"
-"POT-Creation-Date: 2011-04-14 14:21+0800\n"
-"PO-Revision-Date: 2011-04-18 15:50+0800\n"
+"POT-Creation-Date: 2011-04-23 10:05+0800\n"
+"PO-Revision-Date: 2011-04-23 10:19+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -15,8 +15,10 @@ msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: building.sgml:0(None) changes.sgml:0(None) compiling.sgml:0(None)
-#: cross.sgml:0(None) glib-docs.sgml:0(None) gvariant-varargs.xml:0(None)
-#: regex-syntax.sgml:0(None) resources.sgml:0(None) running.sgml:0(None)
+#: cross.sgml:0(None) glib-docs.sgml:0(None) glib-gettextize.xml:0(None)
+#: gtester-report.xml:0(None) gtester.xml:0(None) gvariant-text.xml:0(None)
+#: gvariant-varargs.xml:0(None) regex-syntax.sgml:0(None)
+#: resources.sgml:0(None) running.sgml:0(None)
 msgid "translator-credits"
 msgstr "translator-credits"
 
@@ -130,7 +132,7 @@ msgid ""
 "</arg></group><group><arg>--disable-regex</arg><arg>--enable-regex</arg></"
 "group><group><arg>--with-pcre=[internal|system]</arg></group><group><arg>--"
 "disable-included-printf</arg><arg>--enable-included-printf</arg></"
-"group><group><arg>--disable-visibility</arg><arg>--enable-visibility</arg></"
+"group><group><arg>--disable-Bsymbolic</arg><arg>--enable-Bsymbolic</arg></"
 "group><group><arg>--disable-gtk-doc</arg><arg>--enable-gtk-doc</arg></"
 "group><group><arg>--disable-man</arg><arg>--enable-man</arg></"
 "group><group><arg>--disable-xattr</arg><arg>--enable-xattr</arg></"
@@ -416,32 +418,30 @@ msgstr ""
 
 #: building.sgml:513(title)
 msgid ""
-"<systemitem>--disable-visibility</systemitem> and <systemitem>--enable-"
-"visibility</systemitem>"
+"<systemitem>--disable-Bsymbolic</systemitem> and <systemitem>--enable-"
+"Bsymbolic</systemitem>"
 msgstr ""
 
 #: building.sgml:516(para)
 msgid ""
-"By default, GLib uses ELF visibility attributes to optimize PLT table "
-"entries if the compiler supports ELF visibility attributes. A side-effect of "
-"the way in which this is currently implemented is that any header change "
-"forces a full recompilation, and missing includes may go unnoticed. "
-"Therefore, it makes sense to turn this feature off while doing GLib "
-"development, even if the compiler supports ELF visibility attributes. The "
-"<option>--disable-visibility</option> option allows to do that."
+"By default, GLib uses the -Bsymbolic-functions linker flag to avoid intra-"
+"library PLT jumps. A side-effect of this is that it is no longer possible to "
+"override internal uses of GLib functions with <envvar>LD_PRELOAD</envvar>. "
+"Therefore, it may make sense to turn this feature off in some situations. "
+"The <option>--disable-Bsymbolic</option> option allows to do that."
+msgstr ""
+
+#: building.sgml:529(title)
+msgid ""
+"<systemitem>--disable-gtk-doc</systemitem> and <systemitem>--enable-gtk-doc</"
+"systemitem>"
 msgstr ""
 
 #: building.sgml:53(title)
 msgid "Dependencies"
 msgstr "依赖"
 
-#: building.sgml:530(title)
-msgid ""
-"<systemitem>--disable-gtk-doc</systemitem> and <systemitem>--enable-gtk-doc</"
-"systemitem>"
-msgstr ""
-
-#: building.sgml:533(para)
+#: building.sgml:532(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether the <application>gtk-doc</application> package is installed. If it "
@@ -465,13 +465,13 @@ msgstr ""
 "要，它们是pkg-config和GNU make。 这两个工具和之前讲到的autoconf之类的工具 是"
 "不同的。"
 
-#: building.sgml:548(title)
+#: building.sgml:547(title)
 msgid ""
 "<systemitem>--disable-man</systemitem> and <systemitem>--enable-man</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:551(para)
+#: building.sgml:550(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether <application>xsltproc</application> and the necessary Docbook "
@@ -481,13 +481,13 @@ msgid ""
 "distribution includes pre-generated man pages."
 msgstr ""
 
-#: building.sgml:564(title)
+#: building.sgml:563(title)
 msgid ""
 "<systemitem>--disable-xattr</systemitem> and <systemitem>--enable-xattr</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:567(para)
+#: building.sgml:566(para)
 msgid ""
 "By default the <command>configure</command> script will try to auto-detect "
 "whether the getxattr() family of functions is available. If it is, then "
@@ -497,13 +497,13 @@ msgid ""
 "standalone libattr library."
 msgstr ""
 
-#: building.sgml:579(title)
+#: building.sgml:578(title)
 msgid ""
 "<systemitem>--disable-selinux</systemitem> and <systemitem>--enable-selinux</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:582(para)
+#: building.sgml:581(para)
 msgid ""
 "By default the <command>configure</command> script will auto-detect if "
 "libselinux is available and include SELinux support in GIO if it is. These "
@@ -511,38 +511,38 @@ msgid ""
 "included."
 msgstr ""
 
-#: building.sgml:592(title)
+#: building.sgml:591(title)
 msgid ""
 "<systemitem>--disable-dtrace</systemitem> and <systemitem>--enable-dtrace</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:595(para)
+#: building.sgml:594(para)
 msgid ""
 "By default the <command>configure</command> script will detect if DTrace "
 "support is available, and use it."
 msgstr ""
 
-#: building.sgml:602(title)
+#: building.sgml:601(title)
 msgid ""
 "<systemitem>--disable-systemtap</systemitem> and <systemitem>--enable-"
 "systemtap</systemitem>"
 msgstr ""
 
-#: building.sgml:605(para)
+#: building.sgml:604(para)
 msgid ""
 "This option requires DTrace support. If it is available, then the "
 "<command>configure</command> script will also check for the presence of "
 "SystemTap."
 msgstr ""
 
-#: building.sgml:613(title)
+#: building.sgml:612(title)
 msgid ""
 "<systemitem>--enable-gcov</systemitem> and <systemitem>--disable-gcov</"
 "systemitem>"
 msgstr ""
 
-#: building.sgml:616(para)
+#: building.sgml:615(para)
 msgid ""
 "Enable the generation of coverage reports for the GLib tests. This requires "
 "the lcov frontend to gcov from the <ulink url=\"http://ltp.sourceforge.net"
@@ -551,11 +551,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: building.sgml:626(systemitem)
+#: building.sgml:625(systemitem)
 msgid "--with-runtime-libdir=RELPATH"
 msgstr "--with-runtime-libdir=RELPATH"
 
-#: building.sgml:628(para)
+#: building.sgml:627(para)
 msgid ""
 "Allows specifying a relative path to where to install the runtime libraries "
 "(meaning library files used for running, not developing, GLib applications). "
@@ -620,22 +620,14 @@ msgid ""
 "www.gnu.org/software/libiconv</ulink>."
 msgstr ""
 
-#: changes.sgml:105(para)
-msgid ""
-"Sources are first created, then later added to a specific "
-"<structname>GMainContext</structname>."
-msgstr ""
-"Sources 刚刚创建，于是稍候被添加到了具体的<structname>GMainContext</"
-"structname>。"
-
-#: changes.sgml:112(para)
+#: changes.sgml:104(para)
 msgid ""
 "Dispatching has been modified so both the callback and data are passed in to "
 "the <function>dispatch()</function> virtual function."
 msgstr ""
 "修改了调度，以使回调和数据都可以传递给<function>dispatch()</function>虚函数。"
 
-#: changes.sgml:127(para)
+#: changes.sgml:119(para)
 msgid ""
 "<function>g_list_foreach()</function> and <function>g_slist_foreach()</"
 "function> have been changed so they are now safe against removal of the "
@@ -644,22 +636,18 @@ msgstr ""
 "更改了<function>g_list_foreach()</function>和<function>g_slist_foreach()</"
 "function>，以使它们安全的应对移除当前条目，而不是下一条目。"
 
-#: changes.sgml:13(refname) changes.sgml:7(refentrytitle)
-#: changes.sgml:9(refmiscinfo)
-msgid "Changes to GLib"
-msgstr "GLib 的更改"
-
-#: changes.sgml:133(para)
+#: changes.sgml:125(para)
 msgid ""
 "It's not recommended to mutate the list in the callback to these functions "
 "in any case."
 msgstr "在任何情况下回调这些函数时，都不推荐变更这些链表。 "
 
-#: changes.sgml:14(refpurpose)
-msgid "Incompatible changes made between successing versions of GLib"
-msgstr ""
+#: changes.sgml:13(refname) changes.sgml:7(refentrytitle)
+#: changes.sgml:9(refmiscinfo)
+msgid "Changes to GLib"
+msgstr "GLib 的更改"
 
-#: changes.sgml:140(para)
+#: changes.sgml:132(para)
 msgid ""
 "<structname>GDate</structname> now works in UTF-8, not in the current "
 "locale. If you want to use it with the encoding of the locale, you need to "
@@ -669,7 +657,11 @@ msgstr ""
 "它处理当前区域的编码，您需要首先使用<function>g_locale_to_utf8()</function>转"
 "换字符串的编码。 "
 
-#: changes.sgml:148(para)
+#: changes.sgml:14(refpurpose)
+msgid "Incompatible changes made between successing versions of GLib"
+msgstr ""
+
+#: changes.sgml:140(para)
 msgid ""
 "<function>g_strsplit()</function> has been fixed to: <placeholder-1/> Code "
 "depending on either of these bugs will need to be fixed."
@@ -677,11 +669,11 @@ msgstr ""
 "<function>g_strsplit()</function>被更正为：<placeholder-1/>所有依赖于这些 "
 "bug 的代码需要更正。  "
 
-#: changes.sgml:153(para)
+#: changes.sgml:145(para)
 msgid "include trailing empty tokens, rather than stripping them"
 msgstr "包含结尾的空标记，而不是剥离它们 "
 
-#: changes.sgml:158(para)
+#: changes.sgml:150(para)
 msgid ""
 "split into a maximum of <literal>max_tokens</literal> tokens, rather than "
 "<literal>max_tokens + 1</literal>"
@@ -689,7 +681,7 @@ msgstr ""
 "最多分割为<literal>max_tokens</literal>节, 而不是<literal>max_tokens + 1</"
 "literal>"
 
-#: changes.sgml:170(para)
+#: changes.sgml:162(para)
 msgid ""
 "Deprecated functions that got removed: <function>g_set_error_handler()</"
 "function>, <function>g_set_warning_handler()</function>, "
@@ -745,18 +737,7 @@ msgstr ""
 msgid "Incompatible changes from 1.2 to 2.0"
 msgstr "从 1.2 到 2.0 的不兼容更改"
 
-#: changes.sgml:59(para)
-msgid ""
-"The <ulink url=\"http://developer.gnome.org/dotplan/porting/\">GNOME 2.0 "
-"porting guide</ulink> on <ulink url=\"http://developer.gnome.org\">http://"
-"developer.gnome.org</ulink> has some more detailed discussion of porting "
-"from 1.2 to 2.0. See the section on GLib."
-msgstr ""
-"位于<ulink url=\"http://developer.gnome.org\">http://developer.gnome.org</"
-"ulink>的<ulink url=\"http://developer.gnome.org/dotplan/porting/\">GNOME 2.0 "
-"移植指南</ulink> 有更多的从 1.2 到 2.0 移植的细节讨论。请阅读 GLib 一节。"
-
-#: changes.sgml:70(para)
+#: changes.sgml:62(para)
 msgid ""
 "The event loop functionality <structname>GMain</structname> has extensively "
 "been revised to support multiple separate main loops in separate threads. "
@@ -767,7 +748,7 @@ msgstr ""
 "多个分离的主循环。所有 sources (计时、空闲等函数) 都与"
 "<structname>GMainContext</structname>联系起来了。"
 
-#: changes.sgml:77(para)
+#: changes.sgml:69(para)
 msgid ""
 "Compatibility functions exist so that most application code dealing with the "
 "main loop will continue to work. However, code that creates new custom types "
@@ -776,7 +757,7 @@ msgstr ""
 "仍然存在兼容函数，以使多数处理主循环的程序代码能继续工作。但是创建新的 "
 "sources 的自定义类型的代码需要修改。 "
 
-#: changes.sgml:83(para)
+#: changes.sgml:75(para)
 msgid ""
 "The main changes here are: <placeholder-1/> To go along with this change, "
 "the vtable for <structname>GIOChannel</structname> has changed and "
@@ -787,13 +768,13 @@ msgstr ""
 "structname>的 vtable 改变了，同时 <function>add_watch()</function>被替换为"
 "<function>create_watch()</function>. "
 
-#: changes.sgml:89(para)
+#: changes.sgml:81(para)
 msgid ""
 "Sources are now exposed as <type>GSource *</type>, rather than simply as "
 "numeric ids."
 msgstr "Sources 以<type>GSource *</type>暴露，而不是仅仅是数字 id。 "
 
-#: changes.sgml:96(para)
+#: changes.sgml:88(para)
 msgid ""
 "New types of sources are created by structure \"derivation\" from "
 "<structname>GSource</structname>, so the <literal>source_data</literal> "
@@ -803,6 +784,14 @@ msgstr ""
 "\"derivation\" 结构 从 <structname>GSource</structname>创建一个 sources 新类"
 "型， 所以虚函数<structname>GSource</structname>的<literal>source_data</"
 "literal>参数 被替换为<type>GSource *</type>. "
+
+#: changes.sgml:97(para)
+msgid ""
+"Sources are first created, then later added to a specific "
+"<structname>GMainContext</structname>."
+msgstr ""
+"Sources 刚刚创建，于是稍候被添加到了具体的<structname>GMainContext</"
+"structname>。"
 
 #: compiling.sgml:13(refname) compiling.sgml:7(refentrytitle)
 msgid "Compiling GLib Applications"
@@ -1239,63 +1228,63 @@ msgstr ""
 
 #: glib-docs.sgml:10(releaseinfo)
 msgid ""
-"for GLib 2.26.1 The latest version of this documentation can be found on-"
+"for GLib 2.28.5 The latest version of this documentation can be found on-"
 "line at <ulink role=\"online-location\" url=\"http://library.gnome.org/devel/"
 "glib/unstable/\">http://library.gnome.org/devel/glib/unstable/</ulink>."
 msgstr ""
-"GLib 当前版本为2.26.1, 最新在线版本请浏览这里<ulink role=\"online-location\" "
-"url=\"http://library.gnome.org/devel/glib/unstable/\">http://library.gnome."
-"org/devel/glib/unstable/</ulink>."
+"GLib 当前版本为2.28.5, 最新在线版本请浏览这里<ulink role=\"online-location"
+"\" url=\"http://library.gnome.org/devel/glib/unstable/\">http://library."
+"gnome.org/devel/glib/unstable/</ulink>."
 
 #: glib-docs.sgml:103(title)
 msgid "GLib Data Types"
 msgstr "GLib 数据类型"
 
-#: glib-docs.sgml:131(title)
+#: glib-docs.sgml:132(title)
 msgid "GLib Tools"
 msgstr "GLib 工具"
 
-#: glib-docs.sgml:138(title)
+#: glib-docs.sgml:139(title)
 msgid "Index"
 msgstr "索引"
 
-#: glib-docs.sgml:142(title)
+#: glib-docs.sgml:143(title)
 msgid "Index of deprecated symbols"
 msgstr "已过时符号索引"
 
-#: glib-docs.sgml:146(title)
+#: glib-docs.sgml:147(title)
 msgid "Index of new symbols in 2.2"
 msgstr "2.2版本中的新符号索引"
 
-#: glib-docs.sgml:150(title)
+#: glib-docs.sgml:151(title)
 msgid "Index of new symbols in 2.4"
 msgstr "2.4版本中的新符号索引"
 
-#: glib-docs.sgml:154(title)
+#: glib-docs.sgml:155(title)
 msgid "Index of new symbols in 2.6"
 msgstr "2.6版本中的新符号索引"
 
-#: glib-docs.sgml:158(title)
+#: glib-docs.sgml:159(title)
 msgid "Index of new symbols in 2.8"
 msgstr "2.8版本中的新符号索引"
 
-#: glib-docs.sgml:162(title)
+#: glib-docs.sgml:163(title)
 msgid "Index of new symbols in 2.10"
 msgstr "2.10版本中的新符号索引"
 
-#: glib-docs.sgml:166(title)
+#: glib-docs.sgml:167(title)
 msgid "Index of new symbols in 2.12"
 msgstr "2.12版本中的新符号索引"
 
-#: glib-docs.sgml:170(title)
+#: glib-docs.sgml:171(title)
 msgid "Index of new symbols in 2.14"
 msgstr "2.14版本中的新符号索引"
 
-#: glib-docs.sgml:174(title)
+#: glib-docs.sgml:175(title)
 msgid "Index of new symbols in 2.16"
 msgstr "2.16版本中的新符号索引"
 
-#: glib-docs.sgml:178(title)
+#: glib-docs.sgml:179(title)
 msgid "Index of new symbols in 2.18"
 msgstr "2.18版本中的新符号索引"
 
@@ -1303,11 +1292,11 @@ msgstr "2.18版本中的新符号索引"
 msgid "GLib Overview"
 msgstr "GLib概述"
 
-#: glib-docs.sgml:182(title)
+#: glib-docs.sgml:183(title)
 msgid "Index of new symbols in 2.20"
 msgstr "2.20版本中的新符号索引"
 
-#: glib-docs.sgml:186(title)
+#: glib-docs.sgml:187(title)
 msgid "Index of new symbols in 2.22"
 msgstr "2.22版本中的新符号索引"
 
@@ -1323,13 +1312,17 @@ msgstr ""
 "具，文件工具，主循环抽象等功能。它正工作在许多类UNIX、Windows、OS/2及BeOS平台"
 "上。GLib使用GNU库通用公共许可证(GNU LGPL)发布。"
 
-#: glib-docs.sgml:190(title)
+#: glib-docs.sgml:191(title)
 msgid "Index of new symbols in 2.24"
 msgstr "2.24版本中的新符号索引"
 
-#: glib-docs.sgml:194(title)
+#: glib-docs.sgml:195(title)
 msgid "Index of new symbols in 2.26"
 msgstr "2.26版本中的新符号索引"
+
+#: glib-docs.sgml:199(title)
+msgid "Index of new symbols in 2.28"
+msgstr ""
 
 #: glib-docs.sgml:26(para)
 msgid ""
@@ -1358,8 +1351,993 @@ msgstr "GLib工具"
 msgid "GLib Reference Manual"
 msgstr "GLib 参考手册"
 
-#: gvariant-varargs.xml:1005(literal)
-msgid "^a&amp;s"
+#: glib-gettextize.xml:10(refname) glib-gettextize.xml:16(command)
+#: glib-gettextize.xml:4(refentrytitle)
+msgid "glib-gettextize"
+msgstr ""
+
+#: glib-gettextize.xml:11(refpurpose)
+msgid "gettext internationalization utility"
+msgstr ""
+
+#: glib-gettextize.xml:17(arg) gtester-report.xml:17(arg) gtester.xml:17(arg)
+msgid "option"
+msgstr ""
+
+#: glib-gettextize.xml:18(arg)
+msgid "directory"
+msgstr ""
+
+#: glib-gettextize.xml:22(title) gtester-report.xml:22(title)
+#: gtester.xml:22(title)
+msgid "Description"
+msgstr ""
+
+#: glib-gettextize.xml:23(para)
+msgid ""
+"<command>glib-gettextize</command> helps to prepare a source package for "
+"being internationalized through <application>gettext</application>. It is a "
+"variant of the <command>gettextize</command> that ships with "
+"<application>gettext</application>."
+msgstr ""
+
+#: glib-gettextize.xml:29(para)
+msgid ""
+"<command>glib-gettextize</command> differs from <command>gettextize</"
+"command> in that it doesn't create an <filename>intl/</filename> "
+"subdirectory and doesn't modify <filename>po/ChangeLog</filename> (note that "
+"newer versions of <command>gettextize</command> behave like this when called "
+"with the <option>--no-changelog</option> option)."
+msgstr ""
+
+#: glib-gettextize.xml:36(title) gtester-report.xml:27(title)
+#: gtester.xml:32(title)
+msgid "Options"
+msgstr ""
+
+#: glib-gettextize.xml:40(option)
+msgid "--help"
+msgstr ""
+
+#: glib-gettextize.xml:41(para) gtester-report.xml:32(para)
+#: gtester.xml:37(para)
+msgid "print help and exit"
+msgstr ""
+
+#: glib-gettextize.xml:47(option)
+msgid "--version"
+msgstr ""
+
+#: glib-gettextize.xml:48(para) gtester-report.xml:39(para)
+#: gtester.xml:44(para)
+msgid "print version information and exit"
+msgstr ""
+
+#: glib-gettextize.xml:5(manvolnum) glib-gettextize.xml:72(manvolnum)
+#: gtester-report.xml:5(manvolnum) gtester-report.xml:52(manvolnum)
+#: gtester.xml:120(manvolnum) gtester.xml:5(manvolnum)
+msgid "1"
+msgstr ""
+
+#: glib-gettextize.xml:54(term)
+msgid "<option>-c</option>, <option>--copy</option>"
+msgstr ""
+
+#: glib-gettextize.xml:55(para)
+msgid "copy files instead of making symlinks"
+msgstr ""
+
+#: glib-gettextize.xml:6(refmiscinfo) gtester-report.xml:6(refmiscinfo)
+#: gtester.xml:6(refmiscinfo)
+msgid "User Commands"
+msgstr ""
+
+#: glib-gettextize.xml:61(term)
+msgid "<option>-f</option>, <option>--force</option>"
+msgstr ""
+
+#: glib-gettextize.xml:62(para)
+msgid "force writing of new files even if old ones exist"
+msgstr ""
+
+#: glib-gettextize.xml:70(title) gtester-report.xml:48(title)
+#: gtester.xml:116(title)
+msgid "See also"
+msgstr ""
+
+#: glib-gettextize.xml:72(refentrytitle)
+msgid "gettextize"
+msgstr ""
+
+#: gtester-report.xml:10(refname) gtester-report.xml:16(command)
+#: gtester-report.xml:4(refentrytitle) gtester.xml:119(refentrytitle)
+msgid "gtester-report"
+msgstr ""
+
+#: gtester-report.xml:11(refpurpose)
+msgid "test report formatting utility"
+msgstr ""
+
+#: gtester-report.xml:18(arg)
+msgid "gtester-log"
+msgstr ""
+
+#: gtester-report.xml:23(para)
+msgid ""
+"<command>gtester-report</command> is a script which converts the XML output "
+"generated by gtester into HTML."
+msgstr ""
+
+#: gtester-report.xml:31(term) gtester.xml:36(term)
+msgid "<option>-h</option>, <option>--help</option>"
+msgstr ""
+
+#: gtester-report.xml:38(term) gtester.xml:43(term)
+msgid "<option>-v</option>, <option>--version</option>"
+msgstr ""
+
+#: gtester-report.xml:51(refentrytitle) gtester.xml:10(refname)
+#: gtester.xml:16(command) gtester.xml:4(refentrytitle)
+msgid "gtester"
+msgstr ""
+
+#: gtester.xml:100(para)
+msgid "suppress per test binary output"
+msgstr ""
+
+#: gtester.xml:106(option)
+msgid "--verbose"
+msgstr ""
+
+#: gtester.xml:107(para)
+msgid "report success per testcase"
+msgstr ""
+
+#: gtester.xml:11(refpurpose)
+msgid "test running utility"
+msgstr ""
+
+#: gtester.xml:18(arg)
+msgid "testprogram"
+msgstr ""
+
+#: gtester.xml:23(para)
+msgid ""
+"<command>gtester</command> is a utility to run unit tests that have been "
+"written using the GLib test framework."
+msgstr ""
+
+#: gtester.xml:26(para)
+msgid ""
+"When called with the <option>-o</option> option, <command>gtester</command> "
+"writes an XML report of the test results, which can be converted into HTML "
+"using the <command>gtester-report</command> utility."
+msgstr ""
+
+#: gtester.xml:50(option)
+msgid "--g-fatal-warnings"
+msgstr ""
+
+#: gtester.xml:51(para)
+msgid "make warnings fatal"
+msgstr ""
+
+#: gtester.xml:57(term)
+msgid "<option>-k</option>, <option>--keep-going</option>"
+msgstr ""
+
+#: gtester.xml:58(para)
+msgid "continue running after tests failed"
+msgstr ""
+
+#: gtester.xml:64(option)
+msgid "-l"
+msgstr ""
+
+#: gtester.xml:65(para)
+msgid "list paths of available test cases"
+msgstr ""
+
+#: gtester.xml:71(option)
+msgid "-m=<placeholder-1/>"
+msgstr ""
+
+#: gtester.xml:71(replaceable)
+msgid "MODE"
+msgstr ""
+
+#: gtester.xml:72(para)
+msgid ""
+"run test cases in <replaceable>MODE</replaceable>, which can be perf, slow, "
+"thorough or quick. The default mode is quick."
+msgstr ""
+
+#: gtester.xml:78(option)
+msgid "-p=<placeholder-1/>"
+msgstr ""
+
+#: gtester.xml:78(replaceable)
+msgid "TESTPATH"
+msgstr ""
+
+#: gtester.xml:79(para)
+msgid "only run test cases matching <replaceable>TESTPATH</replaceable>"
+msgstr ""
+
+#: gtester.xml:85(option)
+msgid "--seed=<placeholder-1/>"
+msgstr ""
+
+#: gtester.xml:85(replaceable)
+msgid "SEEDSTRING"
+msgstr ""
+
+#: gtester.xml:86(para)
+msgid ""
+"run all test cases with random number seed <replaceable>SEEDSTRING</"
+"replaceable>"
+msgstr ""
+
+#: gtester.xml:92(option)
+msgid "-o=<placeholder-1/>"
+msgstr ""
+
+#: gtester.xml:92(replaceable)
+msgid "LOGFILE"
+msgstr ""
+
+#: gtester.xml:93(para)
+msgid "write the test log to <replaceable>LOGFILE</replaceable>"
+msgstr ""
+
+#: gtester.xml:99(term)
+msgid "<option>-q</option>, <option>--quiet</option>"
+msgstr ""
+
+#: gvariant-text.xml:102(para)
+msgid ""
+"<emphasis role=\"strong\"><literal>\"\"</literal></emphasis>, <emphasis role="
+"\"strong\"><literal>''</literal></emphasis>"
+msgstr ""
+
+#: gvariant-text.xml:108(para)
+msgid ""
+"String literal. See <link linkend=\"gvariant-text-strings\">Strings</link> "
+"below."
+msgstr ""
+
+#: gvariant-text.xml:11(para)
+msgid ""
+"This page attempts to document the GVariant text format as produced by <link "
+"linkend=\"g-variant-print\"><function>g_variant_print()</function></link> "
+"and parsed by the <link linkend=\"g-variant-parse\"><function>g_variant_parse"
+"()</function></link> family of functions. In most cases the style closely "
+"resembles the formatting of literals in Python but there are some additions "
+"and exceptions."
+msgstr ""
+
+#: gvariant-text.xml:116(para)
+msgid "numbers"
+msgstr ""
+
+#: gvariant-text.xml:121(para)
+msgid "See <link linkend=\"gvariant-text-numbers\">Numbers</link> below."
+msgstr ""
+
+#: gvariant-text.xml:130(literal) gvariant-varargs.xml:181(literal)
+#: gvariant-varargs.xml:780(code)
+msgid "()"
+msgstr ""
+
+#: gvariant-text.xml:134(para)
+msgid "<link linkend=\"gvariant-text-tuples\">Tuples</link>."
+msgstr ""
+
+#: gvariant-text.xml:143(literal)
+msgid "[]"
+msgstr ""
+
+#: gvariant-text.xml:147(para)
+msgid "<link linkend=\"gvariant-text-arrays\">Arrays</link>."
+msgstr ""
+
+#: gvariant-text.xml:156(literal) gvariant-varargs.xml:197(literal)
+#: gvariant-varargs.xml:813(code)
+msgid "{}"
+msgstr ""
+
+#: gvariant-text.xml:160(para)
+msgid ""
+"<link linkend=\"gvariant-text-dictionaries\">Dictionaries and Dictionary "
+"Entries</link>."
+msgstr ""
+
+#: gvariant-text.xml:169(literal)
+msgid "&lt;&gt;"
+msgstr ""
+
+#: gvariant-text.xml:173(para)
+msgid "<link linkend=\"gvariant-text-variants\">Variants</link>."
+msgstr ""
+
+#: gvariant-text.xml:181(para)
+msgid ""
+"<emphasis role=\"strong\"><literal>just</literal></emphasis>, <emphasis role="
+"\"strong\"><literal>nothing</literal></emphasis>"
+msgstr ""
+
+#: gvariant-text.xml:187(para)
+msgid "<link linkend=\"gvariant-text-maybe-types\">Maybe Types</link>."
+msgstr ""
+
+#: gvariant-text.xml:19(para)
+msgid ""
+"The functions that deal with GVariant text format absolutely always deal in "
+"utf-8. Conceptually, GVariant text format is a string of Unicode characters "
+"-- not bytes. Non-ASCII but otherwise printable Unicode characters are not "
+"treated any differently from normal ASCII characters."
+msgstr ""
+
+#: gvariant-text.xml:196(literal) gvariant-varargs.xml:213(literal)
+#: gvariant-varargs.xml:838(literal)
+msgid "@"
+msgstr ""
+
+#: gvariant-text.xml:200(para)
+msgid ""
+"<link linkend=\"gvariant-text-type-annotations\">Type Annotations</link>."
+msgstr ""
+
+#: gvariant-text.xml:208(para)
+msgid "type keywords"
+msgstr ""
+
+#: gvariant-text.xml:213(para)
+msgid ""
+"<literal>boolean</literal>, <literal>byte</literal>, <literal>int16</"
+"literal>, <literal>uint16</literal>, <literal>int32</literal>, "
+"<literal>uint32</literal>, <literal>handle</literal>, <literal>int64</"
+"literal>, <literal>uint64</literal>, <literal>double</literal>, "
+"<literal>string</literal>, <literal>objectpath</literal>, "
+"<literal>signature</literal>"
+msgstr ""
+
+#: gvariant-text.xml:228(para)
+msgid ""
+"See <link linkend=\"gvariant-text-type-annotations\">Type Annotations</link> "
+"below."
+msgstr ""
+
+#: gvariant-text.xml:236(para)
+msgid ""
+"<emphasis role=\"strong\"><literal>b\"\"</literal></emphasis>, <emphasis "
+"role=\"strong\"><literal>b''</literal></emphasis>"
+msgstr ""
+
+#: gvariant-text.xml:242(para)
+msgid "<link linkend=\"gvariant-text-bytestrings\">Bytestrings</link>."
+msgstr ""
+
+#: gvariant-text.xml:25(para)
+msgid ""
+"The parser makes two passes. The purpose of the first pass is to determine "
+"the type of the value being parsed. The second pass does the actual parsing. "
+"Based on the fact that all elements in an array have to have the same type, "
+"GVariant is able to make some deductions that would not otherwise be "
+"possible. As an example: <placeholder-1/> is parsed as an array of arrays of "
+"integers (type '<literal>aai</literal>'), but <placeholder-2/> is parsed as "
+"a array of arrays of doubles (type '<literal>aad</literal>')."
+msgstr ""
+
+#: gvariant-text.xml:251(literal)
+msgid "%"
+msgstr ""
+
+#: gvariant-text.xml:255(para)
+msgid ""
+"<link linkend=\"gvariant-text-positional\">Positional Parameters</link>."
+msgstr ""
+
+#: gvariant-text.xml:265(title)
+msgid "Booleans"
+msgstr ""
+
+#: gvariant-text.xml:266(para)
+msgid ""
+"The strings <literal>true</literal> and <literal>false</literal> are parsed "
+"as booleans. This is the only way to specify a boolean value."
+msgstr ""
+
+#: gvariant-text.xml:273(title) gvariant-varargs.xml:512(title)
+msgid "Strings"
+msgstr ""
+
+#: gvariant-text.xml:274(para)
+msgid ""
+"Strings literals must be quoted using <literal>\"\"</literal> or "
+"<literal>''</literal>. The two are completely equivalent (except for the "
+"fact that each one is unable to contain itself unescaped)."
+msgstr ""
+
+#: gvariant-text.xml:278(para)
+msgid ""
+"Strings are Unicode strings with no particular encoding. For example, to "
+"specify the character <literal>é</literal>, you just write <literal>'é'</"
+"literal>. You could also give the Unicode codepoint of that character (U+E9) "
+"as the escape sequence <literal>'\\u00e9'</literal>. Since the strings are "
+"pure Unicode, you should not attempt to encode the utf-8 byte sequence "
+"corresponding to the string using escapes; it won't work and you'll end up "
+"with the individual characters corresponding to each byte."
+msgstr ""
+
+#: gvariant-text.xml:285(para)
+msgid ""
+"Unicode escapes of the form <literal>\\uxxxx</literal> and <literal>"
+"\\Uxxxxxxxx</literal> are supported, in hexidecimal. The usual control "
+"sequence escapes <literal>\\a</literal>, <literal>\\b</literal>, <literal>"
+"\\f</literal>, <literal>\\n</literal>, <literal>\\r</literal>, <literal>\\t</"
+"literal> and <literal>\\v</literal> are supported. Additionally, a <literal>"
+"\\</literal> before a newline character causes the newline to be ignored. "
+"Finally, any other character following <literal>\\</literal> is copied "
+"literally (for example, <literal>\\\"</literal> or <literal>\\\\</literal>) "
+"but for forwards compatibility with future additions you should only use "
+"this feature when necessary for escaping backslashes or quotes."
+msgstr ""
+
+#: gvariant-text.xml:294(para)
+msgid ""
+"The usual octal and hexidecimal escapes <literal>\\0nnn</literal> and "
+"<literal>\\xnn</literal> are not supported here. Those escapes are used to "
+"encode byte values and GVariant strings are Unicode."
+msgstr ""
+
+#: gvariant-text.xml:298(para)
+msgid ""
+"Single-character strings are not interpreted as bytes. Bytes must be "
+"specified by their numerical value."
+msgstr ""
+
+#: gvariant-text.xml:304(title)
+msgid "Numbers"
+msgstr ""
+
+#: gvariant-text.xml:305(para)
+msgid ""
+"Numbers are given by default as decimal values. Octal and hex values can be "
+"given in the usual way (by prefixing with <literal>0</literal> or "
+"<literal>0x</literal>). Note that GVariant considers bytes to be unsigned "
+"integers and will print them as a two digit hexidecimal number by default."
+msgstr ""
+
+#: gvariant-text.xml:31(programlisting)
+#, no-wrap
+msgid "[[1, 2, 3], [4, 5, 6]]"
+msgstr ""
+
+#: gvariant-text.xml:310(para)
+msgid ""
+"Floating point numbers can also be given in the usual ways, including "
+"scientific and hexidecimal notations."
+msgstr ""
+
+#: gvariant-text.xml:313(para)
+msgid ""
+"For lack of additional information, integers will be parsed as int32 values "
+"by default. If the number has a point or an 'e' in it, then it will be "
+"parsed as a double precision floating point number by default. If type "
+"information is available (either explicitly or inferred) then that type will "
+"be used instead."
+msgstr ""
+
+#: gvariant-text.xml:318(para) gvariant-text.xml:490(para)
+msgid "Some examples:"
+msgstr ""
+
+#: gvariant-text.xml:321(para)
+msgid "<literal>5</literal> parses as the int32 value five."
+msgstr ""
+
+#: gvariant-text.xml:324(para)
+msgid "<literal>37.5</literal> parses as a floating point value."
+msgstr ""
+
+#: gvariant-text.xml:327(para)
+msgid "<literal>3.75e1</literal> parses the same as the value above."
+msgstr ""
+
+#: gvariant-text.xml:330(para)
+msgid ""
+"<literal>uint64 7</literal> parses seven as a uint64. See <link linkend="
+"\"gvariant-text-type-annotations\">Type Annotations</link>."
+msgstr ""
+
+#: gvariant-text.xml:337(title) gvariant-varargs.xml:777(title)
+msgid "Tuples"
+msgstr ""
+
+#: gvariant-text.xml:338(para)
+msgid ""
+"Tuples are formed using the same syntax as Python. Here are some examples:"
+msgstr ""
+
+#: gvariant-text.xml:341(para)
+msgid "<literal>()</literal> parses as the empty tuple."
+msgstr ""
+
+#: gvariant-text.xml:344(para)
+msgid "<literal>(5,)</literal> is a tuple containing a single value."
+msgstr ""
+
+#: gvariant-text.xml:347(para)
+msgid ""
+"<literal>(\"hello\", 42)</literal> is a pair. Note that values of different "
+"types are permitted."
+msgstr ""
+
+#: gvariant-text.xml:35(programlisting)
+#, no-wrap
+msgid "[[1, 2, 3], [4, 5, 6.0]]"
+msgstr ""
+
+#: gvariant-text.xml:353(title) gvariant-varargs.xml:603(title)
+msgid "Arrays"
+msgstr ""
+
+#: gvariant-text.xml:354(para)
+msgid ""
+"Arrays are formed using the same syntax as Python uses for lists (which is "
+"arguably the term that GVariant should have used). Note that, unlike Python "
+"lists, GVariant arrays are statically typed. This has two implications."
+msgstr ""
+
+#: gvariant-text.xml:359(para)
+msgid ""
+"First, all items in the array must have the same type. Second, the type of "
+"the array must be known, even in the case that it is empty. This means that "
+"(unless there is some other way to infer it) type information will need to "
+"be given explicitly for empty arrays."
+msgstr ""
+
+#: gvariant-text.xml:364(para)
+msgid ""
+"The parser is able to infer some types based on the fact that all items in "
+"an array must have the same type. See the examples below:"
+msgstr ""
+
+#: gvariant-text.xml:368(para)
+msgid ""
+"<literal>[1]</literal> parses (without additional type information) as a one-"
+"item array of signed integers."
+msgstr ""
+
+#: gvariant-text.xml:371(para)
+msgid "<literal>[1, 2, 3]</literal> parses (similarly) as a three-item array."
+msgstr ""
+
+#: gvariant-text.xml:374(para)
+msgid ""
+"<literal>[1, 2, 3.0]</literal> parses as an array of doubles. This is the "
+"most simple case of the type inferencing in action."
+msgstr ""
+
+#: gvariant-text.xml:378(para)
+msgid ""
+"<literal>[(1, 2), (3, 4.0)]</literal> causes the 2 to also be parsed as a "
+"double (but the 1 and 4 are still integers)."
+msgstr ""
+
+#: gvariant-text.xml:382(para)
+msgid ""
+"<literal>[\"\", nothing]</literal> parses as an array of maybe strings. The "
+"presence of \"<literal>nothing</literal>\" clearly implies that the array "
+"elements are nullable."
+msgstr ""
+
+#: gvariant-text.xml:386(para)
+msgid ""
+"<literal>[[], [\"\"]]</literal> will parse properly because the type of the "
+"first (empty) array can be inferred to be equal to the type of the second "
+"array (both are arrays of strings)."
+msgstr ""
+
+#: gvariant-text.xml:390(para)
+msgid ""
+"<literal>[b'hello', []]</literal> looks odd but will parse properly. See "
+"<link linkend=\"gvariant-text-bytestrings\">Bytestrings</link>"
+msgstr ""
+
+#: gvariant-text.xml:394(para)
+msgid "And some examples of errors:"
+msgstr ""
+
+#: gvariant-text.xml:397(para)
+msgid ""
+"<literal>[\"hello\", 42]</literal> fails to parse due to conflicting types."
+msgstr ""
+
+#: gvariant-text.xml:40(para)
+msgid ""
+"As another example, GVariant is able to determine that <placeholder-1/> is "
+"an array of maybe strings (type '<literal>ams</literal>')."
+msgstr ""
+
+#: gvariant-text.xml:400(para)
+msgid ""
+"<literal>[]</literal> will fail to parse without additional type information."
+msgstr ""
+
+#: gvariant-text.xml:406(title)
+msgid "Dictionaries and Dictionary Entries"
+msgstr ""
+
+#: gvariant-text.xml:407(para)
+msgid ""
+"Dictionaries and dictionary entries are both specified using the <literal>{}"
+"</literal> characters."
+msgstr ""
+
+#: gvariant-text.xml:410(para)
+msgid ""
+"The dictionary syntax is more commonly used. This is what the printer elects "
+"to use in the normal case of dictionary entries appearing in an array (aka "
+"\"a dictionary\"). The separate syntax for dictionary entries is typically "
+"only used for when the entries appear on their own, outside of an array "
+"(which is valid but unusual). Of course, you are free to use the dictionary "
+"entry syntax within arrays but there is no good reason to do so (and the "
+"printer itself will never do so). Note that, as with arrays, the type of "
+"empty dictionaries must be established (either explicitly or through "
+"inference)."
+msgstr ""
+
+#: gvariant-text.xml:418(para)
+msgid ""
+"The dictionary syntax is the same as Python's syntax for dictionaries. Some "
+"examples:"
+msgstr ""
+
+#: gvariant-text.xml:421(para)
+msgid ""
+"<literal>@a{sv} {}</literal> parses as the empty dictionary of everyone's "
+"favourite type."
+msgstr ""
+
+#: gvariant-text.xml:424(para)
+msgid ""
+"<literal>@a{sv} []</literal> is the same as above (owing to the fact that "
+"dictionaries are really arrays)."
+msgstr ""
+
+#: gvariant-text.xml:427(para)
+msgid ""
+"<literal>{1: \"one\", 2: \"two\", 3: \"three\"}</literal> parses as a "
+"dictionary mapping integers to strings."
+msgstr ""
+
+#: gvariant-text.xml:43(programlisting)
+#, no-wrap
+msgid "[\"hello\", nothing]"
+msgstr ""
+
+#: gvariant-text.xml:430(para)
+msgid ""
+"The dictionary entry syntax looks just like a pair (2-tuple) that uses "
+"braces instead of parens. The presence of a comma immediately following the "
+"key differentiates it from the dictionary syntax (which features a colon "
+"after the first key). Some examples:"
+msgstr ""
+
+#: gvariant-text.xml:435(para)
+msgid ""
+"<literal>{1, \"one\"}</literal> is a free-standing dictionary entry that can "
+"be parsed on its own or as part of another container value."
+msgstr ""
+
+#: gvariant-text.xml:439(para)
+msgid ""
+"<literal>[{1, \"one\"}, {2, \"two\"}, {3, \"three\"}]</literal> is exactly "
+"equivalent to the dictionary example given above."
+msgstr ""
+
+#: gvariant-text.xml:446(title) gvariant-varargs.xml:562(title)
+msgid "Variants"
+msgstr ""
+
+#: gvariant-text.xml:447(para)
+msgid ""
+"Variants are denoted using angle brackets (aka \"XML brackets\"), "
+"<literal>&lt;&gt;</literal>. They may not be omitted."
+msgstr ""
+
+#: gvariant-text.xml:451(para)
+msgid ""
+"Using <literal>&lt;&gt;</literal> effectively disrupts the type inferencing "
+"that occurs between array elements. This can have positive and negative "
+"effects."
+msgstr ""
+
+#: gvariant-text.xml:455(para)
+msgid ""
+"<literal>[&lt;\"hello\"&gt;, &lt;42&gt;]</literal> will parse whereas "
+"<literal>[\"hello\", 42]</literal> would not."
+msgstr ""
+
+#: gvariant-text.xml:459(para)
+msgid ""
+"<literal>[&lt;['']&gt;, &lt;[]&gt;]</literal> will fail to parse even though "
+"<literal>[[''], []]</literal> parses successfully. You would need to specify "
+"<literal>[&lt;['']&gt;, &lt;@as []&gt;]</literal>."
+msgstr ""
+
+#: gvariant-text.xml:463(para)
+msgid ""
+"<literal>{\"title\": &lt;\"frobit\"&gt;, \"enabled\": &lt;true&gt;, width: "
+"&lt;800&gt;}</literal> is an example of perhaps the most pervasive use of "
+"both dictionaries and variants."
+msgstr ""
+
+#: gvariant-text.xml:470(title) gvariant-varargs.xml:661(title)
+msgid "Maybe Types"
+msgstr ""
+
+#: gvariant-text.xml:471(para)
+msgid "The syntax for specifying maybe types is inspired by Haskell."
+msgstr ""
+
+#: gvariant-text.xml:474(para)
+msgid ""
+"The null case is specified using the keyword <literal>nothing</literal> and "
+"the non-null case is explicitly specified using the keyword <literal>just</"
+"literal>. GVariant allows <literal>just</literal> to be omitted in every "
+"case that it is able to unambiguously determine the intention of the writer. "
+"There are two cases where it must be specified:"
+msgstr ""
+
+#: gvariant-text.xml:48(para)
+msgid ""
+"What the parser accepts as valid input is dependent on context. The API "
+"permits for out-of-band type information to be supplied to the parser (which "
+"will change its behaviour). This can be seen in the GSettings and GDBus "
+"command line utilities where the type information is available from the "
+"schema or the remote introspection information. The additional information "
+"can cause parses to succeed when they would not otherwise have been able to "
+"(by resolving ambiguous type information) or can cause them to fail (due to "
+"conflicting type information). Unless stated otherwise, the examples given "
+"in this section assume that no out-of-band type data has been given to the "
+"parser."
+msgstr ""
+
+#: gvariant-text.xml:482(para)
+msgid ""
+"when using nested maybes, in order to specify the <literal>just nothing</"
+"literal> case"
+msgstr ""
+
+#: gvariant-text.xml:485(para)
+msgid ""
+"to establish the nullability of the type of a value without explicitly "
+"specifying its full type"
+msgstr ""
+
+#: gvariant-text.xml:493(para)
+msgid "<literal>just 'hello'</literal> parses as a non-null nullable string."
+msgstr ""
+
+#: gvariant-text.xml:496(para)
+msgid ""
+"<literal>@ms 'hello'</literal> is the same (demonstrating how <literal>just</"
+"literal> can be dropped if the type is already known)."
+msgstr ""
+
+#: gvariant-text.xml:5(refentrytitle) gvariant-text.xml:9(title)
+msgid "GVariant Text Format"
+msgstr ""
+
+#: gvariant-text.xml:500(para)
+msgid ""
+"<literal>nothing</literal> will not parse wtihout extra type information."
+msgstr ""
+
+#: gvariant-text.xml:503(para)
+msgid "<literal>@ms nothing</literal> parses as a null nullable string."
+msgstr ""
+
+#: gvariant-text.xml:506(para)
+msgid "<literal>[just 3, nothing]</literal> is an array of nullable integers"
+msgstr ""
+
+#: gvariant-text.xml:509(para)
+msgid ""
+"<literal>[3, nothing]</literal> is the same as the above (demonstrating "
+"another place were <literal>just</literal> can be dropped)."
+msgstr ""
+
+#: gvariant-text.xml:513(para)
+msgid ""
+"<literal>[3, just nothing]</literal> parses as an array of maybe maybe "
+"integers (type <literal>'ammi'</literal>)."
+msgstr ""
+
+#: gvariant-text.xml:520(title)
+msgid "Type Annotations"
+msgstr ""
+
+#: gvariant-text.xml:521(para)
+msgid ""
+"Type annotations allow additional type information to be given to the "
+"parser. Depending on the context, this type information can change the "
+"output of the parser, cause an error when parsing would otherwise have "
+"succeeded or resolve an error when parsing would have otherwise failed."
+msgstr ""
+
+#: gvariant-text.xml:526(para)
+msgid "Type annotations come in two forms: type codes and type keywords."
+msgstr ""
+
+#: gvariant-text.xml:529(para)
+msgid ""
+"Type keywords can be seen as more verbose (and more legible) versions of a "
+"common subset of the type codes. The type keywords <literal>boolean</"
+"literal>, <literal>byte</literal>, <literal>int16</literal>, "
+"<literal>uint16</literal>, <literal>int32</literal>, <literal>uint32</"
+"literal>, <literal>handle</literal>, <literal>int64</literal>, "
+"<literal>uint64</literal>, <literal>double</literal>, <literal>string</"
+"literal>, <literal>objectpath</literal> and literal <literal>signature</"
+"literal> are each exactly equivalent to their corresponding type code."
+msgstr ""
+
+#: gvariant-text.xml:537(para)
+msgid ""
+"Type codes are an <literal>@</literal> (\"at\" sign) followed by a definite "
+"GVariant type string. Some examples:"
+msgstr ""
+
+#: gvariant-text.xml:541(para)
+msgid ""
+"<literal>uint32 5</literal> causes the number to be parsed unsigned instead "
+"of signed (the default)."
+msgstr ""
+
+#: gvariant-text.xml:544(para)
+msgid "<literal>@u 5</literal> is the same"
+msgstr ""
+
+#: gvariant-text.xml:547(para)
+msgid ""
+"<literal>objectpath \"/org/gnome/xyz\"</literal> creates an object path "
+"instead of a normal string"
+msgstr ""
+
+#: gvariant-text.xml:550(para)
+msgid ""
+"<literal>@au []</literal> specifies the type of the empty array (which would "
+"not parse otherwise)"
+msgstr ""
+
+#: gvariant-text.xml:553(para)
+msgid ""
+"<literal>@ms \"\"</literal> indicates that a string value is meant to have a "
+"maybe type"
+msgstr ""
+
+#: gvariant-text.xml:559(title)
+msgid "Bytestrings"
+msgstr ""
+
+#: gvariant-text.xml:560(para)
+msgid ""
+"The bytestring syntax is a piece of syntactic sugar meant to complement the "
+"bytestring APIs in GVariant. It constructs arrays of non-nul bytes (type "
+"'<literal>ay</literal>') with a nul terminator at the end."
+msgstr ""
+
+#: gvariant-text.xml:564(para)
+msgid ""
+"Bytestrings are specified with either <literal>b\"\"</literal> or "
+"<literal>b''</literal>. As with strings, there is no fundamental difference "
+"between the two different types of quotes."
+msgstr ""
+
+#: gvariant-text.xml:568(para)
+msgid ""
+"Bytestrings support the full range of escapes that you would expect (ie: "
+"those supported by <link linkend=\"g-strcompress\"><function>g_strcompress()"
+"</function></link>. This includes the normal control sequence escapes (as "
+"mentioned in the section on strings) as well as octal and hexidecimal "
+"escapes of the forms <literal>\\0nnn</literal> and <literal>\\xnn</literal>."
+msgstr ""
+
+#: gvariant-text.xml:574(para)
+msgid ""
+"<literal>b'abc'</literal> is equivalent to <literal>[byte 0x97, 0x98, 0x99, "
+"0]</literal>."
+msgstr ""
+
+#: gvariant-text.xml:577(para)
+msgid ""
+"When formatting arrays of bytes, the printer will choose to display the "
+"array as a bytestring if it contains a nul character at the end and no other "
+"nul bytes within. Otherwise, it is formatted as a normal array."
+msgstr ""
+
+#: gvariant-text.xml:584(title)
+msgid "Positional Parameters"
+msgstr ""
+
+#: gvariant-text.xml:585(para)
+msgid ""
+"Positional parameters are not a part of the normal GVariant text format, but "
+"they are mentioned here because they can be used with <link linkend=\"g-"
+"variant-new-parsed\"><function>g_variant_new_parsed()</function></link>."
+msgstr ""
+
+#: gvariant-text.xml:589(para)
+msgid ""
+"A positional parameter is indicated with a <literal>%</literal> followed by "
+"any valid <link linkend=\"gvariant-format-strings\">GVariant Format String</"
+"link>. Variable arguments are collected as specified by the format string "
+"and the resulting value is inserted at the current position."
+msgstr ""
+
+#: gvariant-text.xml:594(para)
+msgid "This feature is best explained by example:"
+msgstr ""
+
+#: gvariant-text.xml:60(title)
+msgid "Syntax Summary"
+msgstr ""
+
+#: gvariant-text.xml:602(para)
+msgid ""
+"This constructs a dictionary mapping strings to variants (type '<literal>a"
+"{sv}</literal>') with two items in it. The key names are parsed from the "
+"string and the values for those keys are taken as variable arguments "
+"parameters."
+msgstr ""
+
+#: gvariant-text.xml:607(para)
+msgid ""
+"The arguments are always collected in the order that they appear in the "
+"string to be parsed. Format strings that collect multiple arguments are "
+"permitted, so you may require more varargs parameters than the number of "
+"<literal>%</literal> signs that appear. You can also give format strings "
+"that collect no arguments, but there's no good reason to do so."
+msgstr ""
+
+#: gvariant-text.xml:62(para)
+msgid ""
+"The following table describes the rough meaning of symbols that may appear "
+"inside GVariant text format. Each symbol is described in detail in its own "
+"section, including usage examples."
+msgstr ""
+
+#: gvariant-text.xml:76(emphasis) gvariant-varargs.xml:88(emphasis)
+#: regex-syntax.sgml:597(entry)
+msgid "Symbol"
+msgstr ""
+
+#: gvariant-text.xml:81(emphasis) gvariant-varargs.xml:93(emphasis)
+#: regex-syntax.sgml:134(entry) regex-syntax.sgml:1398(entry)
+#: regex-syntax.sgml:221(entry) regex-syntax.sgml:328(entry)
+#: regex-syntax.sgml:410(entry) regex-syntax.sgml:497(entry)
+#: regex-syntax.sgml:571(entry) regex-syntax.sgml:66(entry)
+#: regex-syntax.sgml:671(entry) regex-syntax.sgml:993(entry)
+msgid "Meaning"
+msgstr ""
+
+#: gvariant-text.xml:88(para)
+msgid ""
+"<emphasis role=\"strong\"><literal>true</literal></emphasis>, <emphasis role="
+"\"strong\"><literal>false</literal></emphasis>"
+msgstr ""
+
+#: gvariant-text.xml:94(para)
+msgid "<link linkend=\"gvariant-text-booleans\">Booleans</link>."
+msgstr ""
+
+#: gvariant-varargs.xml:1000(para)
+msgid ""
+"equivalent to <link linkend=\"g-variant-dup-strv"
+"\"><function>g_variant_dup_strv()</function></link>"
 msgstr ""
 
 #: gvariant-varargs.xml:101(emphasis)
@@ -1369,7 +2347,11 @@ msgid ""
 "<placeholder-9/>, <placeholder-10/>"
 msgstr ""
 
-#: gvariant-varargs.xml:1010(para)
+#: gvariant-varargs.xml:1010(literal)
+msgid "^a&amp;s"
+msgstr ""
+
+#: gvariant-varargs.xml:1015(para)
 msgid ""
 "equivalent to <link linkend=\"g-variant-get-strv"
 "\"><function>g_variant_get_strv()</function></link>"
@@ -1400,14 +2382,8 @@ msgstr ""
 msgid "y"
 msgstr ""
 
-#: gvariant-varargs.xml:1020(literal)
+#: gvariant-varargs.xml:1025(literal)
 msgid "^ay"
-msgstr ""
-
-#: gvariant-varargs.xml:1025(para)
-msgid ""
-"equivalent to <link linkend=\"g-variant-new-bytestring"
-"\"><function>g_variant_new_bytestring()</function></link>"
 msgstr ""
 
 #: gvariant-varargs.xml:103(literal) gvariant-varargs.xml:289(literal)
@@ -1437,38 +2413,40 @@ msgstr ""
 
 #: gvariant-varargs.xml:1030(para)
 msgid ""
+"equivalent to <link linkend=\"g-variant-new-bytestring"
+"\"><function>g_variant_new_bytestring()</function></link>"
+msgstr ""
+
+#: gvariant-varargs.xml:1035(para)
+msgid ""
 "equivalent to <link linkend=\"g-variant-dup-bytestring"
 "\"><function>g_variant_dup_bytestring()</function></link>"
 msgstr ""
 
-#: gvariant-varargs.xml:1040(literal)
+#: gvariant-varargs.xml:1045(literal)
 msgid "^&amp;ay"
 msgstr ""
 
-#: gvariant-varargs.xml:1045(para)
+#: gvariant-varargs.xml:1050(para)
 msgid ""
 "equivalent to <link linkend=\"g-variant-get-bytestring"
 "\"><function>g_variant_get_bytestring()</function></link>"
 msgstr ""
 
-#: gvariant-varargs.xml:1055(literal)
+#: gvariant-varargs.xml:1060(literal)
 msgid "^aay"
 msgstr ""
 
-#: gvariant-varargs.xml:1060(para)
+#: gvariant-varargs.xml:1065(para)
 msgid ""
 "equivalent to <link linkend=\"g-variant-new-bytestring-array"
 "\"><function>g_variant_new_bytestring_array()</function></link>"
 msgstr ""
 
-#: gvariant-varargs.xml:1065(para)
+#: gvariant-varargs.xml:1070(para)
 msgid ""
 "equivalent to <link linkend=\"g-variant-dup-bytestring-array"
 "\"><function>g_variant_dup_bytestring_array()</function></link>"
-msgstr ""
-
-#: gvariant-varargs.xml:1075(literal)
-msgid "^a&amp;ay"
 msgstr ""
 
 #: gvariant-varargs.xml:108(para)
@@ -1478,7 +2456,11 @@ msgid ""
 "below."
 msgstr ""
 
-#: gvariant-varargs.xml:1080(para)
+#: gvariant-varargs.xml:1080(literal)
+msgid "^a&amp;ay"
+msgstr ""
+
+#: gvariant-varargs.xml:1085(para)
 msgid ""
 "equivalent to <link linkend=\"g-variant-get-bytestring-array"
 "\"><function>g_variant_get_bytestring_array()</function></link>"
@@ -1520,7 +2502,7 @@ msgstr ""
 #: gvariant-varargs.xml:138(para)
 msgid ""
 "Used for building or deconstructing variant types. See <link linkend="
-"\"gvariant-format-strings-variant\">Variants</link> below."
+"\"gvariant-format-strings-variants\">Variants</link> below."
 msgstr ""
 
 #: gvariant-varargs.xml:14(para)
@@ -1561,18 +2543,10 @@ msgid ""
 "function."
 msgstr ""
 
-#: gvariant-varargs.xml:181(literal) gvariant-varargs.xml:775(code)
-msgid "()"
-msgstr ""
-
 #: gvariant-varargs.xml:186(para)
 msgid ""
 "Used for building or deconstructing tuples. See <link linkend=\"gvariant-"
 "format-strings-tuples\">Tuples</link> below."
-msgstr ""
-
-#: gvariant-varargs.xml:197(literal) gvariant-varargs.xml:808(code)
-msgid "{}"
 msgstr ""
 
 #: gvariant-varargs.xml:202(para)
@@ -1581,39 +2555,35 @@ msgid ""
 "\"gvariant-format-strings-dictionaries\">Dictionaries</link> below."
 msgstr ""
 
-#: gvariant-varargs.xml:213(literal) gvariant-varargs.xml:833(literal)
-msgid "@"
-msgstr ""
-
 #: gvariant-varargs.xml:218(para)
 msgid ""
 "Used as a prefix on a GVariant type string (not format string). Denotes that "
 "a pointer to a <link linkend=\"GVariant\">GVariant</link> should be used in "
 "place of the normal C type or types. For <link linkend=\"g-variant-new"
 "\"><function>g_variant_new()</function></link> this means that you must pass "
-"a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link><code>"
-"(<link linkend=\"GVariant\">GVariant</link> *)</code>; if it is a floating "
+"a non-<link linkend=\"NULL:CAPS\"><literal>NULL</literal></link><code>(<link "
+"linkend=\"GVariant\">GVariant</link> *)</code>; if it is a floating "
 "reference, ownership will be taken, as if by using <link linkend=\"g-variant-"
 "ref-sink\"><function>g_variant_ref_sink()</function></link>. For <link "
 "linkend=\"g-variant-get\"><function>g_variant_get()</function></link> this "
 "means that you must pass a pointer to a <code>(<link linkend=\"GVariant"
 "\">GVariant</link> *)</code> for the value to be returned by reference or "
-"<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> to ignore the "
+"<link linkend=\"NULL:CAPS\"><literal>NULL</literal></link> to ignore the "
 "value. See <link linkend=\"gvariant-format-strings-gvariant\"><code>GVariant "
 "*</code></link> below."
 msgstr ""
 
-#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:838(literal)
 #: regex-syntax.sgml:107(entry) regex-syntax.sgml:1403(entry)
 msgid "*"
 msgstr ""
 
-#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:838(literal)
 #: regex-syntax.sgml:103(entry) regex-syntax.sgml:1411(entry)
 msgid "?"
 msgstr ""
 
-#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:833(literal)
+#: gvariant-varargs.xml:237(literal) gvariant-varargs.xml:838(literal)
 msgid "r"
 msgstr ""
 
@@ -1625,7 +2595,7 @@ msgid ""
 "\"gvariant-format-strings-gvariant\"><code>GVariant *</code></link> below."
 msgstr ""
 
-#: gvariant-varargs.xml:253(literal) gvariant-varargs.xml:898(code)
+#: gvariant-varargs.xml:253(literal) gvariant-varargs.xml:903(code)
 msgid "&amp;"
 msgstr ""
 
@@ -1636,7 +2606,7 @@ msgid ""
 "See <link linkend=\"gvariant-format-strings-pointers\">Pointers</link> below."
 msgstr ""
 
-#: gvariant-varargs.xml:268(literal) gvariant-varargs.xml:935(literal)
+#: gvariant-varargs.xml:268(literal) gvariant-varargs.xml:940(literal)
 #: regex-syntax.sgml:143(entry) regex-syntax.sgml:75(entry)
 msgid "^"
 msgstr ""
@@ -1677,7 +2647,7 @@ msgid ""
 "variant-new\"><function>g_variant_new()</function></link> takes the "
 "equivalent C type as an argument. <link linkend=\"g-variant-get"
 "\"><function>g_variant_get()</function></link> takes a pointer to the "
-"equivalent C type (or <link linkend=\"NULL--CAPS\"><literal>NULL</literal></"
+"equivalent C type (or <link linkend=\"NULL:CAPS\"><literal>NULL</literal></"
 "link> to ignore the value)."
 msgstr ""
 
@@ -1769,9 +2739,9 @@ msgstr ""
 msgid ""
 "When using the '<literal>x</literal>' and '<literal>t</literal>' characters, "
 "you must ensure that the value that you provide is 64 bit. This means that "
-"you should use a cast or make use of the <link linkend=\"G-GINT64-CONSTANT--"
+"you should use a cast or make use of the <link linkend=\"G-GINT64-CONSTANT:"
 "CAPS\"><literal>G_GINT64_CONSTANT</literal></link> or <link linkend=\"G-"
-"GUINT64-CONSTANT--CAPS\"><literal>G_GUINT64_CONSTANT</literal></link> macros."
+"GUINT64-CONSTANT:CAPS\"><literal>G_GUINT64_CONSTANT</literal></link> macros."
 msgstr ""
 
 #: gvariant-varargs.xml:482(para)
@@ -1784,18 +2754,14 @@ msgstr ""
 
 #: gvariant-varargs.xml:488(title) gvariant-varargs.xml:539(title)
 #: gvariant-varargs.xml:587(title) gvariant-varargs.xml:633(title)
-#: gvariant-varargs.xml:711(title) gvariant-varargs.xml:784(title)
-#: gvariant-varargs.xml:817(title) gvariant-varargs.xml:866(title)
-#: gvariant-varargs.xml:917(title)
+#: gvariant-varargs.xml:716(title) gvariant-varargs.xml:789(title)
+#: gvariant-varargs.xml:822(title) gvariant-varargs.xml:871(title)
+#: gvariant-varargs.xml:922(title)
 msgid "Examples"
 msgstr ""
 
 #: gvariant-varargs.xml:5(refentrytitle)
 msgid "GVariant Format Strings"
-msgstr ""
-
-#: gvariant-varargs.xml:512(title)
-msgid "Strings"
 msgstr ""
 
 #: gvariant-varargs.xml:514(emphasis)
@@ -1809,7 +2775,7 @@ msgid ""
 "'<literal>g</literal>' in a format string, <link linkend=\"g-variant-new"
 "\"><function>g_variant_new()</function></link> takes a <code>(const <link "
 "linkend=\"gchar\">gchar</link> *)</code> and makes a copy of it. <link "
-"linkend=\"NULL--CAPS\"><literal>NULL</literal></link> is not a valid string. "
+"linkend=\"NULL:CAPS\"><literal>NULL</literal></link> is not a valid string. "
 "If the '<literal>o</literal>' or '<literal>g</literal>' characters are used, "
 "care must be taken to ensure that the passed string is a valid DBus object "
 "path or DBus type signature, respectively."
@@ -1823,7 +2789,7 @@ msgid ""
 "(<link linkend=\"gchar\">gchar</link> *)</code> (ie: <code>(<link linkend="
 "\"gchar\">gchar</link> **)</code>) and sets it to a newly-allocated copy of "
 "the string. It is appropriate to free this copy using <link linkend=\"g-free"
-"\"><function>g_free()</function></link>. <link linkend=\"NULL--CAPS"
+"\"><function>g_free()</function></link>. <link linkend=\"NULL:CAPS"
 "\"><literal>NULL</literal></link> may also be passed to indicate that the "
 "value of the string should be ignored (in which case no copy is made)."
 msgstr ""
@@ -1832,14 +2798,10 @@ msgstr ""
 msgid "any format string, prefixed with an '<literal>m</literal>'"
 msgstr ""
 
-#: gvariant-varargs.xml:562(title)
-msgid "Variants"
-msgstr ""
-
 #: gvariant-varargs.xml:564(emphasis) gvariant-varargs.xml:605(emphasis)
-#: gvariant-varargs.xml:663(emphasis) gvariant-varargs.xml:774(emphasis)
-#: gvariant-varargs.xml:807(emphasis) gvariant-varargs.xml:897(emphasis)
-#: gvariant-varargs.xml:934(emphasis)
+#: gvariant-varargs.xml:663(emphasis) gvariant-varargs.xml:779(emphasis)
+#: gvariant-varargs.xml:812(emphasis) gvariant-varargs.xml:902(emphasis)
+#: gvariant-varargs.xml:939(emphasis)
 msgid "Characters: <placeholder-1/>"
 msgstr ""
 
@@ -1861,7 +2823,7 @@ msgid ""
 "reference to a <link linkend=\"GVariant\"><type>GVariant</type></link> "
 "instance containing the contents of the variant value. It is appropriate to "
 "free this reference using <link linkend=\"g-variant-unref"
-"\"><function>g_variant_unref()</function></link>. <link linkend=\"NULL--CAPS"
+"\"><function>g_variant_unref()</function></link>. <link linkend=\"NULL:CAPS"
 "\"><literal>NULL</literal></link> may also be passed to indicate that the "
 "value should be ignored (in which case no new reference is created)."
 msgstr ""
@@ -1870,10 +2832,6 @@ msgstr ""
 msgid ""
 "a sequence of zero or more format strings strings, concatenated and enclosed "
 "in parentheses"
-msgstr ""
-
-#: gvariant-varargs.xml:603(title)
-msgid "Arrays"
 msgstr ""
 
 #: gvariant-varargs.xml:610(para)
@@ -1886,7 +2844,7 @@ msgid ""
 "have <link linkend=\"g-variant-builder-end\"><function>g_variant_builder_end"
 "()</function></link> called on it and the result will be used as the value. "
 "As a special exception, if the given type string is a definite type, then "
-"<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> may be given to "
+"<link linkend=\"NULL:CAPS\"><literal>NULL</literal></link> may be given to "
 "mean an empty array of that type."
 msgstr ""
 
@@ -1900,7 +2858,7 @@ msgid ""
 "and returned, initialised for iterating over the elements of the array. This "
 "iterator should be freed when you are done with it, using <link linkend=\"g-"
 "variant-iter-free\"><function>g_variant_iter_free()</function></link>. <link "
-"linkend=\"NULL--CAPS\"><literal>NULL</literal></link> may also be given to "
+"linkend=\"NULL:CAPS\"><literal>NULL</literal></link> may also be given to "
 "indicate that the value of the array should be ignored."
 msgstr ""
 
@@ -1909,10 +2867,6 @@ msgid ""
 "an opening brace, followed by two format strings, followed by a closing "
 "brace (subject to the constraint that the first format string correspond to "
 "a type valid for use as the key type of a dictionary)"
-msgstr ""
-
-#: gvariant-varargs.xml:661(title)
-msgid "Maybe Types"
 msgstr ""
 
 #: gvariant-varargs.xml:667(para)
@@ -1931,17 +2885,25 @@ msgid ""
 "literal>', '<literal>r</literal>', '<literal>&amp;</literal>', or "
 "'<literal>^</literal>'. In all of these cases, for non-maybe types, <link "
 "linkend=\"g-variant-new\"><function>g_variant_new()</function></link> takes "
-"a pointer to a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></"
+"a pointer to a non-<link linkend=\"NULL:CAPS\"><literal>NULL</literal></"
 "link> value and <link linkend=\"g-variant-get\"><function>g_variant_get()</"
-"function></link> returns (by reference) a non-<link linkend=\"NULL--CAPS"
+"function></link> returns (by reference) a non-<link linkend=\"NULL:CAPS"
 "\"><literal>NULL</literal></link> pointer. When any of these format strings "
 "are prefixed with an '<literal>m</literal>', the type of arguments that are "
-"collected does not change in any way, but <link linkend=\"NULL--CAPS"
+"collected does not change in any way, but <link linkend=\"NULL:CAPS"
 "\"><literal>NULL</literal></link> becomes a permissable value, to indicate "
 "the Nothing case."
 msgstr ""
 
 #: gvariant-varargs.xml:684(para)
+msgid ""
+"Note that the \"special exception\" introduced in the array section for "
+"constructing empty arrays is ignored here. Using a <literal>NULL</literal> "
+"pointer with the format string '<literal>mas</literal>' constructs the "
+"Nothing value -- not an empty array."
+msgstr ""
+
+#: gvariant-varargs.xml:689(para)
 msgid ""
 "The second way is used with all other format strings. For <link linkend=\"g-"
 "variant-new\"><function>g_variant_new()</function></link> an additional "
@@ -1952,28 +2914,28 @@ msgid ""
 "collected for the equivalent non-maybe type will be collected."
 msgstr ""
 
-#: gvariant-varargs.xml:692(para)
+#: gvariant-varargs.xml:697(para)
 msgid ""
-"If <link linkend=\"FALSE--CAPS\"><literal>FALSE</literal></link> is given to "
+"If <link linkend=\"FALSE:CAPS\"><literal>FALSE</literal></link> is given to "
 "<link linkend=\"g-variant-new\"><function>g_variant_new()</function></link> "
 "then the Nothing value is constructed and the collected arguments are "
-"ignored. Otherwise (if <link linkend=\"TRUE--CAPS\"><literal>TRUE</literal></"
+"ignored. Otherwise (if <link linkend=\"TRUE:CAPS\"><literal>TRUE</literal></"
 "link> was given), the arguments are used in the normal way to create the "
 "Just value."
 msgstr ""
 
-#: gvariant-varargs.xml:698(para)
+#: gvariant-varargs.xml:703(para)
 msgid ""
-"If <link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> is given to "
+"If <link linkend=\"NULL:CAPS\"><literal>NULL</literal></link> is given to "
 "<link linkend=\"g-variant-get\"><function>g_variant_get()</function></link> "
-"then the value is ignored. If a non-<link linkend=\"NULL--CAPS"
+"then the value is ignored. If a non-<link linkend=\"NULL:CAPS"
 "\"><literal>NULL</literal></link> pointer is given then it is used to return "
 "by reference whether the value was Just. In the case that the value was "
 "Just, the <link linkend=\"gboolean\"><type>gboolean</type></link> will be "
-"set to <link linkend=\"TRUE--CAPS\"><literal>TRUE</literal></link> and the "
+"set to <link linkend=\"TRUE:CAPS\"><literal>TRUE</literal></link> and the "
 "value will be stored in the arguments in the usual way. In the case that the "
 "value was Nothing, the <link linkend=\"gboolean\"><type>gboolean</type></"
-"link> will be set to <link linkend=\"FALSE--CAPS\"><literal>FALSE</literal></"
+"link> will be set to <link linkend=\"FALSE:CAPS\"><literal>FALSE</literal></"
 "link> and the arguments will be collected in the normal way but have their "
 "values set to binary zero."
 msgstr ""
@@ -1989,41 +2951,37 @@ msgid ""
 "own section, including usage examples."
 msgstr ""
 
-#: gvariant-varargs.xml:772(title)
-msgid "Tuples"
-msgstr ""
-
-#: gvariant-varargs.xml:779(para)
+#: gvariant-varargs.xml:784(para)
 msgid ""
 "Tuples are handled by handling each item in the tuple, in sequence. Each "
 "item is handled in the usual way."
 msgstr ""
 
-#: gvariant-varargs.xml:805(title)
+#: gvariant-varargs.xml:810(title)
 msgid "Dictionaries"
 msgstr ""
 
-#: gvariant-varargs.xml:812(para)
+#: gvariant-varargs.xml:817(para)
 msgid ""
 "Dictionary entries are handled by handling first the key, then the value. "
 "Each is handled in the usual way."
 msgstr ""
 
-#: gvariant-varargs.xml:830(title)
+#: gvariant-varargs.xml:835(title)
 msgid "GVariant *"
 msgstr ""
 
-#: gvariant-varargs.xml:832(emphasis)
+#: gvariant-varargs.xml:837(emphasis)
 msgid ""
 "Characters: <placeholder-1/>, <placeholder-2/>, <placeholder-3/>, "
 "<placeholder-4/>"
 msgstr ""
 
-#: gvariant-varargs.xml:837(para)
+#: gvariant-varargs.xml:842(para)
 msgid ""
 "Upon encountering a '<literal>@</literal>' in front of a type string, <link "
 "linkend=\"g-variant-new\"><function>g_variant_new()</function></link> takes "
-"a non-<link linkend=\"NULL--CAPS\"><literal>NULL</literal></link> pointer to "
+"a non-<link linkend=\"NULL:CAPS\"><literal>NULL</literal></link> pointer to "
 "a <link linkend=\"GVariant\"><type>GVariant</type></link> and uses its value "
 "directly instead of collecting arguments to create the value. The provided "
 "<link linkend=\"GVariant\"><type>GVariant</type></link> must have a type "
@@ -2036,7 +2994,7 @@ msgid ""
 "<link linkend=\"GVariant\"><type>GVariant</type></link> of any tuple type)."
 msgstr ""
 
-#: gvariant-varargs.xml:849(para)
+#: gvariant-varargs.xml:854(para)
 msgid ""
 "Upon encountering a '<literal>@</literal>' in front of a type string, <link "
 "linkend=\"g-variant-get\"><function>g_variant_get()</function></link> takes "
@@ -2044,13 +3002,13 @@ msgid ""
 "(ie: a <code>(<link linkend=\"GVariant\">GVariant</link> **)</code>) and "
 "sets it to a new reference to a <link linkend=\"GVariant\"><type>GVariant</"
 "type></link> containing the value (instead of deconstructing the value into "
-"C types in the usual way). <link linkend=\"NULL--CAPS\"><literal>NULL</"
+"C types in the usual way). <link linkend=\"NULL:CAPS\"><literal>NULL</"
 "literal></link> can be given to ignore the value. '<literal>*</literal>', "
 "'<literal>?</literal>' and '<literal>r</literal>' are handled in a way "
 "analogous to what is stated above."
 msgstr ""
 
-#: gvariant-varargs.xml:859(para)
+#: gvariant-varargs.xml:864(para)
 msgid ""
 "You can always use '<literal>*</literal>' as an alternative to '<literal>?</"
 "literal>', '<literal>r</literal>' or any use of '<literal>@</literal>'. "
@@ -2058,25 +3016,21 @@ msgid ""
 "the improvements in type safety and code self-documentation."
 msgstr ""
 
-#: gvariant-varargs.xml:88(emphasis) regex-syntax.sgml:597(entry)
-msgid "Symbol"
-msgstr ""
-
-#: gvariant-varargs.xml:895(title)
-msgid "Pointers"
-msgstr ""
-
 #: gvariant-varargs.xml:9(title)
 msgid "Variable Argument Conversions"
 msgstr ""
 
-#: gvariant-varargs.xml:902(para)
+#: gvariant-varargs.xml:900(title)
+msgid "Pointers"
+msgstr ""
+
+#: gvariant-varargs.xml:907(para)
 msgid ""
 "The '<code>&amp;</code>' character is used to indicate that serialised data "
 "should be directly exchanged via a pointer."
 msgstr ""
 
-#: gvariant-varargs.xml:906(para)
+#: gvariant-varargs.xml:911(para)
 msgid ""
 "Currently, the only use for this character is when it is applied to a string "
 "(ie: '<literal>&amp;s</literal>', '<literal>&amp;o</literal>' or '<code>&amp;"
@@ -2090,27 +3044,18 @@ msgid ""
 "terminated."
 msgstr ""
 
-#: gvariant-varargs.xml:93(emphasis) regex-syntax.sgml:134(entry)
-#: regex-syntax.sgml:1398(entry) regex-syntax.sgml:221(entry)
-#: regex-syntax.sgml:328(entry) regex-syntax.sgml:410(entry)
-#: regex-syntax.sgml:497(entry) regex-syntax.sgml:571(entry)
-#: regex-syntax.sgml:66(entry) regex-syntax.sgml:671(entry)
-#: regex-syntax.sgml:993(entry)
-msgid "Meaning"
-msgstr ""
-
-#: gvariant-varargs.xml:932(title)
+#: gvariant-varargs.xml:937(title)
 msgid "Convenience Conversions"
 msgstr ""
 
-#: gvariant-varargs.xml:939(para)
+#: gvariant-varargs.xml:944(para)
 msgid ""
 "The '<literal>^</literal>' character currently supports conversion to and "
 "from bytestrings or to and from arrays of strings or bytestrings. It has a "
 "number of forms."
 msgstr ""
 
-#: gvariant-varargs.xml:944(para)
+#: gvariant-varargs.xml:949(para)
 msgid ""
 "In all forms, when used with <link linkend=\"g-variant-new"
 "\"><function>g_variant_new()</function></link> one pointer value is "
@@ -2121,40 +3066,34 @@ msgid ""
 "by using the function (given in the table) and returned by reference."
 msgstr ""
 
-#: gvariant-varargs.xml:962(emphasis)
+#: gvariant-varargs.xml:967(emphasis)
 msgid "Conversion"
 msgstr ""
 
-#: gvariant-varargs.xml:967(emphasis)
+#: gvariant-varargs.xml:972(emphasis)
 msgid "Used with <link linkend=\"g-variant-new\"><placeholder-1/></link>"
 msgstr ""
 
-#: gvariant-varargs.xml:968(function)
+#: gvariant-varargs.xml:973(function)
 msgid "g_variant_new()"
 msgstr ""
 
-#: gvariant-varargs.xml:974(emphasis)
+#: gvariant-varargs.xml:979(emphasis)
 msgid "Used with <link linkend=\"g-variant-get\"><placeholder-1/></link>"
 msgstr ""
 
-#: gvariant-varargs.xml:975(function)
+#: gvariant-varargs.xml:980(function)
 msgid "g_variant_get()"
 msgstr ""
 
-#: gvariant-varargs.xml:985(literal)
+#: gvariant-varargs.xml:990(literal)
 msgid "^as"
-msgstr ""
-
-#: gvariant-varargs.xml:990(para)
-msgid ""
-"equivalent to <link linkend=\"g-variant-new-strv"
-"\"><function>g_variant_new_strv()</function></link>"
 msgstr ""
 
 #: gvariant-varargs.xml:995(para)
 msgid ""
-"equivalent to <link linkend=\"g-variant-dup-strv"
-"\"><function>g_variant_dup_strv()</function></link>"
+"equivalent to <link linkend=\"g-variant-new-strv"
+"\"><function>g_variant_new_strv()</function></link>"
 msgstr ""
 
 #: regex-syntax.sgml:100(entry)
