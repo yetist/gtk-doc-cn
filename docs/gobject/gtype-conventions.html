@@ -25,7 +25,7 @@
 <p>当用户在头文件中创建新类型时，有一些规范用户需要注意： </p>
 <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem"><p>使用 <code class="function">object_method</code>的形式来定义函数名称： 例如在一个 bar 类中定义一个名为 foo 的函数，则用 <code class="function">bar_foo</code> 。</p></li>
-<li class="listitem"><p>使用前缀来避免与其他工程的命名空间冲突。 如果你的库（或应用程序）名为 <span class="emphasis"><em>Maman</em></span>， <sup>[<a name="id2870237" href="#ftn.id2870237" class="footnote">3</a>]</sup> 那么所有的函数名称前缀为<span class="emphasis"><em>maman_</em></span>。 举例: <code class="function">maman_object_method</code>.</p></li>
+<li class="listitem"><p>使用前缀来避免与其他工程的命名空间冲突。 如果你的库（或应用程序）名为 <span class="emphasis"><em>Maman</em></span>， <sup>[<a name="id2896839" href="#ftn.id2896839" class="footnote">3</a>]</sup> 那么所有的函数名称前缀为<span class="emphasis"><em>maman_</em></span>。 举例: <code class="function">maman_object_method</code>.</p></li>
 <li class="listitem"><p>创建一个宏命为 <code class="function">PREFIX_TYPE_OBJECT</code>用来返回 GType 关联的对象类型。 比如，<span class="emphasis"><em>Bar</em></span>这个类在一个以 <span class="emphasis"><em>maman</em></span>前缀的库中，则使用 <code class="function">MAMAN_TYPE_BAR</code>。 另有一个不成文的规定是，定义一个使用全局静态变或一个名为<code class="function">prefix_object_get_type</code> 的函数来实现这个宏。我们将在后面的章节中讨论这个函数。</p></li>
 <li class="listitem"><p>创建一个宏命名为 <code class="function">PREFIX_OBJECT (obj)</code> 来返回一个指向<span class="type">PrefixObject</span> 类型的指针。 这个宏用于必要时安全地强制转换一个静态类型。 运行环境检查时，同样也是安全地执行动态类型。 在编译glib时是可以禁止动态类型检查的（参见：<a href="./../glib/glib/glib-building.html">编译glib</a>）。 在处理过程中禁用动态类型检查是可行的。 例如，我们可以创建 MAMAN_BAR(obj) 来保持先前的例子。</p></li>
 <li class="listitem"><p>如果类型是类化的，那么创建一个命令为 <code class="function">PREFIX_OBJECT_CLASS (klass)</code>的宏。 这个宏与前面那个是非常相似的： 它以类结构的动态类型检查来进行静态转换，并返回一个指向 <span class="type">PrefixObjectClass</span> 这个类型的类结构的指针。 同样，例子为：<code class="function">MAMAN_BAR_CLASS</code>。</p></li>
@@ -68,7 +68,7 @@ G_DEFINE_TYPE (MamanBar, maman_bar, G_TYPE_OBJECT)
 </pre>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><p><sup>[<a id="ftn.id2870237" href="#id2870237" class="para">3</a>] </sup><span class="emphasis"><em>Maman</em></span>在法语中是<span class="emphasis"><em>妈妈</em></span> 或<span class="emphasis"><em>母亲</em></span>的意思 - 仅此而已。</p></div>
+<div class="footnote"><p><sup>[<a id="ftn.id2896839" href="#id2896839" class="para">3</a>] </sup><span class="emphasis"><em>Maman</em></span>在法语中是<span class="emphasis"><em>妈妈</em></span> 或<span class="emphasis"><em>母亲</em></span>的意思 - 仅此而已。</p></div>
 </div>
 </div>
 <div class="footer">
