@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-17 18:34-0800\n"
+"POT-Creation-Date: 2011-04-23 20:10-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -570,12 +570,10 @@ msgid ""
 msgstr ""
 
 #. used by: gtk_widget_get_toplevel:
-#: gtkwidget.c:10082:10
+#: gtkwidget.c:10082:3
 msgid ""
 "To reliably find the toplevel #GtkWindow, use gtk_widget_get_toplevel() and "
-"check if the %TOPLEVEL flags is set on the result. |[ GtkWidget *toplevel = "
-"gtk_widget_get_toplevel (widget); if (gtk_widget_is_toplevel (toplevel)) { /"
-"&ast; Perform action on toplevel. &ast;/ } ]|"
+"check if the %TOPLEVEL flags is set on the result."
 msgstr ""
 
 #. used by: gtk_widget_get_toplevel:
@@ -791,14 +789,8 @@ msgid ""
 msgstr ""
 
 #. used by: gtk_widget_push_composite_child:
-#: gtkwidget.c:10410:10
-msgid ""
-"Here is a simple example: |[ gtk_widget_push_composite_child (); "
-"scrolled_window->hscrollbar = gtk_scrollbar_new (GTK_ORIENTATION_HORIZONTAL, "
-"hadjustment); gtk_widget_set_composite_name (scrolled_window->hscrollbar, "
-"\"hscrollbar\"); gtk_widget_pop_composite_child (); gtk_widget_set_parent "
-"(scrolled_window->hscrollbar, GTK_WIDGET (scrolled_window)); g_object_ref "
-"(scrolled_window->hscrollbar); ]|"
+#: gtkwidget.c:10410:1
+msgid "Here is a simple example:"
 msgstr ""
 
 #. used by: gtk_widget_pop_composite_child:
@@ -2436,30 +2428,6 @@ msgid "An example of its usage is:"
 msgstr ""
 
 #. used by: gtk_widget_send_focus_change:
-#: gtkwidget.c:13998:2
-msgid "|[ GdkEvent *fevent = gdk_event_new (GDK_FOCUS_CHANGE);"
-msgstr ""
-
-#. used by: gtk_widget_send_focus_change:
-#: gtkwidget.c:14001:5
-msgid ""
-"fevent->focus_change.type = GDK_FOCUS_CHANGE; fevent->focus_change.in = "
-"TRUE; fevent->focus_change.window = gtk_widget_get_window (widget); if "
-"(fevent->focus_change.window != NULL) g_object_ref (fevent->focus_change."
-"window);"
-msgstr ""
-
-#. used by: gtk_widget_send_focus_change:
-#: gtkwidget.c:14007:1
-msgid "gtk_widget_send_focus_change (widget, fevent);"
-msgstr ""
-
-#. used by: gtk_widget_send_focus_change:
-#: gtkwidget.c:14009:2
-msgid "gdk_event_free (event); ]|"
-msgstr ""
-
-#. used by: gtk_widget_send_focus_change:
 #: gtkwidget.c:14012:2
 msgid ""
 "Return value: the return value from the event signal emission: %TRUE if the "
@@ -3525,68 +3493,13 @@ msgid ""
 msgstr ""
 
 #. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2529:14
+#: gtkwidget.c:2529:5
 msgid ""
 "Also note that there is no drag-enter signal. The drag receiver has to keep "
 "track of whether he has received any drag-motion signals since the last "
 "#GtkWidget::drag-leave and if not, treat the drag-motion signal as an \"enter"
 "\" signal. Upon an \"enter\", the handler will typically highlight the drop "
-"site with gtk_drag_highlight(). |[ static void drag_motion (GtkWidget "
-"*widget, GdkDragContext *context, gint x, gint y, guint time) { GdkAtom "
-"target;"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2544:1
-msgid "PrivateData *private_data = GET_PRIVATE_DATA (widget);"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2546:5
-msgid ""
-"if (!private_data->drag_highlight) { private_data->drag_highlight = 1; "
-"gtk_drag_highlight (widget); }"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2552:8
-msgid ""
-"target = gtk_drag_dest_find_target (widget, context, NULL); if (target == "
-"GDK_NONE) gdk_drag_status (context, 0, time); else { private_data-"
-">pending_status = context->suggested_action; gtk_drag_get_data (widget, "
-"context, target, time); }"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2561:2
-msgid "return TRUE; }"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2564:10
-msgid ""
-"static void drag_data_received (GtkWidget        *widget, GdkDragContext   "
-"*context, gint              x, gint              y, GtkSelectionData "
-"*selection_data, guint             info, guint             time) "
-"{ PrivateData *private_data = GET_PRIVATE_DATA (widget);"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2575:3
-msgid ""
-"if (private_data->suggested_action) { private_data->suggested_action = 0;"
-msgstr ""
-
-#. used by: GtkWidget::drag-motion:
-#: gtkwidget.c:2579:17
-msgid ""
-"/&ast; We are getting this data due to a request in drag_motion, * rather "
-"than due to a request in drag_drop, so we are just * supposed to call "
-"gdk_drag_status (), not actually paste in * the data. &ast;/ str = "
-"gtk_selection_data_get_text (selection_data); if (!data_is_acceptable (str)) "
-"gdk_drag_status (context, 0, time); else gdk_drag_status (context, "
-"private_data->suggested_action, time); } else { /&ast; accept the drop "
-"&ast;/ } } ]|"
+"site with gtk_drag_highlight()."
 msgstr ""
 
 #. used by: SECTION:gtkwidget
@@ -3677,41 +3590,11 @@ msgid ""
 msgstr ""
 
 #. used by: GtkWidget::drag-data-received:
-#: gtkwidget.c:2692:19
+#: gtkwidget.c:2692:3
 msgid ""
 "The handler may inspect and modify @drag_context->action before calling "
 "gtk_drag_finish(), e.g. to implement %GDK_ACTION_ASK as shown in the "
-"following example: |[ void drag_data_received (GtkWidget          *widget, "
-"GdkDragContext     *drag_context, gint                x, gint                "
-"y, GtkSelectionData   *data, guint               info, guint               "
-"time) { if ((data->length >= 0) && (data->format == 8)) { if (drag_context-"
-">action == GDK_ACTION_ASK) { GtkWidget *dialog; gint response;"
-msgstr ""
-
-#. used by: GtkWidget::drag-data-received:
-#: gtkwidget.c:2712:8
-msgid ""
-"dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL | "
-"GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_INFO, GTK_BUTTONS_YES_NO, \"Move "
-"the data ?\\n\"); response = gtk_dialog_run (GTK_DIALOG (dialog)); "
-"gtk_widget_destroy (dialog);"
-msgstr ""
-
-#. used by: GtkWidget::drag-data-received:
-#: gtkwidget.c:2721:5
-msgid ""
-"if (response == GTK_RESPONSE_YES) drag_context->action = GDK_ACTION_MOVE; "
-"else drag_context->action = GDK_ACTION_COPY; }"
-msgstr ""
-
-#. used by: GtkWidget::drag-data-received:
-#: gtkwidget.c:2727:3
-msgid "gtk_drag_finish (drag_context, TRUE, FALSE, time); return; }"
-msgstr ""
-
-#. used by: GtkWidget::drag-data-received:
-#: gtkwidget.c:2731:3
-msgid "gtk_drag_finish (drag_context, FALSE, FALSE, time); } ]|"
+"following example:"
 msgstr ""
 
 #. used by: GtkWidget::visibility-notify-event:
