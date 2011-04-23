@@ -18,11 +18,10 @@ from optparse import OptionParser, OptionGroup, HelpFormatter
 
 # Utility functions
 def escapePoString(text):
-    #return text.replace('\\','\\\\').replace('"', "\\\"").replace("\n","\\n").replace("\t","\\t")
-    return text.replace('\\','\\\\').replace('"', "\\\"").replace("\t","\\t")
+    return text.replace('\\','\\\\').replace('"', "\\\"").replace("\n","\\n").replace("\t","\\t")
 
 def unEscapePoString(text):
-    return text.replace('\\"', '"').replace('\\\\','\\')
+    return text.replace("\\t", "\t").replace('\\"', '"').replace('\\\\','\\')
 
 opts = {
     "command":0,
@@ -65,11 +64,23 @@ class Merge:
             n = line
             if data[line].find(atype) >=0 and len(data[line].split('"')) > 2:
                 if data[line].split('"')[1] != '':
-                    message += data[line].split('"')[1]+"\n"
+                    start = data[line].find('"') + 1
+                    end = data[line].rfind('"')
+                    msg = data[line][start:end]
+                    if msg.endswith("\\n"):
+                        msg = msg[:-2]
+                    message += msg + '\n'
+                    #message += data[line].split('"')[1]+"\n"
                 else:
                     # if the next line is not empty, and
                     while n+1< len(data) and len(data[n+1].strip()) > 0 and data[n+1].split('"')[1] != "":
-                        message += " * " + data[n+1].split('"')[1]+"\n"
+                        #message += ' * ' + data[n+1].split('"')[1]+'\n'
+                        start = data[n+1].find('"') + 1
+                        end = data[n+1].rfind('"')
+                        msg = data[n+1][start:end]
+                        if msg.endswith("\\n"):
+                            msg = msg[:-2]
+                        message += ' * ' + msg + '\n'
                         n = n+1
                 if message.startswith(" * "):
                     message = message[3:]
@@ -189,15 +200,17 @@ msgstr ""
                 while data[i+1].find("*/") < 0:
                     cont.append(data[i+1])
                     i = i+1
-                end_line = i+2
+                end_line = i+2 #data[i+1] is "*/"
 
-                function=data[start_line+1][data[start_line+1].find("*")+1:].strip()
+                function=data[start_line+1][data[start_line+1].find("*")+1:].strip() #start_line is "/**"
                 for line in cont:
                     line = escapePoString(line)
-                    content.append(line)
+                    if line.endswith("\\n"):
+                        line = line[:-2]
+                    content.append(line)  #content has string list that after escape.
                 last_n=0
-                for n in range(1, len(content)):
-                    if n < last_n:
+                for n in range(1, len(content)): #content[0] is function name
+                    if n < last_n: #last process line number.
                         continue
                     # if this line is begin of @args
                     if re.search("^\*\ ?@\D+:",content[n].strip()):
@@ -221,36 +234,60 @@ msgstr ""
                     elif len(content[n].strip()) < 2:
                         continue
                     else:
+                        # FIXME:
+                        # if fount "<programlisting>","</programlisting>" and "|[", "]|"。
                         # if this line is begin of the code.
                         if content[n].find("<programlisting>")>=0:
-                            begin=start_line+2+n
-                            while n+1 < len(content) and content[n+1].find("</programlisting>")<0:
+                            begin=start_line+2+n #the number 2 is to skip "/**" and "function name" line, add "n" for this line number.
+                            codeline = n
+                            while codeline +1 < len(content) and content[codeline +1].find("</programlisting>")<0:
+                                codeline = codeline + 1
+                            if self.opts.include_code:
+                                pot_fd.writelines ( "#. ###[It's code, but some need to translate]:used by: %s\n" % function)
+                                pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, codeline-n))
+                                pot_fd.writelines ( "#, no-wrap\n") #: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, 1))
+                                pot_fd.writelines ( "msgid \"\"\n") #% content[n+1][content[n+1].find("*")+1:].rstrip())
+                            while n+1 <= codeline:
                                 if self.opts.include_code:
-                                    pot_fd.writelines ( "#. ###[It's code, but some need to translate]:used by: %s\n" % function)
-                                    pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, 1))
-                                    pot_fd.writelines ( "msgid \"%s\"\n" % content[n+1][content[n+1].find("*")+1:].rstrip())
-                                    pot_fd.writelines ( "msgstr \"\"\n")
-                                    pot_fd.writelines ( "\n")
+                                    pot_fd.writelines ("\"%s\\n\"\n" % content[n+1][content[n+1].find("*")+1:].rstrip())
                                 n = n+1
-                            last_n = n+1
+                            if self.opts.include_code:
+                                pot_fd.writelines ("msgstr \"\"\n")
+                            last_n = codeline + 2 #skip "codeline+1 line is: </programlisting>, skip this line.
                             continue
 
-                        # if this line is description, and the next line is not empty, so the next line is continued.
-                        if content[n].find("</programlisting>")>=0:
+                        if content[n].find("|[")>=0:
+                            begin=start_line+2+n #the number 2 is to skip "/**" and "function name" line, add "n" for this line number.
+                            codeline = n
+                            while codeline < len(content) and content[codeline].find("]|")<0:
+                                codeline = codeline + 1
+                            if self.opts.include_code:
+                                pot_fd.writelines ( "#. ###[It's code, but some need to translate]:used by: %s\n" % function)
+                                pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, codeline-n))
+                                pot_fd.writelines ( "#, no-wrap\n") #: %s:%d:%d\n" % (os.path.basename(file_name), start_line+3+n, 1))
+                                pot_fd.writelines ( "msgid \"\"\n") #% content[n+1][content[n+1].find("*")+1:].rstrip())
+                            while n+1 <= codeline:
+                                if self.opts.include_code:
+                                    pot_fd.writelines ("\"%s\\n\"\n" % content[n+1][content[n+1].find("*")+1:].rstrip())
+                                n = n+1
+                            if self.opts.include_code:
+                                pot_fd.writelines ("msgstr \"\"\n")
+                            last_n = codeline + 2 #skip "codeline+1 line is: </programlisting>, skip this line.
                             continue
+
                         begin=start_line+2+n
 
                         description = content[n][content[n].find("*")+1:].strip()
-                        while n+1 < len(content) and (not len(content[n+1].strip()) < 2) and content[n+1].find("<programlisting>")<0: 
+                        while n+1 < len(content) and (not len(content[n+1].strip()) < 2) and content[n+1].find("<programlisting>")<0 and content[n+1].find("|[")<0:
                             description = description + " " + content[n+1][content[n+1].find("*")+1:].strip()
                             n=n+1
                         last_n = n+1
                         end = start_line+2+n
-                        pot_fd.writelines ( "#. used by: %s\n" % function)
-                        pot_fd.writelines ( "#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
-                        pot_fd.writelines ( "msgid \"%s\"\n" % description)
-                        pot_fd.writelines ( "msgstr \"\"\n")
-                        pot_fd.writelines ( "\n")
+                        pot_fd.writelines ("#. used by: %s\n" % function)
+                        pot_fd.writelines ("#: %s:%d:%d\n" % (os.path.basename(file_name), begin, end-begin+1))
+                        pot_fd.writelines ("msgid \"%s\"\n" % description)
+                        pot_fd.writelines ("msgstr \"\"\n")
+                        pot_fd.writelines ("\n")
         pot_fd.close()
         if not has_gtkdoc:
             os.remove(pot_file)
