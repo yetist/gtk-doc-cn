@@ -497,7 +497,7 @@ update_xml()
 				for i in $xmlvars
 				do
 					local pot=`echo docs-${i}t|tr -d .`
-					msgline="<para>\n po文件:<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 相关网页:"
+					msgline="<para>\n po文件：<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 文档页面："
 					for j in $htmlvars
 					do
 						msgline="$msgline<ulink type=\"http\" url=\"${svnroot}/$j\">$j</ulink> "
@@ -508,7 +508,7 @@ update_xml()
 				for i in $povars
 				do
 					local pot=`echo ${i}t|tr -d .`
-					msgline="<para>\n po文件:<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 相关网页:"
+					msgline="<para>\n po文件：<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 文档页面："
 					for j in $htmlvars
 					do
 						msgline="$msgline<ulink type=\"http\" url=\"${svnroot}/$j\">$j</ulink> "
