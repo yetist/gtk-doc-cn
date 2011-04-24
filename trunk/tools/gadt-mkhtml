@@ -298,8 +298,8 @@ init_pot()
 			do 
 				mname=${i%.po}
 				msgmerge -N -F "$modname-$pkgver.po" $tmpdir/pot/$mname.pot 2>/dev/null| msgattrib --no-obsolete - -o $startdir/po/$mname.po
-				msg2 "正在调用google为您生成模糊翻译内容..."
-				gadt-autotrans $startdir/po/$mname.po
+				#msg2 "正在调用google为您生成模糊翻译内容..."
+				#gadt-autotrans $startdir/po/$mname.po
 				text=`msgfmt --statistics $startdir/po/$mname.po -o /dev/null 2>&1`
 				msg2 "文件:po/$mname.po ($text)"
 			done
@@ -341,14 +341,14 @@ init_xmlpot()
 
 init_tx_xmlpot()
 {
-	find $startdir/tmp/xmlpot/ -type f -exec basename {} \;|grep -v zh_CN|grep -v fdl|while read line;do
+	find $startdir/tmp/xmlpot/ -type f -exec basename {} \;|grep -v $xml_lang|grep -v fdl|while read line;do
 	sec=`echo $line|tr -d "\."`
 	name=${line%*t}
 	echo "[$modname-reference-manual.docs-$sec]"
 	echo "host = https://www.transifex.net"
 	echo "source_file = tmp/xmlpot/$line"
 	echo "source_lang = en"
-	echo "trans.zh_CN = xmlpo/$name"
+	echo "trans.$xml_lang = xmlpo/$name"
 	echo
 done
 }
@@ -362,7 +362,7 @@ init_tx_pot()
 	echo "host = https://www.transifex.net"
 	echo "source_file = tmp/pot/$line"
 	echo "source_lang = en"
-	echo "trans.zh_CN = po/$name"
+	echo "trans.$xml_lang = po/$name"
 	echo
 done
 }
@@ -484,6 +484,39 @@ update_xml()
 			author=`echo $line|awk '{print $1}'`
 			if [ "x$author" == "xunknown" -o "x$author" == "xfinished" ];then
 				continue
+			elif [ "x$author" == "xreview" ]; then
+				local htmls=`echo $line|awk '{print $2}'`
+				local xmls=`echo $line|awk '{print $3}'`
+				local pos=`echo $line|awk '{print $4}'`
+				eval $htmls
+				eval $xmls
+				eval $pos
+				htmlvars=`echo $html_files |sed 's/,/ /g'`
+				xmlvars=`echo $xmlpo_files |sed 's/,/ /g'`
+				povars=`echo $po_files |sed 's/,/ /g'`
+				for i in $xmlvars
+				do
+					local pot=`echo docs-${i}t|tr -d .`
+					msgline="<para>\n po文件:<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 参考网页:"
+					for j in $htmlvars
+					do
+						msgline="$msgline<ulink type=\"http\" url=\"${svnroot}/$j\">$j</ulink> "
+					done
+					msgline="${msgline}。\n</para>\n"
+					sed -i -e "/<\!-- REVIEW -->/i$msgline" $docdir/$xml
+				done
+				for i in $povars
+				do
+					local pot=`echo ${i}t|tr -d .`
+					msgline="<para>\n po文件:<ulink type=\"http\" url=\"${trans_uri}/resource/${pot}/\">$i</ulink>, 参考网页:"
+					for j in $htmlvars
+					do
+						msgline="$msgline<ulink type=\"http\" url=\"${svnroot}/$j\">$j</ulink> "
+					done
+					msgline="${msgline}。</para>"
+					sed -i -e "/<\!-- REVIEW -->/i$msgline" $docdir/$xml
+				done
+				continue
 			fi
 			mail=`echo $line|awk '{print $2}'`
 			msgline="<para role=\"author\">\n$author <email>$mail</email>\n</para>"
@@ -585,7 +618,8 @@ clean_up() {
 		rm -rf "$srcdir"
 	fi
 	if [ $NOBROWSER -eq 0 ];then
-		gvfs-open file://$tmpdir/html/index.html
+		#gvfs-open file://$tmpdir/html/index.html
+		firefox file://$tmpdir/html/index.html
 	fi
 }
 
@@ -622,7 +656,7 @@ make_install()
 	if [ ! -z "$PID" ]; then
 		kill $PID
 	fi
-	devhelp -s "$modname参考手册" &
+	devhelp -s "$modname 参考手册" &
 }
 
 make_tarball()
