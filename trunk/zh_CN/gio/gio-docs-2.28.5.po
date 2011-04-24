@@ -1,0 +1,2641 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GIO Reference Manual\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/gtk-doc-cn/issues\n"
+"POT-Creation-Date: 2011-04-23 10:05+0800\n"
+"PO-Revision-Date: 2011-04-24 13:05+0800\n"
+"Last-Translator: yetist <yetist@gmail.com>\n"
+"Language-Team: Chinese (China) <gtk-doc-cn@googlegroups.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: gdbus.xml:0(None) gio-docs.xml:0(None) gio-querymodules.xml:0(None)
+#: glib-compile-schemas.xml:0(None) gsettings.xml:0(None)
+#: migrating-gconf.xml:0(None) migrating-gdbus.xml:0(None)
+#: migrating-gnome-vfs.xml:0(None) migrating-posix.xml:0(None)
+#: overview.xml:0(None)
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: gdbus.xml:10(refname) gdbus.xml:16(command) gdbus.xml:28(command)
+#: gdbus.xml:4(refentrytitle) gdbus.xml:41(command) gdbus.xml:55(command)
+msgid "gdbus"
+msgstr ""
+
+#: gdbus.xml:106(title)
+msgid "Bash Completion"
+msgstr ""
+
+#: gdbus.xml:107(para)
+msgid ""
+"<command>gdbus</command> ships with a bash completion script to complete "
+"commands, destinations, bus names, object paths and interface/method names."
+msgstr ""
+
+#: gdbus.xml:11(refpurpose)
+msgid "Introspect and call remote objects"
+msgstr ""
+
+#: gdbus.xml:114(refsect1)
+msgid ""
+"<placeholder-1/> This shows how to introspect an object - note that the "
+"value of each property is displayed: <placeholder-2/><placeholder-3/"
+"><placeholder-4/><placeholder-5/><placeholder-6/><placeholder-7/"
+"><placeholder-8/><placeholder-9/><placeholder-10/>"
+msgstr ""
+
+#: gdbus.xml:115(title)
+msgid "Examples"
+msgstr ""
+
+#: gdbus.xml:118(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ gdbus introspect --system \\\n"
+"        --dest org.freedesktop.NetworkManager \\\n"
+"        --object-path /org/freedesktop/NetworkManager/Devices/0\n"
+"node /org/freedesktop/NetworkManager/Devices/0 {\n"
+"  interface org.freedesktop.DBus.Introspectable {\n"
+"    methods:\n"
+"      Introspect(out s data);\n"
+"  };\n"
+"  interface org.freedesktop.DBus.Properties {\n"
+"    methods:\n"
+"      Get(in  s interface,\n"
+"          in  s propname,\n"
+"          out v value);\n"
+"      Set(in  s interface,\n"
+"          in  s propname,\n"
+"          in  v value);\n"
+"      GetAll(in  s interface,\n"
+"             out a{sv} props);\n"
+"  };\n"
+"  interface org.freedesktop.NetworkManager.Device.Wired {\n"
+"    signals:\n"
+"      PropertiesChanged(a{sv} arg_0);\n"
+"    properties:\n"
+"      readonly b Carrier = false;\n"
+"      readonly u Speed = 0;\n"
+"      readonly s HwAddress = '00:1D:72:88:BE:97';\n"
+"  };\n"
+"  interface org.freedesktop.NetworkManager.Device {\n"
+"    methods:\n"
+"      Disconnect();\n"
+"    signals:\n"
+"      StateChanged(u arg_0,\n"
+"                   u arg_1,\n"
+"                   u arg_2);\n"
+"    properties:\n"
+"      readonly u DeviceType = 1;\n"
+"      readonly b Managed = true;\n"
+"      readwrite o Ip6Config = '/';\n"
+"      readwrite o Dhcp4Config = '/';\n"
+"      readwrite o Ip4Config = '/';\n"
+"      readonly u State = 2;\n"
+"      readwrite u Ip4Address = 0;\n"
+"      readonly u Capabilities = 3;\n"
+"      readonly s Driver = 'e1000e';\n"
+"      readwrite s Interface = 'eth0';\n"
+"      readonly s Udi = '/sys/devices/pci0000:00/0000:00:19.0/net/eth0';\n"
+"  };\n"
+"};\n"
+msgstr ""
+
+#: gdbus.xml:168(para)
+msgid ""
+"In a similar fashion, the <option>introspect</option> command can be used to "
+"learn details about the <literal>Notify</literal> method:"
+msgstr ""
+
+#: gdbus.xml:17(arg) gdbus.xml:70(option)
+msgid "introspect"
+msgstr ""
+
+#: gdbus.xml:172(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"[...]\n"
+"  interface org.freedesktop.Notifications {\n"
+"    methods:\n"
+"      GetServerInformation(out s return_name,\n"
+"                           out s return_vendor,\n"
+"                           out s return_version,\n"
+"                           out s return_spec_version);\n"
+"      GetCapabilities(out as return_caps);\n"
+"      CloseNotification(in  u id);\n"
+"      Notify(in  s app_name,\n"
+"             in  u id,\n"
+"             in  s icon,\n"
+"             in  s summary,\n"
+"             in  s body,\n"
+"             in  as actions,\n"
+"             in  a{sv} hints,\n"
+"             in  i timeout,\n"
+"             out u return_id);\n"
+"  };\n"
+"[...]\n"
+msgstr ""
+
+#: gdbus.xml:19(arg) gdbus.xml:31(arg) gdbus.xml:44(arg)
+msgid "--system"
+msgstr ""
+
+#: gdbus.xml:194(para)
+msgid ""
+"With this information, it's easy to use the <option>call</option> command to "
+"display a notification"
+msgstr ""
+
+#: gdbus.xml:198(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ gdbus call --session \\\n"
+"             --dest org.freedesktop.Notifications \\\n"
+"             --object-path /org/freedesktop/Notifications \\\n"
+"             --method org.freedesktop.Notifications.Notify \\\n"
+"             my_app_name \\\n"
+"             42 \\\n"
+"             gtk-dialog-info \\\n"
+"             \"The Summary\" \\\n"
+"             \"Here's the body of the notification\" \\\n"
+"             [] \\\n"
+"             {} \\\n"
+"             5000\n"
+"(uint32 12,)\n"
+msgstr ""
+
+#: gdbus.xml:20(arg) gdbus.xml:32(arg) gdbus.xml:45(arg)
+msgid "--session"
+msgstr ""
+
+#: gdbus.xml:21(arg) gdbus.xml:33(arg) gdbus.xml:46(arg)
+msgid "--address <placeholder-1/>"
+msgstr ""
+
+#: gdbus.xml:21(replaceable) gdbus.xml:33(replaceable)
+#: gdbus.xml:46(replaceable) overview.xml:384(term)
+msgid "address"
+msgstr ""
+
+#: gdbus.xml:213(para)
+msgid "Monitoring all objects on a service:"
+msgstr ""
+
+#: gdbus.xml:216(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ gdbus monitor --system --dest org.freedesktop.ConsoleKit\n"
+"Monitoring signals from all objects owned by org.freedesktop.ConsoleKit\n"
+"The name org.freedesktop.ConsoleKit is owned by :1.15\n"
+"/org/freedesktop/ConsoleKit/Session2: org.freedesktop.ConsoleKit.Session.ActiveChanged (false,)\n"
+"/org/freedesktop/ConsoleKit/Seat1: org.freedesktop.ConsoleKit.Seat.ActiveSessionChanged ('',)\n"
+"/org/freedesktop/ConsoleKit/Session2: org.freedesktop.ConsoleKit.Session.ActiveChanged (true,)\n"
+"/org/freedesktop/ConsoleKit/Seat1: org.freedesktop.ConsoleKit.Seat.ActiveSessionChanged ('/org/freedesktop/ConsoleKit/Session2',)\n"
+msgstr ""
+
+#: gdbus.xml:225(para)
+msgid "Monitoring a single object on a service:"
+msgstr ""
+
+#: gdbus.xml:228(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"$ gdbus monitor --system --dest org.freedesktop.NetworkManager --object-path /org/freedesktop/NetworkManager/AccessPoint/4141\n"
+"Monitoring signals on object /org/freedesktop/NetworkManager/AccessPoint/4141 owned by org.freedesktop.NetworkManager\n"
+"The name org.freedesktop.NetworkManager is owned by :1.5\n"
+"/org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x5c&gt;},)\n"
+"/org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x64&gt;},)\n"
+"/org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x5e&gt;},)\n"
+"/org/freedesktop/NetworkManager/AccessPoint/4141: org.freedesktop.NetworkManager.AccessPoint.PropertiesChanged ({'Strength': &lt;byte 0x64&gt;},)\n"
+msgstr ""
+
+#: gdbus.xml:23(arg) gdbus.xml:35(arg) gdbus.xml:48(arg)
+msgid "--dest <placeholder-1/>"
+msgstr ""
+
+#: gdbus.xml:23(replaceable) gdbus.xml:35(replaceable)
+#: gdbus.xml:48(replaceable)
+msgid "bus_name"
+msgstr ""
+
+#: gdbus.xml:24(arg) gdbus.xml:37(arg) gdbus.xml:49(arg)
+msgid "--object-path <placeholder-1/>"
+msgstr ""
+
+#: gdbus.xml:24(replaceable) gdbus.xml:37(replaceable)
+#: gdbus.xml:49(replaceable)
+msgid "/path/to/object"
+msgstr ""
+
+#: gdbus.xml:241(title)
+msgid "AUTHOR"
+msgstr ""
+
+#: gdbus.xml:242(para)
+msgid ""
+"Written by David Zeuthen <email>zeuthen@gmail.com</email> with a lot of help "
+"from many others."
+msgstr ""
+
+#: gdbus.xml:249(title)
+msgid "BUGS"
+msgstr ""
+
+#: gdbus.xml:25(arg)
+msgid "--xml"
+msgstr ""
+
+#: gdbus.xml:250(para)
+msgid ""
+"Please send bug reports to either the distribution bug tracker or the "
+"upstream bug tracker at <ulink url=\"https://bugzilla.gnome.org/enter_bug."
+"cgi?product=glib\"/>."
+msgstr ""
+
+#: gdbus.xml:258(title)
+msgid "SEE ALSO"
+msgstr ""
+
+#: gdbus.xml:261(manvolnum) gdbus.xml:5(manvolnum)
+#: gio-querymodules.xml:5(manvolnum) glib-compile-schemas.xml:5(manvolnum)
+#: gsettings.xml:5(manvolnum)
+msgid "1"
+msgstr ""
+
+#: gdbus.xml:261(refentrytitle)
+msgid "dbus-send"
+msgstr ""
+
+#: gdbus.xml:29(arg) gdbus.xml:78(option) gsettings.xml:116(option)
+#: gsettings.xml:23(arg)
+msgid "monitor"
+msgstr ""
+
+#: gdbus.xml:42(arg) gdbus.xml:85(option) overview.xml:360(term)
+msgid "call"
+msgstr ""
+
+#: gdbus.xml:50(arg)
+msgid "--method <placeholder-1/>"
+msgstr ""
+
+#: gdbus.xml:50(replaceable)
+msgid "org.project.InterfaceName.MethodName"
+msgstr ""
+
+#: gdbus.xml:51(arg)
+msgid "ARG1"
+msgstr ""
+
+#: gdbus.xml:52(arg)
+msgid "ARG2"
+msgstr ""
+
+#: gdbus.xml:56(arg) gdbus.xml:96(option) gsettings.xml:193(option)
+#: gsettings.xml:77(arg)
+msgid "help"
+msgstr ""
+
+#: gdbus.xml:6(refmiscinfo) gio-querymodules.xml:6(refmiscinfo)
+#: glib-compile-schemas.xml:6(refmiscinfo) gsettings.xml:6(refmiscinfo)
+msgid "User Commands"
+msgstr ""
+
+#: gdbus.xml:61(title) gio-querymodules.xml:21(title)
+#: glib-compile-schemas.xml:22(title) gsettings.xml:82(title)
+msgid "Description"
+msgstr ""
+
+#: gdbus.xml:62(para)
+msgid ""
+"<command>gdbus</command> offers a simple commandline utility for "
+"introspecting and calling methods on remote objects."
+msgstr ""
+
+#: gdbus.xml:67(title) gsettings.xml:103(title)
+msgid "Commands"
+msgstr ""
+
+#: gdbus.xml:71(para)
+msgid ""
+"Prints out interfaces and property values for a remote object. For this to "
+"work, the owner of the object needs to implement the <literal>org."
+"freedesktop.DBus.Introspectable</literal> interface."
+msgstr ""
+
+#: gdbus.xml:79(para)
+msgid ""
+"Monitors one or all objects owned by the owner of <replaceable>bus_name</"
+"replaceable>."
+msgstr ""
+
+#: gdbus.xml:86(para)
+msgid ""
+"Invokes a method on a remote object. Each argument to pass to the method "
+"must be specified as a serialized <link linkend=\"GVariant\"><type>GVariant</"
+"type></link> except that strings do not need explicit quotes. The return "
+"values are printed out as serialized <link linkend=\"GVariant"
+"\"><type>GVariant</type></link> values."
+msgstr ""
+
+#: gdbus.xml:97(para)
+msgid "Prints help and exit."
+msgstr ""
+
+#: gio-docs.xml:10(title) gio-docs.xml:8(title)
+msgid "GIO Reference Manual"
+msgstr "GIO 参考手册"
+
+#: gio-docs.xml:102(title)
+msgid "Failable Initialization"
+msgstr ""
+
+#: gio-docs.xml:107(title)
+msgid "Lowlevel network support"
+msgstr ""
+
+#: gio-docs.xml:11(releaseinfo)
+msgid ""
+"for GIO 2.28.5 The latest version of this documentation can be found on-line "
+"at <ulink role=\"online-location\" url=\"http://library.gnome.org/devel/gio/"
+"unstable/\">http://library.gnome.org/devel/gio/unstable/</ulink>."
+msgstr ""
+"GIO 当前版本2.28.5, 最新在线版本请浏览这里 <ulink role=\"online-location\" "
+"url=\"http://library.gnome.org/devel/gio/unstable/\">http://library.gnome."
+"org/devel/gio/unstable/</ulink>."
+
+#: gio-docs.xml:122(title)
+msgid "Highlevel network functionallity"
+msgstr ""
+
+#: gio-docs.xml:133(title)
+msgid "TLS (SSL) support"
+msgstr ""
+
+#: gio-docs.xml:142(title)
+msgid "DNS resolution"
+msgstr ""
+
+#: gio-docs.xml:151(title)
+msgid "Lowlevel D-Bus Support"
+msgstr ""
+
+#: gio-docs.xml:163(title)
+msgid "Highlevel D-Bus Support"
+msgstr ""
+
+#: gio-docs.xml:169(title)
+msgid "Settings"
+msgstr ""
+
+#: gio-docs.xml:174(title)
+msgid "Permissions"
+msgstr ""
+
+#: gio-docs.xml:179(title)
+msgid "Application support"
+msgstr ""
+
+#: gio-docs.xml:188(title) overview.xml:420(title)
+msgid "Extending GIO"
+msgstr ""
+
+#: gio-docs.xml:194(title)
+msgid "GIO Tools"
+msgstr ""
+
+#: gio-docs.xml:203(title) migrating-posix.xml:2(title)
+msgid "Migrating to GIO"
+msgstr ""
+
+#: gio-docs.xml:21(title)
+msgid "API Reference"
+msgstr ""
+
+#: gio-docs.xml:211(title)
+msgid "Object Hierarchy"
+msgstr ""
+
+#: gio-docs.xml:216(title)
+msgid "Index"
+msgstr "索引"
+
+#: gio-docs.xml:220(title)
+msgid "Index of deprecated symbols"
+msgstr "已过时符号索引"
+
+#: gio-docs.xml:224(title)
+msgid "Index of new symbols in 2.18"
+msgstr "2.18版本中的新符号索引"
+
+#: gio-docs.xml:228(title)
+msgid "Index of new symbols in 2.20"
+msgstr "2.20版本中的新符号索引"
+
+#: gio-docs.xml:23(title)
+msgid "File Operations"
+msgstr ""
+
+#: gio-docs.xml:232(title)
+msgid "Index of new symbols in 2.22"
+msgstr "2.22版本中的新符号索引"
+
+#: gio-docs.xml:236(title)
+msgid "Index of new symbols in 2.24"
+msgstr "2.24版本中的新符号索引"
+
+#: gio-docs.xml:240(title)
+msgid "Index of new symbols in 2.26"
+msgstr "2.26版本中的新符号索引"
+
+#: gio-docs.xml:244(title)
+msgid "Index of new symbols in 2.28"
+msgstr ""
+
+#: gio-docs.xml:32(title)
+msgid "File System Monitoring"
+msgstr ""
+
+#: gio-docs.xml:36(title)
+msgid "File-related Utilities"
+msgstr ""
+
+#: gio-docs.xml:40(title)
+msgid "Asynchronous I/O"
+msgstr ""
+
+#: gio-docs.xml:47(title) migrating-gconf.xml:392(title)
+msgid "Data conversion"
+msgstr ""
+
+#: gio-docs.xml:54(title)
+msgid "Streaming I/O"
+msgstr ""
+
+#: gio-docs.xml:79(title)
+msgid "File types and applications"
+msgstr ""
+
+#: gio-docs.xml:85(title)
+msgid "Volumes and Drives"
+msgstr ""
+
+#: gio-docs.xml:93(title)
+msgid "Icons"
+msgstr ""
+
+#: gio-querymodules.xml:10(refname) gio-querymodules.xml:16(command)
+#: gio-querymodules.xml:4(refentrytitle)
+msgid "gio-querymodules"
+msgstr ""
+
+#: gio-querymodules.xml:11(refpurpose)
+msgid "GIO module cache creation"
+msgstr ""
+
+#: gio-querymodules.xml:17(arg) glib-compile-schemas.xml:18(arg)
+msgid "directory"
+msgstr ""
+
+#: gio-querymodules.xml:22(para)
+msgid ""
+"<command>gio-querymodules</command> creates a <filename>giomodule.cache</"
+"filename> file in the listed directories. This file lists the implemented "
+"extension points for each module that has been found. It is used by GIO at "
+"runtime to avoid opening all modules just to find out which extension points "
+"they are implementing."
+msgstr ""
+
+#: gio-querymodules.xml:28(para)
+msgid ""
+"GIO modules are usually installed in the <filename>gio/modules</filename> "
+"subdirectory of libdir."
+msgstr ""
+
+#: glib-compile-schemas.xml:10(refname) glib-compile-schemas.xml:16(command)
+#: glib-compile-schemas.xml:4(refentrytitle)
+msgid "glib-compile-schemas"
+msgstr ""
+
+#: glib-compile-schemas.xml:11(refpurpose)
+msgid "GSettings schema compiler"
+msgstr ""
+
+#: glib-compile-schemas.xml:17(arg)
+msgid "option"
+msgstr ""
+
+#: glib-compile-schemas.xml:23(para)
+msgid ""
+"<command>glib-compile-schemas</command> compiles all the GSettings XML "
+"schema files in <replaceable>directory</replaceable> into a binary file with "
+"the name <filename>gschemas.compiled</filename> that can be used by <link "
+"linkend=\"GSettings\"><type>GSettings</type></link>. The XML schema files "
+"must have the filename extension <filename>.gschema.xml</filename>. For a "
+"detailed description of the XML file format, see the <link linkend="
+"\"GSettings\"><type>GSettings</type></link> documentation."
+msgstr ""
+
+#: glib-compile-schemas.xml:31(para)
+msgid ""
+"At runtime, GSettings looks for schemas in the <filename>glib-2.0/schemas</"
+"filename> subdirectories of all directories specified in the "
+"<envar>XDG_DATA_DIRS</envar> environment variable. The usual location to "
+"install schema files is <filename>/usr/share/glib-2.0/schemas</filename>."
+msgstr ""
+
+#: glib-compile-schemas.xml:38(para)
+msgid ""
+"In addition to schema files, glib-compile-schemas reads 'vendor override' "
+"files, which are key files that can override default values for keys in the "
+"schemas. The group names in the key files are the schema id, and the values "
+"are written in serialized GVariant form. Vendor ovrride files must have the "
+"filename extension <filename>.gschema.override</filename>."
+msgstr ""
+
+#: glib-compile-schemas.xml:47(title)
+msgid "Options"
+msgstr ""
+
+#: glib-compile-schemas.xml:51(term)
+msgid "<option>-h</option>, <option>--help</option>"
+msgstr ""
+
+#: glib-compile-schemas.xml:52(para)
+msgid "Print help and exit"
+msgstr ""
+
+#: glib-compile-schemas.xml:58(option)
+msgid "--targetdir=<placeholder-1/>"
+msgstr ""
+
+#: glib-compile-schemas.xml:58(replaceable)
+msgid "TARGETDIR"
+msgstr ""
+
+#: glib-compile-schemas.xml:59(para)
+msgid ""
+"Store <filename>gschemas.compiled</filename> in <replaceable>TARGETDIR</"
+"replaceable> instead of <replaceable>directory</replaceable>."
+msgstr ""
+
+#: glib-compile-schemas.xml:65(option)
+msgid "--dry-run"
+msgstr ""
+
+#: glib-compile-schemas.xml:66(para)
+msgid ""
+"Don't write <filename>gschemas.compiled</filename>. This option can be used "
+"to check <filename>.gschema.xml</filename> sources for errors."
+msgstr ""
+
+#: glib-compile-schemas.xml:73(option)
+msgid "--allow-any-name"
+msgstr ""
+
+#: glib-compile-schemas.xml:74(para)
+msgid ""
+"Do not enforce restrictions on key names. Note that this option is purely to "
+"facility the transition from GConf, and will be removed at some time in the "
+"future."
+msgstr ""
+
+#: glib-compile-schemas.xml:84(title)
+msgid "See also"
+msgstr ""
+
+#: gsettings.xml:10(refname) gsettings.xml:16(command)
+#: gsettings.xml:22(command) gsettings.xml:28(command)
+#: gsettings.xml:34(command) gsettings.xml:4(refentrytitle)
+#: gsettings.xml:40(command) gsettings.xml:47(command)
+#: gsettings.xml:53(command) gsettings.xml:57(command)
+#: gsettings.xml:61(command) gsettings.xml:66(command)
+#: gsettings.xml:71(command) gsettings.xml:76(command)
+msgid "gsettings"
+msgstr ""
+
+#: gsettings.xml:107(option) gsettings.xml:17(arg)
+msgid "get"
+msgstr ""
+
+#: gsettings.xml:108(para)
+msgid ""
+"Gets the value of <replaceable>KEY</replaceable>. The value is printed out "
+"as a serialised <link linkend=\"GVariant\"><type>GVariant</type></link>."
+msgstr ""
+
+#: gsettings.xml:11(refpurpose)
+msgid "GSettings configuration tool"
+msgstr ""
+
+#: gsettings.xml:117(para)
+msgid ""
+"Monitors <replaceable>KEY</replaceable> for changes and prints the changed "
+"values. Monitoring will continue until the process is terminated."
+msgstr ""
+
+#: gsettings.xml:124(option) gsettings.xml:29(arg)
+msgid "writable"
+msgstr ""
+
+#: gsettings.xml:125(para)
+msgid "Finds out whether <replaceable>KEY</replaceable> is writable."
+msgstr ""
+
+#: gsettings.xml:131(option) gsettings.xml:35(arg)
+msgid "range"
+msgstr ""
+
+#: gsettings.xml:132(para)
+msgid "Queries the range of valid values for <replaceable>KEY</replaceable>."
+msgstr ""
+
+#: gsettings.xml:138(option) gsettings.xml:41(arg)
+msgid "set"
+msgstr ""
+
+#: gsettings.xml:139(para)
+msgid ""
+"Sets the value of <replaceable>KEY</replaceable> to <replaceable>VALUE</"
+"replaceable>. The value is specified as a serialised <link linkend=\"GVariant"
+"\"><type>GVariant</type></link>."
+msgstr ""
+
+#: gsettings.xml:147(option) gsettings.xml:48(arg)
+msgid "reset"
+msgstr ""
+
+#: gsettings.xml:148(para)
+msgid "Resets <replaceable>KEY</replaceable> to its default value."
+msgstr ""
+
+#: gsettings.xml:154(option) gsettings.xml:54(arg)
+msgid "list-schemas"
+msgstr ""
+
+#: gsettings.xml:155(para)
+msgid ""
+"Lists the installed, non-relocatable schemas. See <option>list-relocatable-"
+"schemas</option> if you are interested in relocatable schemas."
+msgstr ""
+
+#: gsettings.xml:163(option) gsettings.xml:58(arg)
+msgid "list-relocatable-schemas"
+msgstr ""
+
+#: gsettings.xml:164(para)
+msgid ""
+"Lists the installed, relocatable schemas. See <option>list-schemas</option> "
+"if you are interested in non-relocatable schemas."
+msgstr ""
+
+#: gsettings.xml:172(option) gsettings.xml:62(arg)
+msgid "list-keys"
+msgstr ""
+
+#: gsettings.xml:173(para)
+msgid "Lists the keys in <replaceable>SCHEMA</replaceable>."
+msgstr ""
+
+#: gsettings.xml:179(option) gsettings.xml:67(arg)
+msgid "list-children"
+msgstr ""
+
+#: gsettings.xml:18(arg) gsettings.xml:24(arg) gsettings.xml:30(arg)
+#: gsettings.xml:36(arg) gsettings.xml:42(arg) gsettings.xml:49(arg)
+#: gsettings.xml:63(arg) gsettings.xml:68(arg) gsettings.xml:73(arg)
+msgid ":<placeholder-1/>"
+msgstr ""
+
+#: gsettings.xml:18(replaceable) gsettings.xml:24(replaceable)
+#: gsettings.xml:30(replaceable) gsettings.xml:36(replaceable)
+#: gsettings.xml:42(replaceable) gsettings.xml:49(replaceable)
+#: gsettings.xml:63(replaceable) gsettings.xml:68(replaceable)
+#: gsettings.xml:73(replaceable)
+msgid "PATH"
+msgstr ""
+
+#: gsettings.xml:18(replaceable) gsettings.xml:24(replaceable)
+#: gsettings.xml:30(replaceable) gsettings.xml:36(replaceable)
+#: gsettings.xml:42(replaceable) gsettings.xml:49(replaceable)
+#: gsettings.xml:63(replaceable) gsettings.xml:68(replaceable)
+#: gsettings.xml:73(replaceable)
+msgid "SCHEMA"
+msgstr ""
+
+#: gsettings.xml:180(para)
+msgid "Lists the children of <replaceable>SCHEMA</replaceable>."
+msgstr ""
+
+#: gsettings.xml:186(option) gsettings.xml:72(arg)
+msgid "list-recursively"
+msgstr ""
+
+#: gsettings.xml:187(para)
+msgid "Lists keys and values, recursively."
+msgstr ""
+
+#: gsettings.xml:19(replaceable) gsettings.xml:25(replaceable)
+#: gsettings.xml:31(replaceable) gsettings.xml:37(replaceable)
+#: gsettings.xml:43(replaceable) gsettings.xml:50(replaceable)
+msgid "KEY"
+msgstr ""
+
+#: gsettings.xml:194(para)
+msgid "Prints help and exits."
+msgstr ""
+
+#: gsettings.xml:44(replaceable)
+msgid "VALUE"
+msgstr ""
+
+#: gsettings.xml:78(replaceable)
+msgid "COMMAND"
+msgstr ""
+
+#: gsettings.xml:83(para)
+msgid ""
+"<command>gsettings</command> offers a simple commandline interface to <link "
+"linkend=\"GSettings\"><type>GSettings</type></link>. It lets you get, set or "
+"monitor an individual key for changes."
+msgstr ""
+
+#: gsettings.xml:87(para)
+msgid ""
+"The <replaceable>SCHEMA</replaceable> and <replaceable>KEY</replaceable> "
+"arguments are required for most commands to specify the schema id and the "
+"name of the key to operate on. The schema id may optionally have a :"
+"<replaceable>PATH</replaceable> suffix. Specifying the path is only needed "
+"if the schema does not have a fixed path."
+msgstr ""
+
+#: gsettings.xml:94(para)
+msgid ""
+"When setting a key, you also need specify a <replaceable>VALUE</replaceable> "
+"The format for the value is that of a serialized <link linkend=\"GVariant"
+"\"><type>GVariant</type></link>, so e.g. a string must include explicit "
+"quotes: \"'foo'\". This format is also used when printing out values."
+msgstr ""
+
+#: migrating-gconf.xml:102(para)
+msgid ""
+"There is a pattern that is sometimes used for GConf, where a setting can "
+"have explicit 'value A', explicit 'value B' or 'use the system default'. "
+"With GConf, 'use the system default' is sometimes implemented by unsetting "
+"the user value."
+msgstr ""
+
+#: migrating-gconf.xml:107(para)
+msgid ""
+"This is not possible in GSettings, since it does not have API to determine "
+"if a value is the default and does not let you unset values. The recommended "
+"way (and much clearer) way in which this can be implemented in GSettings is "
+"to have a separate 'use-system-default' boolean setting."
+msgstr ""
+
+#: migrating-gconf.xml:116(title)
+msgid "Change notification"
+msgstr ""
+
+#: migrating-gconf.xml:118(para)
+msgid ""
+"GConf requires you to call gconf_client_add_dir() and gconf_client_notify_add"
+"() to get change notification. With GSettings, this is not necessary; "
+"signals get emitted automatically for every change."
+msgstr ""
+
+#: migrating-gconf.xml:124(para)
+msgid ""
+"The #GSettings::changed signal is emitted for each changed key. There is "
+"also a #GSettings::change-event signal that you can handle if you need to "
+"see groups of keys that get changed at the same time."
+msgstr ""
+
+#: migrating-gconf.xml:129(para)
+msgid ""
+"GSettings also notifies you about changes in writability of keys, with the "
+"#GSettings::writable-changed signal (and the #GSettings::writable-change-"
+"event signal)."
+msgstr ""
+
+#: migrating-gconf.xml:136(title)
+msgid "Change sets"
+msgstr ""
+
+#: migrating-gconf.xml:137(para)
+msgid ""
+"GConf has a a concept of a set of changes which can be applied or reverted "
+"at once: #GConfChangeSet (GConf doesn't actually apply changes atomically, "
+"which is one of its shortcomings)."
+msgstr ""
+
+#: migrating-gconf.xml:142(para)
+msgid ""
+"Instead of a separate object to represent a change set, GSettings has a "
+"'delayed-apply' mode, which can be turned on for a GSettings object by "
+"calling g_settings_delay(). In this mode, changes done to the GSettings "
+"object are not applied - they are still visible when calling g_settings_get"
+"() <emphasis>on the same object</emphasis>, but not to other GSettings "
+"instances or even other processes."
+msgstr ""
+
+#: migrating-gconf.xml:150(para)
+msgid ""
+"To apply the pending changes all at once (GSettings <emphasis>does</"
+"emphasis> atomicity here), call g_settings_apply(). To revert the pending "
+"changes, call g_settings_revert() or just drop the reference to the "
+"#GSettings object."
+msgstr ""
+
+#: migrating-gconf.xml:158(title)
+msgid "Schema conversion"
+msgstr ""
+
+#: migrating-gconf.xml:16(para)
+msgid ""
+"It is always a good idea to have a look at how others have handled similar "
+"problems before. An examplaric conversion can be found e.g. in the <ulink "
+"url=\"http://git.gnome.org/browse/gnome-utils/log/?h=gsettings-tutorial"
+"\">gsettings-tutorial</ulink> branch of gnome-utils."
+msgstr ""
+
+#: migrating-gconf.xml:160(para)
+msgid ""
+"If you are porting your application from GConf, most likely you already have "
+"a GConf schema. GConf comes with a commandline tool <link linkend="
+"\"gsettings-schema-convert\">gsettings-schema-convert</link> that can help "
+"with the task of converting a GConf schema into an equivalent GSettings "
+"schema. The tool is not perfect and may need assistence in some cases."
+msgstr ""
+
+#: migrating-gconf.xml:168(title)
+msgid "An example for using gsettings-schema-convert"
+msgstr ""
+
+#: migrating-gconf.xml:169(para)
+msgid ""
+"Running <userinput>gsettings-schema-convert --gconf --xml --schema-id \"org."
+"gnome.font-rendering\" --output org.gnome.font-rendering.gschema.xml "
+"destop_gnome_font_rendering.schemas</userinput> on the following "
+"<filename>desktop_gnome_font_rendering.schemas</filename> file: "
+"<placeholder-1/> produces a <filename>org.gnome.font-rendering.gschema.xml</"
+"filename> file with the following content: <placeholder-2/>"
+msgstr ""
+
+#: migrating-gconf.xml:2(title)
+msgid "Migrating from GConf to GSettings"
+msgstr ""
+
+#: migrating-gconf.xml:207(para)
+msgid ""
+"GSettings schemas are identified at runtime by their id (as specified in the "
+"XML source file). It is recommended to use a dotted name as schema id, "
+"similar in style to a D-Bus bus name, e.g. \"org.gnome.SessionManager\". In "
+"cases where the settings are general and not specific to one application, "
+"the id should not use StudlyCaps, e.g. \"org.gnome.font-rendering\". The "
+"filename used for the XML schema source is immaterial, but schema compiler "
+"expects the files to have the extension <filename>.gschema.xml</filename>. "
+"It is recommended to simply use the schema id as the filename, followed by "
+"this extension, e.g. <filename>org.gnome.SessionManager.gschema.xml</"
+"filename>."
+msgstr ""
+
+#: migrating-gconf.xml:220(para)
+msgid ""
+"The XML source file for your GSettings schema needs to get installed into "
+"<filename>$datadir/glib-2.0/schemas</filename>, and needs to be compiled "
+"into a binary form. At runtime, GSettings looks for compiled schemas in the "
+"<filename>glib-2.0/schemas</filename> subdirectories of all "
+"<envar>XDG_DATA_DIRS</envar> directories, so if you install your schema in a "
+"different location, you need to set the <envar>XDG_DATA_DIRS</envar> "
+"environment variable appropriately."
+msgstr ""
+
+#: migrating-gconf.xml:229(para)
+msgid ""
+"Schemas are compiled into binary form by the <link linkend=\"glib-compile-"
+"schemas\">glib-compile-schemas</link> utility. GIO provides a "
+"<literal>glib_compile_schemas</literal> variable for the schema compiler."
+msgstr ""
+
+#: migrating-gconf.xml:235(para)
+msgid ""
+"You can ignore all of this by using the provided m4 macros. To do this, add "
+"to your <filename>configure.ac</filename>: <placeholder-1/> The "
+"corresponding <filename>Makefile.am</filename> fragment looks like this: "
+"<placeholder-2/>"
+msgstr ""
+
+#: migrating-gconf.xml:238(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"GLIB_GSETTINGS\n"
+msgstr ""
+
+#: migrating-gconf.xml:24(title) migrating-gdbus.xml:5(title)
+msgid "Conceptual differences"
+msgstr ""
+
+#: migrating-gconf.xml:243(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"# gsettings_SCHEMAS is a list of all the schemas you want to install\n"
+"gsettings_SCHEMAS = my.app.gschema.xml\n"
+"\n"
+"# include the appropriate makefile rules for schema handling\n"
+"@GSETTINGS_RULES@\n"
+msgstr ""
+
+#: migrating-gconf.xml:252(para)
+msgid ""
+"This is not sufficient on its own. You need to mention what the source of "
+"the <filename>my.app.gschema.xml</filename> file is. If the schema file is "
+"distributed directly with your project's tarball then a mention in "
+"<varname>EXTRA_DIST</varname> is appropriate. If the schema file is "
+"generated from another source then you will need the appropriate rule for "
+"that, plus probably an item in <varname>EXTRA_DIST</varname> for the source "
+"files used by that rule."
+msgstr ""
+
+#: migrating-gconf.xml:26(para)
+msgid ""
+"Conceptually, GConf and GSettings are fairly similar. Both have a concept of "
+"pluggable backends. Both keep information about keys and their types in "
+"schemas. Both have a concept of mandatory values, which lets you implement "
+"lock-down."
+msgstr ""
+
+#: migrating-gconf.xml:262(para)
+msgid ""
+"One possible pitfall in doing schema conversion is that the default values "
+"in GSettings schemas are parsed by the #GVariant parser. This means that "
+"strings need to include quotes in the XML. Also note that the types are now "
+"specified as #GVariant type strings. <placeholder-1/> becomes <placeholder-2/"
+">"
+msgstr ""
+
+#: migrating-gconf.xml:282(para)
+msgid ""
+"Another possible complication is that GConf specifies full paths for each "
+"key, while a GSettings schema has a 'path' attribute that contains the "
+"prefix for all the keys in the schema, and individual keys just have a "
+"simple name. So <placeholder-1/> becomes <placeholder-2/>"
+msgstr ""
+
+#: migrating-gconf.xml:300(para)
+msgid ""
+"Default values can be localized in both GConf and GSettings schemas, but "
+"GSettings uses gettext for the localization. You can specify the gettext "
+"domain to use in the <tag class=\"attribute\">gettext-domain</tag> "
+"attribute. Therefore, when converting localized defaults in GConf, "
+"<placeholder-1/> becomes <placeholder-2/>"
+msgstr ""
+
+#: migrating-gconf.xml:32(para)
+msgid ""
+"There are some differences in the approach to schemas. GConf installs the "
+"schemas into the database and has API to handle schema information "
+"(gconf_client_get_default_from_schema(), gconf_value_get_schema(), etc). "
+"GSettings on the other hand assumes that an application knows its own "
+"schemas, and does not provide API to handle schema information at runtime. "
+"GSettings is also more strict about requiring a schema whenever you want to "
+"read or write a key. To deal with more free-form information that would "
+"appear in schema-less entries in GConf, GSettings allows for schemas to be "
+"'relocatable'."
+msgstr ""
+
+#: migrating-gconf.xml:328(para)
+msgid ""
+"GSettings uses gettext for translation of default values. The string that is "
+"translated is exactly the string that appears inside of the <tag class="
+"\"starttag\">default</tag> element. This includes the quotation marks that "
+"appear around strings. Default values must be marked with the <varname>l10n</"
+"varname> attribute in the <tag class=\"starttag\">default</tag> tag, which "
+"should be set as equal to <literal>'messages'</literal> or <literal>'time'</"
+"literal> depending on the desired category. An optional translation context "
+"can also be specified with the <varname>context</varname> attribute, as in "
+"the example. This is usually recommended, since the string \"<literal>18</"
+"literal>\" is not particularly easy to translate without context. The "
+"translated version of the default value should be stored in the specified "
+"<varname>gettext-domain</varname>. Care must be taken during translation to "
+"ensure that all translated values remain syntactically valid; mistakes here "
+"will cause runtime errors."
+msgstr ""
+
+#: migrating-gconf.xml:346(para)
+msgid ""
+"GSettings schemas have optional <tag class=\"starttag\">summary</tag> and "
+"<tag class=\"starttag\">description</tag> elements for each key which "
+"correspond to the <tag class=\"starttag\">short</tag> and <tag class="
+"\"starttag\">long</tag> elements in the GConf schema and will be used in "
+"similar ways by a future gsettings-editor, so you should use the same "
+"conventions for them: The summary is just a short label with no punctuation, "
+"the description can be one or more complete sentences. If multiple "
+"paragraphs are desired for the description, the paragraphs should be "
+"separated by a completely empty line."
+msgstr ""
+
+#: migrating-gconf.xml:357(para)
+msgid ""
+"Translations for these strings will also be handled via gettext, so you "
+"should arrange for these strings to be extracted into your gettext catalog. "
+"One way to do that is to use intltool. For that, you use <tag class="
+"\"starttag\">_summary</tag> and <tag class=\"starttag\">_description</tag> "
+"elements in a .gschema.xml.in file and use "
+"<literal>@INTLTOOL_XML_NOMERGE_RULE@</literal> in your Makefile.am to "
+"produce the .gschema.xml file. The <literal>NOMERGE</literal> part of the "
+"rule instructs intltool to extract translatable strings, but not merge the "
+"translations back into the generated xml file."
+msgstr ""
+
+#: migrating-gconf.xml:370(para)
+msgid ""
+"GSettings is a bit more restrictive about key names than GConf. Key names in "
+"GSettings can be at most 32 characters long, and must only consist of "
+"lowercase characters, numbers and dashes, with no consecutive dashes. The "
+"first character must not be a number or dash, and the last character cannot "
+"be '-'."
+msgstr ""
+
+#: migrating-gconf.xml:377(para)
+msgid ""
+"If you are using the GConf backend for GSettings during the transition, you "
+"may want to keep your key names the same they were in GConf, so that "
+"existing settings in the users GConf database are preserved. You can achieve "
+"this by using the <option>--allow-any-name</option> with the <link linkend="
+"\"glib-compile-schemas\">glib-compile-schemas</link> schema compiler. Note "
+"that this option is only meant to ease the process of porting your "
+"application, allowing parts of your application to continue to access GConf "
+"and parts to use GSettings. By the time you have finished porting your "
+"application you must ensure that all key names are valid."
+msgstr ""
+
+#: migrating-gconf.xml:393(para)
+msgid ""
+"GConf comes with a GSettings backend that can be used to facility the "
+"transition to the GSettings API until you are ready to make the jump to a "
+"different backend (most likely dconf). To use it, you need to set the "
+"<envar>GSETTINGS_BACKEND</envar> to 'gconf', e.g. by using <placeholder-1/> "
+"early on in your program. Note that this backend is meant purely as a "
+"transition tool, and should not be used in production."
+msgstr ""
+
+#: migrating-gconf.xml:399(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  g_setenv (\"GSETTINGS_BACKEND\", \"gconf\", TRUE);\n"
+msgstr ""
+
+#: migrating-gconf.xml:405(para)
+msgid ""
+"GConf also comes with a utility called <command>gsettings-data-convert</"
+"command>, which is designed to help with the task of migrating user settings "
+"from GConf into another GSettings backend. It can be run manually, but it is "
+"designed to be executed automatically, every time a user logs in. It keeps "
+"track of the data migrations that it has already done, and it is harmless to "
+"run it more than once."
+msgstr ""
+
+#: migrating-gconf.xml:414(para)
+msgid ""
+"To make use of this utility, you must install a keyfile in the directory "
+"<filename>/usr/share/GConf/gsettings</filename> which lists the GSettings "
+"keys and GConf paths to map to each other, for each schema that you want to "
+"migrate user data for."
+msgstr ""
+
+#: migrating-gconf.xml:420(para)
+msgid ""
+"Here is an example: <placeholder-1/> The last key demonstrates that it may "
+"be necessary to modify the key name to comply with stricter GSettings key "
+"name rules. Of course, that means your application must use the new key "
+"names when looking up settings in GSettings."
+msgstr ""
+
+#: migrating-gconf.xml:439(para)
+msgid ""
+"The last group in the example also shows how to handle the case of "
+"'relocatable' schemas, which don't have a fixed path. You can specify the "
+"path to use in the group name, separated by a colon."
+msgstr ""
+
+#: migrating-gconf.xml:44(para)
+msgid ""
+"One difference in the way applications interact with their settings is that "
+"with GConf you interact with a tree of settings (ie the keys you pass to "
+"functions when reading or writing values are actually paths with the actual "
+"name of the key as the last element. With GSettings, you create a GSettings "
+"object which has an implicit prefix that determines where the settings get "
+"stored in the global tree of settings, but the keys you pass when reading or "
+"writing values are just the key names, not the full path."
+msgstr ""
+
+#: migrating-gconf.xml:444(para)
+msgid ""
+"There are some limitations: <command>gsettings-data-convert</command> does "
+"not do any transformation of the values. And it does not handle complex "
+"GConf types other than lists of strings or integers."
+msgstr ""
+
+#: migrating-gconf.xml:449(para)
+msgid ""
+"Don't forget to require GConf 2.31.1 or newer in your configure script if "
+"you are making use of the GConf backend or the conversion utility."
+msgstr ""
+
+#: migrating-gconf.xml:455(para)
+msgid ""
+"If, as an application developer, you are interested in manually ensuring "
+"that <command>gsettings-data-convert</command> has been invoked (for "
+"example, to deal with the case where the user is logged in during a "
+"distribution upgrade or for non-XDG desktop environments which do not run "
+"the command as an autostart) you may invoke it manually during your program "
+"initialisation. This is not recommended for all application authors -- it is "
+"your choice if this use case concerns you enough."
+msgstr ""
+
+#: migrating-gconf.xml:465(para)
+msgid ""
+"Internally, <command>gsettings-data-convert</command> uses a keyfile to "
+"track which settings have been migrated. The following code fragment will "
+"check that keyfile to see if your data conversion script has been run yet "
+"and, if not, will attempt to invoke the tool to run it. You should adapt it "
+"to your application as you see fit."
+msgstr ""
+
+#: migrating-gconf.xml:5(title)
+msgid "Before you start"
+msgstr ""
+
+#: migrating-gconf.xml:512(para)
+msgid ""
+"Although there is the possibility that the <command>gsettings-data-convert</"
+"command> script will end up running multiple times concurrently with this "
+"approach, it is believed that this is safe."
+msgstr ""
+
+#: migrating-gconf.xml:58(title)
+msgid "GConfClient (and GConfBridge) API conversion"
+msgstr ""
+
+#: migrating-gconf.xml:60(para)
+msgid ""
+"Most people use GConf via the high-level #GConfClient API. The corresponding "
+"API is the #GSettings object. While not every GConfClient function has a "
+"direct GSettings equivalent, many do: <table id=\"gconf-client-vs-gsettings"
+"\"><tgroup cols=\"2\"><thead><row><entry>GConfClient</"
+"entry><entry>GSettings</entry></row></"
+"thead><tbody><row><entry>gconf_client_get_default()</entry><entry>no direct "
+"equivalent, instead you call g_settings_new() for the schemas you use</"
+"entry></row><row><entry>gconf_client_set()</entry><entry>g_settings_set()</"
+"entry></row><row><entry>gconf_client_get()</entry><entry>g_settings_get()</"
+"entry></row><row><entry>gconf_client_get_bool()</"
+"entry><entry>g_settings_get_boolean()</entry></"
+"row><row><entry>gconf_client_set_bool()</entry><entry>g_settings_set_boolean"
+"()</entry></row><row><entry>gconf_client_get_int()</"
+"entry><entry>g_settings_get_int()</entry></"
+"row><row><entry>gconf_client_set_int()</entry><entry>g_settings_set_int()</"
+"entry></row><row><entry>gconf_client_get_float()</"
+"entry><entry>g_settings_get_double()</entry></"
+"row><row><entry>gconf_client_set_float()</entry><entry>g_settings_set_double"
+"()</entry></row><row><entry>gconf_client_get_string()</"
+"entry><entry>g_settings_get_string()</entry></"
+"row><row><entry>gconf_client_set_string()</entry><entry>g_settings_set_string"
+"()</entry></row><row><entry>gconf_client_get_list()</entry><entry>for string "
+"lists, see g_settings_get_strv(), else see g_settings_get_value() and "
+"#GVariant API</entry></row><row><entry>gconf_client_set_list()</"
+"entry><entry>for string lists, see g_settings_set_strv(), else see "
+"g_settings_set_value() and #GVariant API</entry></"
+"row><row><entry>gconf_entry_get_is_writable()</"
+"entry><entry>g_settings_is_writable()</entry></"
+"row><row><entry>gconf_client_notify_add()</entry><entry>not required, the "
+"#GSettings::changed signal is emitted automatically</entry></"
+"row><row><entry>gconf_client_add_dir()</entry><entry>not required, each "
+"GSettings instance automatically watches all keys in its path</entry></"
+"row><row><entry>#GConfChangeSet</entry><entry>g_settings_delay(), "
+"g_settings_apply()</entry></"
+"row><row><entry>gconf_client_get_default_from_schema()</entry><entry>no "
+"equivalent, applications are expected to know their schema</entry></"
+"row><row><entry>gconf_client_all_entries()</entry><entry>no equivalent, "
+"applications are expected to know their schema, and GSettings does not allow "
+"schema-less entries</entry></row><row><entry>gconf_client_get_without_default"
+"()</entry><entry>no equivalent</entry></"
+"row><row><entry>gconf_bridge_bind_property()</entry><entry>g_settings_bind()"
+"</entry></row><row><entry>gconf_bridge_bind_property_full()</"
+"entry><entry>g_settings_bind_with_mapping()</entry></row></tbody></tgroup></"
+"table>"
+msgstr ""
+
+#: migrating-gconf.xml:7(para)
+msgid ""
+"Converting individual applications and their settings from GConf to "
+"GSettings can be done at will. But desktop-wide settings like font or theme "
+"settings often have consumers in multiple modules. Therefore, some "
+"consideration has to go into making sure that all users of a setting are "
+"converted to GSettings at the same time or that the program responsible for "
+"configuring that setting continues to update the value in both places."
+msgstr ""
+
+#: migrating-gconf.xml:98(para)
+msgid ""
+"GConfBridge was a third-party library that used GConf to bind an object "
+"property to a particular configuration key. GSettings offers this service "
+"itself."
+msgstr ""
+
+#: migrating-gdbus.xml:125(para)
+msgid ""
+"While you can do things this way with GDBus too, using g_dbus_proxy_call_sync"
+"(), it is much nicer to use the high-level API for this: <placeholder-1/> "
+"Note that g_bus_own_name() works asynchronously and requires you to enter "
+"your mainloop to await the on_name_aquired() callback. Also note that in "
+"order to avoid race conditions (e.g. when your service is activated by a "
+"method call), you have to export your manager object <emphasis>before</"
+"emphasis> acquiring the name. The on_bus_acquired() callback is the right "
+"place to do such preparations."
+msgstr ""
+
+#: migrating-gdbus.xml:13(para)
+msgid ""
+"dbus-glib uses libdbus, GDBus doesn't. Instead, it relies on GIO streams as "
+"transport layer, and has its own implementation for the the D-Bus connection "
+"setup and authentication. Apart from using streams as transport, avoiding "
+"libdbus also lets GDBus avoid some thorny multithreading issues."
+msgstr ""
+
+#: migrating-gdbus.xml:165(title)
+msgid "Creating proxies for well-known names"
+msgstr ""
+
+#: migrating-gdbus.xml:166(para)
+msgid ""
+"dbus-glib lets you create proxy objects for well-known names, like the "
+"following example: <placeholder-1/> For a #DBusGProxy constructed like this, "
+"method calls will be sent to the current owner of the name, and that owner "
+"can change over time."
+msgstr ""
+
+#: migrating-gdbus.xml:179(para)
+msgid ""
+"The same can be achieved with #GDBusProxy: <placeholder-1/> For an added "
+"layer of safety, you can specify what D-Bus interface the proxy is expected "
+"to conform to by using the #GDBusInterfaceInfo type."
+msgstr ""
+
+#: migrating-gdbus.xml:197(para)
+msgid ""
+"Additionally, #GDBusProxy loads, caches and tracks changes to the D-Bus "
+"properties on the remote object. It also sets up match rules so D-Bus "
+"signals from the remote object are delivered locally."
+msgstr ""
+
+#: migrating-gdbus.xml:2(title)
+msgid "Migrating to GDBus"
+msgstr ""
+
+#: migrating-gdbus.xml:20(para)
+msgid ""
+"dbus-glib uses the GObject type system for method arguments and return "
+"values, including a homegrown container specialization mechanism. GDBus "
+"relies uses the #GVariant type system which is explicitly designed to match "
+"D-Bus types."
+msgstr ""
+
+#: migrating-gdbus.xml:205(title)
+msgid "Client-side GObject bindings"
+msgstr ""
+
+#: migrating-gdbus.xml:207(para)
+msgid ""
+"dbus-glib comes with <command>dbus-binding-tool</command>, which can produce "
+"somewhat nice client-side wrappers for a D-Bus interface. GDBus does not "
+"have code-generation at this point, but #GDBusProxy is designed to allow the "
+"creating of client-side wrappers by subclassing #GDBusProxy."
+msgstr ""
+
+#: migrating-gdbus.xml:214(para)
+msgid ""
+"For an example of a #GDBusProxy-derived class that wraps a D-Bus interface "
+"in a type-safe way, see <xref linkend=\"gdbus-example-proxy-subclass\"/>. "
+"The comparison is as follows: <table id=\"gdbus-example-type-safe-proxy"
+"\"><placeholder-1/><tgroup cols=\"2\"><thead><row><entry>D-Bus concept</"
+"entry><entry>GObject concept</entry></row></"
+"thead><tbody><row><entry>AutomaticLogin property</entry><placeholder-2/></"
+"row><row><entry>RealName property</entry><placeholder-3/></"
+"row><row><entry>UserName property</entry><placeholder-4/></"
+"row><row><entry>Changed signal</entry><placeholder-5/></"
+"row><row><entry>Frobnicate method</entry><placeholder-6/></row></tbody></"
+"tgroup></table>"
+msgstr ""
+
+#: migrating-gdbus.xml:220(title)
+msgid ""
+"Wrapping the org.freedesktop.Accounts.User D-Bus interface in the "
+"AccountUser GObject type"
+msgstr ""
+
+#: migrating-gdbus.xml:229(para)
+msgid "<literal>AccountsUser:automatic-login</literal> GObject property"
+msgstr ""
+
+#: migrating-gdbus.xml:230(para)
+msgid "C getter: accounts_user_get_automatic_login()"
+msgstr ""
+
+#: migrating-gdbus.xml:231(para)
+msgid "Watch changes via the <literal>notify::automatic-login</literal> signal"
+msgstr ""
+
+#: migrating-gdbus.xml:237(para)
+msgid "<literal>AccountsUser:real-name</literal> GObject property"
+msgstr ""
+
+#: migrating-gdbus.xml:238(para)
+msgid "C getter: accounts_user_get_real_name()"
+msgstr ""
+
+#: migrating-gdbus.xml:239(para)
+msgid "Watch changes via the <literal>notify::real-name signal</literal>"
+msgstr ""
+
+#: migrating-gdbus.xml:245(para)
+msgid "<literal>AccountsUser:user-name</literal> GObject property"
+msgstr ""
+
+#: migrating-gdbus.xml:246(para)
+msgid "C getter: accounts_user_get_user_name()"
+msgstr ""
+
+#: migrating-gdbus.xml:247(para)
+msgid "Watch changes via the <literal>notify::user-name</literal> signal"
+msgstr ""
+
+#: migrating-gdbus.xml:253(para)
+msgid "<literal>AccountsUser::changed</literal> GObject signal"
+msgstr ""
+
+#: migrating-gdbus.xml:254(para)
+msgid "Watch via e.g. g_signal_connect()"
+msgstr ""
+
+#: migrating-gdbus.xml:26(para)
+msgid ""
+"The typical way to export an object in dbus-glib involves generating glue "
+"code from XML introspection data using <command>dbus-binding-tool</command>. "
+"GDBus does not (yet?) use code generation; you are expected to embed the "
+"introspection data in your application code."
+msgstr ""
+
+#: migrating-gdbus.xml:260(para)
+msgid ""
+"Use accounts_user_frobnicate() + accounts_user_frobnicate_finish() or "
+"accounts_user_frobnicate_sync() to invoke"
+msgstr ""
+
+#: migrating-gdbus.xml:267(fallback) migrating-gdbus.xml:337(fallback)
+msgid "FIXME: MISSING XINCLUDE CONTENT"
+msgstr ""
+
+#: migrating-gdbus.xml:267(title)
+msgid "GDBusProxy subclass example"
+msgstr ""
+
+#: migrating-gdbus.xml:271(title)
+msgid "Exporting objects"
+msgstr ""
+
+#: migrating-gdbus.xml:273(para)
+msgid ""
+"With dbus-glib, exporting an object over D-Bus works by generating a bunch "
+"of glue code from your introspection XML with <command>dbus-binding-tool</"
+"command>. The glue code gets included in your source, and you need to call "
+"<placeholder-1/> in your class_init() function to tell dbus-glib about your "
+"type. To actually export an instance, you call <placeholder-2/>"
+msgstr ""
+
+#: migrating-gdbus.xml:278(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  dbus_g_object_type_install_info (TYPE_MYOBJECT,\n"
+"                                   &amp;dbus_glib_myobject_object_info);\n"
+"      "
+msgstr ""
+
+#: migrating-gdbus.xml:284(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"  dbus_g_connection_register_g_object (system_bus_connection,\n"
+"                                       my_object_path,\n"
+"                                       G_OBJECT (my_object));\n"
+"      "
+msgstr ""
+
+#: migrating-gdbus.xml:291(para)
+msgid ""
+"The GDBus way of exporting an object works by embedding the introspection "
+"XML in the source, creating introspection data structures from it with "
+"g_dbus_node_info_new_for_xml(), and passing that along when you register the "
+"object: <placeholder-1/>"
+msgstr ""
+
+#: migrating-gdbus.xml:324(para)
+msgid ""
+"The actual implementation of the exported object is done by specifying a "
+"#GDBusInterfaceVTable that has method_call(), get_property() and set_property"
+"() methods. There is no direct support beyond that for exporting #GObjects, "
+"so there is quite a bit of manual work involved, as you can see in the "
+"following example."
+msgstr ""
+
+#: migrating-gdbus.xml:331(para)
+msgid ""
+"Since the VTable methods don't have any direct #GObject support, we pass the "
+"exported object as @user_data. Also note that we have to handle the emission "
+"of the PropertiesChanged signal ourselves, by connecting to ::notify."
+msgstr ""
+
+#: migrating-gdbus.xml:337(title)
+msgid "Exporting a GObject"
+msgstr ""
+
+#: migrating-gdbus.xml:36(title)
+msgid "API comparison"
+msgstr ""
+
+#: migrating-gdbus.xml:39(title)
+msgid "dbus-glib APIs and their GDBus counterparts"
+msgstr ""
+
+#: migrating-gdbus.xml:42(entry)
+msgid "GDBus"
+msgstr ""
+
+#: migrating-gdbus.xml:42(entry)
+msgid "dbus-glib"
+msgstr ""
+
+#: migrating-gdbus.xml:45(entry)
+msgid "#DBusGConnection"
+msgstr ""
+
+#: migrating-gdbus.xml:45(entry)
+msgid "#GDBusConnection"
+msgstr ""
+
+#: migrating-gdbus.xml:46(entry)
+msgid "#DBusGProxy"
+msgstr ""
+
+#: migrating-gdbus.xml:46(entry)
+msgid "#GDBusProxy"
+msgstr ""
+
+#: migrating-gdbus.xml:47(entry)
+msgid "#DBusGMethodInvocation"
+msgstr ""
+
+#: migrating-gdbus.xml:47(entry)
+msgid "#GDBusMethodInvocation"
+msgstr ""
+
+#: migrating-gdbus.xml:48(entry)
+msgid "dbus_g_bus_get()"
+msgstr ""
+
+#: migrating-gdbus.xml:48(entry)
+msgid "g_bus_get_sync(), also see g_bus_get()"
+msgstr ""
+
+#: migrating-gdbus.xml:50(entry)
+msgid "dbus_g_proxy_new_for_name()"
+msgstr ""
+
+#: migrating-gdbus.xml:50(entry)
+msgid ""
+"g_dbus_proxy_new_sync() and g_dbus_proxy_new_for_bus_sync(), also see "
+"g_dbus_proxy_new()"
+msgstr ""
+
+#: migrating-gdbus.xml:52(entry)
+msgid "dbus_g_proxy_add_signal()"
+msgstr ""
+
+#: migrating-gdbus.xml:52(entry)
+msgid "not needed, use the generic #GDBusProxy::g-signal"
+msgstr ""
+
+#: migrating-gdbus.xml:53(entry)
+msgid "dbus_g_proxy_connect_signal()"
+msgstr ""
+
+#: migrating-gdbus.xml:53(entry)
+msgid "use g_signal_connect() with #GDBusProxy::g-signal"
+msgstr ""
+
+#: migrating-gdbus.xml:54(entry)
+msgid "dbus_g_connection_register_g_object()"
+msgstr ""
+
+#: migrating-gdbus.xml:54(entry)
+msgid "g_dbus_connection_register_object()"
+msgstr ""
+
+#: migrating-gdbus.xml:55(entry)
+msgid "dbus_g_connection_unregister_g_object()"
+msgstr ""
+
+#: migrating-gdbus.xml:55(entry)
+msgid "g_dbus_connection_unregister_object()"
+msgstr ""
+
+#: migrating-gdbus.xml:56(entry)
+msgid "dbus_g_object_type_install_info()"
+msgstr ""
+
+#: migrating-gdbus.xml:56(entry)
+msgid ""
+"introspection data is installed while registering an object, see "
+"g_dbus_connection_register_object()"
+msgstr ""
+
+#: migrating-gdbus.xml:58(entry)
+msgid "dbus_g_proxy_begin_call()"
+msgstr ""
+
+#: migrating-gdbus.xml:58(entry)
+msgid "g_dbus_proxy_call()"
+msgstr ""
+
+#: migrating-gdbus.xml:59(entry)
+msgid "dbus_g_proxy_end_call()"
+msgstr ""
+
+#: migrating-gdbus.xml:59(entry)
+msgid "g_dbus_proxy_call_finish()"
+msgstr ""
+
+#: migrating-gdbus.xml:60(entry)
+msgid "dbus_g_proxy_call()"
+msgstr ""
+
+#: migrating-gdbus.xml:60(entry)
+msgid "g_dbus_proxy_call_sync()"
+msgstr ""
+
+#: migrating-gdbus.xml:61(entry)
+msgid "dbus_g_error_domain_register()"
+msgstr ""
+
+#: migrating-gdbus.xml:61(entry)
+msgid "g_dbus_error_register_error_domain()"
+msgstr ""
+
+#: migrating-gdbus.xml:62(entry)
+msgid "dbus_g_error_has_name()"
+msgstr ""
+
+#: migrating-gdbus.xml:62(entry)
+msgid "no direct equivalent, see g_dbus_error_get_remote_error()"
+msgstr ""
+
+#: migrating-gdbus.xml:63(entry)
+msgid "dbus_g_method_return()"
+msgstr ""
+
+#: migrating-gdbus.xml:63(entry)
+msgid "g_dbus_method_invocation_return_value()"
+msgstr ""
+
+#: migrating-gdbus.xml:64(entry)
+msgid "dbus_g_method_return_error()"
+msgstr ""
+
+#: migrating-gdbus.xml:64(entry)
+msgid "g_dbus_method_invocation_return_error() and variants"
+msgstr ""
+
+#: migrating-gdbus.xml:65(entry)
+msgid "dbus_g_method_get_sender()"
+msgstr ""
+
+#: migrating-gdbus.xml:65(entry)
+msgid "g_dbus_method_invocation_get_sender()"
+msgstr ""
+
+#: migrating-gdbus.xml:7(para)
+msgid ""
+"The central concepts of D-Bus are modelled in a very similar way in dbus-"
+"glib and GDBus. Both have a objects representing connections, proxies and "
+"method invocations. But there are some important differences: <placeholder-1/"
+">"
+msgstr ""
+
+#: migrating-gdbus.xml:72(title)
+msgid "Owning bus names"
+msgstr ""
+
+#: migrating-gdbus.xml:73(para)
+msgid ""
+"Using dbus-glib, you typically call RequestName manually to own a name, like "
+"in the following excerpt: <placeholder-1/>"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:104(title)
+msgid "Operations on multiple files"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:106(para)
+msgid ""
+"gnome-vfs has the dreaded gnome_vfs_xfer_uri_list() function which has tons "
+"of options and offers the equivalent of cp, mv, ln, mkdir and rm at the same "
+"time."
+msgstr ""
+
+#: migrating-gnome-vfs.xml:11(entry) overview.xml:21(term)
+msgid "GFile"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:11(entry)
+msgid "GnomeVFSURI"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:111(para)
+msgid ""
+"GIO offers a much simpler I/O scheduler functionality instead, that lets you "
+"schedule a function to be called in a separate thread, or if threads are not "
+"available, as an idle in the mainloop. See g_io_scheduler_push_job()."
+msgstr ""
+
+#: migrating-gnome-vfs.xml:12(entry) overview.xml:25(term)
+msgid "GFileInfo"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:12(entry)
+msgid "GnomeVFSFileInfo"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:121(title)
+msgid "Mime monitoring"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:123(para)
+msgid ""
+"gnome-vfs offered a way to monitor the association between mime types and "
+"default handlers for changes, with the #GnomeVFSMIMEMonitor object. GIO does "
+"not offer a replacement for this functionality at this time, since we have "
+"not found a compelling use case where #GnomeVFSMIMEMonitor was used. If you "
+"think you have such a use case, please report it at <ulink url=\"http://"
+"bugzilla.gnome.org\">bugzilla.gnome.org</ulink>."
+msgstr ""
+
+#: migrating-gnome-vfs.xml:13(entry)
+msgid "GError, with G_IO_ERROR values"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:13(entry)
+msgid "GnomeVFSResult"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:14(entry)
+msgid "GInputStream or GOutputStream"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:14(entry)
+msgid "GnomeVFSHandle &amp; GnomeVFSAsyncHandle"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:15(entry) overview.xml:29(term)
+msgid "GFileEnumerator"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:15(entry)
+msgid "GnomeVFSDirectoryHandle"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:16(entry)
+msgid "content type"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:16(entry)
+msgid "mime type"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:17(entry)
+msgid "GFileMonitor"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:17(entry)
+msgid "GnomeVFSMonitor"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:18(entry)
+msgid "GVolumeMonitor"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:18(entry)
+msgid "GnomeVFSVolumeMonitor"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:19(entry) overview.xml:41(term)
+msgid "GMount"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:19(entry)
+msgid "GnomeVFSVolume"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:2(title)
+msgid "Migrating from GnomeVFS to GIO"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:20(entry) overview.xml:37(term)
+msgid "GVolume"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:20(entry)
+msgid "GnomeVFSDrive"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:21(entry)
+msgid "-"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:21(entry) overview.xml:33(term)
+msgid "GDrive"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:22(entry)
+msgid "GCancellable"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:22(entry)
+msgid "GnomeVFSContext"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:23(entry)
+msgid "g_cancellable_cancel"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:23(entry)
+msgid "gnome_vfs_async_cancel"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:29(title)
+msgid "Trash handling"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:31(para)
+msgid ""
+"The handling of trashed files has been changed in GIO, compared to gnome-"
+"vfs. gnome-vfs has a home-grown trash implementation that predates the "
+"freedesktop.org <ulink url=\"http://www.freedesktop.org/wiki/Specifications/"
+"trash-spec\">Desktop Trash Can</ulink> specification that is implemented in "
+"GIO. The location for storing trashed files has changed from <filename>"
+"$HOME/.Trash</filename> to <filename>$HOME/.local/share/Trash</filename> (or "
+"more correctly <filename>$XDG_DATA_HOME/Trash</filename>), which means that "
+"there is a need for migrating files that have been trashed by gnome-vfs to "
+"the new location."
+msgstr ""
+
+#: migrating-gnome-vfs.xml:42(para)
+msgid ""
+"In gnome-vfs, the <filename>trash://</filename> scheme offering a merged "
+"view of all trash directories was implemented in nautilus, and trash-"
+"handling applications had to find and monitor all trash directories "
+"themselves. With GIO, the <filename>trash://</filename> implementation has "
+"been moved to gvfs and applications can simply monitor that location:"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:5(title)
+msgid "Comparison of GnomeVFS and GIO concepts"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:50(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"file_changed (GFileMonitor      *file_monitor,\n"
+"              GFile             *child,\n"
+"              GFile             *other_file,\n"
+"              GFileMonitorEvent  event_type,\n"
+"              gpointer           user_data)\n"
+"{\n"
+"  switch (event_type)\n"
+"  {\n"
+"  case G_FILE_MONITOR_EVENT_DELETED:\n"
+"    g_print (\"'%s' removed from trash\\n\", g_file_get_basename (child));\n"
+"    break;\n"
+"  case G_FILE_MONITOR_EVENT_CREATED:\n"
+"    g_print (\"'%s' added to trash\\n\", g_file_get_basename (child));\n"
+"    break;\n"
+"  default: ;\n"
+"  }\n"
+"}\n"
+"\n"
+"static void\n"
+"start_monitoring_trash (void)\n"
+"{\n"
+"  GFile *file;\n"
+"  GFileMonitor *monitor;\n"
+"\n"
+"  file = g_file_new_for_uri (\"trash://\");\n"
+"  monitor = g_file_monitor_directory (file, 0, NULL, NULL);\n"
+"  g_object_unref (file);\n"
+"\n"
+"  g_signal_connect (monitor, \"changed\", G_CALLBACK (file_changed), NULL);\n"
+"\n"
+"  /* ... */\n"
+"\n"
+"}       \n"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:8(entry) migrating-posix.xml:11(entry)
+msgid "GIO"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:8(entry)
+msgid "GnomeVFS"
+msgstr ""
+
+#: migrating-gnome-vfs.xml:86(para)
+msgid ""
+"GIO exposes some useful metadata about trashed files. There are trash::orig-"
+"path and trash::deletion-date attributes. The standard::icon attribute of "
+"the <filename>trash://</filename> itself provides a suitable icon for "
+"displaying the trash can on the desktop. If you are using this icon, make "
+"sure to monitor this attribute for changes, since the icon may be updated to "
+"reflect that state of the trash can."
+msgstr ""
+
+#: migrating-gnome-vfs.xml:95(para)
+msgid ""
+"Moving a file to the trash is much simpler with GIO. Instead of using "
+"gnome_vfs_find_directory() with %GNOME_VFS_DIRECTORY_KIND_TRASH to find out "
+"where to move the trashed file, just use the g_file_trash() function."
+msgstr ""
+
+#: migrating-posix.xml:11(entry)
+msgid "POSIX"
+msgstr ""
+
+#: migrating-posix.xml:14(entry)
+msgid "GFile *file"
+msgstr ""
+
+#: migrating-posix.xml:14(entry)
+msgid "char *path"
+msgstr ""
+
+#: migrating-posix.xml:15(entry) migrating-posix.xml:16(entry)
+msgid "GFileInfo *info"
+msgstr ""
+
+#: migrating-posix.xml:15(entry)
+msgid "struct stat *buf"
+msgstr ""
+
+#: migrating-posix.xml:16(entry)
+msgid "struct statvfs *buf"
+msgstr ""
+
+#: migrating-posix.xml:17(entry)
+msgid "GInputStream *in"
+msgstr ""
+
+#: migrating-posix.xml:17(entry)
+msgid "int fd"
+msgstr ""
+
+#: migrating-posix.xml:18(entry)
+msgid "GOutputStream *out"
+msgstr ""
+
+#: migrating-posix.xml:19(entry)
+msgid "DIR *"
+msgstr ""
+
+#: migrating-posix.xml:19(entry)
+msgid "GFileEnumerator *enum"
+msgstr ""
+
+#: migrating-posix.xml:20(entry)
+msgid "GUnixMountPoint *mount_point"
+msgstr ""
+
+#: migrating-posix.xml:20(entry)
+msgid "fstab entry"
+msgstr ""
+
+#: migrating-posix.xml:21(entry)
+msgid "GUnixMountEntry *mount_entry"
+msgstr ""
+
+#: migrating-posix.xml:21(entry)
+msgid "mtab entry"
+msgstr ""
+
+#: migrating-posix.xml:5(title)
+msgid "Migrating from POSIX to GIO"
+msgstr ""
+
+#: migrating-posix.xml:8(title)
+msgid "Comparison of POSIX and GIO concepts"
+msgstr ""
+
+#: overview.xml:100(term)
+msgid "GSocketService"
+msgstr ""
+
+#: overview.xml:101(para)
+msgid "high-level network server helper"
+msgstr ""
+
+#: overview.xml:104(term)
+msgid "GSocketConnection"
+msgstr ""
+
+#: overview.xml:105(para)
+msgid "network connection stream"
+msgstr ""
+
+#: overview.xml:113(term)
+msgid "GDBusConnection"
+msgstr ""
+
+#: overview.xml:114(para)
+msgid "a D-Bus connection"
+msgstr ""
+
+#: overview.xml:118(term)
+msgid "GDBusMethodInvocation"
+msgstr ""
+
+#: overview.xml:119(para)
+msgid "for handling remove calls"
+msgstr ""
+
+#: overview.xml:123(term)
+msgid "GDBusServer"
+msgstr ""
+
+#: overview.xml:124(para)
+msgid "helper for accepting connections"
+msgstr ""
+
+#: overview.xml:128(term)
+msgid "GDBusProxy"
+msgstr ""
+
+#: overview.xml:129(para)
+msgid "proxy to access D-Bus interfaces on a remote object"
+msgstr ""
+
+#: overview.xml:140(para)
+msgid ""
+"Other design choices which consciously break with the GnomeVFS design are to "
+"move backends out-of-process, which minimizes the dependency bloat and makes "
+"the whole system more robust. The backends are not included in GIO, but in "
+"the separate GVFS package. The GVFS package also contains the GVFS daemon, "
+"which spawn further mount daemons for each individual connection."
+msgstr ""
+
+#: overview.xml:150(title)
+msgid "GIO in the GTK+ library stack"
+msgstr ""
+
+#: overview.xml:154(para)
+msgid ""
+"The GIO model of I/O is stateful: if an application establishes e.g. a SFTP "
+"connection to a server, it becomes available to all applications in the "
+"session; the user does not have to enter his password over and over again."
+msgstr ""
+
+#: overview.xml:16(para)
+msgid ""
+"The abstract file system model of GIO consists of a number of interfaces and "
+"base classes for I/O and files: <placeholder-1/> Then there is a number of "
+"stream classes, similar to the input and output stream hierarchies that can "
+"be found in frameworks like Java: <placeholder-2/> There are interfaces "
+"related to applications and the types of files they handle: <placeholder-3/> "
+"There is a framework for storing and retrieving application settings: "
+"<placeholder-4/> There is support for network programming, including name "
+"resolution, lowlevel socket APIs and highlevel client and server helper "
+"classes: <placeholder-5/> There is support for connecting to <link linkend="
+"\"http://www.freedesktop.org/wiki/Software/dbus\">D-Bus</link>, sending and "
+"receiving messages, owning and watching bus names, and making objects "
+"available on the bus: <placeholder-6/> Beyond these, GIO provides facilities "
+"for file monitoring, asynchronous I/O and filename completion. In addition "
+"to the interfaces, GIO provides implementations for the local case. "
+"Implementations for various network file systems are provided by the GVFS "
+"package as loadable modules."
+msgstr ""
+
+#: overview.xml:160(para)
+msgid ""
+"One of the big advantages of putting the VFS in the GLib layer is that GTK+ "
+"can directly use it, e.g. in the filechooser."
+msgstr ""
+
+#: overview.xml:167(title)
+msgid "Compiling GIO applications"
+msgstr ""
+
+#: overview.xml:169(para)
+msgid ""
+"GIO comes with a <filename>gio-2.0.pc</filename> file that you should use "
+"together with <literal>pkg-config</literal> to obtain the necessary "
+"information about header files and libraries. See the <literal>pkg-config</"
+"literal> man page or the GLib documentation for more information on how to "
+"use <literal>pkg-config</literal> to compile your application."
+msgstr ""
+
+#: overview.xml:178(para)
+msgid ""
+"If you are using GIO on UNIX-like systems, you may want to use UNIX-specific "
+"GIO interfaces such as #GUnixInputStream, #GUnixOutputStream, #GUnixMount or "
+"#GDesktopAppInfo. To do so, use the <filename>gio-unix-2.0.pc</filename> "
+"file instead of <filename>gio-2.0.pc</filename>"
+msgstr ""
+
+#: overview.xml:186(para)
+msgid ""
+"Since GIO is based on GObject, you need to call g_type_init() before you can "
+"use any GIO functions. If your application uses GTK+, this is already taken "
+"care of by gtk_init()."
+msgstr ""
+
+#: overview.xml:194(title)
+msgid "Running GIO applications"
+msgstr ""
+
+#: overview.xml:196(para)
+msgid ""
+"GIO inspects a few of environment variables in addition to the ones used by "
+"GLib."
+msgstr ""
+
+#: overview.xml:2(title)
+msgid "GIO Overview"
+msgstr ""
+
+#: overview.xml:202(title)
+msgid "<envar>XDG_DATA_HOME</envar>, <envar>XDG_DATA_DIRS</envar>"
+msgstr ""
+
+#: overview.xml:204(para)
+msgid ""
+"GIO uses these environment variables to locate MIME information. For more "
+"information, see the <ulink url=\"http://freedesktop.org/Standards/shared-"
+"mime-info-spec\">Shared MIME-info Database</ulink> and the <ulink url="
+"\"http://freedesktop.org/Standards/basedir-spec\">Base Directory "
+"Specification</ulink>."
+msgstr ""
+
+#: overview.xml:212(envar)
+msgid "GVFS_DISABLE_FUSE"
+msgstr ""
+
+#: overview.xml:214(para)
+msgid ""
+"This variable can be set to keep #Gvfs from starting the fuse backend, which "
+"may be unwanted or unnecessary in certain situations."
+msgstr ""
+
+#: overview.xml:22(para)
+msgid "reference to a file"
+msgstr ""
+
+#: overview.xml:220(para)
+msgid ""
+"The following environment variables are only useful for debugging GIO itself "
+"or modules that it loads. They should not be set in a production environment."
+msgstr ""
+
+#: overview.xml:226(envar)
+msgid "GIO_USE_VFS"
+msgstr ""
+
+#: overview.xml:228(para)
+msgid ""
+"This environment variable can be set to the name of a #GVfs implementation "
+"to override the default for debugging purposes. The #GVfs implementation for "
+"local files that is included in GIO has the name \"local\", the "
+"implementation in the gvfs module has the name \"gvfs\"."
+msgstr ""
+
+#: overview.xml:238(envar)
+msgid "GIO_USE_VOLUME_MONITOR"
+msgstr ""
+
+#: overview.xml:240(para)
+msgid ""
+"This variable can be set to the name of a #GVolumeMonitor implementation to "
+"override the default for debugging purposes. The #GVolumeMonitor "
+"implementation for local files that is included in GIO has the name \"unix"
+"\", the hal-based implementation in the gvfs module has the name \"hal\"."
+msgstr ""
+
+#: overview.xml:250(envar)
+msgid "GIO_USE_TLS"
+msgstr ""
+
+#: overview.xml:252(para)
+msgid ""
+"This variable can be set to the name of a #GTlsBackend implementation to "
+"override the default for debugging purposes. GIO does not include a "
+"#GTlsBackend implementation, the gnutls-based implementation in the glib-"
+"networking module has the name \"gnutls\"."
+msgstr ""
+
+#: overview.xml:26(para)
+msgid "information about a file or filesystem"
+msgstr ""
+
+#: overview.xml:261(envar)
+msgid "GVFS_INOTIFY_DIAG"
+msgstr ""
+
+#: overview.xml:263(para)
+msgid ""
+"When this environment variable is set and GIO has been built with inotify "
+"support, a dump of diagnostic inotify information will be written every 20 "
+"seconds to a file named <filename>/tmp/gvfsdid.<replaceable>pid</"
+"replaceable></filename>."
+msgstr ""
+
+#: overview.xml:272(envar)
+msgid "GIO_EXTRA_MODULES"
+msgstr ""
+
+#: overview.xml:274(para)
+msgid ""
+"When this environment variable is set to a path, or a set of paths separated "
+"by a colon, GIO will attempt to load modules from within the path."
+msgstr ""
+
+#: overview.xml:282(envar)
+msgid "GSETTINGS_BACKEND"
+msgstr ""
+
+#: overview.xml:284(para)
+msgid ""
+"This variable can be set to the name of a #GSettingsBackend implementation "
+"to override the default for debugging purposes. The memory-based "
+"implementation that is included in GIO has the name \"memory\", the one in "
+"dconf has the name \"dconf-settings\"."
+msgstr ""
+
+#: overview.xml:293(envar)
+msgid "GSETTINGS_SCHEMA_DIR"
+msgstr ""
+
+#: overview.xml:295(para)
+msgid ""
+"This variable can be set to the name of a directory that is considered in "
+"addition to the <filename>glib-2.0/schemas</filename> subdirectories of the "
+"XDG system data dirs when looking for compiled schemas for #GSettings."
+msgstr ""
+
+#: overview.xml:30(para)
+msgid "list files in directories"
+msgstr ""
+
+#: overview.xml:304(envar)
+msgid "DBUS_SYSTEM_BUS_ADDRESS"
+msgstr ""
+
+#: overview.xml:306(para)
+msgid ""
+"This variable is consulted to find the address of the D-Bus system bus. For "
+"the format of D-Bus addresses, see the D-Bus <ulink url=\"http://dbus."
+"freedesktop.org/doc/dbus-specification.html#addresses\">specification</"
+"ulink>."
+msgstr ""
+
+#: overview.xml:311(para)
+msgid ""
+"Setting this variable overrides platform-specific ways of determining the "
+"system bus address."
+msgstr ""
+
+#: overview.xml:318(envar)
+msgid "DBUS_SESSION_BUS_ADDRESS"
+msgstr ""
+
+#: overview.xml:320(para)
+msgid ""
+"This variable is consulted to find the address of the D-Bus session bus."
+msgstr ""
+
+#: overview.xml:323(para)
+msgid ""
+"Setting this variable overrides platform-specific ways of determining the "
+"session bus address."
+msgstr ""
+
+#: overview.xml:330(envar)
+msgid "DBUS_STARTER_BUS_TYPE"
+msgstr ""
+
+#: overview.xml:332(para)
+msgid ""
+"This variable is consulted to find out the 'starter' bus for an application "
+"that has been started via D-Bus activation. The possible values are 'system' "
+"or 'session'."
+msgstr ""
+
+#: overview.xml:34(para)
+msgid "represents a drive"
+msgstr ""
+
+#: overview.xml:340(envar)
+msgid "G_DBUS_DEBUG"
+msgstr ""
+
+#: overview.xml:342(para)
+msgid ""
+"This variable can be set to a list of debug options, which cause GLib to "
+"print out different types of debugging information when using the D-Bus "
+"routines. <placeholder-1/> The special value <literal>all</literal> can be "
+"used to turn on all debug options. The special value <literal>help</literal> "
+"can be used to print a list of supported options to standard output."
+msgstr ""
+
+#: overview.xml:348(term)
+msgid "transport"
+msgstr ""
+
+#: overview.xml:349(para)
+msgid "Show IO activity (e.g. reads and writes)"
+msgstr ""
+
+#: overview.xml:352(term)
+msgid "message"
+msgstr ""
+
+#: overview.xml:353(para)
+msgid "Show all sent and received D-Bus messages"
+msgstr ""
+
+#: overview.xml:356(term)
+msgid "payload"
+msgstr ""
+
+#: overview.xml:357(para)
+msgid "Show payload for all sent and received D-Bus messages (implies message)"
+msgstr ""
+
+#: overview.xml:361(para)
+msgid ""
+"Trace g_dbus_connection_call() and g_dbus_connection_call_sync() API usage"
+msgstr ""
+
+#: overview.xml:364(term)
+msgid "signal"
+msgstr ""
+
+#: overview.xml:365(para)
+msgid "Show when a D-Bus signal is received"
+msgstr ""
+
+#: overview.xml:368(term)
+msgid "incoming"
+msgstr ""
+
+#: overview.xml:369(para)
+msgid "Show when an incoming D-Bus method call is received"
+msgstr ""
+
+#: overview.xml:372(term)
+msgid "return"
+msgstr ""
+
+#: overview.xml:373(para)
+msgid "Show when a reply is returned via the #GDBusMethodInvocation API"
+msgstr ""
+
+#: overview.xml:376(term)
+msgid "emission"
+msgstr ""
+
+#: overview.xml:377(para)
+msgid "Trace g_dbus_connection_emit_signal() API usage"
+msgstr ""
+
+#: overview.xml:38(para)
+msgid "represents a file system in an abstract way"
+msgstr ""
+
+#: overview.xml:380(term)
+msgid "authentication"
+msgstr ""
+
+#: overview.xml:381(para)
+msgid "Show information about connection authentication"
+msgstr ""
+
+#: overview.xml:385(para)
+msgid "Show information about D-Bus address lookups and autolaunching"
+msgstr ""
+
+#: overview.xml:396(envar)
+msgid "G_DBUS_COOKIE_SHA1_KEYRING_DIR"
+msgstr ""
+
+#: overview.xml:398(para)
+msgid ""
+"Can be used to override the directory used to store the keyring used in the "
+"<literal>DBUS_COOKIE_SHA1</literal> authentication mechanism. Normally the "
+"directory used is <filename>.dbus-keyrings</filename> in the user's home "
+"directory."
+msgstr ""
+
+#: overview.xml:408(envar)
+msgid "G_DBUS_COOKIE_SHA1_KEYRING_DIR_IGNORE_PERMISSION"
+msgstr ""
+
+#: overview.xml:410(para)
+msgid ""
+"If set, the permissions of the directory used to store the keyring used in "
+"the <literal>DBUS_COOKIE_SHA1</literal> authentication mechanism won't be "
+"checked. Normally the directory must be readable only by the user."
+msgstr ""
+
+#: overview.xml:42(para)
+msgid "represents a mounted file system"
+msgstr ""
+
+#: overview.xml:422(para)
+msgid ""
+"A lot of the functionality that is accessible through GIO is implemented in "
+"loadable modules, and modules provide a convenient way to extend GIO. In "
+"addition to the #GIOModule API which supports writing such modules, GIO has "
+"a mechanism to define extension points, and register implementations "
+"thereof, see #GIOExtensionPoint."
+msgstr ""
+
+#: overview.xml:429(para)
+msgid "The following extension points are currently defined by GIO:"
+msgstr ""
+
+#: overview.xml:434(title)
+msgid "G_VFS_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:436(para)
+msgid ""
+"Allows to override the functionality of the #GVfs class. Implementations of "
+"this extension point must be derived from #GVfs. GIO uses the implementation "
+"with the highest priority that is active, see g_vfs_is_active()."
+msgstr ""
+
+#: overview.xml:442(para)
+msgid ""
+"GIO implements this extension point for local files, gvfs contains an "
+"implementation that supports all the backends in gvfs."
+msgstr ""
+
+#: overview.xml:449(title)
+msgid "G_VOLUME_MONITOR_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:451(para)
+msgid ""
+"Allows to add more volume monitors. Implementations of this extension point "
+"must be derived from #GVolumeMonitor. GIO uses all registered extensions."
+msgstr ""
+
+#: overview.xml:456(para)
+msgid ""
+"gvfs contains an implementation that works together with the #GVfs "
+"implementation in gvfs."
+msgstr ""
+
+#: overview.xml:463(title)
+msgid "G_NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:465(para)
+msgid ""
+"Allows to override the 'native' volume monitor. Implementations of this "
+"extension point must be derived from #GNativeVolumeMonitor. GIO uses the "
+"implementation with the highest priority that is supported, as determined by "
+"the is_supported() vfunc in #GVolumeMonitorClass."
+msgstr ""
+
+#: overview.xml:472(para)
+msgid ""
+"GIO implements this extension point for local mounts, gvfs contains a hal-"
+"based implementation."
+msgstr ""
+
+#: overview.xml:479(title)
+msgid "G_LOCAL_FILE_MONITOR_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:481(para)
+msgid ""
+"Allows to override the file monitor implementation for local files. "
+"Implementations of this extension point must be derived from "
+"#GLocalFileMonitor. GIO uses the implementation with the highest priority "
+"that is supported, as determined by the is_supported() vfunc in "
+"#GLocalFileMonitorClass."
+msgstr ""
+
+#: overview.xml:488(para)
+msgid ""
+"GIO uses this extension point internally, to switch between its fam-based "
+"and inotify-based file monitoring implementations."
+msgstr ""
+
+#: overview.xml:49(term)
+msgid "GInputStream"
+msgstr ""
+
+#: overview.xml:495(title)
+msgid "G_LOCAL_DIRECTORY_MONITOR_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:497(para)
+msgid ""
+"Allows to override the directory monitor implementation for local files. "
+"Implementations of this extension point must be derived from "
+"#GLocalDirectoryMonitor. GIO uses the implementation with the highest "
+"priority that is supported, as determined by the is_supported() vfunc in "
+"#GLocalDirectoryMonitorClass."
+msgstr ""
+
+#: overview.xml:5(title)
+msgid "Introduction"
+msgstr ""
+
+#: overview.xml:50(para)
+msgid "read data"
+msgstr ""
+
+#: overview.xml:504(para)
+msgid ""
+"GIO uses this extension point internally, to switch between its fam-based "
+"and inotify-based directory monitoring implementations."
+msgstr ""
+
+#: overview.xml:511(title)
+msgid "G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:513(para)
+msgid ""
+"Unix-only. Allows to provide a way to associate default handlers with URI "
+"schemes. Implementations of this extension point must implement the "
+"#GDesktopAppInfoLookup interface. GIO uses the implementation with the "
+"highest priority."
+msgstr ""
+
+#: overview.xml:519(para)
+msgid ""
+"This extension point has been discontinued in GLib 2.28. It is still "
+"available to keep API and ABI stability, but GIO is no longer using it for "
+"default handlers. Instead, the mime handler mechanism is used, together with "
+"x-scheme-handler pseudo-mimetypes."
+msgstr ""
+
+#: overview.xml:528(title)
+msgid "G_SETTINGS_BACKEND_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:53(term)
+msgid "GOutputStream"
+msgstr ""
+
+#: overview.xml:530(para)
+msgid ""
+"Allows to provide an alternative storage for #GSettings. Implementations of "
+"this extension point must derive from the #GSettingsBackend type. GIO "
+"contains a keyfile-based implementation of this extension point, another one "
+"is provided by dconf."
+msgstr ""
+
+#: overview.xml:54(para)
+msgid "write data"
+msgstr ""
+
+#: overview.xml:540(title)
+msgid "G_PROXY_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:542(para)
+msgid ""
+"Allows to provide implementations for network proxying. Implementations of "
+"this extension point must provide the #GProxy interface, and must be named "
+"after the network protocol they are proxying."
+msgstr ""
+
+#: overview.xml:548(para)
+msgid ""
+"glib-networking contains an implementation of this extension point based on "
+"libproxy."
+msgstr ""
+
+#: overview.xml:555(title)
+msgid "G_TLS_BACKEND_EXTENSION_POINT_NAME"
+msgstr ""
+
+#: overview.xml:557(para)
+msgid ""
+"Allows to provide implementations for TLS support. Implementations of this "
+"extension point must implement the #GTlsBackend interface."
+msgstr ""
+
+#: overview.xml:562(para)
+msgid "glib-networking contains an implementation of this extension point."
+msgstr ""
+
+#: overview.xml:57(term)
+msgid "GIOStream"
+msgstr ""
+
+#: overview.xml:58(para)
+msgid "read and write data"
+msgstr ""
+
+#: overview.xml:61(term)
+msgid "GSeekable"
+msgstr ""
+
+#: overview.xml:62(para)
+msgid "interface optionally implemented by streams to support seeking"
+msgstr ""
+
+#: overview.xml:69(term)
+msgid "GAppInfo"
+msgstr ""
+
+#: overview.xml:7(para)
+msgid ""
+"GIO is striving to provide a modern, easy-to-use VFS API that sits at the "
+"right level in the library stack. The goal is to overcome the shortcomings "
+"of GnomeVFS and provide an API that is so good that developers prefer it "
+"over raw POSIX calls. Among other things that means using GObject. It also "
+"means not cloning the POSIX API, but providing higher-level, document-"
+"centric interfaces."
+msgstr ""
+
+#: overview.xml:70(para)
+msgid "information about an installed application"
+msgstr ""
+
+#: overview.xml:73(term)
+msgid "GIcon"
+msgstr ""
+
+#: overview.xml:74(para)
+msgid "abstract type for file and application icons"
+msgstr ""
+
+#: overview.xml:80(term)
+msgid "GSettings"
+msgstr ""
+
+#: overview.xml:81(para)
+msgid "stores and retrieves application settings"
+msgstr ""
+
+#: overview.xml:88(term)
+msgid "GSocket"
+msgstr ""
+
+#: overview.xml:89(para)
+msgid "lowlevel platform independent socket object"
+msgstr ""
+
+#: overview.xml:92(term)
+msgid "GResolver"
+msgstr ""
+
+#: overview.xml:93(para)
+msgid "asynchronous and cancellable DNS resolver"
+msgstr ""
+
+#: overview.xml:96(term)
+msgid "GSocketClient"
+msgstr ""
+
+#: overview.xml:97(para)
+msgid "high-level network client helper"
+msgstr ""
