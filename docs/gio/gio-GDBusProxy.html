@@ -1,0 +1,1444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GDBusProxy</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GIO 参考手册">
+<link rel="up" href="gdbus-convenience.html" title="Highlevel D-Bus Support">
+<link rel="prev" href="gio-Watching-Bus-Names.html" title="Watching Bus Names">
+<link rel="next" href="settings.html" title="Settings">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gio-Watching-Bus-Names.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="gdbus-convenience.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GIO 参考手册</th>
+<td><a accesskey="n" href="settings.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gio-GDBusProxy.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gio-GDBusProxy.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gio-GDBusProxy"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gio-GDBusProxy.top_of_page"></a>GDBusProxy</span></h2>
+<p>GDBusProxy — Client-side proxies</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gio-GDBusProxy.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;gio/gio.h&gt;
+
+enum                <a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags">GDBusProxyFlags</a>;
+                    <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy">GDBusProxy</a>;
+struct              <a class="link" href="gio-GDBusProxy.html#GDBusProxyClass" title="struct GDBusProxyClass">GDBusProxyClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new" title="g_dbus_proxy_new ()">g_dbus_proxy_new</a>                    (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> *connection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-finish" title="g_dbus_proxy_new_finish ()">g_dbus_proxy_new_finish</a>             (<em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-sync" title="g_dbus_proxy_new_sync ()">g_dbus_proxy_new_sync</a>               (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> *connection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-for-bus" title="g_dbus_proxy_new_for_bus ()">g_dbus_proxy_new_for_bus</a>            (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> bus_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-for-bus-finish" title="g_dbus_proxy_new_for_bus_finish ()">g_dbus_proxy_new_for_bus_finish</a>     (<em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-for-bus-sync" title="g_dbus_proxy_new_for_bus_sync ()">g_dbus_proxy_new_for_bus_sync</a>       (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> bus_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="returnvalue">GDBusProxyFlags</span></a>     <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-flags" title="g_dbus_proxy_get_flags ()">g_dbus_proxy_get_flags</a>              (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="returnvalue">GDBusConnection</span></a> *   <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-connection" title="g_dbus_proxy_get_connection ()">g_dbus_proxy_get_connection</a>         (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-name" title="g_dbus_proxy_get_name ()">g_dbus_proxy_get_name</a>               (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-name-owner" title="g_dbus_proxy_get_name_owner ()">g_dbus_proxy_get_name_owner</a>         (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-object-path" title="g_dbus_proxy_get_object_path ()">g_dbus_proxy_get_object_path</a>        (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-interface-name" title="g_dbus_proxy_get_interface_name ()">g_dbus_proxy_get_interface_name</a>     (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-default-timeout" title="g_dbus_proxy_get_default_timeout ()">g_dbus_proxy_get_default_timeout</a>    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-set-default-timeout" title="g_dbus_proxy_set_default_timeout ()">g_dbus_proxy_set_default_timeout</a>    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>);
+<a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-cached-property" title="g_dbus_proxy_get_cached_property ()">g_dbus_proxy_get_cached_property</a>    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-set-cached-property" title="g_dbus_proxy_set_cached_property ()">g_dbus_proxy_set_cached_property</a>    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);
+<a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-cached-property-names" title="g_dbus_proxy_get_cached_property_names ()">g_dbus_proxy_get_cached_property_names</a>
+                                                        (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-set-interface-info" title="g_dbus_proxy_set_interface_info ()">g_dbus_proxy_set_interface_info</a>     (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>);
+<a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="returnvalue">GDBusInterfaceInfo</span></a> * <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-get-interface-info" title="g_dbus_proxy_get_interface_info ()">g_dbus_proxy_get_interface_info</a>    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()">g_dbus_proxy_call</a>                   (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *method_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameters</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-finish" title="g_dbus_proxy_call_finish ()">g_dbus_proxy_call_finish</a>            (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-sync" title="g_dbus_proxy_call_sync ()">g_dbus_proxy_call_sync</a>              (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *method_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameters</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gio-GDBusProxy.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> is a base class used for proxies to access a D-Bus
+interface on a remote object. A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> can be constructed for
+both well-known and unique names.
+</p>
+<p>
+By default, <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> will cache all properties (and listen to
+changes) of the remote object, and proxy all signals that gets
+emitted. This behaviour can be changed by passing suitable
+<a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> when the proxy is created. If the proxy is for a
+well-known name, the property cache is flushed when the name owner
+vanishes and reloaded when a name owner appears.
+</p>
+<p>
+If a <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> is used for a well-known name, the owner of the
+name is tracked and can be read from
+<a href="GDBusProxy.html#GDBusProxy--g-name-owner"><span class="type">"g-name-owner"</span></a>. Connect to the <a href="../gobject/gobject-The-Base-Object-Type.html#GObject-notify"><span class="type">"notify"</span></a> signal to
+get notified of changes. Additionally, only signals and property
+changes emitted from the current name owner are considered and
+calls are always sent to the current name owner. This avoids a
+number of race conditions when the name is lost by one owner and
+claimed by another. However, if no name owner currently exists,
+then calls will be sent to the well-known name which may result in
+the message bus launching an owner (unless
+<a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-AUTO-START:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START</code></a> is set).
+</p>
+<p>
+The generic <a href="GDBusProxy.html#GDBusProxy-g-properties-changed"><span class="type">"g-properties-changed"</span></a> and <a href="GDBusProxy.html#GDBusProxy-g-signal"><span class="type">"g-signal"</span></a>
+signals are not very convenient to work with. Therefore, the recommended
+way of working with proxies is to subclass <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>, and have
+more natural properties and signals in your derived class.
+</p>
+<p>
+See <a class="xref" href="ch29s05.html#gdbus-example-proxy-subclass" title="Example 19. GDBusProxy subclass example">Example 19, “GDBusProxy subclass example”</a> for an example.
+</p>
+<p>
+</p>
+<div class="example">
+<a name="gdbus-wellknown-proxy"></a><p class="title"><b>Example 10. GDBusProxy for a well-known-name</b></p>
+<div class="example-contents"><pre class="programlisting">#include &lt;gio/gio.h&gt;
+
+static gchar *opt_name         = NULL;
+static gchar *opt_object_path  = NULL;
+static gchar *opt_interface    = NULL;
+static gboolean opt_system_bus = FALSE;
+static gboolean opt_no_auto_start = FALSE;
+static gboolean opt_no_properties = FALSE;
+
+static GOptionEntry opt_entries[] =
+{
+  { "name", 'n', 0, G_OPTION_ARG_STRING, &amp;opt_name, "Name of the remote object to watch", NULL },
+  { "object-path", 'o', 0, G_OPTION_ARG_STRING, &amp;opt_object_path, "Object path of the remote object", NULL },
+  { "interface", 'i', 0, G_OPTION_ARG_STRING, &amp;opt_interface, "D-Bus interface of remote object", NULL },
+  { "system-bus", 's', 0, G_OPTION_ARG_NONE, &amp;opt_system_bus, "Use the system-bus instead of the session-bus", NULL },
+  { "no-auto-start", 'a', 0, G_OPTION_ARG_NONE, &amp;opt_no_auto_start, "Don't instruct the bus to launch an owner for the name", NULL},
+  { "no-properties", 'p', 0, G_OPTION_ARG_NONE, &amp;opt_no_properties, "Do not load properties", NULL},
+  { NULL}
+};
+
+static GMainLoop *loop = NULL;
+
+static void
+print_properties (GDBusProxy *proxy)
+{
+  gchar **property_names;
+  guint n;
+
+  g_print ("    properties:\n");
+
+  property_names = g_dbus_proxy_get_cached_property_names (proxy);
+  for (n = 0; property_names != NULL &amp;&amp; property_names[n] != NULL; n++)
+    {
+      const gchar *key = property_names[n];
+      GVariant *value;
+      gchar *value_str;
+      value = g_dbus_proxy_get_cached_property (proxy, key);
+      value_str = g_variant_print (value, TRUE);
+      g_print ("      %s -&gt; %s\n", key, value_str);
+      g_variant_unref (value);
+      g_free (value_str);
+    }
+  g_strfreev (property_names);
+}
+
+static void
+on_properties_changed (GDBusProxy          *proxy,
+                       GVariant            *changed_properties,
+                       const gchar* const  *invalidated_properties,
+                       gpointer             user_data)
+{
+  /* Note that we are guaranteed that changed_properties and
+   * invalidated_properties are never NULL
+   */
+
+  if (g_variant_n_children (changed_properties) &gt; 0)
+    {
+      GVariantIter *iter;
+      const gchar *key;
+      GVariant *value;
+
+      g_print (" *** Properties Changed:\n");
+      g_variant_get (changed_properties,
+                     "a{sv}",
+                     &amp;iter);
+      while (g_variant_iter_loop (iter, "{&amp;sv}", &amp;key, &amp;value))
+        {
+          gchar *value_str;
+          value_str = g_variant_print (value, TRUE);
+          g_print ("      %s -&gt; %s\n", key, value_str);
+          g_free (value_str);
+        }
+      g_variant_iter_free (iter);
+    }
+
+  if (g_strv_length ((GStrv) invalidated_properties) &gt; 0)
+    {
+      guint n;
+      g_print (" *** Properties Invalidated:\n");
+      for (n = 0; invalidated_properties[n] != NULL; n++)
+        {
+          const gchar *key = invalidated_properties[n];
+          g_print ("      %s\n", key);
+        }
+    }
+}
+
+static void
+on_signal (GDBusProxy *proxy,
+           gchar      *sender_name,
+           gchar      *signal_name,
+           GVariant   *parameters,
+           gpointer    user_data)
+{
+  gchar *parameters_str;
+
+  parameters_str = g_variant_print (parameters, TRUE);
+  g_print (" *** Received Signal: %s: %s\n",
+           signal_name,
+           parameters_str);
+  g_free (parameters_str);
+}
+
+static void
+print_proxy (GDBusProxy *proxy)
+{
+  gchar *name_owner;
+
+  name_owner = g_dbus_proxy_get_name_owner (proxy);
+  if (name_owner != NULL)
+    {
+      g_print ("+++ Proxy object points to remote object owned by %s\n"
+               "    bus:          %s\n"
+               "    name:         %s\n"
+               "    object path:  %s\n"
+               "    interface:    %s\n",
+               name_owner,
+               opt_system_bus ? "System Bus" : "Session Bus",
+               opt_name,
+               opt_object_path,
+               opt_interface);
+      print_properties (proxy);
+    }
+  else
+    {
+      g_print ("--- Proxy object is inert - there is no name owner for the name\n"
+               "    bus:          %s\n"
+               "    name:         %s\n"
+               "    object path:  %s\n"
+               "    interface:    %s\n",
+               opt_system_bus ? "System Bus" : "Session Bus",
+               opt_name,
+               opt_object_path,
+               opt_interface);
+    }
+  g_free (name_owner);
+}
+
+static void
+on_name_owner_notify (GObject    *object,
+                      GParamSpec *pspec,
+                      gpointer    user_data)
+{
+  GDBusProxy *proxy = G_DBUS_PROXY (object);
+  print_proxy (proxy);
+}
+
+int
+main (int argc, char *argv[])
+{
+  GOptionContext *opt_context;
+  GError *error;
+  GDBusProxyFlags flags;
+  GDBusProxy *proxy;
+
+  g_type_init ();
+
+  loop = NULL;
+  proxy = NULL;
+
+  opt_context = g_option_context_new ("g_bus_watch_proxy() example");
+  g_option_context_set_summary (opt_context,
+                                "Example: to watch the object of gdbus-example-server, use:\n"
+                                "\n"
+                                "  ./gdbus-example-watch-proxy -n org.gtk.GDBus.TestServer  \\\n"
+                                "                              -o /org/gtk/GDBus/TestObject \\\n"
+                                "                              -i org.gtk.GDBus.TestInterface");
+  g_option_context_add_main_entries (opt_context, opt_entries, NULL);
+  error = NULL;
+  if (!g_option_context_parse (opt_context, &amp;argc, &amp;argv, &amp;error))
+    {
+      g_printerr ("Error parsing options: %s\n", error-&gt;message);
+      goto out;
+    }
+  if (opt_name == NULL || opt_object_path == NULL || opt_interface == NULL)
+    {
+      g_printerr ("Incorrect usage, try --help.\n");
+      goto out;
+    }
+
+  flags = G_DBUS_PROXY_FLAGS_NONE;
+  if (opt_no_properties)
+    flags |= G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES;
+  if (opt_no_auto_start)
+    flags |= G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START;
+
+  loop = g_main_loop_new (NULL, FALSE);
+
+  error = NULL;
+  proxy = g_dbus_proxy_new_for_bus_sync (opt_system_bus ? G_BUS_TYPE_SYSTEM : G_BUS_TYPE_SESSION,
+                                         flags,
+                                         NULL, /* GDBusInterfaceInfo */
+                                         opt_name,
+                                         opt_object_path,
+                                         opt_interface,
+                                         NULL, /* GCancellable */
+                                         &amp;error);
+  if (proxy == NULL)
+    {
+      g_printerr ("Error creating proxy: %s\n", error-&gt;message);
+      g_error_free (error);
+      goto out;
+    }
+
+  g_signal_connect (proxy,
+                    "g-properties-changed",
+                    G_CALLBACK (on_properties_changed),
+                    NULL);
+  g_signal_connect (proxy,
+                    "g-signal",
+                    G_CALLBACK (on_signal),
+                    NULL);
+  g_signal_connect (proxy,
+                    "notify::g-name-owner",
+                    G_CALLBACK (on_name_owner_notify),
+                    NULL);
+  print_proxy (proxy);
+
+  g_main_loop_run (loop);
+
+ out:
+  if (proxy != NULL)
+    g_object_unref (proxy);
+  if (loop != NULL)
+    g_main_loop_unref (loop);
+  g_option_context_free (opt_context);
+  g_free (opt_name);
+  g_free (opt_object_path);
+  g_free (opt_interface);
+
+  return 0;
+}
+</pre></div>
+</div>
+<p><br class="example-break">
+</p>
+</div>
+<div class="refsect1">
+<a name="gio-GDBusProxy.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GDBusProxyFlags"></a><h3>enum GDBusProxyFlags</h3>
+<pre class="programlisting">typedef enum
+{
+  G_DBUS_PROXY_FLAGS_NONE = 0,
+  G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES = (1&lt;&lt;0),
+  G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS = (1&lt;&lt;1),
+  G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START = (1&lt;&lt;2)
+} GDBusProxyFlags;
+</pre>
+<p>
+Flags used when constructing an instance of a <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> derived class.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-DBUS-PROXY-FLAGS-NONE:CAPS"></a><span class="term"><code class="literal">G_DBUS_PROXY_FLAGS_NONE</code></span></p></td>
+<td>No flags set.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-DBUS-PROXY-FLAGS-DO-NOT-LOAD-PROPERTIES:CAPS"></a><span class="term"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code></span></p></td>
+<td>Don't load properties.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-DBUS-PROXY-FLAGS-DO-NOT-CONNECT-SIGNALS:CAPS"></a><span class="term"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS</code></span></p></td>
+<td>Don't connect to signals on the remote object.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-DBUS-PROXY-FLAGS-DO-NOT-AUTO-START:CAPS"></a><span class="term"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START</code></span></p></td>
+<td>If not set and the proxy if for a well-known name,
+then request the bus to launch an owner for the name if no-one owns the name. This flag can
+only be used in proxies for well-known names.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GDBusProxy"></a><h3>GDBusProxy</h3>
+<pre class="programlisting">typedef struct {
+} GDBusProxy;
+</pre>
+<p>
+The <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> structure contains only private data and
+should only be accessed using the provided API.
+</p>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GDBusProxyClass"></a><h3>struct GDBusProxyClass</h3>
+<pre class="programlisting">struct GDBusProxyClass {
+  /* Signals */
+  void (*g_properties_changed) (GDBusProxy          *proxy,
+                                GVariant            *changed_properties,
+                                const gchar* const  *invalidated_properties);
+  void (*g_signal)             (GDBusProxy          *proxy,
+                                const gchar         *sender_name,
+                                const gchar         *signal_name,
+                                GVariant            *parameters);
+};
+</pre>
+<p>
+Class structure for <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GDBusProxyClass.g-properties-changed"></a>g_properties_changed</code></em> ()</span></p></td>
+<td>Signal class handler for the <a href="GDBusProxy.html#GDBusProxy-g-properties-changed"><span class="type">"g-properties-changed"</span></a> signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GDBusProxyClass.g-signal"></a>g_signal</code></em> ()</span></p></td>
+<td>Signal class handler for the <a href="GDBusProxy.html#GDBusProxy-g-signal"><span class="type">"g-signal"</span></a> signal.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new"></a><h3>g_dbus_proxy_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_new                    (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> *connection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Creates a proxy for accessing <em class="parameter"><code>interface_name</code></em> on the remote object
+at <em class="parameter"><code>object_path</code></em> owned by <em class="parameter"><code>name</code></em> at <em class="parameter"><code>connection</code></em> and asynchronously
+loads D-Bus properties unless the
+<a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-LOAD-PROPERTIES:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code></a> flag is used. Connect to
+the <a href="GDBusProxy.html#GDBusProxy-g-properties-changed"><span class="type">"g-properties-changed"</span></a> signal to get notified about
+property changes.
+</p>
+<p>
+If the <a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-CONNECT-SIGNALS:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS</code></a> flag is not set, also sets up
+match rules for signals. Connect to the <a href="GDBusProxy.html#GDBusProxy-g-signal"><span class="type">"g-signal"</span></a> signal
+to handle signals from the remote object.
+</p>
+<p>
+If <em class="parameter"><code>name</code></em> is a well-known name and the
+<a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-AUTO-START:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START</code></a> flag isn't set and no name
+owner currently exists, the message bus will be requested to launch
+a name owner for the name.
+</p>
+<p>
+This is a failable asynchronous constructor - when the proxy is
+ready, <em class="parameter"><code>callback</code></em> will be invoked and you can use
+<a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-finish" title="g_dbus_proxy_new_finish ()"><code class="function">g_dbus_proxy_new_finish()</code></a> to get the result.
+</p>
+<p>
+See <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-sync" title="g_dbus_proxy_new_sync ()"><code class="function">g_dbus_proxy_new_sync()</code></a> and for a synchronous version of this constructor.
+</p>
+<p>
+See <a class="xref" href="gio-GDBusProxy.html#gdbus-wellknown-proxy" title="Example 10. GDBusProxy for a well-known-name">Example 10, “GDBusProxy for a well-known-name”</a> for an example of how <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> can be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags used when constructing the proxy.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> specifying the minimal interface that <em class="parameter"><code>proxy</code></em> conforms to or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A bus name (well-known or unique) or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>connection</code></em> is not a message bus connection. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_path</code></em> :</span></p></td>
+<td>An object path.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td>A D-Bus interface name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback function to invoke when the proxy is ready.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass to <em class="parameter"><code>callback</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new-finish"></a><h3>g_dbus_proxy_new_finish ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        g_dbus_proxy_new_finish             (<em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finishes creating a <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> obtained from the <a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> function passed to <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new" title="g_dbus_proxy_new ()"><code class="function">g_dbus_proxy_new()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>error</code></em> is set. Free with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new-sync"></a><h3>g_dbus_proxy_new_sync ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        g_dbus_proxy_new_sync               (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> *connection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Creates a proxy for accessing <em class="parameter"><code>interface_name</code></em> on the remote object
+at <em class="parameter"><code>object_path</code></em> owned by <em class="parameter"><code>name</code></em> at <em class="parameter"><code>connection</code></em> and synchronously
+loads D-Bus properties unless the
+<a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-LOAD-PROPERTIES:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code></a> flag is used.
+</p>
+<p>
+If the <a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-CONNECT-SIGNALS:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS</code></a> flag is not set, also sets up
+match rules for signals. Connect to the <a href="GDBusProxy.html#GDBusProxy-g-signal"><span class="type">"g-signal"</span></a> signal
+to handle signals from the remote object.
+</p>
+<p>
+If <em class="parameter"><code>name</code></em> is a well-known name and the
+<a class="link" href="gio-GDBusProxy.html#G-DBUS-PROXY-FLAGS-DO-NOT-AUTO-START:CAPS"><code class="literal">G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START</code></a> flag isn't set and no name
+owner currently exists, the message bus will be requested to launch
+a name owner for the name.
+</p>
+<p>
+This is a synchronous failable constructor. See <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new" title="g_dbus_proxy_new ()"><code class="function">g_dbus_proxy_new()</code></a>
+and <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-finish" title="g_dbus_proxy_new_finish ()"><code class="function">g_dbus_proxy_new_finish()</code></a> for the asynchronous version.
+</p>
+<p>
+See <a class="xref" href="gio-GDBusProxy.html#gdbus-wellknown-proxy" title="Example 10. GDBusProxy for a well-known-name">Example 10, “GDBusProxy for a well-known-name”</a> for an example of how <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> can be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags used when constructing the proxy.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> specifying the minimal interface that <em class="parameter"><code>proxy</code></em> conforms to or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A bus name (well-known or unique) or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>connection</code></em> is not a message bus connection. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_path</code></em> :</span></p></td>
+<td>An object path.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td>A D-Bus interface name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if error is set. Free with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new-for-bus"></a><h3>g_dbus_proxy_new_for_bus ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_new_for_bus            (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> bus_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Like <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new" title="g_dbus_proxy_new ()"><code class="function">g_dbus_proxy_new()</code></a> but takes a <a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> instead of a <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a>.
+</p>
+<p>
+See <a class="xref" href="gio-GDBusProxy.html#gdbus-wellknown-proxy" title="Example 10. GDBusProxy for a well-known-name">Example 10, “GDBusProxy for a well-known-name”</a> for an example of how <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> can be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bus_type</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags used when constructing the proxy.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> specifying the minimal interface that <em class="parameter"><code>proxy</code></em> conforms to or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A bus name (well-known or unique).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_path</code></em> :</span></p></td>
+<td>An object path.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td>A D-Bus interface name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Callback function to invoke when the proxy is ready.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data to pass to <em class="parameter"><code>callback</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new-for-bus-finish"></a><h3>g_dbus_proxy_new_for_bus_finish ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        g_dbus_proxy_new_for_bus_finish     (<em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finishes creating a <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> obtained from the <a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> function passed to <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-for-bus" title="g_dbus_proxy_new_for_bus ()"><code class="function">g_dbus_proxy_new_for_bus()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>error</code></em> is set. Free with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-new-for-bus-sync"></a><h3>g_dbus_proxy_new_for_bus_sync ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="returnvalue">GDBusProxy</span></a> *        g_dbus_proxy_new_for_bus_sync       (<em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> bus_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *object_path</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *interface_name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Like <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-new-sync" title="g_dbus_proxy_new_sync ()"><code class="function">g_dbus_proxy_new_sync()</code></a> but takes a <a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a> instead of a <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a>.
+</p>
+<p>
+See <a class="xref" href="gio-GDBusProxy.html#gdbus-wellknown-proxy" title="Example 10. GDBusProxy for a well-known-name">Example 10, “GDBusProxy for a well-known-name”</a> for an example of how <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> can be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bus_type</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusConnection.html#GBusType" title="enum GBusType"><span class="type">GBusType</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags used when constructing the proxy.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> specifying the minimal interface
+that <em class="parameter"><code>proxy</code></em> conforms to or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>A bus name (well-known or unique).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object_path</code></em> :</span></p></td>
+<td>An object path.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interface_name</code></em> :</span></p></td>
+<td>A D-Bus interface name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if error is set. Free with <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-flags"></a><h3>g_dbus_proxy_get_flags ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="returnvalue">GDBusProxyFlags</span></a>     g_dbus_proxy_get_flags              (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the flags that <em class="parameter"><code>proxy</code></em> was constructed with.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Flags from the <a class="link" href="gio-GDBusProxy.html#GDBusProxyFlags" title="enum GDBusProxyFlags"><span class="type">GDBusProxyFlags</span></a> enumeration.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-connection"></a><h3>g_dbus_proxy_get_connection ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="returnvalue">GDBusConnection</span></a> *   g_dbus_proxy_get_connection         (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the connection <em class="parameter"><code>proxy</code></em> is for.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> owned by <em class="parameter"><code>proxy</code></em>. Do not free. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-name"></a><h3>g_dbus_proxy_get_name ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_dbus_proxy_get_name               (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the name that <em class="parameter"><code>proxy</code></em> was constructed for.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string owned by <em class="parameter"><code>proxy</code></em>. Do not free.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-name-owner"></a><h3>g_dbus_proxy_get_name_owner ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             g_dbus_proxy_get_name_owner         (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+The unique name that owns the name that <em class="parameter"><code>proxy</code></em> is for or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+no-one currently owns that name. You may connect to the
+<a href="../gobject/gobject-The-Base-Object-Type.html#GObject-notify"><span class="type">"notify"</span></a> signal to track changes to the
+<a href="GDBusProxy.html#GDBusProxy--g-name-owner"><span class="type">"g-name-owner"</span></a> property.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The name owner or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no name owner exists. Free with <a href="../glib/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-object-path"></a><h3>g_dbus_proxy_get_object_path ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_dbus_proxy_get_object_path        (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the object path <em class="parameter"><code>proxy</code></em> is for.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string owned by <em class="parameter"><code>proxy</code></em>. Do not free.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-interface-name"></a><h3>g_dbus_proxy_get_interface_name ()</h3>
+<pre class="programlisting">const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       g_dbus_proxy_get_interface_name     (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the D-Bus interface name <em class="parameter"><code>proxy</code></em> is for.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string owned by <em class="parameter"><code>proxy</code></em>. Do not free.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-default-timeout"></a><h3>g_dbus_proxy_get_default_timeout ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                g_dbus_proxy_get_default_timeout    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the timeout to use if -1 (specifying default timeout) is
+passed as <em class="parameter"><code>timeout_msec</code></em> in the <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()"><code class="function">g_dbus_proxy_call()</code></a> and
+<a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-sync" title="g_dbus_proxy_call_sync ()"><code class="function">g_dbus_proxy_call_sync()</code></a> functions.
+</p>
+<p>
+See the <a href="GDBusProxy.html#GDBusProxy--g-default-timeout"><span class="type">"g-default-timeout"</span></a> property for more details.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Timeout to use for <em class="parameter"><code>proxy</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-set-default-timeout"></a><h3>g_dbus_proxy_set_default_timeout ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_set_default_timeout    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>);</pre>
+<p>
+Sets the timeout to use if -1 (specifying default timeout) is
+passed as <em class="parameter"><code>timeout_msec</code></em> in the <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()"><code class="function">g_dbus_proxy_call()</code></a> and
+<a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-sync" title="g_dbus_proxy_call_sync ()"><code class="function">g_dbus_proxy_call_sync()</code></a> functions.
+</p>
+<p>
+See the <a href="GDBusProxy.html#GDBusProxy--g-default-timeout"><span class="type">"g-default-timeout"</span></a> property for more details.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timeout_msec</code></em> :</span></p></td>
+<td>Timeout in milliseconds.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-cached-property"></a><h3>g_dbus_proxy_get_cached_property ()</h3>
+<pre class="programlisting"><a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          g_dbus_proxy_get_cached_property    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);</pre>
+<p>
+Looks up the value for a property from the cache. This call does no
+blocking IO.
+</p>
+<p>
+If <em class="parameter"><code>proxy</code></em> has an expected interface (see
+<a href="GDBusProxy.html#GDBusProxy--g-interface-info"><span class="type">"g-interface-info"</span></a>), then <em class="parameter"><code>property_name</code></em> (for existence)
+is checked against it.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>Property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to the <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> instance that holds the value
+for <em class="parameter"><code>property_name</code></em> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the value is not in the cache. The
+returned reference must be freed with <a href="../glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-set-cached-property"></a><h3>g_dbus_proxy_set_cached_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_set_cached_property    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *value</code></em>);</pre>
+<p>
+If <em class="parameter"><code>value</code></em> is not <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, sets the cached value for the property with
+name <em class="parameter"><code>property_name</code></em> to the value in <em class="parameter"><code>value</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>value</code></em> is <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then the cached value is removed from the
+property cache.
+</p>
+<p>
+If <em class="parameter"><code>proxy</code></em> has an expected interface (see
+<a href="GDBusProxy.html#GDBusProxy--g-interface-info"><span class="type">"g-interface-info"</span></a>), then <em class="parameter"><code>property_name</code></em> (for existence)
+and <em class="parameter"><code>value</code></em> (for the type) is checked against it.
+</p>
+<p>
+If the <em class="parameter"><code>value</code></em> <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> is floating, it is consumed. This allows
+convenient 'inline' use of <a href="../glib/glib-GVariant.html#g-variant-new"><code class="function">g_variant_new()</code></a>, e.g.
+</p>
+<div class="informalexample"><pre class="programlisting">
+ g_dbus_proxy_set_cached_property (proxy,
+                                   "SomeProperty",
+                                   g_variant_new ("(si)",
+                                                 "A String",
+                                                 42));
+</pre></div>
+<p>
+</p>
+<p>
+Normally you will not need to use this method since <em class="parameter"><code>proxy</code></em> is
+tracking changes using the
+<code class="literal">org.freedesktop.DBus.Properties.PropertiesChanged</code>
+D-Bus signal. However, for performance reasons an object may decide
+to not use this signal for some properties and instead use a
+proprietary out-of-band mechanism to transmit changes.
+</p>
+<p>
+As a concrete example, consider an object with a property
+<code class="literal">ChatroomParticipants</code> which is an array of
+strings. Instead of transmitting the same (long) array every time
+the property changes, it is more efficient to only transmit the
+delta using e.g. signals <code class="literal">ChatroomParticipantJoined(String
+name)</code> and <code class="literal">ChatroomParticipantParted(String
+name)</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>Property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value for the property or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to remove it from the cache. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-cached-property-names"></a><h3>g_dbus_proxy_get_cached_property_names ()</h3>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> **            g_dbus_proxy_get_cached_property_names
+                                                        (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Gets the names of all cached properties on <em class="parameter"><code>proxy</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated array of strings or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>proxy</code></em> has
+no cached properties. Free the returned array with <a href="../glib/glib-String-Utility-Functions.html#g-strfreev"><code class="function">g_strfreev()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-set-interface-info"></a><h3>g_dbus_proxy_set_interface_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_set_interface_info     (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> *info</code></em>);</pre>
+<p>
+Ensure that interactions with <em class="parameter"><code>proxy</code></em> conform to the given
+interface.  For example, when completing a method call, if the type
+signature of the message isn't what's expected, the given <a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>
+is set.  Signals that have a type signature mismatch are simply
+dropped.
+</p>
+<p>
+See the <a href="GDBusProxy.html#GDBusProxy--g-interface-info"><span class="type">"g-interface-info"</span></a> property for more details.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info</code></em> :</span></p></td>
+<td>Minimum interface this proxy conforms to or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to unset. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-get-interface-info"></a><h3>g_dbus_proxy_get_interface_info ()</h3>
+<pre class="programlisting"><a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="returnvalue">GDBusInterfaceInfo</span></a> * g_dbus_proxy_get_interface_info    (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>);</pre>
+<p>
+Returns the <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a>, if any, specifying the minimal
+interface that <em class="parameter"><code>proxy</code></em> conforms to.
+</p>
+<p>
+See the <a href="GDBusProxy.html#GDBusProxy--g-interface-info"><span class="type">"g-interface-info"</span></a> property for more details.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="gio-D-Bus-Introspection-Data.html#GDBusInterfaceInfo" title="GDBusInterfaceInfo"><span class="type">GDBusInterfaceInfo</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Do not unref the returned
+object, it is owned by <em class="parameter"><code>proxy</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-call"></a><h3>g_dbus_proxy_call ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_dbus_proxy_call                   (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *method_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameters</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Asynchronously invokes the <em class="parameter"><code>method_name</code></em> method on <em class="parameter"><code>proxy</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>method_name</code></em> contains any dots, then <em class="parameter"><code>name</code></em> is split into interface and
+method name parts. This allows using <em class="parameter"><code>proxy</code></em> for invoking methods on
+other interfaces.
+</p>
+<p>
+If the <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> associated with <em class="parameter"><code>proxy</code></em> is closed then
+the operation will fail with <a class="link" href="gio-GIOError.html#G-IO-ERROR-CLOSED:CAPS"><code class="literal">G_IO_ERROR_CLOSED</code></a>. If
+<em class="parameter"><code>cancellable</code></em> is canceled, the operation will fail with
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a>. If <em class="parameter"><code>parameters</code></em> contains a value not
+compatible with the D-Bus protocol, the operation fails with
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-INVALID-ARGUMENT:CAPS"><code class="literal">G_IO_ERROR_INVALID_ARGUMENT</code></a>.
+</p>
+<p>
+If the <em class="parameter"><code>parameters</code></em> <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> is floating, it is consumed. This allows
+convenient 'inline' use of <a href="../glib/glib-GVariant.html#g-variant-new"><code class="function">g_variant_new()</code></a>, e.g.:
+</p>
+<div class="informalexample"><pre class="programlisting">
+ g_dbus_proxy_call (proxy,
+                    "TwoStrings",
+                    g_variant_new ("(ss)",
+                                   "Thing One",
+                                   "Thing Two"),
+                    G_DBUS_CALL_FLAGS_NONE,
+                    -1,
+                    NULL,
+                    (GAsyncReadyCallback) two_strings_done,
+                    &amp;data);
+</pre></div>
+<p>
+</p>
+<p>
+This is an asynchronous method. When the operation is finished,
+<em class="parameter"><code>callback</code></em> will be invoked in the
+<GTKDOCLINK HREF="g-main-context-push-thread-default">thread-default
+main loop</GTKDOCLINK> of the thread you are calling this method from.
+You can then call <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-finish" title="g_dbus_proxy_call_finish ()"><code class="function">g_dbus_proxy_call_finish()</code></a> to get the result of
+the operation. See <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call-sync" title="g_dbus_proxy_call_sync ()"><code class="function">g_dbus_proxy_call_sync()</code></a> for the synchronous
+version of this method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>method_name</code></em> :</span></p></td>
+<td>Name of method to invoke.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameters</code></em> :</span></p></td>
+<td>A <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple with parameters for the signal or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not passing parameters. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags from the <a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> enumeration.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timeout_msec</code></em> :</span></p></td>
+<td>The timeout in milliseconds (with <a href="../glib/glib-Limits-of-Basic-Types.html#G-MAXINT:CAPS"><code class="literal">G_MAXINT</code></a> meaning
+"infinite") or -1 to use the proxy default timeout.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> to call when the request is satisfied or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if you don't
+care about the result of the method invocation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>The data to pass to <em class="parameter"><code>callback</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-call-finish"></a><h3>g_dbus_proxy_call_finish ()</h3>
+<pre class="programlisting"><a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          g_dbus_proxy_call_finish            (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> *res</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finishes an operation started with <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()"><code class="function">g_dbus_proxy_call()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>res</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GAsyncResult.html#GAsyncResult" title="GAsyncResult"><span class="type">GAsyncResult</span></a> obtained from the <a class="link" href="gio-GAsyncResult.html#GAsyncReadyCallback" title="GAsyncReadyCallback ()"><span class="type">GAsyncReadyCallback</span></a> passed to <a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()"><code class="function">g_dbus_proxy_call()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>error</code></em> is set. Otherwise a <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple with
+return values. Free with <a href="../glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-dbus-proxy-call-sync"></a><h3>g_dbus_proxy_call_sync ()</h3>
+<pre class="programlisting"><a href="../glib/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          g_dbus_proxy_call_sync              (<em class="parameter"><code><a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a> *proxy</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *method_name</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *parameters</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> flags</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_msec</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Synchronously invokes the <em class="parameter"><code>method_name</code></em> method on <em class="parameter"><code>proxy</code></em>.
+</p>
+<p>
+If <em class="parameter"><code>method_name</code></em> contains any dots, then <em class="parameter"><code>name</code></em> is split into interface and
+method name parts. This allows using <em class="parameter"><code>proxy</code></em> for invoking methods on
+other interfaces.
+</p>
+<p>
+If the <a class="link" href="gio-GDBusConnection.html#GDBusConnection" title="GDBusConnection"><span class="type">GDBusConnection</span></a> associated with <em class="parameter"><code>proxy</code></em> is disconnected then
+the operation will fail with <a class="link" href="gio-GIOError.html#G-IO-ERROR-CLOSED:CAPS"><code class="literal">G_IO_ERROR_CLOSED</code></a>. If
+<em class="parameter"><code>cancellable</code></em> is canceled, the operation will fail with
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-CANCELLED:CAPS"><code class="literal">G_IO_ERROR_CANCELLED</code></a>. If <em class="parameter"><code>parameters</code></em> contains a value not
+compatible with the D-Bus protocol, the operation fails with
+<a class="link" href="gio-GIOError.html#G-IO-ERROR-INVALID-ARGUMENT:CAPS"><code class="literal">G_IO_ERROR_INVALID_ARGUMENT</code></a>.
+</p>
+<p>
+If the <em class="parameter"><code>parameters</code></em> <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> is floating, it is consumed. This allows
+convenient 'inline' use of <a href="../glib/glib-GVariant.html#g-variant-new"><code class="function">g_variant_new()</code></a>, e.g.:
+</p>
+<div class="informalexample"><pre class="programlisting">
+ g_dbus_proxy_call_sync (proxy,
+                         "TwoStrings",
+                         g_variant_new ("(ss)",
+                                        "Thing One",
+                                        "Thing Two"),
+                         G_DBUS_CALL_FLAGS_NONE,
+                         -1,
+                         NULL,
+                         &amp;error);
+</pre></div>
+<p>
+</p>
+<p>
+The calling thread is blocked until a reply is received. See
+<a class="link" href="gio-GDBusProxy.html#g-dbus-proxy-call" title="g_dbus_proxy_call ()"><code class="function">g_dbus_proxy_call()</code></a> for the asynchronous version of this
+method.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>proxy</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GDBusProxy.html#GDBusProxy" title="GDBusProxy"><span class="type">GDBusProxy</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>method_name</code></em> :</span></p></td>
+<td>Name of method to invoke.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameters</code></em> :</span></p></td>
+<td>A <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple with parameters for the signal
+or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not passing parameters. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags from the <a class="link" href="gio-GDBusConnection.html#GDBusCallFlags" title="enum GDBusCallFlags"><span class="type">GDBusCallFlags</span></a> enumeration.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timeout_msec</code></em> :</span></p></td>
+<td>The timeout in milliseconds (with <a href="../glib/glib-Limits-of-Basic-Types.html#G-MAXINT:CAPS"><code class="literal">G_MAXINT</code></a> meaning
+"infinite") or -1 to use the proxy default timeout.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>A <a class="link" href="gio-GCancellable.html#GCancellable" title="GCancellable"><span class="type">GCancellable</span></a> or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>error</code></em> is set. Otherwise a <a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> tuple with
+return values. Free with <a href="../glib/glib-GVariant.html#g-variant-unref"><code class="function">g_variant_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.26</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>

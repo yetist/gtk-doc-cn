@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GSimpleAction</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GIO 参考手册">
+<link rel="up" href="application.html" title="Application support">
+<link rel="prev" href="gio-GAction.html" title="GAction">
+<link rel="next" href="gio-GApplication.html" title="GApplication">
+<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gio-GAction.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="application.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GIO 参考手册</th>
+<td><a accesskey="n" href="gio-GApplication.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gio-GSimpleAction.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gio-GSimpleAction.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gio-GSimpleAction"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gio-GSimpleAction.top_of_page"></a>GSimpleAction</span></h2>
+<p>GSimpleAction — A simple GSimpleAction</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gio-GSimpleAction.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction">GSimpleAction</a>;
+struct              <a class="link" href="gio-GSimpleAction.html#GSimpleActionClass" title="struct GSimpleActionClass">GSimpleActionClass</a>;
+
+<a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="returnvalue">GSimpleAction</span></a> *          <a class="link" href="gio-GSimpleAction.html#g-simple-action-new" title="g_simple_action_new ()">g_simple_action_new</a>            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> *parameter_type</code></em>);
+<a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="returnvalue">GSimpleAction</span></a> *          <a class="link" href="gio-GSimpleAction.html#g-simple-action-new-stateful" title="g_simple_action_new_stateful ()">g_simple_action_new_stateful</a>   (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> *parameter_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *state</code></em>);
+
+<span class="returnvalue">void</span>                <a class="link" href="gio-GSimpleAction.html#g-simple-action-set-enabled" title="g_simple_action_set_enabled ()">g_simple_action_set_enabled</a>         (<em class="parameter"><code><a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a> *simple</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gio-GSimpleAction.description"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a> is the obvious simple implementation of the <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a>
+interface.  This is the easiest way to create an action for purposes of
+adding it to a <a class="link" href="gio-GSimpleActionGroup.html#GSimpleActionGroup" title="GSimpleActionGroup"><span class="type">GSimpleActionGroup</span></a>.
+</p>
+<p>
+See also <span class="type">GtkAction</span>.
+</p>
+</div>
+<div class="refsect1">
+<a name="gio-GSimpleAction.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GSimpleAction"></a><h3>GSimpleAction</h3>
+<pre class="programlisting">typedef struct {
+} GSimpleAction;
+</pre>
+<p>
+The <span class="structname">GSimpleAction</span> structure contains private
+data and should only be accessed using the provided API
+</p>
+<p class="since">Since 2.28</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GSimpleActionClass"></a><h3>struct GSimpleActionClass</h3>
+<pre class="programlisting">struct GSimpleActionClass {
+  GObjectClass parent_class;
+
+  /* signals */
+  void  (* activate)  (GSimpleAction *simple,
+                       GVariant      *parameter);
+};
+</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a href="../gobject/gobject-The-Base-Object-Type.html#GObjectClass"><span class="type">GObjectClass</span></a> <em class="structfield"><code><a name="GSimpleActionClass.parent-class"></a>parent_class</code></em>;</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="GSimpleActionClass.activate"></a>activate</code></em> ()</span></p></td>
+<td>the class closure for the activate signal</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-simple-action-new"></a><h3>g_simple_action_new ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="returnvalue">GSimpleAction</span></a> *          g_simple_action_new            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> *parameter_type</code></em>);</pre>
+<p>
+Creates a new action.
+</p>
+<p>
+The created action is stateless.  See <a class="link" href="gio-GSimpleAction.html#g-simple-action-new-stateful" title="g_simple_action_new_stateful ()"><code class="function">g_simple_action_new_stateful()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the action</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameter_type</code></em> :</span></p></td>
+<td>the type of parameter to the activate function. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-simple-action-new-stateful"></a><h3>g_simple_action_new_stateful ()</h3>
+<pre class="programlisting"><a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="returnvalue">GSimpleAction</span></a> *          g_simple_action_new_stateful   (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                                         <em class="parameter"><code>const <a href="../glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> *parameter_type</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *state</code></em>);</pre>
+<p>
+Creates a new stateful action.
+</p>
+<p>
+<em class="parameter"><code>state</code></em> is the initial state of the action.  All future state values
+must have the same <a href="../glib/glib-GVariantType.html#GVariantType"><span class="type">GVariantType</span></a> as the initial state.
+</p>
+<p>
+If the <em class="parameter"><code>state</code></em> GVariant is floating, it is consumed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the action</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameter_type</code></em> :</span></p></td>
+<td>the type of the parameter to the activate function. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td>the initial state of the action</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-simple-action-set-enabled"></a><h3>g_simple_action_set_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_simple_action_set_enabled         (<em class="parameter"><code><a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a> *simple</code></em>,
+                                                         <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> enabled</code></em>);</pre>
+<p>
+Sets the action as enabled or not.
+</p>
+<p>
+An action must be enabled in order to be activated or in order to
+have its state changed from outside callers.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td>a <a class="link" href="gio-GSimpleAction.html#GSimpleAction" title="GSimpleAction"><span class="type">GSimpleAction</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enabled</code></em> :</span></p></td>
+<td>whether the action is enabled</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.28</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.17</div>
+</body>
+</html>
