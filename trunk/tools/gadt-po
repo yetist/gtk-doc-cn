@@ -237,7 +237,7 @@ msgstr ""
                         # FIXME:
                         # if fount "<programlisting>","</programlisting>" and "|[", "]|"。
                         # if this line is begin of the code.
-                        if content[n].find("<programlisting>")>=0:
+                        if content[n].find("<programlisting")>=0:
                             begin=start_line+2+n #the number 2 is to skip "/**" and "function name" line, add "n" for this line number.
                             codeline = n
                             while codeline +1 < len(content) and content[codeline +1].find("</programlisting>")<0:
@@ -278,7 +278,7 @@ msgstr ""
                         begin=start_line+2+n
 
                         description = content[n][content[n].find("*")+1:].strip()
-                        while n+1 < len(content) and (not len(content[n+1].strip()) < 2) and content[n+1].find("<programlisting>")<0 and content[n+1].find("|[")<0:
+                        while n+1 < len(content) and content[n+1].find("<programlisting")<0 and content[n+1].find("|[")<0 and (not len(content[n+1].strip()) < 2) :
                             description = description + " " + content[n+1][content[n+1].find("*")+1:].strip()
                             n=n+1
                         last_n = n+1

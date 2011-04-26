@@ -479,7 +479,7 @@ update_xml()
 		sed -i 's#TARBALL_URI#'$tarball_uri'#g' $docdir/$xml
 		if [ -f $startdir/AUTHORS ];
 		then
-			cat $startdir/AUTHORS|grep -v "^#"|sort|while read line;
+			cat $startdir/AUTHORS|grep -v "^#"|grep -v "^[[:space:]]*$"|sort|while read line;
 		do 
 			author=`echo $line|awk '{print $1}'`
 			if [ "x$author" == "xunknown" -o "x$author" == "xfinished" ];then
