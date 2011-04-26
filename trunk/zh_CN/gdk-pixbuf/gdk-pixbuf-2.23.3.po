@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf 2.10.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-24 01:59-0800\n"
-"PO-Revision-Date: 2011-04-24 01:28+0800\n"
+"PO-Revision-Date: 2011-04-26 22:39+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: inlsd Team <LL@li.org>\n"
 "Language: \n"
@@ -3639,6 +3639,8 @@ msgid ""
 "pixbuf, it will be overwritten during the scaling which results in rendering "
 "artifacts."
 msgstr ""
+"如果源矩形重叠在同一个pixbuf目标矩形，在缩放渲染artifacts结果的期间它会被覆"
+"盖。"
 
 # #-#-#-#-#  gdk-pixbuf-scale.pot~ (gdk-pixbuf 2.10.6)  #-#-#-#-#
 # used by: gdk_pixbuf_composite:
@@ -3733,7 +3735,7 @@ msgid ""
 "image with a checkboard of the colors @color1 and @color2 and renders it "
 "onto the destination image."
 msgstr ""
-"通过 @scale_x 和 $scale_y 指定的缩放以及 @offset_x 和 @offset_y 指定的偏移量"
+"通过 @scale_x 和 @scale_y 指定的缩放以及 @offset_x 和 @offset_y 指定的偏移量"
 "创建一个原始图像 @src 的变形图像，然后将这个变型图像的一个矩形区域(@dest_x ,"
 "@dest_y, @dest_width, @dest_height)与 @color1 和 @color2 组成的棋盘"
 "(checkboard)合成，并将其渲染到目标图像。"
@@ -3814,26 +3816,26 @@ msgstr "更复杂的缩放/合成请参见 gdk_pixbuf_scale() 和 gdk_pixbuf_com
 #. #-#-#-#-#  gdk-pixbuf-scale.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: gdk_pixbuf_composite_color_simple:
 #: gdk-pixbuf-scale.c:311:2 gdk-pixbuf-scale.c:353:2
-#, fuzzy
 msgid ""
 "Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough "
 "memory could be allocated for it."
-msgstr "Return value: 一个新的 #GdkPixbuf，内存不足返回 %NULL。"
+msgstr ""
+"Return value: (transfer full):  一个新的 #GdkPixbuf，内存不足返回 %NULL。"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:32:1
 msgid "@Short_description: Scaling pixbufs and scaling and compositing pixbufs"
-msgstr ""
+msgstr "@Short_description: 缩放pixbuf和缩放并合并pixbuf。"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:33:1
 msgid "@Title: Scaling"
-msgstr ""
+msgstr "@Title: 缩放 (Scaling)"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:34:1
 msgid "@See_also:    <link linkend=\"gdk-GdkRGB\">GdkRGB</link>."
-msgstr ""
+msgstr "@See_also:    <link linkend=\"gdk-GdkRGB\">GdkRGB</link>."
 
 # #used by: gdk_pixbuf_composite_color_simple:
 #. used by: gdk_pixbuf_composite_color_simple:
@@ -3854,6 +3856,10 @@ msgid ""
 "common way to show an image with an alpha channel in image-viewing and "
 "editing software."
 msgstr ""
+"&gdk-pixbuf; 包含一些缩放pixbuf的函数，这些函数可以用来缩放pixbuf并与已有的图"
+"像合并，还可以缩放pixbuf并与实体颜色(solid color)或颜色棋盘(checkerboard)。与"
+"颜色棋盘(checkerboard)合并是图像查看和编辑软件显示带alpha通道的图像的常用方"
+"法。"
 
 # used by: gdk_pixbuf_rotate_simple:
 #. used by: gdk_pixbuf_rotate_simple:
@@ -3878,11 +3884,10 @@ msgstr "旋转一个 pixbuf 90度的倍数，以一个新的 pixbuf 返回结果
 #. #-#-#-#-#  gdk-pixbuf-scale.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: gdk_pixbuf_flip:
 #: gdk-pixbuf-scale.c:395:2 gdk-pixbuf-scale.c:488:2
-#, fuzzy
 msgid ""
 "Returns: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory "
 "could be allocated for it."
-msgstr "Return value: 一个新的 #GdkPixbuf，内存不足返回 %NULL。"
+msgstr "Returns: (transfer full): 一个新的 #GdkPixbuf，内存不足返回 %NULL。"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:43:7
@@ -3894,6 +3899,11 @@ msgid ""
 "create a new pixbuf of a given size, scale an original image to fit, and "
 "then return the new pixbuf."
 msgstr ""
+"因为完全特性(full-featured)函数(gdk_pixbuf_scale(),gdk_pixbuf_composite(), "
+"and gdk_pixbuf_composite_color())使用起来非常复杂而且有很多参数，所以提供了两"
+"个简单便捷的函数，gdk_pixbuf_scale_simple() 和 "
+"gdk_pixbuf_composite_color_simple()，这两个函数按给定的大小创建一个新的pixbuf"
+"并将缩放原始图像来适应它，然后返回这个新的pixbuf。"
 
 # used by: gdk_pixbuf_flip:
 #. used by: gdk_pixbuf_flip:
@@ -3931,16 +3941,21 @@ msgid ""
 "gdk_pixbuf_composite_color() function has exactly the same effect as calling "
 "gdk_pixbuf_scale()."
 msgstr ""
+"下面的例子演示了通过将源图像(已经缩放到适合构件的尺寸)的一个适当的区域渲染到"
+"构件的窗体上来处理一个expose事件。这个源图像与一个棋盘(checkerboard)合成，如"
+"果源图像有alpha通道那么这个棋盘将提供一个alpha通道的视觉表现。如果源图像没有"
+"alpha通道，调用gdk_pixbuf_composite_color() 和 调用 gdk_pixbuf_scale() 的效果"
+"是完全一样的。"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:70:3
 msgid "<example> <title>Handling an expose event.</title> <para>"
-msgstr ""
+msgstr "<example> <title>处理一个expose事件。</title> <para>"
 
 #. used by: SECTION:scaling
 #: gdk-pixbuf-scale.c:99:2
 msgid "</para> </example>"
-msgstr ""
+msgstr "</para> </example>"
 
 #. used by: GdkPixbufSimpleAnim:loop:
 #: gdk-pixbuf-simple-anim.c:156:1
