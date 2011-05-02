@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 3.0.8\n"
-"POT-Creation-Date: 2011-04-14 11:45+0800\n"
-"PO-Revision-Date: 2011-04-14 20:36+0800\n"
+"POT-Creation-Date: 2011-05-02 10:58+0800\n"
+"PO-Revision-Date: 2011-05-02 11:30+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,8 +17,8 @@ msgstr ""
 #: building.sgml:0(None) compiling.sgml:0(None) drawing-model.xml:0(None)
 #: getting_started.xml:0(None) glossary.xml:0(None) gtk-docs.sgml:0(None)
 #: gtk-query-immodules-3.0.xml:0(None) gtk-update-icon-cache.xml:0(None)
-#: migrating-2to3.xml:0(None) migrating-checklist.sgml:0(None)
-#: migrating-GtkApplication.xml:0(None) migrating-GtkStyleContext.xml:0(None)
+#: migrating-2to3.xml:0(None) migrating-GtkApplication.xml:0(None)
+#: migrating-GtkStyleContext.xml:0(None) migrating-checklist.sgml:0(None)
 #: osx.sgml:0(None) overview.xml:0(None) question_index.sgml:0(None)
 #: resources.sgml:0(None) running.sgml:0(None) text_widget.sgml:0(None)
 #: tree_widget.sgml:0(None) visual_index.xml:0(None) windows.sgml:0(None)
@@ -1912,18 +1912,18 @@ msgstr "GTK+ 3 参考手册"
 
 #: gtk-docs.sgml:12(releaseinfo)
 msgid ""
-"This document is for the GTK+ 3 library, version 3.0.8 . The latest versions "
+"This document is for the GTK+ 3 library, version 3.0.9 . The latest versions "
 "can be found online at <ulink role=\"online-location\" url=\"http://library."
 "gnome.org/devel/gtk3/\">http://library.gnome.org/devel/gtk3/</ulink>. If you "
 "are looking for the older GTK+ 2 series of libraries, see <ulink role="
 "\"online-location\" url=\"http://library.gnome.org/devel/gtk/\">http://"
 "library.gnome.org/devel/gtk/</ulink>."
 msgstr ""
-"GTK+ 3 当前版本: 3.0.8, 最新在线文档请浏览这里：<ulink role=\"online-location"
-"\" url=\"http://library.gnome.org/devel/gtk3/\">http://library.gnome.org/"
-"devel/gtk3/</ulink>.要查看旧的GTK+ 2.x 版本请浏览这里：<ulink role=\"online-"
-"location\" url=\"http://library.gnome.org/devel/gtk/\">http://library.gnome."
-"org/devel/gtk/</ulink>."
+"GTK+ 3 当前版本: 3.0.9, 最新在线文档请浏览这里：<ulink role=\"online-"
+"location\" url=\"http://library.gnome.org/devel/gtk3/\">http://library."
+"gnome.org/devel/gtk3/</ulink>.要查看旧的GTK+ 2.x 版本请浏览这里：<ulink "
+"role=\"online-location\" url=\"http://library.gnome.org/devel/gtk/"
+"\">http://library.gnome.org/devel/gtk/</ulink>."
 
 #: gtk-docs.sgml:121(title)
 msgid "Numeric/Text Data Entry"
@@ -3748,304 +3748,6 @@ msgid ""
 "will usually just use the cairo context that has been passed in for this."
 msgstr ""
 
-#: migrating-checklist.sgml:103(para)
-msgid "Implement a handler for the #GtkWidget::popup-menu signal:"
-msgstr ""
-
-#: migrating-checklist.sgml:107(programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"static gboolean\n"
-"my_widget_popup_menu_handler (GtkWidget *widget)\n"
-"{\n"
-"  do_popup_menu (widget, NULL);\n"
-"  return TRUE;\n"
-"}\n"
-"        "
-msgstr ""
-
-#: migrating-checklist.sgml:119(para)
-msgid ""
-"If you do not pass a positioning function to gtk_menu_popup(), it will show "
-"the menu at the mouse position by default. This is what you usually want "
-"when the menu is shown as a result of pressing a mouse button. However, if "
-"you press the <keycombo><keycap>Shift</keycap><keycap>F10</keycap></"
-"keycombo> or <keycap>Menu</keycap> keys while the widget is focused, the "
-"mouse cursor may not be near the widget at all. In the <link linkend="
-"\"do_popup_menu\">example above</link>, you may want to provide your own "
-"<link linkend=\"GtkMenuPositionFunc\">menu-positioning function</link> in "
-"the case where the <parameter>event</parameter> is %NULL. This function "
-"should compute the desired position for a menu when it is invoked through "
-"the keyboard. For example, #GtkEntry aligns the top edge of its popup menu "
-"with the bottom edge of the entry."
-msgstr ""
-
-#: migrating-checklist.sgml:139(para)
-msgid ""
-"For the standard key bindings to work, your widget must be able to take the "
-"keyboard focus. In general, widgets should be fully usable through the "
-"keyboard and not just the mouse. The very first step of this is to ensure "
-"that your widget turns on the %GTK_CAN_FOCUS <link linkend=\"gtkwidgetflags"
-"\">flag</link>."
-msgstr ""
-
-#: migrating-checklist.sgml:150(title)
-msgid "Use GdkEventExpose.region"
-msgstr ""
-
-#: migrating-checklist.sgml:153(title) migrating-checklist.sgml:20(title)
-#: migrating-checklist.sgml:217(title) migrating-checklist.sgml:288(title)
-msgid "Why"
-msgstr ""
-
-#: migrating-checklist.sgml:154(para)
-msgid ""
-"The <structfield>region</structfield> field of <structname>GdkEventExpose</"
-"structname> allows you to redraw less than the traditional "
-"<structfield>GdkEventRegion.area</structfield>."
-msgstr ""
-
-#: migrating-checklist.sgml:161(para)
-msgid ""
-"In early GTK+ versions, the <structname>GdkEventExpose</structname> "
-"structure only had an <structfield>area</structfield> field to let you "
-"determine the region that you needed to redraw. In current GTK+, this field "
-"still exists for compatibility and as a simple interface. However, there is "
-"also a <structfield>region</structfield> field which contains a fine-grained "
-"region. The <structfield>area</structfield> field is simply the bounding "
-"rectangle of the <structfield>region</structfield>."
-msgstr ""
-
-#: migrating-checklist.sgml:17(title)
-msgid "Implement GtkWidget::popup_menu"
-msgstr ""
-
-#: migrating-checklist.sgml:172(para)
-msgid ""
-"Widgets that are very expensive to re-render, such as an image editor, may "
-"prefer to use the <structfield>GdkEventExpose.region</structfield> field to "
-"paint as little as possible. Widgets that just use a few drawing primitives, "
-"such as labels and buttons, may prefer to use the traditional "
-"<structfield>GdkEventExpose.area</structfield> field for simplicity."
-msgstr ""
-
-#: migrating-checklist.sgml:182(para)
-msgid ""
-"Regions have an internal representation that is accessible as a list of "
-"rectangles. To turn the <structfield>GdkEventExpose.region</structfield> "
-"field into such a list, use gdk_region_get_rectangles():"
-msgstr ""
-
-#: migrating-checklist.sgml:189(programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"static gboolean\n"
-"my_widget_expose_event_handler (GtkWidget *widget, GdkEventExpose *event)\n"
-"{\n"
-"  GdkRectangle *rects;\n"
-"  int n_rects;\n"
-"  int i;\n"
-"\n"
-"  gdk_region_get_rectangles (event-&gt;region, &amp;rects, &amp;n_rects);\n"
-"\n"
-"  for (i = 0; i &lt; n_rects; i++)\n"
-"    {\n"
-"      /* Repaint rectangle: (rects[i].x, rects[i].y),\n"
-"       *                    (rects[i].width, rects[i].height)\n"
-"       */\n"
-"    }\n"
-"\n"
-"  g_free (rects);\n"
-"\n"
-"  return FALSE;\n"
-"}\n"
-"    "
-msgstr ""
-
-#: migrating-checklist.sgml:21(para)
-msgid ""
-"By handling this signal, you let widgets have context-sensitive menus that "
-"can be invoked with the standard key bindings."
-msgstr ""
-
-#: migrating-checklist.sgml:214(title)
-msgid "Test for modifier keys correctly"
-msgstr ""
-
-#: migrating-checklist.sgml:218(para)
-msgid ""
-"With gtk_accelerator_get_default_mod_mask() you can test for modifier keys "
-"reliably; this way your key event handlers will work correctly even if "
-"<keycap>NumLock</keycap> or <keycap>CapsLock</keycap> are activated."
-msgstr ""
-
-#: migrating-checklist.sgml:226(para)
-msgid ""
-"In a <structname>GdkEventKey</structname>, the <structfield>state</"
-"structfield> field is a bit mask which indicates the modifier state at the "
-"time the key was pressed. Modifiers are keys like <keycap>Control</keycap> "
-"and <keycap>NumLock</keycap>. When implementing a #GtkWidget::key-press-"
-"event handler, you should use gtk_accelerator_get_default_mod_mask() to test "
-"against modifier keys. This function returns a bit mask which encompasses "
-"all the modifiers which the user may be actively pressing, such as "
-"<keycap>Control</keycap>, <keycap>Shift</keycap>, and <keycap>Alt</keycap>, "
-"but ignores \"innocuous\" modifiers such as <keycap>NumLock</keycap> and "
-"<keycap>CapsLock</keycap>."
-msgstr ""
-
-#: migrating-checklist.sgml:242(para)
-msgid ""
-"Say you want to see if <keycombo><keycap>Control</keycap><keycap>F10</"
-"keycap></keycombo> was pressed. Doing a simple test like <literal>event-&gt;"
-"keysym&nbsp;==&nbsp;GDK_F10 &amp;&amp; event-&gt;state&nbsp;==&nbsp;"
-"GDK_CONTROL_MASK</literal> is not enough. If <keycap>CapsLock</keycap> is "
-"pressed, then <structfield>event-&gt;state</structfield> will be equal to "
-"<literal>GDK_CONTROL_MASK | GDK_LOCK_MASK</literal>, and the simple test "
-"will fail. By taking the logical-and of <structfield>event-&gt;state</"
-"structfield> and gtk_accelerator_get_default_mod_mask(), you can ignore the "
-"modifiers which are not actively pressed by the user at the same time as the "
-"base key."
-msgstr ""
-
-#: migrating-checklist.sgml:258(para)
-msgid ""
-"The following example correctly tests for <keycombo><keycap>Control</"
-"keycap><keycap>F10</keycap></keycombo> being pressed."
-msgstr ""
-
-#: migrating-checklist.sgml:264(programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"static gboolean\n"
-"my_widget_key_press_event_handler (GtkWidget *widget, GdkEventKey *event)\n"
-"{\n"
-"  GdkModifierType modifiers;\n"
-"\n"
-"  modifiers = gtk_accelerator_get_default_mod_mask ();\n"
-"\n"
-"  if (event-&gt;keysym == GDK_F10\n"
-"      &amp;&amp; (event-&gt;state &amp; modifiers) == GDK_CONTROL_MASK)\n"
-"    {\n"
-"      g_print (\"Control-F10 was pressed\\n\");\n"
-"      return TRUE;\n"
-"    }\n"
-"\n"
-"  return FALSE;\n"
-"}\n"
-"    "
-msgstr ""
-
-#: migrating-checklist.sgml:28(para)
-msgid ""
-"The #GtkWidget::popup-menu signal instructs the widget for which it is "
-"emitted to create a context-sensitive popup menu. By default, the <link "
-"linkend=\"gtk-bindings\">key binding mechanism</link> is set to emit this "
-"signal when the <keycombo><keycap>Shift</keycap><keycap>F10</keycap></"
-"keycombo> or <keycap>Menu</keycap> keys are pressed while a widget has the "
-"focus. If a widget in your application shows a popup menu when you press a "
-"mouse button, you can make it work as well through the normal key binding "
-"mechanism in the following fahion:"
-msgstr ""
-
-#: migrating-checklist.sgml:285(title)
-msgid "Use named icons"
-msgstr ""
-
-#: migrating-checklist.sgml:289(para)
-msgid ""
-"Named icons automatically adapt to theme changes, giving your application a "
-"much more integrated appearance."
-msgstr ""
-
-#: migrating-checklist.sgml:295(para)
-msgid ""
-"Named icons can be used for window icons (see gtk_window_set_icon_name()) "
-"and images (see gtk_image_set_icon_name()). You can also use named icons for "
-"drag-and-drop (see gtk_drag_source_set_icon_name()) and in treeview cells "
-"(see the #GtkCellRendererPixbuf:icon-name property)."
-msgstr ""
-
-#: migrating-checklist.sgml:42(para)
-msgid ""
-"Write a function to create and show a popup menu. This function needs to "
-"know the button number and the event's time to pass them to gtk_menu_popup"
-"(). You can implement such a function like this:"
-msgstr ""
-
-#: migrating-checklist.sgml:49(programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"static void\n"
-"do_popup_menu (GtkWidget *my_widget, GdkEventButton *event)\n"
-"{\n"
-"  GtkWidget *menu;\n"
-"  int button, event_time;\n"
-"\n"
-"  menu = gtk_menu_new ();\n"
-"  g_signal_connect (menu, \"deactivate\",\n"
-"                    G_CALLBACK (gtk_widget_destroy), NULL);\n"
-"\n"
-"  /* ... add menu items ... */\n"
-"\n"
-"  if (event)\n"
-"    {\n"
-"      button = event-&gt;button;\n"
-"      event_time = event-&gt;time;\n"
-"    }\n"
-"  else\n"
-"    {\n"
-"      button = 0;\n"
-"      event_time = gtk_get_current_event_time ();\n"
-"    }\n"
-"\n"
-"  gtk_menu_attach_to_widget (GTK_MENU (menu), my_widget, NULL);\n"
-"  gtk_menu_popup (GTK_MENU (menu), NULL, NULL, NULL, NULL,\n"
-"                  button, event_time);\n"
-"}\n"
-"        "
-msgstr ""
-
-#: migrating-checklist.sgml:6(title)
-msgid "Migration Checklist"
-msgstr ""
-
-#: migrating-checklist.sgml:8(para)
-msgid ""
-"This chapter includes a checklist of things you need to do to ensure that "
-"your programs are good citizens in the GTK+ world. By paying attention to "
-"the points in the checklist, you ensure that many automatic features of GTK+ "
-"will work correctly in your program."
-msgstr ""
-
-#: migrating-checklist.sgml:81(para)
-msgid ""
-"In your #GtkWidget::button-press-event handler, call this function when you "
-"need to pop up a menu:"
-msgstr ""
-
-#: migrating-checklist.sgml:86(programlisting)
-#, no-wrap
-msgid ""
-"\n"
-"static gboolean\n"
-"my_widget_button_press_event_handler (GtkWidget *widget, GdkEventButton *event)\n"
-"{\n"
-"  /* Ignore double-clicks and triple-clicks */\n"
-"  if (event-&gt;button == 3 &amp;&amp; event-&gt;type == GDK_BUTTON_PRESS)\n"
-"    {\n"
-"      do_popup_menu (widget, event);\n"
-"      return TRUE;\n"
-"    }\n"
-"\n"
-"  return FALSE;\n"
-"}\n"
-"        "
-msgstr ""
-
 #: migrating-GtkApplication.xml:107(para)
 msgid ""
 "While libunique expects you to check for an already running instance "
@@ -4995,6 +4697,304 @@ msgstr ""
 msgid ""
 "gtk_render_handle(): Renders all kind of handles and resize grips, depending "
 "on the style class."
+msgstr ""
+
+#: migrating-checklist.sgml:103(para)
+msgid "Implement a handler for the #GtkWidget::popup-menu signal:"
+msgstr ""
+
+#: migrating-checklist.sgml:107(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static gboolean\n"
+"my_widget_popup_menu_handler (GtkWidget *widget)\n"
+"{\n"
+"  do_popup_menu (widget, NULL);\n"
+"  return TRUE;\n"
+"}\n"
+"        "
+msgstr ""
+
+#: migrating-checklist.sgml:119(para)
+msgid ""
+"If you do not pass a positioning function to gtk_menu_popup(), it will show "
+"the menu at the mouse position by default. This is what you usually want "
+"when the menu is shown as a result of pressing a mouse button. However, if "
+"you press the <keycombo><keycap>Shift</keycap><keycap>F10</keycap></"
+"keycombo> or <keycap>Menu</keycap> keys while the widget is focused, the "
+"mouse cursor may not be near the widget at all. In the <link linkend="
+"\"do_popup_menu\">example above</link>, you may want to provide your own "
+"<link linkend=\"GtkMenuPositionFunc\">menu-positioning function</link> in "
+"the case where the <parameter>event</parameter> is %NULL. This function "
+"should compute the desired position for a menu when it is invoked through "
+"the keyboard. For example, #GtkEntry aligns the top edge of its popup menu "
+"with the bottom edge of the entry."
+msgstr ""
+
+#: migrating-checklist.sgml:139(para)
+msgid ""
+"For the standard key bindings to work, your widget must be able to take the "
+"keyboard focus. In general, widgets should be fully usable through the "
+"keyboard and not just the mouse. The very first step of this is to ensure "
+"that your widget turns on the %GTK_CAN_FOCUS <link linkend=\"gtkwidgetflags"
+"\">flag</link>."
+msgstr ""
+
+#: migrating-checklist.sgml:150(title)
+msgid "Use GdkEventExpose.region"
+msgstr ""
+
+#: migrating-checklist.sgml:153(title) migrating-checklist.sgml:20(title)
+#: migrating-checklist.sgml:217(title) migrating-checklist.sgml:288(title)
+msgid "Why"
+msgstr ""
+
+#: migrating-checklist.sgml:154(para)
+msgid ""
+"The <structfield>region</structfield> field of <structname>GdkEventExpose</"
+"structname> allows you to redraw less than the traditional "
+"<structfield>GdkEventRegion.area</structfield>."
+msgstr ""
+
+#: migrating-checklist.sgml:161(para)
+msgid ""
+"In early GTK+ versions, the <structname>GdkEventExpose</structname> "
+"structure only had an <structfield>area</structfield> field to let you "
+"determine the region that you needed to redraw. In current GTK+, this field "
+"still exists for compatibility and as a simple interface. However, there is "
+"also a <structfield>region</structfield> field which contains a fine-grained "
+"region. The <structfield>area</structfield> field is simply the bounding "
+"rectangle of the <structfield>region</structfield>."
+msgstr ""
+
+#: migrating-checklist.sgml:17(title)
+msgid "Implement GtkWidget::popup_menu"
+msgstr ""
+
+#: migrating-checklist.sgml:172(para)
+msgid ""
+"Widgets that are very expensive to re-render, such as an image editor, may "
+"prefer to use the <structfield>GdkEventExpose.region</structfield> field to "
+"paint as little as possible. Widgets that just use a few drawing primitives, "
+"such as labels and buttons, may prefer to use the traditional "
+"<structfield>GdkEventExpose.area</structfield> field for simplicity."
+msgstr ""
+
+#: migrating-checklist.sgml:182(para)
+msgid ""
+"Regions have an internal representation that is accessible as a list of "
+"rectangles. To turn the <structfield>GdkEventExpose.region</structfield> "
+"field into such a list, use gdk_region_get_rectangles():"
+msgstr ""
+
+#: migrating-checklist.sgml:189(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static gboolean\n"
+"my_widget_expose_event_handler (GtkWidget *widget, GdkEventExpose *event)\n"
+"{\n"
+"  GdkRectangle *rects;\n"
+"  int n_rects;\n"
+"  int i;\n"
+"\n"
+"  gdk_region_get_rectangles (event-&gt;region, &amp;rects, &amp;n_rects);\n"
+"\n"
+"  for (i = 0; i &lt; n_rects; i++)\n"
+"    {\n"
+"      /* Repaint rectangle: (rects[i].x, rects[i].y),\n"
+"       *                    (rects[i].width, rects[i].height)\n"
+"       */\n"
+"    }\n"
+"\n"
+"  g_free (rects);\n"
+"\n"
+"  return FALSE;\n"
+"}\n"
+"    "
+msgstr ""
+
+#: migrating-checklist.sgml:21(para)
+msgid ""
+"By handling this signal, you let widgets have context-sensitive menus that "
+"can be invoked with the standard key bindings."
+msgstr ""
+
+#: migrating-checklist.sgml:214(title)
+msgid "Test for modifier keys correctly"
+msgstr ""
+
+#: migrating-checklist.sgml:218(para)
+msgid ""
+"With gtk_accelerator_get_default_mod_mask() you can test for modifier keys "
+"reliably; this way your key event handlers will work correctly even if "
+"<keycap>NumLock</keycap> or <keycap>CapsLock</keycap> are activated."
+msgstr ""
+
+#: migrating-checklist.sgml:226(para)
+msgid ""
+"In a <structname>GdkEventKey</structname>, the <structfield>state</"
+"structfield> field is a bit mask which indicates the modifier state at the "
+"time the key was pressed. Modifiers are keys like <keycap>Control</keycap> "
+"and <keycap>NumLock</keycap>. When implementing a #GtkWidget::key-press-"
+"event handler, you should use gtk_accelerator_get_default_mod_mask() to test "
+"against modifier keys. This function returns a bit mask which encompasses "
+"all the modifiers which the user may be actively pressing, such as "
+"<keycap>Control</keycap>, <keycap>Shift</keycap>, and <keycap>Alt</keycap>, "
+"but ignores \"innocuous\" modifiers such as <keycap>NumLock</keycap> and "
+"<keycap>CapsLock</keycap>."
+msgstr ""
+
+#: migrating-checklist.sgml:242(para)
+msgid ""
+"Say you want to see if <keycombo><keycap>Control</keycap><keycap>F10</"
+"keycap></keycombo> was pressed. Doing a simple test like <literal>event-&gt;"
+"keysym&nbsp;==&nbsp;GDK_F10 &amp;&amp; event-&gt;state&nbsp;==&nbsp;"
+"GDK_CONTROL_MASK</literal> is not enough. If <keycap>CapsLock</keycap> is "
+"pressed, then <structfield>event-&gt;state</structfield> will be equal to "
+"<literal>GDK_CONTROL_MASK | GDK_LOCK_MASK</literal>, and the simple test "
+"will fail. By taking the logical-and of <structfield>event-&gt;state</"
+"structfield> and gtk_accelerator_get_default_mod_mask(), you can ignore the "
+"modifiers which are not actively pressed by the user at the same time as the "
+"base key."
+msgstr ""
+
+#: migrating-checklist.sgml:258(para)
+msgid ""
+"The following example correctly tests for <keycombo><keycap>Control</"
+"keycap><keycap>F10</keycap></keycombo> being pressed."
+msgstr ""
+
+#: migrating-checklist.sgml:264(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static gboolean\n"
+"my_widget_key_press_event_handler (GtkWidget *widget, GdkEventKey *event)\n"
+"{\n"
+"  GdkModifierType modifiers;\n"
+"\n"
+"  modifiers = gtk_accelerator_get_default_mod_mask ();\n"
+"\n"
+"  if (event-&gt;keysym == GDK_F10\n"
+"      &amp;&amp; (event-&gt;state &amp; modifiers) == GDK_CONTROL_MASK)\n"
+"    {\n"
+"      g_print (\"Control-F10 was pressed\\n\");\n"
+"      return TRUE;\n"
+"    }\n"
+"\n"
+"  return FALSE;\n"
+"}\n"
+"    "
+msgstr ""
+
+#: migrating-checklist.sgml:28(para)
+msgid ""
+"The #GtkWidget::popup-menu signal instructs the widget for which it is "
+"emitted to create a context-sensitive popup menu. By default, the <link "
+"linkend=\"gtk-bindings\">key binding mechanism</link> is set to emit this "
+"signal when the <keycombo><keycap>Shift</keycap><keycap>F10</keycap></"
+"keycombo> or <keycap>Menu</keycap> keys are pressed while a widget has the "
+"focus. If a widget in your application shows a popup menu when you press a "
+"mouse button, you can make it work as well through the normal key binding "
+"mechanism in the following fahion:"
+msgstr ""
+
+#: migrating-checklist.sgml:285(title)
+msgid "Use named icons"
+msgstr ""
+
+#: migrating-checklist.sgml:289(para)
+msgid ""
+"Named icons automatically adapt to theme changes, giving your application a "
+"much more integrated appearance."
+msgstr ""
+
+#: migrating-checklist.sgml:295(para)
+msgid ""
+"Named icons can be used for window icons (see gtk_window_set_icon_name()) "
+"and images (see gtk_image_set_icon_name()). You can also use named icons for "
+"drag-and-drop (see gtk_drag_source_set_icon_name()) and in treeview cells "
+"(see the #GtkCellRendererPixbuf:icon-name property)."
+msgstr ""
+
+#: migrating-checklist.sgml:42(para)
+msgid ""
+"Write a function to create and show a popup menu. This function needs to "
+"know the button number and the event's time to pass them to gtk_menu_popup"
+"(). You can implement such a function like this:"
+msgstr ""
+
+#: migrating-checklist.sgml:49(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static void\n"
+"do_popup_menu (GtkWidget *my_widget, GdkEventButton *event)\n"
+"{\n"
+"  GtkWidget *menu;\n"
+"  int button, event_time;\n"
+"\n"
+"  menu = gtk_menu_new ();\n"
+"  g_signal_connect (menu, \"deactivate\",\n"
+"                    G_CALLBACK (gtk_widget_destroy), NULL);\n"
+"\n"
+"  /* ... add menu items ... */\n"
+"\n"
+"  if (event)\n"
+"    {\n"
+"      button = event-&gt;button;\n"
+"      event_time = event-&gt;time;\n"
+"    }\n"
+"  else\n"
+"    {\n"
+"      button = 0;\n"
+"      event_time = gtk_get_current_event_time ();\n"
+"    }\n"
+"\n"
+"  gtk_menu_attach_to_widget (GTK_MENU (menu), my_widget, NULL);\n"
+"  gtk_menu_popup (GTK_MENU (menu), NULL, NULL, NULL, NULL,\n"
+"                  button, event_time);\n"
+"}\n"
+"        "
+msgstr ""
+
+#: migrating-checklist.sgml:6(title)
+msgid "Migration Checklist"
+msgstr ""
+
+#: migrating-checklist.sgml:8(para)
+msgid ""
+"This chapter includes a checklist of things you need to do to ensure that "
+"your programs are good citizens in the GTK+ world. By paying attention to "
+"the points in the checklist, you ensure that many automatic features of GTK+ "
+"will work correctly in your program."
+msgstr ""
+
+#: migrating-checklist.sgml:81(para)
+msgid ""
+"In your #GtkWidget::button-press-event handler, call this function when you "
+"need to pop up a menu:"
+msgstr ""
+
+#: migrating-checklist.sgml:86(programlisting)
+#, no-wrap
+msgid ""
+"\n"
+"static gboolean\n"
+"my_widget_button_press_event_handler (GtkWidget *widget, GdkEventButton *event)\n"
+"{\n"
+"  /* Ignore double-clicks and triple-clicks */\n"
+"  if (event-&gt;button == 3 &amp;&amp; event-&gt;type == GDK_BUTTON_PRESS)\n"
+"    {\n"
+"      do_popup_menu (widget, event);\n"
+"      return TRUE;\n"
+"    }\n"
+"\n"
+"  return FALSE;\n"
+"}\n"
+"        "
 msgstr ""
 
 #: osx.sgml:13(refname) osx.sgml:20(title) osx.sgml:7(refentrytitle)
@@ -6289,8 +6289,7 @@ msgstr ""
 "GTK+ 检查一些附加标准环境变量像<envar>LANG</envar>、<envar>PATH</envar>、"
 "<envar>HOME</envar>或<envar>DISPLAY</envar>。主要是为了确定路径查找某些文件"
 "<link linkend=\"x11-envar\">X11</link>、<link linkend=\"win32-envar\">视窗</"
-"link>和<link linkend=\"fb-envar\">帧缓冲</link> GDK后端使用一些附加环境变"
-"量。"
+"link>和<link linkend=\"fb-envar\">帧缓冲</link> GDK后端使用一些附加环境变量。"
 
 #: running.sgml:13(refname) running.sgml:7(refentrytitle)
 msgid "Running GTK+ Applications"
@@ -7587,3 +7586,12 @@ msgid ""
 "interested applications. So client applications can ask the X server to "
 "create a window, draw a circle, or move windows around."
 msgstr ""
+
+#~ msgid ""
+#~ "This document is for the GTK+ 3 library, version 3.0.8 . The latest "
+#~ "versions can be found online at <ulink role=\"online-location\" url="
+#~ "\"http://library.gnome.org/devel/gtk3/\">http://library.gnome.org/devel/"
+#~ "gtk3/</ulink>. If you are looking for the older GTK+ 2 series of "
+#~ "libraries, see <ulink role=\"online-location\" url=\"http://library.gnome."
+#~ "org/devel/gtk/\">http://library.gnome.org/devel/gtk/</ulink>."
+#~ msgstr ""
