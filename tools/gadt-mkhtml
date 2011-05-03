@@ -469,8 +469,8 @@ update_xml()
 	local now=`date +%Y年%m月%d日`
 	for xml in $xml_tmpl;
 	do
-		online_uri="http://gtk-doc-cn.googlecode.com/svn/docs/$modname/index.html"
-		tarball_uri="http://gtk-doc-cn.googlecode.com/files/$modname-$pkgver-docs.tar.gz"
+		online_uri="http://docs.osprg.org/book.php?book=$modname"
+		tarball_uri="http://gtk-doc-cn.googlecode.com/files/$modname-docs.tar.gz"
 		sed -i 's#XXXX年XX月XX日#'$now'#g' $docdir/$xml
 		sed -i 's#TRANS_URI#'$trans_uri'#g' $docdir/$xml
 		sed -i 's#TEAM_URI#'$team_uri'#g' $docdir/$xml
@@ -662,8 +662,8 @@ make_install()
 make_tarball()
 {
 	msg "正在将文档打包..."
-	mkdir -p $tmpdir/$modname-$pkgver-docs
-	cat > $tmpdir/$modname-$pkgver-docs/install.sh << MYEOF
+	mkdir -p $tmpdir/$modname-docs-$pkgver
+	cat > $tmpdir/$modname-docs-$pkgver/install.sh << MYEOF
 #/bin/sh
 
 if [ ! -d ~/.local/share/gtk-doc/html ];
@@ -678,13 +678,13 @@ fi
 cp -r html ~/.local/share/gtk-doc/html/$modname
 
 MYEOF
-	chmod +x $tmpdir/$modname-$pkgver-docs/install.sh
-	cp -r $tmpdir/html/ $tmpdir/$modname-$pkgver-docs/
+	chmod +x $tmpdir/$modname-docs-$pkgver/install.sh
+	cp -r $tmpdir/html/ $tmpdir/$modname-docs-$pkgver/
 	pushd $tmpdir >/dev/null
-	tar zcf $modname-$pkgver-docs.tar.gz $modname-$pkgver-docs
+	tar zcf $modname-docs-$pkgver.tar.gz $modname-docs-$pkgver
 	popd >/dev/null
-	rm -rf $tmpdir/$modname-$pkgver-docs/
-	msg "文档已打包成功： $tmpdir/$modname-$pkgver-docs.tar.gz"
+	rm -rf $tmpdir/$modname-docs-$pkgver/
+	msg "文档已打包成功： $tmpdir/$modname-docs-$pkgver.tar.gz"
 }
 
 edit_sgml()
