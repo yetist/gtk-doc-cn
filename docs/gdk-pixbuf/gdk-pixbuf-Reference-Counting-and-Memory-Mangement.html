@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="GDK-PixBuf参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
 <link rel="prev" href="gdk-pixbuf-The-GdkPixbuf-Structure.html" title="The GdkPixbuf Structure">
-<link rel="next" href="gdk-pixbuf-File-Loading.html" title="File Loading">
+<link rel="next" href="gdk-pixbuf-%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6(File-Loading).html" title="加载文件(File Loading)">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="rn01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GDK-PixBuf参考手册</th>
-<td><a accesskey="n" href="gdk-pixbuf-File-Loading.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="gdk-pixbuf-%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6(File-Loading).html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#gdk-pixbuf-Reference-Counting-and-Memory-Mangement.synopsis" class="shortcut">Top</a>
@@ -75,10 +75,10 @@ library functions that create <a class="link" href="gdk-pixbuf-The-GdkPixbuf-Str
 pixel data by themselves and define the way it should be freed;
 you do not need to worry about those.  The only function that lets
 you specify how to free the pixel data is
-<a class="link" href="gdk-pixbuf-Image-Data-in-Memory.html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a>.  Since you pass it a pre-allocated
+<a class="link" href="gdk-pixbuf-%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%9B%BE%E8%B1%A1%E6%95%B0%E6%8D%AE(Image-Data-in-Memory).html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a>.  Since you pass it a pre-allocated
 pixel buffer, you must also specify a way to free that data.  This
 is done with a function of type <a class="link" href="gdk-pixbuf-Reference-Counting-and-Memory-Mangement.html#GdkPixbufDestroyNotify" title="GdkPixbufDestroyNotify ()"><span class="type">GdkPixbufDestroyNotify</span></a>.  When a
-pixbuf created with <a class="link" href="gdk-pixbuf-Image-Data-in-Memory.html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a> is finalized, your
+pixbuf created with <a class="link" href="gdk-pixbuf-%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%9B%BE%E8%B1%A1%E6%95%B0%E6%8D%AE(Image-Data-in-Memory).html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a> is finalized, your
 destroy notification function will be called, and it is its
 responsibility to free the pixel array.
 </p>
@@ -90,7 +90,7 @@ responsibility to free the pixel array.
 <pre class="programlisting"><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gdk_pixbuf_ref                      (<em class="parameter"><code><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">gdk_pixbuf_ref</code> has been deprecated since version 2.0 and should not be used in newly-written code. Use <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.</p>
+<p><code class="literal">gdk_pixbuf_ref</code> has been deprecated since version 2.0 and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-ref"><code class="function">g_object_ref()</code></a>.</p>
 </div>
 <p>
 添加pixbuf的关联
@@ -116,7 +116,7 @@ responsibility to free the pixel array.
 <pre class="programlisting"><span class="returnvalue">void</span>                gdk_pixbuf_unref                    (<em class="parameter"><code><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">gdk_pixbuf_unref</code> has been deprecated since version 2.0 and should not be used in newly-written code. Use <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</p>
+<p><code class="literal">gdk_pixbuf_unref</code> has been deprecated since version 2.0 and should not be used in newly-written code. 请使用 <a href="../gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</p>
 </div>
 <p>
 删除 pixbuf 的一个关联
@@ -136,7 +136,7 @@ responsibility to free the pixel array.
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
 <p>
 A function of this type is responsible for freeing the pixel array
-of a pixbuf.  The <a class="link" href="gdk-pixbuf-Image-Data-in-Memory.html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a> function lets you
+of a pixbuf.  The <a class="link" href="gdk-pixbuf-%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%9B%BE%E8%B1%A1%E6%95%B0%E6%8D%AE(Image-Data-in-Memory).html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a> function lets you
 pass in a pre-allocated pixel array so that a pixbuf can be
 created from it; in this case you will need to pass in a function
 of <a class="link" href="gdk-pixbuf-Reference-Counting-and-Memory-Mangement.html#GdkPixbufDestroyNotify" title="GdkPixbufDestroyNotify ()"><span class="type">GdkPixbufDestroyNotify</span></a> so that the pixel data can be freed
@@ -159,7 +159,7 @@ when the pixbuf is finalized.
 </div>
 <div class="refsect1">
 <a name="gdk-pixbuf-Reference-Counting-and-Memory-Mangement.see-also"></a><h2>See Also</h2>
-<a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>, <a class="link" href="gdk-pixbuf-Image-Data-in-Memory.html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a>.
+<a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a>, <a class="link" href="gdk-pixbuf-%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%9B%BE%E8%B1%A1%E6%95%B0%E6%8D%AE(Image-Data-in-Memory).html#gdk-pixbuf-new-from-data" title="gdk_pixbuf_new_from_data ()"><code class="function">gdk_pixbuf_new_from_data()</code></a>.
 </div>
 </div>
 <div class="footer">

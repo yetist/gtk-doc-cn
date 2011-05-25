@@ -6,7 +6,7 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GDK-PixBuf参考手册">
 <link rel="up" href="rn01.html" title="API 参考">
-<link rel="prev" href="GdkPixbufLoader.html" title="GdkPixbufLoader">
+<link rel="prev" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)">
 <link rel="next" href="rn02.html" title="工具(Tools)参考">
 <meta name="generator" content="GTK-Doc V1.17 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -65,7 +65,7 @@ struct              <a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPi
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> *height</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 <span class="returnvalue">void</span>                (<a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufModulePreparedFunc" title="GdkPixbufModulePreparedFunc ()">*GdkPixbufModulePreparedFunc</a>)      (<em class="parameter"><code><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *anim</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-%E5%8A%A8%E7%94%BB.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *anim</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 <span class="returnvalue">void</span>                (<a class="link" href="gdk-pixbuf-Module-Interface.html#GdkPixbufModuleUpdatedFunc" title="GdkPixbufModuleUpdatedFunc ()">*GdkPixbufModuleUpdatedFunc</a>)       (<em class="parameter"><code><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
                                                          <em class="parameter"><code><span class="type">int</span> x</code></em>,
@@ -672,7 +672,7 @@ then perform the required scaling on the completely loaded image.
 <p>
 If the function sets <em class="parameter"><code>width</code></em> or <em class="parameter"><code>height</code></em> to zero, the module should interpret
 this as a hint that it will be closed soon and shouldn't allocate further 
-resources. This convention is used to implement <a class="link" href="gdk-pixbuf-File-Loading.html#gdk-pixbuf-get-file-info" title="gdk_pixbuf_get_file_info ()"><code class="function">gdk_pixbuf_get_file_info()</code></a>
+resources. This convention is used to implement <a class="link" href="gdk-pixbuf-%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6(File-Loading).html#gdk-pixbuf-get-file-info" title="gdk_pixbuf_get_file_info ()"><code class="function">gdk_pixbuf_get_file_info()</code></a>
 efficiently.
 </p>
 <div class="variablelist"><table border="0">
@@ -698,14 +698,14 @@ efficiently.
 <div class="refsect2">
 <a name="GdkPixbufModulePreparedFunc"></a><h3>GdkPixbufModulePreparedFunc ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                (*GdkPixbufModulePreparedFunc)      (<em class="parameter"><code><a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> *pixbuf</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *anim</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gdk-pixbuf-%E5%8A%A8%E7%94%BB.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a> *anim</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Defines the type of the function that gets called once the initial 
 setup of <em class="parameter"><code>pixbuf</code></em> is done.
 </p>
 <p>
-<a class="link" href="GdkPixbufLoader.html" title="GdkPixbufLoader"><span class="type">GdkPixbufLoader</span></a> uses a function of this type to emit the 
+<a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a> uses a function of this type to emit the 
 "<a class="link" href="GdkPixbufLoader.html#GdkPixbufLoader-area-prepared" title='The "area-prepared" signal'>area_prepared</a>"
 signal.
 </p>
@@ -718,7 +718,7 @@ signal.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>anim</code></em> :</span></p></td>
-<td>if an animation is being loaded, the <a class="link" href="gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>, else <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+<td>if an animation is being loaded, the <a class="link" href="gdk-pixbuf-%E5%8A%A8%E7%94%BB.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>, else <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -742,7 +742,7 @@ Defines the type of the function that gets called every time a region
 of <em class="parameter"><code>pixbuf</code></em> is updated.
 </p>
 <p>
-<a class="link" href="GdkPixbufLoader.html" title="GdkPixbufLoader"><span class="type">GdkPixbufLoader</span></a> uses a function of this type to emit the 
+<a class="link" href="GdkPixbufLoader.html" title="GdkPixbuf加载器(GdkPixbufLoader)"><span class="type">GdkPixbufLoader</span></a> uses a function of this type to emit the 
 "<a class="link" href="GdkPixbufLoader.html#GdkPixbufLoader-area-updated" title='The "area-updated" signal'>area_updated</a>"
 signal.
 </p>
@@ -883,7 +883,7 @@ usual file extension for images of this type, eg. "xpm", "jpeg" or "png".</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="structfield"><code><a name="GdkPixbufModule.save-to-callback"></a>save_to_callback</code></em> ()</span></p></td>
-<td>saves a <a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> by calling the given <a class="link" href="gdk-pixbuf-File-saving.html#GdkPixbufSaveFunc" title="GdkPixbufSaveFunc ()"><span class="type">GdkPixbufSaveFunc</span></a>.</td>
+<td>saves a <a class="link" href="gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="type">GdkPixbuf</span></a> by calling the given <a class="link" href="gdk-pixbuf-%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6(File-saving).html#GdkPixbufSaveFunc" title="GdkPixbufSaveFunc ()"><span class="type">GdkPixbufSaveFunc</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -909,7 +909,7 @@ usual file extension for images of this type, eg. "xpm", "jpeg" or "png".</td>
 </pre>
 <p>
 Modules supporting animations must derive a type from 
-<a class="link" href="gdk-pixbuf-Animations.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>, providing suitable implementations of the 
+<a class="link" href="gdk-pixbuf-%E5%8A%A8%E7%94%BB.html#GdkPixbufAnimation"><span class="type">GdkPixbufAnimation</span></a>, providing suitable implementations of the 
 virtual functions.
 </p>
 <div class="variablelist"><table border="0">
@@ -957,7 +957,7 @@ virtual functions.
 </pre>
 <p>
 Modules supporting animations must derive a type from 
-<a class="link" href="gdk-pixbuf-Animations.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a>, providing suitable implementations of the 
+<a class="link" href="gdk-pixbuf-%E5%8A%A8%E7%94%BB.html#GdkPixbufAnimationIter"><span class="type">GdkPixbufAnimationIter</span></a>, providing suitable implementations of the 
 virtual functions.
 </p>
 <div class="variablelist"><table border="0">
