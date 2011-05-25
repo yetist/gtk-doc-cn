@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf 2.10.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-04-24 01:59-0800\n"
-"PO-Revision-Date: 2011-04-30 11:18+0800\n"
+"PO-Revision-Date: 2011-05-25 17:00+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: inlsd Team <LL@li.org>\n"
 "Language: \n"
@@ -215,7 +215,7 @@ msgstr "Return value: 装载动画的盒子的宽度"
 #. used by: SECTION:animation
 #: gdk-pixbuf-animation.c:35:1
 msgid "@Title: Animations"
-msgstr ""
+msgstr "@Title: 动画"
 
 #. #-#-#-#-#  gdk-pixbuf-animation.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: SECTION:animation
@@ -248,6 +248,10 @@ msgid ""
 "animation you don't need to understand its representation, however; you just "
 "ask &gdk-pixbuf; what should be displayed at a given point in time."
 msgstr ""
+"&gdk-pixbuf; 库提供了一个简单的机制用来加载和显示动画。一个动画从概念上讲就是一系列随"
+"时间显示的帧。所有的帧都一样大小。动画内部可能并不是表现为一些列的帧；比如，它可能储存"
+"一个小精灵(sprite)和使之绕背景移动的指令。要显示一个动画您并不去要理解它的表现形式，"
+"而只要询问 &gdk-pixbuf; 在给定的时间点需要显示什么。"
 
 # used by: gdk_pixbuf_animation_get_iter:
 #. used by: gdk_pixbuf_animation_get_iter:
@@ -2430,12 +2434,12 @@ msgstr ""
 #. used by: SECTION:file-loading
 #: gdk-pixbuf-io.c:54:1
 msgid "@Short_description: Loading a pixbuf from a file."
-msgstr ""
+msgstr "@Short_description: 从一个文件加载一个 pixbuf。"
 
 #. used by: SECTION:file-loading
 #: gdk-pixbuf-io.c:55:1
 msgid "@Title: File Loading"
-msgstr ""
+msgstr "@Title: 加载文件(File Loading)"
 
 #. used by: SECTION:file-loading
 #: gdk-pixbuf-io.c:58:5
@@ -2445,6 +2449,9 @@ msgid ""
 "control of the application while the file is being loaded; from the user's "
 "point of view, the application will block until the image is done loading."
 msgstr ""
+"&gdk-pixbuf; 库提供了一个简单的机制用来从文件同步的加载一个图像。这意味这"
+"当这个文件被加载的时候程序将被 &gdk-pixbuf; 库将控制 -- 从使用者的角度来看，"
+"在图像加载完成前程序将被阻塞。"
 
 #. used by: SECTION:file-loading
 #: gdk-pixbuf-io.c:65:4
@@ -2454,16 +2461,18 @@ msgid ""
 "general.  Applications that need progressive loading can use the "
 "#GdkPixbufLoader functionality instead."
 msgstr ""
+"这个接口可以被用作允许阻塞的程序中加载图像。通常也可以用来加载很小的图像。"
+"需要渐进加载的程序可以使用 #GdkPixbufLoader 功能来代替。"
 
 #. used by: SECTION:file-saving
 #: gdk-pixbuf-io.c:73:1
 msgid "@Short_description: Saving a pixbuf to a file."
-msgstr ""
+msgstr "@Short_description: 保存一个 pixbuf 到文件。"
 
 #. used by: SECTION:file-saving
 #: gdk-pixbuf-io.c:74:1
 msgid "@Title: File saving"
-msgstr ""
+msgstr "@Title: 保存文件(File saving)"
 
 #. used by: SECTION:file-saving
 #: gdk-pixbuf-io.c:76:5
@@ -2473,6 +2482,9 @@ msgid ""
 "can also call a user-defined callback on the data, which allows to e.g. "
 "write the image to a socket or store it in a database."
 msgstr ""
+"这个函数允许以多种文件格式保存一个 #GdkPixbuf 。格式化的数据可以"
+"被写进一个文件或内存缓冲区。&gdk-pixbuf; 也可以对该数据调用一个用户定义的"
+"回调函数，例如将图像写进套接字或将其储存到数据库。"
 
 #. used by: SECTION:module_interface
 #: gdk-pixbuf-io.c:85:1
@@ -3023,18 +3035,19 @@ msgstr "当 ::size_prepared 发出以后，设置图像的期望大小的试图�
 #. used by: SECTION:gdk-pixbuf-loader
 #: gdk-pixbuf-loader.c:38:1
 msgid "@Short_description: Application-driven progressive image loading."
-msgstr ""
+msgstr "@Short_description: 应用驱动先进图像加载。"
 
 #. used by: SECTION:gdk-pixbuf-loader
 #: gdk-pixbuf-loader.c:39:1
 msgid "@Title: GdkPixbufLoader"
-msgstr ""
+msgstr "@Title: GdkPixbuf加载器(GdkPixbufLoader)"
 
 #. used by: SECTION:gdk-pixbuf-loader
 #: gdk-pixbuf-loader.c:40:1
 msgid ""
 "@See_also: gdk_pixbuf_new_from_file(), gdk_pixbuf_animation_new_from_file()"
 msgstr ""
+"@See_also: gdk_pixbuf_new_from_file(), gdk_pixbuf_animation_new_from_file()"
 
 #. used by: SECTION:gdk-pixbuf-loader
 #: gdk-pixbuf-loader.c:42:9
@@ -3048,6 +3061,12 @@ msgid ""
 "(potentially) slow network connection, or when loading an extremely large "
 "file."
 msgstr ""
+"#GdkPixbufLoader 提供了一种应用程序驱动加载图像过程的方法，该方法是通过"
+"由应用程序直接向加载器发送图像数据来取代使加载器从文件读取数据的方式实现的。"
+"应用程序可以使用这个功能来替代 gdk_pixbuf_new_from_file() 或"
+"gdk_pixbuf_animation_new_from_file() 来解析分成小块的数据。例如，它"
+"可以被用来读取通过(可能)很慢的网络连接传递的图像数据，或者加载一个非常大的"
+"文件。"
 
 #. used by: gdk_pixbuf_loader_write:
 #: gdk-pixbuf-loader.c:492:1
@@ -3104,6 +3123,13 @@ msgid ""
 "scale the image while loading it, you can call gdk_pixbuf_loader_set_size() "
 "in response to this signal."
 msgstr ""
+"使用 #GdkPixbufLoader 来加载图像，只需要创建一个新的实例，然后调用"
+"call gdk_pixbuf_loader_write() 来将数据发送给它。当发送完了，调用"
+"gdk_pixbuf_loader_close() 来结束数据流并完成所有的事。在整个过程中"
+"加载器将发出三个重要的信号。第一个，\"<link "
+"linkend=\"GdkPixbufLoader-size-prepared\">size_prepared</link>\"，"
+"将在图像收到足够的信息来确定其大小的发出。如果需要在加载的时候缩放图像，"
+"可以调用 gdk_pixbuf_loader_set_size() 来响应这个信号。"
 
 # #used by: gdk_pixbuf_loader_new:
 #. used by: gdk_pixbuf_loader_new:
@@ -3162,7 +3188,6 @@ msgstr ""
 # #used by: gdk_pixbuf_loader_new_with_type:
 #. used by: gdk_pixbuf_loader_new_with_type:
 #: gdk-pixbuf-loader.c:577:5
-#, fuzzy
 msgid ""
 "The list of supported image formats depends on what image loaders are "
 "installed, but typically \"png\", \"jpeg\", \"gif\", \"tiff\" and \"xpm\" "
@@ -3170,9 +3195,9 @@ msgid ""
 "formats, call gdk_pixbuf_format_get_name() on each of the #GdkPixbufFormat "
 "structs returned by gdk_pixbuf_get_formats()."
 msgstr ""
-"支持的图像格式列表依赖于安装了哪些图像加载器(image loader)，但典型的 |$_1_$|"
-"png|$_1_$|, |$_1_$|jpeg|$_1_$|, |$_1_$|gif|$_1_$|, |$_1_$|tiff|$_1_$| and |"
-"$_1_$|xpm|$_1_$| 都是可支持的格式。可以通过为 gdk_pixbuf_get_formats() 所返回"
+"支持的图像格式列表依赖于安装了哪些图像加载器(image loader)，但典型的 \""
+"png\", \"jpeg\", \"gif\", \"tiff\" and \"xpm\" "
+"都是可支持的格式。可以通过为 gdk_pixbuf_get_formats() 所返回"
 "的每个 #GdkPixbufFormat 结构调用 gdk_pixbuf_format_get_name() 来获取所支持的"
 "图像格式的完整列表。"
 
@@ -3201,7 +3226,6 @@ msgstr ""
 # #used by: gdk_pixbuf_loader_new_with_mime_type:
 #. used by: gdk_pixbuf_loader_new_with_mime_type:
 #: gdk-pixbuf-loader.c:620:6
-#, fuzzy
 msgid ""
 "The list of supported mime types depends on what image loaders are "
 "installed, but typically \"image/png\", \"image/jpeg\", \"image/gif\", "
@@ -3210,9 +3234,9 @@ msgid ""
 "gdk_pixbuf_format_get_mime_types() on each of the #GdkPixbufFormat structs "
 "returned by gdk_pixbuf_get_formats()."
 msgstr ""
-"支持的mime类型列表依赖于安装了哪些图像加载器(image loader)，但典型的 |$_1_$|"
-"image/png|$_1_$|, |$_1_$|image/jpeg|$_1_$|, |$_1_$|image/gif|$_1_$|, |$_1_$|"
-"image/tiff|$_1_$| and |$_1_$|image/x-xpixmap|$_1_$| 都是可支持的mime类型。可"
+"支持的mime类型列表依赖于安装了哪些图像加载器(image loader)，但典型的 "
+"\"image/png\", \"image/jpeg\", \"image/gif\", "
+"\"image/tiff\" 和 \"image/x-xpixmap\" 都是可支持的mime类型。可"
 "以通过为 gdk_pixbuf_get_formats() 所返回的每个 #GdkPixbufFormat 结构调用 "
 "gdk_pixbuf_format_get_mime_types() 来获取所支持的mime类型的完整列表。"
 
@@ -3234,12 +3258,18 @@ msgid ""
 "You can also call gdk_pixbuf_loader_get_pixbuf() later and get the same "
 "pixbuf."
 msgstr ""
+"第二个，\"<link "
+"linkend=\"GdkPixbufLoader-area-prepared\">area_prepared</link>\"，"
+"将在期望的 pixbuf 被分配完内存的时候发送。可以通过调用"
+"gdk_pixbuf_loader_get_pixbuf()来取得该 pixbuf。简单的引用(ref)它便可以"
+"使用。另外，现在还没有实际的数据传进来，所以如果需要，这个 pixbuf 可以被安全"
+"的使用任何临时图像(或者一种初始颜色)进行填充。也可以在之后调用"
+"gdk_pixbuf_loader_get_pixbuf() ，将得到同一个 pixbuf。"
 
 # #used by: gdk_pixbuf_loader_get_pixbuf:
 #. used by: gdk_pixbuf_loader_get_pixbuf:
 #: gdk-pixbuf-loader.c:679:11
 #, fuzzy
-msgid ""
 "Queries the #GdkPixbuf that a pixbuf loader is currently creating. In "
 "general it only makes sense to call this function after the \"area-prepared"
 "\" signal has been emitted by the loader; this means that enough data has "
@@ -3252,25 +3282,24 @@ msgid ""
 "gdk_pixbuf_animation_get_static_image())."
 msgstr ""
 "查询一个 pixbuf loader 当前创建的 #GdkPixbuf。一般情况下，只有当这个 loader "
-"发出了 |$_1_$|area_prepared|$_1_$| 信号后调用该函数才有意义，这意味着已经加载"
+"发出了 \"area_prepared\" 信号后调用该函数才有意义，这意味着已经加载"
 "了足够的数据来得知将要分配的图像的大小。如果这个 loader 还没有通过 "
 "gdk_pixbuf_loader_write() 接收到足够的数据时返回 %NULL。这个返回的 pixbuf 和"
 "将来对这个 loader 调用这个函数返回的 pixbuf 是一样的，所以简单的调用 "
 "g_object_ref() 将足以继续使用它。另外，如果这个 loader 是一个动画，则将返回这"
-"个动画的 |$_1_$|static image|$_1_$| (参见 "
+"个动画的 \"static image\" (参见 "
 "gdk_pixbuf_animation_get_static_image())。"
 
 # #used by: gdk_pixbuf_loader_get_pixbuf:
 #. used by: gdk_pixbuf_loader_get_pixbuf:
 #: gdk-pixbuf-loader.c:691:2
-#, fuzzy
 msgid ""
 "Return value: (transfer none): The #GdkPixbuf that the loader is creating, "
 "or %NULL if not enough data has been read to determine how to create the "
 "image buffer."
 msgstr ""
-"Return value: 这个 loader 创建的 #GdkPixbuf ，如果还没有读取可以创建图像缓冲"
-"区(image buffer)的足够的数据时则返回 %NULL。"
+"Return value: (transfer none): 这个 loader 创建的 #GdkPixbuf ，"
+"如果还没有读取可以创建图像缓冲区(image buffer)的足够的数据时则返回 %NULL。"
 
 # used by: gdk_pixbuf_loader_get_animation:
 #. used by: gdk_pixbuf_loader_get_animation:
@@ -3281,7 +3310,6 @@ msgstr "@loader: 一个 pixbuf 装载器"
 # #used by: gdk_pixbuf_loader_get_animation:
 #. used by: gdk_pixbuf_loader_get_animation:
 #: gdk-pixbuf-loader.c:713:5
-#, fuzzy
 msgid ""
 "Queries the #GdkPixbufAnimation that a pixbuf loader is currently creating. "
 "In general it only makes sense to call this function after the \"area-"
@@ -3290,30 +3318,27 @@ msgid ""
 "will return %NULL."
 msgstr ""
 "查询一个 pixbuf loader 当前创建的 #GdkPixbufAnimation 。只有当这个 loader 发"
-"出 |$_1_$|area_prepared|$_1_$| 信号后调用该函数才有意义。如果这个 loader 还没"
-"有接收到足够的数据时(还没有发出 |$_1_$|area_prepared|$_1_$| 信号)则返回 "
-"%NULL。"
+"出 \"area_prepared\" 信号后调用该函数才有意义。如果这个 loader 还没"
+"有接收到足够的数据时(还没有发出 \"area_prepared\" 信号)则返回 %NULL。"
 
 # #used by: gdk_pixbuf_loader_get_animation:
 #. used by: gdk_pixbuf_loader_get_animation:
 #: gdk-pixbuf-loader.c:719:2
-#, fuzzy
 msgid ""
 "Return value: (transfer none): The #GdkPixbufAnimation that the loader is "
 "loading, or %NULL if not enough data has been read to determine the "
 "information."
 msgstr ""
-"Return value: 这个 loader 加载的 #GdkPixbufAnimation，但还没有读取到足够的数"
-"据来确定其信息的时候则返回 %NULL。"
+"Return value: (transfer none): 这个 loader 加载的 #GdkPixbufAnimation，"
+"但还没有读取到足够的数据来确定其信息的时候则返回 %NULL。"
 
 # used by: gdk_pixbuf_loader_close:
 #. used by: gdk_pixbuf_loader_close:
 #: gdk-pixbuf-loader.c:737:1
-#, fuzzy
 msgid ""
 "@error: (allow-none): return location for a #GError, or %NULL to ignore "
 "errors"
-msgstr "@error: 返回#GError对象的位置，或者返回 %NULL 以忽略错误"
+msgstr "@error: (allow-none): 返回#GError对象的位置，或者返回 %NULL 以忽略错误"
 
 # #used by: gdk_pixbuf_loader_close:
 #. used by: gdk_pixbuf_loader_close:
@@ -3360,6 +3385,10 @@ msgid ""
 "example, in an interlaced image, you need to make several passes before the "
 "image is done loading."
 msgstr ""
+"最后一个，\"<link linkend=\"GdkPixbufLoader-area-updated\">area_updated</link>\"，每当"
+"有一个区域被更新时就发送一次。这样可以更新部分完成的图像。注意，你不能从"
+"更新的区域得出这个完整图像的任何信息。例如，在一个交错的图像中，就需要在"
+"图像完全加载之前进行多次传递。"
 
 # #used by: gdk_pixbuf_loader_get_format:
 #. used by: gdk_pixbuf_loader_get_format:
@@ -3389,6 +3418,12 @@ msgid ""
 "#GdkPixbufAnimation struct and gdk_pixbuf_animation_get_iter() to get an "
 "#GdkPixbufAnimationIter for displaying it. </para> </refsect2>"
 msgstr ""
+"<refsect2> <title>加载一个动画 (Loading an animation)</title>"
+"<para> 加载一个动画几乎和加载一个图像一样简单。"
+"当第一个 \"<link linkend=\"GdkPixbufLoader-area-prepared\">"
+"area_prepared</link>\" 信号被发送后，可以调用 gdk_pixbuf_loader_get_animation()"
+"来得到这个 #GdkPixbufAnimation 结构，并调用 gdk_pixbuf_animation_get_iter() "
+"来得到一个用来显示它的 #GdkPixbufAnimationIter。 </para> </refsect2>"
 
 #. used by: GdkPixbufLoader:
 #: gdk-pixbuf-loader.h:51:2
@@ -4649,17 +4684,17 @@ msgstr "Return value: 一个新的 pixbuf"
 msgid ""
 "@Short_description: Creating a pixbuf from image data that is already in "
 "memory."
-msgstr ""
+msgstr "@Short_description: 使用内存中的数据创建一个 pixbuf 。"
 
 #. used by: SECTION:creating
 #: gdk-pixbuf.c:45:1
 msgid "@Title: Image Data in Memory"
-msgstr ""
+msgstr "@Title: 内存中的图象数据(Image Data in Memory)"
 
 #. used by: SECTION:creating
 #: gdk-pixbuf.c:46:1
 msgid "@See_also: gdk_pixbuf_finalize()."
-msgstr ""
+msgstr "@See_also: gdk_pixbuf_finalize()."
 
 # #used by: gdk_pixbuf_get_colorspace:
 #. used by: gdk_pixbuf_get_colorspace:
@@ -4685,6 +4720,12 @@ msgid ""
 "%NULL as the destroy notification function so that the data will not be "
 "freed."
 msgstr ""
+"创建一个 pixbuf 的最基本的方法是使用 #GdkPixbuf 结构包装(wrap)一个已经"
+"存在的像素缓冲区(pixel buffer)。可以使用gdk_pixbuf_new_from_data()函数"
+"来完成。但需要指定销毁通知函数(destroy notification function)，该函数"
+"在这个数据缓冲区需要被释放的时候调用--这将在一个 #GdkPixbuf 被引用计数析构"
+"的时候发生。如果有被编译进程序内部的静态数据，可以传递 %NULL 作为销毁通知函数"
+"以使这些数据不被释放。"
 
 # #used by: gdk_pixbuf_get_n_channels:
 #. used by: gdk_pixbuf_get_n_channels:
@@ -4787,6 +4828,10 @@ msgid ""
 "optimal rowstride so that rendering can be performed with an efficient "
 "algorithm."
 msgstr ""
+"函数 gdk_pixbuf_new() 可以作为一个从空的缓冲区(buffer)创建 pixbuf 的便捷"
+"途径。这等同于使用 <function>malloc()</function> 创建一个数据缓冲区，然后"
+"使用 gdk_pixbuf_new_from_data() 包装(wrapping)它。函数 gdk_pixbuf_new()"
+"会计算一个优化的行跨度(rowstride)以使得渲染可以更有效率的进行。"
 
 # used by: gdk_pixbuf_fill:
 #. used by: gdk_pixbuf_fill:
@@ -4815,6 +4860,8 @@ msgid ""
 "As a special case, you can use the gdk_pixbuf_new_from_xpm_data() function "
 "to create a pixbuf from inline XPM image data."
 msgstr ""
+"作为一个特例，可以使用 gdk_pixbuf_new_from_xpm_data() 函数从内联的"
+"XPM 图像数据创建一个 pixbuf 。"
 
 # #-#-#-#-#  gdk-pixbuf.pot~ (gdk-pixbuf 2.10.6)  #-#-#-#-#
 # used by: gdk_pixbuf_get_option:
@@ -4867,6 +4914,9 @@ msgid ""
 "copy function will actually duplicate the pixel data in memory and create a "
 "new #GdkPixbuf structure for it."
 msgstr ""
+"也可以使用函数 gdk_pixbuf_copy() 来拷贝一个已经存在的 pixbuf。这与只"
+"对老的 pixbuf 进行 g_object_ref() 不同 -- 拷贝函数实际上会为像素数据在内存中"
+"创建一个副本并为其创建一个 #GdkPixbuf 结构。"
 
 # used by: gdk_pixbuf_set_option:
 #. used by: gdk_pixbuf_set_option:
