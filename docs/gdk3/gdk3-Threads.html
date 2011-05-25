@@ -463,15 +463,20 @@ in thread B:
 </p>
 <p>
 </p>
-<div class="informalexample"><pre class="programlisting"> static gboolean idle_callback (gpointer data) { /* gdk_threads_enter
-(); would be needed for g_idle_add() */
+<div class="informalexample"><pre class="programlisting">
+static gboolean
+idle_callback (gpointer data)
+{
+   /* gdk_threads_enter(); would be needed for g_idle_add() */
 
-SomeWidget *self = data; /* 你在这里做点啥吧 */
+   SomeWidget *self = data;
+   /* do stuff with self */
 
-self-&gt;idle_id = 0;
+   self-&gt;idle_id = 0;
 
-/* gdk_threads_leave(); would be needed for g_idle_add() */ return 
-FALSE; }
+   /* gdk_threads_leave(); would be needed for g_idle_add() */
+   return FALSE;
+}
 
 static void
 some_widget_do_stuff_later (SomeWidget *self)
@@ -587,24 +592,33 @@ for GTK+ widgets for the following use case:
 </p>
 <p>
 </p>
-<div class="informalexample"><pre class="programlisting"> static gboolean timeout_callback (gpointer data) { SomeWidget *self = 
-data;
+<div class="informalexample"><pre class="programlisting">
+static gboolean timeout_callback (gpointer data)
+{
+   SomeWidget *self = data;
    
-/* 在这里做点啥事吧 */
+   /* do stuff with self */
    
-self-&gt;timeout_id = 0;
+   self-&gt;timeout_id = 0;
    
-return FALSE; }
+   return FALSE;
+}
  
-static void some_widget_do_stuff_later (SomeWidget *self) { self-&gt;timeout_id 
-= g_timeout_add (timeout_callback, self) }
+static void some_widget_do_stuff_later (SomeWidget *self)
+{
+   self-&gt;timeout_id = g_timeout_add (timeout_callback, self)
+}
  
-static void some_widget_finalize (GObject *object) { SomeWidget *self = 
-SOME_WIDGET (object);
+static void some_widget_finalize (GObject *object)
+{
+   SomeWidget *self = SOME_WIDGET (object);
    
-if (self-&gt;timeout_id) g_source_remove (self-&gt;timeout_id);
+   if (self-&gt;timeout_id)
+     g_source_remove (self-&gt;timeout_id);
    
-G_OBJECT_CLASS (parent_class)-&gt;finalize (object); } </pre></div>
+   G_OBJECT_CLASS (parent_class)-&gt;finalize (object);
+}
+</pre></div>
 <p>
 </p>
 <div class="variablelist"><table border="0">
