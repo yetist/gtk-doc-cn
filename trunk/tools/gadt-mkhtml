@@ -595,6 +595,9 @@ compile_source()
 	msg "正在编译生成新文档..."
 	cd $srcdir
 	if [ "$NOCONFIGURE" -eq 0 ]; then
+		if [ ! -f configure ]; then
+			./autogen.sh $configure || return 1
+		fi
 		./configure $configure || return 1
 	fi
 	if [ -d $moddir/.libs ]; then
