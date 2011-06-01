@@ -22,10 +22,10 @@
 <div class="chapter">
 <div class="titlepage"><div><div><h2 class="title">
 <a name="gtk-getting-started"></a>开始使用GTK+</h2></div></div></div>
-<p>这个文章中包含一个GTK+编程的入门教程，这里有个前提是你已经把GTK+环境配置好了，如已经准备好它的依赖库 和 C 编译器.如果你想先编译gtk+,可以参考 <a class="link" href="gtk-compiling.html" title="Compiling GTK+ Applications">编译 GTK+ 库</a>相关章节。</p>
+<p>这个文章中包含一个GTK+编程的入门教程，这里有个前提是你已经把GTK+环境配置好了，如已经准备好它的依赖库 和 C 编译器.如果你想先编译gtk+,可以参考 <a class="link" href="gtk-compiling.html" title="编译 GTK+ 程序">编译 GTK+ 库</a>相关章节。</p>
 <div class="simplesect">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id2970380"></a>基础</h2></div></div></div>
+<a name="id2768534"></a>基础</h2></div></div></div>
 <p>现在开始介绍GTK ，我们先以一个简单的程序开始，这个程序将建立一个内容为空 200*200像素的窗口:</p>
 <p>
       <img src="window-default.png">
@@ -59,7 +59,7 @@ main (int   argc,
     </p></div>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
-<p>关于更多编译一个gtk+应用程序的信息，请引用<a class="link" href="gtk-compiling.html" title="Compiling GTK+ Applications">编译GTK+ 应用程序</a>。</p>
+<p>关于更多编译一个gtk+应用程序的信息，请引用<a class="link" href="gtk-compiling.html" title="编译 GTK+ 程序">编译GTK+ 应用程序</a>。</p>
 </div>
 <p>任何的gtk+版本都是可以的。包含<code class="filename">gtk/gtk.h</code>, 里面声明了gtk+应用程序需要的函数声明和类型还有宏。</p>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -100,13 +100,12 @@ main (int   argc,
     program do something in response to user input.</p>
 <p>The following example is slightly more complex, and tries to
     showcase some of the capabilities of GTK+.</p>
-<p>In the long tradition of programming languages and libraries,
-    it is called <span class="emphasis"><em>Hello, World</em></span>.</p>
+<p>编程传统<span class="emphasis"><em>Hello, World</em></span>.</p>
 <p>
       <img src="hello-world.png">
     </p>
 <div class="example">
-<a name="gtk-getting-started-hello-world"></a><p class="title"><b>Example 1. Hello World in GTK+</b></p>
+<a name="gtk-getting-started-hello-world"></a><p class="title"><b>Example 1. Hello World （GTK+ 版）</b></p>
 <div class="example-contents"><pre class="programlisting">
         #include &lt;gtk/gtk.h&gt;
 
@@ -219,7 +218,7 @@ main (int   argc,
 </div>
 <div class="simplesect">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id2981529"></a>Packing</h2></div></div></div>
+<a name="id2766088"></a>Packing</h2></div></div></div>
 <p>When creating an application, you'll want to put more than one widget
     inside a window. Our first helloworld example only used one widget so we
     could simply use a gtk_container_add() call to "pack" the widget into the
@@ -229,8 +228,7 @@ main (int   argc,
 <p>GTK+ comes with a large variety of <em class="firstterm">layout containers</em>
     whose purpose it is to control the layout of the child widgets that are
     added to them. See <a class="xref" href="LayoutContainers.html" title="布局容器"><i>布局容器</i></a> for an overview.</p>
-<p>The following example shows how the GtkGrid container lets you
-    arrange several buttons:</p>
+<p>下面的例子中，将展示怎样用 GtkGrid 容器布置按钮：</p>
 <p>
       <img src="grid-packing.png">
     </p>
@@ -317,7 +315,7 @@ main (int   argc,
 </div>
 <div class="simplesect">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id2980722"></a>Drawing</h2></div></div></div>
+<a name="id2765278"></a>Drawing</h2></div></div></div>
 <p>Many widgets, like buttons, do all their drawing themselves. You
     just tell them the label you want to see, and they figure out what font
     to use, draw the button outline and focus rectangle, etc. Sometimes, it
@@ -549,7 +547,7 @@ main (int   argc,
 </div>
 <div class="simplesect">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="id2983477"></a>Building interfaces</h2></div></div></div>
+<a name="id2768034"></a>Building interfaces</h2></div></div></div>
 <p>When construcing a more complicated user interface, with dozens
     or hundreds of widgets, doing all the setup work in C code is
     cumbersome, and making changes becomes next to impossible.</p>
@@ -557,7 +555,7 @@ main (int   argc,
     layout from your business logic, by using UI descriptions in an
     XML format that can be parsed by the #GtkBuilder class.</p>
 <div class="example">
-<a name="id2983497"></a><p class="title"><b>Example 4. Packing buttons with GtkBuilder</b></p>
+<a name="id2768054"></a><p class="title"><b>Example 4. Packing buttons with GtkBuilder</b></p>
 <div class="example-contents">
 <pre class="programlisting">
         <span style="color: red">&lt;include&gt;

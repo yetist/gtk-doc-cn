@@ -23,34 +23,34 @@
 <div class="titlepage"><div><div><h2 class="title">
 <a name="gtk-migrating-2-to-3"></a>Migrating from GTK+ 2.x to GTK+ 3</h2></div></div></div>
 <div class="toc"><dl>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3731895">Preparation in GTK+ 2.x</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id2874928">Preparation in GTK+ 2.x</a></span></dt>
 <dd><dl>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3731911">Do not include individual headers</a></span></dt>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3688171">Do not use deprecated symbols</a></span></dt>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3590731">Use accessor functions instead of direct access</a></span></dt>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3702095">Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</a></span></dt>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3708314">Use GIO for launching applications</a></span></dt>
-<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3680496">Use cairo for drawing</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3478158">Do not include individual headers</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3513324">Do not use deprecated symbols</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3491988">Use accessor functions instead of direct access</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3497824">Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3567762">Use GIO for launching applications</a></span></dt>
+<dt><span class="section"><a href="gtk-migrating-2-to-3.html#id3486176">Use cairo for drawing</a></span></dt>
 </dl></dd>
 <dt><span class="section"><a href="ch25s02.html">Changes that need to be done at the time of the switch</a></span></dt>
 <dd><dl>
-<dt><span class="section"><a href="ch25s02.html#id3727875">Replace size_request by get_preferred_width/height</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3787766">Replace GdkRegion by cairo_region_t</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3795447">Replace GdkPixmap by cairo surfaces</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3795511">Replace GdkColormap by GdkVisual</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3795615">GdkDrawable is gone</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3795828">Event filtering</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3795942">Backend-specific code</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796058">GtkPlug and GtkSocket</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796094">The GtkWidget::draw signal</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796296">GtkProgressBar orientation</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796456">Check your expand and fill flags</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796514">Scrolling changes</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796579">GtkObject is gone</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796635">GtkEntryCompletion signal parameters</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796665">Resize grips</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796738">Prevent mixed linkage</a></span></dt>
-<dt><span class="section"><a href="ch25s02.html#id3796782">Install GTK+ modules in the right place</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3582251">Replace size_request by get_preferred_width/height</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3570336">Replace GdkRegion by cairo_region_t</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3579909">Replace GdkPixmap by cairo surfaces</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3579974">Replace GdkColormap by GdkVisual</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580077">GdkDrawable is gone</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580290">Event filtering</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580405">Backend-specific code</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580521">GtkPlug and GtkSocket</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580556">The GtkWidget::draw signal</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580758">GtkProgressBar orientation</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580919">Check your expand and fill flags</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3580977">Scrolling changes</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3581042">GtkObject is gone</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3581098">GtkEntryCompletion signal parameters</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3581127">Resize grips</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3581201">Prevent mixed linkage</a></span></dt>
+<dt><span class="section"><a href="ch25s02.html#id3581245">Install GTK+ modules in the right place</a></span></dt>
 </dl></dd>
 </dl></div>
 <p>
@@ -64,7 +64,7 @@
   </p>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id3731895"></a>Preparation in GTK+ 2.x</h3></div></div></div>
+<a name="id2874928"></a>Preparation in GTK+ 2.x</h3></div></div></div>
 <p>
       The steps outlined in the following sections assume that your
       application is working with GTK+ 2.24, which is the final stable
@@ -75,7 +75,7 @@
     </p>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3731911"></a>Do not include individual headers</h4></div></div></div>
+<a name="id3478158"></a>Do not include individual headers</h4></div></div></div>
 <p>
     With GTK+ 2.x it was common to include just the header files for
     a few widgets that your application was using, which could lead
@@ -126,7 +126,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3688171"></a>Do not use deprecated symbols</h4></div></div></div>
+<a name="id3513324"></a>Do not use deprecated symbols</h4></div></div></div>
 <p>
     Over the years, a number of functions, and in some cases, entire
     widgets have been deprecated. These deprecations are clearly spelled
@@ -148,7 +148,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3590731"></a>Use accessor functions instead of direct access</h4></div></div></div>
+<a name="id3491988"></a>Use accessor functions instead of direct access</h4></div></div></div>
 <p>
     GTK+ 3 removes many implementation details and struct members from
     its public headers.
@@ -169,7 +169,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3702095"></a>Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</h4></div></div></div>
+<a name="id3497824"></a>Replace GDK_&lt;keyname&gt; with GDK_KEY_&lt;keyname&gt;</h4></div></div></div>
 <p>
       Key constants have gained a <code class="literal">_KEY_</code> infix.
       For example, <code class="literal">GDK_a</code> is now
@@ -180,7 +180,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3708314"></a>Use GIO for launching applications</h4></div></div></div>
+<a name="id3567762"></a>Use GIO for launching applications</h4></div></div></div>
 <p>
       The <code class="literal">gdk_spawn</code> family of functions has been
       deprecated in GDK 2.24 and removed from GDK 3. Various replacements
@@ -223,7 +223,7 @@
         with <a href="../gio/GAppInfo.html#g-app-info-create-from-commandline"><code class="function">g_app_info_create_from_commandline()</code></a>, or you can use the
         more lowlevel <code class="literal">g_spawn</code> family of functions
         (e.g. <a href="../glib/glib-Spawning-Processes.html#g-spawn-command-line-async"><code class="function">g_spawn_command_line_async()</code></a>), and pass <code class="envar">DISPLAY</code>
-        in the environment. <a href="../gdk3/gdk3-GdkScreen.html#gdk-screen-make-display-name"><code class="function">gdk_screen_make_display_name()</code></a> can be
+        in the environment. <a href="../gdk3/GdkScreen.html#gdk-screen-make-display-name"><code class="function">gdk_screen_make_display_name()</code></a> can be
         used to find the right value for the <code class="envar">DISPLAY</code>
         environment variable.
         </li>
@@ -233,7 +233,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3680496"></a>Use cairo for drawing</h4></div></div></div>
+<a name="id3486176"></a>Use cairo for drawing</h4></div></div></div>
 <p>
       In GTK+ 3, the GDK drawing API (which closely mimics the X
       drawing API, which is itself modeled after PostScript) has been
@@ -253,7 +253,7 @@
       was replaced.
     </p>
 <div class="example">
-<a name="id3792537"></a><p class="title"><b>Example 92. Drawing a GdkPixbuf onto a GdkWindow</b></p>
+<a name="id3500362"></a><p class="title"><b>Example 92. Drawing a GdkPixbuf onto a GdkWindow</b></p>
 <div class="example-contents">
 <p>
            Drawing a pixbuf onto a drawable used to be done like this:
@@ -287,7 +287,7 @@ cairo_destroy (cr);
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3638893"></a><p class="title"><b>Example 93. Drawing a tiled GdkPixmap to a GdkWindow</b></p>
+<a name="id3522261"></a><p class="title"><b>Example 93. Drawing a tiled GdkPixmap to a GdkWindow</b></p>
 <div class="example-contents">
 <p>
           Tiled pixmaps are often used for drawing backgrounds.
@@ -334,7 +334,7 @@ Another alternative is to use pixbufs instead of surfaces with
 </div>
 </div>
 <br class="example-break"><div class="example">
-<a name="id3542696"></a><p class="title"><b>Example 94. Drawing a PangoLayout to a clipped area</b></p>
+<a name="id3513766"></a><p class="title"><b>Example 94. Drawing a PangoLayout to a clipped area</b></p>
 <div class="example-contents">
 <p>
           Drawing layouts clipped is often used to avoid overdraw or to
@@ -385,7 +385,7 @@ cairo_destroy (cr);
 </div>
 <br class="example-break"><div class="section">
 <div class="titlepage"><div><div><h5 class="title">
-<a name="id3784668"></a>What should you be aware of ?</h5></div></div></div>
+<a name="id3572799"></a>What should you be aware of ?</h5></div></div></div>
 <p><b>No more stippling. </b>
           Stippling is the usage of a bi-level mask, called a <span class="type">GdkBitmap</span>.
           It was often used to achieve a checkerboard effect. You can use
