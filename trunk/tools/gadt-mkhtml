@@ -291,7 +291,7 @@ init_pot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $4}'`
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep "^$username" |awk '{print $4}'`
 			eval $pos #这将会产生po_files变量
 			var=`echo $po_files |sed 's/,/ /g'`
 			for i in $var;
@@ -323,7 +323,7 @@ init_xmlpot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local xmlpos=`cat $startdir/AUTHORS|grep -v "^#"|grep $username |awk '{print $3}'`
+			local xmlpos=`cat $startdir/AUTHORS|grep -v "^#"|grep "^$username" |awk '{print $3}'`
 			eval $xmlpos #这将会产生xmlpo_files变量
 			var=`echo $xmlpo_files |sed 's/,/ /g'`
 			for i in $var;
@@ -394,7 +394,7 @@ merge_pot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $4}'`
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep "^$username" |awk '{print $4}'`
 			eval $pos #这将会产生po_files变量
 			var=`echo $po_files |sed 's/,/ /g'`
 			for i in $var;
@@ -434,7 +434,7 @@ merge_xmlpot()
 		fi
 
 		if [ -f $startdir/AUTHORS ]; then
-			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep $username |awk '{print $3}'`
+			local pos=`cat $startdir/AUTHORS|grep -v "^#"| grep "^$username" |awk '{print $3}'`
 			eval $pos #这将会产生po_files变量
 			var=`echo $xmlpo_files |sed 's/,/ /g'`
 			for i in $var;
