@@ -43,7 +43,7 @@
 struct              <a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu">GtkMenu</a>;
 <a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkMenu.html#gtk-menu-new" title="gtk_menu_new ()">gtk_menu_new</a>                        (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkMenu.html#gtk-menu-set-screen" title="gtk_menu_set_screen ()">gtk_menu_set_screen</a>                 (<em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkMenu.html#gtk-menu-reorder-child" title="gtk_menu_reorder_child ()">gtk_menu_reorder_child</a>              (<em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *child</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> position</code></em>);
@@ -54,7 +54,7 @@ struct              <a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="stru
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> top_attach</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> bottom_attach</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkMenu.html#gtk-menu-popup-for-device" title="gtk_menu_popup_for_device ()">gtk_menu_popup_for_device</a>           (<em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/GdkDevice.html"><span class="type">GdkDevice</span></a> *device</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkDevice.html#GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_shell</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_item</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()"><span class="type">GtkMenuPositionFunc</span></a> func</code></em>,
@@ -133,7 +133,7 @@ can pop up a menu when the 3rd mouse button is pressed.
 <p>
 </p>
 <div class="example">
-<a name="id3213218"></a><p class="title"><b>Example 68. Connecting the popup signal handler.</b></p>
+<a name="id3462948"></a><p class="title"><b>Example 68. Connecting the popup signal handler.</b></p>
 <div class="example-contents"><pre class="programlisting">
   /* connect our handler which will popup the menu */
   g_signal_connect_swapped (window, "button_press_event",
@@ -145,7 +145,7 @@ G_CALLBACK (my_popup_handler), menu);
 <p>
 </p>
 <div class="example">
-<a name="id3213243"></a><p class="title"><b>Example 69. Signal handler which displays a popup menu.</b></p>
+<a name="id3462973"></a><p class="title"><b>Example 69. Signal handler which displays a popup menu.</b></p>
 <div class="example-contents"><pre class="programlisting">
 static gint
 my_popup_handler (GtkWidget *widget, GdkEvent *event)
@@ -211,9 +211,9 @@ Creates a new <a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct Gtk
 <div class="refsect2">
 <a name="gtk-menu-set-screen"></a><h3>gtk_menu_set_screen ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_menu_set_screen                 (<em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>
-Sets the <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> on which the menu will be displayed.
+Sets the <a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a> on which the menu will be displayed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -225,7 +225,7 @@ Sets the <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
-<td>a <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the screen should be
+<td>a <a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the screen should be
 determined by the widget the menu is attached to. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
@@ -319,7 +319,7 @@ Note that this function is not related to <a class="link" href="gtk3-GtkMenu.htm
 <div class="refsect2">
 <a name="gtk-menu-popup-for-device"></a><h3>gtk_menu_popup_for_device ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_menu_popup_for_device           (<em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenu" title="struct GtkMenu"><span class="type">GtkMenu</span></a> *menu</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/GdkDevice.html"><span class="type">GdkDevice</span></a> *device</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkDevice.html#GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_shell</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="type">GtkWidget</span></a> *parent_menu_item</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()"><span class="type">GtkMenuPositionFunc</span></a> func</code></em>,
@@ -361,7 +361,7 @@ be used instead.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>device</code></em> :</span></p></td>
-<td>a <a href="../gdk3/GdkDevice.html"><span class="type">GdkDevice</span></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a href="../gdk3/gdk3-GdkDevice.html#GdkDevice"><span class="type">GdkDevice</span></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -662,7 +662,7 @@ and should not be modified or freed.</td>
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> monitor_num</code></em>);</pre>
 <p>
 Informs GTK+ on which monitor a menu should be popped up.
-See <a href="../gdk3/GdkScreen.html#gdk-screen-get-monitor-geometry"><code class="function">gdk_screen_get_monitor_geometry()</code></a>.
+See <a href="../gdk3/gdk3-GdkScreen.html#gdk-screen-get-monitor-geometry"><code class="function">gdk_screen_get_monitor_geometry()</code></a>.
 </p>
 <p>
 This function should be called from a <a class="link" href="gtk3-GtkMenu.html#GtkMenuPositionFunc" title="GtkMenuPositionFunc ()"><span class="type">GtkMenuPositionFunc</span></a>
