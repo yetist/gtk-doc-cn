@@ -8,7 +8,7 @@
 <link rel="up" href="Application.html" title="应用程序支持">
 <link rel="prev" href="Application.html" title="应用程序支持">
 <link rel="next" href="migrating.html" title="Part V. 从GTK+的旧版本迁移程序">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -41,13 +41,13 @@
 #include &lt;gtk/gtk.h&gt;
 
 struct              <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication">GtkApplication</a>;
-<a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *         <a class="link" href="gtk3-GtkApplication.html#gtk-application-new" title="gtk_application_new ()">gtk_application_new</a>            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
+<a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *    <a class="link" href="gtk3-GtkApplication.html#gtk-application-new" title="gtk_application_new ()">gtk_application_new</a>                 (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
                                                          <em class="parameter"><code><a href="../gio/GApplication.html#GApplicationFlags"><span class="type">GApplicationFlags</span></a> flags</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkApplication.html#gtk-application-add-window" title="gtk_application_add_window ()">gtk_application_add_window</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkApplication.html#gtk-application-remove-window" title="gtk_application_remove_window ()">gtk_application_remove_window</a>       (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a> *window</code></em>);
-<a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *                  <a class="link" href="gtk3-GtkApplication.html#gtk-application-get-windows" title="gtk_application_get_windows ()">gtk_application_get_windows</a>    (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);
+<a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="gtk3-GtkApplication.html#gtk-application-get-windows" title="gtk_application_get_windows ()">gtk_application_get_windows</a>         (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -188,7 +188,7 @@ main (int argc, char **argv)
 <hr>
 <div class="refsect2">
 <a name="gtk-application-new"></a><h3>gtk_application_new ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *         gtk_application_new            (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
+<pre class="programlisting"><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="returnvalue">GtkApplication</span></a> *    gtk_application_new                 (<em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *application_id</code></em>,
                                                          <em class="parameter"><code><a href="../gio/GApplication.html#GApplicationFlags"><span class="type">GApplicationFlags</span></a> flags</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> instance.
@@ -293,7 +293,7 @@ function.
 <hr>
 <div class="refsect2">
 <a name="gtk-application-get-windows"></a><h3>gtk_application_get_windows ()</h3>
-<pre class="programlisting"><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *                  gtk_application_get_windows    (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             gtk_application_get_windows         (<em class="parameter"><code><a class="link" href="gtk3-GtkApplication.html#GtkApplication" title="struct GtkApplication"><span class="type">GtkApplication</span></a> *application</code></em>);</pre>
 <p>
 Gets a list of the <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>s associated with <em class="parameter"><code>application</code></em>.
 </p>
@@ -321,6 +321,6 @@ The list that is returned should not be modified in any way.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="WindowWidgets.html" title="窗口">
 <link rel="prev" href="WindowWidgets.html" title="窗口">
 <link rel="next" href="gtk3-GtkInvisible.html" title="GtkInvisible">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -73,7 +73,7 @@ enum                <a class="link" href="gtk3-GtkDialog.html#GtkResponseType" t
 <a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkDialog.html#gtk-dialog-get-action-area" title="gtk_dialog_get_action_area ()">gtk_dialog_get_action_area</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialog" title="struct GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
 <a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkDialog.html#gtk-dialog-get-content-area" title="gtk_dialog_get_content_area ()">gtk_dialog_get_content_area</a>         (<em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialog" title="struct GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>);
 
-<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkDialog.html#gtk-alternative-dialog-button-order" title="gtk_alternative_dialog_button_order ()">gtk_alternative_dialog_button_order</a> (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);
+<a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkDialog.html#gtk-alternative-dialog-button-order" title="gtk_alternative_dialog_button_order ()">gtk_alternative_dialog_button_order</a> (<em class="parameter"><code><a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkDialog.html#gtk-dialog-set-alternative-button-order" title="gtk_dialog_set_alternative_button_order ()">gtk_dialog_set_alternative_button_order</a>
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkDialog.html#GtkDialog" title="struct GtkDialog"><span class="type">GtkDialog</span></a> *dialog</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gint"><span class="type">gint</span></a> first_response_id</code></em>,
@@ -142,7 +142,7 @@ create the dialog contents manually if you had more than a simple message
 in the dialog.
 </p>
 <div class="example">
-<a name="id3061754"></a><p class="title"><b>Example 43. Simple GtkDialog usage</b></p>
+<a name="id3234975"></a><p class="title"><b>Example 43. Simple GtkDialog usage</b></p>
 <div class="example-contents"><pre class="programlisting">
 /* Function to open a dialog box displaying the message provided. */
 void
@@ -191,7 +191,7 @@ attribute specifies a numeric response, and the content of the element
 is the id of widget (which should be a child of the dialogs <em class="parameter"><code>action_area</code></em>).
 </p>
 <div class="example">
-<a name="id3061836"></a><p class="title"><b>Example 44. A <span class="structname">GtkDialog</span> UI definition fragment.</b></p>
+<a name="id3235057"></a><p class="title"><b>Example 44. A <span class="structname">GtkDialog</span> UI definition fragment.</b></p>
 <div class="example-contents"><pre class="programlisting">
 &lt;object class="GtkDialog" id="dialog1"&gt;
   &lt;child internal-child="vbox"&gt;"
@@ -236,8 +236,7 @@ and should not be directly accessed.
 <hr>
 <div class="refsect2">
 <a name="GtkDialogFlags"></a><h3>enum GtkDialogFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   GTK_DIALOG_MODAL               = 1 &lt;&lt; 0,
   GTK_DIALOG_DESTROY_WITH_PARENT = 1 &lt;&lt; 1
 } GtkDialogFlags;
@@ -266,8 +265,7 @@ Flags used to influence dialog construction.
 <hr>
 <div class="refsect2">
 <a name="GtkResponseType"></a><h3>enum GtkResponseType</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   GTK_RESPONSE_NONE         = -1,
   GTK_RESPONSE_REJECT       = -2,
   GTK_RESPONSE_ACCEPT       = -3,
@@ -435,11 +433,6 @@ Here's a simple example:
 </td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>response ID for first button, then additional buttons, ending with <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
-</td>
-</tr>
-<tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a new <a class="link" href="gtk3-GtkDialog.html#GtkDialog" title="struct GtkDialog"><span class="type">GtkDialog</span></a>
 </td>
@@ -603,10 +596,6 @@ text and response ID.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_button_text</code></em> :</span></p></td>
 <td>button text or stock ID</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>response ID for first button, then more text-response_id pairs</td>
 </tr>
 </tbody>
 </table></div>
@@ -814,7 +803,7 @@ Returns the content area of <em class="parameter"><code>dialog</code></em>.
 <hr>
 <div class="refsect2">
 <a name="gtk-alternative-dialog-button-order"></a><h3>gtk_alternative_dialog_button_order ()</h3>
-<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_alternative_dialog_button_order (<em class="parameter"><code><a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
+<pre class="programlisting"><a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gtk_alternative_dialog_button_order (<em class="parameter"><code><a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a> *screen</code></em>);</pre>
 <p>
 Returns <a href="../glib/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if dialogs are expected to use an alternative
 button order on the screen <em class="parameter"><code>screen</code></em>. See
@@ -832,7 +821,7 @@ notified if the button order setting changes.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
-<td>a <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default screen. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a>, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> to use the default screen. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -903,10 +892,6 @@ gtk_dialog_set_alternative_button_order (GTK_DIALOG (dialog),
 <td><p><span class="term"><em class="parameter"><code>first_response_id</code></em> :</span></p></td>
 <td>a response id used by one <em class="parameter"><code>dialog</code></em>'s buttons</td>
 </tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>a list of more response ids of <em class="parameter"><code>dialog</code></em>'s buttons, terminated by -1</td>
-</tr>
 </tbody>
 </table></div>
 <p class="since">Since 2.6</p>
@@ -961,6 +946,6 @@ This function is for use by language bindings.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

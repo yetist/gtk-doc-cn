@@ -8,7 +8,7 @@
 <link rel="up" href="TreeWidgetObjects.html" title="树、列表和图标网格构件">
 <link rel="prev" href="gtk3-GtkCellLayout.html" title="GtkCellLayout">
 <link rel="next" href="gtk3-GtkCellAreaBox.html" title="GtkCellAreaBox">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -140,10 +140,10 @@ const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gc
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellAreaClass" title="struct GtkCellAreaClass"><span class="type">GtkCellAreaClass</span></a> *aclass</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> property_id</code></em>,
                                                          <em class="parameter"><code><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a> *pspec</code></em>);
-<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *            <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-class-find-cell-property" title="gtk_cell_area_class_find_cell_property ()">gtk_cell_area_class_find_cell_property</a>
+<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-class-find-cell-property" title="gtk_cell_area_class_find_cell_property ()">gtk_cell_area_class_find_cell_property</a>
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellAreaClass" title="struct GtkCellAreaClass"><span class="type">GtkCellAreaClass</span></a> *aclass</code></em>,
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);
-<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **           <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-class-list-cell-properties" title="gtk_cell_area_class_list_cell_properties ()">gtk_cell_area_class_list_cell_properties</a>
+<a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-class-list-cell-properties" title="gtk_cell_area_class_list_cell_properties ()">gtk_cell_area_class_list_cell_properties</a>
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellAreaClass" title="struct GtkCellAreaClass"><span class="type">GtkCellAreaClass</span></a> *aclass</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-add-with-properties" title="gtk_cell_area_add_with_properties ()">gtk_cell_area_add_with_properties</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellArea" title="struct GtkCellArea"><span class="type">GtkCellArea</span></a> *area</code></em>,
@@ -284,7 +284,7 @@ In order to request the width of all the rows at the root level
 of a <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> one would do the following:
 </p>
 <div class="example">
-<a name="id3354224"></a><p class="title"><b>Example 61. Requesting the width of a handful of GtkTreeModel rows</b></p>
+<a name="id3531487"></a><p class="title"><b>Example 61. Requesting the width of a handful of GtkTreeModel rows</b></p>
 <div class="example-contents"><pre class="programlisting">
 GtkTreeIter iter;
 gint        minimum_width;
@@ -324,7 +324,7 @@ A simple example where rows are rendered from top to bottom and
 take up the full width of the layouting widget would look like:
 </p>
 <div class="example">
-<a name="id3354315"></a><p class="title"><b>Example 62. A typical <code class="function">get_preferred_width()</code> implementation</b></p>
+<a name="id3531578"></a><p class="title"><b>Example 62. A typical <code class="function">get_preferred_width()</code> implementation</b></p>
 <div class="example-contents"><pre class="programlisting">
 static void
 foo_get_preferred_width (GtkWidget       *widget,
@@ -360,7 +360,7 @@ In order to request the height for width of all the rows at the
 root level of a <a class="link" href="gtk3-GtkTreeModel.html#GtkTreeModel" title="GtkTreeModel"><span class="type">GtkTreeModel</span></a> one would do the following:
 </p>
 <div class="example">
-<a name="id3354395"></a><p class="title"><b>Example 63. Requesting the height for width of a handful of GtkTreeModel rows</b></p>
+<a name="id3531658"></a><p class="title"><b>Example 63. Requesting the height for width of a handful of GtkTreeModel rows</b></p>
 <div class="example-contents"><pre class="programlisting">
 GtkTreeIter iter;
 gint        minimum_height;
@@ -424,7 +424,7 @@ A crude example of how to render all the rows at the root level
 runs as follows:
 </p>
 <div class="example">
-<a name="id3354487"></a><p class="title"><b>Example 64. Requesting the width of a handful of GtkTreeModel rows</b></p>
+<a name="id3531750"></a><p class="title"><b>Example 64. Requesting the width of a handful of GtkTreeModel rows</b></p>
 <div class="example-contents"><pre class="programlisting">
 GtkAllocation allocation;
 GdkRectangle  cell_area = { 0, };
@@ -497,7 +497,7 @@ A basic example of how the <a class="link" href="gtk3-GtkWidget.html#GtkWidgetCl
 should be implemented:
 </p>
 <div class="example">
-<a name="id3368938"></a><p class="title"><b>Example 65. Implementing keyboard focus navigation</b></p>
+<a name="id3545991"></a><p class="title"><b>Example 65. Implementing keyboard focus navigation</b></p>
 <div class="example-contents"><pre class="programlisting">
 static gboolean
 foo_focus (GtkWidget       *widget,
@@ -1777,7 +1777,7 @@ Installs a cell property on a cell area class.
 <hr>
 <div class="refsect2">
 <a name="gtk-cell-area-class-find-cell-property"></a><h3>gtk_cell_area_class_find_cell_property ()</h3>
-<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *            gtk_cell_area_class_find_cell_property
+<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> *        gtk_cell_area_class_find_cell_property
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellAreaClass" title="struct GtkCellAreaClass"><span class="type">GtkCellAreaClass</span></a> *aclass</code></em>,
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *property_name</code></em>);</pre>
 <p>
@@ -1808,7 +1808,7 @@ or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">N
 <hr>
 <div class="refsect2">
 <a name="gtk-cell-area-class-list-cell-properties"></a><h3>gtk_cell_area_class_list_cell_properties ()</h3>
-<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **           gtk_cell_area_class_list_cell_properties
+<pre class="programlisting"><a href="../gobject/gobject-GParamSpec.html#GParamSpec"><span class="returnvalue">GParamSpec</span></a> **       gtk_cell_area_class_list_cell_properties
                                                         (<em class="parameter"><code><a class="link" href="gtk3-GtkCellArea.html#GtkCellAreaClass" title="struct GtkCellAreaClass"><span class="type">GtkCellAreaClass</span></a> *aclass</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_properties</code></em>);</pre>
 <p>
@@ -1865,12 +1865,6 @@ See <a class="link" href="gtk3-GtkCellArea.html#gtk-cell-area-add" title="gtk_ce
 <td><p><span class="term"><em class="parameter"><code>first_prop_name</code></em> :</span></p></td>
 <td>the name of the first cell property to set</td>
 </tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
-with <em class="parameter"><code>first_prop_name</code></em>
-</td>
-</tr>
 </tbody>
 </table></div>
 <p class="since">Since 3.0</p>
@@ -1902,12 +1896,6 @@ Sets one or more cell properties for <em class="parameter"><code>cell</code></em
 <td><p><span class="term"><em class="parameter"><code>first_prop_name</code></em> :</span></p></td>
 <td>the name of the first cell property to set</td>
 </tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>a <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated list of property names and values, starting
-with <em class="parameter"><code>first_prop_name</code></em>
-</td>
-</tr>
 </tbody>
 </table></div>
 <p class="since">Since 3.0</p>
@@ -1938,12 +1926,6 @@ Gets the values of one or more cell properties for <em class="parameter"><code>r
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_prop_name</code></em> :</span></p></td>
 <td>the name of the first cell property to get</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>return location for the first cell property, followed
-optionally by more name/return location pairs, followed by <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
-</td>
 </tr>
 </tbody>
 </table></div>
@@ -2659,6 +2641,6 @@ the base request for the orientation is to be returned.</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

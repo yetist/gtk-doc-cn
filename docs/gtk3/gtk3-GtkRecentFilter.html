@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GTK+ 3 参考手册">
 <link rel="up" href="RecentDocuments.html" title="最近使用文档">
 <link rel="prev" href="gtk3-GtkRecentChooserWidget.html" title="GtkRecentChooserWidget">
-<link rel="next" href="ApplicationChoosing.html" title="Choosing from installed applications">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="ApplicationChoosing.html" title="从已安装的程序中选择">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -45,7 +45,7 @@ struct              <a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFil
 enum                <a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags">GtkRecentFilterFlags</a>;
 <a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            (<a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFunc" title="GtkRecentFilterFunc ()">*GtkRecentFilterFunc</a>)              (<em class="parameter"><code>const <a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterInfo" title="struct GtkRecentFilterInfo"><span class="type">GtkRecentFilterInfo</span></a> *filter_info</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
-<a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="returnvalue">GtkRecentFilter</span></a> *      <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-new" title="gtk_recent_filter_new ()">gtk_recent_filter_new</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="returnvalue">GtkRecentFilter</span></a> *   <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-new" title="gtk_recent_filter_new ()">gtk_recent_filter_new</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
 const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-get-name" title="gtk_recent_filter_get_name ()">gtk_recent_filter_get_name</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-set-name" title="gtk_recent_filter_set_name ()">gtk_recent_filter_set_name</a>          (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
                                                          <em class="parameter"><code>const <a href="../glib/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);
@@ -66,7 +66,7 @@ const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gc
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFunc" title="GtkRecentFilterFunc ()"><span class="type">GtkRecentFilterFunc</span></a> func</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
                                                          <em class="parameter"><code><a href="../glib/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> data_destroy</code></em>);
-<a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags"><span class="returnvalue">GtkRecentFilterFlags</span></a>  <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-get-needed" title="gtk_recent_filter_get_needed ()">gtk_recent_filter_get_needed</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);
+<a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags"><span class="returnvalue">GtkRecentFilterFlags</span></a> <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-get-needed" title="gtk_recent_filter_get_needed ()">gtk_recent_filter_get_needed</a>       (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);
 <a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-filter" title="gtk_recent_filter_filter ()">gtk_recent_filter_filter</a>            (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterInfo" title="struct GtkRecentFilterInfo"><span class="type">GtkRecentFilterInfo</span></a> *filter_info</code></em>);
 </pre>
@@ -111,7 +111,7 @@ or <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-add-applica
 <p>
 </p>
 <div class="example">
-<a name="id3609134"></a><p class="title"><b>Example 89. A UI definition fragment specifying GtkRecentFilter rules</b></p>
+<a name="id3784408"></a><p class="title"><b>Example 89. A UI definition fragment specifying GtkRecentFilter rules</b></p>
 <div class="example-contents"><pre class="programlisting">
 &lt;object class="GtkRecentFilter"&gt;
   &lt;mime-types&gt;
@@ -253,7 +253,7 @@ to the <em class="parameter"><code>needed</code></em> flags passed to <a class="
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-filter-new"></a><h3>gtk_recent_filter_new ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="returnvalue">GtkRecentFilter</span></a> *      gtk_recent_filter_new            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="returnvalue">GtkRecentFilter</span></a> *   gtk_recent_filter_new               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Creates a new <a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> with no rules added to it.
 Such filter does not accept any recently used resources, so is not
@@ -522,7 +522,7 @@ the file will be displayed.</td>
 <hr>
 <div class="refsect2">
 <a name="gtk-recent-filter-get-needed"></a><h3>gtk_recent_filter_get_needed ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags"><span class="returnvalue">GtkRecentFilterFlags</span></a>  gtk_recent_filter_get_needed      (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilterFlags" title="enum GtkRecentFilterFlags"><span class="returnvalue">GtkRecentFilterFlags</span></a> gtk_recent_filter_get_needed       (<em class="parameter"><code><a class="link" href="gtk3-GtkRecentFilter.html#GtkRecentFilter" title="GtkRecentFilter"><span class="type">GtkRecentFilter</span></a> *filter</code></em>);</pre>
 <p>
 Gets the fields that need to be filled in for the structure
 passed to <a class="link" href="gtk3-GtkRecentFilter.html#gtk-recent-filter-filter" title="gtk_recent_filter_filter ()"><code class="function">gtk_recent_filter_filter()</code></a>
@@ -591,6 +591,6 @@ about a recently used resource</td>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

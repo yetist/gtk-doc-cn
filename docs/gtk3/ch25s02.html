@@ -8,7 +8,7 @@
 <link rel="up" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="prev" href="gtk-migrating-2-to-3.html" title="Migrating from GTK+ 2.x to GTK+ 3">
 <link rel="next" href="gtk-migrating-GtkApplication.html" title="Migrating from libunique to GApplication or GtkApplication">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -21,7 +21,7 @@
 </tr></table>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
-<a name="id3658719"></a>Changes that need to be done at the time of the switch</h3></div></div></div>
+<a name="id3903411"></a>Changes that need to be done at the time of the switch</h3></div></div></div>
 <p>
     This section outlines porting tasks that you need to tackle when
     you get to the point that you actually build your application against
@@ -30,7 +30,7 @@
   </p>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3726502"></a>Replace size_request by get_preferred_width/height</h4></div></div></div>
+<a name="id3903426"></a>Replace size_request by get_preferred_width/height</h4></div></div></div>
 <p>
       The request-phase of the traditional GTK+ geometry management
       has been replaced by a more flexible height-for-width system,
@@ -240,7 +240,7 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3716527"></a>Replace GdkRegion by cairo_region_t</h4></div></div></div>
+<a name="id3893795"></a>Replace GdkRegion by cairo_region_t</h4></div></div></div>
 <p>
       Starting with version 1.10, cairo provides a region API that is
       equivalent to the GDK region API (which was itself copied from
@@ -251,7 +251,7 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
       find-and-replace task. Please refer to the following table:
       </p>
 <div class="table">
-<a name="id3716546"></a><p class="title"><b>Table 1. </b></p>
+<a name="id3893814"></a><p class="title"><b>Table 1. </b></p>
 <div class="table-contents"><table border="1">
 <colgroup>
 <col>
@@ -361,14 +361,14 @@ gtk_fixed_get_preferred_height (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724173"></a>Replace GdkPixmap by cairo surfaces</h4></div></div></div>
+<a name="id3901067"></a>Replace GdkPixmap by cairo surfaces</h4></div></div></div>
 <p>
       The <span class="type">GdkPixmap</span> object and related functions have been removed.
       In the cairo-centric world of GTK+ 3, cairo surfaces take over
       the role of pixmaps.
     </p>
 <div class="example">
-<a name="id3724192"></a><p class="title"><b>Example 95. Creating custom cursors</b></p>
+<a name="id3901086"></a><p class="title"><b>Example 95. Creating custom cursors</b></p>
 <div class="example-contents">
 <p>
         One place where pixmaps were commonly used is to create custom
@@ -425,7 +425,7 @@ g_object_unref (pixbuf);
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724237"></a>Replace GdkColormap by GdkVisual</h4></div></div></div>
+<a name="id3901131"></a>Replace GdkColormap by GdkVisual</h4></div></div></div>
 <p>
       For drawing with cairo, it is not necessary to allocate colors, and
       a <a href="../gdk3/gdk3-Visuals.html#GdkVisual"><span class="type">GdkVisual</span></a> provides enough information for cairo to handle colors
@@ -435,7 +435,7 @@ g_object_unref (pixbuf);
       etc) have been removed and <a class="link" href="gtk3-GtkWidget.html#gtk-widget-set-visual" title="gtk_widget_set_visual ()"><code class="function">gtk_widget_set_visual()</code></a> has been added.
     </p>
 <div class="example">
-<a name="id3724293"></a><p class="title"><b>Example 96. Setting up a translucent window</b></p>
+<a name="id3901187"></a><p class="title"><b>Example 96. Setting up a translucent window</b></p>
 <div class="example-contents">
 <p>You might have a screen-changed handler like the following
      to set up a translucent window with an alpha-channel:
@@ -479,7 +479,7 @@ on_alpha_screen_changed (GtkWindow *window,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724341"></a>GdkDrawable is gone</h4></div></div></div>
+<a name="id3901235"></a>GdkDrawable is gone</h4></div></div></div>
 <p>
       <span class="type">GdkDrawable</span> has been removed in GTK+ 3, together with <span class="type">GdkPixmap</span>
       and <span class="type">GdkImage</span>. The only remaining drawable class is <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>.
@@ -491,7 +491,7 @@ on_alpha_screen_changed (GtkWindow *window,
       by corresponding GdkWindow functions:
       </p>
 <div class="table">
-<a name="id3724398"></a><p class="title"><b>Table 2. GdkDrawable to GdkWindow</b></p>
+<a name="id3901292"></a><p class="title"><b>Table 2. GdkDrawable to GdkWindow</b></p>
 <div class="table-contents"><table summary="GdkDrawable to GdkWindow" border="1">
 <colgroup>
 <col>
@@ -533,7 +533,7 @@ on_alpha_screen_changed (GtkWindow *window,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724554"></a>Event filtering</h4></div></div></div>
+<a name="id3901448"></a>Event filtering</h4></div></div></div>
 <p>
       If your application uses the low-level event filtering facilities in GDK,
       there are some changes you need to be aware of.
@@ -594,14 +594,14 @@ gdk_window_add_filter (NULL, message_filter, NULL);
       means that your application does not receive core X11 key or button
       events. Instead, all input events are delivered as XIDeviceEvents.
       As a short-term workaround for this, you can force your application
-      to not use XI2, with <a href="../gdk3/GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
+      to not use XI2, with <a href="../gdk3/gdk3-GdkDeviceManager.html#gdk-disable-multidevice"><code class="function">gdk_disable_multidevice()</code></a>. In the long term,
       you probably want to rewrite your event filter to deal with
       XIDeviceEvents.
     </p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724668"></a>Backend-specific code</h4></div></div></div>
+<a name="id3901562"></a>Backend-specific code</h4></div></div></div>
 <p>
       In GTK+ 2.x, GDK could only be compiled for one backend at a time,
       and the <a href="../gdk3/gdk3-General.html#GDK-WINDOWING-X11:CAPS"><code class="literal">GDK_WINDOWING_X11</code></a> or <a href="../gdk3/gdk3-General.html#GDK-WINDOWING-WIN32:CAPS"><code class="literal">GDK_WINDOWING_WIN32</code></a> macros could
@@ -619,7 +619,7 @@ gdk_window_add_filter (NULL, message_filter, NULL);
 <p>
       In GTK+ 3, GDK can be built with multiple backends, and currently
       used backend has to be determined at runtime, typically using
-      type-check macros on a <a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> or <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. You still need
+      type-check macros on a <a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> or <a href="../gdk3/gdk3-Windows.html#GdkWindow"><span class="type">GdkWindow</span></a>. You still need
       to use the <span class="type">GDK_WINDOWING</span> macros to only compile code referring
       to supported backends:
       </p>
@@ -665,7 +665,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724784"></a>GtkPlug and GtkSocket</h4></div></div></div>
+<a name="id3901678"></a>GtkPlug and GtkSocket</h4></div></div></div>
 <p>
       The <a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> and <a class="link" href="gtk3-GtkSocket.html#GtkSocket" title="struct GtkSocket"><span class="type">GtkSocket</span></a> widgets are now X11-specific, and you
       have to include the <code class="filename">&lt;gtk/gtkx.h&gt;</code> header
@@ -675,7 +675,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3724820"></a>The GtkWidget::draw signal</h4></div></div></div>
+<a name="id3901714"></a>The GtkWidget::draw signal</h4></div></div></div>
 <p>
       The GtkWidget <span class="type">"expose-event"</span> signal has been replaced by
       a new <span class="type">"draw"</span> signal, which takes a <a href="../cairo/cairo-cairo-t.html#cairo-t"><span class="type">cairo_t</span></a> instead of
@@ -746,7 +746,7 @@ AM_CONDITIONAL(BUILD_x11, [test "x$have_x11" = "xyes"])
       passed in for this.
     </p>
 <div class="example">
-<a name="id3725000"></a><p class="title"><b>Example 97. A simple ::draw function</b></p>
+<a name="id3901894"></a><p class="title"><b>Example 97. A simple ::draw function</b></p>
 <div class="example-contents"><pre class="programlisting">
 gboolean
 gtk_arrow_draw (GtkWidget *widget,
@@ -774,7 +774,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725022"></a>GtkProgressBar orientation</h4></div></div></div>
+<a name="id3901916"></a>GtkProgressBar orientation</h4></div></div></div>
 <p>
       In GTK+ 2.x, <a class="link" href="gtk3-GtkProgressBar.html#GtkProgressBar" title="struct GtkProgressBar"><span class="type">GtkProgressBar</span></a> and <a class="link" href="gtk3-GtkCellRendererProgress.html#GtkCellRendererProgress" title="struct GtkCellRendererProgress"><span class="type">GtkCellRendererProgress</span></a> were using the
       GtkProgressBarOrientation enumeration to specify their orientation and
@@ -786,7 +786,7 @@ gtk_arrow_draw (GtkWidget *widget,
       The following values correspond:
       </p>
 <div class="table">
-<a name="id3725090"></a><p class="title"><b>Table 3. </b></p>
+<a name="id3901984"></a><p class="title"><b>Table 3. </b></p>
 <div class="table-contents"><table border="1">
 <colgroup>
 <col class="1">
@@ -833,7 +833,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725182"></a>Check your expand and fill flags</h4></div></div></div>
+<a name="id3902076"></a>Check your expand and fill flags</h4></div></div></div>
 <p>
       The behaviour of expanding widgets has changed slightly in GTK+ 3,
       compared to GTK+ 2.x. It is now 'inherited', i.e. a container that
@@ -851,7 +851,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725240"></a>Scrolling changes</h4></div></div></div>
+<a name="id3902134"></a>Scrolling changes</h4></div></div></div>
 <p>
       The default values for the <span class="type">"hscrollbar-policy"</span> and
       <span class="type">"vscrollbar-policy"</span> properties have been changed from
@@ -868,7 +868,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725305"></a>GtkObject is gone</h4></div></div></div>
+<a name="id3902199"></a>GtkObject is gone</h4></div></div></div>
 <p>
       GtkObject has been removed in GTK+ 3. Its remaining functionality,
       the ::destroy signal, has been moved to GtkWidget. If you have non-widget
@@ -899,7 +899,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725361"></a>GtkEntryCompletion signal parameters</h4></div></div></div>
+<a name="id3902255"></a>GtkEntryCompletion signal parameters</h4></div></div></div>
 <p>
       The <span class="type">"match-selected"</span> and
       <span class="type">"cursor-on-match"</span> signals were erroneously
@@ -910,7 +910,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725391"></a>Resize grips</h4></div></div></div>
+<a name="id3902285"></a>Resize grips</h4></div></div></div>
 <p>
      The resize grip functionality has been moved from <a class="link" href="gtk3-GtkStatusbar.html#GtkStatusbar" title="struct GtkStatusbar"><span class="type">GtkStatusbar</span></a>
      to <a class="link" href="gtk3-GtkWindow.html#GtkWindow" title="GtkWindow"><span class="type">GtkWindow</span></a>. Any window can now have resize grips, regardless whether
@@ -922,7 +922,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725464"></a>Prevent mixed linkage</h4></div></div></div>
+<a name="id3902358"></a>Prevent mixed linkage</h4></div></div></div>
 <p>
       Linking against GTK+ 2.x and GTK+ 3 in the same process is problematic
       and can lead to hard-to-diagnose crashes. The <a class="link" href="gtk3-General.html#gtk-init" title="gtk_init ()"><code class="function">gtk_init()</code></a> function in
@@ -946,7 +946,7 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h4 class="title">
-<a name="id3725508"></a>Install GTK+ modules in the right place</h4></div></div></div>
+<a name="id3902402"></a>Install GTK+ modules in the right place</h4></div></div></div>
 <p>
     Some software packages install loadable GTK+ modules such as theme engines,
     gdk-pixbuf loaders or input methods. Since GTK+ 3 is parallel-installable
@@ -980,6 +980,6 @@ gtk_arrow_draw (GtkWidget *widget,
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

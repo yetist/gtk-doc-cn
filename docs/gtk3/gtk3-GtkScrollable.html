@@ -8,7 +8,7 @@
 <link rel="up" href="ScrollingWidgets.html" title="滚动">
 <link rel="prev" href="gtk3-GtkScrolledWindow.html" title="GtkScrolledWindow">
 <link rel="next" href="Printing.html" title="打印">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -48,10 +48,10 @@
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-set-vadjustment" title="gtk_scrollable_set_vadjustment ()">gtk_scrollable_set_vadjustment</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkAdjustment.html#GtkAdjustment" title="struct GtkAdjustment"><span class="type">GtkAdjustment</span></a> *vadjustment</code></em>);
 enum                <a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy">GtkScrollablePolicy</a>;
-<a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a>  <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-hscroll-policy" title="gtk_scrollable_get_hscroll_policy ()">gtk_scrollable_get_hscroll_policy</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);
+<a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a> <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-hscroll-policy" title="gtk_scrollable_get_hscroll_policy ()">gtk_scrollable_get_hscroll_policy</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-set-hscroll-policy" title="gtk_scrollable_set_hscroll_policy ()">gtk_scrollable_set_hscroll_policy</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="type">GtkScrollablePolicy</span></a> policy</code></em>);
-<a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a>  <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-vscroll-policy" title="gtk_scrollable_get_vscroll_policy ()">gtk_scrollable_get_vscroll_policy</a>  (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);
+<a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a> <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-get-vscroll-policy" title="gtk_scrollable_get_vscroll_policy ()">gtk_scrollable_get_vscroll_policy</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkScrollable.html#gtk-scrollable-set-vscroll-policy" title="gtk_scrollable_set_vscroll_policy ()">gtk_scrollable_set_vscroll_policy</a>   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>,
                                                          <em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="type">GtkScrollablePolicy</span></a> policy</code></em>);
 </pre>
@@ -69,7 +69,7 @@ To implement this interface you should override the
 <p>
 </p>
 <div class="refsect2">
-<a name="id3515324"></a><h3>Creating a scrollable widget</h3>
+<a name="id3702264"></a><h3>Creating a scrollable widget</h3>
 <p>
 All scrollable widgets should do the following.
 </p>
@@ -207,8 +207,7 @@ Sets the vertical adjustment of the <a class="link" href="gtk3-GtkScrollable.htm
 <hr>
 <div class="refsect2">
 <a name="GtkScrollablePolicy"></a><h3>enum GtkScrollablePolicy</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   GTK_SCROLL_MINIMUM = 0,
   GTK_SCROLL_NATURAL
 } GtkScrollablePolicy;
@@ -236,7 +235,7 @@ the scrolled window adjustments in a given orientation.
 <hr>
 <div class="refsect2">
 <a name="gtk-scrollable-get-hscroll-policy"></a><h3>gtk_scrollable_get_hscroll_policy ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a>  gtk_scrollable_get_hscroll_policy  (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a> gtk_scrollable_get_hscroll_policy   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);</pre>
 <p>
 Gets the horizontal <a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="type">GtkScrollablePolicy</span></a>.
 </p>
@@ -286,7 +285,7 @@ below the natural width.
 <hr>
 <div class="refsect2">
 <a name="gtk-scrollable-get-vscroll-policy"></a><h3>gtk_scrollable_get_vscroll_policy ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a>  gtk_scrollable_get_vscroll_policy  (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="returnvalue">GtkScrollablePolicy</span></a> gtk_scrollable_get_vscroll_policy   (<em class="parameter"><code><a class="link" href="gtk3-GtkScrollable.html#GtkScrollable" title="GtkScrollable"><span class="type">GtkScrollable</span></a> *scrollable</code></em>);</pre>
 <p>
 Gets the vertical <a class="link" href="gtk3-GtkScrollable.html#GtkScrollablePolicy" title="enum GtkScrollablePolicy"><span class="type">GtkScrollablePolicy</span></a>.
 </p>
@@ -337,6 +336,6 @@ below the natural height.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

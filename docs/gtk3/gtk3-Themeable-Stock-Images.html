@@ -8,7 +8,7 @@
 <link rel="up" href="theming.html" title="Part III. GTK+中的主题">
 <link rel="prev" href="gtk3-GtkIconTheme.html" title="GtkIconTheme">
 <link rel="next" href="gtk3-GtkNumerableIcon.html" title="GtkNumerableIcon">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -93,7 +93,7 @@ const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gc
 <a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-direction-wildcarded" title="gtk_icon_source_get_direction_wildcarded ()">gtk_icon_source_get_direction_wildcarded</a>
                                                         (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
 const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-filename" title="gtk_icon_source_get_filename ()">gtk_icon_source_get_filename</a>        (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
-<a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *             <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-pixbuf" title="gtk_icon_source_get_pixbuf ()">gtk_icon_source_get_pixbuf</a>      (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
+<a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-pixbuf" title="gtk_icon_source_get_pixbuf ()">gtk_icon_source_get_pixbuf</a>          (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
 const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-icon-name" title="gtk_icon_source_get_icon_name ()">gtk_icon_source_get_icon_name</a>       (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
 <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSize" title="enum GtkIconSize"><span class="returnvalue">GtkIconSize</span></a>         <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-size" title="gtk_icon_source_get_size ()">gtk_icon_source_get_size</a>            (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
 <a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-Themeable-Stock-Images.html#gtk-icon-source-get-size-wildcarded" title="gtk_icon_source_get_size_wildcarded ()">gtk_icon_source_get_size_wildcarded</a> (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);
@@ -156,8 +156,7 @@ const <a href="../glib/glib-Basic-Types.html#gchar"><span class="returnvalue">gc
 <hr>
 <div class="refsect2">
 <a name="GtkIconSize"></a><h3>enum GtkIconSize</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   GTK_ICON_SIZE_INVALID,
   GTK_ICON_SIZE_MENU,
   GTK_ICON_SIZE_SMALL_TOOLBAR,
@@ -573,7 +572,7 @@ means render at the size of the source and don't scale. <span class="annotation"
 <td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
 <td>widget that will display the icon, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 The only use that is typically made of this
-is to determine the appropriate <a href="../gdk3/GdkScreen.html"><span class="type">GdkScreen</span></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+is to determine the appropriate <a href="../gdk3/gdk3-GdkScreen.html#GdkScreen"><span class="type">GdkScreen</span></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -958,7 +957,7 @@ be modified or freed. <span class="annotation">[<acronym title="Override the par
 <hr>
 <div class="refsect2">
 <a name="gtk-icon-source-get-pixbuf"></a><h3>gtk_icon_source_get_pixbuf ()</h3>
-<pre class="programlisting"><a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *             gtk_icon_source_get_pixbuf      (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);</pre>
+<pre class="programlisting"><a href="../gdk-pixbuf/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf"><span class="returnvalue">GdkPixbuf</span></a> *         gtk_icon_source_get_pixbuf          (<em class="parameter"><code>const <a class="link" href="gtk3-Themeable-Stock-Images.html#GtkIconSource" title="GtkIconSource"><span class="type">GtkIconSource</span></a> *source</code></em>);</pre>
 <p>
 Retrieves the source pixbuf, or <a href="../glib/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none is set.
 In addition, if a filename source is in use, this
@@ -1429,6 +1428,6 @@ that match exactly.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>
