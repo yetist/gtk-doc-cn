@@ -44,10 +44,10 @@ struct              <a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="stru
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPlug.html#gtk-plug-construct" title="gtk_plug_construct ()">gtk_plug_construct</a>                  (<em class="parameter"><code><a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="gtk3-GtkPlug.html#gtk-plug-construct-for-display" title="gtk_plug_construct_for_display ()">gtk_plug_construct_for_display</a>      (<em class="parameter"><code><a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);
 <a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPlug.html#gtk-plug-new" title="gtk_plug_new ()">gtk_plug_new</a>                        (<em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);
-<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPlug.html#gtk-plug-new-for-display" title="gtk_plug_new_for_display ()">gtk_plug_new_for_display</a>            (<em class="parameter"><code><a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+<a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         <a class="link" href="gtk3-GtkPlug.html#gtk-plug-new-for-display" title="gtk_plug_new_for_display ()">gtk_plug_new_for_display</a>            (<em class="parameter"><code><a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);
 <span class="returnvalue">Window</span>              <a class="link" href="gtk3-GtkPlug.html#gtk-plug-get-id" title="gtk_plug_get_id ()">gtk_plug_get_id</a>                     (<em class="parameter"><code><a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>);
 <a href="../glib/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gtk3-GtkPlug.html#gtk-plug-get-embedded" title="gtk_plug_get_embedded ()">gtk_plug_get_embedded</a>               (<em class="parameter"><code><a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>);
@@ -126,7 +126,7 @@ Finish the initialization of <em class="parameter"><code>plug</code></em> for a 
 <div class="refsect2">
 <a name="gtk-plug-construct-for-display"></a><h3>gtk_plug_construct_for_display ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                gtk_plug_construct_for_display      (<em class="parameter"><code><a class="link" href="gtk3-GtkPlug.html#GtkPlug" title="struct GtkPlug"><span class="type">GtkPlug</span></a> *plug</code></em>,
-                                                         <em class="parameter"><code><a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+                                                         <em class="parameter"><code><a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);</pre>
 <p>
 Finish the initialization of <em class="parameter"><code>plug</code></em> for a given <a class="link" href="gtk3-GtkSocket.html#GtkSocket" title="struct GtkSocket"><span class="type">GtkSocket</span></a> identified by
@@ -142,7 +142,7 @@ This function will generally only be used by classes deriving from <a class="lin
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
-<td>the <a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> associated with <em class="parameter"><code>socket_id</code></em>'s
+<td>the <a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> associated with <em class="parameter"><code>socket_id</code></em>'s
 <a class="link" href="gtk3-GtkSocket.html#GtkSocket" title="struct GtkSocket"><span class="type">GtkSocket</span></a>.</td>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ can later be plugged into a <a class="link" href="gtk3-GtkSocket.html#GtkSocket"
 <hr>
 <div class="refsect2">
 <a name="gtk-plug-new-for-display"></a><h3>gtk_plug_new_for_display ()</h3>
-<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_plug_new_for_display            (<em class="parameter"><code><a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>,
+<pre class="programlisting"><a class="link" href="gtk3-GtkWidget.html#GtkWidget" title="GtkWidget"><span class="returnvalue">GtkWidget</span></a> *         gtk_plug_new_for_display            (<em class="parameter"><code><a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> *display</code></em>,
                                                          <em class="parameter"><code><span class="type">Window</span> socket_id</code></em>);</pre>
 <p>
 Create a new plug widget inside the <a class="link" href="gtk3-GtkSocket.html#GtkSocket" title="struct GtkSocket"><span class="type">GtkSocket</span></a> identified by socket_id.
@@ -189,7 +189,7 @@ Create a new plug widget inside the <a class="link" href="gtk3-GtkSocket.html#Gt
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>display</code></em> :</span></p></td>
-<td>the <a href="../gdk3/gdk3-GdkDisplay.html#GdkDisplay"><span class="type">GdkDisplay</span></a> on which <em class="parameter"><code>socket_id</code></em> is displayed</td>
+<td>the <a href="../gdk3/GdkDisplay.html"><span class="type">GdkDisplay</span></a> on which <em class="parameter"><code>socket_id</code></em> is displayed</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>socket_id</code></em> :</span></p></td>
