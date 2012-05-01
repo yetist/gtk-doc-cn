@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
-<link rel="prev" href="glib-Memory-Allocation.html" title="Memory Allocation">
+<link rel="prev" href="glib-Memory-Slices.html" title="Memory Slices">
 <link rel="next" href="glib-Error-Reporting.html" title="Error Reporting">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Memory-Allocation.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-Memory-Slices.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-core.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
@@ -144,7 +144,6 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 <span class="returnvalue">void</span>                <a class="link" href="glib-IO-Channels.html#g-io-channel-set-close-on-unref" title="g_io_channel_set_close_on_unref ()">g_io_channel_set_close_on_unref</a>     (<em class="parameter"><code><a class="link" href="glib-IO-Channels.html#GIOChannel" title="struct GIOChannel"><span class="type">GIOChannel</span></a> *channel</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="type">gboolean</span></a> do_close</code></em>);
 
-
 <a class="link" href="glib-IO-Channels.html#GIOError" title="enum GIOError"><span class="returnvalue">GIOError</span></a>            <a class="link" href="glib-IO-Channels.html#g-io-channel-read" title="g_io_channel_read ()">g_io_channel_read</a>                   (<em class="parameter"><code><a class="link" href="glib-IO-Channels.html#GIOChannel" title="struct GIOChannel"><span class="type">GIOChannel</span></a> *channel</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buf</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> count</code></em>,
@@ -193,7 +192,7 @@ function to be called whenever these events occur.
 increment or decrement the reference count respectively. When the
 reference count falls to 0, the <a class="link" href="glib-IO-Channels.html#GIOChannel" title="struct GIOChannel"><span class="type">GIOChannel</span></a> is freed. (Though it
 isn't closed automatically, unless it was created using
-<code class="function">g_io_channel_new_from_file()</code>.) Using <a class="link" href="glib-IO-Channels.html#g-io-add-watch" title="g_io_add_watch ()"><code class="function">g_io_add_watch()</code></a> or
+<a class="link" href="glib-IO-Channels.html#g-io-channel-new-file" title="g_io_channel_new_file"><code class="function">g_io_channel_new_file()</code></a>.) Using <a class="link" href="glib-IO-Channels.html#g-io-add-watch" title="g_io_add_watch ()"><code class="function">g_io_add_watch()</code></a> or
 <a class="link" href="glib-IO-Channels.html#g-io-add-watch-full" title="g_io_add_watch_full ()"><code class="function">g_io_add_watch_full()</code></a> increments a channel's reference count.
 </p>
 <p>
@@ -561,12 +560,12 @@ If a <em class="parameter"><code>length</code></em> of zero is returned, this wi
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>location to store length of the read data, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>location to store length of the read data, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>terminator_pos</code></em> :</span></p></td>
-<td>location to store position of line terminator, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>location to store position of line terminator, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -608,7 +607,7 @@ be overwritten.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>terminator_pos</code></em> :</span></p></td>
-<td>location to store position of line terminator, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>location to store position of line terminator, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -835,8 +834,7 @@ is allowed. See the documentation for
 <hr>
 <div class="refsect2">
 <a name="GSeekType"></a><h3>enum GSeekType</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_SEEK_CUR,
   G_SEEK_SET,
   G_SEEK_END
@@ -905,8 +903,7 @@ last reference is dropped using <a class="link" href="glib-IO-Channels.html#g-io
 <hr>
 <div class="refsect2">
 <a name="GIOStatus"></a><h3>enum GIOStatus</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_IO_STATUS_ERROR,
   G_IO_STATUS_NORMAL,
   G_IO_STATUS_EOF,
@@ -945,8 +942,7 @@ Stati returned by most of the <a class="link" href="glib-IO-Channels.html#GIOFun
 <hr>
 <div class="refsect2">
 <a name="GIOChannelError"></a><h3>enum GIOChannelError</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   /* Derived from errno */
   G_IO_CHANNEL_ERROR_FBIG,
   G_IO_CHANNEL_ERROR_INVAL,
@@ -1213,7 +1209,8 @@ You can do these steps manually if you need greater control.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the event source id</td>
+<td>the event source id
+Rename to: g_io_add_watch</td>
 </tr>
 </tbody>
 </table></div>
@@ -1221,8 +1218,7 @@ You can do these steps manually if you need greater control.
 <hr>
 <div class="refsect2">
 <a name="GIOCondition"></a><h3>enum GIOCondition</h3>
-<pre class="programlisting">typedef enum /*&lt; flags &gt;*/
-{
+<pre class="programlisting">typedef enum {
   G_IO_IN GLIB_SYSDEF_POLLIN,
   G_IO_OUT GLIB_SYSDEF_POLLOUT,
   G_IO_PRI GLIB_SYSDEF_POLLPRI,
@@ -1477,7 +1473,7 @@ Gets the current flags for a <a class="link" href="glib-IO-Channels.html#GIOChan
 flags such as <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-IS-READABLE:CAPS"><code class="literal">G_IO_FLAG_IS_READABLE</code></a>.
 </p>
 <p>
-The values of the flags <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-IS-READABLE:CAPS"><code class="literal">G_IO_FLAG_IS_READABLE</code></a> and <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-IS-WRITEABLE:CAPS"><code class="literal">G_IO_FLAG_IS_WRITEABLE</code></a>
+The values of the flags <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-IS-READABLE:CAPS"><code class="literal">G_IO_FLAG_IS_READABLE</code></a> and <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-IS-WRITABLE:CAPS"><code class="literal">G_IO_FLAG_IS_WRITABLE</code></a>
 are cached for internal use by the channel when it is created.
 If they should change at some later point (e.g. partial shutdown
 of a socket with the UNIX <code class="function">shutdown()</code> function), the user
@@ -1506,7 +1502,7 @@ the internal values of these flags.
                                                          <em class="parameter"><code><a class="link" href="glib-IO-Channels.html#GIOFlags" title="enum GIOFlags"><span class="type">GIOFlags</span></a> flags</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
-Sets the (writeable) flags in <em class="parameter"><code>channel</code></em> to (<em class="parameter"><code>flags</code></em> &amp; <code class="literal">G_IO_CHANNEL_SET_MASK</code>).
+Sets the (writeable) flags in <em class="parameter"><code>channel</code></em> to (<em class="parameter"><code>flags</code></em> &amp; <a class="link" href="glib-IO-Channels.html#G-IO-FLAG-SET-MASK:CAPS"><code class="literal">G_IO_FLAG_SET_MASK</code></a>).
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1535,12 +1531,11 @@ Sets the (writeable) flags in <em class="parameter"><code>channel</code></em> to
 <hr>
 <div class="refsect2">
 <a name="GIOFlags"></a><h3>enum GIOFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_IO_FLAG_APPEND = 1 &lt;&lt; 0,
   G_IO_FLAG_NONBLOCK = 1 &lt;&lt; 1,
   G_IO_FLAG_IS_READABLE = 1 &lt;&lt; 2, /* Read only flag */
-  G_IO_FLAG_IS_WRITEABLE = 1 &lt;&lt; 3, /* Read only flag */
+  G_IO_FLAG_IS_WRITABLE = 1 &lt;&lt; 3, /* Read only flag */
   G_IO_FLAG_IS_SEEKABLE = 1 &lt;&lt; 4, /* Read only flag */
   G_IO_FLAG_MASK = (1 &lt;&lt; 5) - 1,
   G_IO_FLAG_GET_MASK = G_IO_FLAG_MASK,
@@ -1565,27 +1560,27 @@ read with <a class="link" href="glib-IO-Channels.html#g-io-channel-get-flags" ti
 <tr>
 <td><p><a name="G-IO-FLAG-NONBLOCK:CAPS"></a><span class="term"><code class="literal">G_IO_FLAG_NONBLOCK</code></span></p></td>
 <td>turns on nonblocking mode, corresponds to
-                     <code class="literal">O_NONBLOCK</code>/<code class="literal">O_NDELAY</code> (see the documentation of
-                     the UNIX <code class="function">open()</code> syscall).
+                     <code class="literal">O_NONBLOCK</code>/<code class="literal">O_NDELAY</code>
+                     (see the documentation of the UNIX <code class="function">open()</code> syscall).
 </td>
 </tr>
 <tr>
 <td><p><a name="G-IO-FLAG-IS-READABLE:CAPS"></a><span class="term"><code class="literal">G_IO_FLAG_IS_READABLE</code></span></p></td>
 <td>indicates that the io channel is readable.
-                        This flag can not be changed.
+                        This flag cannot be changed.
 </td>
 </tr>
 <tr>
-<td><p><a name="G-IO-FLAG-IS-WRITEABLE:CAPS"></a><span class="term"><code class="literal">G_IO_FLAG_IS_WRITEABLE</code></span></p></td>
+<td><p><a name="G-IO-FLAG-IS-WRITABLE:CAPS"></a><span class="term"><code class="literal">G_IO_FLAG_IS_WRITABLE</code></span></p></td>
 <td>indicates that the io channel is writable.
-                         This flag can not be changed.
+                         This flag cannot be changed.
 </td>
 </tr>
 <tr>
 <td><p><a name="G-IO-FLAG-IS-SEEKABLE:CAPS"></a><span class="term"><code class="literal">G_IO_FLAG_IS_SEEKABLE</code></span></p></td>
 <td>indicates that the io channel is seekable,
                         i.e. that <a class="link" href="glib-IO-Channels.html#g-io-channel-seek-position" title="g_io_channel_seek_position ()"><code class="function">g_io_channel_seek_position()</code></a> can
-                        be used on it.  This flag can not be changed.
+                        be used on it.  This flag cannot be changed.
 </td>
 </tr>
 <tr>
@@ -1943,8 +1938,7 @@ count bytes long)</td>
 <hr>
 <div class="refsect2">
 <a name="GIOError"></a><h3>enum GIOError</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_IO_ERROR_NONE,
   G_IO_ERROR_AGAIN,
   G_IO_ERROR_INVAL,
@@ -2107,6 +2101,6 @@ last reference is dropped using <a class="link" href="glib-IO-Channels.html#g-io
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

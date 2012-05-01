@@ -8,7 +8,7 @@
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
 <link rel="prev" href="glib-Thread-Pools.html" title="Thread Pools">
 <link rel="next" href="glib-Dynamic-Loading-of-Modules.html" title="Dynamic Loading of Modules">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -53,8 +53,8 @@
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-pop" title="g_async_queue_pop ()">g_async_queue_pop</a>                   (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
 <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-try-pop" title="g_async_queue_try_pop ()">g_async_queue_try_pop</a>               (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
-<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop" title="g_async_queue_timed_pop ()">g_async_queue_timed_pop</a>             (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);
+<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timeout-pop" title="g_async_queue_timeout_pop ()">g_async_queue_timeout_pop</a>           (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> timeout</code></em>);
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-length" title="g_async_queue_length ()">g_async_queue_length</a>                (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()">g_async_queue_sort</a>                  (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
@@ -72,12 +72,17 @@
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
 <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-pop-unlocked" title="g_async_queue_pop_unlocked ()">g_async_queue_pop_unlocked</a>          (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
 <a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-try-pop-unlocked" title="g_async_queue_try_pop_unlocked ()">g_async_queue_try_pop_unlocked</a>      (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
-<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop-unlocked" title="g_async_queue_timed_pop_unlocked ()">g_async_queue_timed_pop_unlocked</a>    (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);
+<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timeout-pop-unlocked" title="g_async_queue_timeout_pop_unlocked ()">g_async_queue_timeout_pop_unlocked</a>  (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> timeout</code></em>);
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-length-unlocked" title="g_async_queue_length_unlocked ()">g_async_queue_length_unlocked</a>       (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort-unlocked" title="g_async_queue_sort_unlocked ()">g_async_queue_sort_unlocked</a>         (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+
+<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop" title="g_async_queue_timed_pop ()">g_async_queue_timed_pop</a>             (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);
+<a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop-unlocked" title="g_async_queue_timed_pop_unlocked ()">g_async_queue_timed_pop_unlocked</a>    (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -98,25 +103,21 @@ it will always be used by at least 2 concurrent threads.
 </p>
 <p>
 For using an asynchronous queue you first have to create one with
-<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-new" title="g_async_queue_new ()"><code class="function">g_async_queue_new()</code></a>. A newly-created queue will get the reference
-count 1. Whenever another thread is creating a new reference of (that
-is, pointer to) the queue, it has to increase the reference count
-(using <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a>). Also, before removing this reference,
-the reference count has to be decreased (using <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>).
-After that the queue might no longer exist so you must not access
-it after that point.
+<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-new" title="g_async_queue_new ()"><code class="function">g_async_queue_new()</code></a>. <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> structs are reference counted,
+use <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a> and <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a> to manage your
+references.
 </p>
 <p>
-A thread, which wants to send a message to that queue simply calls
+A thread which wants to send a message to that queue simply calls
 <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-push" title="g_async_queue_push ()"><code class="function">g_async_queue_push()</code></a> to push the message to the queue.
 </p>
 <p>
-A thread, which is expecting messages from an asynchronous queue
+A thread which is expecting messages from an asynchronous queue
 simply calls <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-pop" title="g_async_queue_pop ()"><code class="function">g_async_queue_pop()</code></a> for that queue. If no message is
 available in the queue at that point, the thread is now put to sleep
 until a message arrives. The message will be removed from the queue
 and returned. The functions <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-try-pop" title="g_async_queue_try_pop ()"><code class="function">g_async_queue_try_pop()</code></a> and
-<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timed-pop" title="g_async_queue_timed_pop ()"><code class="function">g_async_queue_timed_pop()</code></a> can be used to only check for the presence
+<a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timeout-pop" title="g_async_queue_timeout_pop ()"><code class="function">g_async_queue_timeout_pop()</code></a> can be used to only check for the presence
 of messages or to only wait a certain time for messages respectively.
 </p>
 <p>
@@ -127,7 +128,13 @@ the queue and one that doesn't. That way you can hold the queue lock
 This can be necessary to ensure the integrity of the queue, but should
 only be used when really necessary, as it can make your life harder
 if used unwisely. Normally you should only use the locking function
-variants (those without the suffix _unlocked)
+variants (those without the _unlocked suffix).
+</p>
+<p>
+In many cases, it may be more convenient to use <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> when
+you need to distribute work to a set of worker threads instead of
+using <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> manually. <a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a> uses a GAsyncQueue
+internally.
 </p>
 </div>
 <div class="refsect1">
@@ -136,7 +143,7 @@ variants (those without the suffix _unlocked)
 <a name="GAsyncQueue"></a><h3>GAsyncQueue</h3>
 <pre class="programlisting">typedef struct _GAsyncQueue GAsyncQueue;</pre>
 <p>
-The GAsyncQueue struct is an opaque data structure, which represents
+The GAsyncQueue struct is an opaque data structure which represents
 an asynchronous queue. It should only be accessed through the
 <code class="function">g_async_queue_*</code> functions.
 </p>
@@ -146,13 +153,14 @@ an asynchronous queue. It should only be accessed through the
 <a name="g-async-queue-new"></a><h3>g_async_queue_new ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="returnvalue">GAsyncQueue</span></a> *       g_async_queue_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
-Creates a new asynchronous queue with the initial reference count of 1.
+Creates a new asynchronous queue.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>这个新的<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>a new <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>. Free with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -161,9 +169,9 @@ Creates a new asynchronous queue with the initial reference count of 1.
 <a name="g-async-queue-new-full"></a><h3>g_async_queue_new_full ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="returnvalue">GAsyncQueue</span></a> *       g_async_queue_new_full              (<em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> item_free_func</code></em>);</pre>
 <p>
-Creates a new asynchronous queue with an initial reference count of 1 and
-sets up a destroy notify function that is used to free any remaining
-queue items when the queue is destroyed after the final unref.
+Creates a new asynchronous queue and sets up a destroy notify
+function that is used to free any remaining queue items when
+the queue is destroyed after the final unref.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -174,7 +182,8 @@ queue items when the queue is destroyed after the final unref.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>这个新的<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>a new <a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>. Free with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -192,7 +201,8 @@ queue items when the queue is destroyed after the final unref.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -206,11 +216,13 @@ queue items when the queue is destroyed after the final unref.
 <a name="g-async-queue-unref"></a><h3>g_async_queue_unref ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_async_queue_unref                 (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Decreases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1. If
-the reference count went to 0, the <em class="parameter"><code>queue</code></em> will be destroyed and the
-memory allocated will be freed. So you are not allowed to use the
-<em class="parameter"><code>queue</code></em> afterwards, as it might have disappeared. You do not need to
-hold the lock to call this function.
+Decreases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1.
+</p>
+<p>
+If the reference count went to 0, the <em class="parameter"><code>queue</code></em> will be destroyed
+and the memory allocated will be freed. So you are not allowed
+to use the <em class="parameter"><code>queue</code></em> afterwards, as it might have disappeared.
+You do not need to hold the lock to call this function.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -233,11 +245,14 @@ Pushes the <em class="parameter"><code>data</code></em> into the <em class="para
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>被推入<em class="parameter"><code>queue</code></em> 的<em class="parameter"><code>data</code></em>。</td>
+<td>
+<em class="parameter"><code>data</code></em> to push into the <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -251,11 +266,11 @@ Pushes the <em class="parameter"><code>data</code></em> into the <em class="para
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Inserts <em class="parameter"><code>data</code></em> into <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em> to determine the new
-position. 
+position.
 </p>
 <p>
 This function requires that the <em class="parameter"><code>queue</code></em> is sorted before pushing on
-new elements.
+new elements, see <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()"><code class="function">g_async_queue_sort()</code></a>.
 </p>
 <p>
 This function will lock <em class="parameter"><code>queue</code></em> before it sorts the queue and unlock
@@ -279,11 +294,8 @@ For an example of <em class="parameter"><code>func</code></em> see <a class="lin
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>. This function
-is passed two elements of the <em class="parameter"><code>queue</code></em>. The function should return
-0 if they are equal, a negative value if the first element
-should be higher in the <em class="parameter"><code>queue</code></em> or a positive value if the first
-element should be lower in the <em class="parameter"><code>queue</code></em> than the second element.</td>
+<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -298,19 +310,20 @@ element should be lower in the <em class="parameter"><code>queue</code></em> tha
 <a name="g-async-queue-pop"></a><h3>g_async_queue_pop ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_pop                   (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Pops data from the <em class="parameter"><code>queue</code></em>. This function blocks until data become
-available.
+Pops data from the <em class="parameter"><code>queue</code></em>. If <em class="parameter"><code>queue</code></em> is empty, this function
+blocks until data becomes available.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>data from the queue.</td>
+<td>data from the queue</td>
 </tr>
 </tbody>
 </table></div>
@@ -320,15 +333,16 @@ available.
 <a name="g-async-queue-try-pop"></a><h3>g_async_queue_try_pop ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_try_pop               (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no data is available, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is
-returned.
+Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no data is available,
+<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -340,32 +354,32 @@ available immediately.</td>
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-async-queue-timed-pop"></a><h3>g_async_queue_timed_pop ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timed_pop             (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);</pre>
+<a name="g-async-queue-timeout-pop"></a><h3>g_async_queue_timeout_pop ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timeout_pop           (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> timeout</code></em>);</pre>
 <p>
-Pops data from the <em class="parameter"><code>queue</code></em>. If no data is received before <em class="parameter"><code>end_time</code></em>,
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+Pops data from the <em class="parameter"><code>queue</code></em>. If the queue is empty, blocks for
+<em class="parameter"><code>timeout</code></em> microseconds, or until data becomes available.
 </p>
 <p>
-To easily calculate <em class="parameter"><code>end_time</code></em> a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
-and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
+If no data is received before the timeout, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>end_time</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a>, determining the final time.</td>
+<td><p><span class="term"><em class="parameter"><code>timeout</code></em> :</span></p></td>
+<td>the number of microseconds to wait</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>data from the queue or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, when no data is
-received before <em class="parameter"><code>end_time</code></em>.</td>
+received before the timeout.</td>
 </tr>
 </tbody>
 </table></div>
@@ -375,13 +389,15 @@ received before <em class="parameter"><code>end_time</code></em>.</td>
 <a name="g-async-queue-length"></a><h3>g_async_queue_length ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_async_queue_length                (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Returns the length of the queue, negative values mean waiting
-threads, positive values mean available entries in the
-<em class="parameter"><code>queue</code></em>. Actually this function returns the number of data items in
-the queue minus the number of waiting threads. Thus a return value
-of 0 could mean 'n' entries in the queue and 'n' thread waiting.
-That can happen due to locking of the queue or due to
-scheduling.
+Returns the length of the queue.
+</p>
+<p>
+Actually this function returns the number of data items in
+the queue minus the number of waiting threads, so a negative
+value means waiting threads, and a positive value means available
+entries in the <em class="parameter"><code>queue</code></em>. A return value of 0 could mean n entries
+in the queue and n threads waiting. This can happen due to locking
+of the queue or due to scheduling.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -392,7 +408,8 @@ scheduling.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the length of the <em class="parameter"><code>queue</code></em>.</td>
+<td>the length of the <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -404,7 +421,14 @@ scheduling.
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
-Sorts <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em>. 
+Sorts <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em>.
+</p>
+<p>
+The sort function <em class="parameter"><code>func</code></em> is passed two elements of the <em class="parameter"><code>queue</code></em>.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <em class="parameter"><code>queue</code></em> or a positive value
+if the first element should be lower in the <em class="parameter"><code>queue</code></em> than the second
+element.
 </p>
 <p>
 This function will lock <em class="parameter"><code>queue</code></em> before it sorts the queue and unlock
@@ -417,10 +441,10 @@ lowest priority would be at the top of the queue, you could use:
 <div class="informalexample"><pre class="programlisting">
  gint32 id1;
  gint32 id2;
-  
+
  id1 = GPOINTER_TO_INT (element1);
  id2 = GPOINTER_TO_INT (element2);
-  
+
  return (id1 &gt; id2 ? +1 : id1 == id2 ? 0 : -1);
 </pre></div>
 <p>
@@ -435,12 +459,8 @@ lowest priority would be at the top of the queue, you could use:
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>. This
-function is passed two elements of the <em class="parameter"><code>queue</code></em>. The function
-should return 0 if they are equal, a negative value if the
-first element should be higher in the <em class="parameter"><code>queue</code></em> or a positive
-value if the first element should be lower in the <em class="parameter"><code>queue</code></em> than
-the second element.</td>
+<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -456,15 +476,24 @@ the second element.</td>
 <a name="g-async-queue-lock"></a><h3>g_async_queue_lock ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_async_queue_lock                  (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Acquires the <em class="parameter"><code>queue</code></em>'s lock. After that you can only call the
-<code class="function">g_async_queue_*_unlocked()</code> function variants on that
-<em class="parameter"><code>queue</code></em>. Otherwise it will deadlock.
+Acquires the <em class="parameter"><code>queue</code></em>'s lock. If another thread is already
+holding the lock, this call will block until the lock
+becomes available.
+</p>
+<p>
+Call <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unlock" title="g_async_queue_unlock ()"><code class="function">g_async_queue_unlock()</code></a> to drop the lock again.
+</p>
+<p>
+While holding the lock, you can only call the
+<code class="function">g_async_queue_*_unlocked()</code> functions
+on <em class="parameter"><code>queue</code></em>. Otherwise, deadlock may occur.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -475,11 +504,17 @@ Acquires the <em class="parameter"><code>queue</code></em>'s lock. After that yo
 <p>
 Releases the queue's lock.
 </p>
+<p>
+Calling this function when you have not acquired
+the with <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-lock" title="g_async_queue_lock ()"><code class="function">g_async_queue_lock()</code></a> leads to undefined
+behaviour.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -489,21 +524,19 @@ Releases the queue's lock.
 <pre class="programlisting"><span class="returnvalue">void</span>                g_async_queue_ref_unlocked          (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_async_queue_ref_unlocked</code> is deprecated and should not be used in newly-written code.</p>
+<p><code class="literal">g_async_queue_ref_unlocked</code> has been deprecated since version 2.8 and should not be used in newly-written code. Reference counting is done atomically.
+so <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a> can be used regardless of the <em class="parameter"><code>queue</code></em>'s
+lock.</p>
 </div>
 <p>
 Increases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1.
-</p>
-<p>
-<em class="parameter"><code>Deprecated</code></em>: Since 2.8, reference counting is done atomically
-so <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-ref" title="g_async_queue_ref ()"><code class="function">g_async_queue_ref()</code></a> can be used regardless of the <em class="parameter"><code>queue</code></em>'s
-lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -513,24 +546,22 @@ lock.
 <pre class="programlisting"><span class="returnvalue">void</span>                g_async_queue_unref_and_unlock      (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
-<p><code class="literal">g_async_queue_unref_and_unlock</code> is deprecated and should not be used in newly-written code.</p>
+<p><code class="literal">g_async_queue_unref_and_unlock</code> has been deprecated since version 2.8 and should not be used in newly-written code. Reference counting is done atomically.
+so <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a> can be used regardless of the <em class="parameter"><code>queue</code></em>'s
+lock.</p>
 </div>
 <p>
-Decreases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1 and
-releases the lock. This function must be called while holding the
-<em class="parameter"><code>queue</code></em>'s lock. If the reference count went to 0, the <em class="parameter"><code>queue</code></em> will be
-destroyed and the memory allocated will be freed.
-</p>
-<p>
-<em class="parameter"><code>Deprecated</code></em>: Since 2.8, reference counting is done atomically
-so <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-unref" title="g_async_queue_unref ()"><code class="function">g_async_queue_unref()</code></a> can be used regardless of the <em class="parameter"><code>queue</code></em>'s
-lock.
+Decreases the reference count of the asynchronous <em class="parameter"><code>queue</code></em> by 1
+and releases the lock. This function must be called while holding
+the <em class="parameter"><code>queue</code></em>'s lock. If the reference count went to 0, the <em class="parameter"><code>queue</code></em>
+will be destroyed and the memory allocated will be freed.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -540,19 +571,24 @@ lock.
 <pre class="programlisting"><span class="returnvalue">void</span>                g_async_queue_push_unlocked         (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
 <p>
-Pushes the <em class="parameter"><code>data</code></em> into the <em class="parameter"><code>queue</code></em>. <em class="parameter"><code>data</code></em> must not be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. This
-function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
+Pushes the <em class="parameter"><code>data</code></em> into the <em class="parameter"><code>queue</code></em>. <em class="parameter"><code>data</code></em> must not be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>被推入<em class="parameter"><code>queue</code></em> 的<em class="parameter"><code>data</code></em>。</td>
+<td>
+<em class="parameter"><code>data</code></em> to push into the <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -569,11 +605,18 @@ Inserts <em class="parameter"><code>data</code></em> into <em class="parameter">
 position.
 </p>
 <p>
-This function requires that the <em class="parameter"><code>queue</code></em> is sorted before pushing on
-new elements.
+The sort function <em class="parameter"><code>func</code></em> is passed two elements of the <em class="parameter"><code>queue</code></em>.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <em class="parameter"><code>queue</code></em> or a positive value
+if the first element should be lower in the <em class="parameter"><code>queue</code></em> than the second
+element.
 </p>
 <p>
-This function is called while holding the <em class="parameter"><code>queue</code></em>'s lock.
+This function requires that the <em class="parameter"><code>queue</code></em> is sorted before pushing on
+new elements, see <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()"><code class="function">g_async_queue_sort()</code></a>.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <p>
 For an example of <em class="parameter"><code>func</code></em> see <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-sort" title="g_async_queue_sort ()"><code class="function">g_async_queue_sort()</code></a>.
@@ -593,11 +636,8 @@ For an example of <em class="parameter"><code>func</code></em> see <a class="lin
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>. This function
-is passed two elements of the <em class="parameter"><code>queue</code></em>. The function should return
-0 if they are equal, a negative value if the first element
-should be higher in the <em class="parameter"><code>queue</code></em> or a positive value if the first
-element should be lower in the <em class="parameter"><code>queue</code></em> than the second element.</td>
+<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -612,16 +652,19 @@ element should be lower in the <em class="parameter"><code>queue</code></em> tha
 <a name="g-async-queue-pop-unlocked"></a><h3>g_async_queue_pop_unlocked ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_pop_unlocked          (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Pops data from the <em class="parameter"><code>queue</code></em>. This function blocks until data become
-available. This function must be called while holding the <em class="parameter"><code>queue</code></em>'s
-lock.
+Pops data from the <em class="parameter"><code>queue</code></em>. If <em class="parameter"><code>queue</code></em> is empty, this function
+blocks until data becomes available.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -635,16 +678,19 @@ lock.
 <a name="g-async-queue-try-pop-unlocked"></a><h3>g_async_queue_try_pop_unlocked ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_try_pop_unlocked      (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no data is available, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is
-returned. This function must be called while holding the <em class="parameter"><code>queue</code></em>'s
-lock.
+Tries to pop data from the <em class="parameter"><code>queue</code></em>. If no data is available,
+<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -656,33 +702,35 @@ available immediately.</td>
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-async-queue-timed-pop-unlocked"></a><h3>g_async_queue_timed_pop_unlocked ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timed_pop_unlocked    (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
-                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);</pre>
+<a name="g-async-queue-timeout-pop-unlocked"></a><h3>g_async_queue_timeout_pop_unlocked ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timeout_pop_unlocked  (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint64" title="guint64"><span class="type">guint64</span></a> timeout</code></em>);</pre>
 <p>
-Pops data from the <em class="parameter"><code>queue</code></em>. If no data is received before <em class="parameter"><code>end_time</code></em>,
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned. This function must be called while holding the
-<em class="parameter"><code>queue</code></em>'s lock.
+Pops data from the <em class="parameter"><code>queue</code></em>. If the queue is empty, blocks for
+<em class="parameter"><code>timeout</code></em> microseconds, or until data becomes available.
 </p>
 <p>
-To easily calculate <em class="parameter"><code>end_time</code></em> a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
-and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
+If no data is received before the timeout, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
-<td><p><span class="term"><em class="parameter"><code>end_time</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a>, determining the final time.</td>
+<td><p><span class="term"><em class="parameter"><code>timeout</code></em> :</span></p></td>
+<td>the number of microseconds to wait</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>data from the queue or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, when no data is
-received before <em class="parameter"><code>end_time</code></em>.</td>
+received before the timeout.</td>
 </tr>
 </tbody>
 </table></div>
@@ -692,21 +740,26 @@ received before <em class="parameter"><code>end_time</code></em>.</td>
 <a name="g-async-queue-length-unlocked"></a><h3>g_async_queue_length_unlocked ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_async_queue_length_unlocked       (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>);</pre>
 <p>
-Returns the length of the queue, negative values mean waiting
-threads, positive values mean available entries in the
-<em class="parameter"><code>queue</code></em>. Actually this function returns the number of data items in
-the queue minus the number of waiting threads. Thus a return value
-of 0 could mean 'n' entries in the queue and 'n' thread waiting.
-That can happen due to locking of the queue or due to
-scheduling. This function must be called while holding the <em class="parameter"><code>queue</code></em>'s
-lock.
+Returns the length of the queue.
+</p>
+<p>
+Actually this function returns the number of data items in
+the queue minus the number of waiting threads, so a negative
+value means waiting threads, and a positive value means available
+entries in the <em class="parameter"><code>queue</code></em>. A return value of 0 could mean n entries
+in the queue and n threads waiting. This can happen due to locking
+of the queue or due to scheduling.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>.</td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -722,10 +775,17 @@ lock.
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
-Sorts <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em>. 
+Sorts <em class="parameter"><code>queue</code></em> using <em class="parameter"><code>func</code></em>.
 </p>
 <p>
-This function is called while holding the <em class="parameter"><code>queue</code></em>'s lock.
+The sort function <em class="parameter"><code>func</code></em> is passed two elements of the <em class="parameter"><code>queue</code></em>.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <em class="parameter"><code>queue</code></em> or a positive value
+if the first element should be lower in the <em class="parameter"><code>queue</code></em> than the second
+element.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -737,12 +797,8 @@ This function is called while holding the <em class="parameter"><code>queue</cod
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>. This
-function is passed two elements of the <em class="parameter"><code>queue</code></em>. The function
-should return 0 if they are equal, a negative value if the
-first element should be higher in the <em class="parameter"><code>queue</code></em> or a positive
-value if the first element should be lower in the <em class="parameter"><code>queue</code></em> than
-the second element.</td>
+<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> is used to sort <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
@@ -753,10 +809,97 @@ the second element.</td>
 </table></div>
 <p class="since">Since 2.10</p>
 </div>
+<hr>
+<div class="refsect2">
+<a name="g-async-queue-timed-pop"></a><h3>g_async_queue_timed_pop ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timed_pop             (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">g_async_queue_timed_pop</code> is deprecated and should not be used in newly-written code. use <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timeout-pop" title="g_async_queue_timeout_pop ()"><code class="function">g_async_queue_timeout_pop()</code></a>.</p>
+</div>
+<p>
+Pops data from the <em class="parameter"><code>queue</code></em>. If the queue is empty, blocks until
+<em class="parameter"><code>end_time</code></em> or until data becomes available.
+</p>
+<p>
+If no data is received before <em class="parameter"><code>end_time</code></em>, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+</p>
+<p>
+To easily calculate <em class="parameter"><code>end_time</code></em>, a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
+and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_time</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a>, determining the final time</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>data from the queue or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, when no data is
+received before <em class="parameter"><code>end_time</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-async-queue-timed-pop-unlocked"></a><h3>g_async_queue_timed_pop_unlocked ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="returnvalue">gpointer</span></a>            g_async_queue_timed_pop_unlocked    (<em class="parameter"><code><a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *end_time</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">g_async_queue_timed_pop_unlocked</code> is deprecated and should not be used in newly-written code. use <a class="link" href="glib-Asynchronous-Queues.html#g-async-queue-timeout-pop-unlocked" title="g_async_queue_timeout_pop_unlocked ()"><code class="function">g_async_queue_timeout_pop_unlocked()</code></a>.</p>
+</div>
+<p>
+Pops data from the <em class="parameter"><code>queue</code></em>. If the queue is empty, blocks until
+<em class="parameter"><code>end_time</code></em> or until data becomes available.
+</p>
+<p>
+If no data is received before <em class="parameter"><code>end_time</code></em>, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
+</p>
+<p>
+To easily calculate <em class="parameter"><code>end_time</code></em>, a combination of <a class="link" href="glib-Date-and-Time-Functions.html#g-get-current-time" title="g_get_current_time ()"><code class="function">g_get_current_time()</code></a>
+and <a class="link" href="glib-Date-and-Time-Functions.html#g-time-val-add" title="g_time_val_add ()"><code class="function">g_time_val_add()</code></a> can be used.
+</p>
+<p>
+This function must be called while holding the <em class="parameter"><code>queue</code></em>'s lock.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
+<td>一个<a class="link" href="glib-Asynchronous-Queues.html#GAsyncQueue" title="GAsyncQueue"><span class="type">GAsyncQueue</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_time</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a>, determining the final time</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>data from the queue or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>, when no data is
+received before <em class="parameter"><code>end_time</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="glib-Asynchronous-Queues.see-also"></a><h2>See Also</h2>
+<a class="link" href="glib-Thread-Pools.html#GThreadPool" title="struct GThreadPool"><span class="type">GThreadPool</span></a>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

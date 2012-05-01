@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-File-Utilities.html" title="File Utilities">
 <link rel="next" href="glib-Hostname-Utilities.html" title="Hostname Utilities">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-URI-Functions.top_of_page"></a>URI Functions</span></h2>
-<p>URI Functions — URI Functions</p>
+<p>URI Functions — manipulating URIs</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -55,14 +55,18 @@
                                                          <em class="parameter"><code>const <span class="type">char</span> *escaped_string_end</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *illegal_characters</code></em>);
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="glib-URI-Functions.html#g-uri-list-extract-uris" title="g_uri_list_extract_uris ()">g_uri_list_extract_uris</a>             (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *uri_list</code></em>);
-#define             <a class="link" href="glib-URI-Functions.html#g-filename-from-uri" title="g_filename_from_uri">g_filename_from_uri</a>
-#define             <a class="link" href="glib-URI-Functions.html#g-filename-to-uri" title="g_filename_to_uri">g_filename_to_uri</a>
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-URI-Functions.html#g-filename-from-uri" title="g_filename_from_uri ()">g_filename_from_uri</a>                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **hostname</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-URI-Functions.html#g-filename-to-uri" title="g_filename_to_uri ()">g_filename_to_uri</a>                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *hostname</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);
 </pre>
 </div>
 <div class="refsect1">
 <a name="glib-URI-Functions.description"></a><h2>Description</h2>
 <p>
-Functions for manipulating Universal Resource Identifiers (URIs) as 
+Functions for manipulating Universal Resource Identifiers (URIs) as
 defined by <a class="ulink" href="http://www.ietf.org/rfc/rfc3986.txt" target="_top">
 RFC 3986</a>. It is highly recommended that you have read and
 understand RFC 3986 for understanding this API.
@@ -242,20 +246,25 @@ handling.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>escaped_string</code></em> :</span></p></td>
-<td>a string.</td>
+<td>A string, may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>escaped_string_end</code></em> :</span></p></td>
-<td>a string.</td>
+<td>Pointer to end of <em class="parameter"><code>escaped_string</code></em>, may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>illegal_characters</code></em> :</span></p></td>
-<td>an optional string of illegal characters not to be allowed.</td>
+<td>An optional string of illegal characters not to be allowed, may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>an unescaped version of <em class="parameter"><code>escaped_string</code></em> or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> on error.
-The returned string should be freed when no longer needed.</td>
+The returned string should be freed when no longer needed.  As a
+special case if <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is given for <em class="parameter"><code>escaped_string</code></em>, this function
+will return <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -289,8 +298,10 @@ be freed with <a class="link" href="glib-String-Utility-Functions.html#g-strfree
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-filename-from-uri"></a><h3>g_filename_from_uri</h3>
-<pre class="programlisting">#define             g_filename_from_uri</pre>
+<a name="g-filename-from-uri"></a><h3>g_filename_from_uri ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_filename_from_uri                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *uri</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **hostname</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Converts an escaped ASCII-encoded URI to a local filename in the
 encoding used for filenames.
@@ -306,11 +317,12 @@ encoding used for filenames.
 <td><p><span class="term"><em class="parameter"><code>hostname</code></em> :</span></p></td>
 <td>Location to store hostname for the URI, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 If there is no hostname in the URI, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> will be
-stored in this location.</td>
+stored in this location. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>location to store the error occuring, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore
+<td>location to store the error occurring, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore
 errors. Any of the errors in <a class="link" href="glib-Character-Set-Conversion.html#GConvertError" title="enum GConvertError"><span class="type">GConvertError</span></a> may occur.</td>
 </tr>
 <tr>
@@ -323,8 +335,10 @@ filename, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="N
 </div>
 <hr>
 <div class="refsect2">
-<a name="g-filename-to-uri"></a><h3>g_filename_to_uri</h3>
-<pre class="programlisting">#define             g_filename_to_uri</pre>
+<a name="g-filename-to-uri"></a><h3>g_filename_to_uri ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_filename_to_uri                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *filename</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *hostname</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Converts an absolute filename to an escaped ASCII-encoded URI, with the path
 component following Section 3.3. of RFC 2396.
@@ -340,11 +354,12 @@ Windows</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>hostname</code></em> :</span></p></td>
-<td>A UTF-8 encoded hostname, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for none.</td>
+<td>A UTF-8 encoded hostname, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> for none. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
-<td>location to store the error occuring, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore
+<td>location to store the error occurring, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to ignore
 errors. Any of the errors in <a class="link" href="glib-Character-Set-Conversion.html#GConvertError" title="enum GConvertError"><span class="type">GConvertError</span></a> may occur.</td>
 </tr>
 <tr>
@@ -359,6 +374,6 @@ URI, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL">
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-Singly-Linked-Lists.html" title="Singly-Linked Lists">
 <link rel="next" href="glib-Sequences.html" title="Sequences">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Double-ended-Queues.top_of_page"></a>Double-ended Queues</span></h2>
-<p>Double-ended Queues</p>
+<p>Double-ended Queues — double-ended queue data structure</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -43,6 +43,8 @@
 struct              <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue">GQueue</a>;
 <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="returnvalue">GQueue</span></a> *            <a class="link" href="glib-Double-ended-Queues.html#g-queue-new" title="g_queue_new ()">g_queue_new</a>                         (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-free" title="g_queue_free ()">g_queue_free</a>                        (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-free-full" title="g_queue_free_full ()">g_queue_free_full</a>                   (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);
 #define             <a class="link" href="glib-Double-ended-Queues.html#G-QUEUE-INIT:CAPS" title="G_QUEUE_INIT">G_QUEUE_INIT</a>
 <span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-init" title="g_queue_init ()">g_queue_init</a>                        (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-clear" title="g_queue_clear ()">g_queue_clear</a>                       (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>);
@@ -78,9 +80,9 @@ struct              <a class="link" href="glib-Double-ended-Queues.html#GQueue" 
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> n</code></em>);
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-index" title="g_queue_index ()">g_queue_index</a>                       (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-remove" title="g_queue_remove ()">g_queue_remove</a>                      (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+<a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Double-ended-Queues.html#g-queue-remove" title="g_queue_remove ()">g_queue_remove</a>                      (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-remove-all" title="g_queue_remove_all ()">g_queue_remove_all</a>                  (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+<a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-Double-ended-Queues.html#g-queue-remove-all" title="g_queue_remove_all ()">g_queue_remove_all</a>                  (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Double-ended-Queues.html#g-queue-insert-before" title="g_queue_insert_before ()">g_queue_insert_before</a>               (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *sibling</code></em>,
@@ -118,6 +120,31 @@ struct              <a class="link" href="glib-Double-ended-Queues.html#GQueue" 
 <div class="refsect1">
 <a name="glib-Double-ended-Queues.description"></a><h2>Description</h2>
 <p>
+The <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> structure and its associated functions provide a standard
+queue data structure. Internally, GQueue uses the same data structure
+as <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> to store elements.
+</p>
+<p>
+The data contained in each element can be either integer values, by
+using one of the <a class="link" href="glib-Type-Conversion-Macros.html" title="Type Conversion Macros">Type
+Conversion Macros</a>, or simply pointers to any type of data.
+</p>
+<p>
+To create a new GQueue, use <a class="link" href="glib-Double-ended-Queues.html#g-queue-new" title="g_queue_new ()"><code class="function">g_queue_new()</code></a>.
+</p>
+<p>
+To initialize a statically-allocated GQueue, use <a class="link" href="glib-Double-ended-Queues.html#G-QUEUE-INIT:CAPS" title="G_QUEUE_INIT"><span class="type">G_QUEUE_INIT</span></a> or
+<a class="link" href="glib-Double-ended-Queues.html#g-queue-init" title="g_queue_init ()"><code class="function">g_queue_init()</code></a>.
+</p>
+<p>
+To add elements, use <a class="link" href="glib-Double-ended-Queues.html#g-queue-push-head" title="g_queue_push_head ()"><code class="function">g_queue_push_head()</code></a>, <a class="link" href="glib-Double-ended-Queues.html#g-queue-push-head-link" title="g_queue_push_head_link ()"><code class="function">g_queue_push_head_link()</code></a>,
+<a class="link" href="glib-Double-ended-Queues.html#g-queue-push-tail" title="g_queue_push_tail ()"><code class="function">g_queue_push_tail()</code></a> and <a class="link" href="glib-Double-ended-Queues.html#g-queue-push-tail-link" title="g_queue_push_tail_link ()"><code class="function">g_queue_push_tail_link()</code></a>.
+</p>
+<p>
+To remove elements, use <a class="link" href="glib-Double-ended-Queues.html#g-queue-pop-head" title="g_queue_pop_head ()"><code class="function">g_queue_pop_head()</code></a> and <a class="link" href="glib-Double-ended-Queues.html#g-queue-pop-tail" title="g_queue_pop_tail ()"><code class="function">g_queue_pop_tail()</code></a>.
+</p>
+<p>
+To free the entire queue, use <a class="link" href="glib-Double-ended-Queues.html#g-queue-free" title="g_queue_free ()"><code class="function">g_queue_free()</code></a>.
 </p>
 </div>
 <div class="refsect1">
@@ -131,7 +158,26 @@ struct              <a class="link" href="glib-Double-ended-Queues.html#GQueue" 
 };
 </pre>
 <p>
+Contains the public fields of a
+<a class="link" href="glib-Double-ended-Queues.html" title="Double-ended Queues">Queue</a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *<em class="structfield"><code><a name="GQueue.head"></a>head</code></em>;</span></p></td>
+<td>a pointer to the first element of the queue</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *<em class="structfield"><code><a name="GQueue.tail"></a>tail</code></em>;</span></p></td>
+<td>a pointer to the last element of the queue</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> <em class="structfield"><code><a name="GQueue.length"></a>length</code></em>;</span></p></td>
+<td>the number of elements in the queue</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -157,6 +203,18 @@ Frees the memory allocated for the <a class="link" href="glib-Double-ended-Queue
 <em class="parameter"><code>queue</code></em> was created with <a class="link" href="glib-Double-ended-Queues.html#g-queue-new" title="g_queue_new ()"><code class="function">g_queue_new()</code></a>. If queue elements contain
 dynamically-allocated memory, they should be freed first.
 </p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+If queue elements contain dynamically-allocated memory,
+you should either use <a class="link" href="glib-Double-ended-Queues.html#g-queue-free-full" title="g_queue_free_full ()"><code class="function">g_queue_free_full()</code></a> or free them manually
+first.
+</p>
+</div>
+<p>
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody><tr>
@@ -167,11 +225,48 @@ dynamically-allocated memory, they should be freed first.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-queue-free-full"></a><h3>g_queue_free_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_queue_free_full                   (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> free_func</code></em>);</pre>
+<p>
+Convenience method, which frees all the memory used by a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>, and
+calls the specified destroy function on every element's data.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
+<td>a pointer to a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>free_func</code></em> :</span></p></td>
+<td>the function to be called to free each element's data</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="G-QUEUE-INIT:CAPS"></a><h3>G_QUEUE_INIT</h3>
 <pre class="programlisting">#define G_QUEUE_INIT { NULL, NULL, 0 }
 </pre>
 <p>
+A statically-allocated <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> must be initialized with this
+macro before it can be used. This macro can be used to initialize
+a variable, but it cannot be assigned to a variable. In that case
+you have to use <a class="link" href="glib-Double-ended-Queues.html#g-queue-init" title="g_queue_init ()"><code class="function">g_queue_init()</code></a>.
 </p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+GQueue my_queue = G_QUEUE_INIT;
+</pre></div>
+<p>
+</p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -681,7 +776,7 @@ Returns the position of the first element in <em class="parameter"><code>queue</
 <hr>
 <div class="refsect2">
 <a name="g-queue-remove"></a><h3>g_queue_remove ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_queue_remove                      (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_queue_remove                      (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);</pre>
 <p>
 Removes the first element in <em class="parameter"><code>queue</code></em> that contains <em class="parameter"><code>data</code></em>.
@@ -698,6 +793,12 @@ Removes the first element in <em class="parameter"><code>queue</code></em> that 
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
 <td>data to remove.</td>
 </tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>data</code></em> was found and removed from <em class="parameter"><code>queue</code></em>
+</td>
+</tr>
 </tbody>
 </table></div>
 <p class="since">Since 2.4</p>
@@ -705,7 +806,7 @@ Removes the first element in <em class="parameter"><code>queue</code></em> that 
 <hr>
 <div class="refsect2">
 <a name="g-queue-remove-all"></a><h3>g_queue_remove_all ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_queue_remove_all                  (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               g_queue_remove_all                  (<em class="parameter"><code><a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a> *queue</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);</pre>
 <p>
 Remove all elements whose data equals <em class="parameter"><code>data</code></em> from <em class="parameter"><code>queue</code></em>.
@@ -721,6 +822,11 @@ Remove all elements whose data equals <em class="parameter"><code>data</code></e
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
 <td>data to remove</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of elements removed from <em class="parameter"><code>queue</code></em>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1068,7 +1174,7 @@ Returns the position of <em class="parameter"><code>link_</code></em> in <em cla
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>queue</code></em> :</span></p></td>
-<td>a <span class="type">Gqueue</span>
+<td>a <a class="link" href="glib-Double-ended-Queues.html#GQueue" title="struct GQueue"><span class="type">GQueue</span></a>
 </td>
 </tr>
 <tr>
@@ -1146,6 +1252,6 @@ Removes <em class="parameter"><code>link_</code></em> from <em class="parameter"
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

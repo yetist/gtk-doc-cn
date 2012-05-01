@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-Double-ended-Queues.html" title="Double-ended Queues">
 <link rel="next" href="glib-Trash-Stacks.html" title="Trash Stacks">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -247,7 +247,7 @@ are removed from the sequence.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data_destroy</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a <a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> function, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -381,6 +381,12 @@ Calls <em class="parameter"><code>func</code></em> for each item in the range (<
 <p>
 Sorts <em class="parameter"><code>seq</code></em> using <em class="parameter"><code>cmp_func</code></em>.
 </p>
+<p>
+<em class="parameter"><code>cmp_func</code></em> is passed two items of <em class="parameter"><code>seq</code></em> and should
+return 0 if they are equal, a negative value if the
+first comes before the second, and a positive value
+if the second comes before the first.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -391,10 +397,7 @@ Sorts <em class="parameter"><code>seq</code></em> using <em class="parameter"><c
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to sort <em class="parameter"><code>seq</code></em>. This function is
-passed two items of <em class="parameter"><code>seq</code></em> and should return 0 if they are equal,
-a negative value if the first comes before the second, and a
-positive value if the second comes before the first.</td>
+<td>the function used to sort the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -415,6 +418,12 @@ positive value if the second comes before the first.</td>
 Like <a class="link" href="glib-Sequences.html#g-sequence-sort" title="g_sequence_sort ()"><code class="function">g_sequence_sort()</code></a>, but uses a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> instead
 of a GCompareDataFunc as the compare function
 </p>
+<p>
+<em class="parameter"><code>cmp_func</code></em> is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
+return 0 if the iterators are equal, a negative value if the first
+iterator comes before the second, and a positive value if the second
+iterator comes before the first.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -425,11 +434,7 @@ of a GCompareDataFunc as the compare function
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <span class="type">GSequenceItercompare</span> used to compare iterators in the
-sequence. It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
-return 0 if the iterators are equal, a negative value if the first
-iterator comes before the second, and a positive value if the second
-iterator comes before the first.</td>
+<td>the function used to compare iterators in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -530,7 +535,7 @@ Adds a new item to the end of <em class="parameter"><code>seq</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>seq</code></em> :</span></p></td>
-<td>a <span class="type">GSequencePointer</span>
+<td>a <a class="link" href="glib-Sequences.html#GSequence" title="GSequence"><span class="type">GSequence</span></a>
 </td>
 </tr>
 <tr>
@@ -662,9 +667,15 @@ to point into difference sequences.
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> cmp_func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> cmp_data</code></em>);</pre>
 <p>
-Inserts <em class="parameter"><code>data</code></em> into <em class="parameter"><code>sequence</code></em> using <em class="parameter"><code>func</code></em> to determine the new position.
-The sequence must already be sorted according to <em class="parameter"><code>cmp_func</code></em>; otherwise the
-new position of <em class="parameter"><code>data</code></em> is undefined.
+Inserts <em class="parameter"><code>data</code></em> into <em class="parameter"><code>sequence</code></em> using <em class="parameter"><code>func</code></em> to determine the new
+position. The sequence must already be sorted according to <em class="parameter"><code>cmp_func</code></em>;
+otherwise the new position of <em class="parameter"><code>data</code></em> is undefined.
+</p>
+<p>
+<em class="parameter"><code>cmp_func</code></em> is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>.
+It should return 0 if the items are equal, a negative value
+if the first item comes before the second, and a positive value
+if the second  item comes before the first.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -680,11 +691,7 @@ new position of <em class="parameter"><code>data</code></em> is undefined.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to compare items in the sequence. It
-is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>. It should
-return 0 if the items are equal, a negative value if the first
-item comes before the second, and a positive value if the second
-item comes before the first.</td>
+<td>the function used to compare items in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -710,6 +717,18 @@ Like <a class="link" href="glib-Sequences.html#g-sequence-insert-sorted" title="
 a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as
 the compare function.
 </p>
+<p>
+<em class="parameter"><code>iter_cmp</code></em> is called with two iterators pointing into <em class="parameter"><code>seq</code></em>.
+It should return 0 if the iterators are equal, a negative
+value if the first iterator comes before the second, and a
+positive value if the second iterator comes before the first.
+</p>
+<p>
+It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
+return 0 if the iterators are equal, a negative value if the
+first iterator comes before the second, and a positive value
+if the second iterator comes before the first.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -724,11 +743,7 @@ the compare function.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter_cmp</code></em> :</span></p></td>
-<td>the <span class="type">GSequenceItercompare</span> used to compare iterators in the
-sequence. It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
-return 0 if the iterators are equal, a negative value if the first
-iterator comes before the second, and a positive value if the second
-iterator comes before the first.</td>
+<td>the function used to compare iterators in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -755,6 +770,12 @@ function should be called for items in a sequence already sorted according
 to <em class="parameter"><code>cmp_func</code></em> whenever some aspect of an item changes so that <em class="parameter"><code>cmp_func</code></em>
 may return different values for that item.
 </p>
+<p>
+<em class="parameter"><code>cmp_func</code></em> is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -765,11 +786,7 @@ may return different values for that item.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to compare items in the sequence. It
-is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>. It should
-return 0 if the items are equal, a negative value if the first
-item comes before the second, and a positive value if the second
-item comes before the first.</td>
+<td>the function used to compare items in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -790,6 +807,12 @@ Like <a class="link" href="glib-Sequences.html#g-sequence-sort-changed" title="g
 a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as
 the compare function.
 </p>
+<p>
+<em class="parameter"><code>iter_cmp</code></em> is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
+return 0 if the iterators are equal, a negative value if the first
+iterator comes before the second, and a positive value if the second
+iterator comes before the first.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -800,11 +823,7 @@ the compare function.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter_cmp</code></em> :</span></p></td>
-<td>the <span class="type">GSequenceItercompare</span> used to compare iterators in the
-sequence. It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>. It should
-return 0 if the iterators are equal, a negative value if the first
-iterator comes before the second, and a positive value if the second
-iterator comes before the first.</td>
+<td>the function used to compare iterators in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -824,7 +843,7 @@ Removes the item pointed to by <em class="parameter"><code>iter</code></em>. It 
 end iterator to this function.
 </p>
 <p>
-If the sequnce has a data destroy function associated with it, this
+If the sequence has a data destroy function associated with it, this
 function is called on the data for the removed item.
 </p>
 <div class="variablelist"><table border="0">
@@ -917,8 +936,28 @@ Returns an iterator pointing to the position where <em class="parameter"><code>d
 be inserted according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>.
 </p>
 <p>
+<em class="parameter"><code>cmp_func</code></em> is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.
+</p>
+<p>
 If you are simply searching for an existing element of the sequence,
 consider using <a class="link" href="glib-Sequences.html#g-sequence-lookup" title="g_sequence_lookup ()"><code class="function">g_sequence_lookup()</code></a>.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+This function will fail if the data contained in the sequence is
+unsorted.  Use <a class="link" href="glib-Sequences.html#g-sequence-insert-sorted" title="g_sequence_insert_sorted ()"><code class="function">g_sequence_insert_sorted()</code></a> or
+<a class="link" href="glib-Sequences.html#g-sequence-insert-sorted-iter" title="g_sequence_insert_sorted_iter ()"><code class="function">g_sequence_insert_sorted_iter()</code></a> to add data to your sequence or, if
+you want to add a large amount of data, call <a class="link" href="glib-Sequences.html#g-sequence-sort" title="g_sequence_sort ()"><code class="function">g_sequence_sort()</code></a> after
+doing unsorted insertions.
+</p>
+</div>
+<p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -934,11 +973,7 @@ consider using <a class="link" href="glib-Sequences.html#g-sequence-lookup" titl
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to compare items in the sequence. It
-is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>. It should
-return 0 if the items are equal, a negative value if the first
-item comes before the second, and a positive value if the second
-item comes before the first.</td>
+<td>the function used to compare items in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -961,13 +996,32 @@ would have been inserted according to <em class="parameter"><code>cmp_func</code
                                                          <em class="parameter"><code><a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> iter_cmp</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> cmp_data</code></em>);</pre>
 <p>
-Like <a class="link" href="glib-Sequences.html#g-sequence-search" title="g_sequence_search ()"><code class="function">g_sequence_search()</code></a>, but uses
-a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as
-the compare function.
+Like <a class="link" href="glib-Sequences.html#g-sequence-search" title="g_sequence_search ()"><code class="function">g_sequence_search()</code></a>, but uses a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a>
+instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as the compare function.
+</p>
+<p>
+<em class="parameter"><code>iter_cmp</code></em> is called with two iterators pointing into <em class="parameter"><code>seq</code></em>.
+It should return 0 if the iterators are equal, a negative value
+if the first iterator comes before the second, and a positive
+value if the second iterator comes before the first.
 </p>
 <p>
 If you are simply searching for an existing element of the sequence,
 consider using <a class="link" href="glib-Sequences.html#g-sequence-lookup-iter" title="g_sequence_lookup_iter ()"><code class="function">g_sequence_lookup_iter()</code></a>.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+This function will fail if the data contained in the sequence is
+unsorted.  Use <a class="link" href="glib-Sequences.html#g-sequence-insert-sorted" title="g_sequence_insert_sorted ()"><code class="function">g_sequence_insert_sorted()</code></a> or
+<a class="link" href="glib-Sequences.html#g-sequence-insert-sorted-iter" title="g_sequence_insert_sorted_iter ()"><code class="function">g_sequence_insert_sorted_iter()</code></a> to add data to your sequence or, if
+you want to add a large amount of data, call <a class="link" href="glib-Sequences.html#g-sequence-sort" title="g_sequence_sort ()"><code class="function">g_sequence_sort()</code></a> after
+doing unsorted insertions.
+</p>
+</div>
+<p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -983,11 +1037,7 @@ consider using <a class="link" href="glib-Sequences.html#g-sequence-lookup-iter"
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter_cmp</code></em> :</span></p></td>
-<td>the <span class="type">GSequenceIterCompare</span> function used to compare iterators
-in the sequence. It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>.
-It should return 0 if the iterators are equal, a negative value if the
-first iterator comes before the second, and a positive value if the
-second iterator comes before the first.</td>
+<td>the function used to compare iterators in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -997,7 +1047,8 @@ second iterator comes before the first.</td>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> pointing to the position in <em class="parameter"><code>seq</code></em>
-where <em class="parameter"><code>data</code></em> would have been inserted according to <em class="parameter"><code>iter_cmp</code></em> and <em class="parameter"><code>cmp_data</code></em>.</td>
+where <em class="parameter"><code>data</code></em> would have been inserted according to <em class="parameter"><code>iter_cmp</code></em>
+and <em class="parameter"><code>cmp_data</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1012,10 +1063,30 @@ where <em class="parameter"><code>data</code></em> would have been inserted acco
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> cmp_data</code></em>);</pre>
 <p>
 Returns an iterator pointing to the position of the first item found
-equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>. If more than one item
-is equal, it is not guaranteed that it is the first which is returned.
-In that case, you can use <a class="link" href="glib-Sequences.html#g-sequence-iter-next" title="g_sequence_iter_next ()"><code class="function">g_sequence_iter_next()</code></a> and <a class="link" href="glib-Sequences.html#g-sequence-iter-prev" title="g_sequence_iter_prev ()"><code class="function">g_sequence_iter_prev()</code></a>
-to get others.
+equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>. If more than one
+item is equal, it is not guaranteed that it is the first which is
+returned. In that case, you can use <a class="link" href="glib-Sequences.html#g-sequence-iter-next" title="g_sequence_iter_next ()"><code class="function">g_sequence_iter_next()</code></a> and
+<a class="link" href="glib-Sequences.html#g-sequence-iter-prev" title="g_sequence_iter_prev ()"><code class="function">g_sequence_iter_prev()</code></a> to get others.
+</p>
+<p>
+<em class="parameter"><code>cmp_func</code></em> is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+This function will fail if the data contained in the sequence is
+unsorted.  Use <a class="link" href="glib-Sequences.html#g-sequence-insert-sorted" title="g_sequence_insert_sorted ()"><code class="function">g_sequence_insert_sorted()</code></a> or
+<a class="link" href="glib-Sequences.html#g-sequence-insert-sorted-iter" title="g_sequence_insert_sorted_iter ()"><code class="function">g_sequence_insert_sorted_iter()</code></a> to add data to your sequence or, if
+you want to add a large amount of data, call <a class="link" href="glib-Sequences.html#g-sequence-sort" title="g_sequence_sort ()"><code class="function">g_sequence_sort()</code></a> after
+doing unsorted insertions.
+</p>
+</div>
+<p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1031,11 +1102,7 @@ to get others.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_func</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> used to compare items in the sequence. It
-is called with two items of the <em class="parameter"><code>seq</code></em> and <em class="parameter"><code>user_data</code></em>. It should
-return 0 if the items are equal, a negative value if the first
-item comes before the second, and a positive value if the second
-item comes before the first.</td>
+<td>the function used to compare items in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -1043,8 +1110,8 @@ item comes before the first.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> pointing to the position of the first item
-found equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>.</td>
+<td>an <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> pointing to the position of the
+first item found equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1058,9 +1125,28 @@ found equal to <em class="parameter"><code>data</code></em> according to <em cla
                                                          <em class="parameter"><code><a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> iter_cmp</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> cmp_data</code></em>);</pre>
 <p>
-Like <a class="link" href="glib-Sequences.html#g-sequence-lookup" title="g_sequence_lookup ()"><code class="function">g_sequence_lookup()</code></a>, but uses
-a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a> instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as
-the compare function.
+Like <a class="link" href="glib-Sequences.html#g-sequence-lookup" title="g_sequence_lookup ()"><code class="function">g_sequence_lookup()</code></a>, but uses a <a class="link" href="glib-Sequences.html#GSequenceIterCompareFunc" title="GSequenceIterCompareFunc ()"><span class="type">GSequenceIterCompareFunc</span></a>
+instead of a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareDataFunc" title="GCompareDataFunc ()"><span class="type">GCompareDataFunc</span></a> as the compare function.
+</p>
+<p>
+<em class="parameter"><code>iter_cmp</code></em> is called with two iterators pointing into <em class="parameter"><code>seq</code></em>.
+It should return 0 if the iterators are equal, a negative value
+if the first iterator comes before the second, and a positive
+value if the second iterator comes before the first.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+This function will fail if the data contained in the sequence is
+unsorted.  Use <a class="link" href="glib-Sequences.html#g-sequence-insert-sorted" title="g_sequence_insert_sorted ()"><code class="function">g_sequence_insert_sorted()</code></a> or
+<a class="link" href="glib-Sequences.html#g-sequence-insert-sorted-iter" title="g_sequence_insert_sorted_iter ()"><code class="function">g_sequence_insert_sorted_iter()</code></a> to add data to your sequence or, if
+you want to add a large amount of data, call <a class="link" href="glib-Sequences.html#g-sequence-sort" title="g_sequence_sort ()"><code class="function">g_sequence_sort()</code></a> after
+doing unsorted insertions.
+</p>
+</div>
+<p>
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1076,11 +1162,7 @@ the compare function.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>iter_cmp</code></em> :</span></p></td>
-<td>the <span class="type">GSequenceIterCompare</span> function used to compare iterators
-in the sequence. It is called with two iterators pointing into <em class="parameter"><code>seq</code></em>.
-It should return 0 if the iterators are equal, a negative value if the
-first iterator comes before the second, and a positive value if the
-second iterator comes before the first.</td>
+<td>the function used to compare iterators in the sequence</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cmp_data</code></em> :</span></p></td>
@@ -1089,8 +1171,9 @@ second iterator comes before the first.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>an <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> pointing to the position of the first item
-found equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em> and <em class="parameter"><code>cmp_data</code></em>.</td>
+<td>an <a class="link" href="glib-Sequences.html#GSequenceIter" title="GSequenceIter"><span class="type">GSequenceIter</span></a> pointing to the position of
+the first item found equal to <em class="parameter"><code>data</code></em> according to <em class="parameter"><code>cmp_func</code></em>
+and <em class="parameter"><code>cmp_data</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1393,6 +1476,6 @@ The <em class="parameter"><code>begin</code></em> and <em class="parameter"><cod
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

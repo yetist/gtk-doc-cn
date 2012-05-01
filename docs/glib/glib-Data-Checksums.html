@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Base64-Encoding.html" title="Base64 Encoding">
-<link rel="next" href="glib-I18N.html" title="I18N">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="glib-Data-HMACs.html" title="Secure HMAC Digests">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="glib-I18N.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-Data-HMACs.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#glib-Data-Checksums.synopsis" class="shortcut">Top</a>
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Data-Checksums.top_of_page"></a>Data Checksums</span></h2>
-<p>Data Checksums — Computes the checksum for data</p>
+<p>Data Checksums — computes the checksum for data</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -43,8 +43,8 @@
 enum                <a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType">GChecksumType</a>;
 <a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="returnvalue">gssize</span></a>              <a class="link" href="glib-Data-Checksums.html#g-checksum-type-get-length" title="g_checksum_type_get_length ()">g_checksum_type_get_length</a>          (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);
                     <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum">GChecksum</a>;
-<a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *            <a class="link" href="glib-Data-Checksums.html#g-checksum-new" title="g_checksum_new ()">g_checksum_new</a>                   (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);
-<a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *            <a class="link" href="glib-Data-Checksums.html#g-checksum-copy" title="g_checksum_copy ()">g_checksum_copy</a>                  (<em class="parameter"><code>const <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);
+<a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *         <a class="link" href="glib-Data-Checksums.html#g-checksum-new" title="g_checksum_new ()">g_checksum_new</a>                      (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);
+<a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *         <a class="link" href="glib-Data-Checksums.html#g-checksum-copy" title="g_checksum_copy ()">g_checksum_copy</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Data-Checksums.html#g-checksum-free" title="g_checksum_free ()">g_checksum_free</a>                     (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Data-Checksums.html#g-checksum-reset" title="g_checksum_reset ()">g_checksum_reset</a>                    (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Data-Checksums.html#g-checksum-update" title="g_checksum_update ()">g_checksum_update</a>                   (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>,
@@ -163,7 +163,7 @@ a GChecksum, use <a class="link" href="glib-Data-Checksums.html#g-checksum-free"
 <hr>
 <div class="refsect2">
 <a name="g-checksum-new"></a><h3>g_checksum_new ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *            g_checksum_new                   (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *         g_checksum_new                      (<em class="parameter"><code><a class="link" href="glib-Data-Checksums.html#GChecksumType" title="enum GChecksumType"><span class="type">GChecksumType</span></a> checksum_type</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a>, using the checksum algorithm <em class="parameter"><code>checksum_type</code></em>.
 If the <em class="parameter"><code>checksum_type</code></em> is not known, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned.
@@ -199,7 +199,7 @@ Use <a class="link" href="glib-Data-Checksums.html#g-checksum-free" title="g_che
 <hr>
 <div class="refsect2">
 <a name="g-checksum-copy"></a><h3>g_checksum_copy ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *            g_checksum_copy                  (<em class="parameter"><code>const <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="returnvalue">GChecksum</span></a> *         g_checksum_copy                     (<em class="parameter"><code>const <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>);</pre>
 <p>
 Copies a <a class="link" href="glib-Data-Checksums.html#GChecksum" title="GChecksum"><span class="type">GChecksum</span></a>. If <em class="parameter"><code>checksum</code></em> has been closed, by calling
 <a class="link" href="glib-Data-Checksums.html#g-checksum-get-string" title="g_checksum_get_string ()"><code class="function">g_checksum_get_string()</code></a> or <a class="link" href="glib-Data-Checksums.html#g-checksum-get-digest" title="g_checksum_get_digest ()"><code class="function">g_checksum_get_digest()</code></a>, the copied
@@ -433,6 +433,6 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

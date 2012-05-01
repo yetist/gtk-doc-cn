@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-core.html" title="GLib核心应用支持">
 <link rel="prev" href="glib-Dynamic-Loading-of-Modules.html" title="Dynamic Loading of Modules">
-<link rel="next" href="glib-IO-Channels.html" title="IO Channels">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="glib-Memory-Slices.html" title="Memory Slices">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="glib-core.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="glib-IO-Channels.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-Memory-Slices.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#glib-Memory-Allocation.synopsis" class="shortcut">Top</a>
@@ -79,7 +79,7 @@
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> n_block_bytes</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()">g_free</a>                              (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> mem</code></em>);
-extern              gboolean <a class="link" href="glib-Memory-Allocation.html#g-mem-gc-friendly" title="g_mem_gc_friendly">g_mem_gc_friendly</a>;
+extern gboolean     <a class="link" href="glib-Memory-Allocation.html#g-mem-gc-friendly" title="g_mem_gc_friendly">g_mem_gc_friendly</a>;
 
 #define             <a class="link" href="glib-Memory-Allocation.html#g-alloca" title="g_alloca()">g_alloca</a>                            (size)
 #define             <a class="link" href="glib-Memory-Allocation.html#g-newa" title="g_newa()">g_newa</a>                              (struct_type,
@@ -95,7 +95,7 @@ struct              <a class="link" href="glib-Memory-Allocation.html#GMemVTable
 <span class="returnvalue">void</span>                <a class="link" href="glib-Memory-Allocation.html#g-mem-set-vtable" title="g_mem_set_vtable ()">g_mem_set_vtable</a>                    (<em class="parameter"><code><a class="link" href="glib-Memory-Allocation.html#GMemVTable" title="struct GMemVTable"><span class="type">GMemVTable</span></a> *vtable</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Memory-Allocation.html#g-mem-is-system-malloc" title="g_mem_is_system_malloc ()">g_mem_is_system_malloc</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
 
-extern              GMemVTable	*<a class="link" href="glib-Memory-Allocation.html#glib-mem-profiler-table" title="glib_mem_profiler_table">glib_mem_profiler_table</a>;
+extern GMemVTable	* <a class="link" href="glib-Memory-Allocation.html#glib-mem-profiler-table" title="glib_mem_profiler_table">glib_mem_profiler_table</a>;
 <span class="returnvalue">void</span>                <a class="link" href="glib-Memory-Allocation.html#g-mem-profile" title="g_mem_profile ()">g_mem_profile</a>                       (<em class="parameter"><code><span class="type">void</span></code></em>);
 </pre>
 </div>
@@ -458,7 +458,8 @@ on failure. If <em class="parameter"><code>mem</code></em> is <a class="link" hr
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mem</code></em> :</span></p></td>
-<td>previously-allocated memory, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
+<td>previously-allocated memory, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_bytes</code></em> :</span></p></td>
@@ -632,7 +633,8 @@ but care is taken to detect possible overflow during multiplication.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>mem</code></em> :</span></p></td>
-<td>previously-allocated memory, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.</td>
+<td>previously-allocated memory, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>n_blocks</code></em> :</span></p></td>
@@ -673,7 +675,7 @@ If <em class="parameter"><code>mem</code></em> is <a class="link" href="glib-Sta
 </pre>
 <p>
 This variable is <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if the <code class="envar">G_DEBUG</code> environment variable
-includes the key <a class="link" href="glib-running.html#G_DEBUG" title="G_DEBUG">gc-friendly</a>.
+includes the key <code class="literal">gc-friendly</code>.
 </p>
 </div>
 <hr>
@@ -962,6 +964,6 @@ previously installed the <a class="link" href="glib-Memory-Allocation.html#glib-
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

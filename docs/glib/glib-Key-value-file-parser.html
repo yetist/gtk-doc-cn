@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Simple-XML-Subset-Parser.html" title="Simple XML Subset Parser">
 <link rel="next" href="glib-Bookmark-file-parser.html" title="Bookmark file parser">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Key-value-file-parser.top_of_page"></a>Key-value file parser</span></h2>
-<p>Key-value file parser</p>
+<p>Key-value file parser — parses .ini-like config files</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -47,6 +47,8 @@ enum                <a class="link" href="glib-Key-value-file-parser.html#GKeyFi
 
 <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="returnvalue">GKeyFile</span></a> *          <a class="link" href="glib-Key-value-file-parser.html#g-key-file-new" title="g_key_file_new ()">g_key_file_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Key-value-file-parser.html#g-key-file-free" title="g_key_file_free ()">g_key_file_free</a>                     (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);
+<a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="returnvalue">GKeyFile</span></a> *          <a class="link" href="glib-Key-value-file-parser.html#g-key-file-ref" title="g_key_file_ref ()">g_key_file_ref</a>                      (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="glib-Key-value-file-parser.html#g-key-file-unref" title="g_key_file_unref ()">g_key_file_unref</a>                    (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Key-value-file-parser.html#g-key-file-set-list-separator" title="g_key_file_set_list_separator ()">g_key_file_set_list_separator</a>       (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> separator</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-Key-value-file-parser.html#g-key-file-load-from-file" title="g_key_file_load_from_file ()">g_key_file_load_from_file</a>           (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>,
@@ -254,6 +256,99 @@ enum                <a class="link" href="glib-Key-value-file-parser.html#GKeyFi
 <div class="refsect1">
 <a name="glib-Key-value-file-parser.description"></a><h2>Description</h2>
 <p>
+<a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> lets you parse, edit or create files containing groups of
+key-value pairs, which we call <em class="firstterm">key files</em> for
+lack of a better name. Several freedesktop.org specifications use
+key files now, e.g the
+<a class="ulink" href="http://freedesktop.org/Standards/desktop-entry-spec" target="_top">Desktop
+Entry Specification</a> and the
+<a class="ulink" href="http://freedesktop.org/Standards/icon-theme-spec" target="_top">Icon
+Theme Specification</a>.
+</p>
+<p>
+The syntax of key files is described in detail in the
+<a class="ulink" href="http://freedesktop.org/Standards/desktop-entry-spec" target="_top">Desktop
+Entry Specification</a>, here is a quick summary: Key files
+consists of groups of key-value pairs, interspersed with comments.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+# this is just an example
+# there can be comments before the first group
+
+[First Group]
+
+Name=Key File Example\tthis value shows\nescaping
+
+# localized strings are stored in multiple key-value pairs
+Welcome=Hello
+Welcome[de]=Hallo
+Welcome[fr_FR]=Bonjour
+Welcome[it]=Ciao
+Welcome[be@latin]=Hello
+
+[Another Group]
+
+Numbers=2;20;-200;0
+
+Booleans=true;false;true;true
+</pre></div>
+<p>
+</p>
+<p>
+Lines beginning with a '#' and blank lines are considered comments.
+</p>
+<p>
+Groups are started by a header line containing the group name enclosed
+in '[' and ']', and ended implicitly by the start of the next group or
+the end of the file. Each key-value pair must be contained in a group.
+</p>
+<p>
+Key-value pairs generally have the form <code class="literal">key=value</code>,
+with the exception of localized strings, which have the form
+<code class="literal">key[locale]=value</code>, with a locale identifier of the
+form <code class="literal">lang_COUNTRY<em class="parameter"><code>MODIFIER</code></em></code> where
+<code class="literal">COUNTRY</code> and <code class="literal">MODIFIER</code> are optional.
+Space before and after the '=' character are ignored. Newline, tab,
+carriage return and backslash characters in value are escaped as \n,
+\t, \r, and \\, respectively. To preserve leading spaces in values,
+these can also be escaped as \s.
+</p>
+<p>
+Key files can store strings (possibly with localized variants), integers,
+booleans and lists of these. Lists are separated by a separator character,
+typically ';' or ','. To use the list separator character in a value in
+a list, it has to be escaped by prefixing it with a backslash.
+</p>
+<p>
+This syntax is obviously inspired by the .ini files commonly met
+on Windows, but there are some important differences:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">.ini files use the ';' character to begin comments,
+    key files use the '#' character.</li>
+<li class="listitem">Key files do not allow for ungrouped keys meaning only
+    comments can precede the first group.</li>
+<li class="listitem">Key files are always encoded in UTF-8.</li>
+<li class="listitem">Key and Group names are case-sensitive. For example, a
+    group called <code class="literal">[GROUP]</code> is a different from
+    <code class="literal">[group]</code>.</li>
+<li class="listitem">.ini files don't have a strongly typed boolean entry type,
+    they only have <code class="function">GetProfileInt()</code>. In key files, only
+    <code class="literal">true</code> and <code class="literal">false</code> (in lower case)
+    are allowed.</li>
+</ul></div>
+<p>
+</p>
+<p>
+Note that in contrast to the
+<a class="ulink" href="http://freedesktop.org/Standards/desktop-entry-spec" target="_top">Desktop
+Entry Specification</a>, groups in key files may contain the same
+key multiple times; the last entry wins. Key files may also contain
+multiple groups with the same name; they are merged together.
+Another difference is that keys and group names in key files are not
+restricted to ASCII characters.
 </p>
 </div>
 <div class="refsect1">
@@ -262,6 +357,8 @@ enum                <a class="link" href="glib-Key-value-file-parser.html#GKeyFi
 <a name="GKeyFile"></a><h3>GKeyFile</h3>
 <pre class="programlisting">typedef struct _GKeyFile GKeyFile;</pre>
 <p>
+The GKeyFile struct contains only private data
+and should not be accessed directly.
 </p>
 </div>
 <hr>
@@ -270,13 +367,17 @@ enum                <a class="link" href="glib-Key-value-file-parser.html#GKeyFi
 <pre class="programlisting">#define G_KEY_FILE_ERROR g_key_file_error_quark()
 </pre>
 <p>
+Error domain for key file parsing. Errors in this domain will
+be from the <a class="link" href="glib-Key-value-file-parser.html#GKeyFileError" title="enum GKeyFileError"><span class="type">GKeyFileError</span></a> enumeration.
+</p>
+<p>
+See <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> for information on error domains.
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GKeyFileError"></a><h3>enum GKeyFileError</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_KEY_FILE_ERROR_UNKNOWN_ENCODING,
   G_KEY_FILE_ERROR_PARSE,
   G_KEY_FILE_ERROR_NOT_FOUND,
@@ -286,20 +387,83 @@ enum                <a class="link" href="glib-Key-value-file-parser.html#GKeyFi
 } GKeyFileError;
 </pre>
 <p>
+Error codes returned by key file parsing.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-UNKNOWN-ENCODING:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_UNKNOWN_ENCODING</code></span></p></td>
+<td>the text being parsed was in
+    an unknown encoding
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-PARSE:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_PARSE</code></span></p></td>
+<td>document was ill-formed
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_NOT_FOUND</code></span></p></td>
+<td>the file was not found
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_KEY_NOT_FOUND</code></span></p></td>
+<td>a requested key was not found
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</code></span></p></td>
+<td>a requested group was not found
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_ERROR_INVALID_VALUE</code></span></p></td>
+<td>a value could not be parsed
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="GKeyFileFlags"></a><h3>enum GKeyFileFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_KEY_FILE_NONE              = 0,
   G_KEY_FILE_KEEP_COMMENTS     = 1 &lt;&lt; 0,
   G_KEY_FILE_KEEP_TRANSLATIONS = 1 &lt;&lt; 1
 } GKeyFileFlags;
 </pre>
 <p>
+Flags which influence the parsing.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-KEY-FILE-NONE:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_NONE</code></span></p></td>
+<td>No flags, default behaviour
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-KEEP-COMMENTS:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_KEEP_COMMENTS</code></span></p></td>
+<td>Use this flag if you plan to write the
+    (possibly modified) contents of the key file back to a file;
+    otherwise all comments will be lost when the key file is
+    written back.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-KEY-FILE-KEEP-TRANSLATIONS:CAPS"></a><span class="term"><code class="literal">G_KEY_FILE_KEEP_TRANSLATIONS</code></span></p></td>
+<td>Use this flag if you plan to write the
+    (possibly modified) contents of the key file back to a file;
+    otherwise only the translations for the current language will be
+    written back.
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -314,7 +478,8 @@ g_key_file_load_from_data_dirs（）来读取一个存在的key文件。
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>一个空的 <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> 对象。</td>
+<td>an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr></tbody>
 </table></div>
 <p class="since">Since 2.6</p>
@@ -324,9 +489,37 @@ g_key_file_load_from_data_dirs（）来读取一个存在的key文件。
 <a name="g-key-file-free"></a><h3>g_key_file_free ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_key_file_free                     (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);</pre>
 <p>
-Frees a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a>.
+Clears all keys and groups from <em class="parameter"><code>key_file</code></em>, and decreases the
+reference count by 1. If the reference count reaches zero,
+frees the key file and all its allocated memory.
 </p>
 <p class="since">Since 2.6</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-key-file-ref"></a><h3>g_key_file_ref ()</h3>
+<pre class="programlisting"><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="returnvalue">GKeyFile</span></a> *          g_key_file_ref                      (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);</pre>
+<p>
+Increases the reference count of <em class="parameter"><code>key_file</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the same <em class="parameter"><code>key_file</code></em>.</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-key-file-unref"></a><h3>g_key_file_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_key_file_unref                    (<em class="parameter"><code><a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> *key_file</code></em>);</pre>
+<p>
+Decreases the reference count of <em class="parameter"><code>key_file</code></em> by 1. If the reference count
+reaches zero, frees the key file and all its allocated memory.
+</p>
+<p class="since">Since 2.32</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -355,7 +548,7 @@ Frees a <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="G
                                                          <em class="parameter"><code><a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> **error</code></em>);</pre>
 <p>
 Loads a key file into an empty <a class="link" href="glib-Key-value-file-parser.html#GKeyFile" title="GKeyFile"><span class="type">GKeyFile</span></a> structure.
-If the file could not be loaded then <code class="literal">error</code> is set to 
+If the file could not be loaded then <em class="parameter"><code>error</code></em> is set to
 either a <a class="link" href="glib-File-Utilities.html#GFileError" title="enum GFileError"><span class="type">GFileError</span></a> or <a class="link" href="glib-Key-value-file-parser.html#GKeyFileError" title="enum GKeyFileError"><span class="type">GKeyFileError</span></a>.
 </p>
 <div class="variablelist"><table border="0">
@@ -363,7 +556,8 @@ either a <a class="link" href="glib-File-Utilities.html#GFileError" title="enum 
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
-<td>the path of a filename to load, in the GLib filename encoding</td>
+<td>the path of a filename to load, in the GLib filename encoding. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
@@ -404,7 +598,7 @@ If the object cannot be created then <code class="literal">error</code> is set t
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>the length of <em class="parameter"><code>data</code></em> in bytes</td>
+<td>the length of <em class="parameter"><code>data</code></em> in bytes (or -1 if data is nul-terminated)</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
@@ -444,12 +638,13 @@ set to either a <a class="link" href="glib-File-Utilities.html#GFileError" title
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
-<td>a relative path to a filename to open and parse</td>
+<td>a relative path to a filename to open and parse. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>full_path</code></em> :</span></p></td>
 <td>return location for a string containing the full path
-of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -491,17 +686,19 @@ be loaded then an <code class="literal">error</code> is set to either a <a class
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
-<td>a relative path to a filename to open and parse</td>
+<td>a relative path to a filename to open and parse. <span class="annotation">[<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>search_dirs</code></em> :</span></p></td>
 <td>
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of directories to search</td>
+<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of directories to search. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> filename]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>full_path</code></em> :</span></p></td>
 <td>return location for a string containing the full path
-of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+of the file, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Override the parsed C type with given type"><span class="acronym">type</span></acronym> filename][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -541,7 +738,7 @@ so it is safe to pass <a class="link" href="glib-Standard-Macros.html#NULL:CAPS"
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
 <td>return location for the length of the
-returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+returned string, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -590,13 +787,14 @@ The array of returned groups will be <a class="link" href="glib-Standard-Macros.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the number of returned groups, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the number of returned groups, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly-allocated <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings.
-Use <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> to free it.</td>
+Use <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> to free it. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -614,7 +812,7 @@ Returns all keys for the group name <em class="parameter"><code>group_name</code
 returned keys will be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated, so <em class="parameter"><code>length</code></em> may
 optionally be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. In the event that the <em class="parameter"><code>group_name</code></em> cannot
 be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -625,7 +823,7 @@ be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the number of keys returned, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the number of keys returned, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -636,7 +834,8 @@ be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly-allocated <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings.
-Use <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> to free it.</td>
+Use <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a> to free it. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -678,6 +877,19 @@ otherwise.</td>
 Looks whether the key file has the key <em class="parameter"><code>key</code></em> in the group
 <em class="parameter"><code>group_name</code></em>.
 </p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>This function does not follow the rules for <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> strictly;
+the return value both carries meaning and signals an error.  To use
+this function, you must pass a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a> pointer in <em class="parameter"><code>error</code></em>, and check
+whether it is not <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> to see if an error occurred.</div>
+<p>
+</p>
+<p>
+Language bindings should use <a class="link" href="glib-Key-value-file-parser.html#g-key-file-get-value" title="g_key_file_get_value ()"><code class="function">g_key_file_get_value()</code></a> to test whether
+or not a key exists.
+</p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
@@ -717,9 +929,9 @@ Use <a class="link" href="glib-Key-value-file-parser.html#g-key-file-get-string"
 </p>
 <p>
 In the event the key cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and 
-<em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the 
+<em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the 
 event that the <em class="parameter"><code>group_name</code></em> cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned 
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -760,9 +972,9 @@ like \s.
 </p>
 <p>
 In the event the key cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and 
-<em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the 
+<em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the 
 event that the <em class="parameter"><code>group_name</code></em> cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned 
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -804,7 +1016,7 @@ translated in the given <em class="parameter"><code>locale</code></em> if availa
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set 
-to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. If the value associated
+to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. If the value associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted or no suitable translation can
 be found then the untranslated value is returned.
 </p>
@@ -821,7 +1033,7 @@ be found then the untranslated value is returned.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
-<td>a locale identifier or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a locale identifier or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -851,9 +1063,9 @@ boolean.
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> is returned and <em class="parameter"><code>error</code></em> is set
-to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value
+to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value
 associated with <em class="parameter"><code>key</code></em> cannot be interpreted as a boolean then <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a>
-is returned and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+is returned and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -893,9 +1105,9 @@ integer.
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then 0 is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value associated
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted as an integer then 0 is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1019,9 +1231,9 @@ double. If <em class="parameter"><code>group_name</code></em> is <a class="link"
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then 0.0 is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value associated
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the value associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted as a double then 0.0 is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1061,9 +1273,9 @@ Returns the values associated with <em class="parameter"><code>key</code></em> u
 </p>
 <p>
 In the event the key cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and
-<em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the
+<em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>.  In the
 event that the <em class="parameter"><code>group_name</code></em> cannot be found, <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-GROUP-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_GROUP_NOT_FOUND</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1078,7 +1290,7 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the number of returned strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the number of returned strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1089,7 +1301,8 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated string array or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the specified
-key cannot be found. The array should be freed with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>.</td>
+key cannot be found. The array should be freed with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1 length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1111,7 +1324,7 @@ translated in the given <em class="parameter"><code>locale</code></em> if availa
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set 
-to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. If the values associated
+to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. If the values associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted or no suitable translations
 can be found then the untranslated values are returned. The 
 returned array is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated, so <em class="parameter"><code>length</code></em> may optionally 
@@ -1130,12 +1343,12 @@ be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>locale</code></em> :</span></p></td>
-<td>a locale identifier or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a locale identifier or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>return location for the number of returned strings or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>return location for the number of returned strings or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1147,7 +1360,8 @@ be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a newly allocated <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated string array
 or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the key isn't found. The string array should be freed
-with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>.</td>
+with <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()"><code class="function">g_strfreev()</code></a>. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1 length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1167,9 +1381,9 @@ booleans.
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted as booleans then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1184,7 +1398,8 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>the number of booleans returned</td>
+<td>the number of booleans returned. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -1193,8 +1408,10 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the values associated with the key as a list of
-booleans, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the key was not found or could not be parsed.</td>
+<td>the values associated with the key as a list of booleans, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the
+key was not found or could not be parsed. The returned list of booleans
+should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gboolean][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1214,9 +1431,9 @@ integers.
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted as integers then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1231,7 +1448,8 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>the number of integers returned</td>
+<td>the number of integers returned. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -1240,8 +1458,10 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the values associated with the key as a list of
-integers, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the key was not found or could not be parsed.</td>
+<td>the values associated with the key as a list of integers, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if
+the key was not found or could not be parsed. The returned list of
+integers should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gint][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1261,9 +1481,9 @@ doubles.
 </p>
 <p>
 If <em class="parameter"><code>key</code></em> cannot be found then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned and <em class="parameter"><code>error</code></em> is set to
-<a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-KEY-NOT-FOUND:CAPS"><span class="type">G_KEY_FILE_ERROR_KEY_NOT_FOUND</span></a>. Likewise, if the values associated
 with <em class="parameter"><code>key</code></em> cannot be interpreted as doubles then <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> is returned
-and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
+and <em class="parameter"><code>error</code></em> is set to <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-ERROR-INVALID-VALUE:CAPS"><span class="type">G_KEY_FILE_ERROR_INVALID_VALUE</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1278,7 +1498,8 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
-<td>the number of doubles returned</td>
+<td>the number of doubles returned. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -1287,8 +1508,10 @@ and <em class="parameter"><code>error</code></em> is set to <a href="glib-Key-va
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the values associated with the key as a list of
-doubles, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the key was not found or could not be parsed.</td>
+<td>the values associated with the key as a list of doubles, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> if the
+key was not found or could not be parsed. The returned list of doubles
+should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a> when no longer needed. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> gdouble][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
 </tr>
 </tbody>
 </table></div>
@@ -1312,7 +1535,7 @@ If <em class="parameter"><code>key</code></em> is <a class="link" href="glib-Sta
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
-<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -1614,7 +1837,8 @@ If <em class="parameter"><code>group_name</code></em> cannot be found then it is
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>an array of string values</td>
+<td>an array of string values. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1 length=length][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1656,7 +1880,8 @@ it is created.
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of locale string values</td>
+<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of locale string values. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1 length=length]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1693,7 +1918,8 @@ If <em class="parameter"><code>group_name</code></em> is <a class="link" href="g
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>an array of boolean values</td>
+<td>an array of boolean values. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1729,7 +1955,8 @@ If <em class="parameter"><code>key</code></em> cannot be found then it is create
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>an array of integer values</td>
+<td>an array of integer values. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1765,7 +1992,8 @@ Associates a list of double values with <em class="parameter"><code>key</code></
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>an array of double values</td>
+<td>an array of double values. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=length]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
@@ -1795,12 +2023,13 @@ written above the first group in the file.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
-<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>a key</td>
+<td>a key. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>comment</code></em> :</span></p></td>
@@ -1904,12 +2133,13 @@ be removed above the first group in the file.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>group_name</code></em> :</span></p></td>
-<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a group name, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>a key</td>
+<td>a key. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -1931,7 +2161,12 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_GROUP                "Desktop Entry"
 </pre>
 <p>
+The name of the main group of a desktop entry file, as defined in the
+<a class="ulink" href="http://freedesktop.org/Standards/desktop-entry-spec" target="_top">Desktop
+Entry Specification</a>. Consult the specification for more
+details about the meanings of the keys below.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1939,7 +2174,13 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_TYPE             "Type"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+giving the type of the desktop entry. Usually
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-TYPE-APPLICATION:CAPS" title="G_KEY_FILE_DESKTOP_TYPE_APPLICATION"><span class="type">G_KEY_FILE_DESKTOP_TYPE_APPLICATION</span></a>,
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-TYPE-LINK:CAPS" title="G_KEY_FILE_DESKTOP_TYPE_LINK"><span class="type">G_KEY_FILE_DESKTOP_TYPE_LINK</span></a>, or
+<a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-TYPE-DIRECTORY:CAPS" title="G_KEY_FILE_DESKTOP_TYPE_DIRECTORY"><span class="type">G_KEY_FILE_DESKTOP_TYPE_DIRECTORY</span></a>.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1947,7 +2188,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_VERSION          "Version"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+giving the version of the Desktop Entry Specification used for
+the desktop entry file.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1955,7 +2200,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_NAME             "Name"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a localized
+string giving the specific name of the desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1963,7 +2211,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_GENERIC_NAME     "GenericName"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a localized
+string giving the generic name of the desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1971,7 +2222,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY       "NoDisplay"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a boolean
+stating whether the desktop entry should be shown in menus.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1979,7 +2233,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_COMMENT          "Comment"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a localized
+string giving the tooltip for the desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1987,7 +2244,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_ICON             "Icon"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a localized
+string giving the name of the icon to be displayed for the desktop
+entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1995,7 +2256,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_HIDDEN           "Hidden"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a boolean
+stating whether the desktop entry has been deleted by the user.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2003,7 +2267,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_ONLY_SHOW_IN     "OnlyShowIn"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a list of
+strings identifying the environments that should display the
+desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2011,7 +2279,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_NOT_SHOW_IN      "NotShowIn"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a list of
+strings identifying the environments that should not display the
+desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2019,7 +2291,12 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_TRY_EXEC         "TryExec"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+giving the file name of a binary on disk used to determine if the
+program is actually installed. It is only valid for desktop entries
+with the <code class="literal">Application</code> type.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2027,7 +2304,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_EXEC             "Exec"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+giving the command line to execute. It is only valid for desktop
+entries with the <code class="literal">Application</code> type.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2035,7 +2316,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_PATH             "Path"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+containing the working directory to run the program in. It is only
+valid for desktop entries with the <code class="literal">Application</code> type.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2043,7 +2328,12 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_TERMINAL         "Terminal"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a boolean
+stating whether the program should be run in a terminal window.
+It is only valid for desktop entries with the
+<code class="literal">Application</code> type.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2051,7 +2341,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_MIME_TYPE        "MimeType"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a list
+of strings giving the MIME types supported by this desktop entry.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2059,7 +2352,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_CATEGORIES       "Categories"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a list
+of strings giving the categories in which the desktop entry
+should be shown in a menu.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2067,7 +2364,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_STARTUP_NOTIFY   "StartupNotify"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a boolean
+stating whether the application supports the <a class="ulink" href="http://www.freedesktop.org/Standards/startup-notification-spec" target="_top">Startup
+Notification Protocol Specification</a>.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2075,7 +2376,12 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_STARTUP_WM_CLASS "StartupWMClass"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is string
+identifying the WM class or name hint of a window that the application
+will create, which can be used to emulate Startup Notification with
+older applications.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2083,7 +2389,11 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_KEY_URL              "URL"
 </pre>
 <p>
+A key under <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-GROUP:CAPS" title="G_KEY_FILE_DESKTOP_GROUP"><span class="type">G_KEY_FILE_DESKTOP_GROUP</span></a>, whose value is a string
+giving the URL to access. It is only valid for desktop entries
+with the <code class="literal">Link</code> type.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2091,7 +2401,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_TYPE_APPLICATION     "Application"
 </pre>
 <p>
+The value of the <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-KEY-TYPE:CAPS" title="G_KEY_FILE_DESKTOP_KEY_TYPE"><span class="type">G_KEY_FILE_DESKTOP_KEY_TYPE</span></a>, key for desktop
+entries representing applications.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2099,7 +2412,10 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_TYPE_LINK            "Link"
 </pre>
 <p>
+The value of the <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-KEY-TYPE:CAPS" title="G_KEY_FILE_DESKTOP_KEY_TYPE"><span class="type">G_KEY_FILE_DESKTOP_KEY_TYPE</span></a>, key for desktop
+entries representing links to documents.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -2107,12 +2423,15 @@ be removed above the first group in the file.
 <pre class="programlisting">#define G_KEY_FILE_DESKTOP_TYPE_DIRECTORY       "Directory"
 </pre>
 <p>
+The value of the <a class="link" href="glib-Key-value-file-parser.html#G-KEY-FILE-DESKTOP-KEY-TYPE:CAPS" title="G_KEY_FILE_DESKTOP_KEY_TYPE"><span class="type">G_KEY_FILE_DESKTOP_KEY_TYPE</span></a>, key for desktop
+entries representing directories.
 </p>
+<p class="since">Since 2.14</p>
 </div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

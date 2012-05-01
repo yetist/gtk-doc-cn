@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-GTimeZone.html" title="GTimeZone">
-<link rel="next" href="glib-Random-Numbers.html" title="Random Numbers">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="glib-Hook-Functions.html" title="Hook Functions">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="glib-Random-Numbers.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-Hook-Functions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#glib-GDateTime.synopsis" class="shortcut">Top</a>
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-GDateTime.top_of_page"></a>GDateTime</span></h2>
-<p>GDateTime — A structure representing Date and Time</p>
+<p>GDateTime — a structure representing Date and Time</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -49,61 +49,58 @@ typedef             <a class="link" href="glib-GDateTime.html#GTimeSpan" title="
 
                     <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime">GDateTime</a>;
 <span class="returnvalue">void</span>                <a class="link" href="glib-GDateTime.html#g-date-time-unref" title="g_date_time_unref ()">g_date_time_unref</a>                   (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-ref" title="g_date_time_ref ()">g_date_time_ref</a>                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-ref" title="g_date_time_ref ()">g_date_time_ref</a>                     (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-now" title="g_date_time_new_now ()">g_date_time_new_now</a>            (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-now-local" title="g_date_time_new_now_local ()">g_date_time_new_now_local</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-now-utc" title="g_date_time_new_now_utc ()">g_date_time_new_now_utc</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-now" title="g_date_time_new_now ()">g_date_time_new_now</a>                 (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-now-local" title="g_date_time_new_now_local ()">g_date_time_new_now_local</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-now-utc" title="g_date_time_new_now_utc ()">g_date_time_new_now_utc</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-from-unix-local" title="g_date_time_new_from_unix_local ()">g_date_time_new_from_unix_local</a>
-                                                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-from-unix-utc" title="g_date_time_new_from_unix_utc ()">g_date_time_new_from_unix_utc</a>  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-from-unix-local" title="g_date_time_new_from_unix_local ()">g_date_time_new_from_unix_local</a>     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-from-unix-utc" title="g_date_time_new_from_unix_utc ()">g_date_time_new_from_unix_utc</a>       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-from-timeval-local" title="g_date_time_new_from_timeval_local ()">g_date_time_new_from_timeval_local</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-from-timeval-utc" title="g_date_time_new_from_timeval_utc ()">g_date_time_new_from_timeval_utc</a>
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-from-timeval-local" title="g_date_time_new_from_timeval_local ()">g_date_time_new_from_timeval_local</a>  (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-from-timeval-utc" title="g_date_time_new_from_timeval_utc ()">g_date_time_new_from_timeval_utc</a>    (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new" title="g_date_time_new ()">g_date_time_new</a>                (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new" title="g_date_time_new ()">g_date_time_new</a>                     (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hour</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> minute</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> seconds</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-local" title="g_date_time_new_local ()">g_date_time_new_local</a>          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-local" title="g_date_time_new_local ()">g_date_time_new_local</a>               (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hour</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> minute</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> seconds</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-new-utc" title="g_date_time_new_utc ()">g_date_time_new_utc</a>            (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-new-utc" title="g_date_time_new_utc ()">g_date_time_new_utc</a>                 (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hour</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> minute</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> seconds</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add" title="g_date_time_add ()">g_date_time_add</a>                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add" title="g_date_time_add ()">g_date_time_add</a>                     (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-GDateTime.html#GTimeSpan" title="GTimeSpan"><span class="type">GTimeSpan</span></a> timespan</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-years" title="g_date_time_add_years ()">g_date_time_add_years</a>          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-years" title="g_date_time_add_years ()">g_date_time_add_years</a>               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> years</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-months" title="g_date_time_add_months ()">g_date_time_add_months</a>         (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-months" title="g_date_time_add_months ()">g_date_time_add_months</a>              (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> months</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-weeks" title="g_date_time_add_weeks ()">g_date_time_add_weeks</a>          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-weeks" title="g_date_time_add_weeks ()">g_date_time_add_weeks</a>               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> weeks</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-days" title="g_date_time_add_days ()">g_date_time_add_days</a>           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-days" title="g_date_time_add_days ()">g_date_time_add_days</a>                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> days</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-hours" title="g_date_time_add_hours ()">g_date_time_add_hours</a>          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-hours" title="g_date_time_add_hours ()">g_date_time_add_hours</a>               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hours</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-minutes" title="g_date_time_add_minutes ()">g_date_time_add_minutes</a>        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-minutes" title="g_date_time_add_minutes ()">g_date_time_add_minutes</a>             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> minutes</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-seconds" title="g_date_time_add_seconds ()">g_date_time_add_seconds</a>        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-seconds" title="g_date_time_add_seconds ()">g_date_time_add_seconds</a>             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> seconds</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-add-full" title="g_date_time_add_full ()">g_date_time_add_full</a>           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-add-full" title="g_date_time_add_full ()">g_date_time_add_full</a>                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> years</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> months</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> days</code></em>,
@@ -145,16 +142,16 @@ typedef             <a class="link" href="glib-GDateTime.html#GTimeSpan" title="
                                                          <em class="parameter"><code><a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);
 
 <a class="link" href="glib-GDateTime.html#GTimeSpan" title="GTimeSpan"><span class="returnvalue">GTimeSpan</span></a>           <a class="link" href="glib-GDateTime.html#g-date-time-get-utc-offset" title="g_date_time_get_utc_offset ()">g_date_time_get_utc_offset</a>          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
-const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *            <a class="link" href="glib-GDateTime.html#g-date-time-get-timezone-abbreviation" title="g_date_time_get_timezone_abbreviation ()">g_date_time_get_timezone_abbreviation</a>
+const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="glib-GDateTime.html#g-date-time-get-timezone-abbreviation" title="g_date_time_get_timezone_abbreviation ()">g_date_time_get_timezone_abbreviation</a>
                                                         (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-GDateTime.html#g-date-time-is-daylight-savings" title="g_date_time_is_daylight_savings ()">g_date_time_is_daylight_savings</a>     (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
 
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-to-timezone" title="g_date_time_to_timezone ()">g_date_time_to_timezone</a>        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-to-timezone" title="g_date_time_to_timezone ()">g_date_time_to_timezone</a>             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-to-local" title="g_date_time_to_local ()">g_date_time_to_local</a>           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              <a class="link" href="glib-GDateTime.html#g-date-time-to-utc" title="g_date_time_to_utc ()">g_date_time_to_utc</a>             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-to-local" title="g_date_time_to_local ()">g_date_time_to_local</a>                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
+<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         <a class="link" href="glib-GDateTime.html#g-date-time-to-utc" title="g_date_time_to_utc ()">g_date_time_to_utc</a>                  (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                  <a class="link" href="glib-GDateTime.html#g-date-time-format" title="g_date_time_format ()">g_date_time_format</a>             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-GDateTime.html#g-date-time-format" title="g_date_time_format ()">g_date_time_format</a>                  (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>);
 </pre>
 </div>
@@ -287,7 +284,7 @@ When the reference count reaches zero, the resources allocated by
 <hr>
 <div class="refsect2">
 <a name="g-date-time-ref"></a><h3>g_date_time_ref ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_ref                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_ref                     (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
 <p>
 Atomically increments the reference count of <em class="parameter"><code>datetime</code></em> by one.
 </p>
@@ -310,7 +307,7 @@ Atomically increments the reference count of <em class="parameter"><code>datetim
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-now"></a><h3>g_date_time_new_now ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_now            (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_now                 (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to this exact instant in the given
 time zone <em class="parameter"><code>tz</code></em>.  The time is as accurate as the system allows, to a
@@ -345,7 +342,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-now-local"></a><h3>g_date_time_new_now_local ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_now_local      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_now_local           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to this exact instant in the local
 time zone.
@@ -367,7 +364,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-now-utc"></a><h3>g_date_time_new_now_utc ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_now_utc        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_now_utc             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to this exact instant in UTC.
 </p>
@@ -388,8 +385,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" 
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-from-unix-local"></a><h3>g_date_time_new_from_unix_local ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_from_unix_local
-                                                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_from_unix_local     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the given Unix time <em class="parameter"><code>t</code></em> in the
 local time zone.
@@ -425,7 +421,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-from-unix-utc"></a><h3>g_date_time_new_from_unix_utc ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_from_unix_utc  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_from_unix_utc       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="type">gint64</span></a> t</code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the given Unix time <em class="parameter"><code>t</code></em> in UTC.
 </p>
@@ -460,8 +456,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-from-timeval-local"></a><h3>g_date_time_new_from_timeval_local ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_from_timeval_local
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_from_timeval_local  (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the given <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> <em class="parameter"><code>tv</code></em> in the
 local time zone.
@@ -499,8 +494,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-from-timeval-utc"></a><h3>g_date_time_new_from_timeval_utc ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_from_timeval_utc
-                                                        (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_from_timeval_utc    (<em class="parameter"><code>const <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> *tv</code></em>);</pre>
 <p>
 Creates a <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the given <a class="link" href="glib-Date-and-Time-Functions.html#GTimeVal" title="struct GTimeVal"><span class="type">GTimeVal</span></a> <em class="parameter"><code>tv</code></em> in UTC.
 </p>
@@ -536,7 +530,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new"></a><h3>g_date_time_new ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new                (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new                     (<em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
@@ -624,7 +618,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-local"></a><h3>g_date_time_new_local ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_local          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_local               (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hour</code></em>,
@@ -677,7 +671,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-local
 <hr>
 <div class="refsect2">
 <a name="g-date-time-new-utc"></a><h3>g_date_time_new_utc ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_new_utc            (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_new_utc                 (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> year</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> month</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> day</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hour</code></em>,
@@ -730,7 +724,7 @@ zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-utc" 
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add"></a><h3>g_date_time_add ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add                     (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-GDateTime.html#GTimeSpan" title="GTimeSpan"><span class="type">GTimeSpan</span></a> timespan</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified timespan to the copy.
@@ -760,7 +754,7 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-years"></a><h3>g_date_time_add_years ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_years          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_years               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> years</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of years to the
@@ -790,7 +784,7 @@ copy.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-months"></a><h3>g_date_time_add_months ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_months         (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_months              (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> months</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of months to the
@@ -820,7 +814,7 @@ copy.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-weeks"></a><h3>g_date_time_add_weeks ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_weeks          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_weeks               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> weeks</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of weeks to the
@@ -850,7 +844,7 @@ copy.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-days"></a><h3>g_date_time_add_days ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_days           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_days                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> days</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of days to the
@@ -880,7 +874,7 @@ copy.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-hours"></a><h3>g_date_time_add_hours ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_hours          (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_hours               (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> hours</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of hours
@@ -909,7 +903,7 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-minutes"></a><h3>g_date_time_add_minutes ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_minutes        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_minutes             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> minutes</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> adding the specified number of minutes.
@@ -938,7 +932,7 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> adding the sp
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-seconds"></a><h3>g_date_time_add_seconds ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_seconds        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_seconds             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> seconds</code></em>);</pre>
 <p>
 Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the specified number of seconds.
@@ -967,7 +961,7 @@ Creates a copy of <em class="parameter"><code>datetime</code></em> and adds the 
 <hr>
 <div class="refsect2">
 <a name="g-date-time-add-full"></a><h3>g_date_time_add_full ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_add_full           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_add_full                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> years</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> months</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> days</code></em>,
@@ -1025,8 +1019,8 @@ time in <em class="parameter"><code>datetime</code></em>.
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                g_date_time_compare                 (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> dt1</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> dt2</code></em>);</pre>
 <p>
-<span class="type">GCompareFunc-compatible</span> comparison for <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>'s. Both
-<a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a>&lt;-- --&gt;'s must be non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
+A comparison function for <a href="glib-GDateTime.html#GDateTime"><span class="type">GDateTimes</span></a> that is suitable
+as a <a class="link" href="glib-Doubly-Linked-Lists.html#GCompareFunc" title="GCompareFunc ()"><span class="type">GCompareFunc</span></a>. Both <a href="glib-GDateTime.html#GDateTime"><span class="type">GDateTimes</span></a> must be non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1156,17 +1150,17 @@ Retrieves the Gregorian day, month, and year of a given <a class="link" href="gl
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>year</code></em> :</span></p></td>
-<td>the return location for the gregorian year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>the return location for the gregorian year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>month</code></em> :</span></p></td>
-<td>the return location for the month of the year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>the return location for the month of the year, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>day</code></em> :</span></p></td>
-<td>the return location for the day of the month, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+<td>the return location for the day of the month, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -1270,16 +1264,16 @@ within a complete week (Monday to Sunday) is contained within the
 same week-numbering year.
 </p>
 <p>
-For Monday, Tuesday and Wednesday occuring near the end of the year,
+For Monday, Tuesday and Wednesday occurring near the end of the year,
 this may mean that the week-numbering year is one greater than the
 calendar year (so that these days have the same week-numbering year
-as the Thursday occuring early in the next year).
+as the Thursday occurring early in the next year).
 </p>
 <p>
-For Friday, Saturaday and Sunday occuring near the start of the year,
+For Friday, Saturaday and Sunday occurring near the start of the year,
 this may mean that the week-numbering year is one less than the
 calendar year (so that these days have the same week-numbering year
-as the Thursday occuring late in the previous year).
+as the Thursday occurring late in the previous year).
 </p>
 <p>
 An equivalent description is that the week-numbering year is equal to
@@ -1324,7 +1318,7 @@ that has more than 4 of its days falling within the calendar year.
 </p>
 <p>
 The value 0 is never returned by this function.  Days contained
-within a year but occuring before the first ISO 8601 week of that
+within a year but occurring before the first ISO 8601 week of that
 year are considered as being contained in the last week of the
 previous year.  Similarly, the final days of a calendar year may be
 considered as being part of the first ISO 8601 week of the next year
@@ -1621,7 +1615,7 @@ get the local time</td>
 <hr>
 <div class="refsect2">
 <a name="g-date-time-get-timezone-abbreviation"></a><h3>g_date_time_get_timezone_abbreviation ()</h3>
-<pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *            g_date_time_get_timezone_abbreviation
+<pre class="programlisting">const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *       g_date_time_get_timezone_abbreviation
                                                         (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
 <p>
 Determines the time zone abbreviation to be used at the time and in
@@ -1679,7 +1673,7 @@ the time zone of <em class="parameter"><code>datetime</code></em>.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-to-timezone"></a><h3>g_date_time_to_timezone ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_to_timezone        (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_to_timezone             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-GTimeZone.html#GTimeZone" title="GTimeZone"><span class="type">GTimeZone</span></a> *tz</code></em>);</pre>
 <p>
 Create a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the same instant in time as
@@ -1719,7 +1713,7 @@ when you are done with it.
 <hr>
 <div class="refsect2">
 <a name="g-date-time-to-local"></a><h3>g_date_time_to_local ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_to_local           (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_to_local                (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the same instant in time as
 <em class="parameter"><code>datetime</code></em>, but in the local time zone.
@@ -1748,7 +1742,7 @@ time zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-
 <hr>
 <div class="refsect2">
 <a name="g-date-time-to-utc"></a><h3>g_date_time_to_utc ()</h3>
-<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *              g_date_time_to_utc             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="returnvalue">GDateTime</span></a> *         g_date_time_to_utc                  (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> corresponding to the same instant in time as
 <em class="parameter"><code>datetime</code></em>, but in UTC.
@@ -1777,10 +1771,23 @@ time zone returned by <a class="link" href="glib-GTimeZone.html#g-time-zone-new-
 <hr>
 <div class="refsect2">
 <a name="g-date-time-format"></a><h3>g_date_time_format ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                  g_date_time_format             (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_date_time_format                  (<em class="parameter"><code><a class="link" href="glib-GDateTime.html#GDateTime" title="GDateTime"><span class="type">GDateTime</span></a> *datetime</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>);</pre>
 <p>
 Creates a newly allocated string representing the requested <em class="parameter"><code>format</code></em>.
+</p>
+<p>
+The format strings understood by this function are a subset of the
+<code class="function">strftime()</code> format language as specified by C99.  The %D, %U and %W
+conversions are not supported, nor is the 'E' modifier.  The GNU
+extensions %k, %l, %s and %P are supported, however, as are the
+'0', '_' and '-' modifiers.
+</p>
+<p>
+In contrast to <code class="function">strftime()</code>, this function always produces a UTF-8
+string, regardless of the current locale.  Note that the rendering of
+many formats is locale-dependent and may not match the <code class="function">strftime()</code>
+output exactly.
 </p>
 <p>
 The following format specifiers are supported:
@@ -1792,7 +1799,7 @@ The following format specifiers are supported:
 <tbody>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">a</code></code>:
+   <code class="literal">%a</code>:
   </span></p></td>
 <td>
    the abbreviated weekday name according to the current locale
@@ -1800,7 +1807,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">A</code></code>:
+   <code class="literal">%A</code>:
   </span></p></td>
 <td>
    the full weekday name according to the current locale
@@ -1808,7 +1815,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">b</code></code>:
+   <code class="literal">%b</code>:
   </span></p></td>
 <td>
    the abbreviated month name according to the current locale
@@ -1816,7 +1823,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">B</code></code>:
+   <code class="literal">%B</code>:
   </span></p></td>
 <td>
    the full month name according to the current locale
@@ -1824,7 +1831,23 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">d</code></code>:
+   <code class="literal">%c</code>:
+  </span></p></td>
+<td>
+   the  preferred  date  and  time  representation  for the current locale
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%C</code>:
+  </span></p></td>
+<td>
+   The century number (year/100) as a 2-digit integer (00-99)
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%d</code>:
   </span></p></td>
 <td>
    the day of the month as a decimal number (range 01 to 31)
@@ -1832,7 +1855,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">e</code></code>:
+   <code class="literal">%e</code>:
   </span></p></td>
 <td>
    the day of the month as a decimal number (range  1 to 31)
@@ -1840,24 +1863,42 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">F</code></code>:
+   <code class="literal">%F</code>:
   </span></p></td>
 <td>
-   equivalent to <code class="literal">%<code class="literal">Y</code>-%<code class="literal">m</code>-%<code class="literal">d</code></code> (the ISO 8601 date
+   equivalent to <code class="literal">%Y-%m-%d</code> (the ISO 8601 date
    format)
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">h</code></code>:
+   <code class="literal">%g</code>:
   </span></p></td>
 <td>
-   equivalent to <code class="literal">%<code class="literal">b</code></code>
+   the last two digits of the ISO 8601 week-based year as a decimal
+   number (00-99).  This works well with %V and %u.
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">H</code></code>:
+   <code class="literal">%G</code>:
+  </span></p></td>
+<td>
+   the ISO 8601 week-based year as a decimal number.  This works well
+   with %V and %u.
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%h</code>:
+  </span></p></td>
+<td>
+   equivalent to <code class="literal">%b</code>
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%H</code>:
   </span></p></td>
 <td>
    the hour as a decimal number using a 24-hour clock (range 00 to
@@ -1866,7 +1907,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">I</code></code>:
+   <code class="literal">%I</code>:
   </span></p></td>
 <td>
    the hour as a decimal number using a 12-hour clock (range 01 to
@@ -1875,7 +1916,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">j</code></code>:
+   <code class="literal">%j</code>:
   </span></p></td>
 <td>
    the day of the year as a decimal number (range 001 to 366)
@@ -1883,7 +1924,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">k</code></code>:
+   <code class="literal">%k</code>:
   </span></p></td>
 <td>
    the hour (24-hour clock) as a decimal number (range 0 to 23);
@@ -1892,7 +1933,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">l</code></code>:
+   <code class="literal">%l</code>:
   </span></p></td>
 <td>
    the hour (12-hour clock) as a decimal number (range 1 to 12);
@@ -1901,7 +1942,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">m</code></code>:
+   <code class="literal">%m</code>:
   </span></p></td>
 <td>
    the month as a decimal number (range 01 to 12)
@@ -1909,7 +1950,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">M</code></code>:
+   <code class="literal">%M</code>:
   </span></p></td>
 <td>
    the minute as a decimal number (range 00 to 59)
@@ -1917,15 +1958,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">N</code></code>:
-  </span></p></td>
-<td>
-   the micro-seconds as a decimal number
- </td>
-</tr>
-<tr>
-<td><p><span class="term">
-   <code class="literal">%<code class="literal">p</code></code>:
+   <code class="literal">%p</code>:
   </span></p></td>
 <td>
    either "AM" or "PM" according to the given time value, or the
@@ -1935,16 +1968,16 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">P</code></code>:
+   <code class="literal">%P</code>:
   </span></p></td>
 <td>
-   like %<code class="literal">p</code> but lowercase: "am" or "pm" or a corresponding string for
+   like %p but lowercase: "am" or "pm" or a corresponding string for
    the current locale
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">r</code></code>:
+   <code class="literal">%r</code>:
   </span></p></td>
 <td>
    the time in a.m. or p.m. notation
@@ -1952,15 +1985,15 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">R</code></code>:
+   <code class="literal">%R</code>:
   </span></p></td>
 <td>
-   the time in 24-hour notation (<code class="literal">%<code class="literal">H</code>:%<code class="literal">M</code></code>)
+   the time in 24-hour notation (<code class="literal">%H:%M</code>)
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">s</code></code>:
+   <code class="literal">%s</code>:
   </span></p></td>
 <td>
    the number of seconds since the Epoch, that is, since 1970-01-01
@@ -1969,7 +2002,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">S</code></code>:
+   <code class="literal">%S</code>:
   </span></p></td>
 <td>
    the second as a decimal number (range 00 to 60)
@@ -1977,7 +2010,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">t</code></code>:
+   <code class="literal">%t</code>:
   </span></p></td>
 <td>
    a tab character
@@ -1985,23 +2018,44 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">u</code></code>:
+   <code class="literal">%T</code>:
   </span></p></td>
 <td>
-   the day of the week as a decimal, range 1 to 7, Monday being 1
+   the time in 24-hour notation with seconds (<code class="literal">%H:%M:%S</code>)
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">W</code></code>:
+   <code class="literal">%u</code>:
   </span></p></td>
 <td>
-   the week number of the current year as a decimal number
+   the ISO 8601 standard day of the week as a decimal, range 1 to 7,
+   Monday being 1.  This works well with %G and %V.
  </td>
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">x</code></code>:
+   <code class="literal">%V</code>:
+  </span></p></td>
+<td>
+   the ISO 8601 standard week number of the current year as a decimal
+   number, range 01 to 53, where week 1 is the first week that has at
+   least 4 days in the new year. See <a class="link" href="glib-GDateTime.html#g-date-time-get-week-of-year" title="g_date_time_get_week_of_year ()"><code class="function">g_date_time_get_week_of_year()</code></a>.
+   This works well with %G and %u.
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%w</code>:
+  </span></p></td>
+<td>
+   the day of the week as a decimal, range 0 to 6, Sunday being 0.
+   This is not the ISO 8601 standard format -- use %u instead.
+ </td>
+</tr>
+<tr>
+<td><p><span class="term">
+   <code class="literal">%x</code>:
   </span></p></td>
 <td>
    the preferred date representation for the current locale without
@@ -2010,7 +2064,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">X</code></code>:
+   <code class="literal">%X</code>:
   </span></p></td>
 <td>
    the preferred time representation for the current locale without
@@ -2019,7 +2073,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">y</code></code>:
+   <code class="literal">%y</code>:
   </span></p></td>
 <td>
    the year as a decimal number without the century
@@ -2027,7 +2081,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">Y</code></code>:
+   <code class="literal">%Y</code>:
   </span></p></td>
 <td>
    the year as a decimal number including the century
@@ -2035,7 +2089,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">z</code></code>:
+   <code class="literal">%z</code>:
   </span></p></td>
 <td>
    the time-zone as hour offset from UTC
@@ -2043,7 +2097,7 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%<code class="literal">Z</code></code>:
+   <code class="literal">%Z</code>:
   </span></p></td>
 <td>
    the time zone or name or abbreviation
@@ -2051,11 +2105,52 @@ The following format specifiers are supported:
 </tr>
 <tr>
 <td><p><span class="term">
-   <code class="literal">%%%</code>:
+   <code class="literal">%%</code>:
   </span></p></td>
 <td>
-   a literal <code class="literal">%%</code> character
+   a literal <code class="literal">%</code> character
  </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+<p>
+Some conversion specifications can be modified by preceding the
+conversion specifier by one or more modifier characters. The
+following modifiers are supported for many of the numeric
+conversions:
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">O</span></p></td>
+<td>
+      Use alternative numeric symbols, if the current locale
+      supports those.
+    </td>
+</tr>
+<tr>
+<td><p><span class="term">_</span></p></td>
+<td>
+      Pad a numeric result with spaces.
+      This overrides the default padding for the specifier.
+    </td>
+</tr>
+<tr>
+<td><p><span class="term">-</span></p></td>
+<td>
+      Do not pad a numeric result.
+      This overrides the default padding for the specifier.
+    </td>
+</tr>
+<tr>
+<td><p><span class="term">0</span></p></td>
+<td>
+      Pad a numeric result with zeros.
+      This overrides the default padding for the specifier.
+    </td>
 </tr>
 </tbody>
 </table></div>
@@ -2093,6 +2188,6 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

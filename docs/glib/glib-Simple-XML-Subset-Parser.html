@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib工具">
-<link rel="prev" href="glib-Perl-compatible-regular-expressions.html" title="Perl-compatible regular expressions">
+<link rel="prev" href="glib-regex-syntax.html" title="正则表达式语法">
 <link rel="next" href="glib-Key-value-file-parser.html" title="Key-value file parser">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Perl-compatible-regular-expressions.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-regex-syntax.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
@@ -101,7 +101,7 @@ time if the need arises.
 <p>
 GMarkup is not guaranteed to signal an error on all invalid XML;
 the parser may accept documents that an XML parser would not.
-However, XML documents which are not well-formed<sup>[<a name="wellformed" href="#ftn.wellformed" class="footnote">3</a>]</sup>
+However, XML documents which are not well-formed<sup>[<a name="wellformed" href="#ftn.wellformed" class="footnote">6</a>]</sup>
 are not considered valid GMarkup documents.
 </p>
 <p>
@@ -135,8 +135,7 @@ The markup format does support:
 <a name="glib-Simple-XML-Subset-Parser.details"></a><h2>Details</h2>
 <div class="refsect2">
 <a name="GMarkupError"></a><h3>enum GMarkupError</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_MARKUP_ERROR_BAD_UTF8,
   G_MARKUP_ERROR_EMPTY,
   G_MARKUP_ERROR_PARSE,
@@ -211,8 +210,7 @@ See <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError
 <hr>
 <div class="refsect2">
 <a name="GMarkupParseFlags"></a><h3>enum GMarkupParseFlags</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG = 1 &lt;&lt; 0,
   G_MARKUP_TREAT_CDATA_AS_TEXT              = 1 &lt;&lt; 1,
   G_MARKUP_PREFIX_ERROR_POSITION            = 1 &lt;&lt; 2
@@ -650,8 +648,8 @@ of <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-conte
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the provided user_data. The returned data belongs to
-the markup context and will be freed when <code class="function">g_markup_context_free()</code>
-is called.</td>
+the markup context and will be freed when
+<a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-free" title="g_markup_parse_context_free ()"><code class="function">g_markup_parse_context_free()</code></a> is called.</td>
 </tr>
 </tbody>
 </table></div>
@@ -778,7 +776,7 @@ handled by the previous parser (which is given its own user_data)
 which is why <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-pop" title="g_markup_parse_context_pop ()"><code class="function">g_markup_parse_context_pop()</code></a> is provided to allow "one
 last access" to the <em class="parameter"><code>user_data</code></em> provided to this function. In the
 case of error, the <em class="parameter"><code>user_data</code></em> provided here is passed directly to
-the error callback of the subparser and <code class="function">g_markup_parse_context()</code>
+the error callback of the subparser and <a class="link" href="glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-pop" title="g_markup_parse_context_pop ()"><code class="function">g_markup_parse_context_pop()</code></a>
 should not be called. In either case, if <em class="parameter"><code>user_data</code></em> was allocated
 then it ought to be freed from both of these locations.
 </p>
@@ -950,8 +948,7 @@ interface.
 <hr>
 <div class="refsect2">
 <a name="GMarkupCollectType"></a><h3>enum GMarkupCollectType</h3>
-<pre class="programlisting">typedef enum
-{
+<pre class="programlisting">typedef enum {
   G_MARKUP_COLLECT_INVALID,
   G_MARKUP_COLLECT_STRING,
   G_MARKUP_COLLECT_STRDUP,
@@ -1124,12 +1121,12 @@ with <a class="link" href="glib-Simple-XML-Subset-Parser.html#G-MARKUP-COLLECT-I
 </div>
 <div class="footnotes">
 <br><hr width="100" align="left">
-<div class="footnote"><a class="ulink" href="http://www.w3.org/TR/REC-xml/" target="_top"><sup>[<a name="ftn.wellformed" href="#wellformed" class="ulink">3</a>] </sup>XML
+<div class="footnote"><a class="ulink" href="http://www.w3.org/TR/REC-xml/" target="_top"><sup>[<a name="ftn.wellformed" href="#wellformed" class="ulink">6</a>] </sup>XML
 specification</a></div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

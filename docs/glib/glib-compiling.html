@@ -8,7 +8,7 @@
 <link rel="up" href="glib.html" title="GLib概述">
 <link rel="prev" href="glib-cross-compiling.html" title="交叉编译GLib软件包">
 <link rel="next" href="glib-running.html" title="运行GLib应用程序">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -29,7 +29,7 @@
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="id2627839"></a><h2>在UNIX上编译GLib应用程序</h2>
+<a name="idp5529368"></a><h2>在UNIX上编译GLib应用程序</h2>
 <p>为了编译GLib应用程序，你需要告诉编译器在哪里找到GLib的头文件及库. <span class="application">pkg-config</span> 工具会帮你.</p>
 <p>下面的shell会话展示了 <span class="application">pkg-config</span> 如何工作 (输出可能因不同的系统有所不同): </p>
 <pre class="programlisting">
@@ -38,11 +38,20 @@ $ pkg-config --cflags glib-2.0
 $ pkg-config --libs glib-2.0
  -L/usr/lib -lm -lglib-2.0  
 </pre>
-<p>如果你的应用程序使用线程(threads)或者 <span class="structname">GObject</span> 特性, 则必须用以下的 <span class="application">pkg-config</span> 输出来编译及链接: </p>
+<p>
+See the <a class="ulink" href="http://www.freedesktop.org/wiki/Software/pkg-config" target="_top">pkg-config website</a>
+for more information about <span class="application">pkg-config</span>.
+</p>
+<p>
+If your application uses or <span class="structname">GObject</span>
+features, it must be compiled and linked with the options returned
+by the following <span class="application">pkg-config</span> invocation:
+</p>
 <pre class="programlisting">
-$ pkg-config --cflags --libs gthread-2.0
 $ pkg-config --cflags --libs gobject-2.0
 </pre>
+<p>
+</p>
 <p>如果你的应用程序使用模块(modules), 则必须用以下的 <span class="application">pkg-config</span> 输出来编译及链接: </p>
 <pre class="programlisting">
 $ pkg-config --cflags --libs gmodule-no-export-2.0 
@@ -53,20 +62,51 @@ $ pkg-config --cflags --libs gmodule-2.0
 <pre class="programlisting">
 $ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello
 </pre>
-<p>如果你确定你的程序不使用任何过时的函数,你可以为预处理器定义 G_DISABLE_DEPRECATED 符号,使用命令选项 <code class="literal">-DG_DISABLE_DEPRECATED=1</code>.</p>
-<p>使用GLib的推荐方式是只包含最顶层的头文件 <code class="filename">glib.h</code>, <code class="filename">glib-object.h</code>, <code class="filename">gio.h</code>. 从2.17开始,当直接包含单独的头文件时GLib会强制生成一个错误. 为了帮助大家过渡,执行器在默认的Glib头文件中未打开(但GObject和GIO是打开的) 为了打开它,使用命令行<code class="literal"> -DG_DISABLE_DEPRECATED</code> 来定义预处理器符号 G_DISABLE_SINGLE_INCLUDES 即可. <code class="filename">glib/gprintf.h</code> and <code class="filename">glib/gstdio.h</code> (we don't want to pull in all of stdio).</p>
 <p>
-Starting with 2.17, GLib enforces this by generating an error
-when individual headers are directly included. To help with the 
-transition, the enforcement is not turned on by default for GLib 
-headers (it <span class="emphasis"><em>is</em></span> turned on for GObject and GIO).
-To turn it on, define the preprocessor symbol G_DISABLE_SINGLE_INCLUDES
-by using the command line option <code class="literal">-DG_DISABLE_SINGLE_INCLUDES</code>.
+Deprecated GLib functions are annotated to make the compiler
+emit warnings when they are used (e.g. with gcc, you need to use
+the -Wdeprecated-declarations option). If these warnings are
+problematic, they can be turned off by defining the preprocessor
+symbol %GLIB_DISABLE_DEPRECATION_WARNINGS by using the commandline
+option <code class="literal">-DGLIB_DISABLE_DEPRECATION_WARNINGS</code>
+</p>
+<p>
+GLib deprecation annotations are versioned; by defining the
+macros %GLIB_VERSION_MIN_REQUIRED and %GLIB_VERSION_MAX_ALLOWED,
+you can specify the range of GLib versions whose API you want
+to use. APIs that were deprecated before or introduced after
+this range will trigger compiler warnings.
+</p>
+<p>
+The older deprecation mechanism of hiding deprecated interfaces
+entirely from the compiler by using the preprocessor symbol
+G_DISABLE_DEPRECATED is still used for deprecated macros,
+enumeration values, etc. To detect uses of these in your code,
+use the commandline option <code class="literal">-DG_DISABLE_DEPRECATED</code>.
+</p>
+<p>
+The recommended way of using GLib has always been to only include the
+toplevel headers <code class="filename">glib.h</code>,
+<code class="filename">glib-object.h</code>, <code class="filename">gio.h</code>.
+Starting with 2.32, GLib enforces this by generating an error
+when individual headers are directly included.
+</p>
+<p>
+Still, there are some exceptions; these headers have to be included
+separately:
+<code class="filename">gmodule.h</code>,
+<code class="filename">glib-unix.h</code>,
+<code class="filename">glib/gi18n-lib.h</code> or
+<code class="filename">glib/gi18n.h</code> (see
+the <a class="link" href="glib-I18N.html" title="Internationalization">Internationalization section</a>),
+<code class="filename">glib/gprintf.h</code> and
+<code class="filename">glib/gstdio.h</code>
+(we don't want to pull in all of stdio).
 </p>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

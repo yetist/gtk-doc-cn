@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-GVariant.html" title="GVariant">
 <link rel="next" href="gvariant-text.html" title="GVariant Text Format">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -21,10 +21,18 @@
 </tr></table>
 <div class="refentry">
 <a name="gvariant-format-strings"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">GVariant Format Strings</span></h2>
+<p>GVariant Format Strings — varargs conversion of GVariants</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
 <div class="refsect1">
-<a name="id2589499"></a><h2>Variable Argument Conversions</h2>
+<a name="idp3477088"></a><h2>Variable Argument Conversions</h2>
 <p>
-   This page attempts to document how to perform variable argument conversions with GVariant.
+   This page attempts to document how to perform variable argument
+   conversions with GVariant.
   </p>
 <p>
    Conversions occur according to format strings.  A format string is a two-way mapping between a single
@@ -38,7 +46,7 @@
   </p>
 </div>
 <div class="refsect1">
-<a name="id2874222"></a><h2>Syntax</h2>
+<a name="idp3464152"></a><h2>Syntax</h2>
 <p>
    This section exhaustively describes all possibilities for GVariant format strings.  There are no valid forms of
    format strings other than those described here.  Please note that the format string syntax is likely to expand in the
@@ -54,8 +62,8 @@
     </p></li>
 <li class="listitem"><p>
      '<code class="literal">&amp;s</code>' '<code class="literal">&amp;o</code>', '<code class="literal">&amp;g</code>', '<code class="literal">^as</code>',
-     '<code class="literal">^a&amp;s</code>', '<code class="literal">^ay</code>', '<code class="literal">^&amp;ay</code>', '<code class="literal">^aay</code>'
-     or '<code class="literal">^a&amp;ay</code>'.
+     '<code class="literal">^a&amp;s</code>', '<code class="literal">^ao</code>', '<code class="literal">^a&amp;o</code>','<code class="literal">^ay</code>',
+     '<code class="literal">^&amp;ay</code>', '<code class="literal">^aay</code>' or '<code class="literal">^a&amp;ay</code>'.
     </p></li>
 <li class="listitem"><p>
      any format string, prefixed with an '<code class="literal">m</code>'
@@ -70,7 +78,7 @@
 </ul></div>
 </div>
 <div class="refsect1">
-<a name="id2663296"></a><h2>Symbols</h2>
+<a name="idp20709208"></a><h2>Symbols</h2>
 <p>
     The following table describes the rough meaning of symbols that may appear inside a GVariant format string.  Each
     symbol is described in detail in its own section, including usage examples.
@@ -462,7 +470,7 @@
     it operates with pointers.  The pointers must always point to a memory region of exactly the correct size.
    </p>
 <div class="refsect3">
-<a name="id2632325"></a><h4>Examples</h4>
+<a name="idp3621216"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4;
 
@@ -510,7 +518,7 @@ value4 = g_variant_new ("x", G_GINT64_CONSTANT (998877665544332211));
     string should be ignored (in which case no copy is made).
    </p>
 <div class="refsect3">
-<a name="id2603247"></a><h4>Examples</h4>
+<a name="idp21859096"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3;
 
@@ -554,7 +562,7 @@ value3 = g_variant_new ("g", "iias");
     ignored (in which case no new reference is created).
    </p>
 <div class="refsect3">
-<a name="id2825541"></a><h4>Examples</h4>
+<a name="idp4903920"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *x, *y;
 
@@ -596,7 +604,7 @@ y = g_variant_get_variant (x);</pre></div>
     should be ignored.
    </p>
 <div class="refsect3">
-<a name="id2627035"></a><h4>Examples</h4>
+<a name="idp18292680"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *builder;
 GVariant *value;
@@ -636,11 +644,12 @@ g_variant_unref (value);</pre></div>
     '<code class="literal">m</code>'.
    </p>
 <p>
-    The first way is used with format strings starting with '<code class="literal">s</code>', '<code class="literal">o</code>',
-    '<code class="literal">g</code>', '<code class="literal">v</code>', '<code class="literal">@</code>', '<code class="literal">*</code>',
-    '<code class="literal">?</code>', '<code class="literal">r</code>', '<code class="literal">&amp;</code>', or '<code class="literal">^</code>'.  In all of
-    these cases, for non-maybe types, <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes
-    a pointer to a non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> value and
+    The first way is used with format strings starting with '<code class="literal">a</code>', '<code class="literal">s</code>',
+    '<code class="literal">o</code>', '<code class="literal">g</code>', '<code class="literal">v</code>', '<code class="literal">@</code>',
+    '<code class="literal">*</code>', '<code class="literal">?</code>', '<code class="literal">r</code>', '<code class="literal">&amp;</code>', or
+    '<code class="literal">^</code>'.  In all of these cases, for non-maybe types,
+    <a class="link" href="glib-GVariant.html#g-variant-new" title="g_variant_new ()"><code class="function">g_variant_new()</code></a> takes a pointer to a
+    non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> value and
     <a class="link" href="glib-GVariant.html#g-variant-get" title="g_variant_get ()"><code class="function">g_variant_get()</code></a> returns (by reference) a
     non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> pointer.  When any of these format strings are
     prefixed with an '<code class="literal">m</code>', the type of arguments that are collected does not change in any way, but
@@ -677,7 +686,7 @@ g_variant_unref (value);</pre></div>
     but have their values set to binary zero.
    </p>
 <div class="refsect3">
-<a name="id2670222"></a><h4>Examples</h4>
+<a name="idp8546800"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2, *value3, *value4, *value5, *value6;
 value1 = g_variant_new ("ms", "Hello world");
@@ -748,7 +757,7 @@ value5 = g_variant_new ("(m@(ii)s)", NULL, "Done");
     Tuples are handled by handling each item in the tuple, in sequence.  Each item is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2622323"></a><h4>Examples</h4>
+<a name="idp5348600"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -779,7 +788,7 @@ value2 = g_variant_new ("()");
     Dictionary entries are handled by handling first the key, then the value.  Each is handled in the usual way.
    </p>
 <div class="refsect3">
-<a name="id2917573"></a><h4>Examples</h4>
+<a name="idp26813752"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariantBuilder *b;
 GVariant *dict;
@@ -827,7 +836,7 @@ dict = g_variant_builder_end (b);</pre></div>
     improvements in type safety and code self-documentation.
    </p>
 <div class="refsect3">
-<a name="id2644595"></a><h4>Examples</h4>
+<a name="idp4600832"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 GVariant *value1, *value2;
 
@@ -876,7 +885,7 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
     always be properly nul-terminated.
    </p>
 <div class="refsect3">
-<a name="id2641692"></a><h4>Examples</h4>
+<a name="idp5139256"></a><h4>Examples</h4>
 <div class="informalexample"><pre class="programlisting">
 {
   const gchar *str;
@@ -972,6 +981,39 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
 <td>
         <p>
          <span class="strong"><strong>
+          <code class="literal">^ao</code>
+         </strong></span>
+        </p>
+       </td>
+<td rowspan="2">
+        <p>
+         equivalent to <a class="link" href="glib-GVariant.html#g-variant-new-objv" title="g_variant_new_objv ()"><code class="function">g_variant_new_objv()</code></a>
+        </p>
+       </td>
+<td>
+        <p>
+         equivalent to <a class="link" href="glib-GVariant.html#g-variant-dup-objv" title="g_variant_dup_objv ()"><code class="function">g_variant_dup_objv()</code></a>
+        </p>
+       </td>
+</tr>
+<tr>
+<td>
+        <p>
+         <span class="strong"><strong>
+          <code class="literal">^a&amp;o</code>
+         </strong></span>
+        </p>
+       </td>
+<td>
+        <p>
+         equivalent to <a class="link" href="glib-GVariant.html#g-variant-get-objv" title="g_variant_get_objv ()"><code class="function">g_variant_get_objv()</code></a>
+        </p>
+       </td>
+</tr>
+<tr>
+<td>
+        <p>
+         <span class="strong"><strong>
           <code class="literal">^ay</code>
          </strong></span>
         </p>
@@ -1041,6 +1083,6 @@ value2 = g_variant_new ("(@(iii)*)", value1, g_variant_new_string ("foo"));
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

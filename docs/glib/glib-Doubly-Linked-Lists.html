@@ -6,15 +6,15 @@
 <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
-<link rel="prev" href="glib-Memory-Chunks.html" title="Memory Chunks">
+<link rel="prev" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="next" href="glib-Singly-Linked-Lists.html" title="Singly-Linked Lists">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
 <tr valign="middle">
-<td><a accesskey="p" href="glib-Memory-Chunks.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="p" href="glib-data-types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
 <td><a accesskey="u" href="glib-data-types.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
@@ -31,9 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Doubly-Linked-Lists.top_of_page"></a>Doubly-Linked Lists</span></h2>
-<p>Doubly-Linked Lists — linked lists containing integer values or
-                    pointers to data, with the ability to iterate
-                    over the list in both directions</p>
+<p>Doubly-Linked Lists — linked lists that can be iterated over in both directions</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -118,9 +116,6 @@ struct              <a class="link" href="glib-Doubly-Linked-Lists.html#GList" t
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *llink</code></em>);
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-index" title="g_list_index ()">g_list_index</a>                        (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gconstpointer" title="gconstpointer"><span class="type">gconstpointer</span></a> data</code></em>);
-
-<span class="returnvalue">void</span>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-push-allocator" title="g_list_push_allocator ()">g_list_push_allocator</a>               (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> allocator</code></em>);
-<span class="returnvalue">void</span>                <a class="link" href="glib-Doubly-Linked-Lists.html#g-list-pop-allocator" title="g_list_pop_allocator ()">g_list_pop_allocator</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -133,7 +128,7 @@ doubly-linked list data structure.
 Each element in the list contains a piece of data, together with
 pointers which link to the previous and next elements in the list.
 Using these pointers it is possible to move through the list in both
-directions (unlike the Singly-Linked Lists which
+directions (unlike the <a class="link" href="glib-Singly-Linked-Lists.html" title="Singly-Linked Lists">Singly-Linked Lists</a> which
 only allows movement through the list in the forward direction).
 </p>
 <p>
@@ -748,7 +743,8 @@ It simply switches the next and prev pointers of each element.
 <pre class="programlisting"><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="returnvalue">GList</span></a> *             g_list_sort                         (<em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> *list</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Doubly-Linked-Lists.html#GCompareFunc" title="GCompareFunc ()"><span class="type">GCompareFunc</span></a> compare_func</code></em>);</pre>
 <p>
-Sorts a <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> using the given comparison function.
+Sorts a <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> using the given comparison function. The algorithm 
+used is a stable sort.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1300,55 +1296,10 @@ or -1 if the data is not found</td>
 </tbody>
 </table></div>
 </div>
-<hr>
-<div class="refsect2">
-<a name="g-list-push-allocator"></a><h3>g_list_push_allocator ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_list_push_allocator               (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> allocator</code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-<p><code class="literal">g_list_push_allocator</code> has been deprecated since version 2.10 and should not be used in newly-written code. It does nothing, since <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> has been converted
-                 to the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-                 allocator</a></p>
-</div>
-<p>
-Sets the allocator to use to allocate <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> elements. Use
-<a class="link" href="glib-Doubly-Linked-Lists.html#g-list-pop-allocator" title="g_list_pop_allocator ()"><code class="function">g_list_pop_allocator()</code></a> to restore the previous allocator.
-</p>
-<p>
-Note that this function is not available if GLib has been compiled
-with <code class="option">--disable-mem-pools</code>
-</p>
-<div class="variablelist"><table border="0">
-<col align="left" valign="top">
-<tbody><tr>
-<td><p><span class="term"><em class="parameter"><code>allocator</code></em> :</span></p></td>
-<td>the <a class="link" href="glib-Memory-Allocators.html#GAllocator" title="GAllocator"><span class="type">GAllocator</span></a> to use when allocating <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> elements.</td>
-</tr></tbody>
-</table></div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="g-list-pop-allocator"></a><h3>g_list_pop_allocator ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                g_list_pop_allocator                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-<p><code class="literal">g_list_pop_allocator</code> has been deprecated since version 2.10 and should not be used in newly-written code. It does nothing, since <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a> has been converted
-                 to the <a class="link" href="glib-Memory-Slices.html" title="Memory Slices">slice
-                 allocator</a></p>
-</div>
-<p>
-Restores the previous <a class="link" href="glib-Memory-Allocators.html#GAllocator" title="GAllocator"><span class="type">GAllocator</span></a>, used when allocating <a class="link" href="glib-Doubly-Linked-Lists.html#GList" title="struct GList"><span class="type">GList</span></a>
-elements.
-</p>
-<p>
-Note that this function is not available if GLib has been compiled
-with <code class="option">--disable-mem-pools</code>
-</p>
-</div>
 </div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

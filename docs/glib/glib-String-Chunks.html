@@ -8,7 +8,7 @@
 <link rel="up" href="glib-data-types.html" title="GLib 数据类型">
 <link rel="prev" href="glib-Strings.html" title="Strings">
 <link rel="next" href="glib-Arrays.html" title="Arrays">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -42,11 +42,11 @@
 
                     <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk">GStringChunk</a>;
 <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="returnvalue">GStringChunk</span></a> *      <a class="link" href="glib-String-Chunks.html#g-string-chunk-new" title="g_string_chunk_new ()">g_string_chunk_new</a>                  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> size</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert" title="g_string_chunk_insert ()">g_string_chunk_insert</a>               (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert" title="g_string_chunk_insert ()">g_string_chunk_insert</a>               (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()">g_string_chunk_insert_const</a>         (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()">g_string_chunk_insert_const</a>         (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-len" title="g_string_chunk_insert_len ()">g_string_chunk_insert_len</a>           (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-len" title="g_string_chunk_insert_len ()">g_string_chunk_insert_len</a>           (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-String-Chunks.html#g-string-chunk-clear" title="g_string_chunk_clear ()">g_string_chunk_clear</a>                (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>);
@@ -92,8 +92,8 @@ not possible to free individual strings.
 <a name="GStringChunk"></a><h3>GStringChunk</h3>
 <pre class="programlisting">typedef struct _GStringChunk GStringChunk;</pre>
 <p>
-An opaque data structure representing String Chunks. It should only
-be accessed by using the following functions.
+An opaque data structure representing String Chunks.
+It should only be accessed by using the following functions.
 </p>
 </div>
 <hr>
@@ -124,20 +124,20 @@ memory will be allocated for it.</td>
 <hr>
 <div class="refsect2">
 <a name="g-string-chunk-insert"></a><h3>g_string_chunk_insert ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            g_string_chunk_insert               (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_string_chunk_insert               (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
 Adds a copy of <em class="parameter"><code>string</code></em> to the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>.
-It returns a pointer to the new copy of the string 
-in the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>. The characters in the string 
-can be changed, if necessary, though you should not 
+It returns a pointer to the new copy of the string
+in the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>. The characters in the string
+can be changed, if necessary, though you should not
 change anything after the end of the string.
 </p>
 <p>
-Unlike <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a>, this function 
-does not check for duplicates. Also strings added 
-with <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert" title="g_string_chunk_insert ()"><code class="function">g_string_chunk_insert()</code></a> will not be searched 
-by <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a> when looking for 
+Unlike <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a>, this function
+does not check for duplicates. Also strings added
+with <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert" title="g_string_chunk_insert ()"><code class="function">g_string_chunk_insert()</code></a> will not be searched
+by <a class="link" href="glib-String-Chunks.html#g-string-chunk-insert-const" title="g_string_chunk_insert_const ()"><code class="function">g_string_chunk_insert_const()</code></a> when looking for
 duplicates.
 </p>
 <div class="variablelist"><table border="0">
@@ -164,7 +164,7 @@ the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringCh
 <hr>
 <div class="refsect2">
 <a name="g-string-chunk-insert-const"></a><h3>g_string_chunk_insert_const ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            g_string_chunk_insert_const         (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_string_chunk_insert_const         (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
 Adds a copy of <em class="parameter"><code>string</code></em> to the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a>, unless the same
@@ -207,7 +207,7 @@ within the <a class="link" href="glib-String-Chunks.html#GStringChunk" title="GS
 <hr>
 <div class="refsect2">
 <a name="g-string-chunk-insert-len"></a><h3>g_string_chunk_insert_len ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	            g_string_chunk_insert_len           (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_string_chunk_insert_len           (<em class="parameter"><code><a class="link" href="glib-String-Chunks.html#GStringChunk" title="GStringChunk"><span class="type">GStringChunk</span></a> *chunk</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);</pre>
 <p>
@@ -290,6 +290,6 @@ access any of the strings which were contained within it.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-Bookmark-file-parser.html" title="Bookmark file parser">
-<link rel="next" href="glib-Windows-Compatibility-Functions.html" title="Windows Compatibility Functions">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="glib-UNIX-specific-utilities-and-integration.html" title="UNIX-specific utilities and integration">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="glib-utilities.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="glib-Windows-Compatibility-Functions.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-UNIX-specific-utilities-and-integration.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#glib-Testing.synopsis" class="shortcut">Top</a>
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-Testing.top_of_page"></a>Testing</span></h2>
-<p>Testing</p>
+<p>Testing — a test framework</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -54,6 +54,7 @@
 #define             <a class="link" href="glib-Testing.html#g-test-thorough" title="g_test_thorough">g_test_thorough</a>
 #define             <a class="link" href="glib-Testing.html#g-test-perf" title="g_test_perf">g_test_perf</a>
 #define             <a class="link" href="glib-Testing.html#g-test-verbose" title="g_test_verbose">g_test_verbose</a>
+#define             <a class="link" href="glib-Testing.html#g-test-undefined" title="g_test_undefined">g_test_undefined</a>
 #define             <a class="link" href="glib-Testing.html#g-test-quiet" title="g_test_quiet">g_test_quiet</a>
 <span class="returnvalue">int</span>                 <a class="link" href="glib-Testing.html#g-test-run" title="g_test_run ()">g_test_run</a>                          (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                (<a class="link" href="glib-Testing.html#GTestFunc" title="GTestFunc ()">*GTestFunc</a>)                        (<em class="parameter"><code><span class="type">void</span></code></em>);
@@ -69,6 +70,7 @@
                                                          fsetup,
                                                          ftest,
                                                          fteardown)
+<span class="returnvalue">void</span>                <a class="link" href="glib-Testing.html#g-test-fail" title="g_test_fail ()">g_test_fail</a>                         (<em class="parameter"><code><span class="type">void</span></code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Testing.html#g-test-message" title="g_test_message ()">g_test_message</a>                      (<em class="parameter"><code>const <span class="type">char</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-Testing.html#g-test-bug-base" title="g_test_bug_base ()">g_test_bug_base</a>                     (<em class="parameter"><code>const <span class="type">char</span> *uri_pattern</code></em>);
@@ -147,6 +149,59 @@ typedef             <a class="link" href="glib-Testing.html#GTestSuite" title="G
 <div class="refsect1">
 <a name="glib-Testing.description"></a><h2>Description</h2>
 <p>
+GLib provides a framework for writing and maintaining unit tests
+in parallel to the code they are testing. The API is designed according
+to established concepts found in the other test frameworks (JUnit, NUnit,
+RUnit), which in turn is based on smalltalk unit testing concepts.
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">Test case</span></p></td>
+<td>Tests (test methods) are grouped together with their
+      fixture into test cases.</td>
+</tr>
+<tr>
+<td><p><span class="term">Fixture</span></p></td>
+<td>A test fixture consists of fixture data and setup and
+      teardown methods to establish the environment for the test
+      functions. We use fresh fixtures, i.e. fixtures are newly set
+      up and torn down around each test invocation to avoid dependencies
+      between tests.</td>
+</tr>
+<tr>
+<td><p><span class="term">Test suite</span></p></td>
+<td>Test cases can be grouped into test suites, to allow
+      subsets of the available tests to be run. Test suites can be
+      grouped into other test suites as well.</td>
+</tr>
+</tbody>
+</table></div>
+<p>
+The API is designed to handle creation and registration of test suites
+and test cases implicitly. A simple call like
+</p>
+<div class="informalexample"><pre class="programlisting">
+  g_test_add_func ("/misc/assertions", test_assertions);
+</pre></div>
+<p>
+creates a test suite called "misc" with a single test case named
+"assertions", which consists of running the test_assertions function.
+</p>
+<p>
+In addition to the traditional <a class="link" href="glib-Testing.html#g-assert" title="g_assert()"><code class="function">g_assert()</code></a>, the test framework provides
+an extended set of assertions for string and numerical comparisons:
+<a class="link" href="glib-Testing.html#g-assert-cmpfloat" title="g_assert_cmpfloat()"><code class="function">g_assert_cmpfloat()</code></a>, <a class="link" href="glib-Testing.html#g-assert-cmpint" title="g_assert_cmpint()"><code class="function">g_assert_cmpint()</code></a>, <a class="link" href="glib-Testing.html#g-assert-cmpuint" title="g_assert_cmpuint()"><code class="function">g_assert_cmpuint()</code></a>,
+<a class="link" href="glib-Testing.html#g-assert-cmphex" title="g_assert_cmphex()"><code class="function">g_assert_cmphex()</code></a>, <a class="link" href="glib-Testing.html#g-assert-cmpstr" title="g_assert_cmpstr()"><code class="function">g_assert_cmpstr()</code></a>. The advantage of these variants
+over plain <a class="link" href="glib-Testing.html#g-assert" title="g_assert()"><code class="function">g_assert()</code></a> is that the assertion messages can be more
+elaborate, and include the values of the compared entities.
+</p>
+<p>
+GLib ships with two utilities called gtester and gtester-report to
+facilitate running tests and producing nicely formatted test reports.
 </p>
 </div>
 <div class="refsect1">
@@ -256,7 +311,7 @@ So far, the following arguments are understood:
       </p></td>
 </tr>
 <tr>
-<td><p><span class="term"><code class="option">-m {perf|slow|thorough|quick}</code></span></p></td>
+<td><p><span class="term"><code class="option">-m {perf|slow|thorough|quick|undefined|no-undefined}</code></span></p></td>
 <td>
 <p>
         execute tests according to these test modes:
@@ -281,6 +336,20 @@ So far, the following arguments are understood:
 <td><p><span class="term">quick</span></p></td>
 <td><p>
               quick tests, should run really quickly and give good coverage.
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">undefined</span></p></td>
+<td><p>
+              tests for undefined behaviour, may provoke programming errors
+              under <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a> to check that appropriate assertions
+              or warnings are given
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">no-undefined</span></p></td>
+<td><p>
+              avoid tests for undefined behaviour
             </p></td>
 </tr>
 </tbody>
@@ -335,42 +404,122 @@ Any parameters understood by <a class="link" href="glib-Testing.html#g-test-init
 <a name="g-test-quick"></a><h3>g_test_quick</h3>
 <pre class="programlisting">#define             g_test_quick()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in quick mode.
+Exactly one of <a class="link" href="glib-Testing.html#g-test-quick" title="g_test_quick"><code class="function">g_test_quick()</code></a> and <a class="link" href="glib-Testing.html#g-test-slow" title="g_test_slow"><code class="function">g_test_slow()</code></a> is active in any run;
+there is no "medium speed".
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if in quick mode</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-slow"></a><h3>g_test_slow</h3>
 <pre class="programlisting">#define             g_test_slow()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in slow mode.
+Exactly one of <a class="link" href="glib-Testing.html#g-test-quick" title="g_test_quick"><code class="function">g_test_quick()</code></a> and <a class="link" href="glib-Testing.html#g-test-slow" title="g_test_slow"><code class="function">g_test_slow()</code></a> is active in any run;
+there is no "medium speed".
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the opposite of <a class="link" href="glib-Testing.html#g-test-quick" title="g_test_quick"><code class="function">g_test_quick()</code></a>
+</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-thorough"></a><h3>g_test_thorough</h3>
 <pre class="programlisting">#define             g_test_thorough()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in thorough mode, equivalent to
+<a class="link" href="glib-Testing.html#g-test-slow" title="g_test_slow"><code class="function">g_test_slow()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the same thing as <a class="link" href="glib-Testing.html#g-test-slow" title="g_test_slow"><code class="function">g_test_slow()</code></a>
+</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-perf"></a><h3>g_test_perf</h3>
 <pre class="programlisting">#define             g_test_perf()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in performance mode.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if in performance mode</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-verbose"></a><h3>g_test_verbose</h3>
 <pre class="programlisting">#define             g_test_verbose()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in verbose mode.
+The default is neither <a class="link" href="glib-Testing.html#g-test-verbose" title="g_test_verbose"><code class="function">g_test_verbose()</code></a> nor <a class="link" href="glib-Testing.html#g-test-quiet" title="g_test_quiet"><code class="function">g_test_quiet()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if in verbose mode</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="g-test-undefined"></a><h3>g_test_undefined</h3>
+<pre class="programlisting">#define             g_test_undefined()</pre>
+<p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests may provoke assertions and other formally-undefined
+behaviour under <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>, to verify that appropriate warnings
+are given. It can be useful to turn this off if running tests under
+valgrind.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests may provoke programming errors</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-quiet"></a><h3>g_test_quiet</h3>
 <pre class="programlisting">#define             g_test_quiet()</pre>
 <p>
+Returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if tests are run in quiet mode.
+The default is neither <a class="link" href="glib-Testing.html#g-test-verbose" title="g_test_verbose"><code class="function">g_test_verbose()</code></a> nor <a class="link" href="glib-Testing.html#g-test-quiet" title="g_test_quiet"><code class="function">g_test_quiet()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if in quiet mode</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -401,6 +550,7 @@ in a program.
 <p>
 The type used for test case functions.
 </p>
+<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -418,7 +568,7 @@ slash-separated portions of <em class="parameter"><code>testpath</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>testpath</code></em> :</span></p></td>
-<td>Slash-separated test case path name for the test.</td>
+<td>/-separated test case path name for the test.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>test_func</code></em> :</span></p></td>
@@ -443,6 +593,7 @@ argument.
 <td>the data provided when registering the test</td>
 </tr></tbody>
 </table></div>
+<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -462,7 +613,7 @@ will be passed as first argument to <em class="parameter"><code>test_func</code>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>testpath</code></em> :</span></p></td>
-<td>Slash-separated test case path name for the test.</td>
+<td>/-separated test case path name for the test.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>test_data</code></em> :</span></p></td>
@@ -521,6 +672,30 @@ a type safe manner.
 </div>
 <hr>
 <div class="refsect2">
+<a name="g-test-fail"></a><h3>g_test_fail ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                g_test_fail                         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Indicates that a test failed. This function can be called
+multiple times from the same test. You can use this function
+if your test failed in a recoverable way.
+</p>
+<p>
+Do not use this function if the failure of a test could cause
+other tests to malfunction.
+</p>
+<p>
+Calling this function will not stop the test from running, you
+need to return from the test function yourself. So you can
+produce additional diagnostic messages or even continue running
+the test.
+</p>
+<p>
+If not called from inside a test, this function does nothing.
+</p>
+<p class="since">Since 2.30</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="g-test-message"></a><h3>g_test_message ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>                g_test_message                      (<em class="parameter"><code>const <span class="type">char</span> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
@@ -559,7 +734,7 @@ a test case changes the base URI for the scope of the test
 case only.
 Bug URIs are constructed by appending a bug specific URI
 portion to <em class="parameter"><code>uri_pattern</code></em>, or by replacing the special string
-'<code class="literal">s</code>' within <em class="parameter"><code>uri_pattern</code></em> if that is present.
+'%s' within <em class="parameter"><code>uri_pattern</code></em> if that is present.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -734,7 +909,7 @@ with a destroy callback of <a class="link" href="glib-Memory-Allocation.html#g-f
 <pre class="programlisting"><span class="returnvalue">void</span>                g_test_queue_destroy                (<em class="parameter"><code><a class="link" href="glib-Datasets.html#GDestroyNotify" title="GDestroyNotify ()"><span class="type">GDestroyNotify</span></a> destroy_func</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gpointer" title="gpointer"><span class="type">gpointer</span></a> destroy_data</code></em>);</pre>
 <p>
-This function enqueus a callback @<code class="function">destroy_func()</code> to be executed
+This function enqueus a callback <em class="parameter"><code>destroy_func</code></em> to be executed
 during the next test case teardown phase. This is most useful
 to auto destruct allocted test resources at the end of a test run.
 Resources are released in reverse queue order, that means enqueueing
@@ -761,7 +936,18 @@ callback A before callback B will cause <code class="function">B()</code> to be 
 <a name="g-test-queue-unref"></a><h3>g_test_queue_unref()</h3>
 <pre class="programlisting">#define             g_test_queue_unref(gobject)</pre>
 <p>
+Enqueue an object to be released with <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> during
+the next teardown phase. This is equivalent to calling
+<a class="link" href="glib-Testing.html#g-test-queue-destroy" title="g_test_queue_destroy ()"><code class="function">g_test_queue_destroy()</code></a> with a destroy callback of <a href="./../gobject/gobject/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>gobject</code></em> :</span></p></td>
+<td>the object to unref</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -773,7 +959,37 @@ callback A before callback B will cause <code class="function">B()</code> to be 
 } GTestTrapFlags;
 </pre>
 <p>
+Test traps are guards around forked tests.
+These flags determine what traps to set.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="G-TEST-TRAP-SILENCE-STDOUT:CAPS"></a><span class="term"><code class="literal">G_TEST_TRAP_SILENCE_STDOUT</code></span></p></td>
+<td>Redirect stdout of the test child to
+    <code class="filename">/dev/null</code> so it cannot be observed on the
+    console during test runs. The actual output is still captured
+    though to allow later tests with <a class="link" href="glib-Testing.html#g-test-trap-assert-stdout" title="g_test_trap_assert_stdout()"><code class="function">g_test_trap_assert_stdout()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-TEST-TRAP-SILENCE-STDERR:CAPS"></a><span class="term"><code class="literal">G_TEST_TRAP_SILENCE_STDERR</code></span></p></td>
+<td>Redirect stderr of the test child to
+    <code class="filename">/dev/null</code> so it cannot be observed on the
+    console during test runs. The actual output is still captured
+    though to allow later tests with <a class="link" href="glib-Testing.html#g-test-trap-assert-stderr" title="g_test_trap_assert_stderr()"><code class="function">g_test_trap_assert_stderr()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><a name="G-TEST-TRAP-INHERIT-STDIN:CAPS"></a><span class="term"><code class="literal">G_TEST_TRAP_INHERIT_STDIN</code></span></p></td>
+<td>If this flag is given, stdin of the
+    forked child process is shared with stdin of its parent process.
+    It is redirected to <code class="filename">/dev/null</code> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -875,49 +1091,120 @@ Check the result of the last <a class="link" href="glib-Testing.html#g-test-trap
 <a name="g-test-trap-assert-passed"></a><h3>g_test_trap_assert_passed</h3>
 <pre class="programlisting">#define             g_test_trap_assert_passed()</pre>
 <p>
+Assert that the last forked test passed.
+See <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-trap-assert-failed"></a><h3>g_test_trap_assert_failed</h3>
 <pre class="programlisting">#define             g_test_trap_assert_failed()</pre>
 <p>
+Assert that the last forked test failed.
+See <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<p>
+This is sometimes used to test situations that are formally considered to
+be undefined behaviour, like inputs that fail a <a class="link" href="glib-Warnings-and-Assertions.html#g-return-if-fail" title="g_return_if_fail()"><code class="function">g_return_if_fail()</code></a>
+check. In these situations you should skip the entire test, including the
+call to <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>, unless <a class="link" href="glib-Testing.html#g-test-undefined" title="g_test_undefined"><code class="function">g_test_undefined()</code></a> returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>
+to indicate that undefined behaviour may be tested.
+</p>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-trap-assert-stdout"></a><h3>g_test_trap_assert_stdout()</h3>
 <pre class="programlisting">#define             g_test_trap_assert_stdout(soutpattern)</pre>
 <p>
+Assert that the stdout output of the last forked test matches
+<em class="parameter"><code>soutpattern</code></em>. See <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>soutpattern</code></em> :</span></p></td>
+<td>a glob-style
+<a class="link" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">pattern</a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-trap-assert-stdout-unmatched"></a><h3>g_test_trap_assert_stdout_unmatched()</h3>
 <pre class="programlisting">#define             g_test_trap_assert_stdout_unmatched(soutpattern)</pre>
 <p>
+Assert that the stdout output of the last forked test
+does not match <em class="parameter"><code>soutpattern</code></em>. See <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>soutpattern</code></em> :</span></p></td>
+<td>a glob-style
+<a class="link" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">pattern</a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-trap-assert-stderr"></a><h3>g_test_trap_assert_stderr()</h3>
 <pre class="programlisting">#define             g_test_trap_assert_stderr(serrpattern)</pre>
 <p>
+Assert that the stderr output of the last forked test
+matches <em class="parameter"><code>serrpattern</code></em>. See  <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<p>
+This is sometimes used to test situations that are formally considered to
+be undefined behaviour, like inputs that fail a <a class="link" href="glib-Warnings-and-Assertions.html#g-return-if-fail" title="g_return_if_fail()"><code class="function">g_return_if_fail()</code></a>
+check. In these situations you should skip the entire test, including the
+call to <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>, unless <a class="link" href="glib-Testing.html#g-test-undefined" title="g_test_undefined"><code class="function">g_test_undefined()</code></a> returns <a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a>
+to indicate that undefined behaviour may be tested.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>serrpattern</code></em> :</span></p></td>
+<td>a glob-style
+<a class="link" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">pattern</a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-trap-assert-stderr-unmatched"></a><h3>g_test_trap_assert_stderr_unmatched()</h3>
 <pre class="programlisting">#define             g_test_trap_assert_stderr_unmatched(serrpattern)</pre>
 <p>
+Assert that the stderr output of the last forked test
+does not match <em class="parameter"><code>serrpattern</code></em>. See <a class="link" href="glib-Testing.html#g-test-trap-fork" title="g_test_trap_fork ()"><code class="function">g_test_trap_fork()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>serrpattern</code></em> :</span></p></td>
+<td>a glob-style
+<a class="link" href="glib-Glob-style-pattern-matching.html" title="Glob-style pattern matching">pattern</a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-test-rand-bit"></a><h3>g_test_rand_bit</h3>
 <pre class="programlisting">#define             g_test_rand_bit()</pre>
 <p>
+Get a reproducible random bit (0 or 1), see <a class="link" href="glib-Testing.html#g-test-rand-int" title="g_test_rand_int ()"><code class="function">g_test_rand_int()</code></a>
+for details on test case random numbers.
 </p>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1023,13 +1310,34 @@ see <a class="link" href="glib-Testing.html#g-test-rand-int" title="g_test_rand_
 <a name="g-assert"></a><h3>g_assert()</h3>
 <pre class="programlisting">#define             g_assert(expr)</pre>
 <p>
+Debugging macro to terminate the application if the assertion
+fails. If the assertion fails (i.e. the expression is not true),
+an error message is logged and the application is terminated.
 </p>
+<p>
+The macro can be turned off in final releases of code by defining
+<code class="envar">G_DISABLE_ASSERT</code> when compiling the application.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>expr</code></em> :</span></p></td>
+<td>the expression to check</td>
+</tr></tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-not-reached"></a><h3>g_assert_not_reached</h3>
 <pre class="programlisting">#define             g_assert_not_reached()</pre>
 <p>
+Debugging macro to terminate the application if it is ever
+reached. If it is reached, an error message is logged and the
+application is terminated.
+</p>
+<p>
+The macro can be turned off in final releases of code by defining
+<code class="envar">G_DISABLE_ASSERT</code> when compiling the application.
 </p>
 </div>
 <hr>
@@ -1037,49 +1345,240 @@ see <a class="link" href="glib-Testing.html#g-test-rand-int" title="g_test_rand_
 <a name="g-assert-cmpstr"></a><h3>g_assert_cmpstr()</h3>
 <pre class="programlisting">#define             g_assert_cmpstr(s1, cmp, s2)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if a string comparison fails. The strings are compared
+using <a class="link" href="glib-String-Utility-Functions.html#g-strcmp0" title="g_strcmp0 ()"><code class="function">g_strcmp0()</code></a>.
 </p>
+<p>
+The effect of <code class="literal">g_assert_cmpstr (s1, op, s2)</code> is
+the same as <code class="literal">g_assert (g_strcmp0 (s1, s2) op 0)</code>.
+The advantage of this macro is that it can produce a message that
+includes the actual values of <em class="parameter"><code>s1</code></em> and <em class="parameter"><code>s2</code></em>.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+  g_assert_cmpstr (mystring, ==, "fubar");
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s1</code></em> :</span></p></td>
+<td>a string (may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp</code></em> :</span></p></td>
+<td>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s2</code></em> :</span></p></td>
+<td>another string (may be <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>)</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-cmpint"></a><h3>g_assert_cmpint()</h3>
 <pre class="programlisting">#define             g_assert_cmpint(n1, cmp, n2)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if an integer comparison fails.
 </p>
+<p>
+The effect of <code class="literal">g_assert_cmpint (n1, op, n2)</code> is
+the same as <code class="literal">g_assert (n1 op n2)</code>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <em class="parameter"><code>n1</code></em> and <em class="parameter"><code>n2</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n1</code></em> :</span></p></td>
+<td>an integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp</code></em> :</span></p></td>
+<td>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n2</code></em> :</span></p></td>
+<td>another integer</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-cmpuint"></a><h3>g_assert_cmpuint()</h3>
 <pre class="programlisting">#define             g_assert_cmpuint(n1, cmp, n2)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if an unsigned integer comparison fails.
 </p>
+<p>
+The effect of <code class="literal">g_assert_cmpuint (n1, op, n2)</code> is
+the same as <code class="literal">g_assert (n1 op n2)</code>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <em class="parameter"><code>n1</code></em> and <em class="parameter"><code>n2</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n1</code></em> :</span></p></td>
+<td>an unsigned integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp</code></em> :</span></p></td>
+<td>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n2</code></em> :</span></p></td>
+<td>another unsigned integer</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-cmphex"></a><h3>g_assert_cmphex()</h3>
 <pre class="programlisting">#define             g_assert_cmphex(n1, cmp, n2)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if an unsigned integer comparison fails.
 </p>
+<p>
+This is a variant of <a class="link" href="glib-Testing.html#g-assert-cmpuint" title="g_assert_cmpuint()"><code class="function">g_assert_cmpuint()</code></a> that displays the numbers
+in hexadecimal notation in the message.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n1</code></em> :</span></p></td>
+<td>an unsigned integer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp</code></em> :</span></p></td>
+<td>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n2</code></em> :</span></p></td>
+<td>another unsigned integer</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-cmpfloat"></a><h3>g_assert_cmpfloat()</h3>
 <pre class="programlisting">#define             g_assert_cmpfloat(n1,cmp,n2)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if a floating point number comparison fails.
 </p>
+<p>
+The effect of <code class="literal">g_assert_cmpfloat (n1, op, n2)</code> is
+the same as <code class="literal">g_assert (n1 op n2)</code>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <em class="parameter"><code>n1</code></em> and <em class="parameter"><code>n2</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n1</code></em> :</span></p></td>
+<td>an floating point number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cmp</code></em> :</span></p></td>
+<td>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n2</code></em> :</span></p></td>
+<td>another floating point number</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.16</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-no-error"></a><h3>g_assert_no_error()</h3>
 <pre class="programlisting">#define             g_assert_no_error(err)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if a method has returned a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>.
 </p>
+<p>
+The effect of <code class="literal">g_assert_no_error (err)</code> is
+the same as <code class="literal">g_assert (err == NULL)</code>. The advantage
+of this macro is that it can produce a message that includes
+the error message and code.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, possibly <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.20</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-assert-error"></a><h3>g_assert_error()</h3>
 <pre class="programlisting">#define             g_assert_error(err, dom, c)</pre>
 <p>
+Debugging macro to terminate the application with a warning
+message if a method has not returned the correct <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>.
 </p>
+<p>
+The effect of <code class="literal">g_assert_error (err, dom, c)</code> is
+the same as <code class="literal">g_assert (err != NULL &amp;&amp; err-&gt;domain
+== dom &amp;&amp; err-&gt;code == c)</code>. The advantage of this
+macro is that it can produce a message that includes the incorrect
+error message and code.
+</p>
+<p>
+This can only be used to test for a specific error. If you want to
+test that <em class="parameter"><code>err</code></em> is set, but don't care what it's set to, just use
+<code class="literal">g_assert (err != NULL)</code>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
+<td>a <a class="link" href="glib-Error-Reporting.html#GError" title="struct GError"><span class="type">GError</span></a>, possibly <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dom</code></em> :</span></p></td>
+<td>the expected error domain (a <a class="link" href="glib-Quarks.html#GQuark" title="GQuark"><span class="type">GQuark</span></a>)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>the expected error code</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.20</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1087,6 +1586,7 @@ see <a class="link" href="glib-Testing.html#g-test-rand-int" title="g_test_rand_
 <pre class="programlisting">typedef struct GTestCase  GTestCase;
 </pre>
 <p>
+An opaque structure representing a test case.
 </p>
 </div>
 <hr>
@@ -1095,6 +1595,7 @@ see <a class="link" href="glib-Testing.html#g-test-rand-int" title="g_test_rand_
 <pre class="programlisting">typedef struct GTestSuite GTestSuite;
 </pre>
 <p>
+An opaque structure representing a test suite.
 </p>
 </div>
 <hr>
@@ -1129,6 +1630,7 @@ zero then <em class="parameter"><code>fixture</code></em> will be equal to <em c
 </tr>
 </tbody>
 </table></div>
+<p class="since">Since 2.28</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -1143,10 +1645,10 @@ zero then <em class="parameter"><code>fixture</code></em> will be equal to <em c
 Create a new <a class="link" href="glib-Testing.html#GTestCase" title="GTestCase"><span class="type">GTestCase</span></a>, named <em class="parameter"><code>test_name</code></em>, this API is fairly
 low level, calling <a class="link" href="glib-Testing.html#g-test-add" title="g_test_add()"><code class="function">g_test_add()</code></a> or <a class="link" href="glib-Testing.html#g-test-add-func" title="g_test_add_func ()"><code class="function">g_test_add_func()</code></a> is preferable.
 When this test is executed, a fixture structure of size <em class="parameter"><code>data_size</code></em>
-will be allocated and filled with 0s. Then <code class="function">data_setup()</code> is called
+will be allocated and filled with 0s. Then <em class="parameter"><code>data_setup</code></em> is called
 to initialize the fixture. After fixture setup, the actual test
-function <code class="function">data_test()</code> is called. Once the test run completed, the
-fixture structure is torn down  by calling <code class="function">data_teardown()</code> and
+function <em class="parameter"><code>data_test</code></em> is called. Once the test run completed, the
+fixture structure is torn down  by calling <em class="parameter"><code>data_teardown</code></em> and
 after that the memory is released.
 </p>
 <p>
@@ -1309,9 +1811,14 @@ in a program.
 <p class="since">Since 2.16</p>
 </div>
 </div>
+<div class="refsect1">
+<a name="glib-Testing.see-also"></a><h2>See Also</h2>
+<a href="gtester.html">gtester</a>,
+           <a href="gtester-report.html">gtester-report</a>
+</div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

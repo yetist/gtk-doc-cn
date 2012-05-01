@@ -8,7 +8,7 @@
 <link rel="up" href="glib-utilities.html" title="GLib工具">
 <link rel="prev" href="glib-utilities.html" title="GLib工具">
 <link rel="next" href="glib-Character-Set-Conversion.html" title="Character Set Conversion">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -31,7 +31,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="glib-String-Utility-Functions.top_of_page"></a>String Utility Functions</span></h2>
-<p>String Utility Functions</p>
+<p>String Utility Functions — various string-related functions</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -41,20 +41,20 @@
 #include &lt;glib.h&gt;
 #include &lt;glib/gprintf.h&gt;
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()">g_strdup</a>                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strndup" title="g_strndup ()">g_strndup</a>                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strdup" title="g_strdup ()">g_strdup</a>                            (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strndup" title="g_strndup ()">g_strndup</a>                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> n</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **                <a class="link" href="glib-String-Utility-Functions.html#g-strdupv" title="g_strdupv ()">g_strdupv</a>                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strnfill" title="g_strnfill ()">g_strnfill</a>                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> length</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="glib-String-Utility-Functions.html#g-strdupv" title="g_strdupv ()">g_strdupv</a>                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strnfill" title="g_strnfill ()">g_strnfill</a>                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> fill_char</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-stpcpy" title="g_stpcpy ()">g_stpcpy</a>                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *dest</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-stpcpy" title="g_stpcpy ()">g_stpcpy</a>                            (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *dest</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *src</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                <a class="link" href="glib-String-Utility-Functions.html#g-strstr-len" title="g_strstr_len ()">g_strstr_len</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strstr-len" title="g_strstr_len ()">g_strstr_len</a>                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> haystack_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                <a class="link" href="glib-String-Utility-Functions.html#g-strrstr" title="g_strrstr ()">g_strrstr</a>                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strrstr" title="g_strrstr ()">g_strrstr</a>                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                <a class="link" href="glib-String-Utility-Functions.html#g-strrstr-len" title="g_strrstr_len ()">g_strrstr_len</a>                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strrstr-len" title="g_strrstr_len ()">g_strrstr_len</a>                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> haystack_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);
 <a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="glib-String-Utility-Functions.html#g-str-has-prefix" title="g_str_has_prefix ()">g_str_has_prefix</a>                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
@@ -71,9 +71,9 @@
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *src</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> dest_size</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strdup-printf" title="g_strdup_printf ()">g_strdup_printf</a>                  (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strdup-printf" title="g_strdup_printf ()">g_strdup_printf</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strdup-vprintf" title="g_strdup_vprintf ()">g_strdup_vprintf</a>                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strdup-vprintf" title="g_strdup_vprintf ()">g_strdup_vprintf</a>                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-String-Utility-Functions.html#g-printf" title="g_printf ()">g_printf</a>                            (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> const *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
@@ -126,9 +126,9 @@
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *s2</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> n</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strup" title="g_ascii_strup ()">g_ascii_strup</a>                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strup" title="g_ascii_strup ()">g_ascii_strup</a>                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strdown" title="g_ascii_strdown ()">g_ascii_strdown</a>                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strdown" title="g_ascii_strdown ()">g_ascii_strdown</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);
 
 <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a>               <a class="link" href="glib-String-Utility-Functions.html#g-ascii-tolower" title="g_ascii_tolower ()">g_ascii_tolower</a>                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);
@@ -137,8 +137,8 @@
 <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="returnvalue">GString</span></a> *           <a class="link" href="glib-String-Utility-Functions.html#g-string-ascii-up" title="g_string_ascii_up ()">g_string_ascii_up</a>                   (<em class="parameter"><code><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> *string</code></em>);
 <a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="returnvalue">GString</span></a> *           <a class="link" href="glib-String-Utility-Functions.html#g-string-ascii-down" title="g_string_ascii_down ()">g_string_ascii_down</a>                 (<em class="parameter"><code><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> *string</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strup" title="g_strup ()">g_strup</a>                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strdown" title="g_strdown ()">g_strdown</a>                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strup" title="g_strup ()">g_strup</a>                             (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strdown" title="g_strdown ()">g_strdown</a>                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
 
 <a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="returnvalue">gint</span></a>                <a class="link" href="glib-String-Utility-Functions.html#g-strcasecmp" title="g_strcasecmp ()">g_strcasecmp</a>                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *s1</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *s2</code></em>);
@@ -146,7 +146,7 @@
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *s2</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="type">guint</span></a> n</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strreverse" title="g_strreverse ()">g_strreverse</a>                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strreverse" title="g_strreverse ()">g_strreverse</a>                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
 
 <a class="link" href="glib-Basic-Types.html#gint64" title="gint64"><span class="returnvalue">gint64</span></a>              <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strtoll" title="g_ascii_strtoll ()">g_ascii_strtoll</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *nptr</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **endptr</code></em>,
@@ -157,42 +157,42 @@
 #define             <a class="link" href="glib-String-Utility-Functions.html#G-ASCII-DTOSTR-BUF-SIZE:CAPS" title="G_ASCII_DTOSTR_BUF_SIZE">G_ASCII_DTOSTR_BUF_SIZE</a>
 <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strtod" title="g_ascii_strtod ()">g_ascii_strtod</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *nptr</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **endptr</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                <a class="link" href="glib-String-Utility-Functions.html#g-ascii-dtostr" title="g_ascii_dtostr ()">g_ascii_dtostr</a>                   (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-ascii-dtostr" title="g_ascii_dtostr ()">g_ascii_dtostr</a>                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> buf_len</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> d</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                <a class="link" href="glib-String-Utility-Functions.html#g-ascii-formatd" title="g_ascii_formatd ()">g_ascii_formatd</a>                  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-ascii-formatd" title="g_ascii_formatd ()">g_ascii_formatd</a>                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> buf_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> d</code></em>);
 <a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="returnvalue">gdouble</span></a>             <a class="link" href="glib-String-Utility-Functions.html#g-strtod" title="g_strtod ()">g_strtod</a>                            (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *nptr</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **endptr</code></em>);
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()">g_strchug</a>                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()">g_strchomp</a>                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()">g_strchug</a>                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()">g_strchomp</a>                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);
 #define             <a class="link" href="glib-String-Utility-Functions.html#g-strstrip" title="g_strstrip()">g_strstrip</a>                          (string)
 
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strdelimit" title="g_strdelimit ()">g_strdelimit</a>                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strdelimit" title="g_strdelimit ()">g_strdelimit</a>                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiters</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> new_delimiter</code></em>);
 #define             <a class="link" href="glib-String-Utility-Functions.html#G-STR-DELIMITERS:CAPS" title="G_STR_DELIMITERS">G_STR_DELIMITERS</a>
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strescape" title="g_strescape ()">g_strescape</a>                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strescape" title="g_strescape ()">g_strescape</a>                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *exceptions</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strcompress" title="g_strcompress ()">g_strcompress</a>                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strcanon" title="g_strcanon ()">g_strcanon</a>                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strcompress" title="g_strcompress ()">g_strcompress</a>                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>);
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strcanon" title="g_strcanon ()">g_strcanon</a>                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *valid_chars</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> substitutor</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **	               <a class="link" href="glib-String-Utility-Functions.html#g-strsplit" title="g_strsplit ()">g_strsplit</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="glib-String-Utility-Functions.html#g-strsplit" title="g_strsplit ()">g_strsplit</a>                          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiter</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_tokens</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **	           <a class="link" href="glib-String-Utility-Functions.html#g-strsplit-set" title="g_strsplit_set ()">g_strsplit_set</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            <a class="link" href="glib-String-Utility-Functions.html#g-strsplit-set" title="g_strsplit_set ()">g_strsplit_set</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiters</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_tokens</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="glib-String-Utility-Functions.html#g-strfreev" title="g_strfreev ()">g_strfreev</a>                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               <a class="link" href="glib-String-Utility-Functions.html#g-strconcat" title="g_strconcat ()">g_strconcat</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string1</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strconcat" title="g_strconcat ()">g_strconcat</a>                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string1</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strjoin" title="g_strjoin ()">g_strjoin</a>                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strjoin" title="g_strjoin ()">g_strjoin</a>                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code>...</code></em>);
-<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 <a class="link" href="glib-String-Utility-Functions.html#g-strjoinv" title="g_strjoinv ()">g_strjoinv</a>                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
+<a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="glib-String-Utility-Functions.html#g-strjoinv" title="g_strjoinv ()">g_strjoinv</a>                          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);
 <a class="link" href="glib-Basic-Types.html#guint" title="guint"><span class="returnvalue">guint</span></a>               <a class="link" href="glib-String-Utility-Functions.html#g-strv-length" title="g_strv_length ()">g_strv_length</a>                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);
 
@@ -203,13 +203,43 @@ const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span cla
 <div class="refsect1">
 <a name="glib-String-Utility-Functions.description"></a><h2>Description</h2>
 <p>
+This section describes a number of utility functions for creating,
+duplicating, and manipulating strings.
+</p>
+<p>
+Note that the functions <a class="link" href="glib-String-Utility-Functions.html#g-printf" title="g_printf ()"><code class="function">g_printf()</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-fprintf" title="g_fprintf ()"><code class="function">g_fprintf()</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-sprintf" title="g_sprintf ()"><code class="function">g_sprintf()</code></a>,
+<a class="link" href="glib-String-Utility-Functions.html#g-snprintf" title="g_snprintf ()"><code class="function">g_snprintf()</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-vprintf" title="g_vprintf ()"><code class="function">g_vprintf()</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-vfprintf" title="g_vfprintf ()"><code class="function">g_vfprintf()</code></a>, <a class="link" href="glib-String-Utility-Functions.html#g-vsprintf" title="g_vsprintf ()"><code class="function">g_vsprintf()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-vsnprintf" title="g_vsnprintf ()"><code class="function">g_vsnprintf()</code></a>
+are declared in the header <code class="filename">gprintf.h</code> which is
+<span class="emphasis"><em>not</em></span> included in <code class="filename">glib.h</code>
+(otherwise using <code class="filename">glib.h</code> would drag in
+<code class="filename">stdio.h</code>), so you'll have to explicitly include
+<code class="literal">&lt;glib/gprintf.h&gt;</code> in order to use the GLib
+<code class="function">printf()</code> functions.
+</p>
+<p>
+</p>
+<p><a name="string-precision"></a>While you may use the <code class="function">printf()</code> functions
+to format UTF-8 strings, notice that the precision of a
+<code class="literal">%Ns</code> parameter is interpreted as the
+number of <span class="emphasis"><em>bytes</em></span>, not <span class="emphasis"><em>characters</em></span>
+to print. On top of that, the GNU libc implementation of the <code class="function">printf()</code>
+functions has the "feature" that it checks that the string given for
+the <code class="literal">%Ns</code> parameter consists of a whole number
+of characters in the current encoding. So, unless you are sure you are
+always going to be in an UTF-8 locale or your know your text is restricted
+to ASCII, avoid using <code class="literal">%Ns</code>. If your intention is
+to format strings for a certain number of columns, then
+<code class="literal">%Ns</code> is not a correct solution anyway, since it
+fails to take wide characters (see <a class="link" href="glib-Unicode-Manipulation.html#g-unichar-iswide" title="g_unichar_iswide ()"><code class="function">g_unichar_iswide()</code></a>) into account.
+</p>
+<p>
 </p>
 </div>
 <div class="refsect1">
 <a name="glib-String-Utility-Functions.details"></a><h2>Details</h2>
 <div class="refsect2">
 <a name="g-strdup"></a><h3>g_strdup ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strdup                            (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
 <p>
 Duplicates a string. If <em class="parameter"><code>str</code></em> is <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a> it returns <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>.
 The returned string should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" title="g_free ()"><code class="function">g_free()</code></a>
@@ -233,7 +263,7 @@ when no longer needed.
 <hr>
 <div class="refsect2">
 <a name="g-strndup"></a><h3>g_strndup ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strndup                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strndup                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> n</code></em>);</pre>
 <p>
 Duplicates the first <em class="parameter"><code>n</code></em> bytes of a string, returning a newly-allocated
@@ -276,7 +306,7 @@ of <em class="parameter"><code>str</code></em>, nul-terminated</td>
 <hr>
 <div class="refsect2">
 <a name="g-strdupv"></a><h3>g_strdupv ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **                g_strdupv                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            g_strdupv                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);</pre>
 <p>
 Copies <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings. The copy is a deep copy;
 the new array should be freed by first freeing each string, then
@@ -288,8 +318,7 @@ on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><co
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
-<td>
-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings.</td>
+<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -301,7 +330,7 @@ on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><co
 <hr>
 <div class="refsect2">
 <a name="g-strnfill"></a><h3>g_strnfill ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strnfill                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> length</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strnfill                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="type">gsize</span></a> length</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> fill_char</code></em>);</pre>
 <p>
 Creates a new string <em class="parameter"><code>length</code></em> bytes long filled with <em class="parameter"><code>fill_char</code></em>.
@@ -329,7 +358,7 @@ The returned string should be freed when no longer needed.
 <hr>
 <div class="refsect2">
 <a name="g-stpcpy"></a><h3>g_stpcpy ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_stpcpy                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *dest</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_stpcpy                            (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *dest</code></em>,
                                                          <em class="parameter"><code>const <span class="type">char</span> *src</code></em>);</pre>
 <p>
 Copies a nul-terminated string into the dest buffer, include the
@@ -358,7 +387,7 @@ without having to repeatedly scan for the end.
 <hr>
 <div class="refsect2">
 <a name="g-strstr-len"></a><h3>g_strstr_len ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                g_strstr_len                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strstr_len                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> haystack_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);</pre>
 <p>
@@ -371,7 +400,7 @@ to <em class="parameter"><code>haystack_len</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
-<td>a string.</td>
+<td>a string</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack_len</code></em> :</span></p></td>
@@ -381,7 +410,7 @@ search through the whole string.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>needle</code></em> :</span></p></td>
-<td>the string to search for.</td>
+<td>the string to search for</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -394,7 +423,7 @@ search through the whole string.</td>
 <hr>
 <div class="refsect2">
 <a name="g-strrstr"></a><h3>g_strrstr ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                g_strrstr                        (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strrstr                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);</pre>
 <p>
 Searches the string <em class="parameter"><code>haystack</code></em> for the last occurrence
@@ -405,11 +434,11 @@ of the string <em class="parameter"><code>needle</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
-<td>a nul-terminated string.</td>
+<td>a nul-terminated string</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>needle</code></em> :</span></p></td>
-<td>the nul-terminated string to search for.</td>
+<td>the nul-terminated string to search for</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -422,7 +451,7 @@ of the string <em class="parameter"><code>needle</code></em>.
 <hr>
 <div class="refsect2">
 <a name="g-strrstr-len"></a><h3>g_strrstr_len ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                g_strrstr_len                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strrstr_len                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *haystack</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> haystack_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *needle</code></em>);</pre>
 <p>
@@ -435,15 +464,16 @@ to <em class="parameter"><code>haystack_len</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack</code></em> :</span></p></td>
-<td>a nul-terminated string.</td>
+<td>a nul-terminated string</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>haystack_len</code></em> :</span></p></td>
-<td>the maximum length of <em class="parameter"><code>haystack</code></em>.</td>
+<td>the maximum length of <em class="parameter"><code>haystack</code></em>
+</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>needle</code></em> :</span></p></td>
-<td>the nul-terminated string to search for.</td>
+<td>the nul-terminated string to search for</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -466,11 +496,11 @@ Looks whether the string <em class="parameter"><code>str</code></em> begins with
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
-<td>a nul-terminated string.</td>
+<td>a nul-terminated string</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>prefix</code></em> :</span></p></td>
-<td>the nul-terminated prefix to look for.</td>
+<td>the nul-terminated prefix to look for</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -494,11 +524,11 @@ Looks whether the string <em class="parameter"><code>str</code></em> ends with <
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
-<td>a nul-terminated string.</td>
+<td>a nul-terminated string</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>suffix</code></em> :</span></p></td>
-<td>the nul-terminated suffix to look for.</td>
+<td>the nul-terminated suffix to look for</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -524,12 +554,12 @@ Comparing two <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str1</code></em> :</span></p></td>
-<td>a C string or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a C string or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str2</code></em> :</span></p></td>
-<td>another C string or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>another C string or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -649,7 +679,7 @@ truncation occurred.</td>
 <hr>
 <div class="refsect2">
 <a name="g-strdup-printf"></a><h3>g_strdup_printf ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup_printf                  (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strdup_printf                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Similar to the standard C <code class="function">sprintf()</code> function but safer, since it
@@ -663,7 +693,7 @@ longer needed.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>
 </td>
 </tr>
 <tr>
@@ -680,7 +710,7 @@ string precision pitfalls
 <hr>
 <div class="refsect2">
 <a name="g-strdup-vprintf"></a><h3>g_strdup_vprintf ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdup_vprintf                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strdup_vprintf                    (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
 <p>
 Similar to the standard C <code class="function">vsprintf()</code> function but safer, since it
@@ -698,7 +728,7 @@ additionally returns the length of the allocated string.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>
 </td>
 </tr>
 <tr>
@@ -727,7 +757,7 @@ positional parameters, as specified in the Single Unix Specification.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
@@ -756,7 +786,7 @@ positional parameters, as specified in the Single Unix Specification.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -790,7 +820,7 @@ positional parameters, as specified in the Single Unix Specification.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
@@ -824,7 +854,7 @@ positional parameters, as specified in the Single Unix Specification.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -867,7 +897,7 @@ enough to hold the formatted result</td>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
@@ -901,7 +931,7 @@ positional parameters, as specified in the Single Unix Specification.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -960,7 +990,7 @@ terminating nul character).</td>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
@@ -1019,7 +1049,7 @@ terminating nul character).</td>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -1056,7 +1086,7 @@ you allocate in advance.
 <tr>
 <td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
 <td>a standard <code class="function">printf()</code> format string, but notice
-string precision pitfalls.</td>
+<a class="link" href="glib-String-Utility-Functions.html#string-precision">string precision pitfalls</a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
@@ -1076,84 +1106,354 @@ string precision pitfalls.</td>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gsize" title="gsize"><span class="returnvalue">gsize</span></a>               g_printf_string_upper_bound         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
 <p>
+Calculates the maximum space needed to store the output
+of the <code class="function">sprintf()</code> function.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>the format string. See the <code class="function">printf()</code> documentation</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>the parameters to be inserted into the format string</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the maximum space needed to store the formatted string</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isalnum"></a><h3>g_ascii_isalnum ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isalnum                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is alphanumeric.
 </p>
+<p>
+Unlike the standard C library <code class="function">isalnum()</code> function, this only
+recognizes standard ASCII letters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII alphanumeric character</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isalpha"></a><h3>g_ascii_isalpha ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isalpha                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is alphabetic (i.e. a letter).
 </p>
+<p>
+Unlike the standard C library <code class="function">isalpha()</code> function, this only
+recognizes standard ASCII letters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII alphabetic character</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-iscntrl"></a><h3>g_ascii_iscntrl ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_iscntrl                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a control character.
 </p>
+<p>
+Unlike the standard C library <code class="function">iscntrl()</code> function, this only
+recognizes standard ASCII control characters and ignores the
+locale, returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also,
+unlike the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII control character.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isdigit"></a><h3>g_ascii_isdigit ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isdigit                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is digit (0-9).
 </p>
+<p>
+Unlike the standard C library <code class="function">isdigit()</code> function, this takes
+a <span class="type">char</span>, not an <span class="type">int</span>, so don't call it
+on <code class="literal">EOF</code>, but no need to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly
+non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII digit.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isgraph"></a><h3>g_ascii_isgraph ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isgraph                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a printing character and not a space.
 </p>
+<p>
+Unlike the standard C library <code class="function">isgraph()</code> function, this only
+recognizes standard ASCII characters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need
+to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII printing character other than space.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-islower"></a><h3>g_ascii_islower ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_islower                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is an ASCII lower case letter.
 </p>
+<p>
+Unlike the standard C library <code class="function">islower()</code> function, this only
+recognizes standard ASCII letters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need
+to worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly
+non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII lower case letter</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isprint"></a><h3>g_ascii_isprint ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isprint                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a printing character.
 </p>
+<p>
+Unlike the standard C library <code class="function">isprint()</code> function, this only
+recognizes standard ASCII characters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need
+to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII printing character.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-ispunct"></a><h3>g_ascii_ispunct ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_ispunct                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a punctuation character.
 </p>
+<p>
+Unlike the standard C library <code class="function">ispunct()</code> function, this only
+recognizes standard ASCII letters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII punctuation character.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isspace"></a><h3>g_ascii_isspace ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isspace                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a white-space character.
 </p>
+<p>
+Unlike the standard C library <code class="function">isspace()</code> function, this only
+recognizes standard ASCII white-space and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII white-space character</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isupper"></a><h3>g_ascii_isupper ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isupper                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is an ASCII upper case letter.
 </p>
+<p>
+Unlike the standard C library <code class="function">isupper()</code> function, this only
+recognizes standard ASCII letters and ignores the locale,
+returning <a class="link" href="glib-Standard-Macros.html#FALSE:CAPS" title="FALSE"><code class="literal">FALSE</code></a> for all non-ASCII characters. Also, unlike
+the standard library function, this takes a <span class="type">char</span>,
+not an <span class="type">int</span>, so don't call it on <code class="literal">EOF</code>, but no need to
+worry about casting to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a possibly non-ASCII
+character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII upper case letter</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-isxdigit"></a><h3>g_ascii_isxdigit ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gboolean" title="gboolean"><span class="returnvalue">gboolean</span></a>            g_ascii_isxdigit                    (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> c</code></em>);</pre>
 <p>
+Determines whether a character is a hexadecimal-digit character.
 </p>
+<p>
+Unlike the standard C library <code class="function">isxdigit()</code> function, this takes
+a <span class="type">char</span>, not an <span class="type">int</span>, so don't call it
+on <code class="literal">EOF</code>, but no need to cast to <a class="link" href="glib-Basic-Types.html#guchar" title="guchar"><span class="type">guchar</span></a> before passing a
+possibly non-ASCII character in.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>any character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="glib-Standard-Macros.html#TRUE:CAPS" title="TRUE"><code class="literal">TRUE</code></a> if <em class="parameter"><code>c</code></em> is an ASCII hexadecimal-digit character.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -1292,7 +1592,7 @@ or a positive value if <em class="parameter"><code>s1</code></em> &gt; <em class
 <hr>
 <div class="refsect2">
 <a name="g-ascii-strup"></a><h3>g_ascii_strup ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_ascii_strup                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_ascii_strup                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);</pre>
 <p>
 Converts all lower case ASCII letters to upper case ASCII letters.
@@ -1322,7 +1622,7 @@ the string in place.)</td>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-strdown"></a><h3>g_ascii_strdown ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_ascii_strdown                 (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_ascii_strdown                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *str</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gssize" title="gssize"><span class="type">gssize</span></a> len</code></em>);</pre>
 <p>
 Converts all upper case ASCII letters to lower case ASCII letters.
@@ -1418,7 +1718,7 @@ If <em class="parameter"><code>c</code></em> is not an ASCII lower case letter,
 <a name="g-string-ascii-up"></a><h3>g_string_ascii_up ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="returnvalue">GString</span></a> *           g_string_ascii_up                   (<em class="parameter"><code><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> *string</code></em>);</pre>
 <p>
-Converts all lower case ASCII letters to upper case ASCII letters.
+Converts all lowercase ASCII letters to uppercase ASCII letters.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1429,9 +1729,9 @@ Converts all lower case ASCII letters to upper case ASCII letters.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>passed-in <em class="parameter"><code>string</code></em> pointer, with all the lower case
-characters converted to upper case in place, with
-semantics that exactly match <a class="link" href="glib-String-Utility-Functions.html#g-ascii-toupper" title="g_ascii_toupper ()"><code class="function">g_ascii_toupper()</code></a>.</td>
+<td>passed-in <em class="parameter"><code>string</code></em> pointer, with all the
+lowercase characters converted to uppercase in place,
+with semantics that exactly match <a class="link" href="glib-String-Utility-Functions.html#g-ascii-toupper" title="g_ascii_toupper ()"><code class="function">g_ascii_toupper()</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1441,7 +1741,7 @@ semantics that exactly match <a class="link" href="glib-String-Utility-Functions
 <a name="g-string-ascii-down"></a><h3>g_string_ascii_down ()</h3>
 <pre class="programlisting"><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="returnvalue">GString</span></a> *           g_string_ascii_down                 (<em class="parameter"><code><a class="link" href="glib-Strings.html#GString" title="struct GString"><span class="type">GString</span></a> *string</code></em>);</pre>
 <p>
-Converts all upper case ASCII letters to lower case ASCII letters.
+Converts all uppercase ASCII letters to lowercase ASCII letters.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1452,9 +1752,9 @@ Converts all upper case ASCII letters to lower case ASCII letters.
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>passed-in <em class="parameter"><code>string</code></em> pointer, with all the upper case
-characters converted to lower case in place, with
-semantics that exactly match <a class="link" href="glib-String-Utility-Functions.html#g-ascii-tolower" title="g_ascii_tolower ()"><code class="function">g_ascii_tolower()</code></a>.</td>
+<td>passed-in <em class="parameter"><code>string</code></em> pointer, with all the
+uppercase characters converted to lowercase in place,
+with semantics that exactly match <a class="link" href="glib-String-Utility-Functions.html#g-ascii-tolower" title="g_ascii_tolower ()"><code class="function">g_ascii_tolower()</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
@@ -1462,7 +1762,7 @@ semantics that exactly match <a class="link" href="glib-String-Utility-Functions
 <hr>
 <div class="refsect2">
 <a name="g-strup"></a><h3>g_strup ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strup                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strup                             (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_strup</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed
@@ -1488,7 +1788,7 @@ in the <a class="link" href="glib-String-Utility-Functions.html#g-strncasecmp" t
 <hr>
 <div class="refsect2">
 <a name="g-strdown"></a><h3>g_strdown ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdown                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strdown                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Warning</h3>
 <p><code class="literal">g_strdown</code> has been deprecated since version 2.2 and should not be used in newly-written code. This function is totally broken for the reasons discussed
@@ -1596,7 +1896,7 @@ or a positive value if <em class="parameter"><code>s1</code></em> &gt; <em class
 <hr>
 <div class="refsect2">
 <a name="g-strreverse"></a><h3>g_strreverse ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strreverse                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strreverse                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
 Reverses all of the bytes in a string. For example,
 <code class="literal">g_strreverse ("abcdef")</code> will result
@@ -1642,11 +1942,12 @@ To handle input from the user you should normally use the
 locale-sensitive system <code class="function">strtoll()</code> function.
 </p>
 <p>
-If the correct value would cause overflow, <a class="link" href="glib-Limits-of-Basic-Types.html#G-MAXINT64:CAPS" title="G_MAXINT64"><code class="literal">G_MAXINT64</code></a> or <a class="link" href="glib-Limits-of-Basic-Types.html#G-MININT64:CAPS" title="G_MININT64"><code class="literal">G_MININT64</code></a>
-is returned, and <code class="literal">ERANGE</code> is stored in <code class="literal">errno</code>.  If the base is
-outside the valid range, zero is returned, and <code class="literal">EINVAL</code> is stored
-in <code class="literal">errno</code>.  If the string conversion fails, zero is returned, and
-<em class="parameter"><code>endptr</code></em> returns <em class="parameter"><code>nptr</code></em> (if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
+If the correct value would cause overflow, <a class="link" href="glib-Basic-Types.html#G-MAXINT64:CAPS" title="G_MAXINT64"><code class="literal">G_MAXINT64</code></a> or <a class="link" href="glib-Basic-Types.html#G-MININT64:CAPS" title="G_MININT64"><code class="literal">G_MININT64</code></a>
+is returned, and <code class="literal">ERANGE</code> is stored in <code class="literal">errno</code>.
+If the base is outside the valid range, zero is returned, and
+<code class="literal">EINVAL</code> is stored in <code class="literal">errno</code>. If the
+string conversion fails, zero is returned, and <em class="parameter"><code>endptr</code></em> returns <em class="parameter"><code>nptr</code></em>
+(if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1692,11 +1993,12 @@ To handle input from the user you should normally use the
 locale-sensitive system <code class="function">strtoull()</code> function.
 </p>
 <p>
-If the correct value would cause overflow, <a class="link" href="glib-Limits-of-Basic-Types.html#G-MAXUINT64:CAPS" title="G_MAXUINT64"><code class="literal">G_MAXUINT64</code></a>
-is returned, and <code class="literal">ERANGE</code> is stored in <code class="literal">errno</code>.  If the base is
-outside the valid range, zero is returned, and <code class="literal">EINVAL</code> is stored
-in <code class="literal">errno</code>.  If the string conversion fails, zero is returned, and
-<em class="parameter"><code>endptr</code></em> returns <em class="parameter"><code>nptr</code></em> (if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
+If the correct value would cause overflow, <a class="link" href="glib-Basic-Types.html#G-MAXUINT64:CAPS" title="G_MAXUINT64"><code class="literal">G_MAXUINT64</code></a>
+is returned, and <code class="literal">ERANGE</code> is stored in <code class="literal">errno</code>.
+If the base is outside the valid range, zero is returned, and
+<code class="literal">EINVAL</code> is stored in <code class="literal">errno</code>.
+If the string conversion fails, zero is returned, and <em class="parameter"><code>endptr</code></em> returns
+<em class="parameter"><code>nptr</code></em> (if <em class="parameter"><code>endptr</code></em> is non-<a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>).
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -1727,6 +2029,19 @@ the last character used in the conversion.</td>
 <a name="G-ASCII-DTOSTR-BUF-SIZE:CAPS"></a><h3>G_ASCII_DTOSTR_BUF_SIZE</h3>
 <pre class="programlisting">#define G_ASCII_DTOSTR_BUF_SIZE (29 + 10)
 </pre>
+<p>
+A good size for a buffer to be passed into <a class="link" href="glib-String-Utility-Functions.html#g-ascii-dtostr" title="g_ascii_dtostr ()"><code class="function">g_ascii_dtostr()</code></a>.
+It is guaranteed to be enough for all output of that function
+on systems with 64bit IEEE-compatible doubles.
+</p>
+<p>
+The typical usage would be something like:
+</p>
+<div class="informalexample"><pre class="programlisting">
+  char buf[G_ASCII_DTOSTR_BUF_SIZE];
+
+  fprintf (out, "value=%s\n", g_ascii_dtostr (buf, sizeof (buf), value));
+</pre></div>
 <p>
 </p>
 </div>
@@ -1787,7 +2102,7 @@ the last character used in the conversion.</td>
 <hr>
 <div class="refsect2">
 <a name="g-ascii-dtostr"></a><h3>g_ascii_dtostr ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                g_ascii_dtostr                   (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_ascii_dtostr                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> buf_len</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> d</code></em>);</pre>
 <p>
@@ -1826,7 +2141,7 @@ be larger than <em class="parameter"><code>G_ASCII_DTOSTR_BUF_SIZE</code></em> b
 <hr>
 <div class="refsect2">
 <a name="g-ascii-formatd"></a><h3>g_ascii_formatd ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                g_ascii_formatd                  (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_ascii_formatd                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *buffer</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> buf_len</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *format</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gdouble" title="gdouble"><span class="type">gdouble</span></a> d</code></em>);</pre>
@@ -1879,7 +2194,7 @@ if the string is not completely converted it attempts the conversion
 again with <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strtod" title="g_ascii_strtod ()"><code class="function">g_ascii_strtod()</code></a>, and returns the best match.
 </p>
 <p>
-This function should seldomly be used. The normal situation when reading
+This function should seldom be used. The normal situation when reading
 numbers not for human consumption is to use <a class="link" href="glib-String-Utility-Functions.html#g-ascii-strtod" title="g_ascii_strtod ()"><code class="function">g_ascii_strtod()</code></a>. Only when
 you know that you must expect both locale formatted and C formatted numbers
 should you use this. Make sure that you don't pass strings such as comma
@@ -1908,32 +2223,126 @@ the last character used in the conversion.</td>
 <hr>
 <div class="refsect2">
 <a name="g-strchug"></a><h3>g_strchug ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strchug                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strchug                           (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
+Removes leading whitespace from a string, by moving the rest
+of the characters forward.
 </p>
+<p>
+This function doesn't allocate or reallocate any memory;
+it modifies <em class="parameter"><code>string</code></em> in place. The pointer to <em class="parameter"><code>string</code></em> is
+returned to allow the nesting of functions.
+</p>
+<p>
+Also see <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()"><code class="function">g_strchomp()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strstrip" title="g_strstrip()"><code class="function">g_strstrip()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>a string to remove the leading whitespace from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><em class="parameter"><code>string</code></em></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strchomp"></a><h3>g_strchomp ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strchomp                      (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strchomp                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>);</pre>
 <p>
+Removes trailing whitespace from a string.
 </p>
+<p>
+This function doesn't allocate or reallocate any memory;
+it modifies <em class="parameter"><code>string</code></em> in place. The pointer to <em class="parameter"><code>string</code></em> is
+returned to allow the nesting of functions.
+</p>
+<p>
+Also see <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()"><code class="function">g_strchug()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strstrip" title="g_strstrip()"><code class="function">g_strstrip()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>a string to remove the trailing whitespace from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>string</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strstrip"></a><h3>g_strstrip()</h3>
 <pre class="programlisting">#define             g_strstrip( string )</pre>
 <p>
+Removes leading and trailing whitespace from a string.
+See <a class="link" href="glib-String-Utility-Functions.html#g-strchomp" title="g_strchomp ()"><code class="function">g_strchomp()</code></a> and <a class="link" href="glib-String-Utility-Functions.html#g-strchug" title="g_strchug ()"><code class="function">g_strchug()</code></a>.
 </p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>a string to remove the leading and trailing whitespace from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><em class="parameter"><code>string</code></em></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strdelimit"></a><h3>g_strdelimit ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strdelimit                     (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strdelimit                        (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiters</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> new_delimiter</code></em>);</pre>
 <p>
+Converts any delimiter characters in <em class="parameter"><code>string</code></em> to <em class="parameter"><code>new_delimiter</code></em>.
+Any characters in <em class="parameter"><code>string</code></em> which are found in <em class="parameter"><code>delimiters</code></em> are
+changed to the <em class="parameter"><code>new_delimiter</code></em> character. Modifies <em class="parameter"><code>string</code></em> in place,
+and returns <em class="parameter"><code>string</code></em> itself, not a copy. The return value is to
+allow nesting such as
 </p>
+<div class="informalexample"><pre class="programlisting">
+  g_ascii_strup (g_strdelimit (str, "abc", '?'))
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>the string to convert</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>delimiters</code></em> :</span></p></td>
+<td>a string containing the current delimiters, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+to use the standard delimiters defined in <a class="link" href="glib-String-Utility-Functions.html#G-STR-DELIMITERS:CAPS" title="G_STR_DELIMITERS"><span class="type">G_STR_DELIMITERS</span></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_delimiter</code></em> :</span></p></td>
+<td>the new delimiter character</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><em class="parameter"><code>string</code></em></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -1941,42 +2350,120 @@ the last character used in the conversion.</td>
 <pre class="programlisting">#define	 G_STR_DELIMITERS "_-|&gt; &lt;."
 </pre>
 <p>
+The standard delimiters, used in <a class="link" href="glib-String-Utility-Functions.html#g-strdelimit" title="g_strdelimit ()"><code class="function">g_strdelimit()</code></a>.
 </p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strescape"></a><h3>g_strescape ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strescape                     (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strescape                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *exceptions</code></em>);</pre>
 <p>
+Escapes the special characters '\b', '\f', '\n', '\r', '\t', '\v', '\'
+and '"' in the string <em class="parameter"><code>source</code></em> by inserting a '\' before
+them. Additionally all characters in the range 0x01-0x1F (everything
+below SPACE) and in the range 0x7F-0xFF (all non-ASCII chars) are
+replaced with a '\' followed by their octal representation.
+Characters supplied in <em class="parameter"><code>exceptions</code></em> are not escaped.
 </p>
+<p>
+<a class="link" href="glib-String-Utility-Functions.html#g-strcompress" title="g_strcompress ()"><code class="function">g_strcompress()</code></a> does the reverse conversion.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a string to escape</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exceptions</code></em> :</span></p></td>
+<td>a string of characters not to escape in <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated copy of <em class="parameter"><code>source</code></em> with certain
+characters escaped. See above.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strcompress"></a><h3>g_strcompress ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strcompress                   (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strcompress                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *source</code></em>);</pre>
 <p>
+Replaces all escaped characters with their one byte equivalent.
 </p>
+<p>
+This function does the reverse conversion of <a class="link" href="glib-String-Utility-Functions.html#g-strescape" title="g_strescape ()"><code class="function">g_strescape()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a string to compress</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated copy of <em class="parameter"><code>source</code></em> with all escaped
+character compressed</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strcanon"></a><h3>g_strcanon ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strcanon                       (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strcanon                          (<em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *valid_chars</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> substitutor</code></em>);</pre>
 <p>
+For each character in <em class="parameter"><code>string</code></em>, if the character is not in
+<em class="parameter"><code>valid_chars</code></em>, replaces the character with <em class="parameter"><code>substitutor</code></em>.
+Modifies <em class="parameter"><code>string</code></em> in place, and return <em class="parameter"><code>string</code></em> itself, not
+a copy. The return value is to allow nesting such as
 </p>
+<div class="informalexample"><pre class="programlisting">
+  g_ascii_strup (g_strcanon (str, "abc", '?'))
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td>a nul-terminated array of bytes</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>valid_chars</code></em> :</span></p></td>
+<td>bytes permitted in <em class="parameter"><code>string</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>substitutor</code></em> :</span></p></td>
+<td>replacement character for disallowed bytes</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td><em class="parameter"><code>string</code></em></td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strsplit"></a><h3>g_strsplit ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **	               g_strsplit                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            g_strsplit                          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiter</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_tokens</code></em>);</pre>
 <p>
 Splits a string into a maximum of <em class="parameter"><code>max_tokens</code></em> pieces, using the given
-<em class="parameter"><code>delimiter</code></em>. If <em class="parameter"><code>max_tokens</code></em> is reached, the remainder of <em class="parameter"><code>string</code></em> is appended
-to the last token.
+<em class="parameter"><code>delimiter</code></em>. If <em class="parameter"><code>max_tokens</code></em> is reached, the remainder of <em class="parameter"><code>string</code></em> is
+appended to the last token.
 </p>
 <p>
 As a special case, the result of splitting the empty string "" is an empty
@@ -1991,18 +2478,18 @@ before calling <a class="link" href="glib-String-Utility-Functions.html#g-strspl
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
-<td>要分割的字符串.</td>
+<td>a string to split</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>delimiter</code></em> :</span></p></td>
-<td>a string which specifies the places at which to split the string.
-The delimiter is not included in any of the resulting strings, unless
-<em class="parameter"><code>max_tokens</code></em> is reached.</td>
+<td>a string which specifies the places at which to split
+the string. The delimiter is not included in any of the resulting
+strings, unless <em class="parameter"><code>max_tokens</code></em> is reached.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>max_tokens</code></em> :</span></p></td>
-<td>the maximum number of pieces to split <em class="parameter"><code>string</code></em> into. If this is
-less than 1, the string is split completely.</td>
+<td>the maximum number of pieces to split <em class="parameter"><code>string</code></em> into.
+If this is less than 1, the string is split completely.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2015,7 +2502,7 @@ less than 1, the string is split completely.</td>
 <hr>
 <div class="refsect2">
 <a name="g-strsplit-set"></a><h3>g_strsplit_set ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **	           g_strsplit_set                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> **            g_strsplit_set                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string</code></em>,
                                                          <em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *delimiters</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gint" title="gint"><span class="type">gint</span></a> max_tokens</code></em>);</pre>
 <p>
@@ -2083,14 +2570,14 @@ If called on a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title=
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings to free.</td>
+<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings to free</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="g-strconcat"></a><h3>g_strconcat ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *	               g_strconcat                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string1</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strconcat                         (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *string1</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Concatenates all of the given strings into one long string.
@@ -2133,7 +2620,7 @@ random memory junk to your string.</p>
 <hr>
 <div class="refsect2">
 <a name="g-strjoin"></a><h3>g_strjoin ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strjoin                       (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strjoin                           (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Joins a number of strings together to form one long string, with the
@@ -2145,7 +2632,7 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
-<td>a string to insert between each of the strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a string to insert between each of the strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -2163,7 +2650,7 @@ together, with <em class="parameter"><code>separator</code></em> between them</t
 <hr>
 <div class="refsect2">
 <a name="g-strjoinv"></a><h3>g_strjoinv ()</h3>
-<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *                 g_strjoinv                      (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
+<pre class="programlisting"><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="returnvalue">gchar</span></a> *             g_strjoinv                          (<em class="parameter"><code>const <a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> *separator</code></em>,
                                                          <em class="parameter"><code><a class="link" href="glib-Basic-Types.html#gchar" title="gchar"><span class="type">gchar</span></a> **str_array</code></em>);</pre>
 <p>
 Joins a number of strings together to form one long string, with the
@@ -2175,7 +2662,7 @@ should be freed with <a class="link" href="glib-Memory-Allocation.html#g-free" t
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>separator</code></em> :</span></p></td>
-<td>a string to insert between each of the strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>
+<td>a string to insert between each of the strings, or <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -2203,7 +2690,7 @@ string array <em class="parameter"><code>str_array</code></em>.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>str_array</code></em> :</span></p></td>
-<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings.</td>
+<td>a <a class="link" href="glib-Standard-Macros.html#NULL:CAPS" title="NULL"><code class="literal">NULL</code></a>-terminated array of strings</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
@@ -2234,9 +2721,7 @@ documentation</td>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a UTF-8 string describing the error code. If the error code
-is unknown, it returns "unknown error (&lt;code&gt;)". The string
-can only be used until the next call to <a class="link" href="glib-String-Utility-Functions.html#g-strerror" title="g_strerror ()"><code class="function">g_strerror()</code></a>
-</td>
+is unknown, it returns "unknown error (&lt;code&gt;)".</td>
 </tr>
 </tbody>
 </table></div>
@@ -2262,9 +2747,7 @@ documentation</td>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a UTF-8 string describing the signal. If the signal is unknown,
-it returns "unknown signal (&lt;signum&gt;)". The string can only be
-used until the next call to <a class="link" href="glib-String-Utility-Functions.html#g-strsignal" title="g_strsignal ()"><code class="function">g_strsignal()</code></a>
-</td>
+it returns "unknown signal (&lt;signum&gt;)".</td>
 </tr>
 </tbody>
 </table></div>
@@ -2273,6 +2756,6 @@ used until the next call to <a class="link" href="glib-String-Utility-Functions.
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

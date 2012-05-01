@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="GLib 参考手册">
 <link rel="up" href="index.html" title="GLib 参考手册">
 <link rel="prev" href="glib-Windows-Compatibility-Functions.html" title="Windows Compatibility Functions">
-<link rel="next" href="glib-Memory-Slices.html" title="Memory Slices">
-<meta name="generator" content="GTK-Doc V1.17 (XML mode)">
+<link rel="next" href="glib-Doubly-Linked-Lists.html" title="Doubly-Linked Lists">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -17,44 +17,34 @@
 <td> </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">GLib 参考手册</th>
-<td><a accesskey="n" href="glib-Memory-Slices.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="glib-Doubly-Linked-Lists.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="chapter">
 <div class="titlepage"><div><div><h2 class="title">
 <a name="glib-data-types"></a>GLib 数据类型</h2></div></div></div>
 <div class="toc"><dl>
 <dt>
-<span class="refentrytitle"><a href="glib-Memory-Slices.html">Memory Slices</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="glib-Doubly-Linked-Lists.html">Doubly-Linked Lists</a></span><span class="refpurpose"> — linked lists that can be iterated over in both directions</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Memory-Chunks.html">Memory Chunks</a></span><span class="refpurpose"> — deprecated way to allocate groups of equal-sized
-                    chunks of memory</span>
+<span class="refentrytitle"><a href="glib-Singly-Linked-Lists.html">Singly-Linked Lists</a></span><span class="refpurpose"> — linked lists that can be iterated in one direction</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Doubly-Linked-Lists.html">Doubly-Linked Lists</a></span><span class="refpurpose"> — linked lists containing integer values or
-                    pointers to data, with the ability to iterate
-                    over the list in both directions</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="glib-Singly-Linked-Lists.html">Singly-Linked Lists</a></span><span class="refpurpose"> — linked lists containing integer values or
-                    pointers to data, limited to iterating over the
-                    list in one direction</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="glib-Double-ended-Queues.html">Double-ended Queues</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="glib-Double-ended-Queues.html">Double-ended Queues</a></span><span class="refpurpose"> — double-ended queue data structure</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="glib-Sequences.html">Sequences</a></span><span class="refpurpose"> — scalable lists</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Trash-Stacks.html">Trash Stacks</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="glib-Trash-Stacks.html">Trash Stacks</a></span><span class="refpurpose"> — maintain a stack of unused allocated memory chunks</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="glib-Hash-Tables.html">Hash Tables</a></span><span class="refpurpose"> — associations between keys and values so that
-                    given a key the value can be found quickly</span>
+    given a key the value can be found quickly</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Strings.html">Strings</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="glib-Strings.html">Strings</a></span><span class="refpurpose"> — text buffers which grow automatically
+    as text is added</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="glib-String-Chunks.html">String Chunks</a></span><span class="refpurpose"> — efficient storage of groups of strings</span>
@@ -68,8 +58,7 @@
                     grow automatically as new elements are added</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Byte-Arrays.html">Byte Arrays</a></span><span class="refpurpose"> — arrays of bytes, which grow automatically as
-                    elements are added</span>
+<span class="refentrytitle"><a href="glib-Byte-Arrays.html">Byte Arrays</a></span><span class="refpurpose"> — arrays of bytes</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="glib-Balanced-Binary-Trees.html">Balanced Binary Trees</a></span><span class="refpurpose"> — a sorted collection of key/value pairs optimized
@@ -91,33 +80,21 @@
                     particular memory locations</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="glib-Relations-and-Tuples.html">Relations and Tuples</a></span><span class="refpurpose"> — tables of data which can be indexed on any
-                    number of fields</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="glib-Caches.html">Caches</a></span><span class="refpurpose"> — caches allow sharing of complex data structures
-                    to save resources</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="glib-Memory-Allocators.html">Memory Allocators</a></span><span class="refpurpose"> — deprecated way to allocate chunks of memory for
-                    GList, GSList and GNode</span>
-</dt>
-<dt>
 <span class="refentrytitle"><a href="glib-GVariantType.html">GVariantType</a></span><span class="refpurpose"> — introduction to the GVariant type system</span>
 </dt>
 <dt>
 <span class="refentrytitle"><a href="glib-GVariant.html">GVariant</a></span><span class="refpurpose"> — strongly typed value datatype</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gvariant-format-strings.html">GVariant Format Strings</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gvariant-format-strings.html">GVariant Format Strings</a></span><span class="refpurpose"> — varargs conversion of GVariants</span>
 </dt>
 <dt>
-<span class="refentrytitle"><a href="gvariant-text.html">GVariant Text Format</a></span><span class="refpurpose"></span>
+<span class="refentrytitle"><a href="gvariant-text.html">GVariant Text Format</a></span><span class="refpurpose"> — textual representation of GVariants</span>
 </dt>
 </dl></div>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.17</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>
