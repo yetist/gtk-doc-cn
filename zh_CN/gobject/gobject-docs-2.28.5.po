@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: GObject Reference Manual\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/gtk-doc-cn/issues\n"
 "POT-Creation-Date: 2011-04-17 23:55+0800\n"
-"PO-Revision-Date: 2015-06-21 03:10+0000\n"
+"PO-Revision-Date: 2015-06-22 08:00+0000\n"
 "Last-Translator: antkillerfarm <antkillerfarm@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/gobject-"
 "reference-manual/language/zh_CN/)\n"
@@ -23,8 +23,8 @@ msgstr ""
 #: tut_intro.xml:0(None) tut_tools.xml:0(None)
 msgid "translator-credits"
 msgstr ""
-"Ant Killer<antkillerfarm@gmail.com>,2013\n"
-"图拉鼎<tualatrix@gmail.com>,2008"
+"Ant Killer<antkillerfarm@gmail.com>,2013\"\n"
+"\"图拉鼎<tualatrix@gmail.com>,2008"
 
 #: glib-genmarshal.xml:10(refname) glib-genmarshal.xml:16(command)
 #: glib-genmarshal.xml:4(refentrytitle) glib-mkenums.xml:289(refentrytitle)
@@ -1068,6 +1068,13 @@ msgid ""
 "pointer that has been set up for us by the <literal>G_DEFINE_TYPE</literal> "
 "macro."
 msgstr ""
+"一旦<function><link linkend=\"g-object-new\">g_object_new</link></function>得"
+"到一个已被初始化的类结构的引用，它就调用它的构造方法来创建一个新对象的实例。"
+"因为它刚刚被<function>maman_bar_class_init</function>重载为"
+"<function>maman_bar_constructor</function>，因此后者将会被调用，并且如果它的"
+"实现是正确的，它会连接到父类的构造器。为了找到父类并链接到父类的构造器，我们"
+"可以使用<literal>maman_bar_parent_class</literal>指针，它是由"
+"<literal>G_DEFINE_TYPE</literal>宏设置的。"
 
 #: tut_gobject.xml:14(para)
 msgid ""
@@ -1077,6 +1084,10 @@ msgid ""
 "from <link linkend=\"GObject\"><type>GObject</type></link> which is why it "
 "is important to understand the details of how it works."
 msgstr ""
+"<link linkend=\"GObject\"><type>GObject</type></link>是一个基本的可类化可实例"
+"化的类型。它实现了：<placeholder-1/>所有使用GLib类型系统的GNOME库(如GTK+和"
+"GStreamer)都由<link linkend=\"GObject\"><type>GObject</type></link>派生，所以"
+"了解它如何工作的细节是非常重要的。"
 
 #: tut_gobject.xml:150(para)
 msgid ""
@@ -1093,6 +1104,16 @@ msgid ""
 "new\">g_object_new</link></function>) and returns to the user's constructor "
 "which is then allowed to do useful instance initialization..."
 msgstr ""
+"最后，在某个时刻，派生链上的最后一个构造函数会调用"
+"<function>g_object_constructor</function>。这个函数通过<function><link "
+"linkend=\"g-type-create-instance\">g_type_create_instance</link></function>分"
+"配对象实例的缓冲区，这意味着如果有实例被注册的话，那么此时会调用实例初始化"
+"（instance_init）函数。在实例初始化函数返回之后，对象就完全初始化好了，并已准"
+"备好应答用户的请求。当<function><link linkend=\"g-type-create-instance"
+"\">g_type_create_instance</link></function>返回时，"
+"<function>g_object_constructor</function>设置构造属性(也就是，提供给"
+"<function><link linkend=\"g-object-new\">g_object_new</link></function>的属"
+"性)，并返回到用户的构造器，用户构造器可用于完成一些有用的实例初始化……"
 
 #: tut_gobject.xml:162(para)
 msgid ""
@@ -1101,10 +1122,13 @@ msgid ""
 "<function><link linkend=\"g-object-new\">g_object_new</link></function> and "
 "their order of invocation:"
 msgstr ""
+"上面描述的过程似乎有些复杂，不过它可以用下面的表格来简单总结一下，表格列出了"
+"<function><link linkend=\"g-object-new\">g_object_new</link></function>所调用"
+"的函数以及它们的调用顺序："
 
 #: tut_gobject.xml:17(para)
 msgid "Memory management with reference counting"
-msgstr ""
+msgstr "使用引用计数的内存管理"
 
 #: tut_gobject.xml:171(link) tut_gobject.xml:187(link)
 #: tut_gobject.xml:219(link)
@@ -1113,60 +1137,64 @@ msgstr ""
 
 #: tut_gobject.xml:179(entry)
 msgid "Invocation time"
-msgstr ""
+msgstr "调用时机"
 
 #: tut_gobject.xml:18(para)
 msgid "Construction/Destruction of instances"
-msgstr ""
+msgstr "实例的创建和销毁"
 
 #: tut_gobject.xml:180(entry)
 msgid "Function Invoked"
-msgstr ""
+msgstr "调用函数"
 
 #: tut_gobject.xml:181(entry)
 msgid "Function's parameters"
-msgstr ""
+msgstr "函数的参数"
 
 #: tut_gobject.xml:182(entry)
 msgid "Remark"
-msgstr ""
+msgstr "备注"
 
 #: tut_gobject.xml:187(entry)
 msgid "First call to <function><placeholder-1/></function> for target type"
-msgstr ""
+msgstr "目标类型首次调用<function><placeholder-1/></function>时"
 
 #: tut_gobject.xml:188(entry)
 msgid "target type's base_init function"
-msgstr ""
+msgstr "目标类型的基类初始化函数"
 
 #: tut_gobject.xml:189(entry)
 msgid ""
 "On the inheritance tree of classes from fundamental type to target type. "
 "base_init is invoked once for each class structure."
 msgstr ""
+"类的继承树上的类型，从基本类型到目标类型，每个类结构都会调用一次基类初始化"
+"（base_init）函数。"
 
 #: tut_gobject.xml:19(para)
 msgid "Generic per-object properties with set/get function pairs"
-msgstr ""
+msgstr "使用set/get函数对进行的一般性对象属性操作。"
 
 #: tut_gobject.xml:191(entry)
 msgid ""
 "I have no real idea on how this can be used. If you have a good real-life "
 "example of how a class' base_init can be used, please, let me know."
 msgstr ""
+"我不知道这个特性该怎样被使用。如果你有好的现实生活的例子能用到类的基类初始化"
+"的话，请告诉我。"
 
 #. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
 #: tut_gobject.xml:198(entry)
 msgid "target type's class_init function"
-msgstr ""
+msgstr "目标类型的类初始化（class_init）函数"
 
 #: tut_gobject.xml:199(entry)
 msgid "On target type's class structure"
-msgstr ""
+msgstr "目标类型的类结构"
 
 #: tut_gobject.xml:20(para)
 msgid "Easy use of signals"
-msgstr ""
+msgstr "简单易用的信号机制。"
 
 #: tut_gobject.xml:200(entry)
 msgid ""
@@ -1174,32 +1202,34 @@ msgid ""
 "assign to each class' method its function pointer) and create the signals "
 "and the properties associated to your object."
 msgstr ""
+"这里，你应该确保初始化或重载类的方法(也就是给每一个类方法指派一个函数指针)，"
+"并为你的对象创建相关的信号和属性。"
 
 #. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
 #: tut_gobject.xml:208(entry)
 msgid "interface' base_init function"
-msgstr ""
+msgstr "接口的基类初始化（base_init）函数"
 
 #: tut_gobject.xml:209(entry) tut_gobject.xml:215(entry)
 msgid "On interface' vtable"
-msgstr ""
+msgstr "接口的虚函数表"
 
 #. entry>First call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
 #: tut_gobject.xml:214(entry)
 msgid "interface' interface_init function"
-msgstr ""
+msgstr "接口的接口初始化（interface_init）函数"
 
 #: tut_gobject.xml:219(entry)
 msgid "Each call to <function><placeholder-1/></function> for target type"
-msgstr ""
+msgstr "目标类型每次调用<function><placeholder-1/></function>时"
 
 #: tut_gobject.xml:220(entry)
 msgid "target type's class constructor method: GObjectClass-&gt;constructor"
-msgstr ""
+msgstr "目标类型的类构造方法：GObjectClass-&gt;constructor"
 
 #: tut_gobject.xml:221(entry)
 msgid "On object's instance"
-msgstr ""
+msgstr "对象的实例"
 
 #: tut_gobject.xml:222(entry)
 msgid ""
@@ -1208,11 +1238,14 @@ msgid ""
 "up to the object's parent class before doing your own initialization. In "
 "doubt, do not override the constructor method."
 msgstr ""
+"如果你需要在所有的构造属性都被设置之后完成对象的初始化，你应该重载构造方法，"
+"并确保在执行你自己的初始化过程之前链接到对象的父类上。拿不准的话，就不要重载"
+"构造方法了。"
 
 #. entry>Each call to <function><link linkend="g-object-new">g_object_new</link></function> for target type</entry
 #: tut_gobject.xml:231(entry)
 msgid "type's instance_init function"
-msgstr ""
+msgstr "类型的实例初始化（instance_init）函数"
 
 #: tut_gobject.xml:232(entry)
 msgid ""
@@ -1220,6 +1253,8 @@ msgid ""
 "instance_init provided for each type is invoked once for each instance "
 "structure."
 msgstr ""
+"类的继承树上的类型，从基本类型到目标类型，每个实例结构都会调用一次实例初始化"
+"（instance_init）函数。"
 
 #: tut_gobject.xml:235(entry)
 msgid ""
@@ -1227,6 +1262,8 @@ msgid ""
 "construction properties are set. This is the preferred way to initialize a "
 "GObject instance. This function is equivalent to C++ constructors."
 msgstr ""
+"在你的对象的构造属性被设置之前，提供一个实例初始化函数来初始化你的对象。这是"
+"初始化一个GObject实例的推荐方式。这个函数等效于C++的构造函数。"
 
 #: tut_gobject.xml:246(para)
 msgid ""
@@ -1242,10 +1279,17 @@ msgid ""
 "provided constructor <emphasis>must</emphasis> (you've been warned) chain up "
 "<emphasis>before</emphasis> doing anything useful."
 msgstr ""
+"读者可能会对函数调用的顺序感到困惑：类的构造方法在GType的实例初始化函数"
+"<emphasis>之前</emphasis>被调用(因为调用实例初始化的<function><link linkend="
+"\"g-type-create-instance\">g_type_create_instance</link></function>函数被用户"
+"所期待链接的顶层类构造方法<function>g_object_constructor</function>所调用)，"
+"用户提供的构造器中执行的用户代码，总是在GType的实例初始化函数<emphasis>之后</"
+"emphasis>执行，因此用户提供的构造器<emphasis>必须</emphasis>在做任何有用的事"
+"情之前被链接上。(正如你曾经被警告的那样)"
 
 #: tut_gobject.xml:261(title)
 msgid "Object memory management"
-msgstr ""
+msgstr "对象的内存管理"
 
 #: tut_gobject.xml:263(para)
 msgid ""
@@ -1256,6 +1300,9 @@ msgid ""
 "aso...). The methods which are used to manipulate this reference count are "
 "described below. <placeholder-1/>"
 msgstr ""
+"GObject内存管理的API有些复杂，但是它背后的主旨是相当简单的：它的目的是提供一"
+"个灵活的基于引用计数的、可以集成到使用或需要各种不同的内存管理模型(例如垃圾回"
+"收)的应用程序中的模型。下面描述的方法可用于操作引用计数。<placeholder-1/>"
 
 #: tut_gobject.xml:269(programlisting)
 #, no-wrap
@@ -1291,7 +1338,7 @@ msgstr ""
 
 #: tut_gobject.xml:28(title)
 msgid "Object instantiation"
-msgstr ""
+msgstr "对象的实例化"
 
 #: tut_gobject.xml:30(para)
 msgid ""
@@ -1304,10 +1351,15 @@ msgid ""
 "(except the fields pointing to the parents) to be set to zero, some consider "
 "it good practice to explicitly set them."
 msgstr ""
+"<function><link linkend=\"g-object-new\">g_object_new</link></function>系列函"
+"数可被用于实例化从GObject基类派生的任意GType。所有这些函数用于确保类和实例结"
+"构被Glib类型系统正确的初始化，接着在某个时刻调用构造类方法来：<placeholder-1/"
+">尽管你可以期待所有的类和实例成员(除了指向父类的那部分)都会被设置为0，但是好"
+"的做法是显式的设置它们。"
 
 #: tut_gobject.xml:300(title)
 msgid "Reference count"
-msgstr ""
+msgstr "引用计数"
 
 #: tut_gobject.xml:302(para)
 msgid ""
@@ -1323,6 +1375,9 @@ msgid ""
 "reference to the object, the <emphasis>dispose</emphasis> and the "
 "<emphasis>finalize</emphasis> class methods are invoked."
 msgstr ""
+"<function><link linkend=\"g-object-ref\">g_object_ref</link></function>/"
+"<function><link linkend=\"g-object-unref\">g_object_unref</link></function>函"
+"数分别用于增加和减少引用计数。在GLib 2.8中，这些函数是线程安全的。"
 
 #: tut_gobject.xml:313(para)
 msgid ""
@@ -1385,14 +1440,16 @@ msgid ""
 "Allocate and clear memory through <function><link linkend=\"g-type-create-"
 "instance\">g_type_create_instance</link></function>,"
 msgstr ""
+"通过<function><link linkend=\"g-type-create-instance"
+"\">g_type_create_instance</link></function>来分配并清理内存，"
 
 #: tut_gobject.xml:41(para)
 msgid "Initialize the object's instance with the construction properties."
-msgstr ""
+msgstr "用构造属性来初始化对象实例"
 
 #: tut_gobject.xml:414(title)
 msgid "Weak References"
-msgstr ""
+msgstr "弱引用"
 
 #: tut_gobject.xml:416(para)
 msgid ""
@@ -1422,7 +1479,7 @@ msgstr ""
 
 #: tut_gobject.xml:440(title)
 msgid "Reference counts and cycles"
-msgstr ""
+msgstr "引用计数和周期"
 
 #: tut_gobject.xml:442(para)
 msgid ""
@@ -1483,7 +1540,7 @@ msgstr ""
 
 #: tut_gobject.xml:492(title)
 msgid "Object properties"
-msgstr ""
+msgstr "对象的属性"
 
 #: tut_gobject.xml:494(para)
 msgid ""
@@ -1500,6 +1557,8 @@ msgid ""
 "class method: they should however chain to their parent constructor method "
 "before doing so: <placeholder-1/>"
 msgstr ""
+"由GObject派生的对象被允许重载它的构造类方法：然而在这样做之前，它们需要连接到"
+"它们父类的构造方法上：<placeholder-1/>"
 
 #: tut_gobject.xml:502(para)
 msgid ""
@@ -1635,7 +1694,7 @@ msgstr ""
 
 #: tut_gobject.xml:6(title)
 msgid "The GObject base class"
-msgstr ""
+msgstr "基类：GObject"
 
 #: tut_gobject.xml:61(para)
 msgid ""
@@ -1651,6 +1710,13 @@ msgid ""
 "above, the constructor method is the only overridden method: it is set to "
 "<function>maman_bar_constructor</function>."
 msgstr ""
+"下面的例子展示了<type>MamanBar</type>是如何重载父类的构造器：<placeholder-1/>"
+"如果用户用下面的方法实例化一个<type>MamanBar</type>对象：<placeholder-2/>如果"
+"这是这个对象的首次实例化，那么<function>maman_bar_class_init</function>函数将"
+"会在调用<function>maman_bar_base_class_init</function>后才被调用。这将确保这"
+"个新对象的类结构被正确的初始化。这里，<function>maman_bar_class_init</"
+"function>需要重载对象的类方法，并设置这个类自己的方法。在上面的例子中，构造方"
+"法是唯一被重载的方法：它被设置为<function>maman_bar_constructor</function>。"
 
 #: tut_gobject.xml:620(para)
 msgid ""
@@ -1823,7 +1889,7 @@ msgstr ""
 
 #: tut_gobject.xml:701(title)
 msgid "Accessing multiple properties at once"
-msgstr ""
+msgstr "一次性访问多个属性"
 
 #: tut_gobject.xml:703(para)
 msgid ""
@@ -1885,6 +1951,9 @@ msgid ""
 "implementation for a base fundamental type named <link linkend=\"GObject"
 "\"><type>GObject</type></link>."
 msgstr ""
+"前面两个章节讨论了Glib动态类型系统和它的信号控制系统的细节。GObject库同时也包"
+"括了一个名为 <link linkend=\"GObject\"><type>GObject</type></link>的最基本的"
+"基类的实现。"
 
 #: tut_gsignal.xml:102(para)
 msgid ""
