@@ -22,6 +22,1119 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: Chinese\n"
 
+msgid "translator-credits"
+msgstr "translator-credits"
+
+msgid "Compiling the GLib Package"
+msgstr "编译GLib包"
+
+msgid "How to compile GLib itself"
+msgstr "如何自行编译GLib"
+
+msgid "Building the Library on UNIX"
+msgstr "怎样在UNIX环境中建立库"
+
+msgid ""
+"On UNIX, GLib uses the standard GNU build system, using "
+"<application>autoconf</application> for package configuration and resolving "
+"portability issues, <application>automake</application> for building "
+"makefiles that comply with the GNU Coding Standards, and "
+"<application>libtool</application> for building shared libraries on multiple "
+"platforms. The normal sequence for compiling and installing the GLib library "
+"is thus: <literallayout>\n"
+"          <userinput>./configure</userinput>\n"
+"          <userinput>make</userinput>\n"
+"          <userinput>make install</userinput>\n"
+"        </literallayout>"
+msgstr ""
+"在UNIX上，GLib使用标准的GNU编译系统， 使用<application>autoconf</application>"
+"来配置并解决可移植性问题， 使用<application>automake</application>来建立 符合"
+"GNU编译标准(GNU Coding Standards)的makefiles文件， 并使用"
+"<application>libtool</application>来建立多平台上的共享库。 通常，编译GLib函数"
+"库的顺序如下所示：<literallayout>\n"
+"          <userinput>./configure</userinput>\n"
+"          <userinput>make</userinput>\n"
+"          <userinput>make install</userinput>\n"
+"        </literallayout> "
+
+msgid "--enable-debug"
+msgstr "--enable-debug"
+
+msgid ""
+"The standard options provided by <application>GNU autoconf</application> may "
+"be passed to the <command>configure</command> script. Please see the "
+"<application>autoconf</application> documentation or run <command>./"
+"configure --help</command> for information about the standard options."
+msgstr ""
+"提供给<application>GNU autoconf</application>的标准选项可能会传递给"
+"<command>configure</command>脚本。 请查看<application>autoconf</application>"
+"文档或者运行<command>./configure --help</command>命令来 查看标准选项。"
+
+msgid "--with-threads"
+msgstr "--with-threads"
+
+msgid "--with-pcre"
+msgstr "--with-pcre"
+
+msgid ""
+"The GTK+ documentation contains <ulink url=\"../gtk/gtk-building.html"
+"\">further details</ulink> about the build process and ways to influence it."
+msgstr ""
+"GTK+的文档包含关于构建过程以及如何影响它的一些 更多的<ulink url=\"../gtk/gtk-"
+"building.html\"> 细节</ulink>。"
+
+msgid "Dependencies"
+msgstr "依赖"
+
+#, fuzzy
+msgid ""
+"Before you can compile the GLib library, you need to have various other "
+"tools and libraries installed on your system. The two tools needed during "
+"the build process (as differentiated from the tools used in when creating "
+"GLib mentioned above such as <application>autoconf</application>) are "
+"<command>pkg-config</command> and GNU make."
+msgstr ""
+"在编译GLib库之前，你还需要一些其它的工具和库。有两个工具在整个编译期间都需"
+"要，它们是pkg-config和GNU make。 这两个工具和之前讲到的autoconf之类的工具 是"
+"不同的。"
+
+msgid "--with-runtime-libdir=RELPATH"
+msgstr "--with-runtime-libdir=RELPATH"
+
+msgid "Compiling the GLib package"
+msgstr "编译GLib包"
+
+msgid "3"
+msgstr "3"
+
+msgid "GLib Library"
+msgstr "GLib库"
+
+msgid ""
+"Dispatching has been modified so both the callback and data are passed in to "
+"the <function>dispatch()</function> virtual function."
+msgstr ""
+"修改了调度，以使回调和数据都可以传递给<function>dispatch()</function>虚函数。"
+
+msgid ""
+"<function>g_list_foreach()</function> and <function>g_slist_foreach()</"
+"function> have been changed so they are now safe against removal of the "
+"current item, not the next item."
+msgstr ""
+"更改了<function>g_list_foreach()</function>和<function>g_slist_foreach()</"
+"function>，以使它们安全的应对移除当前条目，而不是下一条目。"
+
+msgid ""
+"It's not recommended to mutate the list in the callback to these functions "
+"in any case."
+msgstr "在任何情况下回调这些函数时，都不推荐变更这些链表。 "
+
+msgid "Changes to GLib"
+msgstr "GLib 的更改"
+
+msgid ""
+"<structname>GDate</structname> now works in UTF-8, not in the current "
+"locale. If you want to use it with the encoding of the locale, you need to "
+"convert strings using <function>g_locale_to_utf8()</function> first."
+msgstr ""
+"<structname>GDate</structname>现在用 UTF-8，而不是当前区域设置。如果希望使用"
+"它处理当前区域的编码，您需要首先使用<function>g_locale_to_utf8()</function>转"
+"换字符串的编码。 "
+
+msgid ""
+"<function>g_strsplit()</function> has been fixed to: <placeholder-1/> Code "
+"depending on either of these bugs will need to be fixed."
+msgstr ""
+"<function>g_strsplit()</function>被更正为：<placeholder-1/>所有依赖于这些 "
+"bug 的代码需要更正。  "
+
+msgid "include trailing empty tokens, rather than stripping them"
+msgstr "包含结尾的空标记，而不是剥离它们 "
+
+msgid ""
+"split into a maximum of <literal>max_tokens</literal> tokens, rather than "
+"<literal>max_tokens + 1</literal>"
+msgstr ""
+"最多分割为<literal>max_tokens</literal>节, 而不是<literal>max_tokens + 1</"
+"literal>"
+
+msgid ""
+"Deprecated functions that got removed: <function>g_set_error_handler()</"
+"function>, <function>g_set_warning_handler()</function>, "
+"<function>g_set_message_handler()</function>, use "
+"<function>g_log_set_handler()</function> instead."
+msgstr ""
+"移除的过时函数： <function>g_set_error_handler()</function>, "
+"<function>g_set_warning_handler()</function>, "
+"<function>g_set_message_handler()</function>, 使用"
+"<function>g_log_set_handler()</function>来替代. "
+
+msgid "Incompatible changes from 2.0 to 2.2"
+msgstr "从 2.0 到 2.2 的不兼容更改"
+
+msgid ""
+"GLib changed the seeding algorithm for the pseudo-random number generator "
+"Mersenne Twister, as used by <structname>GRand</structname> and "
+"<structname>GRandom</structname>. This was necessary, because some seeds "
+"would yield very bad pseudo-random streams. Also the pseudo-random integers "
+"generated by <function>g_rand*_int_range()</function> will have a slightly "
+"better equal distribution with the new version of GLib."
+msgstr ""
+"GLib 更改了伪随机数生成器-赛特旋转 (Mersenne Twister，就是<structname>GRand</"
+"structname>和 <structname>GRandom</structname>所使用的) 的种子算法。 这是必须"
+"的，因为一些种子可能产生很差的伪随机流。使用新版本的"
+"<function>g_rand*_int_range()</function>产生的随机整数也会有稍微好一点的公平"
+"分配。"
+
+msgid ""
+"Further information can be found at the website of the Mersenne Twister "
+"random number generator at <ulink url=\"http://www.math.keio.ac.jp/~matumoto/"
+"emt.html\">http://www.math.keio.ac.jp/~matumoto/emt.html</ulink>."
+msgstr ""
+"网页上关于赛特旋转(Mersenne Twister)伪随机数生成器的进一步信息在<ulink url="
+"\"http://www.math.keio.ac.jp/~matumoto/emt.html\">http://www.math.keio.ac.jp/"
+"~matumoto/emt.html</ulink>. "
+
+msgid "Incompatible changes from 1.2 to 2.0"
+msgstr "从 1.2 到 2.0 的不兼容更改"
+
+msgid ""
+"The event loop functionality <structname>GMain</structname> has extensively "
+"been revised to support multiple separate main loops in separate threads. "
+"All sources (timeouts, idle functions, etc.) are associated with a "
+"<structname>GMainContext</structname>."
+msgstr ""
+"事件循环功能<structname>GMain</structname>已经广泛的修订，以支持在分离线程的"
+"多个分离的主循环。所有 sources (计时、空闲等函数) 都与"
+"<structname>GMainContext</structname>联系起来了。"
+
+msgid ""
+"Compatibility functions exist so that most application code dealing with the "
+"main loop will continue to work. However, code that creates new custom types "
+"of sources will require modification."
+msgstr ""
+"仍然存在兼容函数，以使多数处理主循环的程序代码能继续工作。但是创建新的 "
+"sources 的自定义类型的代码需要修改。 "
+
+msgid ""
+"The main changes here are: <placeholder-1/> To go along with this change, "
+"the vtable for <structname>GIOChannel</structname> has changed and "
+"<function>add_watch()</function> has been replaced by "
+"<function>create_watch()</function>."
+msgstr ""
+"主要的修改是：<placeholder-1/> 为了顺应这一变化,<structname>GIOChannel</"
+"structname>的 vtable 改变了，同时 <function>add_watch()</function>被替换为"
+"<function>create_watch()</function>. "
+
+msgid ""
+"Sources are now exposed as <type>GSource *</type>, rather than simply as "
+"numeric ids."
+msgstr "Sources 以<type>GSource *</type>暴露，而不是仅仅是数字 id。 "
+
+msgid ""
+"New types of sources are created by structure \"derivation\" from "
+"<structname>GSource</structname>, so the <literal>source_data</literal> "
+"parameter to the <structname>GSource</structname> virtual functions has been "
+"replaced with a <type>GSource *</type>."
+msgstr ""
+"\"derivation\" 结构 从 <structname>GSource</structname>创建一个 sources 新类"
+"型， 所以虚函数<structname>GSource</structname>的<literal>source_data</"
+"literal>参数 被替换为<type>GSource *</type>. "
+
+msgid ""
+"Sources are first created, then later added to a specific "
+"<structname>GMainContext</structname>."
+msgstr ""
+"Sources 刚刚创建，于是稍候被添加到了具体的<structname>GMainContext</"
+"structname>。"
+
+msgid "Compiling GLib Applications"
+msgstr "编译GLib应用程序"
+
+msgid "How to compile your GLib application"
+msgstr "如何编译GLib应用程序"
+
+msgid "Compiling GLib Applications on UNIX"
+msgstr "在UNIX上编译GLib应用程序"
+
+msgid ""
+"To compile a GLib application, you need to tell the compiler where to find "
+"the GLib header files and libraries. This is done with the <application>pkg-"
+"config</application> utility."
+msgstr ""
+"为了编译GLib应用程序，你需要告诉编译器在哪里找到GLib的头文件及库. "
+"<application>pkg-config</application> 工具会帮你."
+
+msgid ""
+"The following interactive shell session demonstrates how <application>pkg-"
+"config</application> is used (the actual output on your system may be "
+"different): <placeholder-1/>"
+msgstr ""
+"下面的shell会话展示了 <application>pkg-config</application> 如何工作 (输出可"
+"能因不同的系统有所不同): <placeholder-1/>"
+
+msgid ""
+"\n"
+"$ pkg-config --cflags glib-2.0\n"
+" -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
+"$ pkg-config --libs glib-2.0\n"
+" -L/usr/lib -lm -lglib-2.0  \n"
+msgstr ""
+"\n"
+"$ pkg-config --cflags glib-2.0\n"
+" -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
+"$ pkg-config --libs glib-2.0\n"
+" -L/usr/lib -lm -lglib-2.0  \n"
+
+msgid ""
+"If your application uses threads or <structname>GObject</structname> "
+"features, it must be compiled and linked with the options returned by the "
+"following <application>pkg-config</application> invocations: <placeholder-1/>"
+msgstr ""
+"如果你的应用程序使用线程(threads)或者 <structname>GObject</structname> 特性, "
+"则必须用以下的 <application>pkg-config</application> 输出来编译及链接: "
+"<placeholder-1/>"
+
+msgid ""
+"\n"
+"$ pkg-config --cflags --libs gthread-2.0\n"
+"$ pkg-config --cflags --libs gobject-2.0\n"
+msgstr ""
+"\n"
+"$ pkg-config --cflags --libs gthread-2.0\n"
+"$ pkg-config --cflags --libs gobject-2.0\n"
+
+msgid ""
+"If your application uses modules, it must be compiled and linked with the "
+"options returned by one of the following <application>pkg-config</"
+"application> invocations: <placeholder-1/> The difference between the two is "
+"that gmodule-2.0 adds <option>--export-dynamic</option> to the linker flags, "
+"which is often not needed."
+msgstr ""
+"如果你的应用程序使用模块(modules), 则必须用以下的 <application>pkg-config</"
+"application> 输出来编译及链接: <placeholder-1/> 两者的不同之处在于"
+"gmodule-2.0 为连接添加了<option>--export-dynamic</option> 标志, 但它并不经常"
+"用到."
+
+msgid ""
+"\n"
+"$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
+"$ pkg-config --cflags --libs gmodule-2.0 \n"
+msgstr ""
+"\n"
+"$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
+"$ pkg-config --cflags --libs gmodule-2.0 \n"
+
+msgid ""
+"The simplest way to compile a program is to use the \"backticks\" feature of "
+"the shell. If you enclose a command in backticks (<emphasis>not single "
+"quotes</emphasis>), then its output will be substituted into the command "
+"line before execution. So to compile a GLib Hello, World, you would type the "
+"following: <placeholder-1/>"
+msgstr ""
+"最简单的编译方式是使用shell的\"反引号\"特性. 如果你将命令放入反引号里 "
+"(<emphasis>不是单引号</emphasis>), 那么它的输出会在命令行执行前 取代命令.所以"
+"编译一个GLib的Hello,World,你输入以下命令: <placeholder-1/>"
+
+msgid ""
+"\n"
+"$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
+msgstr ""
+"\n"
+"$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
+
+msgid ""
+"If you want to make sure that your program doesn't use any deprecated "
+"functions, you can define the preprocessor symbol G_DISABLE_DEPRECATED by "
+"using the command line option <literal>-DG_DISABLE_DEPRECATED=1</literal>."
+msgstr ""
+"如果你确定你的程序不使用任何过时的函数,你可以为预处理器定义 "
+"G_DISABLE_DEPRECATED 符号,使用命令选项 <literal>-DG_DISABLE_DEPRECATED=1</"
+"literal>."
+
+msgid ""
+"The recommended way of using GLib has always been to only include the "
+"toplevel headers <filename>glib.h</filename>, <filename>glib-object.h</"
+"filename>, <filename>gio.h</filename>. Still, there are some exceptions; "
+"these headers have to be included separately: <filename>gmodule.h</"
+"filename>, <filename>glib/gi18n-lib.h</filename> or <filename>glib/gi18n.h</"
+"filename> (see the <link linkend=\"glib-I18N\">Internationalization section</"
+"link>), <filename>glib/gprintf.h</filename> and <filename>glib/gstdio.h</"
+"filename> (we don't want to pull in all of stdio)."
+msgstr ""
+"使用GLib的推荐方式是只包含最顶层的头文件 <filename>glib.h</filename>, "
+"<filename>glib-object.h</filename>, <filename>gio.h</filename>. 从2.17开始,当"
+"直接包含单独的头文件时GLib会强制生成一个错误. 为了帮助大家过渡,执行器在默认的"
+"Glib头文件中未打开(但GObject和GIO是打开的) 为了打开它,使用命令行<literal> -"
+"DG_DISABLE_DEPRECATED</literal> 来定义预处理器符号 G_DISABLE_SINGLE_INCLUDES "
+"即可. <filename>glib/gprintf.h</filename> and <filename>glib/gstdio.h</"
+"filename> (we don't want to pull in all of stdio)."
+
+msgid "glib_cv_have_strlcpy=[yes/no]"
+msgstr "glib_cv_have_strlcpy=[yes/no]"
+
+msgid ""
+"Whether you have <function>strlcpy()</function> that matches OpenBSD. "
+"Defaults to \"no\", which is safe, since GLib uses a built-in version in "
+"that case."
+msgstr ""
+"是否有匹配OpenBSD的<function>strlcpy()</function>函数。 默认值为\"no\"，这是"
+"安全的，因为在这种情况下GLib使用内置的版本。 "
+
+msgid "glib_cv_va_val_copy=[yes/no]"
+msgstr "glib_cv_va_val_copy=[yes/no]"
+
+msgid ""
+"Whether <type>va_list</type> can be copied as a pointer. If set to \"no\", "
+"then <function>memcopy()</function> will be used. Only matters if you don't "
+"have <function>va_copy()</function> or <function>__va_copy()</function>. "
+"(So, doesn't matter for GCC.) Defaults to \"yes\" which is slightly more "
+"common than \"no\"."
+msgstr ""
+"<type>va_list</type>是否可以作为指针复制。 如果设置为\"no\"，那么"
+"<function>memcopy()</function>将被使用。 如果你没有<function>va_copy()</"
+"function>或<function>__va_copy()</function>会有问题。（所以，GCC不存在问"
+"题。） 默认为\"yes\"，这种情况比\"no\"要多一些。"
+
+msgid "glib_cv_rtldglobal_broken=[yes/no]"
+msgstr "glib_cv_rtldglobal_broken=[yes/no]"
+
+msgid "Whether you have a bug found in OSF/1 v5.0. Defaults to \"no\"."
+msgstr "是否在OSF/1 v5.0中发现存在有bug。默认为\"no\"。"
+
+msgid "Cross-compiling the GLib Package"
+msgstr "交叉编译GLib软件包"
+
+msgid "glib_cv_uscore=[yes/no]"
+msgstr "glib_cv_uscore=[yes/no]"
+
+#, fuzzy
+msgid ""
+"Whether an underscore needs to be prepended to symbols when looking them up "
+"via <function>dlsym()</function>. Only needs to be set if your system uses "
+"<function>dlopen()</function>/<function>dlsym()</function>."
+msgstr ""
+"通过<function>dlsym()</function>函数时， 是否需要考虑一个下划线为前缀的符号"
+"时， 他们希望通过dlsym了（）。 只需要设置如果你的系统使用<function>dlopen()</"
+"function>/<function>dlsym()</function>。 "
+
+msgid "How to cross-compile GLib"
+msgstr "如何交叉编译GLib"
+
+msgid "ac_cv_func_posix_getpwuid_r=[yes/no]"
+msgstr "ac_cv_func_posix_getpwuid_r=[yes/no]"
+
+msgid ""
+"Whether you have a getpwuid_r function (in your C library, not your thread "
+"library) that conforms to the POSIX spec. (Takes a 'struct passwd **' as the "
+"final argument)"
+msgstr ""
+"是否你的getpwuid_r函数(在你的C库，而不是线程库)遵守POSIX规范。 接受'struct "
+"passwd **'作为最终的参数。"
+
+msgid "ac_cv_func_nonposix_getpwuid_r=[yes/no]"
+msgstr "ac_cv_func_nonposix_getpwuid_r=[yes/no]"
+
+msgid ""
+"Whether you have some variant of <function>getpwuid_r()</function> that "
+"doesn't conform to to the POSIX spec, but GLib might be able to use (or "
+"might segfault.) Only needs to be set if "
+"<literal>ac_cv_func_posix_getpwuid_r</literal> is not set. It's safest to "
+"set this to \"no\"."
+msgstr ""
+"是否你有一些<function>getpwuid_r()</function>函数的变量不能遵守POSIX规范，但"
+"是GLib有能力去使用它(或者发生段错误)。只有在"
+"<literal>ac_cv_func_posix_getpwuid_r</literal>没被设置的情况下才需要设置此变"
+"量。此变量可以安全地被设置为\"no\"."
+
+msgid "ac_cv_func_posix_getgrgid_r=[yes/no]"
+msgstr "ac_cv_func_posix_getgrgid_r=[yes/no]"
+
+msgid "Whether you have a getgrgid_r function that conforms to the POSIX spec."
+msgstr "是否你有一个getgrgid_r函数去遵守POSIX规范。"
+
+msgid "glib_cv_use_pid_surrogate=[yes/no]"
+msgstr "glib_cv_use_pid_surrogate=[yes/no]"
+
+msgid ""
+"Whether to use a <function>setpriority()</function> on the PID of the thread "
+"as a method for setting the priority of threads. This only needs to be set "
+"when using POSIX threads."
+msgstr ""
+"是否使用<function>setpriority()</function>函数在线程的PID上， 作为设置线程优"
+"先级的方式。 只有在使用POSIX线程的时候需要设置。"
+
+msgid "ac_cv_func_printf_unix98=[yes/no]"
+msgstr "ac_cv_func_printf_unix98=[yes/no]"
+
+msgid ""
+"Whether your <function>printf()</function> family supports Unix98 style "
+"<literal>%N$</literal> positional parameters. Defaults to \"no\"."
+msgstr ""
+"是否你的<function>printf()</function>函数支持Unix98样式的<literal>%N$</"
+"literal>位置参数。 默认为\"no\"。"
+
+msgid "ac_cv_func_vsnprintf_c99=[yes/no]"
+msgstr "ac_cv_func_vsnprintf_c99=[yes/no]"
+
+msgid ""
+"Whether you have a <function>vsnprintf()</function> with C99 semantics. (C99 "
+"semantics means returning the number of bytes that would have been written "
+"had the output buffer had enough space.) Defaults to \"no\"."
+msgstr ""
+"是否你有一个<function>vsnprintf()</function>函数符合C99的。 (C99语义的意思是"
+"返回字符数，被写到输入缓存有足够的空间)。 默认为\"no\"。"
+
+msgid "Building the Library for a different architecture"
+msgstr "在不同的体系结构中编译在不同的体系结构中编译"
+
+msgid ""
+"Cross-compilation is the process of compiling a program or library on a "
+"different architecture or operating system then it will be run upon. GLib is "
+"slightly more difficult to cross-compile than many packages because much of "
+"GLib is about hiding differences between different systems."
+msgstr ""
+"编译出来的程序或库将在不同的平台或操作系统上运行时， 这种编译过程就叫做交叉编"
+"译。 GLib和一些常见软件包的交叉编译稍微有些不同， 因为GLib需要隐藏不同系统之"
+"间的一些差异。"
+
+msgid ""
+"These notes cover things specific to cross-compiling GLib; for general "
+"information about cross-compilation, see the <application>autoconf</"
+"application> info pages."
+msgstr ""
+"下面说明一些GLib交叉编译时的特殊之处， 一般的交叉编译信息请查看"
+"<application>autoconf</application>信息页。"
+
+msgid ""
+"GLib tries to detect as much information as possible about the target system "
+"by compiling and linking programs without actually running anything; "
+"however, some information GLib needs is not available this way. This "
+"information needs to be provided to the configure script via a \"cache file"
+"\" or by setting the cache variables in your environment."
+msgstr ""
+"GLib在编译和链接时会努力去尝试检测尽可能多的有关 目标系统的信息。但是，GLib需"
+"要的一些信息不是通过 这种方式的。这些信息通过一个\"cache文件\"提供给配置 "
+"(configure)脚本或者通过设置环境变量的方式实现。"
+
+msgid ""
+"As an example of using a cache file, to cross compile for the \"MingW32\" "
+"Win32 runtine environment on a Linux system, create a file 'win32.cache' "
+"with the following contents:"
+msgstr ""
+"作为一份示例的cache文件，用于在Linux系统上采用\"MingW32\"交叉 编译可运行于"
+"Win32环境中的GLib。 创建一个名为'win32.cache'的文件，包含以下内容： "
+
+msgid ""
+" \n"
+"glib_cv_long_long_format=I64\n"
+"glib_cv_stack_grows=no\n"
+"      "
+msgstr ""
+" \n"
+"glib_cv_long_long_format=I64\n"
+"glib_cv_stack_grows=no\n"
+"      "
+
+msgid "Then execute the following commands:"
+msgstr "接着执行以下命令： "
+
+msgid ""
+"\n"
+"PATH=/path/to/mingw32-compiler/bin:$PATH\n"
+"chmod a-w win32.cache   # prevent configure from changing it\n"
+"./configure --cache-file=win32.cache --host=mingw32\n"
+"      "
+msgstr ""
+"\n"
+"PATH=/path/to/mingw32-compiler/bin:$PATH\n"
+"chmod a-w win32.cache   # prevent configure from changing it\n"
+"./configure --cache-file=win32.cache --host=mingw32\n"
+"      "
+
+msgid ""
+"The complete list of cache file variables follows. Most of these won't need "
+"to be set in most cases."
+msgstr "下面列出了cache文件的全部变量。其中一些变量通常并不需要设置。"
+
+msgid "Cache file variables"
+msgstr "缓存文件变量"
+
+msgid "glib_cv_long_long_format=[ll/q/I64]"
+msgstr "glib_cv_long_long_format=[ll/q/I64]"
+
+msgid ""
+"Format used by <function>printf()</function> and <function>scanf()</"
+"function> for 64 bit integers. \"ll\" is the C99 standard, and what is used "
+"by the 'trio' library that GLib builds if your <function>printf()</function> "
+"is insufficiently capable. Doesn't need to be set if you are compiling using "
+"trio."
+msgstr ""
+"为64位整形数而使用于<function>printf()</function>和<function>scanf()</"
+"function>函数的格式化部分。 \"ll\" 是C99的标准， 被'trio'库使用来编译GLib, 如"
+"果你的<function>printf()</function>函数不能胜任的话。 如果你正在编译使用trio"
+"的话是不需要设置的。"
+
+msgid "Cross-compiling the GLib package"
+msgstr "交叉编译GLib软件包"
+
+msgid "glib_cv_stack_grows=[yes/no]"
+msgstr "glib_cv_stack_grows=[yes/no]"
+
+msgid ""
+"Whether the stack grows up or down. Most places will want \"no\", A few "
+"architectures, such as PA-RISC need \"yes\"."
+msgstr ""
+"堆栈是否向上或向下增长。大多数地方都需要设置为\"no\"， 有几个体系结构，如PA-"
+"RISC等需要设置为\"yes\"。"
+
+msgid "glib_cv_working_bcopy=[yes/no]"
+msgstr "glib_cv_working_bcopy=[yes/no]"
+
+msgid ""
+"Whether your <function>bcopy()</function> can handle overlapping copies. "
+"Only needs to be set if you don't have <function>memmove()</function>. (Very "
+"unlikely)"
+msgstr ""
+"<function>bcopy()</function>函数是否可以处理重叠的复制。 如果你没有"
+"<function>memmove()</function>, 就需要设置。（可能性非常小） "
+
+msgid "glib_cv_sane_realloc=[yes/np]"
+msgstr "glib_cv_sane_realloc=[yes/np]"
+
+msgid ""
+"Whether your <function>realloc()</function> conforms to ANSI C and can "
+"handle <literal>NULL</literal> as the first argument. Defaults to \"yes\" "
+"and probably doesn't need to be set."
+msgstr ""
+"是否<function>realloc()</function>函数符合ANSI C标准并能够处理第一个参数为"
+"<literal>NULL</literal>的情况。 默认为\"yes\", 你可能并不需要设定它。 "
+
+msgid ""
+"for GLib 2.28.5 The latest version of this documentation can be found on-"
+"line at <ulink role=\"online-location\" url=\"http://library.gnome.org/devel/"
+"glib/unstable/\">http://library.gnome.org/devel/glib/unstable/</ulink>."
+msgstr ""
+"GLib 当前版本为2.28.5, 最新在线版本请浏览这里<ulink role=\"online-location\" "
+"url=\"http://library.gnome.org/devel/glib/unstable/\">http://library.gnome."
+"org/devel/glib/unstable/</ulink>."
+
+msgid "GLib Data Types"
+msgstr "GLib 数据类型"
+
+msgid "GLib Tools"
+msgstr "GLib 工具"
+
+msgid "Index"
+msgstr "索引"
+
+msgid "Index of deprecated symbols"
+msgstr "已过时符号索引"
+
+msgid "Index of new symbols in 2.2"
+msgstr "2.2版本中的新符号索引"
+
+msgid "Index of new symbols in 2.4"
+msgstr "2.4版本中的新符号索引"
+
+msgid "Index of new symbols in 2.6"
+msgstr "2.6版本中的新符号索引"
+
+msgid "Index of new symbols in 2.8"
+msgstr "2.8版本中的新符号索引"
+
+msgid "Index of new symbols in 2.10"
+msgstr "2.10版本中的新符号索引"
+
+msgid "Index of new symbols in 2.12"
+msgstr "2.12版本中的新符号索引"
+
+msgid "Index of new symbols in 2.14"
+msgstr "2.14版本中的新符号索引"
+
+msgid "Index of new symbols in 2.16"
+msgstr "2.16版本中的新符号索引"
+
+msgid "Index of new symbols in 2.18"
+msgstr "2.18版本中的新符号索引"
+
+msgid "GLib Overview"
+msgstr "GLib概述"
+
+msgid "Index of new symbols in 2.20"
+msgstr "2.20版本中的新符号索引"
+
+msgid "Index of new symbols in 2.22"
+msgstr "2.22版本中的新符号索引"
+
+msgid ""
+"GLib is a general-purpose utility library, which provides many useful data "
+"types, macros, type conversions, string utilities, file utilities, a main "
+"loop abstraction, and so on. It works on many UNIX-like platforms, Windows, "
+"OS/2 and BeOS. GLib is released under the GNU Library General Public License "
+"(GNU LGPL)."
+msgstr ""
+"GLib是一个通用工具库，它提供了许多有用的数据类型、宏、类型转换工具、字符串工"
+"具，文件工具，主循环抽象等功能。它正工作在许多类UNIX、Windows、OS/2及BeOS平台"
+"上。GLib使用GNU库通用公共许可证(GNU LGPL)发布。"
+
+msgid "Index of new symbols in 2.24"
+msgstr "2.24版本中的新符号索引"
+
+msgid "Index of new symbols in 2.26"
+msgstr "2.26版本中的新符号索引"
+
+msgid ""
+"The general policy of GLib is that all functions are invisibly threadsafe "
+"with the exception of data structure manipulation functions, where, if you "
+"have two threads manipulating the <emphasis>same</emphasis> data structure, "
+"they must use a lock to synchronize their operation."
+msgstr ""
+"GLib库提供的函数基本上都是线程安全的, 例外的情况是对数据结构操作的函数。这种"
+"情况下，如果同时有两个线程来处理<emphasis>相同</emphasis>的数据结构，就必须使"
+"用锁来同步操作。"
+
+msgid "GLib Fundamentals"
+msgstr "GLib基础"
+
+msgid "GLib Core Application Support"
+msgstr "GLib核心应用支持"
+
+msgid "GLib Reference Manual"
+msgstr "GLib 参考手册"
+
+msgid "Regular expression syntax"
+msgstr "正则表达式语法"
+
+msgid "Syntax and semantics of the regular expressions supported by GRegex"
+msgstr "GRegex支持的正则表达式语法及语义"
+
+msgid "GRegex regular expression details"
+msgstr "GRegex正则表达式详述"
+
+msgid "gtk-doc-list@gnome.org"
+msgstr "gtk-doc-list@gnome.org"
+
+msgid ""
+"gtk-doc-list is for discussion of the <application>gtk-doc</application> "
+"documentation system (used to document GTK+ and Glib), and for work on the "
+"GTK+ (and GLib) documentation."
+msgstr ""
+"gtk-doc-list 是用来讨论<application>gtk-doc</application> 文档系统（使用GTK"
+"+与Glib文档），以及GTK+（和 GLib）文档工作相关。"
+
+msgid "Mailing lists and bug reports"
+msgstr "邮件列表和Bug报告"
+
+msgid "Getting help with GLib"
+msgstr "得到关于GLib的帮助"
+
+msgid "Filing a bug report or feature request"
+msgstr "提交错误报告或功能要求"
+
+msgid ""
+"If you encounter a bug, misfeature, or missing feature in GLib, please file "
+"a bug report on <ulink url=\"http://bugzilla.gnome.org\">http://bugzilla."
+"gnome.org</ulink>. We'd also appreciate reports of incomplete or misleading "
+"information in the GLib documentation; file those against the \"docs\" "
+"component of the \"glib\" product in Bugzilla."
+msgstr ""
+"如果你在GLib中发现了bug，功能缺陷，或无效特性，请向 <ulink url=\"http://"
+"bugzilla.gnome.org\">http://bugzilla.gnome.org</ulink> 填写一个bug回馈单。 我"
+"们也建议并感谢您回馈Glib文档的错误之处； file those against the \"docs\" "
+"component of the \"glib\" product in Bugzilla.【此句如何翻译？QQQ】"
+
+msgid ""
+"Don't hesitate to file a bug report, even if you think we may know about it "
+"already, or aren't sure of the details. Just give us as much information as "
+"you have, and if it's already fixed or has already been discussed, we'll add "
+"a note to that effect in the report."
+msgstr ""
+"即使你认为我们可以知道或着已经在关注一些问题， 也不用犹豫，尽管发出你的bug报"
+"告，当你意识到问题的时候， 请告诉我们，如果问题已经确认或者正在讨论，我们将在"
+"此份报告中添加一条备注。"
+
+msgid ""
+"The bug tracker should definitely be used for feature requests, it's not "
+"only for bugs. We track all GLib development in Bugzilla, so it's the way to "
+"be sure the GLib developers won't forget about an issue."
+msgstr ""
+"这个bug跟踪是用于功能需求的，并不局限于bug。 我们在Bugzilla上跟踪GLib的进"
+"展， 这样就确保GLib的开发者不会忘掉某个问题。"
+
+msgid "Submitting Patches"
+msgstr "提交补丁"
+
+msgid ""
+"If you develop a bugfix or enhancement for GLib, please file that in "
+"Bugzilla as well. Bugzilla allows you to attach files; please attach a patch "
+"generated by the <command>diff</command> utility, using the <option>-u</"
+"option> option to make the patch more readable. All patches must be offered "
+"under the terms of the GNU LGPL license, so be sure you are authorized to "
+"give us the patch under those terms."
+msgstr ""
+"如果你为GLib做了缺陷修正或者增强了一些功能， 请一并整理到Bugzilla中。 "
+"Bugzilla允许您使用附件； 请使用<command>diff</command>工具生成补丁， 使用它的"
+"<option>-u</option>选项， 这样生成的补丁更具有可读性。 所有的补丁必须使用GNU "
+"LGPL 许可证，所以一定要确定你给我们的补丁遵守这些条款。"
+
+msgid ""
+"If you want to discuss your patch before or after developing it, mail <ulink "
+"url=\"mailto:gtk-devel-list@gnome.org\">gtk-devel-list@gnome.org</ulink>. "
+"But be sure to file the Bugzilla report as well; if the patch is only on the "
+"list and not in Bugzilla, it's likely to slip through the cracks."
+msgstr ""
+"如果你想讨论你的补丁开发之前或之后的发展， 请发邮件到<ulink url=\"mailto:gtk-"
+"devel-list@gnome.org\">gtk-devel-list@gnome.org</ulink>。 但是最好使用"
+"Bugzilla提交； 如果补丁仅仅是个名单，而非Bugzilla回馈，它很有可能被延后处理。"
+
+msgid "Mailing lists"
+msgstr "邮件列表"
+
+msgid ""
+"There are several mailing lists dedicated to GTK+ and related libraries. "
+"Discussion of GLib generally takes place on these lists. You can subscribe "
+"or view the archives of these lists on <ulink url=\"http://mail.gnome.org"
+"\">http://mail.gnome.org</ulink>."
+msgstr ""
+"有一些致力于GTK+的邮件列表及其相关资源。 经常在这里进行关于GTK+的讨论。 你可"
+"以订阅或查看这些列表<ulink url=\"http://mail.gnome.org\">http://mail.gnome."
+"org</ulink>。"
+
+msgid "gtk-list@gnome.org"
+msgstr "gtk-list@gnome.org"
+
+msgid ""
+"gtk-list covers general GTK+ (and GLib) topics; questions about using GLib "
+"in programs, GLib from a user standpoint, announcements of GLib-related "
+"projects would all be on-topic. The bulk of the traffic consists of GTK+ "
+"programming questions."
+msgstr ""
+"Gtk列表涉及一般的GTK +（和GLib）话题。 关于使用GLib编程的话题中，GLib从用户角"
+"度出发， GLib相关项目的公告都将放在专题中。大部分的内容都是GTK+编程。"
+
+msgid "gtk-devel-list@gnome.org"
+msgstr "gtk-devel-list@gnome.org"
+
+msgid ""
+"gtk-devel-list is for discussion of work on GTK+ (and GLib) itself, it is "
+"<emphasis>not</emphasis> for asking questions about how to use GTK+ (or "
+"GLib) in applications. gtk-devel-list is appropriate for discussion of "
+"patches, bugs, proposed features, and so on."
+msgstr ""
+"gtk-devel-list是供大家讨论GTK+（和GLib）本身， <emphasis>不是</emphasis>用来"
+"指导如何使用GTK+ (或 GLib)的。 gtk-devel-list适合讨论补丁、Bug、新特性等。"
+
+msgid ""
+"All modules loaded by GModule will be made resident. This can be useful for "
+"tracking memory leaks in modules which are later unloaded; but it can also "
+"hide bugs where code is accessed after the module would have normally been "
+"unloaded. This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+"所有由GModule加载的模块将长驻内存的. 这可用于在模块卸载后追踪模块的内存泄漏. "
+"但也可能在模块正常卸载后隐藏代码访问时的bugs. 此选项比较特殊,不需要将GLib配置"
+"成调试支持."
+
+msgid ""
+"All modules loaded by GModule will bind their symbols at load time, even "
+"when the code uses %G_MODULE_BIND_LAZY. This option is special in that it "
+"doesn't require GLib to be configured with debugging support."
+msgstr ""
+"所有模块被GModule加载时就会绑定他们的符号,即使代码使用了 "
+"%G_MODULE_BIND_LAZY. 此选项比较特殊,不需要将GLib配置成调试支持."
+
+msgid "G_SLICE"
+msgstr "G_SLICE"
+
+msgid "Running GLib Applications"
+msgstr "运行GLib应用程序"
+
+msgid ""
+"This environment variable allows reconfiguration of the GSlice memory "
+"allocator. <placeholder-1/> The special value all can be used to turn on all "
+"options. The special value help can be used to print all available options."
+msgstr ""
+"该环境变量允许重新配置GSlice内存分配器. <placeholder-1/> 特殊值可以用来打开所"
+"有的调试选项. 特殊值可以用来打印所有可用的选项."
+
+msgid ""
+"This will cause all slices allocated through g_slice_alloc() and released by "
+"g_slice_free1() to be actually allocated via direct calls to g_malloc() and "
+"g_free(). This is most useful for memory checkers and similar programs that "
+"use Bohem GC alike algorithms to produce more accurate results. It can also "
+"be in conjunction with debugging features of the system's malloc "
+"implementation such as glibc's MALLOC_CHECK_=2 to debug erroneous slice "
+"allocation code, allthough <literal>debug-blocks</literal> usually is a "
+"better suited debugging tool."
+msgstr ""
+"这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将直接调用"
+"g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC 算法的相关程序计"
+"算更精确的結果最有帮助。它还可以连接系统malloc实现中的调试特性，比如glibc中的"
+"MALLOC_CHECK_=2, 然后来调试错误的片分配代码,即使<literal>debug-blocks</"
+"literal>通常是更适合的调试工具。"
+
+msgid "How to run and debug your GLib application"
+msgstr "如何运行和调试GLib应用程序"
+
+msgid ""
+"Using this option (present since GLib-2.13) engages extra code which "
+"performs sanity checks on the released memory slices. Invalid slice adresses "
+"or slice sizes will be reported and lead to a program halt. This option is "
+"for debugging scenarios. In particular, client packages sporting their own "
+"test suite should <emphasis>always enable this option when running tests</"
+"emphasis>. Global slice validation is ensured by storing size and address "
+"information for each allocated chunk, and maintaining a global hash table of "
+"that data. That way, multi-thread scalability is given up, and memory "
+"consumption is increased. However, the resulting code usually performs "
+"acceptably well, possibly better than with comparable memory checking "
+"carried out using external tools. An example of a memory corruption scenario "
+"that cannot be reproduced with <literal>G_SLICE=always-malloc</literal>, but "
+"will be caught by <literal>G_SLICE=debug-blocks</literal> is as follows: "
+"<placeholder-1/>"
+msgstr ""
+"使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整 性检查.无效"
+"的片地址或片大小将会被报告并导致程序停止。此选项用于调试 方案.特别地，客户端"
+"软件包在运行自有的测试套件时应该<emphasis>始终打开此选项</emphasis>. 全局片验"
+"证是为了确保存储每个分配块的大小和地址信息,并为此数据维护 一个全局的哈希表.因"
+"此,多线程的可扩展性被放弃,而且内存消耗增加.然而 生成的代码通常表现得更好,可能"
+"比同类使用外部工具检查内存的还要好. 在一个内存损坏的情况下,"
+"<literal>G_SLICE=always-malloc</literal>将不能进行复制, 但设置"
+"<literal>G_SLICE=debug-blocks</literal>将能如下面一样捕获: <placeholder-1/>"
+
+msgid "G_RANDOM_VERSION"
+msgstr "G_RANDOM_VERSION"
+
+msgid ""
+"If this environment variable is set to '2.0', the outdated pseudo-random "
+"number seeding and generation algorithms from GLib-2.0 are used instead of "
+"the new better ones. Use the GLib-2.0 algorithms only if you have sequences "
+"of numbers generated with Glib-2.0 that you need to reproduce exactly."
+msgstr ""
+"如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成算法将会替"
+"代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才使用GLib-2.0的算法."
+
+msgid ""
+"Allows to specify a nonstandard location for the <filename>charset.aliases</"
+"filename> file that is used by the character set conversion routines. The "
+"default location is the <replaceable>libdir</replaceable> specified at "
+"compilation time."
+msgstr ""
+"　允许为<filename>charset.aliases</filename>文件指定一个非标准的位置, 这文件"
+"通常用于字符集转换全程.默认位置是编译时指定的<replaceable>libdir</"
+"replaceable>."
+
+msgid "Locale"
+msgstr "区域设置"
+
+msgid ""
+"A number of interfaces in GLib depend on the current locale in which an "
+"application is running. Therefore, most GLib-using applications should call "
+"<function>setlocale (LC_ALL, \"\")</function> to set up the current locale."
+msgstr ""
+"相当数量的GLib接口取决于应用程序在运行时的当前区域设置. 因此大多数使用GLib的"
+"程序应该调用<function>setlocale(LC_ALL,\"\")</function> 来设置当前区域."
+
+msgid ""
+"On Windows, in a C program there are several locale concepts that not "
+"necessarily are synchronized. On one hand, there is the system default ANSI "
+"code-page, which determines what encoding is used for file names handled by "
+"the C library's functions and the Win32 API. (We are talking about the "
+"\"narrow\" functions here that take character pointers, not the \"wide\" "
+"ones.)"
+msgstr ""
+"在Windows中,C程序中有几个区域设置的概念并不是同步的. 一方面,有系统默认的ANSI"
+"代码页,由C库和Win32API来决定用什么 编码来处理文件名.(我们现在谈论的是\"窄\"函"
+"数处理字符指针,不是 \"宽\"的那种.)"
+
+msgid "Environment variables"
+msgstr "环境变量"
+
+msgid ""
+"On the other hand, there is the C library's current locale. The character "
+"set (code-page) used by that is not necessarily the same as the system "
+"default ANSI code-page. Strings in this character set are returned by "
+"functions like <function>strftime()</function>."
+msgstr ""
+"另一方面,有一个C函数库的当前区域.该字符集(代码页)并不一定像系统默认ANSI代码页"
+"一样使用.它返回的字符集类似<function>strftime()</function>."
+
+msgid "Traps and traces"
+msgstr "陷阱与追踪"
+
+msgid ""
+"<indexterm><primary>g_trap_free_size</primary></"
+"indexterm><indexterm><primary>g_trap_realloc_size</primary></"
+"indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> Some "
+"code portions contain trap variables that can be set during debugging time "
+"if GLib has been configured with <option>--enable-debug=yes</option>. Such "
+"traps lead to immediate code halts to examine the current program state and "
+"backtrace."
+msgstr ""
+"<indexterm><primary>g_trap_free_size</primary></"
+"indexterm><indexterm><primary>g_trap_realloc_size</primary></"
+"indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> 在GLib"
+"配置好<option>--enable-debugging=yes</option> 的调试中,有些包含陷阱变量的代码"
+"可被设置.这些陷阱导致代码停止检查 当前的程序状态并回溯."
+
+msgid ""
+"GLib inspects a few of environment variables in addition to standard "
+"variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
+"envar>."
+msgstr ""
+"GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
+"envar> 一样的标准环境变量之外的一小部分环境变量."
+
+msgid ""
+"Currently, the following trap variables exist: <placeholder-1/> If set to a "
+"size &gt; 0, <link linkend=\"g-free\">g_free</link>(), <link linkend=\"g-"
+"realloc\">g_realloc</link>() and <link linkend=\"g-malloc\">g_malloc</"
+"link>() will be intercepted if the size matches the size of the "
+"corresponding memory block. This will only work with "
+"<literal>g_mem_set_vtable (glib_mem_profiler_table)</literal> upon startup "
+"though, because memory profiling is required to match on the memory block "
+"sizes."
+msgstr ""
+"当前,有下列陷阱变量存在: <placeholder-1/> 如果设置 size &gt; 0, 其大小匹配内"
+"存块的大小的话,<link linkend=\"g-free\">g_free</link>(), <link linkend=\"g-"
+"realloc\">g_realloc</link>()和 <link linkend=\"g-malloc\">g_malloc</link>() "
+"将被拦截. 这只会在<literal>g_mem_set_vtable(glib_mem_profiler_table)</"
+"literal>启动时才会生效, 因为内存分析需要匹配内存块的大小."
+
+msgid ""
+"\n"
+"static volatile gulong g_trap_free_size;\n"
+"static volatile gulong g_trap_realloc_size;\n"
+"static volatile gulong g_trap_malloc_size;\n"
+msgstr ""
+"\n"
+"static volatile gulong g_trap_free_size;\n"
+"static volatile gulong g_trap_realloc_size;\n"
+"static volatile gulong g_trap_malloc_size;\n"
+
+msgid ""
+"Note that many modern debuggers support conditional breakpoints, which "
+"achieve pretty much the same. E.g. in gdb, you can do <placeholder-1/> to "
+"break only on g_malloc() calls where the size of the allocated memory block "
+"is 20."
+msgstr ""
+"注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做 "
+"<placeholder-1/> 来在只有g_malloc()分配20字节的时候才中断它."
+
+msgid ""
+"\n"
+"break g_malloc\n"
+"condition 1 n_bytes == 20\n"
+msgstr ""
+"\n"
+"break g_malloc\n"
+"condition 1 n_bytes == 20\n"
+
+msgid "G_FILENAME_ENCODING"
+msgstr "G_FILENAME_ENCODING"
+
+msgid ""
+"\n"
+"gforeach i in some_list_variable: print *(GtkWidget *)l\n"
+msgstr ""
+"\n"
+"gforeach i in some_list_variable: print *(GtkWidget *)l\n"
+
+msgid ""
+"This environment variable can be set to a comma-separated list of character "
+"set names. GLib assumes that filenames are encoded in the first character "
+"set from that list rather than in UTF-8. The special token \"@locale\" can "
+"be used to specify the character set for the current locale."
+msgstr ""
+"这个环境变量可以被设置为逗号为分隔字符集名称的列表. GLib 假设文件名编码是以此"
+"列表第一个变量指定的编码方式而不是UTF-8. 特别标记 \"@locale\" 可用于指定当前"
+"语言环境的字符集编码."
+
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, then "
+"g_slice_debug_tree_statistics() can be called in a debugger to output "
+"details about the memory usage of the slice allocator."
+msgstr ""
+"如果GLib已经配置了选项<option>--enable-debug=yes</option>, 那么在调试器中则可"
+"以调用g_slice_debug_tree_statistics()来查看 内存片使用的细节."
+
+msgid "G_BROKEN_FILENAMES"
+msgstr "G_BROKEN_FILENAMES"
+
+msgid ""
+"If this environment variable is set, GLib assumes that filenames are in the "
+"locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes priority "
+"over G_BROKEN_FILENAMES."
+msgstr ""
+"如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8. "
+"G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES."
+
+msgid "G_MESSAGES_PREFIXED"
+msgstr "G_MESSAGES_PREFIXED"
+
+msgid ""
+"A list of log levels for which messages should be prefixed by the program "
+"name and PID of the application. The default is to prefix everything except "
+"<literal>G_LOG_LEVEL_MESSAGE</literal> and <literal>G_LOG_LEVEL_INFO</"
+"literal>."
+msgstr ""
+"日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了"
+"<literal>G_LOG_LEVEL_MESSAGE</literal> 和<literal>G_LOG_LEVEL_INFO</literal>"
+"的一切."
+
+msgid "G_DEBUG"
+msgstr "G_DEBUG"
+
+msgid ""
+"If GLib has been configured with <option>--enable-debug=yes</option>, this "
+"variable can be set to a list of debug options, which cause GLib to print "
+"out different types of debugging information. <placeholder-1/> The special "
+"value all can be used to turn on all debug options. The special value help "
+"can be used to print all available options."
+msgstr ""
+"如果 GLib 已经定义了 <option>--enable-debug=yes</option>, 这个变量可用于设置"
+"调试选, 将打印出调试信息中的各种类型. <placeholder-1/> 特殊值可以用来打开所有"
+"的调试选项. 特殊值可以用来打印所有可用的选项."
+
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"warning\">g_warning</link>() or <link linkend=\"g-critical\">g_critical</"
+"link>(). This option is special in that it doesn't require GLib to be "
+"configured with debugging support."
+msgstr ""
+"首次调用<link linkend=\"g-warning\">g_warning</link>()或 <link linkend=\"g-"
+"critical\">g_critical</link>()即中止程序的运行.特别地，此选项不需要GLib配置"
+"成 调试支持."
+
+msgid ""
+"Causes GLib to abort the program at the first call to <link linkend=\"g-"
+"critical\">g_critical</link>(). This option is special in that it doesn't "
+"require GLib to be configured with debugging support."
+msgstr ""
+"首次调用<link linkend=\"g-critical\">g_critical</link>()即中止程序的运行. 此"
+"选项不需要GLib配置成 调试支持."
+
+msgid ""
+"Newly allocated memory that isn't directly initialized, as well as memory "
+"being freed will be reset to 0. The point here is to allow memory checkers "
+"and similar programs that use bohem GC alike algorithms to produce more "
+"accurate results. This option is special in that it doesn't require GLib to "
+"be configured with debugging support."
+msgstr ""
+"新分配的内存没有被直接初始化,内存释放后将被重置为0. 这里的要点是允许内存检查"
+"系统和使用bohem GC 类似算法 的程序来计算更多精确的結果.此选项比较特殊,不需要"
+"将 GLib配置成调试支持."
+
+msgid ""
+"If there is an environment variable <envar>G_WIN32_PRETEND_WIN9X</envar> "
+"defined (with any value), this function always returns a version code for "
+"Windows 9x. This is mainly an internal debugging aid for GTK+ and GLib "
+"developers, to be able to check the code paths for Windows 9x."
+msgstr ""
+"如果定义了环境变量 <envar>G_WIN32_PRETEND_WIN9X</envar> (值任意), 这个函数将"
+"返回Windows 9x的版本代码.  这在大多数情况下可以帮助GTK+和Glib的开发者进行内部"
+"调试, 以便检查Windows 9x中的代码路径."
+
 #. used by: GLONG_FROM_BE:
 #: docs.c:1000:1
 #, fuzzy
@@ -1704,19 +2817,18 @@ msgstr ""
 #. used by: g_wakeup_acknowledge:
 #. #-#-#-#-#  gwakeup.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_wakeup_signal:
-#: docs.c:1879:1 garray.c:936:1 gatomic.c:247:1 gatomic.c:271:1
-#: gatomic.c:295:1 gatomic.c:386:1 gatomic.c:410:1 gatomic.c:434:1
-#: gatomic.c:458:1 gbitlock.c:393:1 gbitlock.c:464:1 gbitlock.c:509:1
-#: gfileutils.c:1413:1 gfileutils.c:1445:1 gfileutils.c:1673:1 ghash.c:936:1
-#: ghmac.c:167:1 ghmac.c:195:1 ghmac.c:218:1 ghmac.c:244:1 ghmac.c:272:1
-#: ghmac.c:306:1 ghmac.c:343:1 ghmac.c:384:1 ghmac.c:87:1 ghmac.h:40:1
-#: glib-unix.c:143:1 glib-unix.c:211:1 glib-unix.c:236:1 glib-unix.c:272:1
-#: glib-unix.c:83:1 gregex.c:2844:1 gregex.c:533:1 gregex.c:550:1
-#: gtestutils.c:1456:1 gunidecomp.c:604:1 gunidecomp.c:670:1
-#: gunidecomp.c:712:1 guniprop.c:1464:1 guniprop.c:1495:1 gutf8.c:284:1
-#: gutils.c:2117:1 gutils.c:2151:1 gvariant.c:1614:1 gvariant.c:1654:1
-#: gvariant.c:1704:1 gvarianttype.h:271:1 gwakeup.c:135:1 gwakeup.c:182:1
-#: gwakeup.c:204:1 gwakeup.c:227:1
+#: docs.c:1879:1 garray.c:936:1 gatomic.c:247:1 gatomic.c:271:1 gatomic.c:295:1
+#: gatomic.c:386:1 gatomic.c:410:1 gatomic.c:434:1 gatomic.c:458:1
+#: gbitlock.c:393:1 gbitlock.c:464:1 gbitlock.c:509:1 gfileutils.c:1413:1
+#: gfileutils.c:1445:1 gfileutils.c:1673:1 ghash.c:936:1 ghmac.c:167:1
+#: ghmac.c:195:1 ghmac.c:218:1 ghmac.c:244:1 ghmac.c:272:1 ghmac.c:306:1
+#: ghmac.c:343:1 ghmac.c:384:1 ghmac.c:87:1 ghmac.h:40:1 glib-unix.c:143:1
+#: glib-unix.c:211:1 glib-unix.c:236:1 glib-unix.c:272:1 glib-unix.c:83:1
+#: gregex.c:2844:1 gregex.c:533:1 gregex.c:550:1 gtestutils.c:1456:1
+#: gunidecomp.c:604:1 gunidecomp.c:670:1 gunidecomp.c:712:1 guniprop.c:1464:1
+#: guniprop.c:1495:1 gutf8.c:284:1 gutils.c:2117:1 gutils.c:2151:1
+#: gvariant.c:1614:1 gvariant.c:1654:1 gvariant.c:1704:1 gvarianttype.h:271:1
+#: gwakeup.c:135:1 gwakeup.c:182:1 gwakeup.c:204:1 gwakeup.c:227:1
 #, fuzzy
 msgid "Since: 2.30"
 msgstr "Since: 2.10"
@@ -2396,22 +3508,22 @@ msgstr ""
 #. #-#-#-#-#  gversionmacros.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: GLIB_VERSION_MAX_ALLOWED:
 #: docs.c:2006:1 docs.c:2019:1 docs.c:2030:1 docs.c:2041:1 docs.c:2051:1
-#: garray.c:1507:1 garray.c:1575:1 garray.c:230:1 gbytes.c:116:1
-#: gbytes.c:137:1 gbytes.c:163:1 gbytes.c:197:1 gbytes.c:223:1 gbytes.c:245:1
-#: gbytes.c:263:1 gbytes.c:282:1 gbytes.c:311:1 gbytes.c:338:1 gbytes.c:367:1
-#: gbytes.c:425:1 gbytes.c:470:1 gbytes.c:66:1 gbytes.c:89:1 genviron.c:127:1
-#: genviron.c:210:1 genviron.c:91:1 ghash.c:1214:1 ghash.c:1230:1
-#: gkeyfile.c:1058:1 gkeyfile.c:1096:1 gmain.c:752:1 gmappedfile.c:296:1
-#: gqueue.c:103:1 gthread-posix.c:1039:1 gthread-posix.c:162:1
-#: gthread-posix.c:332:1 gthread-posix.c:372:1 gthread-posix.c:391:1
-#: gthread-posix.c:409:1 gthread-posix.c:490:1 gthread-posix.c:526:1
-#: gthread-posix.c:544:1 gthread-posix.c:564:1 gthread-posix.c:583:1
-#: gthread-posix.c:601:1 gthread-posix.c:621:1 gthread-posix.c:694:1
-#: gthread-posix.c:714:1 gthread-posix.c:939:1 gthread.c:311:1 gthread.c:385:1
-#: gthread.c:733:1 gthread.c:756:1 gthread.c:829:1 gthread.c:862:1
-#: gunicode.h:582:1 gvariant.c:1208:1 gversionmacros.h:110:1
-#: gversionmacros.h:130:1 gversionmacros.h:46:1 gversionmacros.h:56:1
-#: gversionmacros.h:66:1 gversionmacros.h:76:1
+#: garray.c:1507:1 garray.c:1575:1 garray.c:230:1 gbytes.c:116:1 gbytes.c:137:1
+#: gbytes.c:163:1 gbytes.c:197:1 gbytes.c:223:1 gbytes.c:245:1 gbytes.c:263:1
+#: gbytes.c:282:1 gbytes.c:311:1 gbytes.c:338:1 gbytes.c:367:1 gbytes.c:425:1
+#: gbytes.c:470:1 gbytes.c:66:1 gbytes.c:89:1 genviron.c:127:1 genviron.c:210:1
+#: genviron.c:91:1 ghash.c:1214:1 ghash.c:1230:1 gkeyfile.c:1058:1
+#: gkeyfile.c:1096:1 gmain.c:752:1 gmappedfile.c:296:1 gqueue.c:103:1
+#: gthread-posix.c:1039:1 gthread-posix.c:162:1 gthread-posix.c:332:1
+#: gthread-posix.c:372:1 gthread-posix.c:391:1 gthread-posix.c:409:1
+#: gthread-posix.c:490:1 gthread-posix.c:526:1 gthread-posix.c:544:1
+#: gthread-posix.c:564:1 gthread-posix.c:583:1 gthread-posix.c:601:1
+#: gthread-posix.c:621:1 gthread-posix.c:694:1 gthread-posix.c:714:1
+#: gthread-posix.c:939:1 gthread.c:311:1 gthread.c:385:1 gthread.c:733:1
+#: gthread.c:756:1 gthread.c:829:1 gthread.c:862:1 gunicode.h:582:1
+#: gvariant.c:1208:1 gversionmacros.h:110:1 gversionmacros.h:130:1
+#: gversionmacros.h:46:1 gversionmacros.h:56:1 gversionmacros.h:66:1
+#: gversionmacros.h:76:1
 #, fuzzy
 msgid "Since: 2.32"
 msgstr "Since: 2.6"
@@ -2764,9 +3876,9 @@ msgstr ""
 msgid ""
 "Expands to the GNU C <literal>format_arg</literal> function attribute if the "
 "compiler is <command>gcc</command>. This function attribute specifies that a "
-"function takes a format string for a printf(), scanf(), strftime() or strfmon"
-"() style function and modifies it, so that the result can be passed to a "
-"printf(), scanf(), strftime() or strfmon() style function (with the "
+"function takes a format string for a printf(), scanf(), strftime() or "
+"strfmon() style function and modifies it, so that the result can be passed "
+"to a printf(), scanf(), strftime() or strfmon() style function (with the "
 "remaining arguments to the format function the same as they would have been "
 "for the unmodified string). See the GNU C documentation for details."
 msgstr ""
@@ -2848,11 +3960,10 @@ msgstr ""
 #. #-#-#-#-#  gwin32.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_win32_locale_filename_from_utf8:
 #: docs.c:2141:1 gdataset.c:1009:1 gdataset.c:1032:1 gdataset.c:1053:1
-#: genviron.c:383:1 gfileutils.c:1225:1 gfileutils.c:1801:1
-#: gfileutils.c:1993:1 gfileutils.c:207:1 gmappedfile.c:238:1
-#: gmappedfile.c:314:1 gmappedfile.c:337:1 gstdio.c:130:1 gstdio.c:244:1
-#: gstdio.c:399:1 gstdio.c:79:1 gunicollate.c:502:1 gutils.c:1035:1
-#: gwin32.c:551:1
+#: genviron.c:383:1 gfileutils.c:1225:1 gfileutils.c:1801:1 gfileutils.c:1993:1
+#: gfileutils.c:207:1 gmappedfile.c:238:1 gmappedfile.c:314:1
+#: gmappedfile.c:337:1 gstdio.c:130:1 gstdio.c:244:1 gstdio.c:399:1
+#: gstdio.c:79:1 gunicollate.c:502:1 gutils.c:1035:1 gwin32.c:551:1
 msgid "Since: 2.8"
 msgstr ""
 
@@ -3398,28 +4509,28 @@ msgstr ""
 #: gkeyfile.c:351:1 gkeyfile.c:361:1 gkeyfile.c:372:1 gkeyfile.c:383:1
 #: gkeyfile.c:393:1 gkeyfile.c:402:1 gkeyfile.c:411:1 gkeyfile.c:420:1
 #: gkeyfile.c:936:1 gmain.c:4148:1 goption.c:711:1 gqueue.c:122:1
-#: gqueue.c:140:1 gqueue.h:68:1 gregex.c:1038:1 gregex.c:1083:1
-#: gregex.c:1128:1 gregex.c:1145:1 gregex.c:1176:1 gregex.c:1330:1
-#: gregex.c:1350:1 gregex.c:1371:1 gregex.c:1440:1 gregex.c:1508:1
-#: gregex.c:1583:1 gregex.c:1639:1 gregex.c:1701:1 gregex.c:1779:1
-#: gregex.c:1834:1 gregex.c:1880:1 gregex.c:1926:1 gregex.c:2579:1
-#: gregex.c:2652:1 gregex.c:2733:1 gregex.c:2805:1 gregex.c:2914:1
-#: gregex.c:497:1 gregex.c:516:1 gregex.c:571:1 gregex.c:596:1 gregex.c:688:1
-#: gregex.c:713:1 gregex.c:770:1 gregex.c:806:1 gregex.c:868:1 gregex.c:921:1
-#: gregex.c:999:1 gregex.h:115:1 gregex.h:172:1 gregex.h:239:1 gregex.h:302:1
-#: gregex.h:325:1 gregex.h:347:1 gsequence.c:1067:1 gsequence.c:1168:1
-#: gsequence.c:1193:1 gsequence.c:1213:1 gsequence.c:1249:1 gsequence.c:1265:1
-#: gsequence.c:1283:1 gsequence.c:1318:1 gsequence.c:1342:1 gsequence.c:1369:1
-#: gsequence.c:1387:1 gsequence.c:1405:1 gsequence.c:1424:1 gsequence.c:1444:1
-#: gsequence.c:1467:1 gsequence.c:1498:1 gsequence.c:250:1 gsequence.c:275:1
-#: gsequence.c:299:1 gsequence.c:340:1 gsequence.c:372:1 gsequence.c:407:1
-#: gsequence.c:442:1 gsequence.c:469:1 gsequence.c:498:1 gsequence.c:527:1
-#: gsequence.c:555:1 gsequence.c:584:1 gsequence.c:663:1 gsequence.c:699:1
-#: gsequence.c:736:1 gsequence.c:784:1 gsequence.c:867:1 gsequence.c:922:1
-#: gsequence.c:992:1 gslice.c:1045:1 gslice.c:909:1 gstring.c:1115:1
-#: gstring.c:1149:1 gstring.c:876:1 gstring.c:899:1 gstringchunk.c:173:1
-#: gthread.c:669:1 gthread.c:704:1 gunidecomp.c:81:1 guniprop.c:1309:1
-#: guniprop.c:311:1 guniprop.c:406:1 gutils.c:1757:1 gutils.h:154:1
+#: gqueue.c:140:1 gqueue.h:68:1 gregex.c:1038:1 gregex.c:1083:1 gregex.c:1128:1
+#: gregex.c:1145:1 gregex.c:1176:1 gregex.c:1330:1 gregex.c:1350:1
+#: gregex.c:1371:1 gregex.c:1440:1 gregex.c:1508:1 gregex.c:1583:1
+#: gregex.c:1639:1 gregex.c:1701:1 gregex.c:1779:1 gregex.c:1834:1
+#: gregex.c:1880:1 gregex.c:1926:1 gregex.c:2579:1 gregex.c:2652:1
+#: gregex.c:2733:1 gregex.c:2805:1 gregex.c:2914:1 gregex.c:497:1
+#: gregex.c:516:1 gregex.c:571:1 gregex.c:596:1 gregex.c:688:1 gregex.c:713:1
+#: gregex.c:770:1 gregex.c:806:1 gregex.c:868:1 gregex.c:921:1 gregex.c:999:1
+#: gregex.h:115:1 gregex.h:172:1 gregex.h:239:1 gregex.h:302:1 gregex.h:325:1
+#: gregex.h:347:1 gsequence.c:1067:1 gsequence.c:1168:1 gsequence.c:1193:1
+#: gsequence.c:1213:1 gsequence.c:1249:1 gsequence.c:1265:1 gsequence.c:1283:1
+#: gsequence.c:1318:1 gsequence.c:1342:1 gsequence.c:1369:1 gsequence.c:1387:1
+#: gsequence.c:1405:1 gsequence.c:1424:1 gsequence.c:1444:1 gsequence.c:1467:1
+#: gsequence.c:1498:1 gsequence.c:250:1 gsequence.c:275:1 gsequence.c:299:1
+#: gsequence.c:340:1 gsequence.c:372:1 gsequence.c:407:1 gsequence.c:442:1
+#: gsequence.c:469:1 gsequence.c:498:1 gsequence.c:527:1 gsequence.c:555:1
+#: gsequence.c:584:1 gsequence.c:663:1 gsequence.c:699:1 gsequence.c:736:1
+#: gsequence.c:784:1 gsequence.c:867:1 gsequence.c:922:1 gsequence.c:992:1
+#: gslice.c:1045:1 gslice.c:909:1 gstring.c:1115:1 gstring.c:1149:1
+#: gstring.c:876:1 gstring.c:899:1 gstringchunk.c:173:1 gthread.c:669:1
+#: gthread.c:704:1 gunidecomp.c:81:1 guniprop.c:1309:1 guniprop.c:311:1
+#: guniprop.c:406:1 gutils.c:1757:1 gutils.h:154:1
 msgid "Since: 2.14"
 msgstr ""
 
@@ -4968,8 +6079,7 @@ msgstr ""
 #. used by: g_ptr_array_sort_with_data:
 #. #-#-#-#-#  gqsort.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_qsort_with_data:
-#: garray.c:1369:1 garray.c:1398:1 garray.c:696:1 garray.c:723:1
-#: gqsort.c:296:1
+#: garray.c:1369:1 garray.c:1398:1 garray.c:696:1 garray.c:723:1 gqsort.c:296:1
 msgid "This is guaranteed to be a stable sort since version 2.32."
 msgstr ""
 
@@ -5384,8 +6494,8 @@ msgstr ""
 msgid ""
 "Removes the byte at the given index from a #GByteArray. The last element in "
 "the array is used to fill in the space, so this function does not preserve "
-"the order of the #GByteArray. But it is faster than g_byte_array_remove_index"
-"()."
+"the order of the #GByteArray. But it is faster than "
+"g_byte_array_remove_index()."
 msgstr ""
 
 #. used by: g_byte_array_remove_range:
@@ -5808,8 +6918,8 @@ msgstr ""
 #. used by: SECTION:arrays
 #: garray.c:62:3
 msgid ""
-"To add elements to an array, use g_array_append_val(), g_array_append_vals"
-"(), g_array_prepend_val(), and g_array_prepend_vals()."
+"To add elements to an array, use g_array_append_val(), "
+"g_array_append_vals(), g_array_prepend_val(), and g_array_prepend_vals()."
 msgstr ""
 
 #. used by: g_array_remove_range:
@@ -6330,28 +7440,27 @@ msgstr ""
 #. used by: g_format_size_for_display:
 #. #-#-#-#-#  gwin32.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_win32_get_package_installation_directory_of_module:
-#: gasyncqueue.c:136:1 gchecksum.c:1086:1 gchecksum.c:1133:1
-#: gchecksum.c:1195:1 gchecksum.c:1218:1 gchecksum.c:1241:1 gchecksum.c:1294:1
-#: gchecksum.c:1343:1 gchecksum.c:1413:1 gchecksum.c:1450:1 gchecksum.h:44:1
-#: gchecksum.h:59:1 gerror.c:680:1 gerror.c:709:1 ggettext.c:209:1
-#: ggettext.c:549:1 ghash.c:727:1 ghash.c:757:1 ghash.c:803:1 ghash.c:845:1
-#: ghash.c:976:1 gmarkup.c:1850:1 gmarkup.c:2606:1 gmessages.h:248:1
-#: gmessages.h:261:1 gstring.c:507:1 gtestutils.c:1027:1 gtestutils.c:1045:1
-#: gtestutils.c:1062:1 gtestutils.c:1080:1 gtestutils.c:1095:1
-#: gtestutils.c:1113:1 gtestutils.c:1129:1 gtestutils.c:1149:1
-#: gtestutils.c:1180:1 gtestutils.c:1206:1 gtestutils.c:1239:1
-#: gtestutils.c:1257:1 gtestutils.c:1287:1 gtestutils.c:1315:1
-#: gtestutils.c:1349:1 gtestutils.c:1482:1 gtestutils.c:1516:1
-#: gtestutils.c:1537:1 gtestutils.c:1558:1 gtestutils.c:1577:1
-#: gtestutils.c:1597:1 gtestutils.c:1618:1 gtestutils.c:1749:1
-#: gtestutils.c:181:1 gtestutils.c:1966:1 gtestutils.c:208:1
-#: gtestutils.c:2140:1 gtestutils.c:223:1 gtestutils.c:2293:1
-#: gtestutils.c:2308:1 gtestutils.c:234:1 gtestutils.c:245:1
-#: gtestutils.c:2571:1 gtestutils.c:262:1 gtestutils.c:273:1
-#: gtestutils.c:282:1 gtestutils.c:328:1 gtestutils.c:346:1 gtestutils.c:364:1
-#: gtestutils.c:380:1 gtestutils.c:398:1 gtestutils.c:921:1 gurifuncs.c:155:1
-#: gurifuncs.c:177:1 gurifuncs.c:236:1 gurifuncs.c:83:1 gutils.c:2288:1
-#: gwin32.c:238:1
+#: gasyncqueue.c:136:1 gchecksum.c:1086:1 gchecksum.c:1133:1 gchecksum.c:1195:1
+#: gchecksum.c:1218:1 gchecksum.c:1241:1 gchecksum.c:1294:1 gchecksum.c:1343:1
+#: gchecksum.c:1413:1 gchecksum.c:1450:1 gchecksum.h:44:1 gchecksum.h:59:1
+#: gerror.c:680:1 gerror.c:709:1 ggettext.c:209:1 ggettext.c:549:1
+#: ghash.c:727:1 ghash.c:757:1 ghash.c:803:1 ghash.c:845:1 ghash.c:976:1
+#: gmarkup.c:1850:1 gmarkup.c:2606:1 gmessages.h:248:1 gmessages.h:261:1
+#: gstring.c:507:1 gtestutils.c:1027:1 gtestutils.c:1045:1 gtestutils.c:1062:1
+#: gtestutils.c:1080:1 gtestutils.c:1095:1 gtestutils.c:1113:1
+#: gtestutils.c:1129:1 gtestutils.c:1149:1 gtestutils.c:1180:1
+#: gtestutils.c:1206:1 gtestutils.c:1239:1 gtestutils.c:1257:1
+#: gtestutils.c:1287:1 gtestutils.c:1315:1 gtestutils.c:1349:1
+#: gtestutils.c:1482:1 gtestutils.c:1516:1 gtestutils.c:1537:1
+#: gtestutils.c:1558:1 gtestutils.c:1577:1 gtestutils.c:1597:1
+#: gtestutils.c:1618:1 gtestutils.c:1749:1 gtestutils.c:181:1
+#: gtestutils.c:1966:1 gtestutils.c:208:1 gtestutils.c:2140:1
+#: gtestutils.c:223:1 gtestutils.c:2293:1 gtestutils.c:2308:1
+#: gtestutils.c:234:1 gtestutils.c:245:1 gtestutils.c:2571:1 gtestutils.c:262:1
+#: gtestutils.c:273:1 gtestutils.c:282:1 gtestutils.c:328:1 gtestutils.c:346:1
+#: gtestutils.c:364:1 gtestutils.c:380:1 gtestutils.c:398:1 gtestutils.c:921:1
+#: gurifuncs.c:155:1 gurifuncs.c:177:1 gurifuncs.c:236:1 gurifuncs.c:83:1
+#: gutils.c:2288:1 gwin32.c:238:1
 msgid "Since: 2.16"
 msgstr ""
 
@@ -6433,8 +7542,8 @@ msgstr ""
 #. used by: g_async_queue_ref_unlocked:
 #: gasyncqueue.c:179:3
 msgid ""
-"Deprecated: 2.8: Reference counting is done atomically. so g_async_queue_ref"
-"() can be used regardless of the @queue's lock."
+"Deprecated: 2.8: Reference counting is done atomically. so "
+"g_async_queue_ref() can be used regardless of the @queue's lock."
 msgstr ""
 
 #. used by: g_async_queue_unref_and_unlock:
@@ -6536,8 +7645,8 @@ msgstr ""
 #. used by: g_async_queue_unlock:
 #: gasyncqueue.c:269:3
 msgid ""
-"Calling this function when you have not acquired the with g_async_queue_lock"
-"() leads to undefined behaviour."
+"Calling this function when you have not acquired the with "
+"g_async_queue_lock() leads to undefined behaviour."
 msgstr ""
 
 # #-#-#-#-#  gasyncqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -7502,8 +8611,8 @@ msgstr ""
 #. used by: g_on_error_stack_trace:
 #: gbacktrace.c:216:2
 msgid ""
-"@prg_name: the program name, needed by <command>gdb</command> for the [S]"
-"tack trace option."
+"@prg_name: the program name, needed by <command>gdb</command> for the "
+"[S]tack trace option."
 msgstr ""
 
 #. used by: g_on_error_stack_trace:
@@ -7518,10 +8627,10 @@ msgstr ""
 #. used by: g_on_error_query:
 #: gbacktrace.c:97:4
 msgid ""
-"@prg_name: the program name, needed by <command>gdb</command> for the [S]"
-"tack trace option. If @prg_name is %NULL, g_get_prgname() is called to get "
-"the program name (which will work correctly if gdk_init() or gtk_init() has "
-"been called)"
+"@prg_name: the program name, needed by <command>gdb</command> for the "
+"[S]tack trace option. If @prg_name is %NULL, g_get_prgname() is called to "
+"get the program name (which will work correctly if gdk_init() or gtk_init() "
+"has been called)"
 msgstr ""
 
 #. used by: G_BREAKPOINT:
@@ -7990,8 +9099,8 @@ msgstr ""
 #. used by: g_base64_encode_step:
 #: gbase64.c:72:2
 msgid ""
-"When all of the data has been converted you must call g_base64_encode_close"
-"() to flush the saved state."
+"When all of the data has been converted you must call "
+"g_base64_encode_close() to flush the saved state."
 msgstr ""
 
 #. used by: g_base64_encode_step:
@@ -9963,8 +11072,7 @@ msgstr ""
 #. used by: g_bytes_new_with_free_func:
 #. #-#-#-#-#  gvariant.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_variant_new_from_data:
-#: gbytes.c:101:1 gbytes.c:129:1 gbytes.c:149:1 gbytes.c:81:1
-#: gvariant.c:5132:1
+#: gbytes.c:101:1 gbytes.c:129:1 gbytes.c:149:1 gbytes.c:81:1 gvariant.c:5132:1
 msgid "@size: the size of @data"
 msgstr ""
 
@@ -10333,17 +11441,18 @@ msgstr ""
 #: gbytes.c:51:4
 msgid ""
 "A #GBytes can come from many different origins that may have different "
-"procedures for freeing the memory region.  Examples are memory from g_malloc"
-"(), from memory slices, from a #GMappedFile or memory from other allocators."
+"procedures for freeing the memory region.  Examples are memory from "
+"g_malloc(), from memory slices, from a #GMappedFile or memory from other "
+"allocators."
 msgstr ""
 
 #. used by: GBytes:
 #: gbytes.c:56:4
 msgid ""
 "#GBytes work well as keys in #GHashTable. Use g_bytes_equal() and "
-"g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full"
-"(). #GBytes can also be used as keys in a #GTree by passing the "
-"g_bytes_compare() function to g_tree_new()."
+"g_bytes_hash() as parameters to g_hash_table_new() or "
+"g_hash_table_new_full(). #GBytes can also be used as keys in a #GTree by "
+"passing the g_bytes_compare() function to g_tree_new()."
 msgstr ""
 
 #. used by: GBytes:
@@ -10370,10 +11479,10 @@ msgstr ""
 #: gcharset.c:159:5
 msgid ""
 "Obtains the character set for the <link linkend=\"setlocale\">current "
-"locale</link>; you might use this character set as an argument to g_convert"
-"(), to convert from the current locale's encoding to some other encoding. "
-"(Frequently g_locale_to_utf8() and g_locale_from_utf8() are nice shortcuts, "
-"though.)"
+"locale</link>; you might use this character set as an argument to "
+"g_convert(), to convert from the current locale's encoding to some other "
+"encoding. (Frequently g_locale_to_utf8() and g_locale_from_utf8() are nice "
+"shortcuts, though.)"
 msgstr ""
 
 #. used by: g_get_charset:
@@ -10811,8 +11920,9 @@ msgid ""
 "g_checksum_get_string() or g_checksum_get_digest() to compute the checksum "
 "and return it either as a string in hexadecimal form, or as a raw sequence "
 "of bytes. To compute the checksum for binary blobs and NUL-terminated "
-"strings in one go, use the convenience functions g_compute_checksum_for_data"
-"() and g_compute_checksum_for_string(), respectively."
+"strings in one go, use the convenience functions "
+"g_compute_checksum_for_data() and g_compute_checksum_for_string(), "
+"respectively."
 msgstr ""
 
 #. used by: SECTION:checksum
@@ -11722,8 +12832,8 @@ msgstr ""
 #. used by: SECTION:quarks
 #: gdataset.c:1093:2
 msgid ""
-"To find the #GQuark corresponding to a given string, use g_quark_try_string"
-"()."
+"To find the #GQuark corresponding to a given string, use "
+"g_quark_try_string()."
 msgstr ""
 
 #. used by: SECTION:quarks
@@ -12449,8 +13559,7 @@ msgstr ""
 #. used by: g_tree_foreach:
 #. #-#-#-#-#  gtree.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_tree_traverse:
-#: gdataset.c:892:1 gdataset.c:927:1 gspawn.h:101:1 gtree.c:893:1
-#: gtree.c:934:1
+#: gdataset.c:892:1 gdataset.c:927:1 gspawn.h:101:1 gtree.c:893:1 gtree.c:934:1
 msgid "@user_data: user data to pass to the function."
 msgstr ""
 
@@ -12524,9 +13633,9 @@ msgstr ""
 #. used by: G_DATALIST_FLAGS_MASK:
 #: gdataset.h:63:3
 msgid ""
-"A bitmask that restricts the possible flags passed to g_datalist_set_flags"
-"(). Passing a flags value where flags & ~G_DATALIST_FLAGS_MASK != 0 is an "
-"error."
+"A bitmask that restricts the possible flags passed to "
+"g_datalist_set_flags(). Passing a flags value where flags & "
+"~G_DATALIST_FLAGS_MASK != 0 is an error."
 msgstr ""
 
 #. used by: SECTION:date
@@ -13323,9 +14432,9 @@ msgid ""
 "Generates a printed representation of the date, in a <link linkend="
 "\"setlocale\">locale</link>-specific way. Works just like the platform's C "
 "library strftime() function, but only accepts date-related formats; time-"
-"related formats give undefined results. Date must be valid. Unlike strftime"
-"() (which uses the locale encoding), works on a UTF-8 format string and "
-"stores a UTF-8 result."
+"related formats give undefined results. Date must be valid. Unlike "
+"strftime() (which uses the locale encoding), works on a UTF-8 format string "
+"and stores a UTF-8 result."
 msgstr ""
 
 #. used by: g_date_strftime:
@@ -13333,8 +14442,8 @@ msgstr ""
 msgid ""
 "This function does not provide any conversion specifiers in addition to "
 "those implemented by the platform's C library. For example, don't expect "
-"that using g_date_strftime() would make the \\%F provided by the C99 strftime"
-"() work on Windows where the C library only complies to C89."
+"that using g_date_strftime() would make the \\%F provided by the C99 "
+"strftime() work on Windows where the C library only complies to C89."
 msgstr ""
 
 #. used by: g_date_strftime:
@@ -14715,10 +15824,11 @@ msgstr ""
 #. used by: g_date_time_format:
 #: gdatetime.c:2464:5
 msgid ""
-"The format strings understood by this function are a subset of the strftime"
-"() format language as specified by C99.  The \\%D, \\%U and \\%W conversions "
-"are not supported, nor is the 'E' modifier.  The GNU extensions \\%k, \\%l, "
-"\\%s and \\%P are supported, however, as are the '0', '_' and '-' modifiers."
+"The format strings understood by this function are a subset of the "
+"strftime() format language as specified by C99.  The \\%D, \\%U and \\%W "
+"conversions are not supported, nor is the 'E' modifier.  The GNU extensions "
+"\\%k, \\%l, \\%s and \\%P are supported, however, as are the '0', '_' and "
+"'-' modifiers."
 msgstr ""
 
 #. used by: g_date_time_format:
@@ -14854,8 +15964,8 @@ msgstr ""
 #: gdatetime.c:2718:3
 msgid ""
 "Returns: a newly allocated string formatted to the requested format or %NULL "
-"in the case that there was an error.  The string should be freed with g_free"
-"()."
+"in the case that there was an error.  The string should be freed with "
+"g_free()."
 msgstr ""
 
 #. used by: g_date_time_ref:
@@ -15421,14 +16531,14 @@ msgstr ""
 msgid ""
 "<warning><para> Environment variable handling in UNIX is not thread-safe, "
 "and your program may crash if one thread calls g_setenv() while another "
-"thread is calling getenv(). (And note that many functions, such as gettext"
-"(), call getenv() internally.) This function is only safe to use at the very "
-"start of your program, before creating any other threads (or creating "
-"objects that create worker threads of their own). </para><para> If you need "
-"to set up the environment for a child process, you can use g_get_environ() "
-"to get an environment array, modify that with g_environ_setenv() and "
-"g_environ_unsetenv(), and then pass that array directly to execvpe(), "
-"g_spawn_async(), or the like. </para></warning>"
+"thread is calling getenv(). (And note that many functions, such as "
+"gettext(), call getenv() internally.) This function is only safe to use at "
+"the very start of your program, before creating any other threads (or "
+"creating objects that create worker threads of their own). </para><para> If "
+"you need to set up the environment for a child process, you can use "
+"g_get_environ() to get an environment array, modify that with "
+"g_environ_setenv() and g_environ_unsetenv(), and then pass that array "
+"directly to execvpe(), g_spawn_async(), or the like. </para></warning>"
 msgstr ""
 
 #. used by: g_setenv:
@@ -15446,14 +16556,14 @@ msgstr ""
 msgid ""
 "<warning><para> Environment variable handling in UNIX is not thread-safe, "
 "and your program may crash if one thread calls g_unsetenv() while another "
-"thread is calling getenv(). (And note that many functions, such as gettext"
-"(), call getenv() internally.) This function is only safe to use at the very "
-"start of your program, before creating any other threads (or creating "
-"objects that create worker threads of their own). </para><para> If you need "
-"to set up the environment for a child process, you can use g_get_environ() "
-"to get an environment array, modify that with g_environ_setenv() and "
-"g_environ_unsetenv(), and then pass that array directly to execvpe(), "
-"g_spawn_async(), or the like. </para></warning>"
+"thread is calling getenv(). (And note that many functions, such as "
+"gettext(), call getenv() internally.) This function is only safe to use at "
+"the very start of your program, before creating any other threads (or "
+"creating objects that create worker threads of their own). </para><para> If "
+"you need to set up the environment for a child process, you can use "
+"g_get_environ() to get an environment array, modify that with "
+"g_environ_setenv() and g_environ_unsetenv(), and then pass that array "
+"directly to execvpe(), g_spawn_async(), or the like. </para></warning>"
 msgstr ""
 
 #. used by: g_listenv:
@@ -15501,8 +16611,8 @@ msgstr ""
 #. used by: g_get_environ:
 #: genviron.c:418:2
 msgid ""
-"The return value is freshly allocated and it should be freed with g_strfreev"
-"() when it is no longer needed."
+"The return value is freshly allocated and it should be freed with "
+"g_strfreev() when it is no longer needed."
 msgstr ""
 
 #. used by: g_get_environ:
@@ -15817,9 +16927,9 @@ msgstr ""
 #: gerror.c:48:7
 msgid ""
 "Examples of recoverable runtime errors are \"file not found\" or \"failed to "
-"parse input.\" Examples of programming errors are \"NULL passed to strcmp"
-"()\" or \"attempted to free the same pointer twice.\" These two kinds of "
-"errors are fundamentally different: runtime errors should be handled or "
+"parse input.\" Examples of programming errors are \"NULL passed to "
+"strcmp()\" or \"attempted to free the same pointer twice.\" These two kinds "
+"of errors are fundamentally different: runtime errors should be handled or "
 "reported to the user, programming errors should be eliminated by fixing the "
 "bug in the program. This is why most functions in GLib and GTK+ do not use "
 "the #GError facility."
@@ -16029,8 +17139,8 @@ msgid ""
 "Does nothing if @err is %NULL; if @err is non-%NULL, then *@err must be "
 "%NULL. A new #GError is created and assigned to *@err. Unlike g_set_error(), "
 "@message is not a printf()-style format string. Use this function if "
-"@message contains text you don't have control over, that could include printf"
-"() escape sequences."
+"@message contains text you don't have control over, that could include "
+"printf() escape sequences."
 msgstr ""
 
 #. #-#-#-#-#  gerror.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -16516,8 +17626,8 @@ msgstr ""
 #. used by: g_file_open_tmp:
 #: gfileutils.c:1598:2
 msgid ""
-"@tmpl: (type filename) (allow-none): Template for file name, as in g_mkstemp"
-"(), basename only, or %NULL for a default template"
+"@tmpl: (type filename) (allow-none): Template for file name, as in "
+"g_mkstemp(), basename only, or %NULL for a default template"
 msgstr ""
 
 #. used by: GFileError:
@@ -17216,8 +18326,8 @@ msgstr ""
 #: gfileutils.c:85:3
 msgid ""
 "Another group of functions allows to open and read directories in the GLib "
-"file name encoding. These are g_dir_open(), g_dir_read_name(), g_dir_rewind"
-"(), g_dir_close()."
+"file name encoding. These are g_dir_open(), g_dir_read_name(), "
+"g_dir_rewind(), g_dir_close()."
 msgstr ""
 
 #. used by: GFileError:
@@ -17408,8 +18518,8 @@ msgstr ""
 #. used by: g_dpgettext:
 #: ggettext.c:204:2
 msgid ""
-"Applications should normally not use this function directly, but use the C_"
-"() macro for translations with context."
+"Applications should normally not use this function directly, but use the "
+"C_() macro for translations with context."
 msgstr ""
 
 #. #-#-#-#-#  ggettext.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -17979,12 +19089,12 @@ msgstr ""
 #. used by: g_hash_table_replace:
 #: ghash.c:1185:7
 msgid ""
-"Inserts a new key and value into a #GHashTable similar to g_hash_table_insert"
-"(). The difference is that if the key already exists in the #GHashTable, it "
-"gets replaced by the new key. If you supplied a @value_destroy_func when "
-"creating the #GHashTable, the old value is freed using that function. If you "
-"supplied a @key_destroy_func when creating the #GHashTable, the old key is "
-"freed using that function."
+"Inserts a new key and value into a #GHashTable similar to "
+"g_hash_table_insert(). The difference is that if the key already exists in "
+"the #GHashTable, it gets replaced by the new key. If you supplied a "
+"@value_destroy_func when creating the #GHashTable, the old value is freed "
+"using that function. If you supplied a @key_destroy_func when creating the "
+"#GHashTable, the old key is freed using that function."
 msgstr ""
 
 #. used by: g_hash_table_add:
@@ -18158,8 +19268,8 @@ msgstr ""
 #. used by: GHashFunc:
 #: ghash.c:143:2
 msgid ""
-"Specifies the type of the hash function which is passed to g_hash_table_new"
-"() when a #GHashTable is created."
+"Specifies the type of the hash function which is passed to "
+"g_hash_table_new() when a #GHashTable is created."
 msgstr ""
 
 #. #-#-#-#-#  ghash.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -18741,10 +19851,10 @@ msgstr ""
 #: ghash.c:640:5
 msgid ""
 "Hash values returned by @hash_func are used to determine where keys are "
-"stored within the #GHashTable data structure. The g_direct_hash(), g_int_hash"
-"(), g_int64_hash(), g_double_hash() and g_str_hash() functions are provided "
-"for some common types of keys. If @hash_func is %NULL, g_direct_hash() is "
-"used."
+"stored within the #GHashTable data structure. The g_direct_hash(), "
+"g_int_hash(), g_int64_hash(), g_double_hash() and g_str_hash() functions are "
+"provided for some common types of keys. If @hash_func is %NULL, "
+"g_direct_hash() is used."
 msgstr ""
 
 #. used by: g_hash_table_new:
@@ -19044,8 +20154,8 @@ msgstr ""
 #. used by: g_hmac_update:
 #: ghmac.c:241:2
 msgid ""
-"The HMAC must still be open, that is g_hmac_get_string() or g_hmac_get_digest"
-"() must not have been called on @hmac."
+"The HMAC must still be open, that is g_hmac_get_string() or "
+"g_hmac_get_digest() must not have been called on @hmac."
 msgstr ""
 
 #. used by: g_hmac_get_string:
@@ -19217,9 +20327,9 @@ msgstr ""
 #: ghmac.c:75:8
 msgid ""
 "A #GHmac works by feeding a binary blob through g_hmac_update() until the "
-"data is complete; the digest can then be extracted using g_hmac_get_string"
-"(), which will return the checksum as a hexadecimal string; or "
-"g_hmac_get_digest(), which will return a array of raw bytes. Once either "
+"data is complete; the digest can then be extracted using "
+"g_hmac_get_string(), which will return the checksum as a hexadecimal string; "
+"or g_hmac_get_digest(), which will return a array of raw bytes. Once either "
 "g_hmac_get_string() or g_hmac_get_digest() have been called on a #GHmac, the "
 "HMAC will be closed and it won't be possible to call g_hmac_update() on it "
 "anymore."
@@ -19418,8 +20528,8 @@ msgstr ""
 #. used by: GHookFunc:
 #: ghook.c:168:2
 msgid ""
-"Defines the type of a hook function that can be invoked by g_hook_list_invoke"
-"()."
+"Defines the type of a hook function that can be invoked by "
+"g_hook_list_invoke()."
 msgstr ""
 
 #. used by: GHookCheckFunc:
@@ -19789,9 +20899,9 @@ msgstr ""
 #: ghook.c:691:4
 msgid ""
 "Returns the first #GHook in a #GHookList which has not been destroyed. The "
-"reference count for the #GHook is incremented, so you must call g_hook_unref"
-"() to restore it when no longer needed. (Or call g_hook_next_valid() if you "
-"are stepping through the #GHookList.)"
+"reference count for the #GHook is incremented, so you must call "
+"g_hook_unref() to restore it when no longer needed. (Or call "
+"g_hook_next_valid() if you are stepping through the #GHookList.)"
 msgstr ""
 
 #. used by: g_hook_first_valid:
@@ -19815,8 +20925,8 @@ msgstr ""
 #: ghook.c:730:4
 msgid ""
 "Returns the next #GHook in a #GHookList which has not been destroyed. The "
-"reference count for the #GHook is incremented, so you must call g_hook_unref"
-"() to restore it when no longer needed. (Or continue to call "
+"reference count for the #GHook is incremented, so you must call "
+"g_hook_unref() to restore it when no longer needed. (Or continue to call "
 "g_hook_next_valid() until %NULL is returned.)"
 msgstr ""
 
@@ -20249,10 +21359,10 @@ msgstr ""
 #: giochannel.c:1460:1 giochannel.c:1651:1 giochannel.c:1703:1
 #: giochannel.c:190:1 giochannel.c:1915:1 giochannel.c:1996:1
 #: giochannel.c:2115:1 giochannel.c:2176:1 giochannel.c:219:1
-#: giochannel.c:237:1 giochannel.c:2514:1 giochannel.c:302:1
-#: giochannel.c:384:1 giochannel.c:486:1 giochannel.c:633:1 giochannel.c:677:1
-#: giochannel.c:842:1 giochannel.c:864:1 giochannel.c:880:1 giochannel.c:912:1
-#: giochannel.c:936:1 giochannel.c:994:1
+#: giochannel.c:237:1 giochannel.c:2514:1 giochannel.c:302:1 giochannel.c:384:1
+#: giochannel.c:486:1 giochannel.c:633:1 giochannel.c:677:1 giochannel.c:842:1
+#: giochannel.c:864:1 giochannel.c:880:1 giochannel.c:912:1 giochannel.c:936:1
+#: giochannel.c:994:1
 msgid "@channel: a #GIOChannel"
 msgstr ""
 
@@ -20365,8 +21475,8 @@ msgstr ""
 #. used by: GSeekType:
 #: giochannel.c:1089:2
 msgid ""
-"An enumeration specifying the base position for a g_io_channel_seek_position"
-"() operation."
+"An enumeration specifying the base position for a "
+"g_io_channel_seek_position() operation."
 msgstr ""
 
 # used by: GIOFuncs:
@@ -20518,12 +21628,13 @@ msgid ""
 "g_io_channel_seek_position(). (This flushes all the internal buffers.) </"
 "para></listitem> <listitem><para> The current encoding is %NULL or UTF-8. </"
 "para></listitem> <listitem><para> One of the (new API) read functions has "
-"just returned %G_IO_STATUS_EOF (or, in the case of g_io_channel_read_to_end"
-"(), %G_IO_STATUS_NORMAL). </para></listitem> <listitem><para> One of the "
-"functions g_io_channel_read_chars() or g_io_channel_read_unichar() has "
-"returned %G_IO_STATUS_AGAIN or %G_IO_STATUS_ERROR. This may be useful in the "
-"case of %G_CONVERT_ERROR_ILLEGAL_SEQUENCE. Returning one of these statuses "
-"from g_io_channel_read_line(), g_io_channel_read_line_string(), or "
+"just returned %G_IO_STATUS_EOF (or, in the case of "
+"g_io_channel_read_to_end(), %G_IO_STATUS_NORMAL). </para></listitem> "
+"<listitem><para> One of the functions g_io_channel_read_chars() or "
+"g_io_channel_read_unichar() has returned %G_IO_STATUS_AGAIN or "
+"%G_IO_STATUS_ERROR. This may be useful in the case of "
+"%G_CONVERT_ERROR_ILLEGAL_SEQUENCE. Returning one of these statuses from "
+"g_io_channel_read_line(), g_io_channel_read_line_string(), or "
 "g_io_channel_read_to_end() does <emphasis>not</emphasis> guarantee that the "
 "encoding can be changed. </para></listitem> </itemizedlist> Channels which "
 "do not meet one of the above conditions cannot call "
@@ -21962,8 +23073,8 @@ msgstr ""
 #: gkeyfile.c:117:9
 msgid ""
 "Key-value pairs generally have the form <literal>key=value</literal>, with "
-"the exception of localized strings, which have the form <literal>key[locale]"
-"=value</literal>, with a locale identifier of the form "
+"the exception of localized strings, which have the form "
+"<literal>key[locale]=value</literal>, with a locale identifier of the form "
 "<literal>lang_COUNTRY@MODIFIER</literal> where <literal>COUNTRY</literal> "
 "and <literal>MODIFIER</literal> are optional. Space before and after the '=' "
 "character are ignored. Newline, tab, carriage return and backslash "
@@ -23353,8 +24464,7 @@ msgstr ""
 #. used by: g_timeout_source_new_seconds:
 #. #-#-#-#-#  gmain.pot~ (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_child_watch_source_new:
-#: glib-unix.c:205:3 gmain.c:3896:3 gmain.c:3923:3 gmain.c:4484:3
-#: gmain.c:778:3
+#: glib-unix.c:205:3 gmain.c:3896:3 gmain.c:3923:3 gmain.c:4484:3 gmain.c:778:3
 msgid ""
 "The source will not initially be associated with any #GMainContext and must "
 "be added to one with g_source_attach() before it will be executed."
@@ -24200,9 +25310,9 @@ msgstr ""
 #. used by: SECTION:linked_lists_double
 #: glist.c:73:3
 msgid ""
-"To find elements in the list use g_list_first(), g_list_last(), g_list_next"
-"(), g_list_previous(), g_list_nth(), g_list_nth_data(), g_list_find() and "
-"g_list_find_custom()."
+"To find elements in the list use g_list_first(), g_list_last(), "
+"g_list_next(), g_list_previous(), g_list_nth(), g_list_nth_data(), "
+"g_list_find() and g_list_find_custom()."
 msgstr ""
 
 #. used by: g_list_position:
@@ -24436,8 +25546,8 @@ msgstr ""
 msgid ""
 "Returns the numeric ID for a particular source. The ID of a source is a "
 "positive integer which is unique within a particular main loop context. The "
-"reverse mapping from ID to source is done by g_main_context_find_source_by_id"
-"()."
+"reverse mapping from ID to source is done by "
+"g_main_context_find_source_by_id()."
 msgstr ""
 
 #. used by: g_source_get_id:
@@ -24509,8 +25619,8 @@ msgid ""
 "The main event loop manages all the available sources of events for GLib and "
 "GTK+ applications. These events can come from any number of different types "
 "of sources such as file descriptors (plain files, pipes or sockets) and "
-"timeouts. New types of event sources can also be added using g_source_attach"
-"()."
+"timeouts. New types of event sources can also be added using "
+"g_source_attach()."
 msgstr ""
 
 #. used by: g_source_remove_poll:
@@ -24609,10 +25719,10 @@ msgstr ""
 #: gmain.c:1233:6
 msgid ""
 "Sets the callback function storing the data as a refcounted callback \"object"
-"\". This is used internally. Note that calling g_source_set_callback_indirect"
-"() assumes an initial reference count on @callback_data, and thus "
-"@callback_funcs->unref will eventually be called once more than "
-"@callback_funcs->ref."
+"\". This is used internally. Note that calling "
+"g_source_set_callback_indirect() assumes an initial reference count on "
+"@callback_data, and thus @callback_funcs->unref will eventually be called "
+"once more than @callback_funcs->ref."
 msgstr ""
 
 #. used by: SECTION:main
@@ -24996,9 +26106,9 @@ msgstr ""
 msgid ""
 "Removes the source with the given id from the default main context. The id "
 "of a #GSource is given by g_source_get_id(), or will be returned by the "
-"functions g_source_attach(), g_idle_add(), g_idle_add_full(), g_timeout_add"
-"(), g_timeout_add_full(), g_child_watch_add(), g_child_watch_add_full(), "
-"g_io_add_watch(), and g_io_add_watch_full()."
+"functions g_source_attach(), g_idle_add(), g_idle_add_full(), "
+"g_timeout_add(), g_timeout_add_full(), g_child_watch_add(), "
+"g_child_watch_add_full(), g_io_add_watch(), and g_io_add_watch_full()."
 msgstr ""
 
 #. used by: g_source_remove:
@@ -25131,10 +26241,10 @@ msgstr ""
 msgid ""
 "Returns the depth of the stack of calls to g_main_context_dispatch() on any "
 "#GMainContext in the current thread. That is, when called from the toplevel, "
-"it gives 0. When called from within a callback from g_main_context_iteration"
-"() (or g_main_loop_run(), etc.) it returns 1. When called from within a "
-"callback to a recursive call to g_main_context_iteration(), it returns 2. "
-"And so forth."
+"it gives 0. When called from within a callback from "
+"g_main_context_iteration() (or g_main_loop_run(), etc.) it returns 1. When "
+"called from within a callback to a recursive call to "
+"g_main_context_iteration(), it returns 2. And so forth."
 msgstr ""
 
 #. used by: g_main_depth:
@@ -25240,9 +26350,9 @@ msgstr ""
 #. used by: g_main_context_acquire:
 #: gmain.c:2608:3
 msgid ""
-"You must be the owner of a context before you can call g_main_context_prepare"
-"(), g_main_context_query(), g_main_context_check(), g_main_context_dispatch"
-"()."
+"You must be the owner of a context before you can call "
+"g_main_context_prepare(), g_main_context_query(), g_main_context_check(), "
+"g_main_context_dispatch()."
 msgstr ""
 
 # #-#-#-#-#  gmain.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -25595,8 +26705,8 @@ msgstr ""
 #. used by: g_source_get_current_time:
 #: gmain.c:3637:2
 msgid ""
-"This function ignores @source and is otherwise the same as g_get_current_time"
-"()."
+"This function ignores @source and is otherwise the same as "
+"g_get_current_time()."
 msgstr ""
 
 #. used by: g_source_get_current_time:
@@ -25895,9 +27005,9 @@ msgstr ""
 #: gmain.c:4028:4
 msgid ""
 "If you want to have a timer in the \"seconds\" range and do not care about "
-"the exact time of the first call of the timer, use the g_timeout_add_seconds"
-"() function; this function allows for more optimizations and more efficient "
-"system power usage."
+"the exact time of the first call of the timer, use the "
+"g_timeout_add_seconds() function; this function allows for more "
+"optimizations and more efficient system power usage."
 msgstr ""
 
 #. #-#-#-#-#  gmain.pot~ (PACKAGE VERSION)  #-#-#-#-#
@@ -25977,9 +27087,10 @@ msgstr ""
 #. used by: g_timeout_add_seconds_full:
 #: gmain.c:4086:4
 msgid ""
-"This internally creates a main loop source using g_timeout_source_new_seconds"
-"() and attaches it to the main loop context using g_source_attach(). You can "
-"do these steps manually if you need greater control."
+"This internally creates a main loop source using "
+"g_timeout_source_new_seconds() and attaches it to the main loop context "
+"using g_source_attach(). You can do these steps manually if you need greater "
+"control."
 msgstr ""
 
 #. used by: g_timeout_add_seconds_full:
@@ -26009,10 +27120,10 @@ msgstr ""
 #. used by: g_timeout_add_seconds:
 #: gmain.c:4134:4
 msgid ""
-"This internally creates a main loop source using g_timeout_source_new_seconds"
-"() and attaches it to the main loop context using g_source_attach(). You can "
-"do these steps manually if you need greater control. Also see "
-"g_timeout_add_seconds_full()."
+"This internally creates a main loop source using "
+"g_timeout_source_new_seconds() and attaches it to the main loop context "
+"using g_source_attach(). You can do these steps manually if you need greater "
+"control. Also see g_timeout_add_seconds_full()."
 msgstr ""
 
 #. used by: g_timeout_add_seconds:
@@ -26447,10 +27558,10 @@ msgstr ""
 msgid ""
 "Gets the thread-default #GMainContext for this thread, as with "
 "g_main_context_get_thread_default(), but also adds a reference to it with "
-"g_main_context_ref(). In addition, unlike g_main_context_get_thread_default"
-"(), if the thread-default context is the global default context, this will "
-"return that #GMainContext (with a ref added to it) rather than returning "
-"%NULL."
+"g_main_context_ref(). In addition, unlike "
+"g_main_context_get_thread_default(), if the thread-default context is the "
+"global default context, this will return that #GMainContext (with a ref "
+"added to it) rather than returning %NULL."
 msgstr ""
 
 #. used by: g_main_context_ref_thread_default:
@@ -26548,8 +27659,8 @@ msgstr ""
 #. used by: GSourceFunc:
 #: gmain.h:132:2
 msgid ""
-"Specifies the type of function passed to g_timeout_add(), g_timeout_add_full"
-"(), g_idle_add(), and g_idle_add_full()."
+"Specifies the type of function passed to g_timeout_add(), "
+"g_timeout_add_full(), g_idle_add(), and g_idle_add_full()."
 msgstr ""
 
 #. used by: GSourceFunc:
@@ -26737,9 +27848,10 @@ msgid ""
 "@dispatch: Called to dispatch the event source, after it has returned %TRUE "
 "in either its @prepare or its @check function. The @dispatch function is "
 "passed in a callback function and data. The callback function may be %NULL "
-"if the source was never connected to a callback using g_source_set_callback"
-"(). The @dispatch function should call the callback function with @user_data "
-"and whatever additional parameters are needed for this type of event source."
+"if the source was never connected to a callback using "
+"g_source_set_callback(). The @dispatch function should call the callback "
+"function with @user_data and whatever additional parameters are needed for "
+"this type of event source."
 msgstr ""
 
 #. used by: GSourceFuncs:
@@ -29618,8 +30730,8 @@ msgstr ""
 #: gnode.c:55:4
 msgid ""
 "To create a new node and insert it into a tree use g_node_insert_data(), "
-"g_node_insert_data_after(), g_node_insert_data_before(), g_node_append_data"
-"() and g_node_prepend_data()."
+"g_node_insert_data_after(), g_node_insert_data_before(), "
+"g_node_append_data() and g_node_prepend_data()."
 msgstr ""
 
 #. used by: SECTION:trees-nary
@@ -29639,9 +30751,9 @@ msgstr ""
 #. used by: SECTION:trees-nary
 #: gnode.c:68:3
 msgid ""
-"To get information about a node or tree use G_NODE_IS_LEAF(), G_NODE_IS_ROOT"
-"(), g_node_depth(), g_node_n_nodes(), g_node_n_children(), g_node_is_ancestor"
-"() or g_node_max_height()."
+"To get information about a node or tree use G_NODE_IS_LEAF(), "
+"G_NODE_IS_ROOT(), g_node_depth(), g_node_n_nodes(), g_node_n_children(), "
+"g_node_is_ancestor() or g_node_max_height()."
 msgstr ""
 
 #. used by: SECTION:trees-nary
@@ -29654,8 +30766,8 @@ msgstr ""
 #. used by: SECTION:trees-nary
 #: gnode.c:75:2
 msgid ""
-"To remove a node or subtree from a tree use g_node_unlink() or g_node_destroy"
-"()."
+"To remove a node or subtree from a tree use g_node_unlink() or "
+"g_node_destroy()."
 msgstr ""
 
 # used by: g_node_traverse:
@@ -30424,8 +31536,9 @@ msgstr ""
 #. used by: g_option_context_set_summary:
 #: goption.c:2369:3
 msgid ""
-"Note that the summary is translated (see g_option_context_set_translate_func"
-"() and g_option_context_set_translation_domain())."
+"Note that the summary is translated (see "
+"g_option_context_set_translate_func() and "
+"g_option_context_set_translation_domain())."
 msgstr ""
 
 #. used by: g_option_context_get_summary:
@@ -30461,8 +31574,8 @@ msgstr ""
 #. used by: g_option_context_set_description:
 #: goption.c:2414:2
 msgid ""
-"Note that the summary is translated (see g_option_context_set_translate_func"
-"())."
+"Note that the summary is translated (see "
+"g_option_context_set_translate_func())."
 msgstr ""
 
 #. used by: g_option_context_get_description:
@@ -30618,8 +31731,8 @@ msgstr ""
 #: goption.c:413:3
 msgid ""
 "Sets whether to ignore unknown options or not. If an argument is ignored, it "
-"is left in the @argv array after parsing. By default, g_option_context_parse"
-"() treats unknown options as error."
+"is left in the @argv array after parsing. By default, "
+"g_option_context_parse() treats unknown options as error."
 msgstr ""
 
 #. used by: g_option_context_set_ignore_unknown_options:
@@ -31553,8 +32666,7 @@ msgstr ""
 #. #-#-#-#-#  gprintf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_vasprintf:
 #: gprintf.c:127:2 gprintf.c:170:2 gprintf.c:193:2 gprintf.c:217:2
-#: gprintf.c:244:2 gprintf.c:284:2 gprintf.c:32:2 gprintf.c:60:2
-#: gprintf.c:91:2
+#: gprintf.c:244:2 gprintf.c:284:2 gprintf.c:32:2 gprintf.c:60:2 gprintf.c:91:2
 msgid ""
 "@format: a standard printf() format string, but notice <link linkend="
 "\"string-precision\">string precision pitfalls</link>."
@@ -31847,12 +32959,11 @@ msgstr ""
 #. used by: g_queue_insert_after:
 #. #-#-#-#-#  gqueue.pot~ (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_queue_insert_sorted:
-#: gqueue.c:1015:1 gqueue.c:1041:1 gqueue.c:135:1 gqueue.c:169:1
-#: gqueue.c:187:1 gqueue.c:204:1 gqueue.c:232:1 gqueue.c:262:1 gqueue.c:282:1
-#: gqueue.c:310:1 gqueue.c:354:1 gqueue.c:455:1 gqueue.c:573:1 gqueue.c:591:1
-#: gqueue.c:642:1 gqueue.c:707:1 gqueue.c:735:1 gqueue.c:777:1 gqueue.c:798:1
-#: gqueue.c:824:1 gqueue.c:880:1 gqueue.c:908:1 gqueue.c:928:1 gqueue.c:955:1
-#: gqueue.c:991:1
+#: gqueue.c:1015:1 gqueue.c:1041:1 gqueue.c:135:1 gqueue.c:169:1 gqueue.c:187:1
+#: gqueue.c:204:1 gqueue.c:232:1 gqueue.c:262:1 gqueue.c:282:1 gqueue.c:310:1
+#: gqueue.c:354:1 gqueue.c:455:1 gqueue.c:573:1 gqueue.c:591:1 gqueue.c:642:1
+#: gqueue.c:707:1 gqueue.c:735:1 gqueue.c:777:1 gqueue.c:798:1 gqueue.c:824:1
+#: gqueue.c:880:1 gqueue.c:908:1 gqueue.c:928:1 gqueue.c:955:1 gqueue.c:991:1
 msgid "@queue: a #GQueue"
 msgstr ""
 
@@ -32841,9 +33952,9 @@ msgstr ""
 #: grand.c:85:4
 msgid ""
 "The <function>g_rand*_range</function> functions will return high quality "
-"equally distributed random numbers, whereas for example the <literal>"
-"(g_random_int()&percnt;max)</literal> approach often doesn't yield equally "
-"distributed numbers."
+"equally distributed random numbers, whereas for example the "
+"<literal>(g_random_int()&percnt;max)</literal> approach often doesn't yield "
+"equally distributed numbers."
 msgstr ""
 
 #. used by: SECTION:random_numbers
@@ -33531,11 +34642,11 @@ msgstr ""
 #. used by: g_regex_match_all_full:
 #: gregex.c:1675:6
 msgid ""
-"The number of matched strings is retrieved using g_match_info_get_match_count"
-"(). To obtain the matched strings and their position you can use, "
-"respectively, g_match_info_fetch() and g_match_info_fetch_pos(). Note that "
-"the strings are returned in reverse order of length; that is, the longest "
-"matching string is given first."
+"The number of matched strings is retrieved using "
+"g_match_info_get_match_count(). To obtain the matched strings and their "
+"position you can use, respectively, g_match_info_fetch() and "
+"g_match_info_fetch_pos(). Note that the strings are returned in reverse "
+"order of length; that is, the longest matching string is given first."
 msgstr ""
 
 #. used by: g_regex_match_all_full:
@@ -35386,8 +36497,8 @@ msgstr ""
 #. used by: GScanner:
 #: gscanner.c:188:1
 msgid ""
-"@next_position: char number of the last token from g_scanner_peek_next_token"
-"()"
+"@next_position: char number of the last token from "
+"g_scanner_peek_next_token()"
 msgstr ""
 
 #. used by: GScanner:
@@ -36023,9 +37134,10 @@ msgstr ""
 #: gsequence.c:1055:7 gsequence.c:1115:7 gsequence.c:773:7 gsequence.c:822:7
 msgid ""
 "<note><para> This function will fail if the data contained in the sequence "
-"is unsorted.  Use g_sequence_insert_sorted() or g_sequence_insert_sorted_iter"
-"() to add data to your sequence or, if you want to add a large amount of "
-"data, call g_sequence_sort() after doing unsorted insertions. </para></note>"
+"is unsorted.  Use g_sequence_insert_sorted() or "
+"g_sequence_insert_sorted_iter() to add data to your sequence or, if you want "
+"to add a large amount of data, call g_sequence_sort() after doing unsorted "
+"insertions. </para></note>"
 msgstr ""
 
 #. used by: g_sequence_search_iter:
@@ -37361,12 +38473,12 @@ msgstr ""
 #: gslice.c:936:9
 msgid ""
 "Frees a linked list of memory blocks of structure type @type. The memory "
-"blocks must be equal-sized, allocated via g_slice_alloc() or g_slice_alloc0"
-"() and linked together by a @next pointer (similar to #GSList). The name of "
-"the @next field in @type is passed as third argument. Note that the exact "
-"release behaviour can be changed with the <link linkend=\"G_DEBUG"
-"\">G_DEBUG=gc-friendly</link> environment variable, also see <link linkend="
-"\"G_SLICE\">G_SLICE</link> for related debugging options."
+"blocks must be equal-sized, allocated via g_slice_alloc() or "
+"g_slice_alloc0() and linked together by a @next pointer (similar to "
+"#GSList). The name of the @next field in @type is passed as third argument. "
+"Note that the exact release behaviour can be changed with the <link linkend="
+"\"G_DEBUG\">G_DEBUG=gc-friendly</link> environment variable, also see <link "
+"linkend=\"G_SLICE\">G_SLICE</link> for related debugging options."
 msgstr ""
 
 #. used by: g_slice_alloc:
@@ -37478,11 +38590,11 @@ msgstr ""
 #. used by: g_slist_sort:
 #. #-#-#-#-#  gslist.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_slist_sort_with_data:
-#: gslist.c:1008:1 gslist.c:1028:1 gslist.c:126:1 gslist.c:183:1
-#: gslist.c:240:1 gslist.c:274:1 gslist.c:400:1 gslist.c:437:1 gslist.c:510:1
-#: gslist.c:529:1 gslist.c:550:1 gslist.c:590:1 gslist.c:616:1 gslist.c:636:1
-#: gslist.c:656:1 gslist.c:682:1 gslist.c:715:1 gslist.c:744:1 gslist.c:773:1
-#: gslist.c:798:1 gslist.c:826:1 gslist.c:901:1 gslist.c:922:1
+#: gslist.c:1008:1 gslist.c:1028:1 gslist.c:126:1 gslist.c:183:1 gslist.c:240:1
+#: gslist.c:274:1 gslist.c:400:1 gslist.c:437:1 gslist.c:510:1 gslist.c:529:1
+#: gslist.c:550:1 gslist.c:590:1 gslist.c:616:1 gslist.c:636:1 gslist.c:656:1
+#: gslist.c:682:1 gslist.c:715:1 gslist.c:744:1 gslist.c:773:1 gslist.c:798:1
+#: gslist.c:826:1 gslist.c:901:1 gslist.c:922:1
 msgid "@list: a #GSList"
 msgstr ""
 
@@ -37537,9 +38649,9 @@ msgstr ""
 #. used by: g_slist_alloc:
 #: gslist.c:114:3
 msgid ""
-"Allocates space for one #GSList element. It is called by the g_slist_append"
-"(), g_slist_prepend(), g_slist_insert() and g_slist_insert_sorted() "
-"functions and so is rarely used on its own."
+"Allocates space for one #GSList element. It is called by the "
+"g_slist_append(), g_slist_prepend(), g_slist_insert() and "
+"g_slist_insert_sorted() functions and so is rarely used on its own."
 msgstr ""
 
 #. used by: g_slist_free:
@@ -37854,8 +38966,8 @@ msgstr ""
 #. used by: SECTION:linked_lists_single
 #: gslist.c:73:3
 msgid ""
-"To find elements in the list use g_slist_last(), g_slist_next(), g_slist_nth"
-"(), g_slist_nth_data(), g_slist_find() and g_slist_find_custom()."
+"To find elements in the list use g_slist_last(), g_slist_next(), "
+"g_slist_nth(), g_slist_nth_data(), g_slist_find() and g_slist_find_custom()."
 msgstr ""
 
 #. used by: SECTION:linked_lists_single
@@ -38194,20 +39306,20 @@ msgstr ""
 #. used by: g_spawn_async_with_pipes:
 #: gspawn.c:508:16
 msgid ""
-"On Windows the low-level child process creation API <function>CreateProcess()"
-"</function> doesn't use argument vectors, but a command line. The C runtime "
-"library's <function>spawn*()</function> family of functions (which "
-"g_spawn_async_with_pipes() eventually calls) paste the argument vector "
-"elements together into a command line, and the C runtime startup code does a "
-"corresponding reconstruction of an argument vector from the command line, to "
-"be passed to main(). Complications arise when you have argument vector "
-"elements that contain spaces of double quotes. The <function>spawn*()</"
-"function> functions don't do any quoting or escaping, but on the other hand "
-"the startup code does do unquoting and unescaping in order to enable "
-"receiving arguments with embedded spaces or double quotes. To work around "
-"this asymmetry, g_spawn_async_with_pipes() will do quoting and escaping on "
-"argument vector elements that need it before calling the C runtime spawn() "
-"function."
+"On Windows the low-level child process creation API "
+"<function>CreateProcess()</function> doesn't use argument vectors, but a "
+"command line. The C runtime library's <function>spawn*()</function> family "
+"of functions (which g_spawn_async_with_pipes() eventually calls) paste the "
+"argument vector elements together into a command line, and the C runtime "
+"startup code does a corresponding reconstruction of an argument vector from "
+"the command line, to be passed to main(). Complications arise when you have "
+"argument vector elements that contain spaces of double quotes. The "
+"<function>spawn*()</function> functions don't do any quoting or escaping, "
+"but on the other hand the startup code does do unquoting and unescaping in "
+"order to enable receiving arguments with embedded spaces or double quotes. "
+"To work around this asymmetry, g_spawn_async_with_pipes() will do quoting "
+"and escaping on argument vector elements that need it before calling the C "
+"runtime spawn() function."
 msgstr ""
 
 #. used by: g_spawn_async_with_pipes:
@@ -38438,8 +39550,8 @@ msgstr ""
 #: gspawn.c:689:3
 msgid ""
 "If @exit_status is non-%NULL, the exit status of the child is stored there "
-"as it would be returned by waitpid(); standard UNIX macros such as WIFEXITED"
-"() and WEXITSTATUS() must be used to evaluate the exit status."
+"as it would be returned by waitpid(); standard UNIX macros such as "
+"WIFEXITED() and WEXITSTATUS() must be used to evaluate the exit status."
 msgstr ""
 
 #. used by: g_spawn_command_line_sync:
@@ -38521,9 +39633,9 @@ msgstr ""
 msgid ""
 "In particular, it is not safe to call any function which may call malloc(), "
 "which includes POSIX functions such as setenv(). If you need to set up the "
-"child environment differently from the parent, you should use g_get_environ"
-"(), g_environ_setenv(), and g_environ_unsetenv(), and then pass the complete "
-"environment list to the <literal>g_spawn...</literal> function."
+"child environment differently from the parent, you should use "
+"g_get_environ(), g_environ_setenv(), and g_environ_unsetenv(), and then pass "
+"the complete environment list to the <literal>g_spawn...</literal> function."
 msgstr ""
 
 #. used by: GSpawnFlags:
@@ -38583,8 +39695,8 @@ msgstr ""
 #. used by: GSpawnFlags:
 #: gspawn.h:159:1
 msgid ""
-"Flags passed to g_spawn_sync(), g_spawn_async() and g_spawn_async_with_pipes"
-"()."
+"Flags passed to g_spawn_sync(), g_spawn_async() and "
+"g_spawn_async_with_pipes()."
 msgstr ""
 
 #. used by: G_SPAWN_ERROR:
@@ -39041,10 +40153,10 @@ msgstr ""
 #. used by: g_lstat:
 #: gstdio.c:509:5
 msgid ""
-"A wrapper for the POSIX lstat() function. The lstat() function is like stat"
-"() except that in the case of symbolic links, it returns information about "
-"the symbolic link itself and not the file that it refers to. If the system "
-"does not support symbolic links g_lstat() is identical to g_stat()."
+"A wrapper for the POSIX lstat() function. The lstat() function is like "
+"stat() except that in the case of symbolic links, it returns information "
+"about the symbolic link itself and not the file that it refers to. If the "
+"system does not support symbolic links g_lstat() is identical to g_stat()."
 msgstr ""
 
 #. used by: g_lstat:
@@ -42671,8 +43783,8 @@ msgid ""
 "This function enqueus a callback @destroy_func to be executed during the "
 "next test case teardown phase. This is most useful to auto destruct allocted "
 "test resources at the end of a test run. Resources are released in reverse "
-"queue order, that means enqueueing callback A before callback B will cause B"
-"() to be called before A() during teardown."
+"queue order, that means enqueueing callback A before callback B will cause "
+"B() to be called before A() during teardown."
 msgstr ""
 
 #. used by: g_test_quiet:
@@ -43364,10 +44476,10 @@ msgstr ""
 msgid ""
 "In addition to the traditional g_assert(), the test framework provides an "
 "extended set of assertions for string and numerical comparisons: "
-"g_assert_cmpfloat(), g_assert_cmpint(), g_assert_cmpuint(), g_assert_cmphex"
-"(), g_assert_cmpstr(). The advantage of these variants over plain g_assert() "
-"is that the assertion messages can be more elaborate, and include the values "
-"of the compared entities."
+"g_assert_cmpfloat(), g_assert_cmpint(), g_assert_cmpuint(), "
+"g_assert_cmphex(), g_assert_cmpstr(). The advantage of these variants over "
+"plain g_assert() is that the assertion messages can be more elaborate, and "
+"include the values of the compared entities."
 msgstr ""
 
 #. used by: GTestLogFatalFunc:
@@ -44232,12 +45344,12 @@ msgid ""
 "<itemizedlist> <listitem> C library functions that return data in statically "
 "allocated buffers, such as strtok() or strerror(). For many of these, there "
 "are thread-safe variants with a _r suffix, or you can look at corresponding "
-"GLib APIs (like g_strsplit() or g_strerror()). </listitem> <listitem> setenv"
-"() and unsetenv() manipulate the process environment in a not thread-safe "
-"way, and may interfere with getenv() calls in other threads. Note that getenv"
-"() calls may be <quote>hidden</quote> behind other APIs. For example, GNU "
-"gettext() calls getenv() under the covers. In general, it is best to treat "
-"the environment as readonly. If you absolutely have to modify the "
+"GLib APIs (like g_strsplit() or g_strerror()). </listitem> <listitem> "
+"setenv() and unsetenv() manipulate the process environment in a not thread-"
+"safe way, and may interfere with getenv() calls in other threads. Note that "
+"getenv() calls may be <quote>hidden</quote> behind other APIs. For example, "
+"GNU gettext() calls getenv() under the covers. In general, it is best to "
+"treat the environment as readonly. If you absolutely have to modify the "
 "environment, do it early in main(), when no other threads are around yet. </"
 "listitem> <listitem> setlocale() changes the locale for the entire process, "
 "affecting all threads. Temporary changes to the locale are often made to "
@@ -44248,11 +45360,11 @@ msgid ""
 "listitem> <listitem> fork() only takes the calling thread into the child's "
 "copy of the process image.  If other threads were executing in critical "
 "sections they could have left mutexes locked which could easily cause "
-"deadlocks in the new child.  For this reason, you should call exit() or exec"
-"() as soon as possible in the child and only make signal-safe library calls "
-"before that. </listitem> <listitem> daemon() uses fork() in a way contrary "
-"to what is described above.  It should not be used with GLib programs. </"
-"listitem> </itemizedlist>"
+"deadlocks in the new child.  For this reason, you should call exit() or "
+"exec() as soon as possible in the child and only make signal-safe library "
+"calls before that. </listitem> <listitem> daemon() uses fork() in a way "
+"contrary to what is described above.  It should not be used with GLib "
+"programs. </listitem> </itemizedlist>"
 msgstr ""
 
 #. used by: SECTION:threads
@@ -44843,11 +45955,11 @@ msgid ""
 "The aim of the thread-related functions in GLib is to provide a portable "
 "means for writing multi-threaded software. There are primitives for mutexes "
 "to protect the access to portions of memory (#GMutex, #GRecMutex and "
-"#GRWLock). There is a facility to use individual bits for locks (g_bit_lock"
-"()). There are primitives for condition variables to allow synchronization "
-"of threads (#GCond). There are primitives for thread-private data - data "
-"that every thread has a private instance of (#GPrivate). There are "
-"facilities for one-time initialization (#GOnce, g_once_init_enter()). "
+"#GRWLock). There is a facility to use individual bits for locks "
+"(g_bit_lock()). There are primitives for condition variables to allow "
+"synchronization of threads (#GCond). There are primitives for thread-private "
+"data - data that every thread has a private instance of (#GPrivate). There "
+"are facilities for one-time initialization (#GOnce, g_once_init_enter()). "
 "Finally, there are primitives to create and manage threads (#GThread)."
 msgstr ""
 
@@ -44955,8 +46067,8 @@ msgstr "返回当前未使用线程的数目。"
 #: gthread.c:907:3
 msgid ""
 "If another thread is waiting for us using g_thread_join() then the waiting "
-"thread will be woken up and get @retval as the return value of g_thread_join"
-"()."
+"thread will be woken up and get @retval as the return value of "
+"g_thread_join()."
 msgstr ""
 
 #. used by: SECTION:threads
@@ -48179,8 +49291,8 @@ msgstr ""
 #. used by: g_utf8_strdown:
 #. #-#-#-#-#  guniprop.pot (PACKAGE VERSION)  #-#-#-#-#
 #. used by: g_utf8_casefold:
-#: gunicollate.c:358:1 gunicollate.c:484:1 gunidecomp.c:497:1
-#: guniprop.c:1132:1 guniprop.c:1168:1 guniprop.c:943:1
+#: gunicollate.c:358:1 gunicollate.c:484:1 gunidecomp.c:497:1 guniprop.c:1132:1
+#: guniprop.c:1168:1 guniprop.c:943:1
 msgid "@len: length of @str, in bytes, or -1 if @str is nul-terminated."
 msgstr ""
 
@@ -49749,8 +50861,8 @@ msgstr ""
 #. used by: g_utf8_substring:
 #: gutf8.c:281:2
 msgid ""
-"Returns: a newly allocated copy of the requested substring. Free with g_free"
-"() when no longer needed."
+"Returns: a newly allocated copy of the requested substring. Free with "
+"g_free() when no longer needed."
 msgstr ""
 
 # #-#-#-#-#  gutf8.pot~ (glib 2.12.7)  #-#-#-#-#
@@ -51165,8 +52277,8 @@ msgstr ""
 msgid ""
 "This function should only ever be used to assert that a given variant is or "
 "is not floating, or for debug purposes. To acquire a reference to a variant "
-"that might be floating, always use g_variant_ref_sink() or g_variant_take_ref"
-"()."
+"that might be floating, always use g_variant_ref_sink() or "
+"g_variant_take_ref()."
 msgstr ""
 
 #. used by: g_variant_is_floating:
@@ -51231,8 +52343,8 @@ msgstr ""
 #. used by: g_variant_get_data:
 #: gvariant-core.c:835:4
 msgid ""
-"In the case that @value is already in serialised form, this function is O"
-"(1).  If the value is not already in serialised form, serialisation occurs "
+"In the case that @value is already in serialised form, this function is "
+"O(1).  If the value is not already in serialised form, serialisation occurs "
 "implicitly and is approximately O(n) in the size of the result."
 msgstr ""
 
@@ -51603,8 +52715,8 @@ msgid ""
 "function to g_variant_ref_sink() the return result before returning control "
 "to the user that originally provided the pointer. At this point, the caller "
 "will have their own full reference to the result.  This can also be done by "
-"adding the result to a container, or by passing it to another g_variant_new"
-"() call."
+"adding the result to a container, or by passing it to another "
+"g_variant_new() call."
 msgstr ""
 
 #. #-#-#-#-#  gvariant-parser.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -51643,8 +52755,8 @@ msgstr ""
 #: gvariant-parser.c:2480:3
 msgid ""
 "In the example, the variable argument parameters are collected and filled in "
-"as if they were part of the original string to produce the result of <code>"
-"[('one', 1), ('two', 2), ('three', 3)]</code>."
+"as if they were part of the original string to produce the result of "
+"<code>[('one', 1), ('two', 2), ('three', 3)]</code>."
 msgstr ""
 
 #. used by: g_variant_new_parsed:
@@ -53620,8 +54732,9 @@ msgstr ""
 #. used by: g_variant_get_va: (skip)
 #: gvariant.c:4559:3 gvariant.c:4661:3
 msgid ""
-"These two generalisations allow mixing of multiple calls to g_variant_new_va"
-"() and g_variant_get_va() within a single actual varargs call by the user."
+"These two generalisations allow mixing of multiple calls to "
+"g_variant_new_va() and g_variant_get_va() within a single actual varargs "
+"call by the user."
 msgstr ""
 
 #. used by: g_variant_new_va: (skip)
@@ -54568,9 +55681,10 @@ msgstr ""
 #. used by: g_variant_lookup: (skip)
 #: gvariant.c:952:4
 msgid ""
-"This function is a wrapper around g_variant_lookup_value() and g_variant_get"
-"().  In the case that %NULL would have been returned, this function returns "
-"%FALSE.  Otherwise, it unpacks the returned value and returns %TRUE."
+"This function is a wrapper around g_variant_lookup_value() and "
+"g_variant_get().  In the case that %NULL would have been returned, this "
+"function returns %FALSE.  Otherwise, it unpacks the returned value and "
+"returns %TRUE."
 msgstr ""
 
 #. used by: g_variant_lookup: (skip)
@@ -55825,8 +56939,8 @@ msgstr ""
 #. used by: G_VARIANT_TYPE_VARDICT:
 #: gvarianttype.h:268:2
 msgid ""
-"The type of a dictionary mapping strings to variants (the ubiquitous \"a"
-"{sv}\" type)."
+"The type of a dictionary mapping strings to variants (the ubiquitous "
+"\"a{sv}\" type)."
 msgstr ""
 
 #. used by: G_VARIANT_TYPE:
@@ -56187,8 +57301,8 @@ msgstr "@pool: 一个 #GThreadPool"
 #. used by: g_wakeup_get_pollfd:
 #: gwakeup.c:177:2
 msgid ""
-"Prepares a @poll_fd such that polling on it will succeed when g_wakeup_signal"
-"() has been called on @wakeup."
+"Prepares a @poll_fd such that polling on it will succeed when "
+"g_wakeup_signal() has been called on @wakeup."
 msgstr ""
 
 #. used by: g_wakeup_get_pollfd:
@@ -56446,8 +57560,8 @@ msgstr ""
 #: gwin32.c:435:3
 msgid ""
 "This function is deprecated. Use "
-"g_win32_get_package_installation_directory_of_module() and g_build_filename"
-"() instead."
+"g_win32_get_package_installation_directory_of_module() and "
+"g_build_filename() instead."
 msgstr ""
 "此函数不建议使用.使用 g_win32_get_package_installation_directory_of_module() "
 "和 g_build_filename() 代替"
@@ -56559,1135 +57673,3 @@ msgstr ""
 #: gwin32.c:83:1
 msgid "Returns: newly-allocated locale name."
 msgstr ""
-
-#~ msgid "translator-credits"
-#~ msgstr "translator-credits"
-
-#~ msgid "Compiling the GLib Package"
-#~ msgstr "编译GLib包"
-
-#~ msgid "How to compile GLib itself"
-#~ msgstr "如何自行编译GLib"
-
-#~ msgid "Building the Library on UNIX"
-#~ msgstr "怎样在UNIX环境中建立库"
-
-#~ msgid ""
-#~ "On UNIX, GLib uses the standard GNU build system, using "
-#~ "<application>autoconf</application> for package configuration and "
-#~ "resolving portability issues, <application>automake</application> for "
-#~ "building makefiles that comply with the GNU Coding Standards, and "
-#~ "<application>libtool</application> for building shared libraries on "
-#~ "multiple platforms. The normal sequence for compiling and installing the "
-#~ "GLib library is thus: <literallayout>\n"
-#~ "          <userinput>./configure</userinput>\n"
-#~ "          <userinput>make</userinput>\n"
-#~ "          <userinput>make install</userinput>\n"
-#~ "        </literallayout>"
-#~ msgstr ""
-#~ "在UNIX上，GLib使用标准的GNU编译系统， 使用<application>autoconf</"
-#~ "application>来配置并解决可移植性问题， 使用<application>automake</"
-#~ "application>来建立 符合GNU编译标准(GNU Coding Standards)的makefiles文件， "
-#~ "并使用<application>libtool</application>来建立多平台上的共享库。 通常，编"
-#~ "译GLib函数库的顺序如下所示：<literallayout>\n"
-#~ "          <userinput>./configure</userinput>\n"
-#~ "          <userinput>make</userinput>\n"
-#~ "          <userinput>make install</userinput>\n"
-#~ "        </literallayout> "
-
-#~ msgid "--enable-debug"
-#~ msgstr "--enable-debug"
-
-#~ msgid ""
-#~ "The standard options provided by <application>GNU autoconf</application> "
-#~ "may be passed to the <command>configure</command> script. Please see the "
-#~ "<application>autoconf</application> documentation or run <command>./"
-#~ "configure --help</command> for information about the standard options."
-#~ msgstr ""
-#~ "提供给<application>GNU autoconf</application>的标准选项可能会传递给"
-#~ "<command>configure</command>脚本。 请查看<application>autoconf</"
-#~ "application>文档或者运行<command>./configure --help</command>命令来 查看标"
-#~ "准选项。"
-
-#~ msgid "--with-threads"
-#~ msgstr "--with-threads"
-
-#~ msgid "--with-pcre"
-#~ msgstr "--with-pcre"
-
-#~ msgid ""
-#~ "The GTK+ documentation contains <ulink url=\"../gtk/gtk-building.html"
-#~ "\">further details</ulink> about the build process and ways to influence "
-#~ "it."
-#~ msgstr ""
-#~ "GTK+的文档包含关于构建过程以及如何影响它的一些 更多的<ulink url=\"../gtk/"
-#~ "gtk-building.html\"> 细节</ulink>。"
-
-#~ msgid "Dependencies"
-#~ msgstr "依赖"
-
-#, fuzzy
-#~ msgid ""
-#~ "Before you can compile the GLib library, you need to have various other "
-#~ "tools and libraries installed on your system. The two tools needed during "
-#~ "the build process (as differentiated from the tools used in when creating "
-#~ "GLib mentioned above such as <application>autoconf</application>) are "
-#~ "<command>pkg-config</command> and GNU make."
-#~ msgstr ""
-#~ "在编译GLib库之前，你还需要一些其它的工具和库。有两个工具在整个编译期间都需"
-#~ "要，它们是pkg-config和GNU make。 这两个工具和之前讲到的autoconf之类的工具 "
-#~ "是不同的。"
-
-#~ msgid "--with-runtime-libdir=RELPATH"
-#~ msgstr "--with-runtime-libdir=RELPATH"
-
-#~ msgid "Compiling the GLib package"
-#~ msgstr "编译GLib包"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "GLib Library"
-#~ msgstr "GLib库"
-
-#~ msgid ""
-#~ "Dispatching has been modified so both the callback and data are passed in "
-#~ "to the <function>dispatch()</function> virtual function."
-#~ msgstr ""
-#~ "修改了调度，以使回调和数据都可以传递给<function>dispatch()</function>虚函"
-#~ "数。"
-
-#~ msgid ""
-#~ "<function>g_list_foreach()</function> and <function>g_slist_foreach()</"
-#~ "function> have been changed so they are now safe against removal of the "
-#~ "current item, not the next item."
-#~ msgstr ""
-#~ "更改了<function>g_list_foreach()</function>和<function>g_slist_foreach()</"
-#~ "function>，以使它们安全的应对移除当前条目，而不是下一条目。"
-
-#~ msgid ""
-#~ "It's not recommended to mutate the list in the callback to these "
-#~ "functions in any case."
-#~ msgstr "在任何情况下回调这些函数时，都不推荐变更这些链表。 "
-
-#~ msgid "Changes to GLib"
-#~ msgstr "GLib 的更改"
-
-#~ msgid ""
-#~ "<structname>GDate</structname> now works in UTF-8, not in the current "
-#~ "locale. If you want to use it with the encoding of the locale, you need "
-#~ "to convert strings using <function>g_locale_to_utf8()</function> first."
-#~ msgstr ""
-#~ "<structname>GDate</structname>现在用 UTF-8，而不是当前区域设置。如果希望使"
-#~ "用它处理当前区域的编码，您需要首先使用<function>g_locale_to_utf8()</"
-#~ "function>转换字符串的编码。 "
-
-#~ msgid ""
-#~ "<function>g_strsplit()</function> has been fixed to: <placeholder-1/> "
-#~ "Code depending on either of these bugs will need to be fixed."
-#~ msgstr ""
-#~ "<function>g_strsplit()</function>被更正为：<placeholder-1/>所有依赖于这些 "
-#~ "bug 的代码需要更正。  "
-
-#~ msgid "include trailing empty tokens, rather than stripping them"
-#~ msgstr "包含结尾的空标记，而不是剥离它们 "
-
-#~ msgid ""
-#~ "split into a maximum of <literal>max_tokens</literal> tokens, rather than "
-#~ "<literal>max_tokens + 1</literal>"
-#~ msgstr ""
-#~ "最多分割为<literal>max_tokens</literal>节, 而不是<literal>max_tokens + 1</"
-#~ "literal>"
-
-#~ msgid ""
-#~ "Deprecated functions that got removed: <function>g_set_error_handler()</"
-#~ "function>, <function>g_set_warning_handler()</function>, "
-#~ "<function>g_set_message_handler()</function>, use "
-#~ "<function>g_log_set_handler()</function> instead."
-#~ msgstr ""
-#~ "移除的过时函数： <function>g_set_error_handler()</function>, "
-#~ "<function>g_set_warning_handler()</function>, "
-#~ "<function>g_set_message_handler()</function>, 使用"
-#~ "<function>g_log_set_handler()</function>来替代. "
-
-#~ msgid "Incompatible changes from 2.0 to 2.2"
-#~ msgstr "从 2.0 到 2.2 的不兼容更改"
-
-#~ msgid ""
-#~ "GLib changed the seeding algorithm for the pseudo-random number generator "
-#~ "Mersenne Twister, as used by <structname>GRand</structname> and "
-#~ "<structname>GRandom</structname>. This was necessary, because some seeds "
-#~ "would yield very bad pseudo-random streams. Also the pseudo-random "
-#~ "integers generated by <function>g_rand*_int_range()</function> will have "
-#~ "a slightly better equal distribution with the new version of GLib."
-#~ msgstr ""
-#~ "GLib 更改了伪随机数生成器-赛特旋转 (Mersenne Twister，就是"
-#~ "<structname>GRand</structname>和 <structname>GRandom</structname>所使用"
-#~ "的) 的种子算法。 这是必须的，因为一些种子可能产生很差的伪随机流。使用新版"
-#~ "本的<function>g_rand*_int_range()</function>产生的随机整数也会有稍微好一点"
-#~ "的公平分配。"
-
-#~ msgid ""
-#~ "Further information can be found at the website of the Mersenne Twister "
-#~ "random number generator at <ulink url=\"http://www.math.keio.ac.jp/"
-#~ "~matumoto/emt.html\">http://www.math.keio.ac.jp/~matumoto/emt.html</"
-#~ "ulink>."
-#~ msgstr ""
-#~ "网页上关于赛特旋转(Mersenne Twister)伪随机数生成器的进一步信息在<ulink "
-#~ "url=\"http://www.math.keio.ac.jp/~matumoto/emt.html\">http://www.math."
-#~ "keio.ac.jp/~matumoto/emt.html</ulink>. "
-
-#~ msgid "Incompatible changes from 1.2 to 2.0"
-#~ msgstr "从 1.2 到 2.0 的不兼容更改"
-
-#~ msgid ""
-#~ "The event loop functionality <structname>GMain</structname> has "
-#~ "extensively been revised to support multiple separate main loops in "
-#~ "separate threads. All sources (timeouts, idle functions, etc.) are "
-#~ "associated with a <structname>GMainContext</structname>."
-#~ msgstr ""
-#~ "事件循环功能<structname>GMain</structname>已经广泛的修订，以支持在分离线程"
-#~ "的多个分离的主循环。所有 sources (计时、空闲等函数) 都与"
-#~ "<structname>GMainContext</structname>联系起来了。"
-
-#~ msgid ""
-#~ "Compatibility functions exist so that most application code dealing with "
-#~ "the main loop will continue to work. However, code that creates new "
-#~ "custom types of sources will require modification."
-#~ msgstr ""
-#~ "仍然存在兼容函数，以使多数处理主循环的程序代码能继续工作。但是创建新的 "
-#~ "sources 的自定义类型的代码需要修改。 "
-
-#~ msgid ""
-#~ "The main changes here are: <placeholder-1/> To go along with this change, "
-#~ "the vtable for <structname>GIOChannel</structname> has changed and "
-#~ "<function>add_watch()</function> has been replaced by "
-#~ "<function>create_watch()</function>."
-#~ msgstr ""
-#~ "主要的修改是：<placeholder-1/> 为了顺应这一变化,<structname>GIOChannel</"
-#~ "structname>的 vtable 改变了，同时 <function>add_watch()</function>被替换为"
-#~ "<function>create_watch()</function>. "
-
-#~ msgid ""
-#~ "Sources are now exposed as <type>GSource *</type>, rather than simply as "
-#~ "numeric ids."
-#~ msgstr "Sources 以<type>GSource *</type>暴露，而不是仅仅是数字 id。 "
-
-#~ msgid ""
-#~ "New types of sources are created by structure \"derivation\" from "
-#~ "<structname>GSource</structname>, so the <literal>source_data</literal> "
-#~ "parameter to the <structname>GSource</structname> virtual functions has "
-#~ "been replaced with a <type>GSource *</type>."
-#~ msgstr ""
-#~ "\"derivation\" 结构 从 <structname>GSource</structname>创建一个 sources 新"
-#~ "类型， 所以虚函数<structname>GSource</structname>的<literal>source_data</"
-#~ "literal>参数 被替换为<type>GSource *</type>. "
-
-#~ msgid ""
-#~ "Sources are first created, then later added to a specific "
-#~ "<structname>GMainContext</structname>."
-#~ msgstr ""
-#~ "Sources 刚刚创建，于是稍候被添加到了具体的<structname>GMainContext</"
-#~ "structname>。"
-
-#~ msgid "Compiling GLib Applications"
-#~ msgstr "编译GLib应用程序"
-
-#~ msgid "How to compile your GLib application"
-#~ msgstr "如何编译GLib应用程序"
-
-#~ msgid "Compiling GLib Applications on UNIX"
-#~ msgstr "在UNIX上编译GLib应用程序"
-
-#~ msgid ""
-#~ "To compile a GLib application, you need to tell the compiler where to "
-#~ "find the GLib header files and libraries. This is done with the "
-#~ "<application>pkg-config</application> utility."
-#~ msgstr ""
-#~ "为了编译GLib应用程序，你需要告诉编译器在哪里找到GLib的头文件及库. "
-#~ "<application>pkg-config</application> 工具会帮你."
-
-#~ msgid ""
-#~ "The following interactive shell session demonstrates how <application>pkg-"
-#~ "config</application> is used (the actual output on your system may be "
-#~ "different): <placeholder-1/>"
-#~ msgstr ""
-#~ "下面的shell会话展示了 <application>pkg-config</application> 如何工作 (输出"
-#~ "可能因不同的系统有所不同): <placeholder-1/>"
-
-#~ msgid ""
-#~ "\n"
-#~ "$ pkg-config --cflags glib-2.0\n"
-#~ " -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
-#~ "$ pkg-config --libs glib-2.0\n"
-#~ " -L/usr/lib -lm -lglib-2.0  \n"
-#~ msgstr ""
-#~ "\n"
-#~ "$ pkg-config --cflags glib-2.0\n"
-#~ " -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include \n"
-#~ "$ pkg-config --libs glib-2.0\n"
-#~ " -L/usr/lib -lm -lglib-2.0  \n"
-
-#~ msgid ""
-#~ "If your application uses threads or <structname>GObject</structname> "
-#~ "features, it must be compiled and linked with the options returned by the "
-#~ "following <application>pkg-config</application> invocations: "
-#~ "<placeholder-1/>"
-#~ msgstr ""
-#~ "如果你的应用程序使用线程(threads)或者 <structname>GObject</structname> 特"
-#~ "性, 则必须用以下的 <application>pkg-config</application> 输出来编译及链"
-#~ "接: <placeholder-1/>"
-
-#~ msgid ""
-#~ "\n"
-#~ "$ pkg-config --cflags --libs gthread-2.0\n"
-#~ "$ pkg-config --cflags --libs gobject-2.0\n"
-#~ msgstr ""
-#~ "\n"
-#~ "$ pkg-config --cflags --libs gthread-2.0\n"
-#~ "$ pkg-config --cflags --libs gobject-2.0\n"
-
-#~ msgid ""
-#~ "If your application uses modules, it must be compiled and linked with the "
-#~ "options returned by one of the following <application>pkg-config</"
-#~ "application> invocations: <placeholder-1/> The difference between the two "
-#~ "is that gmodule-2.0 adds <option>--export-dynamic</option> to the linker "
-#~ "flags, which is often not needed."
-#~ msgstr ""
-#~ "如果你的应用程序使用模块(modules), 则必须用以下的 <application>pkg-"
-#~ "config</application> 输出来编译及链接: <placeholder-1/> 两者的不同之处在于"
-#~ "gmodule-2.0 为连接添加了<option>--export-dynamic</option> 标志, 但它并不经"
-#~ "常用到."
-
-#~ msgid ""
-#~ "\n"
-#~ "$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
-#~ "$ pkg-config --cflags --libs gmodule-2.0 \n"
-#~ msgstr ""
-#~ "\n"
-#~ "$ pkg-config --cflags --libs gmodule-no-export-2.0 \n"
-#~ "$ pkg-config --cflags --libs gmodule-2.0 \n"
-
-#~ msgid ""
-#~ "The simplest way to compile a program is to use the \"backticks\" feature "
-#~ "of the shell. If you enclose a command in backticks (<emphasis>not single "
-#~ "quotes</emphasis>), then its output will be substituted into the command "
-#~ "line before execution. So to compile a GLib Hello, World, you would type "
-#~ "the following: <placeholder-1/>"
-#~ msgstr ""
-#~ "最简单的编译方式是使用shell的\"反引号\"特性. 如果你将命令放入反引号里 "
-#~ "(<emphasis>不是单引号</emphasis>), 那么它的输出会在命令行执行前 取代命令."
-#~ "所以编译一个GLib的Hello,World,你输入以下命令: <placeholder-1/>"
-
-#~ msgid ""
-#~ "\n"
-#~ "$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
-#~ msgstr ""
-#~ "\n"
-#~ "$ cc `pkg-config --cflags --libs glib-2.0` hello.c -o hello\n"
-
-#~ msgid ""
-#~ "If you want to make sure that your program doesn't use any deprecated "
-#~ "functions, you can define the preprocessor symbol G_DISABLE_DEPRECATED by "
-#~ "using the command line option <literal>-DG_DISABLE_DEPRECATED=1</literal>."
-#~ msgstr ""
-#~ "如果你确定你的程序不使用任何过时的函数,你可以为预处理器定义 "
-#~ "G_DISABLE_DEPRECATED 符号,使用命令选项 <literal>-DG_DISABLE_DEPRECATED=1</"
-#~ "literal>."
-
-#~ msgid ""
-#~ "The recommended way of using GLib has always been to only include the "
-#~ "toplevel headers <filename>glib.h</filename>, <filename>glib-object.h</"
-#~ "filename>, <filename>gio.h</filename>. Still, there are some exceptions; "
-#~ "these headers have to be included separately: <filename>gmodule.h</"
-#~ "filename>, <filename>glib/gi18n-lib.h</filename> or <filename>glib/gi18n."
-#~ "h</filename> (see the <link linkend=\"glib-I18N\">Internationalization "
-#~ "section</link>), <filename>glib/gprintf.h</filename> and <filename>glib/"
-#~ "gstdio.h</filename> (we don't want to pull in all of stdio)."
-#~ msgstr ""
-#~ "使用GLib的推荐方式是只包含最顶层的头文件 <filename>glib.h</filename>, "
-#~ "<filename>glib-object.h</filename>, <filename>gio.h</filename>. 从2.17开"
-#~ "始,当直接包含单独的头文件时GLib会强制生成一个错误. 为了帮助大家过渡,执行器"
-#~ "在默认的Glib头文件中未打开(但GObject和GIO是打开的) 为了打开它,使用命令行"
-#~ "<literal> -DG_DISABLE_DEPRECATED</literal> 来定义预处理器符号 "
-#~ "G_DISABLE_SINGLE_INCLUDES 即可. <filename>glib/gprintf.h</filename> and "
-#~ "<filename>glib/gstdio.h</filename> (we don't want to pull in all of "
-#~ "stdio)."
-
-#~ msgid "glib_cv_have_strlcpy=[yes/no]"
-#~ msgstr "glib_cv_have_strlcpy=[yes/no]"
-
-#~ msgid ""
-#~ "Whether you have <function>strlcpy()</function> that matches OpenBSD. "
-#~ "Defaults to \"no\", which is safe, since GLib uses a built-in version in "
-#~ "that case."
-#~ msgstr ""
-#~ "是否有匹配OpenBSD的<function>strlcpy()</function>函数。 默认值为\"no\"，这"
-#~ "是安全的，因为在这种情况下GLib使用内置的版本。 "
-
-#~ msgid "glib_cv_va_val_copy=[yes/no]"
-#~ msgstr "glib_cv_va_val_copy=[yes/no]"
-
-#~ msgid ""
-#~ "Whether <type>va_list</type> can be copied as a pointer. If set to \"no"
-#~ "\", then <function>memcopy()</function> will be used. Only matters if you "
-#~ "don't have <function>va_copy()</function> or <function>__va_copy()</"
-#~ "function>. (So, doesn't matter for GCC.) Defaults to \"yes\" which is "
-#~ "slightly more common than \"no\"."
-#~ msgstr ""
-#~ "<type>va_list</type>是否可以作为指针复制。 如果设置为\"no\"，那么"
-#~ "<function>memcopy()</function>将被使用。 如果你没有<function>va_copy()</"
-#~ "function>或<function>__va_copy()</function>会有问题。（所以，GCC不存在问"
-#~ "题。） 默认为\"yes\"，这种情况比\"no\"要多一些。"
-
-#~ msgid "glib_cv_rtldglobal_broken=[yes/no]"
-#~ msgstr "glib_cv_rtldglobal_broken=[yes/no]"
-
-#~ msgid "Whether you have a bug found in OSF/1 v5.0. Defaults to \"no\"."
-#~ msgstr "是否在OSF/1 v5.0中发现存在有bug。默认为\"no\"。"
-
-#~ msgid "Cross-compiling the GLib Package"
-#~ msgstr "交叉编译GLib软件包"
-
-#~ msgid "glib_cv_uscore=[yes/no]"
-#~ msgstr "glib_cv_uscore=[yes/no]"
-
-#, fuzzy
-#~ msgid ""
-#~ "Whether an underscore needs to be prepended to symbols when looking them "
-#~ "up via <function>dlsym()</function>. Only needs to be set if your system "
-#~ "uses <function>dlopen()</function>/<function>dlsym()</function>."
-#~ msgstr ""
-#~ "通过<function>dlsym()</function>函数时， 是否需要考虑一个下划线为前缀的符"
-#~ "号时， 他们希望通过dlsym了（）。 只需要设置如果你的系统使用"
-#~ "<function>dlopen()</function>/<function>dlsym()</function>。 "
-
-#~ msgid "How to cross-compile GLib"
-#~ msgstr "如何交叉编译GLib"
-
-#~ msgid "ac_cv_func_posix_getpwuid_r=[yes/no]"
-#~ msgstr "ac_cv_func_posix_getpwuid_r=[yes/no]"
-
-#~ msgid ""
-#~ "Whether you have a getpwuid_r function (in your C library, not your "
-#~ "thread library) that conforms to the POSIX spec. (Takes a 'struct passwd "
-#~ "**' as the final argument)"
-#~ msgstr ""
-#~ "是否你的getpwuid_r函数(在你的C库，而不是线程库)遵守POSIX规范。 接"
-#~ "受'struct passwd **'作为最终的参数。"
-
-#~ msgid "ac_cv_func_nonposix_getpwuid_r=[yes/no]"
-#~ msgstr "ac_cv_func_nonposix_getpwuid_r=[yes/no]"
-
-#~ msgid ""
-#~ "Whether you have some variant of <function>getpwuid_r()</function> that "
-#~ "doesn't conform to to the POSIX spec, but GLib might be able to use (or "
-#~ "might segfault.) Only needs to be set if "
-#~ "<literal>ac_cv_func_posix_getpwuid_r</literal> is not set. It's safest to "
-#~ "set this to \"no\"."
-#~ msgstr ""
-#~ "是否你有一些<function>getpwuid_r()</function>函数的变量不能遵守POSIX规范，"
-#~ "但是GLib有能力去使用它(或者发生段错误)。只有在"
-#~ "<literal>ac_cv_func_posix_getpwuid_r</literal>没被设置的情况下才需要设置此"
-#~ "变量。此变量可以安全地被设置为\"no\"."
-
-#~ msgid "ac_cv_func_posix_getgrgid_r=[yes/no]"
-#~ msgstr "ac_cv_func_posix_getgrgid_r=[yes/no]"
-
-#~ msgid ""
-#~ "Whether you have a getgrgid_r function that conforms to the POSIX spec."
-#~ msgstr "是否你有一个getgrgid_r函数去遵守POSIX规范。"
-
-#~ msgid "glib_cv_use_pid_surrogate=[yes/no]"
-#~ msgstr "glib_cv_use_pid_surrogate=[yes/no]"
-
-#~ msgid ""
-#~ "Whether to use a <function>setpriority()</function> on the PID of the "
-#~ "thread as a method for setting the priority of threads. This only needs "
-#~ "to be set when using POSIX threads."
-#~ msgstr ""
-#~ "是否使用<function>setpriority()</function>函数在线程的PID上， 作为设置线程"
-#~ "优先级的方式。 只有在使用POSIX线程的时候需要设置。"
-
-#~ msgid "ac_cv_func_printf_unix98=[yes/no]"
-#~ msgstr "ac_cv_func_printf_unix98=[yes/no]"
-
-#~ msgid ""
-#~ "Whether your <function>printf()</function> family supports Unix98 style "
-#~ "<literal>%N$</literal> positional parameters. Defaults to \"no\"."
-#~ msgstr ""
-#~ "是否你的<function>printf()</function>函数支持Unix98样式的<literal>%N$</"
-#~ "literal>位置参数。 默认为\"no\"。"
-
-#~ msgid "ac_cv_func_vsnprintf_c99=[yes/no]"
-#~ msgstr "ac_cv_func_vsnprintf_c99=[yes/no]"
-
-#~ msgid ""
-#~ "Whether you have a <function>vsnprintf()</function> with C99 semantics. "
-#~ "(C99 semantics means returning the number of bytes that would have been "
-#~ "written had the output buffer had enough space.) Defaults to \"no\"."
-#~ msgstr ""
-#~ "是否你有一个<function>vsnprintf()</function>函数符合C99的。 (C99语义的意思"
-#~ "是返回字符数，被写到输入缓存有足够的空间)。 默认为\"no\"。"
-
-#~ msgid "Building the Library for a different architecture"
-#~ msgstr "在不同的体系结构中编译在不同的体系结构中编译"
-
-#~ msgid ""
-#~ "Cross-compilation is the process of compiling a program or library on a "
-#~ "different architecture or operating system then it will be run upon. GLib "
-#~ "is slightly more difficult to cross-compile than many packages because "
-#~ "much of GLib is about hiding differences between different systems."
-#~ msgstr ""
-#~ "编译出来的程序或库将在不同的平台或操作系统上运行时， 这种编译过程就叫做交"
-#~ "叉编译。 GLib和一些常见软件包的交叉编译稍微有些不同， 因为GLib需要隐藏不同"
-#~ "系统之间的一些差异。"
-
-#~ msgid ""
-#~ "These notes cover things specific to cross-compiling GLib; for general "
-#~ "information about cross-compilation, see the <application>autoconf</"
-#~ "application> info pages."
-#~ msgstr ""
-#~ "下面说明一些GLib交叉编译时的特殊之处， 一般的交叉编译信息请查看"
-#~ "<application>autoconf</application>信息页。"
-
-#~ msgid ""
-#~ "GLib tries to detect as much information as possible about the target "
-#~ "system by compiling and linking programs without actually running "
-#~ "anything; however, some information GLib needs is not available this way. "
-#~ "This information needs to be provided to the configure script via a "
-#~ "\"cache file\" or by setting the cache variables in your environment."
-#~ msgstr ""
-#~ "GLib在编译和链接时会努力去尝试检测尽可能多的有关 目标系统的信息。但是，"
-#~ "GLib需要的一些信息不是通过 这种方式的。这些信息通过一个\"cache文件\"提供给"
-#~ "配置 (configure)脚本或者通过设置环境变量的方式实现。"
-
-#~ msgid ""
-#~ "As an example of using a cache file, to cross compile for the \"MingW32\" "
-#~ "Win32 runtine environment on a Linux system, create a file 'win32.cache' "
-#~ "with the following contents:"
-#~ msgstr ""
-#~ "作为一份示例的cache文件，用于在Linux系统上采用\"MingW32\"交叉 编译可运行于"
-#~ "Win32环境中的GLib。 创建一个名为'win32.cache'的文件，包含以下内容： "
-
-#~ msgid ""
-#~ " \n"
-#~ "glib_cv_long_long_format=I64\n"
-#~ "glib_cv_stack_grows=no\n"
-#~ "      "
-#~ msgstr ""
-#~ " \n"
-#~ "glib_cv_long_long_format=I64\n"
-#~ "glib_cv_stack_grows=no\n"
-#~ "      "
-
-#~ msgid "Then execute the following commands:"
-#~ msgstr "接着执行以下命令： "
-
-#~ msgid ""
-#~ "\n"
-#~ "PATH=/path/to/mingw32-compiler/bin:$PATH\n"
-#~ "chmod a-w win32.cache   # prevent configure from changing it\n"
-#~ "./configure --cache-file=win32.cache --host=mingw32\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "PATH=/path/to/mingw32-compiler/bin:$PATH\n"
-#~ "chmod a-w win32.cache   # prevent configure from changing it\n"
-#~ "./configure --cache-file=win32.cache --host=mingw32\n"
-#~ "      "
-
-#~ msgid ""
-#~ "The complete list of cache file variables follows. Most of these won't "
-#~ "need to be set in most cases."
-#~ msgstr "下面列出了cache文件的全部变量。其中一些变量通常并不需要设置。"
-
-#~ msgid "Cache file variables"
-#~ msgstr "缓存文件变量"
-
-#~ msgid "glib_cv_long_long_format=[ll/q/I64]"
-#~ msgstr "glib_cv_long_long_format=[ll/q/I64]"
-
-#~ msgid ""
-#~ "Format used by <function>printf()</function> and <function>scanf()</"
-#~ "function> for 64 bit integers. \"ll\" is the C99 standard, and what is "
-#~ "used by the 'trio' library that GLib builds if your <function>printf()</"
-#~ "function> is insufficiently capable. Doesn't need to be set if you are "
-#~ "compiling using trio."
-#~ msgstr ""
-#~ "为64位整形数而使用于<function>printf()</function>和<function>scanf()</"
-#~ "function>函数的格式化部分。 \"ll\" 是C99的标准， 被'trio'库使用来编译"
-#~ "GLib, 如果你的<function>printf()</function>函数不能胜任的话。 如果你正在编"
-#~ "译使用trio的话是不需要设置的。"
-
-#~ msgid "Cross-compiling the GLib package"
-#~ msgstr "交叉编译GLib软件包"
-
-#~ msgid "glib_cv_stack_grows=[yes/no]"
-#~ msgstr "glib_cv_stack_grows=[yes/no]"
-
-#~ msgid ""
-#~ "Whether the stack grows up or down. Most places will want \"no\", A few "
-#~ "architectures, such as PA-RISC need \"yes\"."
-#~ msgstr ""
-#~ "堆栈是否向上或向下增长。大多数地方都需要设置为\"no\"， 有几个体系结构，如"
-#~ "PA-RISC等需要设置为\"yes\"。"
-
-#~ msgid "glib_cv_working_bcopy=[yes/no]"
-#~ msgstr "glib_cv_working_bcopy=[yes/no]"
-
-#~ msgid ""
-#~ "Whether your <function>bcopy()</function> can handle overlapping copies. "
-#~ "Only needs to be set if you don't have <function>memmove()</function>. "
-#~ "(Very unlikely)"
-#~ msgstr ""
-#~ "<function>bcopy()</function>函数是否可以处理重叠的复制。 如果你没有"
-#~ "<function>memmove()</function>, 就需要设置。（可能性非常小） "
-
-#~ msgid "glib_cv_sane_realloc=[yes/np]"
-#~ msgstr "glib_cv_sane_realloc=[yes/np]"
-
-#~ msgid ""
-#~ "Whether your <function>realloc()</function> conforms to ANSI C and can "
-#~ "handle <literal>NULL</literal> as the first argument. Defaults to \"yes\" "
-#~ "and probably doesn't need to be set."
-#~ msgstr ""
-#~ "是否<function>realloc()</function>函数符合ANSI C标准并能够处理第一个参数为"
-#~ "<literal>NULL</literal>的情况。 默认为\"yes\", 你可能并不需要设定它。 "
-
-#~ msgid ""
-#~ "for GLib 2.28.5 The latest version of this documentation can be found on-"
-#~ "line at <ulink role=\"online-location\" url=\"http://library.gnome.org/"
-#~ "devel/glib/unstable/\">http://library.gnome.org/devel/glib/unstable/</"
-#~ "ulink>."
-#~ msgstr ""
-#~ "GLib 当前版本为2.28.5, 最新在线版本请浏览这里<ulink role=\"online-location"
-#~ "\" url=\"http://library.gnome.org/devel/glib/unstable/\">http://library."
-#~ "gnome.org/devel/glib/unstable/</ulink>."
-
-#~ msgid "GLib Data Types"
-#~ msgstr "GLib 数据类型"
-
-#~ msgid "GLib Tools"
-#~ msgstr "GLib 工具"
-
-#~ msgid "Index"
-#~ msgstr "索引"
-
-#~ msgid "Index of deprecated symbols"
-#~ msgstr "已过时符号索引"
-
-#~ msgid "Index of new symbols in 2.2"
-#~ msgstr "2.2版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.4"
-#~ msgstr "2.4版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.6"
-#~ msgstr "2.6版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.8"
-#~ msgstr "2.8版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.10"
-#~ msgstr "2.10版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.12"
-#~ msgstr "2.12版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.14"
-#~ msgstr "2.14版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.16"
-#~ msgstr "2.16版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.18"
-#~ msgstr "2.18版本中的新符号索引"
-
-#~ msgid "GLib Overview"
-#~ msgstr "GLib概述"
-
-#~ msgid "Index of new symbols in 2.20"
-#~ msgstr "2.20版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.22"
-#~ msgstr "2.22版本中的新符号索引"
-
-#~ msgid ""
-#~ "GLib is a general-purpose utility library, which provides many useful "
-#~ "data types, macros, type conversions, string utilities, file utilities, a "
-#~ "main loop abstraction, and so on. It works on many UNIX-like platforms, "
-#~ "Windows, OS/2 and BeOS. GLib is released under the GNU Library General "
-#~ "Public License (GNU LGPL)."
-#~ msgstr ""
-#~ "GLib是一个通用工具库，它提供了许多有用的数据类型、宏、类型转换工具、字符串"
-#~ "工具，文件工具，主循环抽象等功能。它正工作在许多类UNIX、Windows、OS/2及"
-#~ "BeOS平台上。GLib使用GNU库通用公共许可证(GNU LGPL)发布。"
-
-#~ msgid "Index of new symbols in 2.24"
-#~ msgstr "2.24版本中的新符号索引"
-
-#~ msgid "Index of new symbols in 2.26"
-#~ msgstr "2.26版本中的新符号索引"
-
-#~ msgid ""
-#~ "The general policy of GLib is that all functions are invisibly threadsafe "
-#~ "with the exception of data structure manipulation functions, where, if "
-#~ "you have two threads manipulating the <emphasis>same</emphasis> data "
-#~ "structure, they must use a lock to synchronize their operation."
-#~ msgstr ""
-#~ "GLib库提供的函数基本上都是线程安全的, 例外的情况是对数据结构操作的函数。这"
-#~ "种情况下，如果同时有两个线程来处理<emphasis>相同</emphasis>的数据结构，就"
-#~ "必须使用锁来同步操作。"
-
-#~ msgid "GLib Fundamentals"
-#~ msgstr "GLib基础"
-
-#~ msgid "GLib Core Application Support"
-#~ msgstr "GLib核心应用支持"
-
-#~ msgid "GLib Reference Manual"
-#~ msgstr "GLib 参考手册"
-
-#~ msgid "Regular expression syntax"
-#~ msgstr "正则表达式语法"
-
-#~ msgid "Syntax and semantics of the regular expressions supported by GRegex"
-#~ msgstr "GRegex支持的正则表达式语法及语义"
-
-#~ msgid "GRegex regular expression details"
-#~ msgstr "GRegex正则表达式详述"
-
-#~ msgid "gtk-doc-list@gnome.org"
-#~ msgstr "gtk-doc-list@gnome.org"
-
-#~ msgid ""
-#~ "gtk-doc-list is for discussion of the <application>gtk-doc</application> "
-#~ "documentation system (used to document GTK+ and Glib), and for work on "
-#~ "the GTK+ (and GLib) documentation."
-#~ msgstr ""
-#~ "gtk-doc-list 是用来讨论<application>gtk-doc</application> 文档系统（使用"
-#~ "GTK+与Glib文档），以及GTK+（和 GLib）文档工作相关。"
-
-#~ msgid "Mailing lists and bug reports"
-#~ msgstr "邮件列表和Bug报告"
-
-#~ msgid "Getting help with GLib"
-#~ msgstr "得到关于GLib的帮助"
-
-#~ msgid "Filing a bug report or feature request"
-#~ msgstr "提交错误报告或功能要求"
-
-#~ msgid ""
-#~ "If you encounter a bug, misfeature, or missing feature in GLib, please "
-#~ "file a bug report on <ulink url=\"http://bugzilla.gnome.org\">http://"
-#~ "bugzilla.gnome.org</ulink>. We'd also appreciate reports of incomplete or "
-#~ "misleading information in the GLib documentation; file those against the "
-#~ "\"docs\" component of the \"glib\" product in Bugzilla."
-#~ msgstr ""
-#~ "如果你在GLib中发现了bug，功能缺陷，或无效特性，请向 <ulink url=\"http://"
-#~ "bugzilla.gnome.org\">http://bugzilla.gnome.org</ulink> 填写一个bug回馈"
-#~ "单。 我们也建议并感谢您回馈Glib文档的错误之处； file those against the "
-#~ "\"docs\" component of the \"glib\" product in Bugzilla.【此句如何翻译？"
-#~ "QQQ】"
-
-#~ msgid ""
-#~ "Don't hesitate to file a bug report, even if you think we may know about "
-#~ "it already, or aren't sure of the details. Just give us as much "
-#~ "information as you have, and if it's already fixed or has already been "
-#~ "discussed, we'll add a note to that effect in the report."
-#~ msgstr ""
-#~ "即使你认为我们可以知道或着已经在关注一些问题， 也不用犹豫，尽管发出你的bug"
-#~ "报告，当你意识到问题的时候， 请告诉我们，如果问题已经确认或者正在讨论，我"
-#~ "们将在此份报告中添加一条备注。"
-
-#~ msgid ""
-#~ "The bug tracker should definitely be used for feature requests, it's not "
-#~ "only for bugs. We track all GLib development in Bugzilla, so it's the way "
-#~ "to be sure the GLib developers won't forget about an issue."
-#~ msgstr ""
-#~ "这个bug跟踪是用于功能需求的，并不局限于bug。 我们在Bugzilla上跟踪GLib的进"
-#~ "展， 这样就确保GLib的开发者不会忘掉某个问题。"
-
-#~ msgid "Submitting Patches"
-#~ msgstr "提交补丁"
-
-#~ msgid ""
-#~ "If you develop a bugfix or enhancement for GLib, please file that in "
-#~ "Bugzilla as well. Bugzilla allows you to attach files; please attach a "
-#~ "patch generated by the <command>diff</command> utility, using the "
-#~ "<option>-u</option> option to make the patch more readable. All patches "
-#~ "must be offered under the terms of the GNU LGPL license, so be sure you "
-#~ "are authorized to give us the patch under those terms."
-#~ msgstr ""
-#~ "如果你为GLib做了缺陷修正或者增强了一些功能， 请一并整理到Bugzilla中。 "
-#~ "Bugzilla允许您使用附件； 请使用<command>diff</command>工具生成补丁， 使用"
-#~ "它的<option>-u</option>选项， 这样生成的补丁更具有可读性。 所有的补丁必须"
-#~ "使用GNU LGPL 许可证，所以一定要确定你给我们的补丁遵守这些条款。"
-
-#~ msgid ""
-#~ "If you want to discuss your patch before or after developing it, mail "
-#~ "<ulink url=\"mailto:gtk-devel-list@gnome.org\">gtk-devel-list@gnome.org</"
-#~ "ulink>. But be sure to file the Bugzilla report as well; if the patch is "
-#~ "only on the list and not in Bugzilla, it's likely to slip through the "
-#~ "cracks."
-#~ msgstr ""
-#~ "如果你想讨论你的补丁开发之前或之后的发展， 请发邮件到<ulink url=\"mailto:"
-#~ "gtk-devel-list@gnome.org\">gtk-devel-list@gnome.org</ulink>。 但是最好使用"
-#~ "Bugzilla提交； 如果补丁仅仅是个名单，而非Bugzilla回馈，它很有可能被延后处"
-#~ "理。"
-
-#~ msgid "Mailing lists"
-#~ msgstr "邮件列表"
-
-#~ msgid ""
-#~ "There are several mailing lists dedicated to GTK+ and related libraries. "
-#~ "Discussion of GLib generally takes place on these lists. You can "
-#~ "subscribe or view the archives of these lists on <ulink url=\"http://mail."
-#~ "gnome.org\">http://mail.gnome.org</ulink>."
-#~ msgstr ""
-#~ "有一些致力于GTK+的邮件列表及其相关资源。 经常在这里进行关于GTK+的讨论。 你"
-#~ "可以订阅或查看这些列表<ulink url=\"http://mail.gnome.org\">http://mail."
-#~ "gnome.org</ulink>。"
-
-#~ msgid "gtk-list@gnome.org"
-#~ msgstr "gtk-list@gnome.org"
-
-#~ msgid ""
-#~ "gtk-list covers general GTK+ (and GLib) topics; questions about using "
-#~ "GLib in programs, GLib from a user standpoint, announcements of GLib-"
-#~ "related projects would all be on-topic. The bulk of the traffic consists "
-#~ "of GTK+ programming questions."
-#~ msgstr ""
-#~ "Gtk列表涉及一般的GTK +（和GLib）话题。 关于使用GLib编程的话题中，GLib从用"
-#~ "户角度出发， GLib相关项目的公告都将放在专题中。大部分的内容都是GTK+编程。"
-
-#~ msgid "gtk-devel-list@gnome.org"
-#~ msgstr "gtk-devel-list@gnome.org"
-
-#~ msgid ""
-#~ "gtk-devel-list is for discussion of work on GTK+ (and GLib) itself, it is "
-#~ "<emphasis>not</emphasis> for asking questions about how to use GTK+ (or "
-#~ "GLib) in applications. gtk-devel-list is appropriate for discussion of "
-#~ "patches, bugs, proposed features, and so on."
-#~ msgstr ""
-#~ "gtk-devel-list是供大家讨论GTK+（和GLib）本身， <emphasis>不是</emphasis>用"
-#~ "来指导如何使用GTK+ (或 GLib)的。 gtk-devel-list适合讨论补丁、Bug、新特性"
-#~ "等。"
-
-#~ msgid ""
-#~ "All modules loaded by GModule will be made resident. This can be useful "
-#~ "for tracking memory leaks in modules which are later unloaded; but it can "
-#~ "also hide bugs where code is accessed after the module would have "
-#~ "normally been unloaded. This option is special in that it doesn't require "
-#~ "GLib to be configured with debugging support."
-#~ msgstr ""
-#~ "所有由GModule加载的模块将长驻内存的. 这可用于在模块卸载后追踪模块的内存泄"
-#~ "漏. 但也可能在模块正常卸载后隐藏代码访问时的bugs. 此选项比较特殊,不需要将"
-#~ "GLib配置成调试支持."
-
-#~ msgid ""
-#~ "All modules loaded by GModule will bind their symbols at load time, even "
-#~ "when the code uses %G_MODULE_BIND_LAZY. This option is special in that it "
-#~ "doesn't require GLib to be configured with debugging support."
-#~ msgstr ""
-#~ "所有模块被GModule加载时就会绑定他们的符号,即使代码使用了 "
-#~ "%G_MODULE_BIND_LAZY. 此选项比较特殊,不需要将GLib配置成调试支持."
-
-#~ msgid "G_SLICE"
-#~ msgstr "G_SLICE"
-
-#~ msgid "Running GLib Applications"
-#~ msgstr "运行GLib应用程序"
-
-#~ msgid ""
-#~ "This environment variable allows reconfiguration of the GSlice memory "
-#~ "allocator. <placeholder-1/> The special value all can be used to turn on "
-#~ "all options. The special value help can be used to print all available "
-#~ "options."
-#~ msgstr ""
-#~ "该环境变量允许重新配置GSlice内存分配器. <placeholder-1/> 特殊值可以用来打"
-#~ "开所有的调试选项. 特殊值可以用来打印所有可用的选项."
-
-#~ msgid ""
-#~ "This will cause all slices allocated through g_slice_alloc() and released "
-#~ "by g_slice_free1() to be actually allocated via direct calls to g_malloc"
-#~ "() and g_free(). This is most useful for memory checkers and similar "
-#~ "programs that use Bohem GC alike algorithms to produce more accurate "
-#~ "results. It can also be in conjunction with debugging features of the "
-#~ "system's malloc implementation such as glibc's MALLOC_CHECK_=2 to debug "
-#~ "erroneous slice allocation code, allthough <literal>debug-blocks</"
-#~ "literal> usually is a better suited debugging tool."
-#~ msgstr ""
-#~ "这将导致所有通过g_slice_alloc()和g_slice_free1()操作的片分配器将直接调用"
-#~ "g_malloc()和g_free()来分配.这对于内存检查系统和使用Bohem GC 算法的相关程序"
-#~ "计算更精确的結果最有帮助。它还可以连接系统malloc实现中的调试特性，比如"
-#~ "glibc中的MALLOC_CHECK_=2, 然后来调试错误的片分配代码,即使<literal>debug-"
-#~ "blocks</literal>通常是更适合的调试工具。"
-
-#~ msgid "How to run and debug your GLib application"
-#~ msgstr "如何运行和调试GLib应用程序"
-
-#~ msgid ""
-#~ "Using this option (present since GLib-2.13) engages extra code which "
-#~ "performs sanity checks on the released memory slices. Invalid slice "
-#~ "adresses or slice sizes will be reported and lead to a program halt. This "
-#~ "option is for debugging scenarios. In particular, client packages "
-#~ "sporting their own test suite should <emphasis>always enable this option "
-#~ "when running tests</emphasis>. Global slice validation is ensured by "
-#~ "storing size and address information for each allocated chunk, and "
-#~ "maintaining a global hash table of that data. That way, multi-thread "
-#~ "scalability is given up, and memory consumption is increased. However, "
-#~ "the resulting code usually performs acceptably well, possibly better than "
-#~ "with comparable memory checking carried out using external tools. An "
-#~ "example of a memory corruption scenario that cannot be reproduced with "
-#~ "<literal>G_SLICE=always-malloc</literal>, but will be caught by "
-#~ "<literal>G_SLICE=debug-blocks</literal> is as follows: <placeholder-1/>"
-#~ msgstr ""
-#~ "使用此选项(出现自GLib-2.13)执行额外的代码将在释放内存片时进行完整 性检查."
-#~ "无效的片地址或片大小将会被报告并导致程序停止。此选项用于调试 方案.特别地，"
-#~ "客户端软件包在运行自有的测试套件时应该<emphasis>始终打开此选项</"
-#~ "emphasis>. 全局片验证是为了确保存储每个分配块的大小和地址信息,并为此数据维"
-#~ "护 一个全局的哈希表.因此,多线程的可扩展性被放弃,而且内存消耗增加.然而 生成"
-#~ "的代码通常表现得更好,可能比同类使用外部工具检查内存的还要好. 在一个内存损"
-#~ "坏的情况下,<literal>G_SLICE=always-malloc</literal>将不能进行复制, 但设置"
-#~ "<literal>G_SLICE=debug-blocks</literal>将能如下面一样捕获: <placeholder-1/"
-#~ ">"
-
-#~ msgid "G_RANDOM_VERSION"
-#~ msgstr "G_RANDOM_VERSION"
-
-#~ msgid ""
-#~ "If this environment variable is set to '2.0', the outdated pseudo-random "
-#~ "number seeding and generation algorithms from GLib-2.0 are used instead "
-#~ "of the new better ones. Use the GLib-2.0 algorithms only if you have "
-#~ "sequences of numbers generated with Glib-2.0 that you need to reproduce "
-#~ "exactly."
-#~ msgstr ""
-#~ "如果这个环境变量设置为 '2.0'. GLib-2.0中已经过时的伪随机播种和生成算法将会"
-#~ "替代新的算法. 只有你需要精确重现GLib-2.0生成的数字序列时才使用GLib-2.0的算"
-#~ "法."
-
-#~ msgid ""
-#~ "Allows to specify a nonstandard location for the <filename>charset."
-#~ "aliases</filename> file that is used by the character set conversion "
-#~ "routines. The default location is the <replaceable>libdir</replaceable> "
-#~ "specified at compilation time."
-#~ msgstr ""
-#~ "　允许为<filename>charset.aliases</filename>文件指定一个非标准的位置, 这文"
-#~ "件通常用于字符集转换全程.默认位置是编译时指定的<replaceable>libdir</"
-#~ "replaceable>."
-
-#~ msgid "Locale"
-#~ msgstr "区域设置"
-
-#~ msgid ""
-#~ "A number of interfaces in GLib depend on the current locale in which an "
-#~ "application is running. Therefore, most GLib-using applications should "
-#~ "call <function>setlocale (LC_ALL, \"\")</function> to set up the current "
-#~ "locale."
-#~ msgstr ""
-#~ "相当数量的GLib接口取决于应用程序在运行时的当前区域设置. 因此大多数使用GLib"
-#~ "的程序应该调用<function>setlocale(LC_ALL,\"\")</function> 来设置当前区域."
-
-#~ msgid ""
-#~ "On Windows, in a C program there are several locale concepts that not "
-#~ "necessarily are synchronized. On one hand, there is the system default "
-#~ "ANSI code-page, which determines what encoding is used for file names "
-#~ "handled by the C library's functions and the Win32 API. (We are talking "
-#~ "about the \"narrow\" functions here that take character pointers, not the "
-#~ "\"wide\" ones.)"
-#~ msgstr ""
-#~ "在Windows中,C程序中有几个区域设置的概念并不是同步的. 一方面,有系统默认的"
-#~ "ANSI代码页,由C库和Win32API来决定用什么 编码来处理文件名.(我们现在谈论的是"
-#~ "\"窄\"函数处理字符指针,不是 \"宽\"的那种.)"
-
-#~ msgid "Environment variables"
-#~ msgstr "环境变量"
-
-#~ msgid ""
-#~ "On the other hand, there is the C library's current locale. The character "
-#~ "set (code-page) used by that is not necessarily the same as the system "
-#~ "default ANSI code-page. Strings in this character set are returned by "
-#~ "functions like <function>strftime()</function>."
-#~ msgstr ""
-#~ "另一方面,有一个C函数库的当前区域.该字符集(代码页)并不一定像系统默认ANSI代"
-#~ "码页一样使用.它返回的字符集类似<function>strftime()</function>."
-
-#~ msgid "Traps and traces"
-#~ msgstr "陷阱与追踪"
-
-#~ msgid ""
-#~ "<indexterm><primary>g_trap_free_size</primary></"
-#~ "indexterm><indexterm><primary>g_trap_realloc_size</primary></"
-#~ "indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> "
-#~ "Some code portions contain trap variables that can be set during "
-#~ "debugging time if GLib has been configured with <option>--enable-"
-#~ "debug=yes</option>. Such traps lead to immediate code halts to examine "
-#~ "the current program state and backtrace."
-#~ msgstr ""
-#~ "<indexterm><primary>g_trap_free_size</primary></"
-#~ "indexterm><indexterm><primary>g_trap_realloc_size</primary></"
-#~ "indexterm><indexterm><primary>g_trap_malloc_size</primary></indexterm> 在"
-#~ "GLib配置好<option>--enable-debugging=yes</option> 的调试中,有些包含陷阱变"
-#~ "量的代码可被设置.这些陷阱导致代码停止检查 当前的程序状态并回溯."
-
-#~ msgid ""
-#~ "GLib inspects a few of environment variables in addition to standard "
-#~ "variables like <envar>LANG</envar>, <envar>PATH</envar> or <envar>HOME</"
-#~ "envar>."
-#~ msgstr ""
-#~ "GLib 会检查除了像 <envar>LANG</envar>, <envar>PATH</envar> or "
-#~ "<envar>HOME</envar> 一样的标准环境变量之外的一小部分环境变量."
-
-#~ msgid ""
-#~ "Currently, the following trap variables exist: <placeholder-1/> If set to "
-#~ "a size &gt; 0, <link linkend=\"g-free\">g_free</link>(), <link linkend="
-#~ "\"g-realloc\">g_realloc</link>() and <link linkend=\"g-malloc\">g_malloc</"
-#~ "link>() will be intercepted if the size matches the size of the "
-#~ "corresponding memory block. This will only work with "
-#~ "<literal>g_mem_set_vtable (glib_mem_profiler_table)</literal> upon "
-#~ "startup though, because memory profiling is required to match on the "
-#~ "memory block sizes."
-#~ msgstr ""
-#~ "当前,有下列陷阱变量存在: <placeholder-1/> 如果设置 size &gt; 0, 其大小匹配"
-#~ "内存块的大小的话,<link linkend=\"g-free\">g_free</link>(), <link linkend="
-#~ "\"g-realloc\">g_realloc</link>()和 <link linkend=\"g-malloc\">g_malloc</"
-#~ "link>() 将被拦截. 这只会在<literal>g_mem_set_vtable"
-#~ "(glib_mem_profiler_table)</literal>启动时才会生效, 因为内存分析需要匹配内"
-#~ "存块的大小."
-
-#~ msgid ""
-#~ "\n"
-#~ "static volatile gulong g_trap_free_size;\n"
-#~ "static volatile gulong g_trap_realloc_size;\n"
-#~ "static volatile gulong g_trap_malloc_size;\n"
-#~ msgstr ""
-#~ "\n"
-#~ "static volatile gulong g_trap_free_size;\n"
-#~ "static volatile gulong g_trap_realloc_size;\n"
-#~ "static volatile gulong g_trap_malloc_size;\n"
-
-#~ msgid ""
-#~ "Note that many modern debuggers support conditional breakpoints, which "
-#~ "achieve pretty much the same. E.g. in gdb, you can do <placeholder-1/> to "
-#~ "break only on g_malloc() calls where the size of the allocated memory "
-#~ "block is 20."
-#~ msgstr ""
-#~ "注意,许多现代调试器支持条件断点,其实现大同小异,例如.在gdb中，你可以做 "
-#~ "<placeholder-1/> 来在只有g_malloc()分配20字节的时候才中断它."
-
-#~ msgid ""
-#~ "\n"
-#~ "break g_malloc\n"
-#~ "condition 1 n_bytes == 20\n"
-#~ msgstr ""
-#~ "\n"
-#~ "break g_malloc\n"
-#~ "condition 1 n_bytes == 20\n"
-
-#~ msgid "G_FILENAME_ENCODING"
-#~ msgstr "G_FILENAME_ENCODING"
-
-#~ msgid ""
-#~ "\n"
-#~ "gforeach i in some_list_variable: print *(GtkWidget *)l\n"
-#~ msgstr ""
-#~ "\n"
-#~ "gforeach i in some_list_variable: print *(GtkWidget *)l\n"
-
-#~ msgid ""
-#~ "This environment variable can be set to a comma-separated list of "
-#~ "character set names. GLib assumes that filenames are encoded in the first "
-#~ "character set from that list rather than in UTF-8. The special token "
-#~ "\"@locale\" can be used to specify the character set for the current "
-#~ "locale."
-#~ msgstr ""
-#~ "这个环境变量可以被设置为逗号为分隔字符集名称的列表. GLib 假设文件名编码是"
-#~ "以此列表第一个变量指定的编码方式而不是UTF-8. 特别标记 \"@locale\" 可用于指"
-#~ "定当前语言环境的字符集编码."
-
-#~ msgid ""
-#~ "If GLib has been configured with <option>--enable-debug=yes</option>, "
-#~ "then g_slice_debug_tree_statistics() can be called in a debugger to "
-#~ "output details about the memory usage of the slice allocator."
-#~ msgstr ""
-#~ "如果GLib已经配置了选项<option>--enable-debug=yes</option>, 那么在调试器中"
-#~ "则可以调用g_slice_debug_tree_statistics()来查看 内存片使用的细节."
-
-#~ msgid "G_BROKEN_FILENAMES"
-#~ msgstr "G_BROKEN_FILENAMES"
-
-#~ msgid ""
-#~ "If this environment variable is set, GLib assumes that filenames are in "
-#~ "the locale encoding rather than in UTF-8. G_FILENAME_ENCODING takes "
-#~ "priority over G_BROKEN_FILENAMES."
-#~ msgstr ""
-#~ "如果设置了这个环境变量,GLib 假设文件名为当前语言环境编码而不是UTF-8. "
-#~ "G_FILENAME_ENCODING 优先于 G_BROKEN_FILENAMES."
-
-#~ msgid "G_MESSAGES_PREFIXED"
-#~ msgstr "G_MESSAGES_PREFIXED"
-
-#~ msgid ""
-#~ "A list of log levels for which messages should be prefixed by the program "
-#~ "name and PID of the application. The default is to prefix everything "
-#~ "except <literal>G_LOG_LEVEL_MESSAGE</literal> and "
-#~ "<literal>G_LOG_LEVEL_INFO</literal>."
-#~ msgstr ""
-#~ "日志级别的信息的前缀应该是程序名和程序的PID.默认前缀是除了"
-#~ "<literal>G_LOG_LEVEL_MESSAGE</literal> 和<literal>G_LOG_LEVEL_INFO</"
-#~ "literal>的一切."
-
-#~ msgid "G_DEBUG"
-#~ msgstr "G_DEBUG"
-
-#~ msgid ""
-#~ "If GLib has been configured with <option>--enable-debug=yes</option>, "
-#~ "this variable can be set to a list of debug options, which cause GLib to "
-#~ "print out different types of debugging information. <placeholder-1/> The "
-#~ "special value all can be used to turn on all debug options. The special "
-#~ "value help can be used to print all available options."
-#~ msgstr ""
-#~ "如果 GLib 已经定义了 <option>--enable-debug=yes</option>, 这个变量可用于设"
-#~ "置调试选, 将打印出调试信息中的各种类型. <placeholder-1/> 特殊值可以用来打"
-#~ "开所有的调试选项. 特殊值可以用来打印所有可用的选项."
-
-#~ msgid ""
-#~ "Causes GLib to abort the program at the first call to <link linkend=\"g-"
-#~ "warning\">g_warning</link>() or <link linkend=\"g-critical\">g_critical</"
-#~ "link>(). This option is special in that it doesn't require GLib to be "
-#~ "configured with debugging support."
-#~ msgstr ""
-#~ "首次调用<link linkend=\"g-warning\">g_warning</link>()或 <link linkend="
-#~ "\"g-critical\">g_critical</link>()即中止程序的运行.特别地，此选项不需要"
-#~ "GLib配置成 调试支持."
-
-#~ msgid ""
-#~ "Causes GLib to abort the program at the first call to <link linkend=\"g-"
-#~ "critical\">g_critical</link>(). This option is special in that it doesn't "
-#~ "require GLib to be configured with debugging support."
-#~ msgstr ""
-#~ "首次调用<link linkend=\"g-critical\">g_critical</link>()即中止程序的运行. "
-#~ "此选项不需要GLib配置成 调试支持."
-
-#~ msgid ""
-#~ "Newly allocated memory that isn't directly initialized, as well as memory "
-#~ "being freed will be reset to 0. The point here is to allow memory "
-#~ "checkers and similar programs that use bohem GC alike algorithms to "
-#~ "produce more accurate results. This option is special in that it doesn't "
-#~ "require GLib to be configured with debugging support."
-#~ msgstr ""
-#~ "新分配的内存没有被直接初始化,内存释放后将被重置为0. 这里的要点是允许内存检"
-#~ "查系统和使用bohem GC 类似算法 的程序来计算更多精确的結果.此选项比较特殊,不"
-#~ "需要将 GLib配置成调试支持."
-
-#~ msgid ""
-#~ "If there is an environment variable <envar>G_WIN32_PRETEND_WIN9X</envar> "
-#~ "defined (with any value), this function always returns a version code for "
-#~ "Windows 9x. This is mainly an internal debugging aid for GTK+ and GLib "
-#~ "developers, to be able to check the code paths for Windows 9x."
-#~ msgstr ""
-#~ "如果定义了环境变量 <envar>G_WIN32_PRETEND_WIN9X</envar> (值任意), 这个函数"
-#~ "将返回Windows 9x的版本代码.  这在大多数情况下可以帮助GTK+和Glib的开发者进"
-#~ "行内部调试, 以便检查Windows 9x中的代码路径."

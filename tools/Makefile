@@ -3,7 +3,7 @@ PATH := ${HOME}/bin:${PATH}
 init:
 	@(printf "\033[1;1m正在初始化, 请稍候... \033[1;0m\n" >&2)
 	@(../../tools/gadt-init)
-	@(cd ../..; svn update)
+	@(git pull)
 	@(gadt-mkhtml --nobuild --nohtmlhelp)
 	@(printf "\033[1;1m初始化成功, 要查看帮助请运行make help \033[1;0m\n" >&2 )
 
@@ -17,8 +17,8 @@ merge:
 	@gadt-mkhtml --mergepo
 
 commit:
-	@(if svn status |grep "^M";then \
-		svn commit --editor-cmd=vim; \
+	@(if git status -s|grep "^ M";then \
+		git commit -a; \
 	else \
 		printf "\033[1;1m目前没有可提交的内容，如果翻译了po文件，请先运行make merge命令。\033[1;0m\n" >&2 ; \
 	fi)

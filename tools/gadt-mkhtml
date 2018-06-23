@@ -345,7 +345,7 @@ init_tx_xmlpot()
 	sec=`echo $line|tr -d "\."`
 	name=${line%*t}
 	echo "[$modname-reference-manual.docs-$sec]"
-	echo "host = https://www.transifex.net"
+	echo "host = https://www.transifex.com"
 	echo "source_file = tmp/xmlpot/$line"
 	echo "source_lang = en"
 	echo "trans.$xml_lang = xmlpo/$name"
@@ -359,7 +359,7 @@ init_tx_pot()
 	sec=`echo $line|tr -d "\."`
 	name=${line%*t}
 	echo "[$modname-reference-manual.$sec]"
-	echo "host = https://www.transifex.net"
+	echo "host = https://www.transifex.com"
 	echo "source_file = tmp/pot/$line"
 	echo "source_lang = en"
 	echo "trans.$xml_lang = po/$name"
@@ -373,7 +373,7 @@ init_transifex()
 	then
 		mkdir -p $startdir/.tx
 		echo "[main]" > $startdir/.tx/config
-		echo "host = http://www.transifex.net" >> $startdir/.tx/config
+		echo "host = http://www.transifex.com" >> $startdir/.tx/config
 		echo  >> $startdir/.tx/config
 		init_tx_xmlpot >> $startdir/.tx/config
 		init_tx_pot >> $startdir/.tx/config
