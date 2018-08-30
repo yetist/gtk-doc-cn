@@ -544,17 +544,13 @@ download_source()
 		*application/x-gzip*)
 		case "$ext" in
 			gz|z|Z) cmd="gzip" ;;
-			*) continue;;
+			*) break;;
 		esac ;;
 		*application/x-bzip*)
 		case "$ext" in
 			bz2|bz) cmd="bzip2" ;;
-			*) continue;;
+			*) break;;
 		esac ;;
-		*)
-		# Don't know what to use to extract this file,
-		# skip to the next file
-		continue;;
 	esac
 	local ret=0
 	msg2 "正在使用 %s 解压缩文件 %s" "$cmd" "$file"
@@ -594,16 +590,24 @@ compile_source()
 {
 	msg "正在编译生成新文档..."
 	cd $srcdir
-	if [ "$NOCONFIGURE" -eq 0 ]; then
-		if [ ! -f configure ]; then
-			./autogen.sh $configure || return 1
-		fi
-		./configure $configure || return 1
-	fi
-	if [ -d $moddir/.libs ]; then
-		cd $docdir
-	fi
-	make || return 1
+	cd $docdir
+	pwd
+	gtkdoc-scan --module=${modname} --source-dir=${moddir} --rebuild-types #--rebuild-sections
+	gtkdoc-scangobj --module=${modname} --cflags "$(pkg-config --cflags ${pkgmod})" --ldflags "$(pkg-config --libs ${pkgmod})"
+	gtkdoc-mkdb --module=${modname} --output-format=xml --source-dir=${moddir}
+
+	$( [ -d html ] || mkdir html; cd html ; gtkdoc-mkhtml ${modname} ../${modname}-docs.xml)
+	gtkdoc-fixxref --module=${modname} --module-dir=html
+#	if [ "$NOCONFIGURE" -eq 0 ]; then
+#		if [ ! -f configure ]; then
+#			./autogen.sh $configure || return 1
+#		fi
+#		./configure $configure || return 1
+#	fi
+#	if [ -d $moddir/.libs ]; then
+#		cd $docdir
+#	fi
+#	make || return 1
 	cd $startdir
 	cp -r $htmldir $tmpdir
 	msg "新文档位于 $tmpdir/html"
